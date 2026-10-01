@@ -1,70 +1,67 @@
-# 经纬纪 · Meridian Atlas 使用指南
+# 经纬纪 · Meridian Atlas 2.0
 
-经纬纪把世界地图、历史疆域、事件和资料来源放在同一个阅读界面。本版收录 **251 条中英文事件**，按 **9 个地区、8 类主题**组织，并提供 **12 条专题阅读线索**。疆域采用开放项目 Cliopatria 的 **13,380 条 POLITY 时段记录**，覆盖**公元前 3400 年至公元 2024 年**；这里的记录数不是国家数，同一政体在不同时段会有多条记录。
+一部可交互的中英文世界历史图集：转动地球，沿时间轴观察疆域；打开国家档案，阅读制度、文化、经济与相关事件。
 
-内容兼顾政治、战争、科技、贸易、文化、宗教、社会与灾害。界面结合历史图集常见的时间播放、事件阅读和年份对照方式，使用开放疆域数据与原创双语摘要，没有复制商业图集的数据库。它适合建立通史脉络和寻找进一步阅读的入口，尚非穷尽世界史的百科，也未经过逐条学术同行审稿。部分来源在本次核查中存在访问限制，不能将“附有来源”理解为每个条目均已逐句核实。
+## 这一版
 
-## 启动
+- 中文界面、地图译名与新增资料统一使用简体，保留英文和双语阅读模式。
+- 重新整理正文，把通用地图约定和证据说明集中到“资料”及各条目的“来源”。
+- 深色地球与金色时间轴、浮动浏览卡片、独立阅读面板，适配桌面与手机。
+- 国家档案分为概览、政治、文化与经济、疆域、年表和来源六栏，可查看面积变化、跳转疆域时段、追溯参考资料并下载完整档案。
+- 保留年份对照、时间播放、搜索筛选、12条专题阅读路线与视图分享。
+- 地图采用分级加载，共享缓存；默认1492年的概览疆域文件为29,479字节，原版需读取3,005,248字节。首屏目录从1,252,656字节降至478,135字节。完整边界细节和档案按需读取。
 
-保持整个 `world-history-atlas` 文件夹完整。电脑需有 Python 3；在该文件夹中打开终端，运行：
+本版收录343条双语事件（较上一版新增92条），并保留13,380条政体疆域时段记录，以及385条联盟、共主等关系记录，来源为Cliopatria。疆域年代覆盖公元前3400年至2024年。另收录1,450份Wikidata实体档案、23篇重要文明双语概览和47条历史侧记。330份实体档案包含带引证声明，共1,885项；各国可展示资料的密度不同。事件总数和分布见应用“资料”及 `docs/CONTENT-COVERAGE.json`。
+
+## 打开与使用
+
+在线版：[经纬纪](https://meridian-world-history.zhuozheng2006.chatgpt.site)。沿用原有私有访问范围。
+
+本地版保持整个文件夹完整，在此目录运行：
 
 ```sh
 python3 serve.py --open
 ```
 
-浏览器会打开 `http://127.0.0.1:8766/`。macOS 也可双击“打开经纬纪.command”。若提示端口已占用，改用：
+macOS也可双击“打开经纬纪.command”。浏览器打开 `http://127.0.0.1:8766/`；端口占用时可用 `python3 serve.py --port 8767 --open`。阅读时保持服务窗口开启，结束后按Ctrl+C。通过启动器访问，而不是直接双击HTML。核心地图与正文可离线使用；外部来源链接需要网络。
 
-```sh
-python3 serve.py --port 8767 --open
-```
+底部输入年份或拖动时间轴，负数表示公元前。播放支持1、10、50、100年步长。空格播放与暂停，方向键前后移动，Esc关闭详情。点击“浏览”显示或收起搜索与事件卡片。
 
-阅读时保持终端开启；按 `Ctrl+C` 停止服务。请通过启动器访问，不要直接双击 `dist/index.html`。地图、事件与必要资源已随项目保存，启动后核心阅读可离线使用；打开外部参考资料需要联网。使用支持 JavaScript 与 WebGL 的现代浏览器。
+点击地图上的疆域，或从“文明”查找国家，进入分栏档案。疆域栏的面积图按原始时段展示，年份按钮定位对应记录。“年表”查看该政体相关事件；“来源”可追溯档案依据及下载完整JSON。
 
-## 在地图里查历史
+“专题”串联相关历史，“年表”按年代检索全部事件。“年份对照”提供两张同步视角的地图。“分享此页”保留年份、语言和选中的国家或事件；本机地址仅供本机使用，跨设备分享请使用在线版。
 
-拖动底部时间轴，或直接输入年份。负数表示公元前，例如 `-221`；没有公元 0 年。时间轴分段缩放，为近现代留出更多操作空间，画面上的相同距离不一定代表相同年数。
+## 来源与阅读约定
 
-播放可按 1、10、50 或 100 年推进；边界变化跳转按钮寻找数据实际记录的变化年份。可在地球和平面视图间切换，也可分别开关疆域、事件与地名。空格播放或暂停，左右方向键按所选步长移动，`Esc` 关闭详情。
+地图的时间区间、事件的日期和国家资料的时代范围各有依据。年份选择可以精确到一年，同一条源疆域记录也可能覆盖多年。程序沿用源区间，不对缺失年代插值；公元前1年后直接进入公元1年。
 
-搜索框同时查找事件和政体。地区、类别与时间窗口用于筛选事件：“所选年代”查看当前年份附近，“全部年代”显示跨时期事件，此时疆域仍对应当前年份。
+疆域留白表示资料未覆盖当地当时的政治地理。地理底图使用现代海岸线；事件标记对应遗址或代表地点。事件库与文明概览为来源导向的精选编写，尚未穷尽世界史，也未逐条经过独立学术同行审稿。
 
-点击事件可阅读摘要、历史意义、日期精度、地点说明和来源链接，并定位到该事件的起始年份。点击政体可查看原始名称、当前边界记录的适用区间及来源；该区间不一定等于政体的完整存续年代。
+国家结构化条目有年代时按其范围阅读；无年代条目属于实体概况。主文选取附引证的有效声明，并核对来源身份与可能的年代冲突。有效但未附引证的条目放在默认折叠的“百科补充”中，供交叉核对；废弃与未知值保存在下载档案中。明确发现可能时代不符的关联实体暂缓显示补充内容。
 
-## 双语、对照与阅读线索
-
-右上角可选择中文、英文或中英双语。事件具有双语标题与正文；政体优先显示已核对的中文名，缺少可靠译名时保留原名。
-
-“年份对照”打开两个同步地图视角，分别输入年份，观察同一地区的变化。“专题”提供跨地区的连续阅读入口，可逐站前进；专题顺序是编辑选取的阅读线索，不代表实际旅行路线或唯一的因果解释。
-
-“年表”按年代列出全部事件，可搜索、进入地图详情或导出事件数据。“资料”集中说明数据覆盖、来源版本、授权及已知问题，并提供事件、疆域目录和覆盖报告的下载。事件卡片中的来源链接用于继续核查具体事实。
-
-“复制视图链接”可保存年份、筛选条件与所选事件等状态。本地地址只供本机访问；发送给他人前，需要对方运行同一项目，或使用实际部署后的网址。
-
-## 怎样理解精度
-
-- **可逐年选择，不等于逐年都有精确史料。** 同一边界可能沿用一个时间区间；程序不对缺失时代推测插值。
-- **空白不等于无人居住。** 它表示数据未覆盖该地点在该年的疆域，各地与各时代的资料密度不同。地图默认显示政体疆域，联盟等关系记录另保存在完整目录中。
-- **地图适合概览。** 显示用边界经过简化，海岸线采用现代概貌，不能用于精确测量、古海岸线复原或当代边界裁定。已知源数据问题保留说明。
-- **点不是范围。** 事件标记可能是相关遗址，也可能只是代表地点；影响范围不能从一个点推断。“约”与“历史过程”保留日期的不确定性或跨度。
-- **地图与事件来源独立。** 同年疆域不一定是该事件结束后的状态。疆域止于 2024 年，选择 2025—2026 年不会显示旧疆域冒充现状；本版事件也未补齐最新年份。
+中国译名统一为简体；原始档案名称和来源快照另行保留。地图与实体资料更新至项目保存的固定版本，完整来源、许可证与具体限制见应用“资料”、`ATTRIBUTIONS.md`和`docs/`。
 
 ## English quick start
 
-Run `python3 serve.py --open` inside the project folder, then keep the terminal open. If port 8766 is busy, add `--port 8767`. Core maps and event texts work offline; external references require internet access.
+Run `python3 serve.py --open` in this folder, keeping the server window open. Core maps and texts work offline; external references need internet access. The hosted edition is linked above.
 
-Enter a year or drag the timeline; negative years mean BCE. Search events and polities, filter by region or topic, and switch between Chinese, English and bilingual reading. Use **Compare years** for synchronized views, **Journeys** for guided reading, **Chronicle** for the event list, and **Sources** for coverage and attribution.
+Choose Chinese, English or bilingual reading. Explore the globe and timeline, open a polity’s six-section dossier, compare years, follow thematic journeys, or search the full chronicle. Share links preserve the selected year, filters, language and historical record.
 
-Boundary coverage is 3400 BCE–2024 CE. Blank areas mean missing coverage, and event markers may be representative points. Annual navigation does not imply annual historical certainty. This is a selective, source-linked learning atlas, not an exhaustive or individually peer-reviewed history.
+The atlas retains 13,380 polity territory records, 1,450 entity dossiers and 23 original civilization overviews. Cited structured statements are displayed with temporal qualifiers where available. Sources centralizes coverage, provenance and editorial conventions; record-specific notes remain in individual dossiers.
 
-## 维护与验证 / Maintenance
+## 维护
 
-无前端安装依赖；地图引擎和数据均随项目保存。Node.js 18+ 环境运行 `npm test` 可检查年代、记录、来源字段与全部疆域分片哈希。
+应用为静态项目，运行不需要安装前端依赖。
 
-- `dist/`：可直接托管的完整静态应用。
-- `dist/data/events.json`：可编辑的双语事件库。
-- `dist/data/catalog.json.gz`：完整疆域目录；几何按需分片读取。
-- `scripts/boundaries/`：固定源版本的数据重建流程。
-- `docs/`：研究取舍、验证记录与内容核验边界。
-- `ATTRIBUTIONS.md`：数据和代码分别适用的许可。
+```sh
+npm test
+```
 
-开发和数据扩充详见 [维护说明](docs/MAINTENANCE.md)。
+- `dist/`：可托管、可离线启动的应用。
+- `dist/data/events.json`：可编辑事件；浏览器读取其压缩副本。
+- `dist/data/fast/`：首屏目录、概览几何、常用年代和完整记录分片。
+- `dist/data/enrichment/`：实体档案索引、分片与双语文明概览。
+- `scripts/`：重建与验证脚本。
+- `docs/`：来源研究、内容覆盖、转换记录与测试结果。
+
+数据更新与重建方法详见 `docs/MAINTENANCE.md`。

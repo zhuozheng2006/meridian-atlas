@@ -1,1 +1,12 @@
-{"name":"meridian-world-history-atlas","version":"1.0.0","private":true,"type":"module","description":"Source-linked bilingual world history atlas","scripts":{"start":"python3 serve.py","test":"node scripts/validate.mjs"},"license":"MIT"}
+{
+  "name": "meridian-world-history-atlas",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Source-linked bilingual world history atlas",
+  "scripts": {
+    "start": "python3 serve.py",
+    "test": "node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs"
+  },
+  "license": "MIT"
+}

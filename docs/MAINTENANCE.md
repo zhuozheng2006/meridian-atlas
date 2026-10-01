@@ -46,3 +46,14 @@ python3 -m venv .venv
 ## Validation commands
 
 `npm test` runs integrity and calendar checks without network access. `python3 serve.py` serves the packaged application. Use a current browser with WebGL and DecompressionStream. Desktop and phone layouts, language switching, comparison, story navigation and coverage notices were checked in the delivered version; details are in `VALIDATION.md`.
+
+
+## 2.0 数据层与重建
+
+`dist/data/catalog.json.gz`保持源档案的完整版本；日常首屏使用`fast/catalog.json.gz`，完整记录按256条分片读取。`scripts/build_fast_assets.py`读取既有边界数据，生成0.16°概览、11个常用年份的启动几何及简体名称；放大后继续使用既有0.02°边界分片。构建依赖Shapely与OpenCC Python Reimplemented，已验证版本分别为2.0.7与0.1.7。转换前后记录ID、有效区间、类型与几何关联必须一致。概览简化导致无效形状时回退到可用输入，原有13条问题记录保留。
+
+事件编辑完成后同时更新`events.json.gz`，推荐`gzip.compress(bytes,mtime=0,compresslevel=9)`。保持原事件ID稳定，重复主题需人工核对，新增标题、摘要与意义应成对提供中英文。对中文显示文本运行OpenCC t2s检查并人工处理术语。
+
+国家补充数据采用`profile-index.json.gz`、`profiles/Q*.json.gz`与`narratives.json`。精确名称与QID匹配后仍需检查年代：`temporalCompatibility.status=potential_conflict`的记录屏蔽补充实体资料。文明短文同时校验QID、源名称、recordIdsOverlappingScope和当前年份是否落在scope内。主文只采用qualified/unscoped/dated_entity_fact中的有效value声明。标为“所选年代”还需明确有足够精度的起止年或匹配时间点。
+
+运行`npm test`可检查原始档案完整性、新旧目录一致性、启动年几何、数据分片、BCE/CE日期运算、叙事时期约束及未引证声明隔离。发布前另做桌面、手机、国家分栏、事件、语言切换与年份对照的浏览器检查。`docs/VALIDATION.md`记录实测证据；静态字节减少不能直接当作所有网络环境下的加载时间倍率。

@@ -1,0 +1,240 @@
+世界历史图谱 v2：古代至1500年前起始事件——来源核验与修订说明
+核验日期：2026-10-02
+
+本次成品：work/v2/events-ancient.json，共162条。
+其中原有121条，新增41条。原有每条的summary.zh/en、significance.zh/en均已自然重写，所有原始标题、日期、坐标、分类、精度和来源字段保持不变。新增条目中文摘要112—125字，英文52—63词。全部中文叙述使用简体。
+
+原始数据起初读取自outputs/world-history-atlas/dist/data/events.json。主线程在集成中已更新该路径，因此最终逐字段对照使用未变的work/events-ancient.json（121条）；其元数据与初读版本一致。结构检查通过：ID唯一、双语字段齐全、无公元0年、start<=end、坐标数值范围有效，新增与原有ID无重复。原121条的四个正文语言字段均与原稿不同。
+
+新增地区分布：东南亚11、非洲11、美洲10、大洋洲5、西亚中亚2、欧洲1、东亚1。
+新增主分类分布：社会8、文化10、宗教5、政治6、贸易4、科学8。
+全部162条含96条专有编辑注释。主文中未检出“代表点、并非、不代表、不能称为、地图”等模板式提醒。
+
+核验范围与证据边界
+1. 原121条：本轮重点为编辑重写及双语一致性，沿用原来源。本轮没有重新全文阅读全部121条的每一来源，不应据此声称所有原始史实已完成新一轮独立学术复核。
+2. 新41条：对与叙述相关的机构页面概要、价值说明、传记或主题正文进行阅读；这属于关键叙述核对，并非所有参考文献、考古报告或提名附件的穷尽审查。仅搜索摘录可见之处在逐条说明中另作标记。
+3. UNESCO正式遗产条目与各国提交的预备名单材料分开标识；提名材料的历史叙述仍需批判阅读。百科辅助来源在来源标题中明确标注。
+4. 通用地图说明建议统一展示：坐标用于定位遗址或城市、地区，并不编码事件的完整空间范围；长期过程不等于单一瞬间；古代边界、迁徙路线和各文化范围需另由地图数据说明。本事件文件没有制作或修改疆域多边形。
+5. 本分工以start<1500划分，而不是强行截断每个过程。卡米延续至1650、恐鸟消失采用至1550宽时段；另有若干文化发展阶段以1500为圆整结束年。请勿把这些结束年自动解释为王朝灭亡或文明消失之年。
+6. 坐标为世界总览中的近似遗址/城市定位。已检查数值范围和地理归属，不声称逐一达到考古测绘精度；杜鲁拉等位置按区域定位处理。
+7. 重要不确定性保存在editorialNotes：早期定居与测年、佛陀及阿卡德年代、政治年表传统、文书解释、疫病规模、源网页的纪年差异等。未把争议用语堆入事件正文。
+
+逐条新增来源与阅读记录
+
+1. anc-pyu-cities｜骠国城市与灌溉社会发展
+已读UNESCO概要与价值说明：前200年至900年、三座骠国城址、灌溉、佛教建筑及跨区域贸易。
+  UNESCO世界遗产中心：骠国古城
+  https://whc.unesco.org/en/list/1444/
+
+2. anc-sambor-prei-kuk｜伊奢那补罗与三波坡雷古寺群
+已读UNESCO概要与价值说明：六世纪末至七世纪初真腊都城、砖石寺庙、八角形建筑和早期高棉艺术。550—650为概括时段。
+  UNESCO世界遗产中心：三波坡雷古考古遗址
+  https://whc.unesco.org/en/list/1532/
+
+3. anc-my-son｜占婆美山圣地持续营建
+已读UNESCO概要与价值说明：四至十三世纪占婆圣地、印度教崇拜和砖石建筑。范围以300—1300表达世纪尺度。
+  UNESCO世界遗产中心：美山圣地
+  https://whc.unesco.org/en/list/949/
+
+4. anc-prambanan｜普兰巴南寺群营建
+已读UNESCO概要与价值说明，页面不同部分对不同寺庙使用八、九、十世纪断代；正文取主要印度教寺群的九至十世纪营建，分歧入注释。
+  UNESCO世界遗产中心：普兰巴南寺庙群
+  https://whc.unesco.org/en/list/642/
+
+5. anc-sukhothai-culture｜素可泰城市与艺术传统兴盛
+已读UNESCO概要与价值说明：十三至十四世纪都城、地方与外来艺术传统的结合。
+  UNESCO世界遗产中心：素可泰历史城镇及相关历史城镇
+  https://whc.unesco.org/en/list/574/
+
+6. anc-ayutthaya-founded｜阿瑜陀耶建都
+已读UNESCO概要与价值说明：1350年建都、河流岛屿位置、城市规划及水利。未把后期全球外交规模前移到建城之年。
+  UNESCO世界遗产中心：阿瑜陀耶古城
+  https://whc.unesco.org/en/list/576/
+
+7. anc-bagan-temples｜蒲甘佛教建筑大规模发展
+已读UNESCO关于十一至十三世纪、布施与积功德的说明；另打开Getty保护项目说明，明确核对1044—1287年王都繁荣期。
+  UNESCO世界遗产中心：蒲甘
+  https://whc.unesco.org/en/list/1588/
+
+8. anc-vat-phou｜瓦普寺与湄公河文化景观发展
+已读UNESCO概要与价值说明：山体至河流的轴线、圣泉、道路、水利及吴哥关联。1000—1200选取较晚的主要发展阶段。
+  UNESCO世界遗产中心：瓦普寺及占巴塞文化景观
+  https://whc.unesco.org/en/list/481/
+
+9. anc-trowulan｜满者伯夷都城特罗武兰发展
+已读印尼提交的UNESCO预备名单正文，包括水道、道路、市场、作坊与考古研究限制。World Monuments Fund的搜索摘录用于交叉确认满者伯夷时代与宫廷文学背景；其打开结果很短，不声称全文核验。
+  印度尼西亚提交UNESCO预备名单：特罗武兰
+  https://whc.unesco.org/en/tentativelists/5466/
+  World Monuments Fund：Trowulan
+  https://www.wmf.org/monuments/trowulan
+
+10. anc-laguna-copperplate｜拉古纳铜板铭文记录债务豁免
+已读菲律宾新闻署正文，核对卡维文字、塞迦822年=900年；已打开并阅读Wikipedia百科的文书介绍和转录，核对债务豁免及语言。百科为辅助材料，标题已注明。未把有争议地名强行对应现代疆域。官方新闻把900年称作九世纪的错误未沿用。
+  菲律宾新闻署：拉古纳铜板纪念标志与纪年
+  https://pia.gov.ph/news/luzon/calabarzon/laguna-town-unveils-marker-honoring-phs-oldest-calendar-dated-document/
+  Wikipedia百科：Laguna Copperplate Inscription
+  https://en.wikipedia.org/wiki/Laguna_Copperplate_Inscription
+
+11. anc-bali-subak｜巴厘岛苏巴克灌溉制度发展
+已读UNESCO概要：九世纪起的合作水利、水庙、渠道与堰坝。800—1500仅选早期及中世纪阶段。
+  UNESCO世界遗产中心：巴厘省文化景观
+  https://whc.unesco.org/en/list/1194/
+
+12. anc-douroula-iron｜杜鲁拉早期冶铁
+已读UNESCO概要及价值说明：杜鲁拉公元前八世纪，其他组成遗址多为第二个千年。正文未把后期遗址的具体炉型全部套用于杜鲁拉。
+  UNESCO世界遗产中心：布基纳法索古代冶铁遗址
+  https://whc.unesco.org/en/list/1602/
+
+13. anc-fez-marinid｜马林王朝时期非斯繁荣
+已读UNESCO概要及价值说明：马林王朝十三至十四世纪繁荣、宗教学校、旅商客栈、清真寺、住宅和喷泉。
+  UNESCO世界遗产中心：非斯老城
+  https://whc.unesco.org/en/list/170/
+
+14. anc-kairouan-aghlabid｜凯鲁万的学术与宗教中心兴盛
+已读UNESCO概要及价值说明：九世纪阿格拉布时期繁荣、大清真寺及建筑影响。
+  UNESCO世界遗产中心：凯鲁万
+  https://whc.unesco.org/en/list/499/
+
+15. anc-marrakesh-founded｜穆拉比特王朝建立马拉喀什
+已读UNESCO概要及价值说明：1070—1072年穆拉比特建城；后来的城墙、清真寺与园林未全部归于初创王朝。
+  UNESCO世界遗产中心：马拉喀什老城
+  https://whc.unesco.org/en/list/331/
+
+16. anc-cairo-urban｜中世纪开罗城市文化发展
+已读UNESCO概要及价值说明：十世纪建立的城市，十四世纪进入重要繁荣期；正文聚焦公共建筑与城市生活，不给出未核对的单一年份。
+  UNESCO世界遗产中心：开罗历史城区
+  https://whc.unesco.org/en/list/89/
+
+17. anc-timbuktu-scholarship｜廷巴克图学术网络兴盛
+已读UNESCO概要及价值说明：十五至十六世纪学术和精神中心、经学校及三座清真寺；本条聚焦十五世纪并明确后续发展。
+  UNESCO世界遗产中心：廷巴克图
+  https://whc.unesco.org/en/list/119/
+
+18. anc-askia-tomb｜阿斯基亚陵营建
+已读UNESCO概要及价值说明：1495年纪年、土筑建筑、桑海及盐金贸易。朝觐与营建先后关系的简化叙事未用于正文，保留来源问题说明。
+  UNESCO世界遗产中心：阿斯基亚陵
+  https://whc.unesco.org/en/list/1139/
+
+19. anc-carthage-trade｜迦太基海上贸易网络扩展
+已读UNESCO概要及价值说明：公元前六世纪起的商业与政治力量。主题为贸易发展，区别于已有第二次布匿战争条目。
+  UNESCO世界遗产中心：迦太基考古遗址
+  https://whc.unesco.org/en/list/37/
+
+20. anc-ife-sculpture｜伊费陶塑艺术兴盛
+已打开并阅读大都会艺术博物馆Ife Terracottas专题全文主体，核对1000—1400、陶塑题材和原始用途不明。最初尝试的大英博物馆藏品页返回403，已改用可读的Met专题，不把该403页面列入成品来源。
+  大都会艺术博物馆：Ife Terracottas (1000–1400 A.D.)
+  https://www.metmuseum.org/essays/ife-terracottas-1000-1400-a-d
+
+21. anc-khami｜卡米成为托尔瓦王朝中心
+已读UNESCO概要及价值说明：1450—1650托尔瓦都城阶段、装饰性干砌挡墙、长距离贸易。因过程延续，结束年超过1500。
+  UNESCO世界遗产中心：卡米遗址国家纪念地
+  https://whc.unesco.org/en/list/365/
+
+22. anc-chavin｜查文成为安第斯宗教中心
+已读UNESCO概要及价值说明：宗教朝圣中心、内部廊道、排水通风与石雕。概要前1500—前300和价值说明前十五至前五世纪不同，已入专有注释。
+  UNESCO世界遗产中心：查文考古遗址
+  https://whc.unesco.org/en/list/330/
+
+23. anc-monte-alban｜萨波特克都城蒙特阿尔班发展
+已读UNESCO价值说明：前500—850萨波特克都城、梯地、水利、铭文、墓葬与球场。未沿用其将不同文化标签直接等同连续居民身份的简化。
+  UNESCO世界遗产中心：瓦哈卡与蒙特阿尔班
+  https://whc.unesco.org/en/list/415/
+
+24. anc-el-tajin｜埃尔塔欣城市与球戏文化兴盛
+已读UNESCO价值说明：800—1200、17处球场、壁龛与浮雕。页面把1200年以后直接归于阿兹特克统治的明显简化未采用。
+  UNESCO世界遗产中心：埃尔塔欣古城
+  https://whc.unesco.org/en/list/631/
+
+25. anc-chichen-itza｜奇琴伊察的建筑与区域交流
+已读UNESCO概要与价值说明：六至十世纪早期建筑、后续风格交流与公共建筑；另打开墨西哥INAH专题，核对托尔特克征服解释的争议，加入第二来源。
+  UNESCO世界遗产中心：奇琴伊察古城
+  https://whc.unesco.org/en/list/483/
+
+26. anc-chan-chan｜奇穆首都昌昌繁荣
+已读UNESCO概要与价值说明：十五世纪鼎盛、土筑宫殿分区、储藏与灌溉和工艺；时间范围涵盖十五世纪转变，不把1500指定为印加征服年。
+  UNESCO世界遗产中心：昌昌考古区
+  https://whc.unesco.org/en/list/366/
+
+27. anc-chaco-network｜查科大型建筑与道路网络形成
+已读UNESCO价值说明：九世纪中叶至十三世纪初、1020—1110高峰、多层大屋、道路、储藏区与基瓦。
+  UNESCO世界遗产中心：查科文化
+  https://whc.unesco.org/en/list/353/
+
+28. anc-mesa-verde｜梅萨维德聚落与悬崖村落发展
+已读UNESCO价值说明：约450—1300、地穴住宅与砌石村落、悬崖居所、梯地与蓄水设施，以及与当代普韦布洛文化的联系。
+  UNESCO世界遗产中心：梅萨维德国家公园
+  https://whc.unesco.org/en/list/27/
+
+29. anc-poverty-point｜波弗蒂角土方工程与交换网络
+已读NPS完整短文及UNESCO价值说明：前1700—前1100、采集渔猎社会、土方工程与远程石材交换。采用NPS的明确BCE写法，避免UNESCO不同语言版本BP/BCE换算混乱。
+  美国国家公园管理局：Poverty Point World Heritage Site
+  https://www.nps.gov/articles/000/monumental-earthworks-of-poverty-point-world-heritage-site.htm
+  UNESCO世界遗产中心：波弗蒂角
+  https://whc.unesco.org/en/list/1435/
+
+30. anc-hopewell-earthworks｜霍普韦尔仪式土方工程兴盛
+已读UNESCO价值说明：1—400年、几何土垒、日月周期、采集渔猎与耕种及远程原料。将科学列为主分类以呈现观察和工程知识。
+  UNESCO世界遗产中心：霍普韦尔仪式土方工程
+  https://whc.unesco.org/en/list/1689/
+
+31. anc-diquis-spheres｜迪基斯首领聚落与石球艺术发展
+已读UNESCO价值说明：500—1500、等级聚落、土台与石球；原始用途与制造步骤的具体未知保留为注释。
+  UNESCO世界遗产中心：迪基斯石球首领聚落
+  https://whc.unesco.org/en/list/1453/
+
+32. anc-budj-bim｜贡迪杰马拉人发展水产管理系统
+已读UNESCO价值说明：至少6600年水产管理、熔岩地形、渠道、堰坝和短鳍鳗鱼。前4600年为圆整时间锚点。
+  UNESCO世界遗产中心：布吉比姆文化景观
+  https://whc.unesco.org/en/list/1577/
+
+33. anc-palau-villages｜帕劳洛克群岛石筑村落发展
+已读UNESCO价值说明：部分石村起于约950—500BP、台基/梯地/防御墙、海洋资源，十七至十八世纪后迁出。1000—1500选早期发展。
+  UNESCO世界遗产中心：洛克群岛南部潟湖
+  https://whc.unesco.org/en/list/1386/
+
+34. anc-lapaha｜拉帕哈成为汤加政治与礼仪中心
+已读汤加提交的UNESCO预备名单：十三世纪迁往拉帕哈、潟湖停泊与石筑王陵、口述谱系和早期碳年代限制。预备名单是国家提交材料，不等于已列入世界遗产。
+  汤加提交UNESCO预备名单：汤加王国古都
+  https://whc.unesco.org/en/tentativelists/5167/
+
+35. anc-hawaii-settlement｜波利尼西亚航海者定居夏威夷
+已读NPS Early Hawaiians主体，采用1000—1200概括时段、航海观察及作物家畜。其他机构或研究采用不同年代，专有注释保留这一点。
+  美国国家公园管理局：Early Hawaiians
+  https://home.nps.gov/hale/learn/historyculture/early-hawaiians.htm
+
+36. anc-moa-extinction｜恐鸟消失与新西兰生态转变
+已读Te Ara专业百科Moa正文中利用方式与消失部分，采用1300—1550宽时段；未把现代常见较早估计写成唯一精确灭绝年。
+  新西兰Te Ara专业百科：Moa
+  https://teara.govt.nz/en/moa/print
+
+37. anc-euclid-elements｜欧几里得编纂《几何原本》
+已读圣安德鲁斯MacTutor传记主体，核对亚历山大里亚、整合前人知识及证明结构。约前300年使用传统学术估计，生平资料稀少入注释。
+  圣安德鲁斯大学MacTutor数学史：Euclid
+  https://mathshistory.st-andrews.ac.uk/Biographies/Euclid/
+
+38. anc-ibn-sina-canon｜伊本·西那编成《医典》
+已打开牛津博德利PDF文本，核对约1025年；已读NLM阿拉伯医学手稿目录主体，核对五卷内容和拉丁文传播。旧NLM展览页现为跳转说明，没有作为有效内容来源。
+  牛津大学博德利图书馆：《医典》
+  https://visit.bodleian.ox.ac.uk/sites/default/files/bodwhatson/documents/media/mim-canon-medicine.pdf
+  美国国立医学图书馆：《医典》手稿目录
+  https://www.nlm.nih.gov/hmd/arabic/E8.html
+
+39. anc-fibonacci-liber-abaci｜斐波那契写成《计算之书》
+已读MacTutor传记主体，核对1202年、北非学习、印度—阿拉伯十进位算法及商业问题。
+  圣安德鲁斯大学MacTutor数学史：Fibonacci
+  https://mathshistory.st-andrews.ac.uk/Biographies/Fibonacci/
+
+40. anc-ulugh-beg-catalogue｜兀鲁伯天文团队编成星表
+已读MacTutor传记主体，核对1437年星表、学者协作、观测及三角计算。未采用不同星数统计之间可能不一致的具体数量。
+  圣安德鲁斯大学MacTutor数学史：Ulugh Beg
+  https://mathshistory.st-andrews.ac.uk/Biographies/Ulugh_Beg/
+
+41. anc-su-song-clock｜苏颂记录水运天文钟的设计
+已读哥伦比亚Asia for Educators正文，核对1092年著作及水驱、链传动、天文仪器。纪年对应著作记录，未与全部工程竣工年混同。
+  哥伦比亚大学Asia for Educators：宋代技术实验
+  https://afe.easia.columbia.edu/songdynasty-module/tech-experiment.html
+
+后续补入的来源：
+anc-bagan-temples：盖蒂保护研究所：https://www.getty.edu/projects/bagan-conservation/
+anc-chichen-itza：墨西哥INAH：https://lugares.inah.gob.mx/es/node/5518
+

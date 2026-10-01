@@ -11,3 +11,11 @@
 ## Design references / 交互参考
 
 Chronosphere (globe and time navigation), Phersu Atlas (date-oriented history), Running Reality (spatiotemporal exploration), OpenHistory (event filters), HistoryMaps (guided stories), and Strata (layered exploration) informed interaction choices. Their proprietary datasets and code have not been copied or bundled. This project is independent and does not imply endorsement or affiliation.
+
+
+## 2.0 新增资料与转换
+
+- Wikidata实体、标签与结构化声明：CC0。每份实体档案保留QID、声明链接、参考资料、时间限定与抓取元数据。附引证仅描述记录具备引证，不等同于本项目逐句完成历史学审稿。
+- 23篇文明概览及47条历史侧记：本项目原创中英文摘要，CC BY 4.0。每篇`sourceIds`对应博物馆、UNESCO等原始资料链接；原网页版权各自保留。
+- [OpenCC Python Reimplemented](https://github.com/yichen0831/opencc-python)：Apache-2.0，用于构建时繁简转换（t2s），不随运行页面加载。人工补充译名沿用既有归属。
+- Chronosphere与Phersu Atlas仅作为交互设计参考，未合并其专有数据。
