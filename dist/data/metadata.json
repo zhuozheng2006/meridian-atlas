@@ -1,0 +1,470 @@
+{
+  "title": "Cliopatria historical polity boundaries — display derivative",
+  "sourceProject": "Seshat Global History Databank / Cliopatria",
+  "repository": "https://github.com/Seshat-Global-History-Databank/cliopatria",
+  "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+  "sourceDownloadUrl": "https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/ad28a691b7c07c1fca89d0e0636d324667d2a258/cliopatria.geojson.zip",
+  "sourceZipSha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+  "sourceArchiveMember": "cliopatria_polities_only.geojson",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "Boundary data: Cliopatria, Seshat Global History Databank (CC BY 4.0). Display geometry simplified by 0.02° and coordinates rounded to five decimals; source dates unchanged.",
+  "builtUtc": "2026-10-01T21:33:20.379866+00:00",
+  "yearRange": [
+    -3400,
+    2024
+  ],
+  "dateSemantics": "FromYear and ToYear inclusive. Negative=BCE, positive=CE. UI must not select year 0. Six source ToYear=0 endpoints are preserved and flagged; source years are not reinterpreted.",
+  "yearZeroEndpointRecordIds": [
+    "clio-01033",
+    "clio-01074",
+    "clio-01076",
+    "clio-01089",
+    "clio-01101",
+    "clio-01105"
+  ],
+  "activePredicate": "year !== 0 && record.start <= year && year <= record.end",
+  "displayYearToIndex": "year < 0 ? year + 3400 : year + 3399",
+  "displayIndexToYear": "index < 3400 ? index - 3400 : index - 3399",
+  "coverageWarningZh": "各地区与时期记录疏密不同，空白表示本数据集未提供该位置在该年的疆域，不代表无人居住或不存在政治共同体。相同边界在时间区间内沿用，不表示已掌握每年的精确边界；不对缺失时代插值。",
+  "relationWarningZh": "RELATION为联盟、效忠或共主联合等关系范围，常与组成政体重叠；默认仅显示POLITY，关系层需独立选择。",
+  "namesWarningZh": "自动中文名仅在原Wikidata ID与源Wikipedia词条身份相符时使用；错误关联保留源信息并加警示，183个重要政体按完整原名人工翻译。所有记录保留原始name、wikidata、wikipedia；verifiedWikidata另载按Wikipedia核得的实体。缺译名以原名显示。",
+  "wikidataLabelLicense": "CC0",
+  "simplification": {
+    "method": "Shapely simplify(preserve_topology=True)",
+    "toleranceDegrees": 0.02,
+    "coordinateDecimalPlaces": 5,
+    "dropsSmallIslands": false,
+    "repairsSourceGeometry": false,
+    "interpolatesDates": false,
+    "scope": "Overview display only, not precise boundary measurement; shared borders may have visual slivers after independent simplification."
+  },
+  "counts": {
+    "records": 13765,
+    "polityRecords": 13380,
+    "relationRecords": 385,
+    "uniqueNames": 1633,
+    "uniqueGeometries": 11232,
+    "geometryShards": 37,
+    "recordsWithZh": 13074
+  },
+  "sourceInvalidGeometryRecordIds": [
+    "clio-03810",
+    "clio-05774",
+    "clio-05825",
+    "clio-05881",
+    "clio-06031",
+    "clio-06100",
+    "clio-06141",
+    "clio-06203",
+    "clio-06293",
+    "clio-06370",
+    "clio-06475",
+    "clio-06510",
+    "clio-06645"
+  ],
+  "processingExceptions": [
+    {
+      "id": "clio-01920",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-01962",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-01996",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-02050",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-03280",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-04112",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-04251",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-05828",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-07486",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-07672",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-08293",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-09751",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    },
+    {
+      "id": "clio-09773",
+      "kind": "unrounded_geometry_to_preserve_validity"
+    }
+  ],
+  "shards": [
+    {
+      "file": "geometries-000.json",
+      "gzipFile": "geometries-000.json.gz",
+      "bytes": 1797635,
+      "gzipBytes": 342104,
+      "count": 719,
+      "sha256": "bf0c3932d04163a490a3575672a87aa80b56e7c87735f38fc0befd12e7e96e5c",
+      "gzipSha256": "cf2567316c41af0589e0d444d489b38e2af38a627f7af573763b3b2aae339ea7"
+    },
+    {
+      "file": "geometries-001.json",
+      "gzipFile": "geometries-001.json.gz",
+      "bytes": 1775409,
+      "gzipBytes": 437912,
+      "count": 347,
+      "sha256": "3d2fa4521707fff7980bb976bff68d431e3991de7575dbf5dda2ea073e468dc1",
+      "gzipSha256": "63258b3c792d9684b3a5a5da6000b820e44416db0cfd594657eadcc203fd0052"
+    },
+    {
+      "file": "geometries-002.json",
+      "gzipFile": "geometries-002.json.gz",
+      "bytes": 1795531,
+      "gzipBytes": 502163,
+      "count": 297,
+      "sha256": "dbe4a8dab83e0aadb18daa1d8ccf99053f8fce99054af84bdc8ae09a040ea222",
+      "gzipSha256": "5ac70f232cd7c5a067e10e9fbdfc9cf18237489baa3bb06b0c3e9a49554035a7"
+    },
+    {
+      "file": "geometries-003.json",
+      "gzipFile": "geometries-003.json.gz",
+      "bytes": 1796945,
+      "gzipBytes": 427723,
+      "count": 446,
+      "sha256": "943e0e6c387f20724642f6e4f28a28098f09b91ed271f5175e646f56a6b85afa",
+      "gzipSha256": "875ccd2faeb5b2a6295de73d59ebd8d7803606db8e0947ed9cc3d2d32adaa163"
+    },
+    {
+      "file": "geometries-004.json",
+      "gzipFile": "geometries-004.json.gz",
+      "bytes": 1792784,
+      "gzipBytes": 455157,
+      "count": 396,
+      "sha256": "ec88cd7a7c3f4c77c8594415c2d412e32b17cac1a5281e2c48a287a478f68c77",
+      "gzipSha256": "10f0707861ff9b7b504658997c5fd081be17e5785dad9bc6cd249e547cc51273"
+    },
+    {
+      "file": "geometries-005.json",
+      "gzipFile": "geometries-005.json.gz",
+      "bytes": 1793698,
+      "gzipBytes": 428597,
+      "count": 475,
+      "sha256": "027d2abc69996e923d9771823915c7ed27eea7f0a952170c59f434893a826911",
+      "gzipSha256": "5317e6ecd06901249e34751c0380ac0ede65c2dcb59c9982f21af0e0d0fb1114"
+    },
+    {
+      "file": "geometries-006.json",
+      "gzipFile": "geometries-006.json.gz",
+      "bytes": 1798320,
+      "gzipBytes": 441433,
+      "count": 687,
+      "sha256": "7deaa472c71d58191e095e28eb84c7bd3829f470a97537a3908984d28bd482c7",
+      "gzipSha256": "03127437ef079ab529fdd4131741f5018070e0106f02ce928963ff3469c9ec5d"
+    },
+    {
+      "file": "geometries-007.json",
+      "gzipFile": "geometries-007.json.gz",
+      "bytes": 1798382,
+      "gzipBytes": 501802,
+      "count": 982,
+      "sha256": "e990b5d1877efe29c766ef637bf9fe87948ce8f6656022ab667118de0c27aa74",
+      "gzipSha256": "ce094bbae602c570f4a53374f791df48f6e910daab964bac7a1c6f70cc2f4c1d"
+    },
+    {
+      "file": "geometries-008.json",
+      "gzipFile": "geometries-008.json.gz",
+      "bytes": 1798873,
+      "gzipBytes": 509185,
+      "count": 743,
+      "sha256": "556edd7654bad8feaccdabf56c28f99c0d49874ecc62def23c956c3cb9f3f5de",
+      "gzipSha256": "547408841b90c91733ec5bf0a60b5841edc555e72ca2286e11c870c360b9f91e"
+    },
+    {
+      "file": "geometries-009.json",
+      "gzipFile": "geometries-009.json.gz",
+      "bytes": 1796730,
+      "gzipBytes": 534908,
+      "count": 611,
+      "sha256": "cbe7739e4f8917dbf86476f34d6839177cc7d697308a6d1d0c51bb10af0ef68b",
+      "gzipSha256": "818d1e7bddbd150d97667b52b90d923b2189abda230f402ee8b5e63c8c29fc17"
+    },
+    {
+      "file": "geometries-010.json",
+      "gzipFile": "geometries-010.json.gz",
+      "bytes": 1798215,
+      "gzipBytes": 502033,
+      "count": 561,
+      "sha256": "e7af583c6e2528bb0a4d6fa384dc93b0733a750980e6ab2315a751c27dba2ba1",
+      "gzipSha256": "c61a730831a85b13ec002b173e0513582caa23c419a79b2a7638ab45aba89233"
+    },
+    {
+      "file": "geometries-011.json",
+      "gzipFile": "geometries-011.json.gz",
+      "bytes": 1795388,
+      "gzipBytes": 528592,
+      "count": 399,
+      "sha256": "3f3b5d8959f43c94711badb87d9d433187fdecba5fbfd98a6faf9cea72047170",
+      "gzipSha256": "6f1ff0fe45eb1ead9fc42c6f0e27ab886fce898c18fda10725bdf9ac735e6aa6"
+    },
+    {
+      "file": "geometries-012.json",
+      "gzipFile": "geometries-012.json.gz",
+      "bytes": 1791510,
+      "gzipBytes": 581770,
+      "count": 276,
+      "sha256": "14e348970b59451d4aee7fd00ae4d1f2684e49438f7f2241e7dc1c728fc7f2be",
+      "gzipSha256": "7a6fbae4b35338111d9dbe55b07d14731e1245e804c8da585797dea4ba347228"
+    },
+    {
+      "file": "geometries-013.json",
+      "gzipFile": "geometries-013.json.gz",
+      "bytes": 1777650,
+      "gzipBytes": 585585,
+      "count": 225,
+      "sha256": "d9e548adb7a311582572b9e107c2278034fac8cec0659903c62f31789ddab967",
+      "gzipSha256": "bf798c1e7e6c7f59acff3efce971c1c12c883f502d74537ed96af6e21eb7368d"
+    },
+    {
+      "file": "geometries-014.json",
+      "gzipFile": "geometries-014.json.gz",
+      "bytes": 1797161,
+      "gzipBytes": 563882,
+      "count": 284,
+      "sha256": "58f4f13ebc3561025a49f24c93fad287b5ac29e56876f9a6bfb07407fde4f8e1",
+      "gzipSha256": "0f6ddcb490448f1a9fafb99323b18f591f0048abadf56de82c3dc21de0f88d3b"
+    },
+    {
+      "file": "geometries-015.json",
+      "gzipFile": "geometries-015.json.gz",
+      "bytes": 1796341,
+      "gzipBytes": 565365,
+      "count": 235,
+      "sha256": "0dedbb3191f661c44118177292140312f8f6626487540d6018ae058e74f9f6e6",
+      "gzipSha256": "a3aa7d6691402a79198b7262e9d6996223f812e4642a76b188e49c64c80fcdda"
+    },
+    {
+      "file": "geometries-016.json",
+      "gzipFile": "geometries-016.json.gz",
+      "bytes": 1796588,
+      "gzipBytes": 578086,
+      "count": 211,
+      "sha256": "5a66e08d9f6f4e70ee178206f76ead23c84c9650f83463ee838f23288ee0b6f1",
+      "gzipSha256": "8d5570035a96ab4fd43b375e3943aa541fd34467dc2298172594afe5c9fc9ff4"
+    },
+    {
+      "file": "geometries-017.json",
+      "gzipFile": "geometries-017.json.gz",
+      "bytes": 1799740,
+      "gzipBytes": 580566,
+      "count": 221,
+      "sha256": "f073a3346162175c63c5f9e169be2d5c02094feeacad2fcaf7c9d97c00dc5fa8",
+      "gzipSha256": "b971a200827f33c57ce18a0ca3f305d68a5f8cee3eb51e863bf94a6d6250c7a1"
+    },
+    {
+      "file": "geometries-018.json",
+      "gzipFile": "geometries-018.json.gz",
+      "bytes": 1790135,
+      "gzipBytes": 583717,
+      "count": 212,
+      "sha256": "f2e177166cf9b033432f23cb723c50a3c8ac6a7129e6f77be6601ee80cb823fe",
+      "gzipSha256": "a2db9e75d8d4b0f6b741b8c8daf1b82e59a306c035b8b253ab88026063647314"
+    },
+    {
+      "file": "geometries-019.json",
+      "gzipFile": "geometries-019.json.gz",
+      "bytes": 1783516,
+      "gzipBytes": 568097,
+      "count": 176,
+      "sha256": "4e3efb4883487fe13c69f33d792d52bce7154887e829ca184d6584ffdac406f5",
+      "gzipSha256": "f287bc6cbffbb5fb91952d374d7f9bdd925ac669ea0b086179047434a358ae3b"
+    },
+    {
+      "file": "geometries-020.json",
+      "gzipFile": "geometries-020.json.gz",
+      "bytes": 1799270,
+      "gzipBytes": 587703,
+      "count": 227,
+      "sha256": "9d2b5017eb5eab7d352aa972f85c8fb795cb6b197da3ce86b78337c97466fd42",
+      "gzipSha256": "6e2167ae4f9a060dc879dc44548b2ad5fe9b87455dbff62bd2a6c1fd36973812"
+    },
+    {
+      "file": "geometries-021.json",
+      "gzipFile": "geometries-021.json.gz",
+      "bytes": 1792169,
+      "gzipBytes": 582548,
+      "count": 221,
+      "sha256": "07942acd0e3da2369448dab57b7018dee70627a2a3b7b56b08ac8dbe8d17bf00",
+      "gzipSha256": "50ae128399ff3266386a2c672476571c40d51c80fe3f9c4315d40164b4340111"
+    },
+    {
+      "file": "geometries-022.json",
+      "gzipFile": "geometries-022.json.gz",
+      "bytes": 1767172,
+      "gzipBytes": 581628,
+      "count": 235,
+      "sha256": "81176aae25b22809c564d0d52092507fdf507994c10b1802a8b40f8d5b300150",
+      "gzipSha256": "3af253812804a02003c7ce735a459172069c0a3f9d4dc564356b02750ff7cb7e"
+    },
+    {
+      "file": "geometries-023.json",
+      "gzipFile": "geometries-023.json.gz",
+      "bytes": 1788089,
+      "gzipBytes": 581607,
+      "count": 206,
+      "sha256": "9573c5543ec9ba1a59fa93c0689e03cc7c00632a57b867fa5008d8a7d143be07",
+      "gzipSha256": "8dd3f4a14e00706b7bd33228c86e9aeeba686eb01b128f93c978b9f5ed44fbbf"
+    },
+    {
+      "file": "geometries-024.json",
+      "gzipFile": "geometries-024.json.gz",
+      "bytes": 1791458,
+      "gzipBytes": 577730,
+      "count": 181,
+      "sha256": "335b62325711753ab328a48d01a14e194c989adb017b29185198f90f5e04a68e",
+      "gzipSha256": "c87a24339337d80e8ed25809b7abee16847ec8770267acd924f5b4f96dba4d2c"
+    },
+    {
+      "file": "geometries-025.json",
+      "gzipFile": "geometries-025.json.gz",
+      "bytes": 1728191,
+      "gzipBytes": 545577,
+      "count": 135,
+      "sha256": "d85c37d059ab40a4c1aa86d55d127c0f10ef2806ecef1ed57e59e8a66a1b3f40",
+      "gzipSha256": "2a2db6c18fe7322b8ccb69bdfa8b897b83584ca1908d1b2830c51100d116e56d"
+    },
+    {
+      "file": "geometries-026.json",
+      "gzipFile": "geometries-026.json.gz",
+      "bytes": 1765136,
+      "gzipBytes": 571663,
+      "count": 146,
+      "sha256": "0ee1bd54eff3ead63ee291fa4e8f29ed69ac08c964a16df47de1e4b35a98a1e4",
+      "gzipSha256": "90bc65958ab7ddcbbb9f9e92ac2c220d161f7706ccc6fd48ba59705a99252306"
+    },
+    {
+      "file": "geometries-027.json",
+      "gzipFile": "geometries-027.json.gz",
+      "bytes": 1754011,
+      "gzipBytes": 580051,
+      "count": 170,
+      "sha256": "1a471c2b4a16adc7069e1b461099a20cdf2d6938528d70cef1ffe325a07a5d70",
+      "gzipSha256": "28ace6e7d84ac18ec221eddc9af6ee5f903e6bf6fd072846a0ff345cb6745f5b"
+    },
+    {
+      "file": "geometries-028.json",
+      "gzipFile": "geometries-028.json.gz",
+      "bytes": 1728574,
+      "gzipBytes": 569932,
+      "count": 103,
+      "sha256": "90b815f062947b69bb45a6a272a20d9362666c523e852425c8f39c2a2ed1f880",
+      "gzipSha256": "e6440a4d081eb8e49f0e616425dacec408bf26c9b3ea225107a5f048f0a1bd10"
+    },
+    {
+      "file": "geometries-029.json",
+      "gzipFile": "geometries-029.json.gz",
+      "bytes": 1694744,
+      "gzipBytes": 550240,
+      "count": 97,
+      "sha256": "16117b2ffb0a12ddc0a65ebf22b78d5b036b514c5cc9374eb145814260973f3a",
+      "gzipSha256": "18c0b084d37a8a8ce98ec0dd6f7d62f9013d3e7db6e965daae198e2d77ddb5a6"
+    },
+    {
+      "file": "geometries-030.json",
+      "gzipFile": "geometries-030.json.gz",
+      "bytes": 1684152,
+      "gzipBytes": 549896,
+      "count": 125,
+      "sha256": "df481813f568e9f17ece6db903a3743701c639d9f58670369ff9ab526468a842",
+      "gzipSha256": "a7fa3add33475bdf7be5b301ebc8bacf46b17da15bb06f9bb5b38ce62917c507"
+    },
+    {
+      "file": "geometries-031.json",
+      "gzipFile": "geometries-031.json.gz",
+      "bytes": 1791674,
+      "gzipBytes": 584125,
+      "count": 98,
+      "sha256": "eaa94fc9895ce4bf97fdd9800318b7aa0a1bc4d86ef8b1085f8b3f38326eb759",
+      "gzipSha256": "7719d115167e10ff22b5687429ad9c5850f457805d1e3cca0bd95d0e04af7010"
+    },
+    {
+      "file": "geometries-032.json",
+      "gzipFile": "geometries-032.json.gz",
+      "bytes": 1748238,
+      "gzipBytes": 572764,
+      "count": 133,
+      "sha256": "0f35c9122e9235dfe4ce7a64ebdba0715efda1e964da0cb42e47775eda61e007",
+      "gzipSha256": "a9f626d8457acb73d4549b4ff610031c001f801e82311cf920eb460d3a109a55"
+    },
+    {
+      "file": "geometries-033.json",
+      "gzipFile": "geometries-033.json.gz",
+      "bytes": 1797016,
+      "gzipBytes": 581143,
+      "count": 113,
+      "sha256": "4f19cd77d59cb6f0282465bded4935f894b1ba58f61c0efc2e7d243bf41f8c94",
+      "gzipSha256": "aef0e2d4562ffd4532bb84ae721f91c5f150f7bfff89dde965040d153d82b16d"
+    },
+    {
+      "file": "geometries-034.json",
+      "gzipFile": "geometries-034.json.gz",
+      "bytes": 1783542,
+      "gzipBytes": 585051,
+      "count": 148,
+      "sha256": "6c045ebce91a25e07ce9d119e4f0d16cd0124418cef0cb4d94a19edfb4c79ad4",
+      "gzipSha256": "2ead12430e0bccd7fdfe1f4f7b236e8be58c4d435bfd1d4bd474f4dabaa1adb2"
+    },
+    {
+      "file": "geometries-035.json",
+      "gzipFile": "geometries-035.json.gz",
+      "bytes": 1755761,
+      "gzipBytes": 535990,
+      "count": 261,
+      "sha256": "546acca5e29018368b954dc4bf9d42879d1d68de6d10a8ef43aa76be0ddd20c6",
+      "gzipSha256": "2ba4f13f19f35f917b08bc67d375f7c371ffcc9968d70a7aa7d5a0db2bc33da4"
+    },
+    {
+      "file": "geometries-036.json",
+      "gzipFile": "geometries-036.json.gz",
+      "bytes": 1093300,
+      "gzipBytes": 337547,
+      "count": 130,
+      "sha256": "2139c4862ccd8b51d5661f1ac382acbcf627a6f3f49cf074e3fd82352882adfb",
+      "gzipSha256": "ddb1969fd1917476e807b72b527f898ed7f567a36a8ef72068deb7d3f6f91bcc"
+    }
+  ],
+  "areaSemantics": "Source Area field in square kilometers, computed upstream using EPSG:6933; not recomputed from display geometry.",
+  "centerSemantics": "Representative point computed from source geometry, rounded to 5 decimals.",
+  "labelAudit": {
+    "wikidataEntitiesFetched": 1416,
+    "wikidataWithChineseLabel": 1322,
+    "wikipediaTitlesAudited": 1469,
+    "manualExactNameTranslations": 183,
+    "editorialTranslationRecords": 3276,
+    "recordsWithZh": 13074,
+    "qidMatchRecords": 12595,
+    "qidMismatchRecords": 1158,
+    "ambiguousPeriodRecords": 7,
+    "unverifiedIdentityRecords": 7
+  },
+  "identityAuditScope": "Checks cross-link identity consistency, not the historical correctness of upstream names, dates, geometries, or source citations."
+}
