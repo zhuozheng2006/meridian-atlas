@@ -1,4 +1,4 @@
-import {readJSON,EMPTY} from './map-engine.js?v=3.0.0-09a22312f491';
+import {readJSON,EMPTY} from './map-engine.js?v=3.0.0-7a49737b7ed7';
 
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.
