@@ -1,0 +1,797 @@
+{
+  "checkedAt": "2026-10-02T20:26:58.686Z",
+  "baseline": {
+    "commit": "7ee94b4a",
+    "copy": "/tmp/atlas-baseline-3.9.4",
+    "server": "http://127.0.0.1:9473"
+  },
+  "workspace": {
+    "server": "http://127.0.0.1:8767",
+    "version": "3.10.0"
+  },
+  "method": "Read-only: window.__meridian.instances[0].map reads live layer order/paint; screenshots decoded in Node for pixel metrics; places.js imported in Node for the period sweep. Harness scripts live in /tmp/verify-lead-3.10 (not in the repo); scripts/verification/browser.mjs used unmodified.",
+  "a_layerOrder": [
+    {
+      "year": 1500,
+      "mode": "overview",
+      "count": 14,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 9,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1500,
+      "mode": "regional",
+      "count": 21,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 16,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1500,
+      "mode": "halc",
+      "count": 20,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 9,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1700,
+      "mode": "overview",
+      "count": 14,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 9,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1700,
+      "mode": "regional",
+      "count": 21,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 16,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1700,
+      "mode": "halc",
+      "count": 14,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 9,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1900,
+      "mode": "overview",
+      "count": 14,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 9,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1900,
+      "mode": "regional",
+      "count": 21,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 16,
+      "land": 1,
+      "haloVisibility": "visible"
+    },
+    {
+      "year": 1900,
+      "mode": "halc",
+      "count": 14,
+      "relief": 2,
+      "terrainShade": 3,
+      "territories": 4,
+      "boundaryHalo": 5,
+      "boundary": 9,
+      "land": 1,
+      "haloVisibility": "visible"
+    }
+  ],
+  "a_toggle": {
+    "before": {
+      "territories": "visible",
+      "boundary-halo": "visible",
+      "boundary": "visible",
+      "selection": "visible",
+      "selection-fill": "visible"
+    },
+    "afterApi": {
+      "territories": "none",
+      "boundary-halo": "none",
+      "boundary": "none",
+      "selection": "none",
+      "selection-fill": "none"
+    },
+    "afterApiOn": {
+      "territories": "visible",
+      "boundary-halo": "visible",
+      "boundary": "visible",
+      "selection": "visible",
+      "selection-fill": "visible"
+    },
+    "afterUi": {
+      "vis": {
+        "territories": "none",
+        "boundary-halo": "none",
+        "boundary": "none",
+        "selection": "none",
+        "selection-fill": "none"
+      },
+      "label": "疆域"
+    }
+  },
+  "a_haloPaint": {
+    "regional": {
+      "haloOpacity": 0,
+      "boundaryOpacity": 0,
+      "haloVisibility": "visible",
+      "territoriesOpacity": 0
+    },
+    "overview": {
+      "haloOpacity": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "zoom"
+        ],
+        0,
+        0.3,
+        3,
+        0.4,
+        6,
+        0.48,
+        10,
+        0.4
+      ],
+      "boundaryOpacity": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "zoom"
+        ],
+        0,
+        0.66,
+        3,
+        0.82,
+        6,
+        0.92,
+        10,
+        0.9
+      ],
+      "territoriesOpacity": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "zoom"
+        ],
+        0,
+        0.5,
+        4,
+        0.42,
+        7,
+        0.3,
+        10,
+        0.2
+      ]
+    }
+  },
+  "b_pixels": [
+    {
+      "key": "overview-1500",
+      "rect": {
+        "x": 358,
+        "y": 74,
+        "right": 1600,
+        "bottom": 746
+      },
+      "baseline": {
+        "file": "/tmp/verify-lead-3.10/shot-baseline-overview-1500.png",
+        "pixels": 834624,
+        "darkNew": 18771,
+        "oldDark": 40537,
+        "halo": 437,
+        "fillLike": 296709,
+        "edges": 30120,
+        "strong": 5457,
+        "mean": [
+          169.37747416800858,
+          166.38243927804615,
+          141.16910489034584
+        ]
+      },
+      "workspace": {
+        "file": "/tmp/verify-lead-3.10/shot-workspace-overview-1500.png",
+        "pixels": 834624,
+        "darkNew": 11806,
+        "oldDark": 19078,
+        "halo": 396,
+        "fillLike": 120408,
+        "edges": 23711,
+        "strong": 6236,
+        "mean": [
+          166.97185918449506,
+          164.5599647266314,
+          140.25115740740742
+        ]
+      },
+      "diff": {
+        "changed": 195962,
+        "total": 834624,
+        "ratio": 0.23479075607698796
+      }
+    },
+    {
+      "key": "overview-1900",
+      "rect": {
+        "x": 358,
+        "y": 74,
+        "right": 1600,
+        "bottom": 746
+      },
+      "baseline": {
+        "file": "/tmp/verify-lead-3.10/shot-baseline-overview-1900.png",
+        "pixels": 834624,
+        "darkNew": 15323,
+        "oldDark": 37605,
+        "halo": 1375,
+        "fillLike": 348985,
+        "edges": 34861,
+        "strong": 7936,
+        "mean": [
+          168.25215905605398,
+          169.55054491603406,
+          143.64998490338164
+        ]
+      },
+      "workspace": {
+        "file": "/tmp/verify-lead-3.10/shot-workspace-overview-1900.png",
+        "pixels": 834624,
+        "darkNew": 5763,
+        "oldDark": 17759,
+        "halo": 1258,
+        "fillLike": 153682,
+        "edges": 25731,
+        "strong": 7194,
+        "mean": [
+          163.86529622920023,
+          168.8167522141707,
+          142.61725759144238
+        ]
+      },
+      "diff": {
+        "changed": 169239,
+        "total": 834624,
+        "ratio": 0.2027727455716586
+      }
+    }
+  ],
+  "c_periodSweep": {
+    "records": 12,
+    "violations": 0,
+    "detail": [
+      {
+        "id": "attested:liangzhu",
+        "period": [
+          -3300,
+          -2300
+        ],
+        "sampled": 95,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:yinxu",
+        "period": [
+          -1300,
+          -1046
+        ],
+        "sampled": 57,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:quanzhou",
+        "period": [
+          960,
+          1368
+        ],
+        "sampled": 65,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:bagan",
+        "period": [
+          1044,
+          1287
+        ],
+        "sampled": 57,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:ayutthaya",
+        "period": [
+          1350,
+          1767
+        ],
+        "sampled": 65,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:dholavira",
+        "period": [
+          -3000,
+          -1500
+        ],
+        "sampled": 51,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:hampi",
+        "period": [
+          1336,
+          1565
+        ],
+        "sampled": 56,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:kilwa",
+        "period": [
+          801,
+          1900
+        ],
+        "sampled": 99,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:caral",
+        "period": [
+          -3000,
+          -1800
+        ],
+        "sampled": 105,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:cahokia",
+        "period": [
+          800,
+          1400
+        ],
+        "sampled": 75,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:nan-madol",
+        "period": [
+          1200,
+          1500
+        ],
+        "sampled": 60,
+        "violations": 0,
+        "samples": []
+      },
+      {
+        "id": "attested:levuka",
+        "period": [
+          1820,
+          1900
+        ],
+        "sampled": 49,
+        "violations": 0,
+        "samples": []
+      }
+    ]
+  },
+  "c_identity": {
+    "otherArchives": 21017,
+    "attestedIdsInOtherArchives": [],
+    "sameNameAsOtherArchive": [
+      "attested:bagan",
+      "attested:ayutthaya",
+      "attested:dholavira"
+    ],
+    "attestedNearOtherRecords": [
+      {
+        "attested": "attested:quanzhou",
+        "name": "Quanzhou Old City",
+        "other": "chandler:1457",
+        "otherName": "Tsinkiang",
+        "distanceDeg": 0.0124,
+        "sameId": false
+      },
+      {
+        "attested": "attested:quanzhou",
+        "name": "Quanzhou Old City",
+        "other": "ne:1159149791",
+        "otherName": "Quanzhou",
+        "distanceDeg": 0.0157,
+        "sameId": false
+      },
+      {
+        "attested": "attested:ayutthaya",
+        "name": "Ayutthaya",
+        "other": "chandler:103",
+        "otherName": "Ayutthaya",
+        "distanceDeg": 0.0128,
+        "sameId": false
+      },
+      {
+        "attested": "attested:ayutthaya",
+        "name": "Ayutthaya",
+        "other": "ne:1159134449",
+        "otherName": "Phra Nakhon Si Ayutthaya",
+        "distanceDeg": 0.0189,
+        "sameId": false
+      },
+      {
+        "attested": "attested:dholavira",
+        "name": "Dholavira",
+        "other": "modelski-ancient:36",
+        "otherName": "Dholavira",
+        "distanceDeg": 0.0057,
+        "sameId": false
+      }
+    ]
+  },
+  "c_chapters": {
+    "allInsideOnly": true,
+    "detail": [
+      {
+        "id": "attested:liangzhu",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:yinxu",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:quanzhou",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:bagan",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:ayutthaya",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:dholavira",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:hampi",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:kilwa",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:caral",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:cahokia",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:nan-madol",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      },
+      {
+        "id": "attested:levuka",
+        "inside": true,
+        "outside": false,
+        "sources": 1,
+        "milestones": 0,
+        "expectedSources": 1
+      }
+    ]
+  },
+  "c_markerSample": [
+    {
+      "id": "attested:cahokia",
+      "year": 1000,
+      "zoom": 5,
+      "present": false,
+      "outsideYear": 1600,
+      "outsidePresent": false
+    },
+    {
+      "id": "attested:quanzhou",
+      "year": 1200,
+      "zoom": 5,
+      "present": false,
+      "outsideYear": 1500,
+      "outsidePresent": false
+    },
+    {
+      "id": "attested:nan-madol",
+      "year": 1400,
+      "zoom": 5,
+      "present": true,
+      "outsideYear": 1600,
+      "outsidePresent": false
+    },
+    {
+      "id": "attested:liangzhu",
+      "year": -3000,
+      "zoom": 5,
+      "present": true,
+      "outsideYear": 1,
+      "outsidePresent": false
+    },
+    {
+      "id": "attested:cahokia",
+      "year": 1000,
+      "zoom": 5,
+      "present": false,
+      "competitors": [
+        "St. LouisPopulation · 1000 CE"
+      ]
+    },
+    {
+      "id": "attested:cahokia",
+      "year": 1000,
+      "zoom": 8,
+      "present": false,
+      "competitors": [
+        "St. LouisPopulation · 1000 CE"
+      ]
+    },
+    {
+      "id": "attested:cahokia",
+      "year": 1000,
+      "zoom": 10,
+      "present": true,
+      "competitors": [
+        "St. LouisPopulation · 1000 CE",
+        "Cahokia"
+      ]
+    },
+    {
+      "id": "attested:quanzhou",
+      "year": 1200,
+      "zoom": 5,
+      "present": false,
+      "competitors": [
+        "HangzhouPopulation · 1200 CE",
+        "GuangzhouPopulation · 1200 CE",
+        "WuhanPopulation · 1200 CE"
+      ]
+    },
+    {
+      "id": "attested:quanzhou",
+      "year": 1200,
+      "zoom": 8,
+      "present": false,
+      "competitors": [
+        "QuanzhouPopulation · 1200 CE"
+      ]
+    },
+    {
+      "id": "attested:quanzhou",
+      "year": 1200,
+      "zoom": 10,
+      "present": false,
+      "competitors": [
+        "QuanzhouPopulation · 1200 CE"
+      ]
+    },
+    {
+      "id": "attested:nan-madol",
+      "year": 1400,
+      "zoom": 5,
+      "present": true,
+      "competitors": [
+        "Nan Madol"
+      ]
+    },
+    {
+      "id": "attested:nan-madol",
+      "year": 1400,
+      "zoom": 8,
+      "present": true,
+      "competitors": [
+        "Nan Madol"
+      ]
+    }
+  ],
+  "c_reader": {
+    "point": {
+      "x": 1007.7421875,
+      "y": 410
+    },
+    "reader": {
+      "eyebrow": "有据遗址记录",
+      "title": "南马都尔Nan Madol",
+      "excerpt": "×有据遗址记录南马都尔Nan Madol公元 1200 年 — 公元 1500 年篇章记录来源城市篇章公元 1200 年 — 公元 1500 年地点与环境Setting南马都尔位于波纳佩岛东南海岸外的潟湖中，玄武岩柱构筑的人工小岛与水道组成建筑群。Nan Madol lies in the lagoon off southeast Pohnpei, where artificial islets "
+    },
+    "sources": {
+      "links": [
+        "https://whc.unesco.org/en/list/1503/",
+        "https://whc.unesco.org/en/list/1503/"
+      ],
+      "text": "城市篇章的来源Nan Madol: Ceremonial Centre of Eastern Micronesiawhc.unesco.org波纳佩岛东南海岸外潟湖中的人工小岛群、水道与相关仪式建筑。1200—1500的建造与社会组织阶段。石造宫殿、庙宇、墓葬与居住区的建造期；组织转变时期1200—1500，不延展为全部居住年代。原创双语摘要 · CC BY 4.0；所引出版物版权归原作者。地点记"
+    }
+  },
+  "c_duplicates": {
+    "markers": 1,
+    "byText": [],
+    "byPos": []
+  },
+  "d_step": [
+    {
+      "hash": "year=1500",
+      "before": {
+        "step": "10",
+        "year": 1500,
+        "hash": "#year=1500&lang=bi&span=50&step=10&projection=globe&camera=9.32%2C48.08%2C6.72%2C0%2C0"
+      },
+      "after": {
+        "year": 1510,
+        "hash": "#year=1510&lang=bi&span=50&step=10&projection=globe&camera=9.32%2C48.08%2C6.72%2C0%2C0"
+      },
+      "delta": 10
+    },
+    {
+      "hash": "year=1500&step=1",
+      "before": {
+        "step": "1",
+        "year": 1500,
+        "hash": "#year=1500&lang=bi&span=50&step=1&projection=globe&camera=9.32%2C48.08%2C6.72%2C0%2C0"
+      },
+      "after": {
+        "year": 1501,
+        "hash": "#year=1501&lang=bi&span=50&step=1&projection=globe&camera=9.32%2C48.08%2C6.72%2C0%2C0"
+      },
+      "delta": 1
+    },
+    {
+      "hash": "year=1500&step=50",
+      "before": {
+        "step": "50",
+        "year": 1500,
+        "hash": "#year=1500&lang=bi&span=50&step=50&projection=globe&camera=9.32%2C48.08%2C6.72%2C0%2C0"
+      },
+      "after": {
+        "year": 1550,
+        "hash": "#year=1550&lang=bi&span=50&step=50&projection=globe&camera=9.32%2C48.08%2C6.72%2C0%2C0"
+      },
+      "delta": 50
+    }
+  ],
+  "e_mobile": {
+    "sizes": [
+      {
+        "label": "390x844",
+        "innerWidth": 390,
+        "scrollWidth": 390,
+        "overflowX": false,
+        "timelineBottom": 793,
+        "innerHeight": 844,
+        "paddingBottom": "4px",
+        "safeAreaEmulation": {
+          "supported": false,
+          "error": "Error: {\"code\":-32601,\"message\":\"'Emulation.setSafeAreaInsets' wasn't found\"}"
+        }
+      },
+      {
+        "label": "360x740",
+        "innerWidth": 360,
+        "scrollWidth": 360,
+        "overflowX": false,
+        "timelineBottom": 689,
+        "innerHeight": 740,
+        "paddingBottom": "4px",
+        "safeAreaEmulation": {
+          "supported": false,
+          "error": "Error: {\"code\":-32601,\"message\":\"'Emulation.setSafeAreaInsets' wasn't found\"}"
+        }
+      }
+    ],
+    "desktopPadding": {
+      "width": 1600,
+      "desktopPadding": "10px"
+    },
+    "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
+  },
+  "consoleErrors": {
+    "browserChecks": 0,
+    "followup": 0
+  }
+}

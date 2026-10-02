@@ -68,6 +68,14 @@ await check('Reviewed archaeological sites join the layer with their own period 
   }
   // Search lists records regardless of the selected year; the year filter stays
   // in placeAtYear, so a site outside its period is findable but not map-active.
+  // A reviewed site must not be crowded off the map by a population observation
+  // drawn at the same point: the marker layer places records in rank order and
+  // skips colliding labels, so the site has to outrank the observation.
+  const observation=historical.find(p=>p.id==='chandler:1457');
+  assert(observation,'the real Quanzhou observation record is present');
+  const siteRank=placeAtYear(sites.find(p=>p.id==='attested:quanzhou'),1200).rank;
+  const observationRank=placeAtYear(observation,1200).rank;
+  assert(siteRank<observationRank,`reviewed site rank ${siteRank} should beat the observation rank ${observationRank}`);
   assert.equal((await searchPlaces('阿瑜陀耶',1450)).some(p=>p.id==='attested:ayutthaya'),true);
   assert.equal((await searchPlaces('Ayutthaya',1200)).some(p=>p.id==='attested:ayutthaya'),true);
   assert.equal(placeAtYear((await searchPlaces('Ayutthaya',1200)).find(p=>p.id==='attested:ayutthaya'),1200),null);

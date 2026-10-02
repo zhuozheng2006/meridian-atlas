@@ -24,6 +24,14 @@
 
 另外 `scripts/places/validate-places.mjs` 与 `scripts/places/validate-city-narratives.mjs` 原为根校验器的过期副本且已产生假失败，现改为转发到根校验器，消除两份实现漂移。
 
+## 二·补 独立复核（task-6）发现并修好的问题
+
+1. **有据遗址标记会被同点的人口观测挤出地图**（复核发现，中）：`PlaceLayer.refresh()` 按 rank 先到先得做标签避让，人口观测 rank≈1.4–1.5 优于有据遗址 2.99，于是泉州、卡霍基亚等标记被同类人口标记挤掉。已把 `attested-site` 的 rank 提到 1（仍让位于有明确任期证据的历史首都），并在 `scripts/validate-places.mjs` 增加回归断言：真实数据里泉州古城（attested）在 1200 年的 rank 必须优于 chandler:1457 观测。实测标记恢复显示。
+2. **手机 `#timeline` 底部内边距被吃掉**（复核发现，低）：safe-area 规则原写 `calc(env(safe-area-inset-bottom) + 4px)`，在 inset=0 的设备上把原有的 8px 覆盖成 4px。已改为 `calc(8px + env(safe-area-inset-bottom))`，即“在原留白之上追加安全区”。
+3. **`window.__meridian` 常驻**（复核提出，保留）：这是有意保留的验证句柄（自动化测试用它读取真实图层顺序、相机与实例状态）。静态站点、无服务端信任边界，故不加开关；在此记录为设计决定。若日后发布到公开环境，再加 `?debug=1` 门控即可。
+
+复核同时确认通过的项：九种年份×模式组合的图层顺序完全一致、关闭疆域时五个图层同步隐藏、地区详图不与概览双重描边、有据遗址只在来源时段内出现且与既有记录无身份合并、步长默认与 URL 均正确、两档手机无横向溢出。非零 safe-area inset 因本机 Chrome 无 `Emulation.setSafeAreaInsets` 无法实测，只验证了规则结构与零 inset 行为。
+
 ## 三、复现命令
 
 ```sh

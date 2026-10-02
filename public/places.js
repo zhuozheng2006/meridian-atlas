@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.10.0-a8894d6d31c3';
-import {placeWindow} from './view-state.js?v=3.10.0-a8894d6d31c3';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.10.0-46f8ddfbae02';
+import {placeWindow} from './view-state.js?v=3.10.0-46f8ddfbae02';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -53,7 +53,7 @@ export function placeAtYear(p,year,span=50){
  const location=p.locations?.filter(l=>l.periods?.some(([a,b])=>a<=year&&year<=b)).sort((a,b)=>(a.accuracyMeters??Infinity)-(b.accuracyMeters??Infinity))[0];
  if(p.locations&&!location)return null;
  const label=datedPlaceLabel(p,year);
- return {...p,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,coordinates:location?.coordinates||p.coordinates,location,period:location?.periods.find(([a,b])=>a<=year&&year<=b)||period,rank:p.kind==='dated-capital'?0:3-(p.referenceCount||0)/100};
+ return {...p,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,coordinates:location?.coordinates||p.coordinates,location,period:location?.periods.find(([a,b])=>a<=year&&year<=b)||period,rank:p.kind==='dated-capital'?0:p.kind==='attested-site'?1:3-(p.referenceCount||0)/100};
 }
 export function nearestPlaceYear(p,year){
  if(p.observations)return p.observations.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a)[0];

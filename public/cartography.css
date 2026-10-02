@@ -160,4 +160,4 @@
 /* Phones with a home indicator: viewport-fit=cover lets the layout reach the screen
    edge, so the bottom-docked elements claim the inset themselves. env() resolves to 0
    everywhere else, leaving the existing layout untouched. */
-@supports(padding:env(safe-area-inset-bottom)){@media(max-width:760px){#timeline{padding-bottom:calc(env(safe-area-inset-bottom) + 4px)}header{padding-top:env(safe-area-inset-top)}}}
+@supports(padding:env(safe-area-inset-bottom)){@media(max-width:760px){#timeline{padding-bottom:calc(8px + env(safe-area-inset-bottom))}header{padding-top:env(safe-area-inset-top)}}}
