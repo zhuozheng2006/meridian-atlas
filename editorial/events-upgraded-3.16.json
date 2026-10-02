@@ -1,0 +1,2740 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T00:00:00+00:00",
+  "note": "Meridian Atlas 3.16 editorial upgrade of the structured-index events ranked 101 to 161, minus Q2274112 whose Wikidata P585 (1600) contradicts both Wikipedia articles (1614). Each entry keeps the shipped id (v312wd-<qid>) and its Wikidata entity id, drops provenance=wikidata-structured, and replaces the index-style rendering with an authored bilingual summary, a significance line and dating notes. Dates follow the project civil-year convention (no year zero), so Wikidata ISO 8601 BCE years are converted (for example -479 becomes -480). Where no article exists in one language edition the entry cites the editions that do exist plus the Wikidata entity and says so in its notes; see docs/verification-3.16/content-round7.md.",
+  "policy": {
+    "selection": "Ranks 101-161 of docs/verification-3.14/content-upgrade-ranking.json, minus Q2274112 whose Wikidata P585 contradicts the cited articles. Ranks 162-170 stay index-level for the next round.",
+    "language": "Chinese fields stay simplified; English fields contain Latin script only and are authored, not machine translated.",
+    "sources": "Every entry cites its Wikidata entity and at least one Wikipedia article read in this session (CC BY-SA 4.0) with the access date recorded. Twelve English titles that resolved to disambiguation pages were replaced by hand-verified titles, and two Chinese titles missing from the sitelinks were recovered and read; where a language edition has no article the entry discloses the gap in its notes instead of inventing a citation.",
+    "dating": "Where sources disagree on a date the entry keeps year precision and states the disagreement in editorialNotes; BCE years are written in the civil convention without a year zero.",
+    "inheritance": "Coordinates, region, category, precision, location type and the region basis are inherited unchanged from the sourced structured record, so an upgrade cannot move a point or re-region an event."
+  },
+  "count": 60,
+  "entries": [
+    {
+      "id": "v312wd-q2313318",
+      "title": {
+        "zh": "城濮之战",
+        "en": "Battle of Chengpu"
+      },
+      "start": -632,
+      "end": -632,
+      "lat": 34.6711,
+      "lon": 114.529,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前632年，晋文公率晋军联合齐、秦、宋等国，在城濮（今山东鄄城一带）与楚国令尹子玉统率的楚、陈、蔡联军决战。晋军以退避三舍诱敌、集中兵力各个击破，楚军大败。战后晋文公在践土会盟诸侯，确立霸主地位，楚国北进受挫，此战也被视为春秋时期规模最大的会战之一。",
+        "en": "In 632 BCE the army of Jin under Duke Wen, allied with Qi, Qin and Song, defeated the forces of Chu and its allies at Chengpu in present-day Shandong. Jin troops feigned retreat, split the Chu lines and broke them; the victory let Duke Wen convene the lords at Jiantu and be recognised as hegemon."
+      },
+      "significance": {
+        "zh": "城濮之战确立了晋文公的霸主地位，奠定了春秋中期晋楚长期争霸的格局。",
+        "en": "Chengpu made Duke Wen hegemon and set the pattern of Jin-Chu rivalry that dominated the middle Spring and Autumn period."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2313318（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2313318",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Chengpu（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Chengpu",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 城濮之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9F%8E%E6%BF%AE%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "维基数据P585记为ISO -631年，即民用纪年的公元前632年（本项目无0年），本条采用-632；战役地点与月日史载不一。",
+        "en": "Wikidata P585 records ISO -631, which is 632 BCE in the civil convention used here (no year zero), so the entry uses -632; the site and date are disputed in the sources."
+      },
+      "wikidataQid": "Q2313318",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q747679",
+      "title": {
+        "zh": "阿提密西安海战",
+        "en": "Battle of Artemisium"
+      },
+      "start": -480,
+      "end": -480,
+      "lat": 39.0527,
+      "lon": 23.3178,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前480年夏，希腊城邦联合舰队在优卑亚岛北端的阿提密西安海面与波斯舰队连续交战三天，与温泉关陆战同时进行。希腊舰队在风暴与激战中损失不小，但阻止了波斯海军绕击希腊陆军后方。温泉关失守后，希腊舰队撤往萨拉米斯，为随后的萨拉米斯海战保存了主力。",
+        "en": "In the summer of 480 BCE the allied Greek fleet fought the Persian navy for three days off Artemisium on northern Euboea, at the same time as the land battle at Thermopylae. Storms and hard fighting cost both sides ships, but the Greeks prevented the Persians from turning their position; after Thermopylae fell the fleet withdrew to Salamis."
+      },
+      "significance": {
+        "zh": "阿提密西安海战是希腊联军在波斯入侵中的首次海上抵抗，为萨拉米斯海战的胜利保存了舰队主力。",
+        "en": "Artemisium was the Greeks' first naval stand against the Persian invasion and preserved the fleet that won at Salamis."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q747679（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q747679",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Artemisium（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Artemisium",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基百科尚无该战役的独立条目；维基数据P585记为ISO -479年，即民用纪年的公元前480年，与英文维基的记载一致。",
+        "en": "Chinese Wikipedia has no separate article on this battle; Wikidata P585 records ISO -479, which is 480 BCE in the civil convention used here, matching the English article."
+      },
+      "wikidataQid": "Q747679",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q914210",
+      "title": {
+        "zh": "笠泽之战",
+        "en": "Battle of Lize"
+      },
+      "start": -478,
+      "end": -478,
+      "lat": 30.8997,
+      "lon": 120.953,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前478年，越王勾践趁吴国饥荒出兵攻吴，在笠泽（今江苏吴江一带）与吴军夹江对峙。越军以两翼佯攻、主力中央夜渡的战术突破吴军防线，吴军大败。此役是越灭吴战争中的决定性一战，吴国自此一蹶不振，数年后被越所灭，勾践成为春秋最后一位霸主。",
+        "en": "In 478 BCE King Goujian of Yue attacked Wu during a famine and faced its army across the river at Lize. Feigning attacks on both wings while his main force crossed at night, he broke the Wu line. Wu never recovered and was destroyed a few years later, making Goujian the last hegemon of the Spring and Autumn."
+      },
+      "significance": {
+        "zh": "笠泽之战是越灭吴的决定性战役，吴国由此丧失抵抗能力，勾践随后称霸。",
+        "en": "Lize was the decisive battle in Yue's destruction of Wu, after which Goujian became hegemon."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q914210（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q914210",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Lize（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Lize",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 越灭吴之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%B6%8A%E7%81%AD%E5%90%B4%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基的条目为战争条目越灭吴之战，笠泽之战见其中；英文维基单列该战役并系于公元前478年，与维基数据P585的ISO -477年（民用纪年前478年）一致。",
+        "en": "The Chinese article covers the whole Yue-Wu war with the battle inside it, while English Wikipedia has a separate article dating it to 478 BCE, matching Wikidata P585 ISO -477 in the civil convention used here."
+      },
+      "wikidataQid": "Q914210",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2005185",
+      "title": {
+        "zh": "马陵之战",
+        "en": "Battle of Maling"
+      },
+      "start": -342,
+      "end": -342,
+      "lat": 35.885833333,
+      "lon": 115.3975,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前342年，魏国进攻韩国，齐军以孙膑为军师出兵救援。孙膑用减灶之计示弱诱敌，在马陵道设伏，魏将庞涓追至马陵中伏自尽，魏太子申被俘后处死。此役使魏国丧失霸主地位，齐国成为东方强国，孙膑的用兵也成为中国古代军事谋略的经典案例。",
+        "en": "In 342 BCE Wei attacked Han and Qi sent troops to its aid under the strategist Sun Bin, who lured the Wei commander Pang Juan into a narrow defile at Maling by reducing his camp's cooking fires each day to feign desertion. The ambushed Wei army was destroyed, Pang Juan killed himself and Prince Shen was captured, ending Wei's supremacy."
+      },
+      "significance": {
+        "zh": "马陵之战终结了魏国的霸权，确立齐国东方强国的地位，孙膑的减灶诱敌也成为兵家典范。",
+        "en": "Maling ended Wei's hegemony, made Qi the leading eastern state and turned Sun Bin's decoy tactics into a classic of Chinese military thought."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2005185（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2005185",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Maling（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Maling",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 馬陵之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%A6%AC%E9%99%B5%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基系于战国时期，英文维基给出公元前342年；维基数据P585记为ISO -341年，即民用纪年的公元前342年（本项目无0年）。",
+        "en": "English Wikipedia gives 342 BCE while Chinese Wikipedia dates the battle to the Warring States period; Wikidata P585 records ISO -341, which is 342 BCE in the civil convention used here."
+      },
+      "wikidataQid": "Q2005185",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q3270429",
+      "title": {
+        "zh": "巨鹿之战",
+        "en": "Battle of Julu"
+      },
+      "start": -207,
+      "end": -207,
+      "lat": 37.066666666,
+      "lon": 114.483333333,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前207年，项羽率楚军在巨鹿（今河北平乡一带）与秦将章邯、王离所部主力决战。项羽破釜沉舟，先断秦军粮道，再会同诸侯军围歼王离部，章邯八个月后率二十万秦军投降。此役摧毁秦朝赖以立国的主力军团，项羽由此成为各路反秦义军的领袖。",
+        "en": "In 207 BCE Xiang Yu led the Chu army against the main Qin forces of Zhang Han and Wang Li at Julu. After burning his boats and breaking his pots to commit his troops, Xiang Yu cut the Qin supply lines and destroyed Wang Li's army; Zhang Han surrendered eight months later, deciding the fall of the Qin."
+      },
+      "significance": {
+        "zh": "巨鹿之战摧毁了秦朝的主力军团，项羽由此成为反秦义军领袖，秦朝的灭亡自此不可逆转。",
+        "en": "Julu destroyed the Qin field armies and made Xiang Yu the leader of the rebellion, making the dynasty's fall irreversible."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q3270429（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q3270429",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Julu（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Julu",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 巨鹿之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%B7%A8%E9%B9%BF%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基与英文维基均系于公元前207年；维基数据P585记为ISO -206年，即民用纪年的公元前207年。",
+        "en": "Both Wikipedia articles give 207 BCE; Wikidata P585 records ISO -206, which is 207 BCE in the civil convention used here."
+      },
+      "wikidataQid": "Q3270429",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q847402",
+      "title": {
+        "zh": "彭城之战",
+        "en": "Battle of Pengcheng"
+      },
+      "start": -205,
+      "end": -205,
+      "lat": 34.26666667,
+      "lon": 117.16666667,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前205年4月，楚汉战争期间，刘邦乘项羽北上攻齐之机，率五诸侯联军攻占楚都彭城。项羽闻讯后率三万精兵回师，清晨自萧县侧击联军，半日之内将数十万汉军击溃，睢水为之不流。刘邦仅以身免，其父与妻被楚军俘获，诸侯纷纷背汉归楚。",
+        "en": "In April 205 BCE Liu Bang took the Chu capital Pengcheng with a large coalition while Xiang Yu was campaigning in Qi. Xiang Yu returned with thirty thousand picked troops, fell on the allied camp at dawn and routed the far larger Han army in half a day; Liu Bang escaped alone and several allies defected to Chu."
+      },
+      "significance": {
+        "zh": "彭城之战是中国古代以少胜多的著名战例，楚汉战争的战略主动权一度重回项羽之手。",
+        "en": "Pengcheng is a famous Chinese victory against overwhelming odds and briefly returned the strategic initiative to Xiang Yu."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q847402（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q847402",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Pengcheng（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Pengcheng",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 彭城之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%BD%AD%E5%9F%8E%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基与维基数据均系于公元前205年；维基数据P585记为ISO -204年，本项目民用纪年无0年，本条只保留年份精度。",
+        "en": "Both Wikipedia articles and Wikidata give 205 BCE; P585 records ISO -204 because the civil convention used here has no year zero, and the entry keeps year precision."
+      },
+      "wikidataQid": "Q847402",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q722331",
+      "title": {
+        "zh": "马邑之谋",
+        "en": "Battle of Mayi"
+      },
+      "start": -133,
+      "end": -133,
+      "lat": 39.335,
+      "lon": 112.434,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前133年，汉武帝采纳王恢之议，以聂壹为内应，诱匈奴军臣单于进入马邑设伏围歼。单于行至途中察觉有诈，引兵而退，伏击落空。此谋虽未交战，却结束了汉朝对匈奴六十余年的和亲政策，拉开汉匈全面战争的序幕，也促使汉廷转向主动出击的骑兵战略。",
+        "en": "In 133 BCE the Han court under Emperor Wu tried to ambush the Xiongnu chanyu Junchen at Mayi, using the merchant Nie Yi as a decoy. The chanyu suspected the trap and withdrew before the Han armies could close it. No fighting took place, but the scheme ended six decades of heqin appeasement and opened the Han-Xiongnu wars."
+      },
+      "significance": {
+        "zh": "马邑之谋虽未成功，却终结了汉匈和亲，标志汉朝对匈奴战略由守势转向全面战争。",
+        "en": "The aborted Mayi ambush ended the heqin peace and marked the Han shift from appeasement to open war against the Xiongnu."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q722331（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q722331",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Mayi（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Mayi",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 马邑之谋（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%A9%AC%E9%82%91%E4%B9%8B%E8%B0%8B",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基与英文维基均系于公元前133年；维基数据P585记为ISO -132年，即民用纪年的公元前133年。",
+        "en": "Both Wikipedia articles give 133 BCE; Wikidata P585 records ISO -132, which is 133 BCE in the civil convention used here."
+      },
+      "wikidataQid": "Q722331",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q3272217",
+      "title": {
+        "zh": "昆阳之战",
+        "en": "Battle of Kunyang"
+      },
+      "start": 23,
+      "end": 23,
+      "lat": 33.626944444,
+      "lon": 113.356944444,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元23年6月至7月，绿林军建立的更始政权在昆阳（今河南叶县）以少胜多，击破王莽新朝主力。刘秀率数千援军突入敌阵，新军主帅王寻被杀，大军溃散。此役摧毁了新朝赖以支撑的军事力量，同年绿林军攻入长安，新莽覆亡，刘秀日后建立东汉。",
+        "en": "In June and July of 23 CE the Lulin army of the Gengshi regime, outnumbered many times over, broke the main Xin dynasty force at Kunyang in present-day Henan. Liu Xiu led a small relief column into the enemy camp, Wang Xun was killed and the Xin army collapsed; the defeat destroyed the dynasty's military power."
+      },
+      "significance": {
+        "zh": "昆阳之战是中国古代以少胜多的著名战例，直接导致新莽王朝覆灭，刘秀由此崛起。",
+        "en": "Kunyang is a classic Chinese example of victory against overwhelming odds; it destroyed the Xin dynasty and launched Liu Xiu's rise."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q3272217（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q3272217",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Kunyang（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kunyang",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 昆陽之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%98%86%E9%99%BD%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均记公元23年6月至7月；公元纪年不存在0年问题，本条只保留年份精度。",
+        "en": "Both Wikipedia articles date the battle to June and July of 23 CE; the entry keeps year precision."
+      },
+      "wikidataQid": "Q3272217",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q3827914",
+      "title": {
+        "zh": "荥阳之战 (190年)",
+        "en": "Battle of Xingyang (190)"
+      },
+      "start": 190,
+      "end": 190,
+      "lat": 34.783333333,
+      "lon": 113.35,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "190年，关东诸侯起兵讨伐董卓，董卓部将徐荣在荥阳汴水一带迎击联军。曹操率部先行西进，在汴水遭徐荣伏击，士卒伤亡惨重，曹操本人中箭受伤，靠曹洪让马才得以脱险。此役使讨董联军初战受挫，各路诸侯此后多持观望，联军事实上瓦解。",
+        "en": "In 190, after the eastern warlords rose against Dong Zhuo, his general Xu Rong met the coalition at the Bian River near Xingyang. Cao Cao advanced ahead of the others and was ambushed, losing most of his troops; wounded by arrows, he escaped only because Cao Hong gave him his horse. The defeat broke the coalition's first offensive."
+      },
+      "significance": {
+        "zh": "荥阳之战使讨董联军初战失利并迅速瓦解，为董卓迁都长安与群雄割据的局面铺路。",
+        "en": "Xingyang broke the coalition's first offensive and hastened both Dong Zhuo's move to Chang'an and the warlord fragmentation."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q3827914（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q3827914",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Xingyang (190)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Xingyang_(190)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 荥阳之战 (190年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%8D%A5%E9%98%B3%E4%B9%8B%E6%88%98_(190%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "荥阳在公元前205年与公元190年都有同名战事，本条专指190年讨董之战；英文维基同名页为消歧义页。",
+        "en": "Xingyang saw battles in 205 BCE and 190 CE; this entry is the 190 action against Dong Zhuo and the English title is a disambiguation page."
+      },
+      "wikidataQid": "Q3827914",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q3780302",
+      "title": {
+        "zh": "阳城之战",
+        "en": "Battle of Yangcheng"
+      },
+      "start": 191,
+      "end": 191,
+      "lat": 34.455277777,
+      "lon": 113.025277777,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "191年，讨董联军解体后，袁绍与袁术兄弟反目，双方在阳城交战。袁术部将孙坚自洛阳凯旋后卷入二袁之争，袁绍军一度占据上风，终被孙坚反击击败。公孙瓒之弟公孙越在此役中战死，公孙瓒因此与袁绍结仇，河北与淮南的割据对立由此进一步加深。",
+        "en": "In 191, as the coalition against Dong Zhuo broke up, the warlords Yuan Shao and Yuan Shu fought at Yangcheng. Sun Jian, Yuan Shu's subordinate, was drawn into the feud on his return from capturing Luoyang; Yuan Shao's force gained the upper hand first but was beaten back. Gongsun Yue, brother of Gongsun Zan, died in the fighting."
+      },
+      "significance": {
+        "zh": "阳城之战使二袁彻底决裂，并把公孙瓒卷入冲突，加速了东汉末年河北与淮南割据局面的形成。",
+        "en": "Yangcheng turned the feud between the two Yuans into open war, drew in Gongsun Zan and hastened the fragmentation of the late Han north."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q3780302（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q3780302",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Yangcheng（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Yangcheng",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阳城之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%B3%E5%9F%8E%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于191年；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles give 191; the entry keeps year precision."
+      },
+      "wikidataQid": "Q3780302",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1151692",
+      "title": {
+        "zh": "下邳之战",
+        "en": "Battle of Xiapi"
+      },
+      "start": 199,
+      "end": 199,
+      "lat": 34.342222222,
+      "lon": 118.009722222,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "198年冬到199年初，曹操与刘备联军围攻吕布据守的下邳，引沂水、泗水灌城。吕布部将侯成等人开城投降，吕布被擒杀，其割据徐州的力量覆亡。此役消除了曹操在官渡之战前被吕布从后方袭击的隐患，为曹操集中兵力对抗袁绍创造了条件。",
+        "en": "From the winter of 198 to early 199 Cao Cao and Liu Bei besieged Lü Bu at Xiapi and diverted the Si and Yi rivers to flood the city. Lü Bu's officers opened the gates and he was captured and executed, ending his hold on Xu Province and clearing Cao Cao's rear before the campaign against Yuan Shao."
+      },
+      "significance": {
+        "zh": "下邳之战消灭了吕布势力，使曹操得以在官渡之战前解除后方威胁。",
+        "en": "Xiapi destroyed Lü Bu's power and freed Cao Cao's rear before the decisive battle of Guandu."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1151692（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1151692",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Xiapi（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Xiapi",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 下邳之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E4%B8%8B%E9%82%B3%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基系于建安三年（198年至199年初），英文维基给出198年冬至199年2月7日；本条采用P585的199年并保留年份精度。",
+        "en": "Chinese Wikipedia dates the siege to Jian'an 3 (late 198 to early 199) and English Wikipedia to the winter of 198 to 7 February 199; the entry follows P585, the year 199, at year precision."
+      },
+      "wikidataQid": "Q1151692",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1330310",
+      "title": {
+        "zh": "长坂坡之战",
+        "en": "Battle of Changban"
+      },
+      "start": 208,
+      "end": 208,
+      "lat": 32.045,
+      "lon": 112.136,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "208年10月，曹操率轻骑在当阳长坂坡追击南撤的刘备军。刘备弃辎重与家属而走，赵云于乱军中救出刘禅，张飞据水断桥喝退曹军。此役虽以刘备军溃退告终，却使其保存了核心人马，得以退往江夏与孙权结盟，成为赤壁之战的前哨战，也因赵云的救主而广为人知。",
+        "en": "In October 208 Cao Cao's light cavalry caught Liu Bei's retreating force at Changban near Dangyang. Liu Bei abandoned his baggage and family; Zhao Yun rescued his infant son and Zhang Fei held a broken bridge with a handful of men, deterring pursuit. The defeat nonetheless preserved Liu Bei's core following and led on to the Red Cliffs campaign."
+      },
+      "significance": {
+        "zh": "长坂坡之战使刘备得以保存实力退往江夏，促成孙刘联盟，是赤壁之战的前哨战。",
+        "en": "Changban let Liu Bei preserve his force and reach Jiangxia, enabling the Sun-Liu alliance that fought at Red Cliffs."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1330310（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1330310",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Changban（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Changban",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 长坂坡之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%95%BF%E5%9D%82%E5%9D%A1%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均记208年；长坂在今湖北荆门南，各本所系月份不一，本条只保留年份精度。",
+        "en": "Both Wikipedia articles give 208; the site lies south of present-day Jingmen in Hubei and the recorded month varies, so the entry keeps year precision."
+      },
+      "wikidataQid": "Q1330310",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1281559",
+      "title": {
+        "zh": "伊松佐河之战",
+        "en": "Battle of Isonzo (489)"
+      },
+      "start": 489,
+      "end": 489,
+      "lat": 45.769725,
+      "lon": 13.371191666,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "489年8月28日，东哥特国王狄奥多里克大帝率军在阿奎莱亚附近的伊松提乌斯河畔迎战奥多亚塞，争夺意大利的统治权。狄奥多里克获胜，奥多亚塞退往维罗纳，双方随后又多次交锋。此役是狄奥多里克征服意大利的开端，奥多亚塞在意大利十余年的统治由此动摇。",
+        "en": "On 28 August 489 Theodoric the Great, king of the Ostrogoths, defeated Odoacer's army on the banks of the Isontius river near Aquileia in the opening campaign for Italy. Odoacer withdrew towards Verona, where the two sides fought again later that year, beginning the war that ended his rule."
+      },
+      "significance": {
+        "zh": "伊松佐河之战是狄奥多里克征服意大利的第一场胜利，开启了东哥特王国取代奥多亚塞统治的进程。",
+        "en": "It was Theodoric's first victory in the conquest of Italy and began the Ostrogothic replacement of Odoacer's rule."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1281559（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1281559",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Isonzo (489)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Isonzo_(489)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 伊松佐河戰役 (489年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E4%BC%8A%E6%9D%BE%E4%BD%90%E6%B2%B3%E6%88%B0%E5%BD%B9_(489%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "此役与一战期间的十二次伊松佐河战役同名而非同一事件，本条专指489年之战；原文所述伊松提乌斯河并非意大利语的伊松佐河。",
+        "en": "This is the battle of 489, not the twelve First World War battles of the Isonzo; the river the sources call Isontius is not the Italian Isonzo."
+      },
+      "wikidataQid": "Q1281559",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q851504",
+      "title": {
+        "zh": "武耶之战",
+        "en": "Battle of Vouillé"
+      },
+      "start": 507,
+      "end": 507,
+      "lat": 46.5833,
+      "lon": 0.3333,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "507年春，法兰克国王克洛维一世率军在普瓦捷附近的武耶击败西哥特国王阿拉里克二世，阿拉里克阵亡。西哥特人退出高卢大部，法兰克人夺取阿基坦，克洛维随后定都巴黎。此役使法兰克王国成为西欧最强势力，也被后世视为法国王权叙事的起点之一。",
+        "en": "In the spring of 507 Clovis, king of the Franks, defeated the Visigothic army of Alaric II at Vouille near Poitiers; Alaric was killed and the Visigoths lost most of their Gallic territory. The victory gave the Franks Aquitania and made Clovis the strongest ruler in western Europe."
+      },
+      "significance": {
+        "zh": "武耶之战使法兰克人取代西哥特人成为高卢的主导力量，奠定了法兰克王国在西欧的霸权。",
+        "en": "Vouille replaced Visigothic with Frankish dominance in Gaul and laid the foundation of the Frankish kingdom's supremacy in western Europe."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q851504（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q851504",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Vouille（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Vouille",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基百科尚无武耶之战条目，只有其所属战争的条目；本条来源为英文维基与维基数据实体，维基数据P585记为507年。",
+        "en": "Chinese Wikipedia has no article on the battle itself, only on the war it belongs to; the entry cites English Wikipedia and the Wikidata entity, whose P585 records 507."
+      },
+      "wikidataQid": "Q851504",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4871254",
+      "title": {
+        "zh": "虎牢之战",
+        "en": "Battle of Hulao"
+      },
+      "start": 621,
+      "end": 621,
+      "lat": 34.843611,
+      "lon": 113.206389,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "621年5月，李世民率唐军在洛阳以东的虎牢关击溃窦建德统率的夏军主力，窦建德兵败被俘，困守洛阳的王世充随即出降。此役是唐初统一战争的决定性会战，一举消灭中原两大割据势力。李世民以少胜多、据险待疲的指挥也常被后世兵家称道。",
+        "en": "In May 621 Li Shimin led a smaller Tang army to Hulao Pass east of Luoyang and destroyed the Xia host of Dou Jiande, who was captured; Wang Shichong, besieged in Luoyang, surrendered soon afterwards. The victory eliminated the two strongest rival polities of the Central Plains and decided the Tang unification of China."
+      },
+      "significance": {
+        "zh": "虎牢之战一举摧毁夏、郑两大割据政权，为唐朝统一中原奠定了基础。",
+        "en": "Hulao destroyed the Xia and Zheng regimes and secured Tang control of the Central Plains."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4871254（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4871254",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Hulao（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Hulao",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 虎牢之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%99%8E%E7%89%A2%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基系于武德四年五月，英文维基给出5月28日；本条只保留年份精度，不折算月日。",
+        "en": "Chinese Wikipedia dates the battle to the fifth month of Wude 4 while English Wikipedia gives 28 May; the entry keeps year precision."
+      },
+      "wikidataQid": "Q4871254",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1073429",
+      "title": {
+        "zh": "白藤江之战 (981年)",
+        "en": "Battle of Bạch Đằng"
+      },
+      "start": 981,
+      "end": 981,
+      "lat": 20.99,
+      "lon": 106.755,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "981年，北宋以前朝内乱为由出兵交趾，前黎朝皇帝黎桓在白藤江一带迎战。黎桓先诈降诱敌深入，再以水军截击，宋军在支棱与白藤江受挫，水路运输被切断，被迫撤军。此役使越南在前黎朝治下保持了独立，是宋越之间第一次大规模战争的决定性战役。",
+        "en": "In 981 the Song dynasty invaded the Vietnamese kingdom of Dai Co Viet and the Le emperor Le Hoan met the invaders at the Bach Dang river. Feigning surrender to draw the Song fleet forward, he cut the river with stakes and ambushed it; the Song forces, their supply route broken, withdrew, securing Vietnamese independence under the Early Le."
+      },
+      "significance": {
+        "zh": "981年白藤江之战使越南在前黎朝治下保持独立，是宋越之间第一次大规模战争的决定性战役。",
+        "en": "Bach Dang in 981 preserved Vietnamese independence under the Early Le and decided the first large-scale war between Song China and Vietnam."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1073429（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1073429",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Bạch Đằng（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_B%E1%BA%A1ch_%C4%90%E1%BA%B1ng",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 白藤江之战 (981年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%99%BD%E8%97%A4%E6%B1%9F%E4%B9%8B%E6%88%98_(981%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "英文维基的同名条目涵盖938、981与1288年三次白藤江之战，本条引用其中981年部分；中文维基条目为981年宋越战争。",
+        "en": "The English article of this name covers the three battles of Bach Dang in 938, 981 and 1288; this entry cites the 981 section, and the Chinese article covers the Song-Viet war of 981."
+      },
+      "wikidataQid": "Q1073429",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1113659",
+      "title": {
+        "zh": "富尔福德战役",
+        "en": "Battle of Fulford"
+      },
+      "start": 1066,
+      "end": 1066,
+      "lat": 53.9325,
+      "lon": -1.070833333,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1066年9月20日，挪威国王哈拉尔三世与托斯蒂格率维京军队在约克以南的富尔福德击败英格兰北部伯爵埃德温和莫卡。此役是1066年王位争夺战的开端，五天后哈拉尔在斯坦福桥之战中阵亡，英军随即南下迎击诺曼底公爵威廉，并在黑斯廷斯战败。",
+        "en": "On 20 September 1066 a Viking army under King Harald Hardrada of Norway and Tostig Godwinson defeated the northern earls Edwin and Morcar at Fulford outside York. It was the opening battle of the 1066 succession crisis; five days later Harald was killed at Stamford Bridge and the English army marched south to face William of Normandy."
+      },
+      "significance": {
+        "zh": "富尔福德战役拉开了1066年三场决战的序幕，其消耗直接影响了英格兰在黑斯廷斯的败局。",
+        "en": "Fulford opened the three-battle crisis of 1066 and the losses it cost England contributed to the defeat at Hastings."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1113659（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1113659",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Fulford（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Fulford",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基百科尚无富尔福德战役条目；中英文维基与维基数据均系于1066年，本条只保留年份精度。",
+        "en": "Chinese Wikipedia has no article on the battle; both Wikipedia articles and Wikidata P585 give 1066 and the entry keeps year precision."
+      },
+      "wikidataQid": "Q1113659",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1987213",
+      "title": {
+        "zh": "都拉斯战役 (1081年)",
+        "en": "Battle of Dyrrhachium (1081)"
+      },
+      "start": 1081,
+      "end": 1081,
+      "lat": 41.3,
+      "lon": 19.5,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1081年10月，诺曼人首领罗贝尔·吉斯卡尔率军进攻拜占庭帝国的都拉斯，即今阿尔巴尼亚都拉斯。拜占庭皇帝阿莱克修斯一世亲率大军迎战，诺曼重骑兵击破拜占庭阵线，皇帝本人受伤脱险。此役打开了诺曼人入侵巴尔干的门户，也迫使拜占庭向威尼斯求援。",
+        "en": "In October 1081 Robert Guiscard's Normans besieged Dyrrhachium, the Byzantine bridgehead on the Adriatic, and Emperor Alexios I marched to relieve it. The Norman heavy cavalry broke the Byzantine line and the emperor was wounded in the fighting; the defeat opened the Balkans to the Normans and pushed Byzantium into alliance with Venice."
+      },
+      "significance": {
+        "zh": "都拉斯战役打开了诺曼人入侵巴尔干的道路，是阿莱克修斯一世即位初期最严重的军事挫败。",
+        "en": "Dyrrhachium opened the Norman invasion of the Balkans and was the worst military defeat of Alexios I's early reign."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1987213（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1987213",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Dyrrhachium (1081)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Dyrrhachium_(1081)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "都拉斯在公元前48年、1018年与1081年都有同名战事，本条专指1081年诺曼与拜占庭之战；中文维基百科尚无该条。",
+        "en": "Dyrrhachium saw battles in 48 BCE, 1018 and 1081; this entry is the 1081 Norman-Byzantine battle and Chinese Wikipedia has no article on it."
+      },
+      "wikidataQid": "Q1987213",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2397117",
+      "title": {
+        "zh": "采石之战",
+        "en": "Battle of Caishi"
+      },
+      "start": 1161,
+      "end": 1161,
+      "lat": 31.7,
+      "lon": 118.44,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1161年11月，金帝完颜亮率军南下，试图自采石矶（今安徽马鞍山）渡过长江攻宋。南宋文臣虞允文临时督师，组织水军以车船和霹雳炮迎战，金军渡江失败，金朝内部随即发生兵变，完颜亮被部下所杀。此役保住了南宋的江淮防线，宋金南北对峙的格局得以延续。",
+        "en": "In November 1161 the Jin emperor Wanyan Liang tried to cross the Yangtze at Caishi, near modern Ma'anshan, to conquer the Southern Song. Yu Yunwen, a civil official, took command of the defence and led paddle-wheel warships carrying trebuchets and gunpowder bombs against the Jin fleet. The crossing failed, and Wanyan Liang was killed by his own officers soon afterwards."
+      },
+      "significance": {
+        "zh": "采石之战阻止了金军渡江，是南宋立国后最重要的一次防御胜利，也加速了金朝内部的政权更替。",
+        "en": "The battle stopped the Jin crossing, stands as the Southern Song's most important defensive victory and hastened the regime change at the Jin court."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2397117（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2397117",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Caishi（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Caishi",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 采石之戰 (1161年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%87%87%E7%9F%B3%E4%B9%8B%E6%88%B0_(1161%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基以绍兴三十一年十一月系年，英文维基给出11月26日至27日；本条只保留年份精度，且专指1161年宋金之战。",
+        "en": "Chinese Wikipedia dates the fighting to the eleventh month of the thirty-first Shaoxing year while English Wikipedia gives 26-27 November; the entry keeps year precision and refers to the 1161 Jin-Song battle only."
+      },
+      "wikidataQid": "Q2397117",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q650507",
+      "title": {
+        "zh": "富士川之战",
+        "en": "Battle of Fujigawa"
+      },
+      "start": 1180,
+      "end": 1180,
+      "lat": 35.158722222,
+      "lon": 138.696361111,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1180年，源赖朝与武田信义等源氏势力在骏河国富士川迎战平维盛率领的平家追讨军。平家军误把水鸟惊飞当作夜袭，阵脚大乱，几乎未经交战便自行溃散，平维盛只身逃回京都。此役是源平合战初期的重要转折，源氏由此在关东站稳脚跟，也为日后进军京都打开了局面。",
+        "en": "In 1180, at the Fuji River in Suruga Province, the Minamoto forces of Yoritomo and Takeda Nobuyoshi faced a punitive army of the Taira led by Taira no Koremori. Startled by a flight of waterfowl, the Taira camp panicked and scattered without a real engagement; Koremori fled back to Kyoto."
+      },
+      "significance": {
+        "zh": "富士川之战几乎未经激战便击溃平家追讨军，使源赖朝得以稳固关东根据地，成为源平合战的关键开端。",
+        "en": "The near-bloodless collapse of the Taira punitive force let Yoritomo consolidate his Kanto base and opened the Genpei War in earnest."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q650507（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q650507",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Fujigawa（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Fujigawa",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 富士川之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%AF%8C%E5%A3%AB%E5%B7%9D%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基系于治承四年十月二十日（1180年11月9日），英文维基只记1180年；本条保留年份精度，不折算月日。",
+        "en": "Chinese Wikipedia dates the battle to the twentieth day of the tenth month of Jisho 4 (9 November 1180) while English Wikipedia records only 1180; the entry keeps year precision."
+      },
+      "wikidataQid": "Q650507",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2237381",
+      "title": {
+        "zh": "粟津之战",
+        "en": "Battle of Awazu"
+      },
+      "start": 1184,
+      "end": 1184,
+      "lat": 34.98107,
+      "lon": 135.89762,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1184年3月4日，源义仲在宇治川、六条河原连败后率残部退往北陆，行至近江国粟津时遭源范赖、源义经所部甲斐源氏军追击。义仲战马陷入水田，中箭阵亡，今井兼平随之自尽，木曾源氏势力覆灭。此役终结了源氏内部的权力争夺，为源赖朝统一源氏铺平道路。",
+        "en": "On 4 March 1184 Minamoto no Yoshinaka, beaten at the Uji and Rokujo rivers, retreated north and was caught at Awazu in Omi Province by the armies of his cousins Noriyori and Yoshitsune. His horse mired in a paddy field, Yoshinaka was shot dead and his retainer Imai Kanehira killed himself."
+      },
+      "significance": {
+        "zh": "粟津之战消灭了源义仲势力，结束了源氏内讧，源赖朝由此独占举兵讨平的领导权。",
+        "en": "Awazu destroyed Yoshinaka's faction and left Yoritomo as the undisputed leader of the Minamoto rising against the Taira."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2237381（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2237381",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Awazu（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Awazu",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 粟津之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%B2%9F%E6%B4%A5%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基以寿永三年正月二十（1184年3月4日）系日，英文维基未记月日；本条只保留年份精度。",
+        "en": "Chinese Wikipedia dates the battle to 4 March 1184 while English Wikipedia gives no day; the entry keeps year precision."
+      },
+      "wikidataQid": "Q2237381",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2339983",
+      "title": {
+        "zh": "马乌莱河战役",
+        "en": "Battle of the Maule"
+      },
+      "start": 1471,
+      "end": 1471,
+      "lat": -35.56954444,
+      "lon": -71.69831944,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "15世纪后期，印加帝国军队向南扩张至现今智利中部马乌莱河一带，与马普切人联军激战三日，最终未能继续南进。传统说法把此役系于图帕克·印加·尤潘基在位期间，即1471至1493年，也有学者认为年代要晚得多。马乌莱河因此长期被视为印加帝国扩张的南界。",
+        "en": "In the later fifteenth century an Inca army advancing into what is now central Chile fought a Mapuche coalition for three days at the Maule River and failed to advance further. The battle is traditionally placed in the reign of Tupac Inca Yupanqui (1471-93), though some historians date it much later."
+      },
+      "significance": {
+        "zh": "马乌莱河战役通常被视为印加帝国向南扩张的终点，塑造了安第斯文明与马普切世界的分界。",
+        "en": "The Maule is conventionally treated as the southern limit of Inca expansion and the boundary between Andean and Mapuche worlds."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2339983（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2339983",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of the Maule（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_the_Maule",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 马乌莱河战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%A9%AC%E4%B9%8C%E8%8E%B1%E6%B2%B3%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "战役年代与是否具有决定性均有争议：传统系于1471至1493年间，另有学者主张晚至1532年；本条采用维基数据P585的1471年并保留年份精度。",
+        "en": "Both the date and the decisiveness of the battle are disputed: tradition places it between 1471 and 1493 while one historian argues for 1532; the entry follows the Wikidata P585 year of 1471."
+      },
+      "wikidataQid": "Q2339983",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2338569",
+      "title": {
+        "zh": "奥林太坦坡战役",
+        "en": "Battle of Ollantaytambo"
+      },
+      "start": 1537,
+      "end": 1537,
+      "lat": -13.258055555,
+      "lon": -72.263333333,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1537年1月，西班牙远征军在艾尔南多·皮萨罗率领下突袭印加皇帝曼可·印加设在奥林太坦坡的大营。此前曼可·印加于1536年起兵围攻库斯科的西班牙驻军。印加军掘渠引水淹没平原，西班牙骑兵难以展开，被迫撤退。此役是印加抵抗中少见的胜利，但未能解除库斯科之围。",
+        "en": "In January 1537 a Spanish expedition under Hernando Pizarro raided the headquarters of the Inca emperor Manco Inca at Ollantaytambo, after Manco had risen in 1536 and besieged the Spanish garrison at Cusco. The Incas flooded the plain to hamper the cavalry and the Spaniards withdrew, a rare Inca success that failed to lift the siege of Cusco."
+      },
+      "significance": {
+        "zh": "奥林太坦坡之战是印加反抗西班牙征服期间少有的战术胜利，显示了印加军队适应欧洲骑兵战法的能力。",
+        "en": "Ollantaytambo was one of the few Inca tactical successes against the conquest and showed how quickly Inca commanders adapted to European cavalry warfare."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2338569（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2338569",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Ollantaytambo（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Ollantaytambo",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 奧林太坦坡戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%A5%A7%E6%9E%97%E5%A4%AA%E5%9D%A6%E5%9D%A1%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力数字分歧较大，本条只取大概而不采信单一数字；另有学者认为战场并不在城镇本身。",
+        "en": "Troop figures differ widely between accounts and some scholars place the fighting outside the town; the entry adopts no single number."
+      },
+      "wikidataQid": "Q2338569",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1064989",
+      "title": {
+        "zh": "严岛之战",
+        "en": "Battle of Miyajima"
+      },
+      "start": 1555,
+      "end": 1555,
+      "lat": 34.301611111,
+      "lon": 132.322305555,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1555年10月，毛利元就率军约四千人在安艺国严岛登陆，突袭陶晴贤的两万余人大营。毛利军趁暴风雨夜渡海，拂晓发起强攻，陶军全线溃败，陶晴贤自尽。此役使毛利氏吞并周防、长门，成为西日本最强的势力，也奠定了元就作为谋略家的名声。",
+        "en": "In October 1555 Mori Motonari landed on the sacred island of Miyajima with roughly four thousand men and stormed the far larger camp of the Ouchi retainer Sue Harukata. Crossing by night in a storm, the Mori attack broke the Sue army at dawn; Harukata took his own life and the victory gave the Mori control of western Honshu."
+      },
+      "significance": {
+        "zh": "严岛之战使毛利氏取代大内氏称雄西日本，是战国中期势力重组的关键一战。",
+        "en": "Miyajima replaced Ouchi dominance in western Japan with that of the Mori and reshaped the balance of the Sengoku period."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1064989（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1064989",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Miyajima（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Miyajima",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 嚴島之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9A%B4%E5%B3%B6%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记天文二十四年十月初一（1555年10月16日），英文维基只记1555年；本条保留年份精度。",
+        "en": "Chinese Wikipedia gives 16 October 1555 while English Wikipedia records only the year; the entry keeps year precision."
+      },
+      "wikidataQid": "Q1064989",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1617667",
+      "title": {
+        "zh": "马塔基托战役",
+        "en": "Battle of Mataquito"
+      },
+      "start": 1557,
+      "end": 1557,
+      "lat": -35.0681,
+      "lon": -71.6386,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1557年4月30日黎明，西班牙总督比利亚格拉率军突袭马普切领袖莱夫扎茹设在马塔基托河畔树林间的营寨。此前莱夫扎茹曾击杀前任总督瓦尔迪维亚并进逼圣地亚哥。西班牙军夜袭得手，莱夫扎茹战死，马普切人对圣地亚哥的威胁解除，阿劳卡尼亚战争进入新的阶段。",
+        "en": "At dawn on 30 April 1557 the Spanish governor Francisco de Villagra surprised the fortified camp of the Mapuche toqui Lautaro between a wooded hill and the Mataquito River. Lautaro, who had killed the former governor Pedro de Valdivia and threatened Santiago, was killed in the attack, ending Mapuche designs on the Spanish capital."
+      },
+      "significance": {
+        "zh": "马塔基托之战击杀了马普切领袖莱夫扎茹，解除了马普切人对圣地亚哥的威胁，也报了瓦尔迪维亚阵亡之仇。",
+        "en": "Mataquito killed Lautaro, ended the Mapuche threat to Santiago and avenged the death of Pedro de Valdivia."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1617667（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1617667",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Mataquito（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Mataquito",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 马塔基托战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%A1%94%E5%9F%BA%E6%89%98%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1557年4月30日；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles date the battle to 30 April 1557; the entry keeps year precision."
+      },
+      "wikidataQid": "Q1617667",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q860789",
+      "title": {
+        "zh": "折上原之战",
+        "en": "Battle of Suriagehara"
+      },
+      "start": 1589,
+      "end": 1589,
+      "lat": 37.562138888,
+      "lon": 140.066333333,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1589年7月17日，伊达政宗率军在陆奥国折上原（今福岛县猪苗代与磐梯一带）与芦名义广、佐竹义重联军交战。伊达军击破对手，芦名氏灭亡，政宗由此控制南陆奥大部，为日后称雄东北奠定基础。此役是伊达氏扩张过程中最关键的会战之一，也是战国后期东北势力重组的标志。",
+        "en": "On 17 July 1589 Date Masamune defeated the allied forces of Ashina Yoshihiro and Satake Yoshishige at Suriagehara in Mutsu Province, in what is now Fukushima Prefecture. The Ashina house was destroyed and Date took control of most of southern Mutsu, laying the base for his dominance of the north-east."
+      },
+      "significance": {
+        "zh": "折上原之战消灭芦名氏，使伊达政宗一举控制南陆奥，是其在东北扩张的决定性会战。",
+        "en": "Suriagehara destroyed the Ashina and gave Date Masamune control of southern Mutsu, deciding his expansion in the north-east."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q860789（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q860789",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Suriagehara（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Suriagehara",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 摺上原之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%91%BA%E4%B8%8A%E5%8E%9F%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1589年7月17日；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles date the battle to 17 July 1589; the entry keeps year precision."
+      },
+      "wikidataQid": "Q860789",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2274135",
+      "title": {
+        "zh": "鴫野之战",
+        "en": "Battle of Shigino"
+      },
+      "start": 1614,
+      "end": 1614,
+      "lat": 34.691166666,
+      "lon": 135.549333333,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1614年11月26日，大坂冬之阵期间，上杉景胜率德川方军队进攻大坂城东北鴫野村的丰臣方阵地。丰臣方由井上赖次率两千人据三重栅栏防守，栅栏被攻破，井上阵亡。大野治长率一万两千人来援并反击，上杉方以铁炮齐射稳住阵脚，丰臣军最终撤回大坂城。",
+        "en": "On 26 November 1614, during the winter campaign of the Siege of Osaka, Uesugi Kagekatsu's Tokugawa force attacked the Toyotomi position at Shigino village north-east of Osaka Castle. The defenders under Inoue Yoritsugu held three lines of fences with two thousand men but were overrun and their commander killed. A relief force under Ono Harunaga counter-attacked before withdrawing."
+      },
+      "significance": {
+        "zh": "鴫野之战与今福之战同日发生，是大坂冬之阵初期德川方压制大坂外围据点的关键交战。",
+        "en": "Fought on the same day as Imafuku, Shigino was an early Tokugawa success in clearing the approaches to Osaka Castle."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2274135（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2274135",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Shigino（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Shigino",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 鴫野之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%B4%AB%E9%87%8E%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基与英文维基均系于1614年11月26日；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles date the battle to 26 November 1614; the entry keeps year precision."
+      },
+      "wikidataQid": "Q2274135",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1047091",
+      "title": {
+        "zh": "沥涔吹蔑之战",
+        "en": "Battle of Rạch Gầm-Xoài Mút"
+      },
+      "start": 1785,
+      "end": 1785,
+      "lat": 10.33888889,
+      "lon": 106.325,
+      "region": "southeast-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1785年1月20日，西山军将领阮惠在越南南部的沥涔与吹蔑两段河道设伏，以水军诱敌深入，围歼入侵的暹罗军队。暹罗军几乎全军覆没，残部退往柬埔寨。此役挫败了暹罗干涉越南南部的企图，为西山朝统一越南奠定基础，被越南史书列为重大胜利。",
+        "en": "On 20 January 1785 the Tay Son commander Nguyen Hue ambushed a Siamese army in the Rach Gam and Xoai Mut reaches of the Tien River in southern Vietnam, luring the fleet into a prepared trap. The Siamese force was almost annihilated and its survivors fled to Cambodia; the victory ended Siamese intervention in the south."
+      },
+      "significance": {
+        "zh": "沥涔吹蔑之战歼灭暹罗干涉军，为西山朝统一越南扫清外部障碍，是越南史上著名的水战胜利。",
+        "en": "Rach Gam-Xoai Mut destroyed the Siamese intervention force, cleared the way for Tay Son unification and became a celebrated naval victory in Vietnamese history."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1047091（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1047091",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Rạch Gầm-Xoài Mút（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_R%E1%BA%A1ch_G%E1%BA%A7m-Xo%C3%A0i_M%C3%BAt",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 瀝涔吹蔑之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%80%9D%E6%B6%94%E5%90%B9%E8%94%91%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1785年1月20日；战役名称在越南语与汉语文献中写法不一，本条采用中文维基的常用写法。",
+        "en": "Both Wikipedia articles date the battle to 20 January 1785; the name varies between Vietnamese and Chinese sources and the entry uses the common Chinese form."
+      },
+      "wikidataQid": "Q1047091",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q840006",
+      "title": {
+        "zh": "施托卡赫-恩根之战",
+        "en": "Battle of Stockach (1800)"
+      },
+      "start": 1800,
+      "end": 1800,
+      "lat": 47.51,
+      "lon": 9.1,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1800年5月3日，莫罗指挥的法军与克雷统率的奥军在施托卡赫和恩根两地同时交战，属第二次反法同盟战争。恩根方向陷入僵持，法军勒古布部却夺下奥军主要补给基地施托卡赫，迫使克雷下令全线撤退。此役为法军随后控制南德意志打开了通路。",
+        "en": "On 3 May 1800, during the War of the Second Coalition, Moreau's French army fought Kray's Austrians at Engen and Stockach. The fighting at Engen stalled, but Claude Lecourbe's troops seized Stockach, the main Austrian supply base, forcing Kray to retreat and opening southern Germany to the French."
+      },
+      "significance": {
+        "zh": "施托卡赫-恩根之战迫使奥军退出南德意志，为法军在1800年战局中的主动权奠定基础。",
+        "en": "Stockach-Engen pushed the Austrians out of southern Germany and gave the French the initiative in the 1800 campaign."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q840006（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q840006",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battles of Stockach and Engen（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battles_of_Stockach_and_Engen",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 施托卡赫-恩根之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%96%BD%E6%89%98%E5%8D%A1%E8%B5%AB-%E6%81%A9%E6%A0%B9%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "施托卡赫在1799与1800年各有一次战事，本条专指1800年5月3日的双战场之战。",
+        "en": "Stockach saw fighting in both 1799 and 1800; this entry is the twin engagement of 3 May 1800."
+      },
+      "wikidataQid": "Q840006",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2890355",
+      "title": {
+        "zh": "维罗纳战役 (1805年)",
+        "en": "Battle of Verona (1805)"
+      },
+      "start": 1805,
+      "end": 1805,
+      "lat": 45.4333,
+      "lon": 10.9833,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1805年10月18日，马塞纳率法军在维罗纳附近强渡阿迪杰河，击退卡尔大公部将武卡索维奇所部，在东岸建立桥头堡。此役属第三次反法同盟战争，法军的目的是牵制意大利境内的奥军，配合拿破仑在德意志的作战，也为随后10月底的卡尔迪耶罗之战创造了条件。",
+        "en": "On 18 October 1805 Massena's French troops crossed the Adige near Verona, drove back the Austrian defenders under Vukassovich and established a bridgehead on the east bank. The action was part of the War of the Third Coalition and was meant to pin Archduke Charles's army in Italy while Napoleon campaigned in Germany."
+      },
+      "significance": {
+        "zh": "维罗纳之战为法军在阿迪杰河东岸取得桥头堡，实现了牵制意大利战场奥军的战略目的。",
+        "en": "Verona gave the French a bridgehead over the Adige and tied down the Austrian army in Italy as intended."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2890355（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2890355",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Verona (1805)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Verona_(1805)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 維羅納之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%B6%AD%E7%BE%85%E7%B4%8D%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "维罗纳在249、312、402、489、1799与1805年都有同名战事，本条专指1805年之战；英文维基同名页为消歧义页。",
+        "en": "Verona saw fighting in 249, 312, 402, 489, 1799 and 1805; this entry is the 1805 action and the English title is a disambiguation page."
+      },
+      "wikidataQid": "Q2890355",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q657502",
+      "title": {
+        "zh": "埃尔兴根之战",
+        "en": "Battle of Elchingen"
+      },
+      "start": 1805,
+      "end": 1805,
+      "lat": 48.454166666,
+      "lon": 10.090555555,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1805年10月14日，拿破仑大军团第六军在内伊元帅指挥下强攻乌尔姆以北的埃尔兴根，击溃约翰·里施统率的奥地利军。奥军被迫退入乌尔姆，随即被法军合围，数周后投降，乌尔姆战役以法军大胜告终。此役是拿破仑当年对奥作战的关键一环。",
+        "en": "On 14 October 1805 Michel Ney's VI Corps stormed the Elchingen bridge north of Ulm and routed the Austrian corps of Johann Sigismund Riesch. The beaten Austrians fell back into Ulm, where Napoleon's army encircled them; the garrison surrendered weeks later, closing the Ulm campaign."
+      },
+      "significance": {
+        "zh": "埃尔兴根之战完成了对乌尔姆的合围，直接促成奥军主力投降，是拿破仑1805年对奥战争的决定性步骤之一。",
+        "en": "It completed the encirclement of Ulm and forced the surrender of the main Austrian army, deciding Napoleon's 1805 campaign against Austria."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q657502（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q657502",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Elchingen（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Elchingen",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 埃爾興根之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9F%83%E7%88%BE%E8%88%88%E6%A0%B9%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "本条采用中英文维基一致的1805年10月14日，只保留年份精度；1800年另有史塔卡赫之战，勿与之混淆。",
+        "en": "Both Wikipedia articles give 14 October 1805 and the entry keeps year precision; it is not the separate Battle of Stockach of 1800."
+      },
+      "wikidataQid": "Q657502",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q857434",
+      "title": {
+        "zh": "卡尔迪耶罗之战",
+        "en": "Battle of Caldiero (1805)"
+      },
+      "start": 1805,
+      "end": 1805,
+      "lat": 45.423888888,
+      "lon": 11.190555555,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1805年10月30日，马塞纳元帅率法军在维罗纳以东的卡尔迪耶罗迎战卡尔大公统率的奥军，属第三次反法同盟战争。法军约三万三千人实际参战，奥军投入约四万九千人，双方激战整日，奥军守住阵地，法军未能取得决定性突破，随后因乌尔姆战局变化而撤退。",
+        "en": "On 30 October 1805, during the War of the Third Coalition, Massena's French army attacked Archduke Charles's Austrians at Caldiero, fifteen kilometres east of Verona. About 33,000 French faced some 49,000 Austrians; the fighting lasted a full day without a decisive result before the French withdrew as the Ulm campaign closed."
+      },
+      "significance": {
+        "zh": "卡尔迪耶罗之战是1805年意大利战场规模最大的交战，牵制了卡尔大公统率的奥军主力。",
+        "en": "Caldiero was the largest engagement of the 1805 Italian campaign and kept Archduke Charles's main Austrian army occupied."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q857434（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q857434",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Caldiero (1805)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Caldiero_(1805)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 卡爾迪耶羅之戰 (1805年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%E8%BF%AA%E8%80%B6%E7%BE%85%E4%B9%8B%E6%88%B0_(1805%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "卡尔迪耶罗在1796、1805、1809与1813年都有战事，本条专指1805年之战；中英文维基均系于10月30日。",
+        "en": "Caldiero saw fighting in 1796, 1805, 1809 and 1813; this entry is the 1805 battle, which both Wikipedia articles date to 30 October."
+      },
+      "wikidataQid": "Q857434",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q348998",
+      "title": {
+        "zh": "伊斯利之战",
+        "en": "Battle of Isly"
+      },
+      "start": 1844,
+      "end": 1844,
+      "lat": 34.69,
+      "lon": -1.93,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1844年8月14日，法国元帅比若率军在摩洛哥伊斯利河畔击败苏丹阿卜杜勒-拉赫曼之子穆罕默德王子统率的摩洛哥军队。法国意在迫使摩洛哥停止支持阿尔及利亚抵抗领袖阿卜杜·卡迪尔，战前并未宣战。战后双方签约，摩洛哥承诺放弃对卡迪尔的支持。",
+        "en": "On 14 August 1844 French forces under Marshal Bugeaud routed a larger but poorly organised Moroccan army commanded by Muhammad, son of Sultan Abd al-Rahman, near the Isly River. France acted without a declaration of war to end Moroccan support for the Algerian resistance leader Abd el-Kader, and the defeat forced Morocco to negotiate."
+      },
+      "significance": {
+        "zh": "伊斯利之战迫使摩洛哥放弃对阿卜杜·卡迪尔的支持，加速了法国对阿尔及利亚的征服，并确立了法摩之间的不平等关系。",
+        "en": "The battle forced Morocco to drop Abd el-Kader, accelerated the French conquest of Algeria and set the terms of French dominance over Morocco."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q348998（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q348998",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Isly（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Isly",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 伊斯利之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E4%BC%8A%E6%96%AF%E5%88%A9%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "摩洛哥方面的兵力与伤亡数字各家统计差距很大，本条不采信具体数字，只保留年份精度。",
+        "en": "Moroccan troop and casualty estimates vary widely between accounts, so no figure is adopted and the entry keeps year precision."
+      },
+      "wikidataQid": "Q348998",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2663279",
+      "title": {
+        "zh": "八里桥之战",
+        "en": "Battle of Palikao"
+      },
+      "start": 1860,
+      "end": 1860,
+      "lat": 39.906667,
+      "lon": 116.614167,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1860年9月21日，第二次鸦片战争期间，僧格林沁统率的清军主力——蒙古骑兵与京畿八旗绿营——在通州八里桥迎战英法联军。联军凭借线膛枪炮击溃清军骑兵，僧格林沁部损失惨重。咸丰帝随即逃往承德，联军进逼北京，清朝被迫签订《北京条约》。",
+        "en": "On 21 September 1860, during the Second Opium War, Qing forces under Sengge Rinchen, mainly Mongol cavalry and Beijing garrison troops, met the Anglo-French army at Baliqiao near Tongzhou. Rifled artillery broke the cavalry; the emperor fled to Chengde, the allies entered Beijing and the Qing court signed the Convention of Beijing."
+      },
+      "significance": {
+        "zh": "八里桥之战摧毁了清军最精锐的骑兵主力，为英法联军攻入北京、迫使清朝签订《北京条约》扫清了道路。",
+        "en": "The destruction of the Qing cavalry opened Beijing to the Anglo-French force and forced the treaty that ended the Second Opium War."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2663279（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2663279",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Palikao（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Palikao",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 八里橋之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%85%AB%E9%87%8C%E6%A9%8B%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力与伤亡数字各家记载不一，本条不采信单一数字，只保留年份精度。",
+        "en": "Troop and casualty figures differ between accounts, so no single set of numbers is adopted and the entry keeps year precision."
+      },
+      "wikidataQid": "Q2663279",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1374378",
+      "title": {
+        "zh": "卡尔斯战役",
+        "en": "Battle of Kars"
+      },
+      "start": 1877,
+      "end": 1877,
+      "lat": 40.586667,
+      "lon": 43.121111,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1877年11月17日夜，俄军在高加索战场攻取奥斯曼帝国重镇卡尔斯。此前俄军7月的围攻被击退，此番改由洛里斯-梅利科夫指挥，先夺取东部防御工事，再切断侯赛因帕夏守军的退路，大批奥斯曼官兵被俘。战后签订的条约使卡尔斯割让给俄国，直到1921年才归还土耳其。",
+        "en": "On the night of 17 November 1877 Russian forces in the Caucasus stormed Kars, the key Ottoman fortress that had repelled their siege in July. Under Loris-Melikov the Russians seized the eastern works and cut off Hussein Pasha's garrison, capturing most of it. The later treaty ceded Kars to Russia, which held the city until 1921."
+      },
+      "significance": {
+        "zh": "卡尔斯之战是1877年至1878年俄土战争高加索战场的决定性胜利，直接导致卡尔斯被割让给俄国。",
+        "en": "Kars decided the Caucasus theatre of the Russo-Turkish War of 1877-1878 and led directly to the cession of the city to Russia."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q1374378（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q1374378",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Kars（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kars",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 卡爾斯戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%E6%96%AF%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基与英文维基均系于1877年11月17日；战役为时一夜，本条只保留年份精度。",
+        "en": "Both Wikipedia articles date the assault to 17 November 1877; the fighting lasted a single night and the entry keeps year precision."
+      },
+      "wikidataQid": "Q1374378",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q949635",
+      "title": {
+        "zh": "坎布拉战役",
+        "en": "Battle of Kambula"
+      },
+      "start": 1879,
+      "end": 1879,
+      "lat": -27.69289,
+      "lon": 30.6727,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1879年3月29日，祖鲁战争期间，祖鲁军队在坎布拉攻击英军营地，此前一天他们刚击溃英军骑马部队。英军已构筑车阵与工事，以密集火力击退祖鲁军的反复冲击，祖鲁方面阵亡约两千人，英军损失二十九人。祖鲁王国此后再无进攻能力，战争胜负就此逆转。",
+        "en": "On 29 March 1879, during the Anglo-Zulu War, a Zulu army attacked the British camp at Kambula a day after routing its mounted patrol. The entrenched British square broke the assault with concentrated fire, killing roughly two thousand warriors for the loss of twenty-nine soldiers, and Zulu confidence never recovered."
+      },
+      "significance": {
+        "zh": "坎布拉战役是祖鲁战争的转折点，祖鲁王国主力在此战后丧失进攻能力，同年七月即告覆亡。",
+        "en": "It was the turning point of the Anglo-Zulu War: the Zulu army lost its offensive power and the kingdom fell that July."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q949635（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q949635",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Kambula（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kambula",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 坎布拉战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9D%8E%E5%B8%83%E6%8B%89%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "英文维基给出3月29日与双方伤亡估计，中文维基只记年份和大略战果；本条保留年份精度，伤亡数字标注为估计值。",
+        "en": "English Wikipedia gives 29 March and casualty estimates while Chinese Wikipedia records only the year and the rough outcome; the entry keeps year precision and marks the figures as estimates."
+      },
+      "wikidataQid": "Q949635",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4087313",
+      "title": {
+        "zh": "北京之战 (1900年)",
+        "en": "Battle of Peking (1900)"
+      },
+      "start": 1900,
+      "end": 1900,
+      "lat": 39.906666666,
+      "lon": 116.3975,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1900年8月14日至15日，八国联军在义和团运动期间攻入北京，为被围困的东交民巷外国公使馆解围。自6月20日起，义和团与清军围攻使馆区，各国使馆人员、卫队与侨民困守近两个月。联军破城后解围，慈禧太后与光绪帝西逃，清朝被迫议和并签订《辛丑条约》。",
+        "en": "On 14 and 15 August 1900 the Eight-Nation Alliance captured Beijing and relieved the foreign legations at Dongjiaomin Xiang, which Boxer and Qing forces had besieged since 20 June. Diplomats, guards and civilians had held out for nearly two months; the court fled west and the Qing was forced into the settlement known as the Boxer Protocol."
+      },
+      "significance": {
+        "zh": "北京之战结束了使馆围困，直接导致清朝签订《辛丑条约》，是义和团运动的结局性事件。",
+        "en": "The relief of the legations ended the siege and led directly to the Boxer Protocol, closing the Boxer crisis on foreign terms."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4087313（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4087313",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Peking (1900)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Peking_(1900)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 北京之战 (1900年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%88%98_(1900%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "北京在历史上多次发生同名战事（979、1215、1449、1644、1860年等），本条专指1900年义和团运动期间的解围战。",
+        "en": "Beijing has seen many battles of the same name (979, 1215, 1449, 1644, 1860 and others); this entry is the 1900 relief of the legations during the Boxer Rebellion."
+      },
+      "wikidataQid": "Q4087313",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4871437",
+      "title": {
+        "zh": "乞力马扎罗山战役",
+        "en": "Battle of Kilimanjaro"
+      },
+      "start": 1914,
+      "end": 1914,
+      "lat": -3.075833333,
+      "lon": 37.353333333,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1914年11月3日，第一次世界大战东非战场初期，英军与德属东非殖民部队在乞力马扎罗山南麓的朗吉多发生前哨战。英军试图越过英属东非与德属东非的边界推进，被德军击退，双方伤亡都不大。此役表明协约国在东非的初期攻势受阻，战事由此转入长期消耗。",
+        "en": "On 3 November 1914, early in the East African campaign of the First World War, British and Indian troops clashed with the German colonial force at Longido on the southern slopes of Kilimanjaro. The British attempt to cross from British East Africa into German territory was repulsed with light casualties, showing that the Allied advance would be slow."
+      },
+      "significance": {
+        "zh": "乞力马扎罗山战役标志着东非战场英军首次攻势受挫，此后战事长期化。",
+        "en": "Kilimanjaro marked the first check to the British advance in East Africa and the start of a long attritional campaign."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4871437（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4871437",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Kilimanjaro（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kilimanjaro",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 吉力馬札羅山戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%90%89%E5%8A%9B%E9%A6%AC%E6%9C%AD%E7%BE%85%E5%B1%B1%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基只记年份与地点，英文维基给出1914年11月；本条保留年份精度。",
+        "en": "Chinese Wikipedia gives the year and place only while English Wikipedia dates the action to November 1914; the entry keeps year precision."
+      },
+      "wikidataQid": "Q4871437",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q575510",
+      "title": {
+        "zh": "普天堡战斗",
+        "en": "Battle of Pochonbo"
+      },
+      "start": 1937,
+      "end": 1937,
+      "lat": 41.524919979,
+      "lon": 128.299416684,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1937年6月4日，金日成指挥的朝鲜与中国游击队员越过满洲国与日治朝鲜的边界，袭击咸镜南道甲山郡的普天堡，击败当地日本守备队后撤回。朝鲜民主主义人民共和国长期把这次战斗宣传为金日成抗日武装斗争的代表性战功，其规模与指挥者在中外史学界仍有争议。",
+        "en": "On 4 June 1937 Korean and Chinese guerrillas commanded by Kim Il Sung crossed from Manchukuo into Japanese-ruled Korea and attacked Pochonbo in South Hamgyong, defeating the Japanese detachment before withdrawing. North Korea has since presented the raid as a founding deed of his anti-Japanese struggle, though its scale and command remain debated."
+      },
+      "significance": {
+        "zh": "普天堡战斗的军事规模有限，却因朝鲜的长期宣传成为东北抗日游击战最具政治象征意义的行动之一。",
+        "en": "The raid was militarily small but became one of the most politically symbolic actions of the anti-Japanese guerrilla war through North Korean commemoration."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q575510（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q575510",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Pochonbo（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Pochonbo",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 普天堡戰鬥（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%99%AE%E5%A4%A9%E5%A0%A1%E6%88%B0%E9%AC%A5",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均记1937年6月4日；中文维基指出指挥者可能是崔贤而非金日成，本条在正文保留这一争议。",
+        "en": "Both Wikipedia articles give 4 June 1937; Chinese Wikipedia notes that Choe Hyon rather than Kim Il Sung may have commanded, and the entry records the dispute."
+      },
+      "wikidataQid": "Q575510",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q543075",
+      "title": {
+        "zh": "荷兰港战役",
+        "en": "Battle of Dutch Harbor"
+      },
+      "start": 1942,
+      "end": 1942,
+      "lat": 53.8875,
+      "lon": -166.54222222,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1942年6月3日至4日，日本海军以两艘航空母舰突袭阿拉斯加阿马克纳克岛的荷兰港美军基地，是阿留申群岛战役的前哨战。空袭未摧毁港口设施，日军随后占领基斯卡与阿图两岛，这是二战中日本唯一占领的北美领土，也是北美外围首次遭敌机轰炸。",
+        "en": "On 3 and 4 June 1942 the Imperial Japanese Navy sent two aircraft carriers to raid the Dutch Harbor naval base and Army post on Amaknak Island in Alaska, opening the Aleutian Islands campaign. The raid caused limited damage, but Japan went on to occupy Kiska and Attu, the only North American territory it held during the war."
+      },
+      "significance": {
+        "zh": "荷兰港战役揭开了阿留申群岛战役，是二战中北美大陆外围首次遭敌机轰炸的事件。",
+        "en": "Dutch Harbor opened the Aleutian campaign and marked the first enemy air attack on North American soil in the Second World War."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q543075（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q543075",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Dutch Harbor（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Dutch_Harbor",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 荷蘭港戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%8D%B7%E8%98%AD%E6%B8%AF%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均记6月3日至4日，本条只保留年份精度；阿马克纳克岛当时属阿拉斯加领地，并非美国本土州。",
+        "en": "Both Wikipedia articles give 3-4 June and the entry keeps year precision; Amaknak Island was then part of the Alaska Territory rather than a state."
+      },
+      "wikidataQid": "Q543075",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q383614",
+      "title": {
+        "zh": "科希马战役",
+        "en": "Battle of Kohima"
+      },
+      "start": 1944,
+      "end": 1944,
+      "lat": 25.668,
+      "lon": 94.103,
+      "region": "global",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1944年4月至6月，日军在英帕尔作战中进攻印度东北那加丘陵的重镇科希马，企图切断英帕尔英印军队的补给公路。英印部队在孤立阵地上坚守，双方围绕山头与公路展开近距离争夺，日军在雨季与补给断绝中被迫撤退。此役与英帕尔战役一同构成日军进攻印度的转折点。",
+        "en": "From April to June 1944 Japanese forces attacking Imphal tried to take Kohima in the Naga Hills and cut the road supplying the British and Indian IV Corps. The garrison held a shrinking perimeter in close-quarters fighting until relief arrived, and the Japanese, short of supplies in the monsoon, withdrew. The battle turned back the U-Go offensive."
+      },
+      "significance": {
+        "zh": "科希马战役与英帕尔战役共同构成日军进攻印度的转折点，此后日军再未能威胁印度本土。",
+        "en": "Kohima and Imphal together turned back the Japanese offensive into India, after which the Japanese never threatened India again."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q383614（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q383614",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Kohima（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kohima",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基百科尚无科希马战役条目；中英文维基与维基数据均系于1944年，本条只保留年份精度。",
+        "en": "Chinese Wikipedia has no article on the battle; both Wikipedia articles and Wikidata P585 give 1944 and the entry keeps year precision."
+      },
+      "wikidataQid": "Q383614",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2748375",
+      "title": {
+        "zh": "黑色星期五 (1945年)",
+        "en": "Black Friday (1945)"
+      },
+      "start": 1945,
+      "end": 1945,
+      "lat": 61.4625,
+      "lon": 5.64,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1945年2月9日，英国皇家空军海岸司令部的英俊战士式战斗机在挪威弗勒峡湾攻击德国Z-33号驱逐舰及其护航舰艇，遭密集防空火力与德国空军第5战斗机联队拦截，损失惨重，幸存者称当日为黑色星期五。此役后，盟军把攻击商船的优先级置于军舰之上。",
+        "en": "On 9 February 1945 RAF Coastal Command Beaufighters attacked the German destroyer Z33 and its escorts in Forde Fjord, Norway, and ran into intense flak and Focke-Wulf 190s of JG 5. Seven Beaufighters fell to anti-aircraft fire and more were shot down by fighters, a loss the survivors called Black Friday."
+      },
+      "significance": {
+        "zh": "黑色星期五促使盟军调整反舰攻击战术与目标优先级，是二战反舰航空作战的重要教训。",
+        "en": "Black Friday forced a rethink of Allied anti-shipping tactics and target priorities and became a noted lesson in wartime air operations."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q2748375（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q2748375",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Black Friday (1945)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Black_Friday_(1945)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 黑色星期五 (1945年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%BB%91%E8%89%B2%E6%98%9F%E6%9C%9F%E4%BA%94_(1945%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "本条专指1945年2月9日挪威弗勒峡湾之战；英文维基同名页为消歧义页，引用其1945年子条目。",
+        "en": "This entry is the Forde Fjord action of 9 February 1945; the English title is a disambiguation page and the 1945 article is cited instead."
+      },
+      "wikidataQid": "Q2748375",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q379433",
+      "title": {
+        "zh": "天号作战",
+        "en": "Operation Kikusui I"
+      },
+      "start": 1945,
+      "end": 1945,
+      "lat": 30.36666667,
+      "lon": 128.06666667,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1945年4月，日本大本营为抵御盟军进攻冲绳实施天号作战，以海军航空兵的多轮菊水特攻配合以战列舰大和号为核心的海上特攻舰队出击。大和号等六艘日舰在驶往冲绳途中被美军舰载机击沉，航空特攻也未能阻止盟军。此役是日本海军联合舰队的最后一场大规模行动。",
+        "en": "In April 1945 the Japanese high command carried out Operation Ten-Go to oppose the Allied invasion of Okinawa, combining waves of kamikaze air attacks with a surface force built around the battleship Yamato. American carrier aircraft sank Yamato and five other warships before they reached Okinawa, and the air attacks also failed to stop the Allies."
+      },
+      "significance": {
+        "zh": "天号作战是日本海军联合舰队的最后一场大规模行动，标志日本海上主力在太平洋战争中彻底覆灭。",
+        "en": "Ten-Go was the last major operation of the Japanese fleet and marked the destruction of its remaining surface strength in the Pacific War."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q379433（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q379433",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Operation Kikusui I（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Operation_Kikusui_I",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 天號作戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%A4%A9%E8%99%9F%E4%BD%9C%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基的天号作战条目涵盖航空与海上两部分，英文维基对应条目现题为Operation Kikusui I；维基数据P585记为1945年。",
+        "en": "The Chinese Wikipedia article covers both the air and the surface parts while the English article is now titled Operation Kikusui I; Wikidata P585 records 1945."
+      },
+      "wikidataQid": "Q379433",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q15913566",
+      "title": {
+        "zh": "乌牛栏之役",
+        "en": "Battle of O-gu-lan"
+      },
+      "start": 1947,
+      "end": 1947,
+      "lat": 23.966941719,
+      "lon": 120.946318438,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1947年3月16日，二二八事件期间，国民党军队在台湾南投埔里的乌牛栏（今爱兰里）与当地民众武装交战。民众一方据桥头与河岸抵抗，终因武器与训练差距被击退。此役是二二八事件中民众武装在中部地区规模较大的一次抵抗，也标志着事件在埔里一带的平息。",
+        "en": "On 16 March 1947, during the 228 Incident in Taiwan, Nationalist troops fought a local militia at O-gu-lan, today's Ailan village, in Puli, Nantou County. The defenders held the bridge and riverbank before being driven back by troops with better arms and training. It was one of the larger armed resistances in central Taiwan during the incident."
+      },
+      "significance": {
+        "zh": "乌牛栏之役是二二八事件中中部民众武装较大规模的抵抗，反映了事件期间地方自卫力量的短暂集结。",
+        "en": "O-gu-lan was one of the larger armed resistances in central Taiwan during the 228 Incident and shows how briefly local defence forces mobilised."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q15913566（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q15913566",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 烏牛欄之役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%83%8F%E7%89%9B%E6%AC%84%E4%B9%8B%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记1947年3月16日；英文维基百科尚无该条目，本条来源为中文维基与维基数据实体。",
+        "en": "Chinese Wikipedia dates the fighting to 16 March 1947; English Wikipedia has no article on it and the entry cites the Chinese article and the Wikidata entity."
+      },
+      "wikidataQid": "Q15913566",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q15928518",
+      "title": {
+        "zh": "青树坪战役",
+        "en": "Battle of Qingshuping"
+      },
+      "start": 1949,
+      "end": 1949,
+      "lat": 27.384722222,
+      "lon": 112.021944444,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1949年8月，第二次国共内战衡宝战役前夕，中国人民解放军第四野战军在湖南双峰青树坪追击国民党桂系部队，遭对方反击而受挫。此役是三大战役之后解放军少有的失利，被国民党方面称为永丰大捷。青树坪之战促使四野调整战术，随后在衡宝战役中歼灭桂系主力。",
+        "en": "In August 1949, on the eve of the Hengbao campaign of the Chinese Civil War, the Fourth Field Army of the People's Liberation Army pursued Guangxi clique forces at Qingshuping in Hunan and was counter-attacked and checked. It was one of the few PLA defeats after the three great campaigns and was celebrated by the Nationalists as the Yongfeng victory."
+      },
+      "significance": {
+        "zh": "青树坪战役是解放军在三大战役后少有的失利，促使第四野战军调整战法并在衡宝战役中歼灭桂系主力。",
+        "en": "Qingshuping was a rare PLA defeat after the three great campaigns and pushed the Fourth Field Army to adjust before destroying the Guangxi clique at Hengbao."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q15928518（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q15928518",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 青树坪战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%9D%92%E6%A0%91%E5%9D%AA%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记1949年8月；英文维基百科尚无该条目，本条来源为中文维基与维基数据实体，维基数据P585记为1949年。",
+        "en": "Chinese Wikipedia dates the battle to August 1949; English Wikipedia has no article and the entry cites the Chinese article and the Wikidata entity, whose P585 records 1949."
+      },
+      "wikidataQid": "Q15928518",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q289102",
+      "title": {
+        "zh": "朝鲜海峡海战",
+        "en": "Battle of Korea Strait"
+      },
+      "start": 1950,
+      "end": 1950,
+      "lat": 35.17944444,
+      "lon": 129.07555556,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1950年6月25日至26日，朝鲜战争爆发首日，朝鲜人民军一艘载有数百名第766独立步兵团士兵的运输艇试图在釜山附近登陆，遭韩国海军巡逻舰截击并被击沉。此役是朝鲜战争最早的水面战斗之一，也是韩国海军在战争初期取得的重要胜利。",
+        "en": "On 25-26 June 1950, the first day of the Korean War, a North Korean transport carrying hundreds of soldiers of the 766th Independent Infantry Regiment tried to land near Busan but was intercepted and sunk by the South Korean patrol ship ROKS Baekdusan. It was one of the earliest surface actions of the war and an important South Korean victory."
+      },
+      "significance": {
+        "zh": "朝鲜海峡海战是朝鲜战争最早的水面交战之一，挫败了朝鲜人民军在釜山附近登陆的企图。",
+        "en": "Korea Strait was among the first surface actions of the Korean War and foiled a North Korean attempt to land near Busan."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q289102（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q289102",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Korea Strait（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Korea_Strait",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 朝鮮海峽海戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%9C%9D%E9%AE%AE%E6%B5%B7%E5%B3%BD%E6%B5%B7%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记6月25日，英文维基记6月25日至26日；本条只保留年份精度，不折算月日。",
+        "en": "Chinese Wikipedia gives 25 June while English Wikipedia gives 25-26 June; the entry keeps year precision."
+      },
+      "wikidataQid": "Q289102",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q3270739",
+      "title": {
+        "zh": "博川战斗",
+        "en": "Battle of Pakchon"
+      },
+      "start": 1950,
+      "end": 1950,
+      "lat": 39.658888888,
+      "lon": 125.591388888,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1950年11月5日，朝鲜战争第一次战役期间，中国人民志愿军第39军117师在博川附近的大宁江畔与英联邦第27旅的英澳部队交战，美军提供装甲与炮兵支援。志愿军夜袭一度夺取博川，随后在联合国军火力与反攻下撤出。此役是志愿军入朝后与英联邦部队的首次较大规模交手。",
+        "en": "On 5 November 1950, during the Chinese First Phase Offensive of the Korean War, the 117th Division of the Chinese People's Volunteer Army attacked the British and Australian 27th Commonwealth Brigade, supported by American armour and artillery, near Pakchon on the Taeryong River. The Chinese took the village in a night assault before withdrawing."
+      },
+      "significance": {
+        "zh": "博川战斗是志愿军与英联邦部队在朝鲜战场上的首次较大规模交锋，迫使联合国军暂停向鸭绿江推进。",
+        "en": "Pakchon was one of the first major clashes between Chinese and Commonwealth forces and halted the UN advance towards the Yalu."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q3270739（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q3270739",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Pakchon（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Pakchon",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 博川戰鬥（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8D%9A%E5%B7%9D%E6%88%B0%E9%AC%A5",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "维基数据P585与中英文维基均系于1950年；中文维基条目为小作品，叙述以英文维基与维基数据来源为准。",
+        "en": "Wikidata P585 and both Wikipedia articles give 1950; the Chinese article is a stub, so the narrative follows the English article and the Wikidata record."
+      },
+      "wikidataQid": "Q3270739",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q11211553",
+      "title": {
+        "zh": "攻打蒙卡达兵营行动",
+        "en": "Attack on the Moncada Barracks"
+      },
+      "start": 1953,
+      "end": 1953,
+      "lat": 20.02638889,
+      "lon": -75.81916667,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1953年7月26日，菲德尔·卡斯特罗与劳尔·卡斯特罗兄弟率159名革命者进攻古巴圣地亚哥的蒙卡达兵营，另一路同时攻打巴亚莫的军营，试图推翻巴蒂斯塔政权。行动失败，多数参与者被杀或被囚，卡斯特罗在受审时发表长篇辩护词。此役被广泛视为古巴革命的起点。",
+        "en": "On 26 July 1953 Fidel and Raul Castro led 159 revolutionaries in attacks on the Moncada barracks in Santiago de Cuba and a barracks in Bayamo, aiming to overthrow the Batista dictatorship. The assault failed and most of the attackers were killed or captured; the attack is widely seen as the start of the Cuban Revolution."
+      },
+      "significance": {
+        "zh": "蒙卡达兵营行动虽以失败告终，却成为古巴革命的起点，7月26日后来成为卡斯特罗革命运动的名称。",
+        "en": "The failed Moncada attack became the founding episode of the Cuban Revolution, and its date gave Castro's movement its name."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q11211553（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q11211553",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Attack on the Moncada Barracks（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Attack_on_the_Moncada_Barracks",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 攻打蒙卡達兵營行動（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%94%BB%E6%89%93%E8%92%99%E5%8D%A1%E9%81%94%E5%85%B5%E7%87%9F%E8%A1%8C%E5%8B%95",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1953年7月26日；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles date the attack to 26 July 1953; the entry keeps year precision."
+      },
+      "wikidataQid": "Q11211553",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q5778565",
+      "title": {
+        "zh": "阿莱格里亚德皮奥战役",
+        "en": "Battle of Alegría de Pío"
+      },
+      "start": 1956,
+      "end": 1956,
+      "lat": 19.875277777,
+      "lon": -77.523888888,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1956年12月5日，菲德尔·卡斯特罗等82名七二六运动成员乘格拉玛号游艇在古巴南部登陆三天后，在阿莱格里亚德皮奥遭古巴政府军突袭。起义队伍被打散，伤亡严重，幸存者分散逃入马埃斯特腊山区。此役是古巴革命中起义军与政府军的首次交锋，队伍经数月才重新集结。",
+        "en": "On 5 December 1956, three days after Fidel Castro and 82 members of the 26th of July Movement landed from the yacht Granma on Cuba's southern coast, the Cuban army surprised them at Alegria de Pio. The rebels were scattered with heavy casualties and the survivors fled into the Sierra Maestra; it was the first clash of the revolution."
+      },
+      "significance": {
+        "zh": "阿莱格里亚德皮奥之战是古巴革命的第一场战斗，起义军虽遭重创，但幸存者进入山区转入游击战。",
+        "en": "Alegria de Pio was the first battle of the Cuban Revolution; mauled but surviving, the rebels turned to guerrilla warfare in the mountains."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q5778565（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q5778565",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Alegría de Pío（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Alegr%C3%ADa_de_P%C3%ADo",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿莱格里亚德皮奥战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E8%8E%B1%E6%A0%BC%E9%87%8C%E4%BA%9A%E5%BE%B7%E7%9A%AE%E5%A5%A5%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1956年12月5日；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles date the battle to 5 December 1956; the entry keeps year precision."
+      },
+      "wikidataQid": "Q5778565",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q588774",
+      "title": {
+        "zh": "同帅战役",
+        "en": "Battle of Dong Xoai"
+      },
+      "start": 1965,
+      "end": 1965,
+      "lat": 11.537222222,
+      "lon": 106.896111111,
+      "region": "southeast-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1965年6月9日至13日，越南战争期间，越南南方民族解放阵线在福隆省同帅发动夏季攻势的高潮战，攻击南越军队与美军顾问驻地。战斗以越共获胜告终，南越方面损失惨重。此役暴露了南越军队的指挥与协同问题，也促使美军进一步扩大在越南的介入。",
+        "en": "From 9 to 13 June 1965, at the climax of the Viet Cong summer offensive, the National Liberation Front attacked South Vietnamese and American positions at Dong Xoai in Phuoc Long Province. The battle ended in a Viet Cong victory with heavy South Vietnamese losses; it exposed command failures in the South Vietnamese army and preceded deeper American involvement."
+      },
+      "significance": {
+        "zh": "同帅战役是1965年越共夏季攻势的高潮，加速了美军对越南战事的直接介入。",
+        "en": "Dong Xoai was the climax of the 1965 Viet Cong summer offensive and hastened direct American escalation in Vietnam."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q588774（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q588774",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Dong Xoai（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Dong_Xoai",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 同帥戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%90%8C%E5%B8%A5%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1965年6月9日至13日；本条只保留年份精度，不折算月日。",
+        "en": "Both Wikipedia articles date the battle to 9-13 June 1965; the entry keeps year precision."
+      },
+      "wikidataQid": "Q588774",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4273438",
+      "title": {
+        "zh": "昆嵩战役",
+        "en": "Battle of Kontum"
+      },
+      "start": 1972,
+      "end": 1972,
+      "lat": 14.3561,
+      "lon": 108.008,
+      "region": "southeast-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1972年5月，越南战争复活节攻势期间，越南人民军与越共三个师进攻西原重镇昆嵩，企图打通通往中部沿海的通道。南越军队在美国顾问与空中火力支援下坚守，双方在城市外围激战数周，北越军伤亡重大后撤围。昆嵩得以保全，成为南越在1972年少数守住的省会之一。",
+        "en": "In May 1972, during the Easter Offensive of the Vietnam War, three North Vietnamese and Viet Cong divisions attacked Kontum in the Central Highlands to open a route to the coast. South Vietnamese forces, supported by American advisers and heavy air power, held the town through weeks of fighting and the attackers withdrew with heavy losses."
+      },
+      "significance": {
+        "zh": "昆嵩战役挫败了北越1972年攻势中打通西原走廊的企图，是南越在复活节攻势中少数成功的防御战。",
+        "en": "Kontum frustrated the North Vietnamese attempt to open the Central Highlands corridor and was one of the few successful South Vietnamese defences of the 1972 offensive."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4273438（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4273438",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Kontum（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kontum",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 崑嵩戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%B4%91%E5%B5%A9%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记5月26日至27日，英文维基把昆嵩之战视为1972年整场攻势；本条以P585的1972年为准并保留年份精度。",
+        "en": "Chinese Wikipedia gives 26-27 May while English Wikipedia treats the battle as the wider 1972 campaign; the entry follows P585 with the year 1972 at year precision."
+      },
+      "wikidataQid": "Q4273438",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4870849",
+      "title": {
+        "zh": "达斯曼宫战役",
+        "en": "Battle of Dasman Palace"
+      },
+      "start": 1990,
+      "end": 1990,
+      "lat": 29.38693333,
+      "lon": 47.99738056,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1990年8月2日，伊拉克军队入侵科威特当天，在科威特城的达斯曼宫与科威特埃米尔的卫队交战。埃米尔贾比尔·艾哈迈德·萨巴赫事前已经转移，其弟法赫德亲王在保卫王宫时阵亡。伊军当日控制王宫并占领全城，海湾战争由此爆发，科威特随后被伊拉克吞并。",
+        "en": "On 2 August 1990, the day Iraqi forces invaded Kuwait, fighting broke out at Dasman Palace in Kuwait City between the Iraqi army and the Emir's guard. The Emir had already moved to safety, but his brother Sheikh Fahad was killed defending the palace. Iraqi troops took the palace and the city that day, beginning the Gulf War."
+      },
+      "significance": {
+        "zh": "达斯曼宫之战是伊拉克入侵科威特的开端性交战，标志着海湾战争的爆发。",
+        "en": "Dasman Palace was the opening engagement of the Iraqi invasion and marked the start of the Gulf War."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4870849（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4870849",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Dasman Palace（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Dasman_Palace",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 達斯曼宮戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%81%94%E6%96%AF%E6%9B%BC%E5%AE%AE%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1990年8月2日；王宫陷落的具体时刻与埃米尔撤离时间各家记载不一。",
+        "en": "Both Wikipedia articles give 2 August 1990; accounts differ on the exact hour the palace fell and on when the Emir left."
+      },
+      "wikidataQid": "Q4870849",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4870995",
+      "title": {
+        "zh": "菲拉卡岛战役",
+        "en": "Battle of Failaka"
+      },
+      "start": 1990,
+      "end": 1990,
+      "lat": 29.386933,
+      "lon": 47.997381,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1990年8月2日，伊拉克入侵科威特当天，伊军特种部队乘直升机突袭科威特东北的菲拉卡岛，与岛上科威特守军交战。守军包括一个步兵连、一个边防连和一个装备鹰式防空导弹的防空连，最终伊军占领全岛。岛上居民多已在入侵前撤离，此役是伊拉克吞并科威特行动的一部分。",
+        "en": "On 2 August 1990, the day of the invasion of Kuwait, Iraqi special forces flew by helicopter to attack Failaka Island north-east of Kuwait City. The garrison of an infantry company, a border guard company and an air defence company armed with Hawk missiles was overcome and the island occupied; most residents had already left."
+      },
+      "significance": {
+        "zh": "菲拉卡岛之战是伊拉克入侵科威特当日的组成部分，使伊军控制了科威特的海上门户。",
+        "en": "Failaka was part of the invasion day itself and gave Iraq control of Kuwait's offshore approaches."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4870995（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4870995",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Failaka（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Failaka",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 菲拉卡島戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%8F%B2%E6%8B%89%E5%8D%A1%E5%B3%B6%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1990年8月2日；双方兵力数字来自战后记述，本条不采信单一伤亡数字。",
+        "en": "Both Wikipedia articles give 2 August 1990; the troop figures come from later accounts and the entry adopts no single casualty count."
+      },
+      "wikidataQid": "Q4870995",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q4872697",
+      "title": {
+        "zh": "弗尔巴尼亚桥之战",
+        "en": "Battle of Vrbanja Bridge"
+      },
+      "start": 1995,
+      "end": 1995,
+      "lat": 43.853305555,
+      "lon": 18.4065,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1995年5月27日，波斯尼亚战争期间，塞族共和国军占领萨拉热窝弗尔巴尼亚桥两端法国维和部队的观察哨，扣押12名法国军人，其中两人被留在桥上充当人盾。勒库安特上尉率30人反击夺回哨位，法军2人阵亡、十余人受伤，塞族方面4人死亡、4人被俘。此后塞军基本不再与城内法军交火。",
+        "en": "On 27 May 1995, during the Bosnian War, Bosnian Serb forces seized the French UN observation posts at both ends of Sarajevo's Vrbanja Bridge and took twelve peacekeepers hostage, keeping two on the bridge as human shields. A platoon of thirty French soldiers under Captain Francois Lecointre retook the posts."
+      },
+      "significance": {
+        "zh": "弗尔巴尼亚桥之战是联合国维和部队少有的主动使用武力案例，改变了萨拉热窝城内塞族武装与维和部队的对峙态势。",
+        "en": "Vrbanja Bridge was a rare case of UN peacekeepers using force and it changed the stand-off between Serb forces and UNPROFOR inside Sarajevo."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q4872697（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q4872697",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Vrbanja Bridge（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Vrbanja_Bridge",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 弗尔巴尼亚桥之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%BC%97%E5%B0%94%E5%B7%B4%E5%B0%BC%E4%BA%9A%E6%A1%A5%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于1995年5月27日；另有一名法军伤者事后不治，本条按当日战果记两人阵亡。",
+        "en": "Both Wikipedia articles date the action to 27 May 1995; a third French soldier died of his wounds later and the entry records the two killed in the fighting."
+      },
+      "wikidataQid": "Q4872697",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q491188",
+      "title": {
+        "zh": "大青岛海战",
+        "en": "Battle of Daecheong"
+      },
+      "start": 2009,
+      "end": 2009,
+      "lat": 37.825,
+      "lon": 124.7,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2009年11月10日，朝鲜人民军海军与大韩民国海军在朝鲜半岛西部海域大青岛附近的北方界线一带交火。朝方一艘警备艇越界并首先开火，韩方还击并将其重创，朝方出现人员伤亡。这是继1999年与2002年两次延坪海战之后，双方在西海再次发生的武装冲突。",
+        "en": "On 10 November 2009 South and North Korean patrol boats exchanged fire near the Northern Limit Line off Daecheong Island in the Yellow Sea. A North Korean vessel crossed the line and opened fire; the South Korean navy returned fire and badly damaged it, with North Korean casualties. It was the third such clash since 1999."
+      },
+      "significance": {
+        "zh": "大青岛海战是朝韩在北方界线附近发生的又一次武装冲突，反映西海边界争议长期未解。",
+        "en": "Daecheong was another armed clash along the disputed Northern Limit Line and showed how unresolved the western sea border remains."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q491188（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q491188",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Daecheong（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Daecheong",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 大青島海戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E9%9D%92%E5%B3%B6%E6%B5%B7%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中英文维基均系于2009年11月10日；双方对越界与开火责任的表述不同，本条并记两种说法。",
+        "en": "Both Wikipedia articles give 10 November 2009; the two sides describe the crossing and the first shot differently and the entry records the dispute."
+      },
+      "wikidataQid": "Q491188",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q494058",
+      "title": {
+        "zh": "天安号沉没事件",
+        "en": "ROKS Cheonan sinking"
+      },
+      "start": 2010,
+      "end": 2010,
+      "lat": 37.92916667,
+      "lon": 124.60055556,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2010年3月26日，韩国海军浦项级护卫舰天安号在黄海白翎岛附近巡逻时爆炸沉没，舰上104名官兵中46人死亡。韩国主导的多国调查团认定该舰遭朝鲜潜艇发射的鱼雷击沉，朝鲜否认。联合国安理会谴责袭击但未指明责任方，事件使朝鲜半岛局势急剧紧张。",
+        "en": "On 26 March 2010 the South Korean corvette Cheonan sank after an explosion while patrolling near Baengnyeong Island in the Yellow Sea, killing 46 of its 104 crew. A South Korean-led international investigation concluded that a North Korean torpedo sank the ship; North Korea denied involvement and the UN Security Council condemned the attack without naming the attacker."
+      },
+      "significance": {
+        "zh": "天安号事件是冷战后朝鲜半岛最严重的军事危机之一，导致韩国对朝制裁与南北关系全面冻结。",
+        "en": "The sinking became one of the gravest Korean Peninsula crises since the Cold War, triggering South Korean sanctions and a freeze in inter-Korean relations."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q494058（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q494058",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — ROKS Cheonan sinking（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/ROKS_Cheonan_sinking",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 天安号沉没事件（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%A4%A9%E5%AE%89%E5%8F%B7%E6%B2%89%E6%B2%A1%E4%BA%8B%E4%BB%B6",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "沉没原因仍有争议，朝鲜与部分韩国研究者提出其他解释；本条只记官方调查结论与争议事实，保留年份精度。",
+        "en": "The cause remains disputed, with North Korea and some South Korean researchers offering other explanations; the entry records the official finding and the dispute at year precision."
+      },
+      "wikidataQid": "Q494058",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q18639122",
+      "title": {
+        "zh": "拉马迪之战 (2014-2015年)",
+        "en": "Battle of Ramadi (2014–2015)"
+      },
+      "start": 2014,
+      "end": 2014,
+      "lat": 33.416666666,
+      "lon": 43.3,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2014年11月至2015年5月，伊斯兰国武装在伊拉克安巴尔省首府拉马迪与政府军反复争夺。2015年5月中旬，武装分子借沙尘暴掩护，以少量兵力突破六千守军的防线，5月17日完全控制城区。伊拉克军队此役失利，成为2014年后反恐战局中的重大挫折。",
+        "en": "From November 2014 to May 2015 Islamic State fighters fought Iraqi government forces for Ramadi, capital of Anbar Province. In mid-May 2015 a small force attacked under cover of a dust storm, broke through positions held by some six thousand troops and took the city by 17 May, a serious setback for Iraq and its allies."
+      },
+      "significance": {
+        "zh": "拉马迪失守是2014年后伊拉克政府军最严重的挫败之一，直接促成国际联盟调整对伊支援。",
+        "en": "The loss of Ramadi was one of the gravest setbacks for Iraqi forces after 2014 and prompted changes in coalition support."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q18639122（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q18639122",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Ramadi (2014–2015)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2014%E2%80%932015)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 拉馬迪之戰 (2014年至2015年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%8B%89%E9%A6%AC%E8%BF%AA%E4%B9%8B%E6%88%B0_(2014%E5%B9%B4%E8%87%B32015%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记为2014年至2015年，本条按维基数据P585取起始年2014；平民死亡数字为估计值。",
+        "en": "Chinese Wikipedia records 2014-2015 and the entry follows the Wikidata P585 start year of 2014; civilian death figures are estimates."
+      },
+      "wikidataQid": "Q18639122",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q22117640",
+      "title": {
+        "zh": "阿夫迪伊夫卡战役 (2017年)",
+        "en": "Battle of Avdiivka (2017)"
+      },
+      "start": 2017,
+      "end": 2017,
+      "lat": 48.125,
+      "lon": 37.766666666,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2017年1月底至2月初，乌克兰政府军与顿巴斯分离武装在顿涅茨克州阿夫迪伊夫卡附近展开激烈交战，是顿巴斯战争中伤亡最集中的阶段之一。战斗围绕工业区与交通线反复争夺，居民区一度断水断电。欧洲安全与合作组织观察团称这是2015年以来乌东最激烈的战斗。",
+        "en": "From late January to early February 2017 Ukrainian government forces and separatist units fought around Avdiivka in Donetsk Oblast in one of the deadliest episodes of the war in Donbas. The fighting centred on the industrial zone and transport links, leaving residents without water and power; OSCE monitors called it the worst violence in eastern Ukraine since 2015."
+      },
+      "significance": {
+        "zh": "阿夫迪伊夫卡之战是2015年明斯克协议后乌东最激烈的交战，显示停火机制难以约束前线冲突。",
+        "en": "Avdiivka was the fiercest fighting in eastern Ukraine after the 2015 Minsk agreement and showed how weakly the ceasefire constrained the front."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q22117640（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q22117640",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Avdiivka (2017)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Avdiivka_(2017)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿夫迪伊夫卡戰役 (2017年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%A4%AB%E8%BF%AA%E4%BC%8A%E5%A4%AB%E5%8D%A1%E6%88%B0%E5%BD%B9_(2017%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "本条专指2017年1月至2月的交战，与2022年后的同名战役无关；维基数据P585记为2017年。",
+        "en": "This entry is the January-February 2017 engagement and not the later battle of the same name after 2022; Wikidata P585 records 2017."
+      },
+      "wikidataQid": "Q22117640",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q123058059",
+      "title": {
+        "zh": "苏法战役",
+        "en": "Battle of Sufa"
+      },
+      "start": 2023,
+      "end": 2023,
+      "lat": 31.237222222,
+      "lon": 34.341388888,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2023年10月7日，哈马斯武装人员袭击以色列南部与加沙地带边界附近的苏法基布兹及邻近军事哨所，劫持包括居民在内的两百余人。以军第13突击队等部队随后夺回定居点并解救人质。此役是哈马斯当天多路袭击的一部分，也是新一轮以哈战争的开端。",
+        "en": "On 7 October 2023 Hamas militants attacked Kibbutz Sufa and a nearby army outpost on Israel's border with Gaza, seizing more than two hundred and fifty residents and soldiers as hostages before Israeli special forces retook the settlement. The assault was part of the coordinated Hamas incursion that opened the Gaza war."
+      },
+      "significance": {
+        "zh": "苏法之战是2023年10月7日袭击的组成部分，其大规模劫持平民与人质成为该轮冲突的标志性事件。",
+        "en": "Sufa was part of the 7 October 2023 assault, and the mass hostage-taking there became emblematic of the attack."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q123058059（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q123058059",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Battle of Sufa（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Sufa",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 蘇法戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%98%87%E6%B3%95%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基称超过250名居民被劫持，英文维基未给出人数；两者均系于2023年10月7日，本条保留年份精度。",
+        "en": "Chinese Wikipedia reports more than 250 residents taken hostage while English Wikipedia gives no figure; both date the attack to 7 October 2023 and the entry keeps year precision."
+      },
+      "wikidataQid": "Q123058059",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q123290408",
+      "title": {
+        "zh": "加沙围城战",
+        "en": "Siege of Gaza City"
+      },
+      "start": 2023,
+      "end": 2023,
+      "lat": 31.5,
+      "lon": 34.466666666,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2023年11月2日，以色列国防军在加沙战争中完成对加沙市的合围，战斗自10月30日起在城郊展开。加沙市是加沙地带人口最多的城市，乐施会称约50万巴勒斯坦人与200名以色列人及其他人质被困在加沙北部。围城持续至2025年1月停火，哈马斯仍控制加沙市。",
+        "en": "On 2 November 2023 the Israel Defense Forces completed the encirclement of Gaza City during the Gaza war, after fighting on the outskirts began on 30 October. Gaza City is the most populous city in the Strip; Oxfam reported that about 500,000 Palestinians and 200 Israelis and other captives were trapped in northern Gaza."
+      },
+      "significance": {
+        "zh": "加沙围城战是2023年加沙战争中以军控制加沙北部核心城区的关键行动，造成了大规模平民流离与人道危机。",
+        "en": "The siege of Gaza City was the key operation through which Israel took control of the northern Strip and it produced large-scale civilian displacement and a humanitarian crisis."
+      },
+      "sources": [
+        {
+          "title": "Wikidata — Q123290408（实体声明与坐标来源，2026-10-03 本会话读取）",
+          "url": "https://www.wikidata.org/wiki/Q123290408",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "Wikipedia — Siege of Gaza City（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Siege_of_Gaza_City",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 加沙圍城戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8A%A0%E6%B2%99%E5%9C%8D%E5%9F%8E%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "维基数据P585记2023年，围城实际延续至2025年1月停火；本条按来源取2023年，并在正文说明后续。",
+        "en": "Wikidata P585 records 2023 while the siege in fact continued until the January 2025 ceasefire; the entry follows the source year and states the later end in the text."
+      },
+      "wikidataQid": "Q123290408",
+      "regionBasis": "coordinate-box"
+    }
+  ]
+}
