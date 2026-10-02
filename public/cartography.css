@@ -20,6 +20,10 @@
 /* Structured index entries come from dataset statements rather than editorial review.
    They are useful to find, but must not read like curated entries. */
 .event-card.structured-index{border-left-style:dashed}
+/* The chronicle lists curated and dataset-derived rows side by side, so the second
+   kind carries the same marking there as it does in the map sidebar. */
+tbody tr.structured-index{background:#d5b46e0d}
+tbody tr.structured-index .library-year{box-shadow:inset 3px 0 #b08a52}
 /* Dated battles: a point layer, deliberately distinct from settlement markers. */
 .battle-marker{display:flex;align-items:center;gap:4px;padding:1px 3px;border:0;background:none!important;box-shadow:none!important;color:#5b2f2a;font-size:11px;line-height:1.3;white-space:nowrap}
 .battle-marker i{flex:none;display:block;width:9px;height:9px;background:#b4553f;border:1.5px solid #f6e7c8;transform:rotate(45deg);box-shadow:0 0 0 1px #b4553f66}
