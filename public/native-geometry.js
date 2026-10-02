@@ -1,6 +1,7 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.5.0-1b93c46bd25d';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.6.0-9b6157c0c2a3';
 const native=new Map();
-const bootYears=new Set([-3400,-221,1,500,1000,1492,1750,1914,1945,1991,2024]);
+const bootYears=new Set([-3400,-221,1,500,1000,1492,1500,1750,1914,1945,1991,2024]);
+export const hasNativeBootstrap=year=>bootYears.has(year);
 export const nativeGeometry=id=>native.get(id);
 function validGeometry(g){
  if(!g||!['Polygon','MultiPolygon'].includes(g.type)||!Array.isArray(g.coordinates)||!g.coordinates.length)return false;

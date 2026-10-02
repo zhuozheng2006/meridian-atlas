@@ -1,0 +1,791 @@
+{
+  "checked_date_utc": "2026-10-02",
+  "source_url": "https://icr.ethz.ch/data/cshapes/CShapes-COW-2.1.geojson",
+  "edition": "COW",
+  "source_bytes": 29403123,
+  "source_sha256": "6aa7b88a5a8cbc5366c4200af8af3d7d9cd632800a1e62cd1dd2b7bfe8d65a88",
+  "shapely_version": "2.0.7",
+  "geos_version": "3.11.4",
+  "feature_count": 805,
+  "unique_codes": 273,
+  "total_vertices": 1305478,
+  "geometry_types": {
+    "MultiPolygon": 408,
+    "Polygon": 397
+  },
+  "date_range": [
+    "1886-01-01",
+    "2023-12-31"
+  ],
+  "status_counts": {
+    "independent": 407,
+    "colony": 228,
+    "occupied": 62,
+    "MISSING": 10,
+    "mandate": 25,
+    "protectorate": 73
+  },
+  "missing_fields": [
+    {
+      "index": 94,
+      "name": "Luxembourg",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Luxembourg",
+        "area": 2581.60650503168,
+        "capname": "Luxembourg",
+        "caplong": 6.13,
+        "caplat": 49.6117,
+        "cowcode": 212,
+        "ruledby": 212,
+        "cowsdate": "31.12.1892 23:00:00",
+        "cowsyear": 1893,
+        "cowsmonth": 1,
+        "cowsday": 1,
+        "cowedate": "31.07.1914 23:00:00",
+        "coweyear": 1914,
+        "cowemonth": 8,
+        "coweday": 1,
+        "cap_geom": "SRID=4326;POINT (6.130000114440918 49.611671447753906)"
+      }
+    },
+    {
+      "index": 96,
+      "name": "Luxembourg",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Luxembourg",
+        "area": 2581.60650503168,
+        "capname": "Luxembourg",
+        "caplong": 6.13,
+        "caplat": 49.6117,
+        "cowcode": 212,
+        "ruledby": 212,
+        "cowsdate": "11.11.1918 23:00:00",
+        "cowsyear": 1918,
+        "cowsmonth": 11,
+        "cowsday": 12,
+        "cowedate": "13.11.1920 23:00:00",
+        "coweyear": 1920,
+        "cowemonth": 11,
+        "coweday": 14,
+        "cap_geom": "SRID=4326;POINT (6.130000114440918 49.611671447753906)"
+      }
+    },
+    {
+      "index": 292,
+      "name": "Senegal",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Senegal",
+        "area": 195996.83695719,
+        "capname": "Dakar",
+        "caplong": -17.4553,
+        "caplat": 14.7089,
+        "cowcode": 433,
+        "ruledby": 433,
+        "cowsdate": "20.06.1960 23:00:00",
+        "cowsyear": 1960,
+        "cowsmonth": 6,
+        "cowsday": 21,
+        "cowedate": "18.08.1960 23:00:00",
+        "coweyear": 1960,
+        "cowemonth": 8,
+        "coweday": 19,
+        "cap_geom": "SRID=4326;POINT (-17.455280303955078 14.708889961242676)"
+      }
+    },
+    {
+      "index": 450,
+      "name": "Zambia",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Zambia",
+        "area": 751926.783447361,
+        "capname": "Lusaka",
+        "caplong": 28.2833,
+        "caplat": -15.4167,
+        "cowcode": 551,
+        "ruledby": 551,
+        "cowsdate": "21.01.1964 23:00:00",
+        "cowsyear": 1964,
+        "cowsmonth": 1,
+        "cowsday": 22,
+        "cowedate": "22.10.1964 23:00:00",
+        "coweyear": 1964,
+        "cowemonth": 10,
+        "coweday": 23,
+        "cap_geom": "SRID=4326;POINT (28.2833309173584 -15.416669845581055)"
+      }
+    },
+    {
+      "index": 499,
+      "name": "Morocco",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Morocco",
+        "area": 350332.034592749,
+        "capname": "Rabat",
+        "caplong": -6.83,
+        "caplat": 34.02,
+        "cowcode": 600,
+        "ruledby": 600,
+        "cowsdate": "30.03.1912 23:00:00",
+        "cowsyear": 1912,
+        "cowsmonth": 3,
+        "cowsday": 31,
+        "cowedate": "25.11.1912 23:00:00",
+        "coweyear": 1912,
+        "cowemonth": 11,
+        "coweday": 26,
+        "cap_geom": "SRID=4326;POINT (-6.829999923706055 34.02000045776367)"
+      }
+    },
+    {
+      "index": 587,
+      "name": "Yemen (Arab Republic of Yemen)",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Yemen (Arab Republic of Yemen)",
+        "area": 136557.512629632,
+        "capname": "Sana'a",
+        "caplong": 44.1833,
+        "caplat": 15.2833,
+        "cowcode": 678,
+        "ruledby": 678,
+        "cowsdate": "29.10.1918 23:00:00",
+        "cowsyear": 1918,
+        "cowsmonth": 10,
+        "cowsday": 30,
+        "cowedate": "31.08.1926 23:00:00",
+        "coweyear": 1926,
+        "cowemonth": 9,
+        "coweday": 1,
+        "cap_geom": "SRID=4326;POINT (44.18333053588867 15.283329963684082)"
+      }
+    },
+    {
+      "index": 683,
+      "name": "Vietnam, Democratic Republic of",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Vietnam, Democratic Republic of",
+        "area": 155653.778396761,
+        "capname": "Hanoi",
+        "caplong": 105.85,
+        "caplat": 21.0333,
+        "cowcode": 816,
+        "ruledby": 816,
+        "cowsdate": "30.04.1954 23:00:00",
+        "cowsyear": 1954,
+        "cowsmonth": 5,
+        "cowsday": 1,
+        "cowedate": "19.07.1954 23:00:00",
+        "coweyear": 1954,
+        "cowemonth": 7,
+        "coweday": 20,
+        "cap_geom": "SRID=4326;POINT (105.8499984741211 21.0333309173584)"
+      }
+    },
+    {
+      "index": 686,
+      "name": "Vietnam, Republic of",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Vietnam, Republic of",
+        "area": 168562.76912664,
+        "capname": "Saigon",
+        "caplong": 106.667,
+        "caplat": 10.75,
+        "cowcode": 817,
+        "ruledby": 817,
+        "cowsdate": "30.04.1954 23:00:00",
+        "cowsyear": 1954,
+        "cowsmonth": 5,
+        "cowsday": 1,
+        "cowedate": "02.06.1954 23:00:00",
+        "coweyear": 1954,
+        "cowemonth": 6,
+        "coweday": 3,
+        "cap_geom": "SRID=4326;POINT (106.66670227050781 10.75)"
+      }
+    },
+    {
+      "index": 799,
+      "name": "Tibet",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Tibet",
+        "area": 1886255.1055376,
+        "capname": "Lhasa",
+        "caplong": 91.1,
+        "caplat": 29.645,
+        "cowcode": 7910,
+        "ruledby": 7910,
+        "cowsdate": "31.12.1912 23:00:00",
+        "cowsyear": 1913,
+        "cowsmonth": 1,
+        "cowsday": 1,
+        "cowedate": "01.07.1914 23:00:00",
+        "coweyear": 1914,
+        "cowemonth": 7,
+        "coweday": 2,
+        "cap_geom": "SRID=4326;POINT (91.10001373291016 29.64501953125)"
+      }
+    },
+    {
+      "index": 800,
+      "name": "Tibet",
+      "missing": [
+        "status"
+      ],
+      "properties": {
+        "cntry_name": "Tibet",
+        "area": 1811594.15561365,
+        "capname": "Lhasa",
+        "caplong": 91.1,
+        "caplat": 29.645,
+        "cowcode": 7910,
+        "ruledby": 7910,
+        "cowsdate": "02.07.1914 23:00:00",
+        "cowsyear": 1914,
+        "cowsmonth": 7,
+        "cowsday": 3,
+        "cowedate": "30.09.1950 23:00:00",
+        "coweyear": 1950,
+        "cowemonth": 10,
+        "coweday": 1,
+        "cap_geom": "SRID=4326;POINT (91.10001373291016 29.64501953125)"
+      }
+    }
+  ],
+  "invalid_geometries": [
+    {
+      "index": 230,
+      "name": "Russia (Soviet Union)",
+      "code": 365,
+      "start": "1991-09-06",
+      "end": "1991-10-26",
+      "reason": "Ring Self-intersection[40.002963 43.379264]"
+    },
+    {
+      "index": 231,
+      "name": "Russia (Soviet Union)",
+      "code": 365,
+      "start": "1991-10-27",
+      "end": "1991-11-30",
+      "reason": "Ring Self-intersection[40.002963 43.379264]"
+    },
+    {
+      "index": 232,
+      "name": "Russia (Soviet Union)",
+      "code": 365,
+      "start": "1991-12-01",
+      "end": "1991-12-20",
+      "reason": "Ring Self-intersection[40.002963 43.379264]"
+    },
+    {
+      "index": 233,
+      "name": "Russia (Soviet Union)",
+      "code": 365,
+      "start": "1991-12-21",
+      "end": "1991-12-25",
+      "reason": "Ring Self-intersection[40.002963 43.379264]"
+    },
+    {
+      "index": 581,
+      "name": "Israel",
+      "code": 666,
+      "start": "1948-05-14",
+      "end": "1967-06-09",
+      "reason": "Self-intersection[34.873296692433 29.6289201576132]"
+    },
+    {
+      "index": 583,
+      "name": "Israel",
+      "code": 666,
+      "start": "1979-05-26",
+      "end": "2023-12-31",
+      "reason": "Self-intersection[34.873296692433 29.6289201576132]"
+    },
+    {
+      "index": 681,
+      "name": "Vietnam (Annam/Cochin China/Tonkin)",
+      "code": 815,
+      "start": "1887-10-17",
+      "end": "1893-10-02",
+      "reason": "Ring Self-intersection[106.645113 21.019573]"
+    },
+    {
+      "index": 682,
+      "name": "Vietnam (Annam/Cochin China/Tonkin)",
+      "code": 815,
+      "start": "1893-10-03",
+      "end": "1954-04-30",
+      "reason": "Ring Self-intersection[106.1119 20.028878]"
+    },
+    {
+      "index": 683,
+      "name": "Vietnam, Democratic Republic of",
+      "code": 816,
+      "start": "1954-05-01",
+      "end": "1954-07-20",
+      "reason": "Ring Self-intersection[106.1119 20.028878]"
+    },
+    {
+      "index": 684,
+      "name": "Vietnam, Democratic Republic of",
+      "code": 816,
+      "start": "1954-07-21",
+      "end": "1975-04-30",
+      "reason": "Ring Self-intersection[106.1119 20.028878]"
+    },
+    {
+      "index": 685,
+      "name": "Vietnam, Democratic Republic of",
+      "code": 816,
+      "start": "1975-05-01",
+      "end": "2023-12-31",
+      "reason": "Ring Self-intersection[106.1119 20.028878]"
+    },
+    {
+      "index": 726,
+      "name": "Australia",
+      "code": 900,
+      "start": "1901-01-01",
+      "end": "1920-01-09",
+      "reason": "Self-intersection[115.694499881921 -32.5222191238305]"
+    },
+    {
+      "index": 727,
+      "name": "Australia",
+      "code": 900,
+      "start": "1920-01-10",
+      "end": "1927-05-08",
+      "reason": "Self-intersection[115.694499881921 -32.5222191238305]"
+    },
+    {
+      "index": 728,
+      "name": "Australia",
+      "code": 900,
+      "start": "1927-05-09",
+      "end": "2023-12-31",
+      "reason": "Self-intersection[115.694499881921 -32.5222191238305]"
+    },
+    {
+      "index": 730,
+      "name": "Western Australia",
+      "code": 902,
+      "start": "1886-01-01",
+      "end": "1900-12-31",
+      "reason": "Self-intersection[115.694499881921 -32.5222191238305]"
+    }
+  ],
+  "invalid_coordinate_examples": [],
+  "invalid_coordinate_count": 0,
+  "nonclosed_rings": [],
+  "inverted_dates": [],
+  "same_code_period_overlaps": [],
+  "same_code_gaps": [
+    {
+      "code": 255,
+      "previous_end": "1945-05-07",
+      "next_start": "1990-10-03",
+      "days": 16584
+    },
+    {
+      "code": 305,
+      "previous_end": "1938-03-13",
+      "next_start": "1945-04-13",
+      "days": 2587
+    },
+    {
+      "code": 341,
+      "previous_end": "1918-11-30",
+      "next_start": "2006-06-12",
+      "days": 31970
+    },
+    {
+      "code": 366,
+      "previous_end": "1940-06-01",
+      "next_start": "1991-09-06",
+      "days": 18723
+    },
+    {
+      "code": 367,
+      "previous_end": "1940-06-01",
+      "next_start": "1991-09-06",
+      "days": 18723
+    },
+    {
+      "code": 368,
+      "previous_end": "1940-06-01",
+      "next_start": "1991-09-06",
+      "days": 18723
+    },
+    {
+      "code": 433,
+      "previous_end": "1959-04-03",
+      "next_start": "1960-06-21",
+      "days": 444
+    },
+    {
+      "code": 439,
+      "previous_end": "1932-09-04",
+      "next_start": "1947-01-04",
+      "days": 5234
+    },
+    {
+      "code": 531,
+      "previous_end": "1952-09-14",
+      "next_start": "1993-05-24",
+      "days": 14861
+    },
+    {
+      "code": 551,
+      "previous_end": "1953-07-31",
+      "next_start": "1964-01-22",
+      "days": 3826
+    },
+    {
+      "code": 552,
+      "previous_end": "1953-07-31",
+      "next_start": "1964-01-22",
+      "days": 3826
+    },
+    {
+      "code": 553,
+      "previous_end": "1953-07-31",
+      "next_start": "1964-01-22",
+      "days": 3826
+    },
+    {
+      "code": 652,
+      "previous_end": "1958-02-01",
+      "next_start": "1961-09-29",
+      "days": 1335
+    },
+    {
+      "code": 713,
+      "previous_end": "1945-08-14",
+      "next_start": "1949-12-08",
+      "days": 1576
+    },
+    {
+      "code": 830,
+      "previous_end": "1962-12-31",
+      "next_start": "1965-08-09",
+      "days": 951
+    },
+    {
+      "code": 860,
+      "previous_end": "1976-07-16",
+      "next_start": "2002-09-27",
+      "days": 9568
+    }
+  ],
+  "gap_note": "A historical interruption can be intentional. Do not interpolate automatically.",
+  "capital_outside_geometry": [
+    {
+      "index": 177,
+      "name": "Yugoslavia/Serbia",
+      "capital": "Belgrade",
+      "start": "1992-01-15",
+      "end": "1992-04-26"
+    },
+    {
+      "index": 241,
+      "name": "Lithuania",
+      "capital": "Vilnius",
+      "start": "1920-10-07",
+      "end": "1922-04-17"
+    },
+    {
+      "index": 278,
+      "name": "French West Africa",
+      "capital": "Saint-Louis",
+      "start": "1895-06-16",
+      "end": "1898-06-13"
+    },
+    {
+      "index": 279,
+      "name": "French West Africa",
+      "capital": "Saint-Louis",
+      "start": "1898-06-14",
+      "end": "1902-12-24"
+    },
+    {
+      "index": 280,
+      "name": "French West Africa",
+      "capital": "Saint-Louis",
+      "start": "1902-12-25",
+      "end": "1904-04-07"
+    },
+    {
+      "index": 281,
+      "name": "French West Africa",
+      "capital": "Saint-Louis",
+      "start": "1904-04-08",
+      "end": "1904-12-31"
+    },
+    {
+      "index": 344,
+      "name": "German Togoland",
+      "capital": "Lome",
+      "start": "1919-06-28",
+      "end": "1922-07-19"
+    },
+    {
+      "index": 535,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1886-01-01",
+      "end": "1908-10-04"
+    },
+    {
+      "index": 536,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1908-10-05",
+      "end": "1912-10-17"
+    },
+    {
+      "index": 537,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1912-10-18",
+      "end": "1912-12-31"
+    },
+    {
+      "index": 538,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1913-01-01",
+      "end": "1913-05-29"
+    },
+    {
+      "index": 539,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1913-05-30",
+      "end": "1914-01-02"
+    },
+    {
+      "index": 540,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1914-01-03",
+      "end": "1914-11-02"
+    },
+    {
+      "index": 541,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1914-11-03",
+      "end": "1918-03-02"
+    },
+    {
+      "index": 542,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1918-03-03",
+      "end": "1918-10-29"
+    },
+    {
+      "index": 543,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1918-10-30",
+      "end": "1920-04-25"
+    },
+    {
+      "index": 544,
+      "name": "Turkey (Ottoman Empire)",
+      "capital": "Istanbul",
+      "start": "1920-04-26",
+      "end": "1923-10-13"
+    },
+    {
+      "index": 764,
+      "name": "Palau",
+      "capital": "Koror",
+      "start": "1994-12-15",
+      "end": "2006-10-07"
+    }
+  ],
+  "capital_check_errors": [
+    {
+      "index": 581,
+      "name": "Israel",
+      "error": "TopologyException: side location conflict at 34.869593000000002 29.616982. This can occur if the input geometry is invalid."
+    },
+    {
+      "index": 583,
+      "name": "Israel",
+      "error": "TopologyException: side location conflict at 34.869593000000002 29.616982. This can occur if the input geometry is invalid."
+    }
+  ],
+  "capital_note": "Source point containment is a diagnostic, not proof that a capital assignment is historically wrong.",
+  "date_string_offsets": [
+    {
+      "side": "s",
+      "day_offset": -1,
+      "hour": 23,
+      "count": 766
+    },
+    {
+      "side": "e",
+      "day_offset": -1,
+      "hour": 23,
+      "count": 785
+    },
+    {
+      "side": "s",
+      "day_offset": -1,
+      "hour": 22,
+      "count": 39
+    },
+    {
+      "side": "e",
+      "day_offset": -1,
+      "hour": 22,
+      "count": 20
+    }
+  ],
+  "snapshot_counts": [
+    {
+      "date": "1886-07-01",
+      "records": 113,
+      "unique_codes": 113,
+      "statuses": {
+        "independent": 36,
+        "colony": 61,
+        "protectorate": 14,
+        "occupied": 2
+      }
+    },
+    {
+      "date": "1900-07-01",
+      "records": 146,
+      "unique_codes": 146,
+      "statuses": {
+        "independent": 42,
+        "colony": 77,
+        "occupied": 3,
+        "MISSING": 1,
+        "protectorate": 23
+      }
+    },
+    {
+      "date": "1914-07-01",
+      "records": 147,
+      "unique_codes": 147,
+      "statuses": {
+        "independent": 45,
+        "colony": 76,
+        "MISSING": 2,
+        "protectorate": 23,
+        "occupied": 1
+      }
+    },
+    {
+      "date": "1939-07-01",
+      "records": 171,
+      "unique_codes": 171,
+      "statuses": {
+        "independent": 63,
+        "colony": 73,
+        "occupied": 3,
+        "mandate": 12,
+        "protectorate": 19,
+        "MISSING": 1
+      }
+    },
+    {
+      "date": "1945-07-01",
+      "records": 170,
+      "unique_codes": 170,
+      "statuses": {
+        "independent": 63,
+        "colony": 69,
+        "occupied": 6,
+        "mandate": 12,
+        "protectorate": 19,
+        "MISSING": 1
+      }
+    },
+    {
+      "date": "1960-07-01",
+      "records": 163,
+      "unique_codes": 163,
+      "statuses": {
+        "independent": 95,
+        "colony": 49,
+        "MISSING": 1,
+        "mandate": 5,
+        "protectorate": 11,
+        "occupied": 2
+      }
+    },
+    {
+      "date": "1991-07-01",
+      "records": 168,
+      "unique_codes": 168,
+      "statuses": {
+        "independent": 161,
+        "colony": 7
+      }
+    },
+    {
+      "date": "2014-07-01",
+      "records": 202,
+      "unique_codes": 202,
+      "statuses": {
+        "independent": 195,
+        "colony": 7
+      }
+    },
+    {
+      "date": "2023-07-01",
+      "records": 202,
+      "unique_codes": 202,
+      "statuses": {
+        "independent": 195,
+        "colony": 7
+      }
+    }
+  ],
+  "csv_cross_check": {
+    "rows_equal": true,
+    "attribute_mismatches_excluding_date_serialization": [],
+    "iso_dates_match_integer_fields": true
+  },
+  "unknown_ruledby_codes": [
+    0,
+    1
+  ],
+  "method_limits": [
+    "No historical claim is verified solely by this structural audit.",
+    "No original source file is modified.",
+    "Coordinate validity is checked in longitude-latitude bounds; geometric validity uses planar GEOS rules.",
+    "Counts of dates and records do not establish universal global coverage."
+  ]
+}

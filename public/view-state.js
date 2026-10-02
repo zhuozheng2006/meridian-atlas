@@ -14,5 +14,5 @@ export function encodeCamera(map){
  const result=values.map((v,i)=>Number(v.toFixed(i===0?5:i===1?6:3))).join(',');return decodeCamera(result)?result:null;
 }
 
-export const BOUNDARY_MODES=['auto','overview','regional'];
+export const BOUNDARY_MODES=['auto','overview','regional','cshapes'];
 export const boundaryMode=value=>BOUNDARY_MODES.includes(value)?value:'auto';

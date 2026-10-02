@@ -22,7 +22,7 @@ import pathlib
 import zipfile
 import zlib
 
-BOOT_YEARS = [-3400, -221, 1, 500, 1000, 1492, 1750, 1914, 1945, 1991, 2024]
+BOOT_YEARS = [-3400, -221, 1, 500, 1000, 1492, 1500, 1750, 1914, 1945, 1991, 2024]
 MIN_SHARD = 250_000
 MAX_SHARD = 600_000
 

@@ -1,8 +1,13 @@
-# 经纬纪 · Meridian Atlas 3.5
+# 经纬纪 · Meridian Atlas 3.6
 
 一部可交互的中英文世界历史图集：转动地球，沿时间轴观察疆域；打开国家档案，阅读制度、文化、经济与相关事件。
 
 ## 这一版
+
+- 1500年的137个政体原始轮廓合并为约151 KB的一次读取，避免逐份加载产生的等待；坐标与单独归档的原图逐条相同。
+
+- 概览疆域改为低对比细墨线，放大时不再加粗，减少稀疏折线在地形上的生硬感。各时期保留源坐标；详细地区资料可独立阅读。
+- 新增可选的 CShapes 2.1 beta（COW）国家与属地图层，覆盖1886—2023年、805段记录。按所选年年中读取，提供日期、首都、来源分类、统治归属、历次记录与独立几何下载；与全球疆域及地区详图分别对照。
 
 - 边界新增自动、全球疆域、地区详图三种来源模式，两图可独立选择并保存链接。自动模式结合当前视野的陆地覆盖切换，局部详图保留一键入口；来源切换即时完成，避免两套轮廓交叠。补回国家级名称，改善跨瓦片地名位置，放大后展开地方区划（含已录入的美国历史县界）。
 
@@ -43,6 +48,12 @@ macOS也可双击“打开经纬纪.command”。浏览器打开 `http://127.0.0
 点击地图上的疆域，或从“文明”查找国家，进入分栏档案。疆域栏的面积图按原始时段展示，年份按钮定位对应记录。“城市与聚落”查看这个年代已收录的地点、首都与人口观测；“年表”查看该政体相关事件；“来源”可追溯档案依据及下载完整JSON。
 
 “专题”串联相关历史，“年表”按年代检索全部事件。“年份对照”提供两张同步视角的地图。“分享此页”保留年份、语言、图层、阅读对象及地图位置与缩放；本机地址仅供本机使用，跨设备分享请使用在线版。
+
+## CShapes 数据许可
+
+应用原创代码采用MIT许可；随项目分发的数据按各自来源许可使用。public/data/cshapes/中的CShapes 2.1 beta（COW版）档案及其转换数据采用CC BY-NC-SA 4.0，包含非商业和相同方式共享要求，不纳入代码的MIT授权。若将项目用于商业用途，应另获该数据授权，或从分发包与部署资源中移除这一数据及其衍生成果；仅在界面关闭图层不会移除已分发的数据。来源、完整署名、转换步骤与文件哈希见CShapes清单及ATTRIBUTIONS.md。
+
+Original application code is MIT-licensed. Bundled datasets retain their individual source licenses. CShapes 2.1 beta (COW edition) in public/data/cshapes/ and its transformed data remain under CC BY-NC-SA 4.0, including noncommercial and share-alike requirements, and are outside the code’s MIT grant. For commercial use, obtain separate data permission or remove this dataset and its derivatives from distributed packages and deployed assets; disabling a visible layer does not remove bundled data. The CShapes manifest and ATTRIBUTIONS.md provide source links, full attribution, transformations and hashes.
 
 ## 来源与阅读约定
 

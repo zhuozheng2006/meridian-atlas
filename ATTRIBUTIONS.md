@@ -53,3 +53,16 @@ Transformations: spatial partitioning without clipping or smoothing; original ve
 - The live `ohm_admin` tiles provide dated administrative levels 2–4 from regional scale, and levels 5–6 from closer zoom. Original record IDs and dates remain linked. Source geometries are displayed without invented smoothing or joining local areas into national outlines.
 - Available US historical counties include records imported from the Newberry Library's Atlas of Historical County Boundaries. The [official project](https://publications.newberry.org/ahcb/about/) releases its data under CC0 1.0; its [download page](https://publications.newberry.org/ahcb/downloads/united_states.html) supersedes the old license text inside ZIPs. Two example OHM relations, 2789214 (Charlotte County) and 2788960 (Lunenburg County), were individually checked for Newberry source attribution, CC0 tags and legislative citations. This is not a blanket license statement for every OHM feature.
 - Tile samples, exact relation tags, dates, source URLs and hashes are retained in `docs/regional-county-evidence-v3.5.json`. These are sampled evidence and renderer checks, not exhaustive historical validation. The global tileset and original source-map images are not bundled.
+
+
+## CShapes 2.1 beta — COW edition
+
+Schvitz, Guy, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann, and Kristian Skrede Gleditsch. 2022. “Mapping The International System, 1886–2017: The CShapes 2.0 Dataset.” Journal of Conflict Resolution 66(1): 144–161. https://doi.org/10.1177/00220027211013563
+
+Original application code is MIT-licensed. Bundled datasets retain their individual source licenses. CShapes 2.1 beta (COW edition) in public/data/cshapes/ and its transformed data remain under CC BY-NC-SA 4.0, including noncommercial and share-alike requirements, and are outside the code’s MIT grant. For commercial use, obtain separate data permission or remove this dataset and its derivatives from distributed packages and deployed assets; disabling a visible layer does not remove bundled data. The CShapes manifest and ATTRIBUTIONS.md provide source links, full attribution, transformations and hashes.
+
+Source: https://icr.ethz.ch/data/cshapes/CShapes-COW-2.1.geojson
+License: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+CShapes and its transformed data retain CC BY-NC-SA 4.0, including attribution, noncommercial use and share-alike terms. This data license is separate from the application code’s MIT license. Changes comprise deduplication, decade bundles, label anchors and Simplified Chinese display names.
+Source geometry values, property values and civil dates are preserved. The manifest records source defects; they are not silently repaired. Source SHA256: `6aa7b88a5a8cbc5366c4200af8af3d7d9cd632800a1e62cd1dd2b7bfe8d65a88`.

@@ -1,7 +1,7 @@
-import {boundaryMode} from './view-state.js?v=3.5.0-1b93c46bd25d';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.5.0-1b93c46bd25d';
-import {historicalYearRange} from './historical-dates.js?v=3.5.0-1b93c46bd25d';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.5.0-1b93c46bd25d';
+import {boundaryMode} from './view-state.js?v=3.6.0-9b6157c0c2a3';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.6.0-9b6157c0c2a3';
+import {historicalYearRange} from './historical-dates.js?v=3.6.0-9b6157c0c2a3';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.6.0-9b6157c0c2a3';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;
@@ -106,11 +106,11 @@ export class RegionalBoundaries{
   this.controls=document.createElement('div');this.controls.className='regional-controls';this.controls.hidden=true;
   this.badge=document.createElement('button');this.badge.className='regional-badge';this.badge.onclick=()=>this.openIndex();
   this.switcher=document.createElement('button');this.switcher.className='regional-switch';this.switcher.onclick=()=>this.setMode(this.active?'overview':'regional');this.controls.append(this.badge,this.switcher);this.map.getContainer().append(this.controls);
-  on('moveend',()=>this.update());on('idle',()=>this.settle());
+  on('moveend',()=>this.update());on('idle',()=>{this.settle();if(this.mode==='cshapes')this.indexRefresh?.();});
   on('error',e=>{if(e.sourceId===SOURCE){this.failed=true;this.lastError=String(e.error?.message||e.error||'Source error');this.features=[];this.closePopup();this.setActive(false);this.setStatus('error');this.visibility();}});
   on('click',e=>{if(this.atlas.historical?.hit(e.point))return;const f=this.hit(e.point);if(f)this.openFeature(f,e.lngLat);});this.update();
  }
- get enabled(){return this.mode!=='overview';}
+ get enabled(){return this.mode==='auto'||this.mode==='regional';}
  get eligible(){return this.enabled&&this.atlas.showBorders&&!this.modern&&this.map.getZoom()>=REGIONAL_MIN_ZOOM&&!this.atlas.destroyed;}
  ensure(){
   if(this.map.getSource(SOURCE))return;
@@ -118,14 +118,15 @@ export class RegionalBoundaries{
   for(const layer of regionalLayers(this.year,this.maxLevel))this.map.addLayer(layer,'boundary');this.visibilityKey=null;
  }
  setStatus(status){
-  this.status=status;this.controls.hidden=!this.atlas.showBorders||this.modern||this.map.getZoom()<REGIONAL_MIN_ZOOM&&this.mode==='auto';this.badge.hidden=this.controls.hidden;
+  this.status=status;const country=this.atlas.boundaries;this.controls.hidden=!this.atlas.showBorders||this.modern&&!country?.isCountry||this.map.getZoom()<REGIONAL_MIN_ZOOM&&this.mode==='auto';this.badge.hidden=this.controls.hidden;
   const labels={ready:[`地区详图 · ${this.features.length} 条区划`,`Regional detail · ${this.features.length} areas`],partial:[`详图局部覆盖 · ${this.features.length} 条`,`Local detail available · ${this.features.length} areas`],error:['全球疆域 · 详图暂不可用','Global overview · detail unavailable'],empty:['全球疆域 · 此处暂无详图','Global overview · no detail here'],loading:['全球疆域 · 正在读取详图','Global overview · loading detail'],overview:['全球疆域 · 切换来源','Global overview · choose source'],zoom:['全球疆域 · 放大查看详图','Global overview · zoom for detail']};
-  this.badge.textContent=tr(this.lang,...(labels[status]||labels.overview));this.badge.title=tr(this.lang,'选择边界来源与查看区划档案','Choose boundary source and browse area records');
+  this.badge.textContent=country?.mode==='cshapes'?country.title(this.lang):tr(this.lang,...(labels[status]||labels.overview));this.badge.title=tr(this.lang,'选择边界来源与查看区划档案','Choose boundary source and browse area records');
   this.switcher.hidden=this.controls.hidden||this.map.getZoom()<REGIONAL_MIN_ZOOM||this.failed||(!this.active&&this.mode==='regional');this.switcher.textContent=tr(this.lang,this.active?'对照概览':'查看详图',this.active?'Compare overview':'View detail');
   this.indexRefresh?.();this.map.getContainer().dispatchEvent(new CustomEvent('regional-status',{bubbles:true}));
  }
  setActive(v){
   if(v===this.active){this.visibility();return;}this.active=v;
+  if(this.atlas.boundaries){this.atlas.boundaries.applyVisibility(v);this.visibility();this.atlas.refreshLabels();return;}
   // Switch archives atomically: cross-fading unrelated outlines creates false double borders.
   for(const [id,property]of [['territories','fill-opacity'],['boundary','line-opacity'],['selection','line-opacity'],['selection-fill','fill-opacity']])this.map.setPaintProperty(id,property+'-transition',{duration:0,delay:0});
   this.map.setPaintProperty('territories','fill-opacity',v?0:['interpolate',['linear'],['zoom'],0,.53,4,.4,9,.2]);
@@ -142,7 +143,7 @@ export class RegionalBoundaries{
  update(){
   if(this.atlas.destroyed)return;
   const maxLevel=this.map.getZoom()>=8?6:4;if(maxLevel!==this.maxLevel){this.maxLevel=maxLevel;this.closePopup();for(const layer of regionalLayers(this.year,maxLevel))if(this.map.getLayer(layer.id))this.map.setFilter(layer.id,layer.filter);}
-  if(!this.eligible){this.setActive(false);this.clearLabels();this.closePopup();this.features=[];this.samples=[];this.setStatus(!this.enabled?'overview':this.modern?'modern':'zoom');}
+  if(!this.eligible){this.setActive(false);this.clearLabels();if(this.mode!=='cshapes'||!this.atlas.showBorders)this.closePopup();this.features=[];this.samples=[];this.setStatus(!this.enabled?'overview':this.modern?'modern':'zoom');}
   else if(!this.failed){this.ensure();this.visibility();this.setStatus(this.active?'ready':'loading');}else this.setStatus('error');
   this.visibility();
  }
@@ -168,7 +169,7 @@ export class RegionalBoundaries{
   this.year=year;this.lang=lang;this.features=[];this.samples=[];this.closePopup();this.clearLabels();this.setActive(false);
   for(const layer of regionalLayers(year,this.maxLevel))if(this.map.getLayer(layer.id))this.map.setFilter(layer.id,layer.filter);this.update();
  }
- setMode(mode){this.mode=boundaryMode(mode);this.closePopup();this.update();this.settle();this.atlas.onBoundaryMode?.(this.mode);}
+ setMode(mode){this.mode=boundaryMode(mode);this.closePopup();this.update();this.settle();this.atlas.onBoundaryMode?.(this.mode);this.atlas.boundaries?.setMode(this.mode);}
  toggle(v){this.setMode(v?'auto':'overview');}
  setModern(v){this.modern=v;this.update();}
  hit(point){
@@ -199,6 +200,7 @@ export class RegionalBoundaries{
   const popup=this.popup;this.popup.on('close',()=>{if(this.popup===popup){this.indexRefresh=null;this.popup=null;}if(this.map.getLayer(IDS[2]))this.map.setFilter(IDS[2],['all',regionalFilter(this.year,this.maxLevel),['==',['get','osm_id'],0]]);});
  }
  openFeature(f,point){
+  if(f.properties.archive==='cshapes'){this.atlas.boundaries?.openRecord(f.properties.id,point);return;}
   if(!regionalVisible(f.properties,this.year,this.maxLevel))return;if(!this.active)this.setMode('regional');this.closePopup();const p=f.properties,node=document.createElement('section');
   const small=document.createElement('small');small.className='historical-eyebrow';small.textContent=tr(this.lang,'历史区划 · 地区详图','Historical area · regional detail');const h=document.createElement('h3');h.textContent=regionalName(p,this.lang,this.atlas.active);node.append(small,h);if(this.lang==='bi'&&p.name_en&&h.textContent!==p.name_en){const en=document.createElement('p');en.textContent=p.name_en;node.append(en);}
   const dl=document.createElement('dl');for(const [term,value]of [[tr(this.lang,'记录开始','Record begins'),p.start_date||recordYear(p.start_decdate,this.lang)],[tr(this.lang,'记录结束','Record ends'),p.end_date||recordYear(p.end_decdate,this.lang)]]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=term;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
@@ -209,13 +211,13 @@ export class RegionalBoundaries{
  openIndex(){
   this.closePopup();const node=document.createElement('section'),h=document.createElement('h3');h.textContent=tr(this.lang,'边界与历史区划','Borders & historical areas');node.append(h);
   const controls=document.createElement('div');controls.className='regional-modes';controls.setAttribute('role','group');controls.setAttribute('aria-label',tr(this.lang,'边界来源','Boundary source'));
-  for(const [mode,zh,en]of [['auto','自动','Auto'],['overview','全球疆域','Global overview'],['regional','地区详图','Regional detail']]){const b=document.createElement('button');b.textContent=tr(this.lang,zh,en);b.setAttribute('aria-pressed',String(this.mode===mode));b.onclick=()=>{this.setMode(mode);this.openIndex();};controls.append(b);}node.append(controls);
-  const note=document.createElement('p');const updateNote=()=>{note.textContent=tr(this.lang,this.status==='partial'?'这里收录了部分详细区划。自动模式保留全球疆域，可切换详图逐一阅读。':this.mode==='regional'?'显示所选年年中的原始区划。留白处暂无该来源的记录。':'自动模式在详细资料覆盖较充分时切换来源。两套疆域可独立对照。',this.status==='partial'?'Local detail is available here. Auto keeps the global overview; switch to detail to explore these records.':this.mode==='regional'?'Dated source areas at midyear. Gaps have no matching record in this source.':'Auto switches when detailed records cover enough of the visible land. The two archives remain independently selectable.');};updateNote();node.append(note);
-  if(this.failed){const retry=document.createElement('button');retry.className='regional-retry';retry.textContent=tr(this.lang,'重新读取地区详图','Retry regional detail');retry.onclick=()=>this.retry();node.append(retry);}
-  {const search=document.createElement('input');search.type='search';search.className='regional-search';search.placeholder=tr(this.lang,'查找区划…','Find an area…');search.setAttribute('aria-label',tr(this.lang,'查找当前区划','Find a visible area'));const count=document.createElement('p');count.className='historical-credit';const list=document.createElement('div');list.className='historical-record-list';const more=document.createElement('button');more.className='regional-more';let limit=24,lastListKey='';
-   const render=()=>{updateNote();const key=[this.lang,search.value,limit,...this.features.map(f=>f.properties.osm_id+':'+regionalPeriod(f.properties,this.lang))].join('|');if(key===lastListKey)return;lastListKey=key;search.hidden=!this.features.length;count.hidden=!this.features.length;list.hidden=!this.features.length;const scroll=list.scrollTop;const q=search.value.trim().toLocaleLowerCase(),features=this.features.filter(f=>[regionalName(f.properties,this.lang,this.atlas.active),f.properties.name,f.properties.name_en,String(f.properties.osm_id)].some(v=>v?.toLocaleLowerCase().includes(q)));list.replaceChildren();count.textContent=tr(this.lang,`${features.length} 条来源记录`,` ${features.length} source records`);for(const f of features.slice(0,limit)){const b=document.createElement('button');b.textContent=regionalName(f.properties,this.lang,this.atlas.active);const meta=document.createElement('small');meta.textContent=regionalPeriod(f.properties,this.lang)+' · '+Math.abs(f.properties.osm_id);b.append(meta);b.onclick=()=>this.openFeature(f,this.map.getCenter());list.append(b);}list.scrollTop=scroll;more.hidden=features.length<=limit;more.textContent=tr(this.lang,'继续展开','Show more');};search.oninput=()=>{limit=24;render();};more.onclick=()=>{limit+=24;render();};node.append(search,count,list,more);this.indexRefresh=render;render();}
+  for(const [mode,zh,en]of [['auto','自动','Auto'],['overview','全球疆域','Global overview'],['regional','地区详图','Regional detail'],['cshapes','近现代国家','Modern-era states']]){const b=document.createElement('button');b.textContent=tr(this.lang,zh,en);b.setAttribute('aria-pressed',String(this.mode===mode));b.onclick=()=>{this.setMode(mode);this.openIndex();};controls.append(b);}node.append(controls);
+  const note=document.createElement('p');const updateNote=()=>{if(this.mode==='cshapes'){note.textContent=tr(this.lang,'CShapes 2.1 · 国家与属地。1886—2023年，按所选年年中读取；口径与许可见来源说明。','CShapes 2.1 · states and dependencies, 1886–2023. Records use the selected midyear; coding and license are documented in Sources.');return;}note.textContent=tr(this.lang,this.status==='partial'?'这里收录了部分详细区划。自动模式保留全球疆域，可切换详图逐一阅读。':this.mode==='regional'?'显示所选年年中的原始区划。留白处暂无该来源的记录。':'自动模式在详细资料覆盖较充分时切换来源。两套疆域可独立对照。',this.status==='partial'?'Local detail is available here. Auto keeps the global overview; switch to detail to explore these records.':this.mode==='regional'?'Dated source areas at midyear. Gaps have no matching record in this source.':'Auto switches when detailed records cover enough of the visible land. The two archives remain independently selectable.');};updateNote();node.append(note);
+  if(this.failed&&this.enabled||this.mode==='cshapes'&&this.atlas.boundaries?.reason==='error'){const retry=document.createElement('button');retry.className='regional-retry';retry.textContent=this.mode==='cshapes'?tr(this.lang,'重新读取国家边界','Retry country boundaries'):tr(this.lang,'重新读取地区详图','Retry regional detail');retry.onclick=()=>this.retry();node.append(retry);}
+  {const search=document.createElement('input');search.type='search';search.className='regional-search';search.placeholder=tr(this.lang,'查找区划…','Find an area…');search.setAttribute('aria-label',tr(this.lang,'查找当前区划','Find a visible area'));const count=document.createElement('p');count.className='historical-credit';const list=document.createElement('div');list.className='historical-record-list';const more=document.createElement('button');more.className='regional-more';let limit=24,lastListKey='';const indexFeatures=()=>this.mode==='cshapes'?this.atlas.boundaries?.indexFeatures()||[]:this.features;
+   const render=()=>{updateNote();const available=indexFeatures();const key=[this.lang,search.value,limit,...available.map(f=>(f.properties.record_id||f.properties.osm_id)+':'+regionalPeriod(f.properties,this.lang))].join('|');if(key===lastListKey)return;lastListKey=key;search.hidden=!available.length;count.hidden=!available.length;list.hidden=!available.length;const scroll=list.scrollTop;const q=search.value.trim().toLocaleLowerCase(),features=available.filter(f=>[regionalName(f.properties,this.lang,this.atlas.active),f.properties.name,f.properties.name_en,String(f.properties.record_id||f.properties.osm_id)].some(v=>v?.toLocaleLowerCase().includes(q)));list.replaceChildren();count.textContent=tr(this.lang,`${features.length} 条来源记录`,` ${features.length} source records`);for(const f of features.slice(0,limit)){const b=document.createElement('button');b.textContent=regionalName(f.properties,this.lang,this.atlas.active);const meta=document.createElement('small');meta.textContent=regionalPeriod(f.properties,this.lang)+' · '+(f.properties.record_id||Math.abs(f.properties.osm_id));b.append(meta);b.onclick=()=>this.openFeature(f,this.map.getCenter());list.append(b);}list.scrollTop=scroll;more.hidden=features.length<=limit;more.textContent=tr(this.lang,'继续展开','Show more');};search.oninput=()=>{limit=24;render();};more.onclick=()=>{limit+=24;render();};node.append(search,count,list,more);this.indexRefresh=render;render();}
   this.popupAt(node,this.map.getCenter(),true);
  }
- retry(){this.closePopup();for(const id of IDS.toReversed())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(SOURCE))this.map.removeSource(SOURCE);this.failed=false;this.lastError=null;this.update();}
+ retry(){this.closePopup();if(this.mode==='cshapes'){this.atlas.boundaries?.setMode('cshapes');return;}for(const id of IDS.toReversed())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(SOURCE))this.map.removeSource(SOURCE);this.failed=false;this.lastError=null;this.update();}
  destroy(){this.closePopup();this.clearLabels();this.controls.remove();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }

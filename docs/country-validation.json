@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-10-02T11:43:46.720Z",
+  "status": "passed",
+  "checks": 13,
+  "passed": 13,
+  "results": [
+    {
+      "name": "Pinned raw source and every distributed compressed archive match their published hashes",
+      "passed": true,
+      "archives": 16,
+      "records": 805,
+      "uniqueGeometries": 503
+    },
+    {
+      "name": "All source coordinates, rings, components, properties and civil dates survive the conversion",
+      "passed": true,
+      "records": 805,
+      "vertices": 1305478
+    },
+    {
+      "name": "Date support rejects unsupported years; day intervals include their documented endpoints",
+      "passed": true
+    },
+    {
+      "name": "Every supported annual frame agrees with an independent raw-source UTC date oracle, offline",
+      "passed": true,
+      "years": 138,
+      "recordGeometryComparisons": 23180,
+      "networkRequests": 0,
+      "localReads": 16,
+      "minRecords": 113,
+      "maxRecords": 202
+    },
+    {
+      "name": "Rendering features never mutates source geometry or substitutes archive identities",
+      "passed": true
+    },
+    {
+      "name": "Supported explicit country mode does not depend on a working overview archive",
+      "passed": true
+    },
+    {
+      "name": "Unsupported dates and failed country requests fall back to the exact requested year",
+      "passed": true
+    },
+    {
+      "name": "A slower prior source choice cannot overwrite a later completed mode",
+      "passed": true
+    },
+    {
+      "name": "A source response for a previous displayed year cannot overwrite a newly committed frame",
+      "passed": true
+    },
+    {
+      "name": "Two maps sharing a source promise keep separate mode and displayed archive state",
+      "passed": true
+    },
+    {
+      "name": "Destroying a map invalidates pending commits",
+      "passed": true
+    },
+    {
+      "name": "If both archives fail, the existing frame stays intact and its source is not mislabeled",
+      "passed": true
+    },
+    {
+      "name": "Selection and overview strokes hide together when regional source becomes visible",
+      "passed": true
+    }
+  ]
+}

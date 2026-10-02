@@ -95,3 +95,7 @@
 .regional-index{left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;width:min(350px,calc(100% - 28px))}.regional-index .maplibregl-popup-tip{display:none}.regional-index .maplibregl-popup-content{max-height:min(440px,var(--regional-panel-height,60dvh));width:100%}.regional-popup .historical-record-list button small{color:#b2bdb6;font-size:11px}
 
 .regional-popup{z-index:7}
+
+.country-periods{max-height:180px;overflow:auto}.country-periods p{font-size:12px;margin:8px 0;padding:7px;border-left:2px solid #72888544}.country-periods .current{border-color:#e1c48a;color:#f0d3a1}.regional-popup details>summary{font-size:13px;cursor:pointer;padding:12px 0;color:#d8c18e}
+
+@media(max-width:760px){.regional-popup{left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;width:min(350px,calc(100% - 28px))}.regional-popup .maplibregl-popup-tip{display:none}.regional-popup .maplibregl-popup-content{max-height:min(440px,var(--regional-panel-height,60dvh));width:100%}}

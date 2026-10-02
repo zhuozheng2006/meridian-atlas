@@ -48,6 +48,12 @@ const cases={
   await loadNative(records,1492);assert.equal(requests.length,1);
   return {records:records.length,requests:1,bytes:requests[0].bytes};
  },
+ async alps_1500_boot_no_index({loadNative,nativeGeometry,activeRecords,requests}){
+  const records=activeRecords(catalog,1500);await loadNative(records,1500);
+  assert.equal(records.length,137);assert.deepEqual(requests.map(r=>r.url),['data/native/year-1500.json.gz']);
+  for(const r of records){const gid=index.recordIndex[r.id],expected=read('data/native/'+index.geometryIndex[gid])[gid];assert.deepEqual(nativeGeometry(r.id),expected);}
+  return {records:records.length,requests:1,bytes:requests[0].bytes,exactIndividualGeometriesCompared:137};
+ },
  async arbitrary_files_concurrency({loadNative,nativeGeometry,activeRecords,requests,stats}){
   const records=activeRecords(catalog,1666);await loadNative(records,1666);
   const gids=new Set(records.map(r=>index.recordIndex[r.id]));
@@ -176,12 +182,14 @@ if(!process.argv.includes('--case')){
  // the same geometry cache, rather than instantiating two ESM module graphs.
  const revision=fs.readFileSync(path.join(dist,'map-engine.js'),'utf8').match(/\?v=[a-zA-Z0-9.-]+/)?.[0]||'';
  const {loadNative,nativeGeometry}=await import(pathToFileURL(path.join(dist,'native-geometry.js')).href+revision);
- const {AtlasMap,activeRecords}=await import(pathToFileURL(path.join(dist,'map-engine.js')).href+revision);
+ const {BoundaryController}=await import(pathToFileURL(path.join(dist,'boundary-controller.js')).href+revision);
+ const {AtlasMap,activeRecords,color}=await import(pathToFileURL(path.join(dist,'map-engine.js')).href+revision);
  const subject=(records=[])=>{
   const instance=Object.create(AtlasMap.prototype);const frames=[];
   Object.assign(instance,{request:1,active:records,year:1666,catalog,geometryKey:'o',ready:Promise.resolve(),lang:'bi',destroyed:false,frames,
-   map:{getSource:id=>{assert.equal(id,'polities');return {setData:data=>frames.push(data)};}},
+   map:{setPaintProperty(){},getSource:id=>{assert.equal(id,'polities');return {setData:data=>frames.push(data)};}},
    upgradeLand(){},refreshLabels(){}});
+  instance.boundaries=new BoundaryController(instance,{mode:'auto',color});
   return instance;
  };
  try{const detail=await cases[caseName]({loadNative,nativeGeometry,AtlasMap,activeRecords,requests,overrides,stats,subject,gate,waitUntil});console.log(JSON.stringify({detail}));}
