@@ -1,9 +1,9 @@
-import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.6.0-9b6157c0c2a3';
-import {BoundaryController} from './boundary-controller.js?v=3.6.0-9b6157c0c2a3';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.6.0-9b6157c0c2a3';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.6.0-9b6157c0c2a3';
-import {Geography} from './geography.js?v=3.6.0-9b6157c0c2a3';
-import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.6.0-9b6157c0c2a3';
+import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.6.0-8e0c6ac31e93';
+import {BoundaryController} from './boundary-controller.js?v=3.6.0-8e0c6ac31e93';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.6.0-8e0c6ac31e93';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.6.0-8e0c6ac31e93';
+import {Geography} from './geography.js?v=3.6.0-8e0c6ac31e93';
+import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.6.0-8e0c6ac31e93';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;

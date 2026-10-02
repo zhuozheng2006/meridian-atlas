@@ -12,7 +12,7 @@ The added 1500 bootstrap contains all 137 active polity records, 132 unique geom
 
 The optional 1886–2023 CShapes 2.1 beta COW archive preserves 805 source periods, 503 unique geometries and 1,305,478 vertices. Separate BY-NC-SA attribution and license files ship with the data; code remains independently MIT-licensed. Sources and downloads retain classification gaps, source-invalid geometry and the full citation.
 
-`country-validation.json` records 13 passing checks: all 16 archive hashes, every raw source record and geometry, an independent UTC-date oracle for all 138 supported year snapshots, frozen-object geometry preservation, same-year fallback, source/year request races, comparison independence, destroyed maps, retained-frame failure labels and atomic regional visibility. This is a local-data-loader test, not a claim of browser-wide offline functionality.
+`country-validation.json` records 14 passing checks: all 16 archive hashes, every raw source record and geometry, an independent UTC-date oracle for all 138 supported year snapshots, 20 date-aware country-name cases with 24 interval endpoints, frozen-object geometry preservation, same-year fallback, source/year request races, comparison independence, destroyed maps, retained-frame failure labels and atomic regional visibility. This is a local-data-loader test, not a claim of browser-wide offline functionality.
 
 Reproduce the raw-source checks with the official file matching the manifest SHA256:
 

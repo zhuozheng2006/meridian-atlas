@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-02T11:43:46.720Z",
+  "checkedAt": "2026-10-02T12:10:47.638Z",
   "status": "passed",
-  "checks": 13,
-  "passed": 13,
+  "checks": 14,
+  "passed": 14,
   "results": [
     {
       "name": "Pinned raw source and every distributed compressed archive match their published hashes",
@@ -30,6 +30,12 @@
       "localReads": 16,
       "minRecords": 113,
       "maxRecords": 202
+    },
+    {
+      "name": "Display aliases follow the selected snapshot and preserve native names and geometry",
+      "passed": true,
+      "annualCases": 20,
+      "intervalEndpoints": 24
     },
     {
       "name": "Rendering features never mutates source geometry or substitutes archive identities",

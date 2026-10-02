@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
-import {countrySnapshot,countryVisible,loadCountryFrame,countryFeatures,countryStatus} from '../public/country-archive.js';
+import {countrySnapshot,countryVisible,loadCountryFrame,countryFeatures,countryStatus,countryName,countryAlias} from '../public/country-archive.js';
 import {BoundaryController} from '../public/boundary-controller.js';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -63,6 +63,20 @@ await test('Every supported annual frame agrees with an independent raw-source U
   counts[year]=frame.records.length;
  }
  return {years:138,recordGeometryComparisons:comparisons,networkRequests:0,localReads:requests.length,minRecords:Math.min(...Object.values(counts)),maxRecords:Math.max(...Object.values(counts))};
+});
+await test('Display aliases follow the selected snapshot and preserve native names and geometry',async()=>{
+ const editorial=JSON.parse(await fs.readFile(path.join(archive,'name-periods.json'),'utf8'));let cases=0;
+ for(const [name,years]of Object.entries(editorial.expectedJuly1))for(const [year,expected]of Object.entries(years)){
+  const frame=await loadCountryFrame(+year),r=frame.records.find(r=>r.name===name);assert(r,name+' '+year);
+  const before=JSON.stringify(r),rule=editorial.rules.find(x=>x.sourceName===name&&x.startDate<=frame.date&&frame.date<=x.endDate);
+  assert.equal(countryName(r,'en',frame.date),expected);assert.equal(countryName(r,'bi',frame.date),rule.zh);assert.equal(countryName(r,'en'),name);
+  const feature=countryFeatures(frame,()=> '#123456').find(f=>f.properties.id===r.id);
+  assert.equal(feature.properties.name_en,expected);assert.equal(feature.properties.name_zh,rule.zh);assert.equal(feature.properties.source_name,name);assert.equal(feature.geometry,frame.geometries[r.geometryId]);assert.equal(JSON.stringify(r),before);cases++;
+ }
+ for(const rule of editorial.rules){const r={name:rule.sourceName};for(const date of [rule.startDate,rule.endDate])assert.deepEqual(countryAlias(r,date),Object.fromEntries(['sourceName','startDate','endDate','zh','en','sourceURLs'].map(k=>[k,rule[k]])));}
+ const serbia=await loadCountryFrame(2006);assert(serbia.records.some(r=>r.name==='Serbia'));assert(!serbia.records.some(r=>r.name==='Yugoslavia/Serbia'));
+ assert.equal(countryAlias({name:'Guinea-Bissau'},'1971-07-01'),undefined);
+ return {annualCases:cases,intervalEndpoints:editorial.rules.length*2};
 });
 await test('Rendering features never mutates source geometry or substitutes archive identities',async()=>{
  const frame=await loadCountryFrame(1900);const r=frame.records.reduce((a,b)=>vertices(frame.geometries[a.geometryId].coordinates)<vertices(frame.geometries[b.geometryId].coordinates)?a:b);
