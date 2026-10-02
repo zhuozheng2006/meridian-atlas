@@ -408,8 +408,8 @@
         },
         "historymaps": {
           "status": "fact",
-          "value": "<html lang=\"en\">，无 hreflang 备选，抓取页面无语言切换控件 → 英文单语",
-          "evidence": "所抓取 HTML 的 lang/hreflang 统计"
+          "value": "首页出现 Sign in，说明有账户体系；但界面仍为英文（lang=en，无 hreflang）",
+          "evidence": "browser.mjs 抓取的 body 文本"
         }
       }
     },
@@ -419,8 +419,8 @@
       "cells": {
         "meridian": {
           "status": "fact",
-          "value": "无 Service Worker；全部数据在本地 public/data（502MB），README 明确“Bundled maps, relief, places and texts work offline”，在线图层失败时降级保留本地底图",
-          "evidence": "grep serviceWorker（无命中）、README 第 62/108 行"
+          "value": "无 Service Worker（grep 无命中）；数据全部本地化（public/data 502 MB），README 明确 Bundled maps, relief, places and texts work offline；在线图层失败时降级",
+          "evidence": "仓库实测 + README 第 62/108 行"
         },
         "chronosphere": {
           "status": "fact",
@@ -505,34 +505,34 @@
           "evidence": "task-6 实测（browser.mjs + CDP）"
         },
         "chronosphere": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "未验证（需真机/模拟器交互）"
+          "status": "fact",
+          "value": "390×844：innerWidth 390、scrollWidth 390（无横向溢出）",
+          "evidence": "browser.mjs 手机视口实测"
         },
         "phersu": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "站点不可达"
+          "status": "fact",
+          "value": "390×844：只有 Cloudflare 拦截页，无法评估产品移动端",
+          "evidence": "同上"
         },
         "runningreality": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "未验证"
+          "status": "fact",
+          "value": "390×844：scrollWidth 390 = innerWidth（无横向溢出）",
+          "evidence": "同上"
         },
         "openhistory": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "未验证"
+          "status": "fact",
+          "value": "390×844：scrollWidth 390（无横向溢出）",
+          "evidence": "同上"
         },
         "strata": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "README 未声明移动端适配；未验证"
+          "status": "fact",
+          "value": "390×844：scrollWidth 390（无横向溢出）",
+          "evidence": "同上"
         },
         "historymaps": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "未验证"
+          "status": "fact",
+          "value": "390×844：innerWidth/scrollWidth 均为 407（无横向溢出，但视口比 390 宽）",
+          "evidence": "同上"
         }
       }
     },
@@ -542,8 +542,8 @@
       "cells": {
         "meridian": {
           "status": "fact",
-          "value": "待本机浏览器实测（首屏 ready、放大加载、图层切换）",
-          "evidence": "task-10 浏览器实测"
+          "value": "冷启动到地图可用 4379 ms、46 个资源、传输 14.5 MB（本机 8767，1440×900）；1900 年地区详图模式 5682 ms 出现「地区详图 · 35 条区划」",
+          "evidence": "browser.mjs + Performance API 实测；本机服务无网络延迟，与公网站点不可直接比快慢"
         },
         "chronosphere": {
           "status": "fact",
@@ -588,33 +588,33 @@
         },
         "chronosphere": {
           "status": "fact",
-          "value": "全球地球视图 + 时间轴彩带 + 战役着色；截图见 benchmark/shots",
-          "evidence": "待截图"
+          "value": "真实渲染：canvas 地图 + 顶部时间轴；截图 benchmark/shots/chronosphere-desktop.png",
+          "evidence": "browser.mjs 1440×900，等待 12 s"
         },
         "phersu": {
-          "status": "unverified",
-          "value": "未能验证",
-          "evidence": "站点不可达"
+          "status": "fact",
+          "value": "仅得到 Cloudflare 拦截图（Sorry, you have been blocked），无产品画面；截图 benchmark/shots/phersu-desktop.png",
+          "evidence": "browser.mjs 1440×900（真实浏览器同样被拦）"
         },
         "runningreality": {
           "status": "fact",
-          "value": "网页地图 + 桌面应用；截图见 benchmark/shots",
-          "evidence": "待截图"
+          "value": "真实渲染：canvas 地图 + 年/月/日控件（探针时显示 01/01/1700）；截图 benchmark/shots/runningreality-desktop.png",
+          "evidence": "browser.mjs 1440×900"
         },
         "openhistory": {
           "status": "fact",
-          "value": "网站为编辑风格（Plate №/Fig.），地图应用未定位",
-          "evidence": "首页"
+          "value": "首页为编辑式版面（Map/Index/Blog/Explorations/Tools），此页无 canvas；截图 benchmark/shots/openhistory-desktop.png",
+          "evidence": "browser.mjs 1440×900"
         },
         "strata": {
           "status": "fact",
-          "value": "暗/亮/棕褐三主题 + 星空地球 + 光标跟随 tooltip（README 自述）；截图见 benchmark/shots",
-          "evidence": "README + 待截图"
+          "value": "真实渲染：MapLibre canvas + 图层面板（Political boundaries…）、OSM/CARTO 署名、搜索框；截图 benchmark/shots/strata-desktop.png",
+          "evidence": "browser.mjs 1440×900，等待 14 s"
         },
         "historymaps": {
           "status": "fact",
-          "value": "3D 地图 + 图像/视频并重；截图见 benchmark/shots",
-          "evidence": "待截图"
+          "value": "首页为专题入口（Sign in、NEW/UPDATED FEATURES、Timelines、Game），此页无 canvas；截图 benchmark/shots/historymaps-desktop.png",
+          "evidence": "browser.mjs 1440×900"
         }
       }
     },
@@ -658,6 +658,64 @@
           "evidence": "未在抓取页面找到许可声明"
         }
       }
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "direction": "lag",
+      "title": "事件与叙事体量",
+      "evidence": "我方 401 条事件、17 篇城市篇章（实测）；Strata README 自述 75 条里程碑 + 920+ 战役 + 35 条导览故事；Running Reality 有 Factoids/Citations 体系；HistoryMaps 以专题地图+视频+课程为主",
+      "action": "事件 ≥1,200 条（非欧洲 ≥45%，每条 ≥1 来源）；新增战役图层 ≥300 条（双方、日期、来源）；导览 ≥35 条（每条 ≥3 章、含镜头移动）"
+    },
+    {
+      "id": "G2",
+      "direction": "lag",
+      "title": "专题图层数量与多样性",
+      "evidence": "Strata 13 个图层（政治/民族/贸易路线/城市/事件/战役/灾害/人物/宗教/语言/迁徙/人口点/海平面）；我方 8 类（地形/水系/湖泊/历史地貌/疆域/地点/事件/街巷），无宗教、语言、迁徙、古海岸、人口点",
+      "action": "新增古海岸线（≥6 个时期）、人口点层（OWID/Wikidata，≥5,000 点）、战役层（见 G1）"
+    },
+    {
+      "id": "G3",
+      "direction": "lag",
+      "title": "全球逐年疆域的粒度",
+      "evidence": "我方全球逐年用 Cliopatria 粗多边形；OHM 精化仅中欧窗口 10 个年份（767 条）；Strata 52 个疆域快照（快照间不插值），Chronosphere 自述 2000 BC 起逐年",
+      "action": "OHM 固化扩到第二个窗口（如东亚）且总覆盖 ≥20 个年份；公开逐年覆盖矩阵（现已有 10 年矩阵）"
+    },
+    {
+      "id": "G4",
+      "direction": "lag",
+      "title": "导出与分享",
+      "evidence": "Strata 支持 PNG 导出 + 深链分享；我方只有 JSON 导出（事件/目录/地点）与分享链接，没有地图图片导出",
+      "action": "一键导出当前地图 PNG（≥1600×900，含年份与图例水印），保留现有深链"
+    },
+    {
+      "id": "G5",
+      "direction": "lag",
+      "title": "搜索范围",
+      "evidence": "Strata 全层搜索（/ 或 Cmd+K，跨 13 图层）；我方侧栏搜索以事件为主，地点检索是独立接口",
+      "action": "统一搜索框覆盖事件/政体/地点/篇章，快捷键 /，结果按类型分组"
+    },
+    {
+      "id": "G6",
+      "direction": "lag",
+      "title": "首屏体量",
+      "evidence": "我方冷启动 46 请求 / 15.2 MB / 4.38 s（本机）；1900 详图 5.68 s；竞品首屏 HTML 1.5–170 KB（其完整渲染未测）",
+      "action": "首屏传输 ≤8 MB（native geometry 分片懒加载）、本机 ready ≤3.5 s；页面显示按需加载进度"
+    },
+    {
+      "id": "G7",
+      "direction": "lead",
+      "title": "双语与数据可核验性",
+      "evidence": "六个竞品实测均为英文单语（lang=en，无 hreflang、无语言控件）；我方三语 UI + 双语数据字段；OHM 固化数据带逐条 manifest（快照/原始响应 sha256）、事件带 sources、ATTRIBUTIONS.md 逐源许可",
+      "action": "把这些证据做进「来源」页，让用户一眼看到可核验性"
+    },
+    {
+      "id": "G8",
+      "direction": "lead",
+      "title": "地方级逐年重建与诚实空白",
+      "evidence": "HALC 1500 低地国家地方单元 + OHM 10 个年份中欧 767 条真实几何（坐标零改动，verify 39/39）；竞品多为国家级快照或粗多边形；我方对未收录/源残缺有明确标注",
+      "action": "把空白清单与覆盖矩阵做成可见的图层说明与数据下载项"
     }
   ]
 }
