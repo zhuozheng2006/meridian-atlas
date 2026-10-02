@@ -79,3 +79,14 @@ main{height:calc(100dvh - var(--header-height) - var(--timeline-height))}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 @media(max-width:760px){#prevYear,#nextYear{min-width:44px;height:44px}.playback #playBtn{min-width:44px;height:44px}.playback select{height:44px}.map-tools button{min-height:44px}.header-tools button,.header-tools select{min-height:44px}.maplibregl-ctrl-group button{width:44px;height:44px}.timeline-rail{padding-top:13px}.era-buttons{margin-top:5px}}
+
+/* Period-aware dossiers keep the selected map year in view. */
+.reader-content h3 small{display:block;margin-top:5px;color:var(--muted);font:400 12px var(--body)}
+.archive-supplement h4{font-size:13px;letter-spacing:.04em;font-weight:500;color:var(--muted);margin:22px 0 8px}
+.archive-supplement section+section{margin-top:24px}
+.change-pills{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.change-pills button{text-align:left;line-height:1.65;font-size:12px;min-height:44px}
+.boundary-source-note{border-top:1px solid var(--line);padding-top:12px;margin-top:15px;font-size:13px;line-height:1.8}
+.boundary-source-note summary{cursor:pointer;color:var(--gold)}
+.boundary-source-note p{font-size:13px!important;line-height:1.8!important}
+.boundary-source-note small{color:var(--muted)}

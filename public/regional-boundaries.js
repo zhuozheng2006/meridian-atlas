@@ -1,7 +1,8 @@
-import {boundaryMode} from './view-state.js?v=3.7.0-62a409ec10d1';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.7.0-62a409ec10d1';
-import {historicalYearRange} from './historical-dates.js?v=3.7.0-62a409ec10d1';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.7.0-62a409ec10d1';
+import {boundaryNote} from './boundary-notes.js?v=3.8.0-c363908f5aad';
+import {boundaryMode} from './view-state.js?v=3.8.0-c363908f5aad';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.8.0-c363908f5aad';
+import {historicalYearRange} from './historical-dates.js?v=3.8.0-c363908f5aad';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.8.0-c363908f5aad';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;
@@ -206,6 +207,7 @@ export class RegionalBoundaries{
   const dl=document.createElement('dl');for(const [term,value]of [[tr(this.lang,'记录开始','Record begins'),p.start_date||recordYear(p.start_decdate,this.lang)],[tr(this.lang,'记录结束','Record ends'),p.end_date||recordYear(p.end_decdate,this.lang)]]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=term;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
   const links=document.createElement('div');links.className='historical-source-links';for(const [label,url]of [[tr(this.lang,'原始区划记录','Original boundary record'),regionalElementURL(p)],[tr(this.lang,'同年来源地图','Source map in this year'),historicalMapURL(this.year,this.map.getCenter(),this.map.getZoom())]]){if(!url)continue;const a=document.createElement('a');a.textContent=label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}node.append(links);
   const related=this.atlas.active?.find(r=>r.name===(p.name_en||p.name));if(related){const b=document.createElement('button');b.className='regional-dossier';b.textContent=tr(this.lang,'相关疆域档案','Related territory dossier');b.onclick=()=>{this.closePopup();this.atlas.onPolity?.(related);};node.append(b);}
+  const note=boundaryNote(p);if(note){const details=document.createElement('details'),summary=document.createElement('summary'),text=document.createElement('p'),date=document.createElement('small');details.className='boundary-source-note';summary.textContent=tr(this.lang,'这条边界的来源说明','Notes on this boundary');text.textContent=tr(this.lang,note.zh,note.en);date.textContent=tr(this.lang,'核查日期 · ','Reviewed · ')+note.checkedOn;details.append(summary,text,date);node.append(details);}
   const credit=document.createElement('p');credit.className='historical-credit';credit.textContent='OpenHistoricalMap contributors';node.append(credit);this.popupAt(node,point);this.map.setFilter(IDS[2],['all',regionalFilter(this.year,this.maxLevel),['==',['get','osm_id'],p.osm_id]]);
  }
  openIndex(){

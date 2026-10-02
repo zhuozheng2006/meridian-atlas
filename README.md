@@ -1,8 +1,11 @@
-# 经纬纪 · Meridian Atlas 3.7
+# 经纬纪 · Meridian Atlas 3.8
 
 一部可交互的中英文世界历史图集：转动地球，沿时间轴观察疆域；打开国家档案，阅读制度、文化、经济与相关事件。
 
 ## 这一版
+
+- 国家档案与地图年份对齐：当年资料优先呈现，其他年代、未限定完整日期的条目与百科简介可展开查阅；资料链接与完整下载保留。
+- 新增1500年旧瑞士邦联、分治的巴伐利亚与洛林公国的双语篇章；页眉标明所选年份和当前边界记录区间，疆域时间线保留资料空档。洛林地区详图补充这条边界的来源与年代注记。
 
 - 新增可切换的“边界柔化”：对全球概览的阶梯折角作有限圆整，共享国界使用同一曲线，填色与选择高亮同步贴合；保护交汇点、小岛、洞与狭窄地带。关闭后恢复原始轮廓。资料下载和城市归属查询始终采用原始几何。
 
@@ -30,7 +33,7 @@
 - 平板与手机重新调整工具、年份刻度、搜索卡片与双语导航；地图使用较轻的疆域着色与细描边，让山川和城市成为阅读的一部分。
 - 数据分片缓存、并发合并、旧请求取消调度与局部失败重试。脚本和样式使用内容版本号，避免更新后混用旧代码。在线图层不可用时保留本地地理底图。
 
-本版收录343条双语事件（2.0版新增92条），并保留13,380条政体疆域时段记录，以及385条联盟、共主等关系记录，来源为Cliopatria。疆域年代覆盖公元前3400年至2024年。另收录1,450份Wikidata实体档案、23篇重要文明双语概览和47条历史侧记。330份实体档案包含带引证声明，共1,885项；各国可展示资料的密度不同。事件总数和分布见应用“资料”及 `docs/CONTENT-COVERAGE.json`。
+本版收录343条双语事件（2.0版新增92条），并保留13,380条政体疆域时段记录，以及385条联盟、共主等关系记录，来源为Cliopatria。疆域年代覆盖公元前3400年至2024年。另收录1,450份Wikidata实体档案、26篇双语历史概览和50条历史侧记。330份实体档案包含带引证声明，共1,885项；各国可展示资料的密度不同。事件总数和分布见应用“资料”及 `docs/CONTENT-COVERAGE.json`。
 
 ## 打开与使用
 
@@ -74,7 +77,7 @@ Run `python3 serve.py --open` in this folder, keeping the server window open. Bu
 
 Choose Chinese, English or bilingual reading. Explore the globe and timeline, open a polity’s six-section dossier, compare years, follow thematic journeys, or search the full chronicle. Share links preserve the year, filters, language, layers, historical record and camera position. Explore 11,328 attested historical places, dated capitals, population observations and 12 original bilingual city chapters.
 
-The atlas retains 13,380 polity territory records, 1,450 entity dossiers and 23 original civilization overviews. Cited structured statements are displayed with temporal qualifiers where available. Sources centralizes coverage, provenance and editorial conventions; record-specific notes remain in individual dossiers.
+The atlas retains 13,380 polity territory records, 1,450 entity dossiers and 26 original historical overviews. Cited structured statements are displayed with temporal qualifiers where available. Sources centralizes coverage, provenance and editorial conventions; record-specific notes remain in individual dossiers.
 
 ## 维护
 
