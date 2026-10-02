@@ -41,7 +41,11 @@ const validate=entry=>{
  if(!LOCATION_TYPES.includes(entry.locationType))fail(where+': locationType '+entry.locationType);
  if(!Array.isArray(entry.sources)||!entry.sources.length)fail(where+': at least one source required');
  for(const source of entry.sources||[]){if(!source.title)fail(where+': source title missing');try{if(new URL(source.url).protocol!=='https:')fail(where+': source must use https')}catch{fail(where+': invalid source url '+source.url)}}
- if(JSON.stringify(ordered(entry))!==JSON.stringify(entry))fail(where+': keys must follow the shipped order '+KEY_ORDER.join(','));
+ // Extra provenance keys (for example wikidataQid) are allowed after the shipped keys;
+ // the shipped keys themselves must keep their documented order.
+ const presentKeys=Object.keys(entry).filter(key=>KEY_ORDER.includes(key));
+ if(JSON.stringify(presentKeys)!==JSON.stringify(KEY_ORDER.filter(key=>key in entry)))fail(where+': shipped keys must follow the order '+KEY_ORDER.join(','));
+ if(JSON.stringify(ordered(entry))!==JSON.stringify(Object.fromEntries(presentKeys.map(key=>[key,entry[key]]))))fail(where+': shipped keys must keep their values in order');
  // Traditional-only characters must not enter the simplified-Chinese corpus.
  for(const group of ['title','summary','significance','editorialNotes'])for(const text of group==='editorialNotes'?[entry.editorialNotes?.zh||'']:[entry[group]?.zh||'']){
   const traditional=text.match(/[與臺灣國學會東車馬鳥魚點線個時間問題則無為說話語實質]/g);
@@ -58,7 +62,10 @@ const seen=new Set();
 for(const entry of editorial.entries){validate(entry);if(seen.has(entry.id))fail('duplicate id inside batches: '+entry.id);seen.add(entry.id)}
 if(problems.length){console.error('FAIL editorial/events-3.10.json\n'+problems.join('\n'));process.exit(1)}
 
-const additions=new Map(editorial.entries.map(entry=>[entry.id,ordered(entry)]));
+// Keep provenance keys (wikidataQid, provenance, regionBasis) after the shipped keys so
+// the structured batch stays machine-filterable without changing the shipped schema.
+const withExtras=entry=>{const built=ordered(entry);for(const key of Object.keys(entry))if(!KEY_ORDER.includes(key))built[key]=entry[key];return built};
+const additions=new Map(editorial.entries.map(entry=>[entry.id,withExtras(entry)]));
 const existingIds=new Set(current.map(entry=>entry.id));
 for(const id of additions.keys())if(existingIds.has(id)&&!current.find(entry=>entry.id===id))fail('id collision: '+id);
 const merged=[...current.filter(entry=>!additions.has(entry.id)),...additions.values()];

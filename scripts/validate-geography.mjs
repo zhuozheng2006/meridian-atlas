@@ -52,15 +52,24 @@ async function test(name,fn){try{const details=await fn();results.push({name,sta
 function expect(ok,message,details){if(!ok){const e=Error(message);e.details=details;throw e;}}
 
 await test('Fine local data is never replaced by a late coarse success',async()=>{
- const e=environment(1);e.map.zoom=3;const fine=e.geography.loadLocal();
+ const e=environment(1);e.map.zoom=4;const fine=e.geography.loadLocal();
  for(const [match,name] of [['land-10m','fine-land'],['rivers-10m','fine-rivers'],['lakes-10m','fine-lakes'],['modern-ocean-mask.json','fine-ocean']])e.settle(match,fc(name));
  await fine;e.resolvePending();await e.init;
  const actual=['land','physical-rivers','physical-lakes','coastal-water'].map(id=>e.data(id).features[0].properties.name);
  assert.deepEqual(actual,['fine-land','fine-rivers','fine-lakes','fine-ocean']);return actual;
 });
 
+await test('Fine water waits for zoom 4 while the zoom 3 view keeps the coarse overview water',async()=>{
+ const e=environment(1);e.map.zoom=3;e.geography.loadLocal().catch(()=>{});
+ const atThree=e.requests.map(r=>r.url).join(' ');
+ expect(!/rivers-10m|lakes-10m/.test(atThree),'Fine rivers and lakes must not be fetched below zoom 4',{atThree});
+ e.map.zoom=4;e.geography.loadLocal().catch(()=>{});
+ const atFour=e.requests.map(r=>r.url).join(' ');
+ expect(/rivers-10m/.test(atFour),'Fine rivers must be fetched at zoom 4',{atFour});
+ return {atThree,atFour};
+});
 await test('Coarse water supplements a failed fine layer without downgrading another fine layer',async()=>{
- const e=environment(1);e.map.zoom=3;const fine=e.geography.loadLocal();
+ const e=environment(1);e.map.zoom=4;const fine=e.geography.loadLocal();
  e.settle('land-10m',fc('fine-land'));e.settle('rivers-10m',fc('fine-rivers'));e.settle('lakes-10m','transient',true);e.settle('modern-ocean-mask.json',fc('fine-ocean'));
  await fine;e.resolvePending();await e.init;
  assert.equal(e.data('physical-rivers').features[0].properties.name,'fine-rivers');assert.equal(e.data('physical-lakes').features[0].properties.name,'overview-lakes');
@@ -69,13 +78,13 @@ await test('Coarse water supplements a failed fine layer without downgrading ano
 });
 
 await test('Successful later local retry clears partial status',async()=>{
- const e=environment(3);e.settle('lakes-10m','transient',true);e.resolvePending();await e.init;assert.equal(e.geography.status,'partial');
+ const e=environment(4);e.settle('lakes-10m','transient',true);e.resolvePending();await e.init;assert.equal(e.geography.status,'partial');
  const again=e.geography.loadLocal();e.resolvePending();await again;
  expect(e.geography.status!=='partial','Recovered local data keeps stale partial status',{status:e.geography.status,loaded:[...e.geography.localLoaded]});
 });
 
 await test('Late unused overview failure does not mark complete fine geography partial',async()=>{
- const e=environment(1);e.map.zoom=3;const fine=e.geography.loadLocal();
+ const e=environment(1);e.map.zoom=4;const fine=e.geography.loadLocal();
  for(const match of ['land-10m','rivers-10m','lakes-10m','modern-ocean-mask.json'])e.settle(match,fc(match));
  await fine;e.settle('land-50m','coarse fetch failed after all fine data arrived',true);e.resolvePending();await e.init;
  expect(e.geography.status!=='partial','Unused coarse failure overwrites fully loaded fine state',{status:e.geography.status,loaded:[...e.geography.localLoaded]});

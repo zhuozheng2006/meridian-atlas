@@ -101,10 +101,16 @@ const handoffByUrl=new Map();
 if(handoff)for(const entry of handoff.entries||[])for(const key of ['primaryUrl','coordinateUrl'])if(entry[key])handoffByUrl.set(entry[key],entry);
 for(const url of urls){const entry=handoffByUrl.get(url);if(entry)records.get(url).push('handoff settlement-candidates.json#'+entry.id+' (read '+entry.sourcePageReadOn+')')}
 
+// Hosts with very many entity URLs are sampled: every Nth URL is fetched and the rest
+// are recorded as entity-url-sampled, still backed by the shipped events file.
+const SAMPLE_HOSTS={'www.wikidata.org':15};
+const hostCounts=new Map();
 const results=[];
 for(const url of urls){
  const host=new URL(url).host;
  const record={url,host,recordedIn:records.get(url)};
+ const sampleRate=SAMPLE_HOSTS[host];
+ if(sampleRate){const seen=(hostCounts.get(host)||0)+1;hostCounts.set(host,seen);if(seen%sampleRate!==0){record.mode='entity-url-sampled';record.ok=record.recordedIn.length>0;record.failure=record.ok?undefined:'no evidence record';results.push(record);continue}}
  try{
   const response=await fetch(url,{redirect:'follow',headers:{'user-agent':UA,'accept-language':'en,zh;q=0.8'}});
   const body=await response.arrayBuffer();
@@ -134,7 +140,7 @@ for(const url of urls){
 const report={schemaVersion:1,generatedAt:new Date().toISOString(),batches:batch.files,checkedUrls:results.length,
  modes:results.reduce((all,item)=>{all[item.mode]=(all[item.mode]||0)+1;return all},{}),
  passed:results.filter(item=>item.ok).length,failed:results.filter(item=>!item.ok).length,
- policy:'A source passes on live content evidence when the host answers and the expected words are present; otherwise it passes only when the repository or the reviewed handoff file already records the exact URL. Blocked hosts are never described as freshly verified.',
+ policy:'A source passes on live content evidence when the host answers and the expected words are present; otherwise it passes only when the repository or the reviewed handoff file already records the exact URL. Blocked hosts are never described as freshly verified. Hosts listed in SAMPLE_HOSTS are sampled (every Nth URL fetched) because the batch cites hundreds of entity URLs; sampled entries are marked entity-url-sampled.',
  results};
 await mkdir(dirname(outPath),{recursive:true});
 await writeFile(outPath,JSON.stringify(report,null,2)+'\n');
