@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-0bbbc41cb2ad';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-0bbbc41cb2ad';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-0bbbc41cb2ad';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-0bbbc41cb2ad';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-0bbbc41cb2ad';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-0bbbc41cb2ad';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-0bbbc41cb2ad';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-0bbbc41cb2ad';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-0bbbc41cb2ad';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-0bbbc41cb2ad';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-ad7beb47f25d';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-ad7beb47f25d';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-ad7beb47f25d';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-ad7beb47f25d';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-ad7beb47f25d';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-ad7beb47f25d';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-ad7beb47f25d';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-ad7beb47f25d';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-ad7beb47f25d';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-ad7beb47f25d';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -76,7 +76,7 @@ function renderEvents(){renderPlaceSearch();searchPlaces.token=searchPlaces.toke
   // so the search never depends on whether the map layer has been primed yet.
   loadBattles().then(all=>{
    if(placeToken!==searchPlaces.token)return;
-   const q=state.search.trim().toLocaleLowerCase(),hits=q.length>1?all.filter(b=>String(b.nameZh||'').toLocaleLowerCase().includes(q)||String(b.nameEn||'').toLocaleLowerCase().includes(q)).slice(0,6):[];
+   const q=state.search.trim().toLocaleLowerCase(),grade=b=>{const z=String(b.nameZh||'').toLocaleLowerCase(),e=String(b.nameEn||'').toLocaleLowerCase();return z===q||e===q?0:z.startsWith(q)||e.startsWith(q)?1:z.includes(q)||e.includes(q)?2:3;},hits=q.length>1?all.filter(b=>grade(b)<3).sort((a,b)=>grade(a)-grade(b)||Math.abs(a.year-state.year)-Math.abs(b.year-state.year)).slice(0,6):[];
    if(!hits.length)return;const host=$('#eventList');if(!host)return;
    const wrap=document.createElement('div');wrap.innerHTML='<div class="search-group">'+text('战役','Battles')+'</div>'+hits.map(b=>`<button class="event-card battle-hit" data-search-battle="${escape(b.id)}"><div class="event-meta"><b>${escape(b.nameZh||b.nameEn)}</b><span>${escape(String(b.year??''))}</span></div><p>${escape(b.nameEn||'')}</p></button>`).join('');host.append(wrap);
    wrap.querySelectorAll('[data-search-battle]').forEach(el=>el.onclick=()=>{const b=hits.find(x=>x.id===el.dataset.searchBattle);if(b)openBattle(b,atlas);});
