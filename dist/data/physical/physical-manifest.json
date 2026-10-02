@@ -1,0 +1,100 @@
+[
+  {
+    "name": "land",
+    "feature_count": 10,
+    "kinds": {
+      "Land": 10
+    },
+    "artificial_count": 0,
+    "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+    "source_sha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
+    "output": "land-10m.json.gz",
+    "gzip_bytes": 3569584,
+    "json_bytes": 10158221,
+    "output_sha256": "429afc8ed8d6a9daaff843b75b1b15896b54776485b438d49a04fb3e5ce05c2a",
+    "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
+    "topology_repairs": [],
+    "zh_conversion": "OpenCC t2s on source name_zh",
+    "license": "Public domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "nonempty_feature_count": 10,
+    "known_empty_source_records": []
+  },
+  {
+    "name": "lakes",
+    "feature_count": 1355,
+    "kinds": {
+      "Lake": 1056,
+      "Reservoir": 230,
+      "Alkaline Lake": 69
+    },
+    "artificial_count": 231,
+    "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_lakes.geojson",
+    "source_sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
+    "output": "lakes-10m.json.gz",
+    "gzip_bytes": 1346801,
+    "json_bytes": 4042642,
+    "output_sha256": "49226df099ecdb11117b4db4e7fed2f9ca0667e2b0b6b7c42572fcd145b49ae5",
+    "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
+    "topology_repairs": [
+      {
+        "source_id": 1159112221,
+        "reason": "Ring Self-intersection[-101.775657 58.608011]",
+        "method": "Shapely make_valid",
+        "area_difference_square_degrees": 6.938893903907228e-18
+      },
+      {
+        "source_id": 1159125163,
+        "reason": "Ring Self-intersection[101.810106 55.633168]",
+        "method": "Shapely make_valid",
+        "area_difference_square_degrees": 7.771561172376096e-16
+      }
+    ],
+    "zh_conversion": "OpenCC t2s on source name_zh",
+    "license": "Public domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "nonempty_feature_count": 1355,
+    "known_empty_source_records": []
+  },
+  {
+    "name": "rivers_lake_centerlines",
+    "feature_count": 1455,
+    "kinds": {
+      "River": 1202,
+      "Lake Centerline": 253
+    },
+    "artificial_count": 7,
+    "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
+    "source_sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
+    "output": "rivers-10m.json.gz",
+    "gzip_bytes": 2182931,
+    "json_bytes": 6171167,
+    "output_sha256": "127147e7835c5b648e8ef3a37547ccf4240e8ddfae8440833e84230d5b698452",
+    "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
+    "topology_repairs": [],
+    "zh_conversion": "OpenCC t2s on source name_zh",
+    "license": "Public domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "nonempty_feature_count": 1454,
+    "known_empty_source_records": [
+      {
+        "id": "ne-rivers_lake_centerlines-1452",
+        "name": "Loire"
+      }
+    ],
+    "name_enrichment": {
+      "mapping": "river-names-zh-en.json",
+      "mapping_sha256": "314315be5ffdc0b583cfebe750080f5bbb4928f3d275421929410e4fd1ba02d9",
+      "river_groups": 30,
+      "feature_count": 56,
+      "changed_properties": [
+        "zh",
+        "label_en",
+        "name_source"
+      ],
+      "geometry_changed": false,
+      "sources": "Official/institutional naming references and per-entry verification depth retained in river-names-zh-en.json",
+      "source_name_preserved": true
+    }
+  }
+]

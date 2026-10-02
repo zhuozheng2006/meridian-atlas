@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve the self-contained atlas locally; no packages or external tiles needed."""
+"""Serve the atlas locally. Bundled layers work offline; fine online layers are optional."""
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 import argparse, functools, threading, webbrowser

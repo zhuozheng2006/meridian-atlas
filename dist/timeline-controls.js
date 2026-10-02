@@ -32,10 +32,10 @@ export function bindTimeline({getYear,getCompareYear,getStep,commit,commitCompar
   if(target.closest?.('#detailPanel'))return;
   if(!number&&!isSlider&&target.closest?.('input,textarea,select,button,a,summary,[contenteditable="true"],[role="tab"]'))return;
   const intent=yearKeyIntent(e.key,{step:getStep(),shift:e.shiftKey,slider:isSlider,number});
-  if(intent){e.preventDefault();e.stopPropagation();pause();const year=right?getCompareYear():getYear();
+  if(intent){e.preventDefault();e.stopPropagation();pause();const value=String(target.value??'').trim();const draft=number&&/^-?\d+$/.test(value)?Number(value):NaN;const year=Number.isFinite(draft)&&draft!==0?draft:right?getCompareYear():getYear();
    const delta=intent.delta;let next=intent.year;
    if(delta!==undefined){const raw=year+delta;next=year<0&&raw>=0?raw+1:year>0&&raw<=0?raw-1:raw;}
-   (right?commitCompare:commit)(Math.max(-70000,Math.min(2026,next)));return;
+   next=Math.max(-70000,Math.min(2026,next));if(number)target.value=next;(right?commitCompare:commit)(next);return;
   }
   if(!number&&!isSlider&&e.code==='Space'){e.preventDefault();if(!e.repeat)togglePlay();}
   if(mapCanvas&&['+','=','-'].includes(e.key)){e.preventDefault();getMap(target)?.zoomTo(getMap(target).getZoom()+(e.key==='-'?-.5:.5),{duration:150});}

@@ -1,6 +1,6 @@
 # Sources and licenses / 来源与许可
 
-- Historical territories: **Cliopatria / Seshat Global History Databank**, CC BY 4.0. https://github.com/Seshat-Global-History-Databank/cliopatria . Pinned commit: `ad28a691b7c07c1fca89d0e0636d324667d2a258`. Geometry is simplified with topology preservation at 0.02°; source names, intervals and areas are retained. Original source author and dataset attribution must be retained in downstream use.
+- Historical territories: **Cliopatria / Seshat Global History Databank**, CC BY 4.0. https://github.com/Seshat-Global-History-Databank/cliopatria . Pinned commit: `ad28a691b7c07c1fca89d0e0636d324667d2a258`. The native fine layer preserves every parsed source coordinate, ring and component order. Older 0.02° geometry and 0.04° overview remain as compatibility/overview assets. Source names, intervals and areas are retained. Original source author and dataset attribution must be retained in downstream use.
 - Dataset publication: Bennett et al., “Cliopatria — A geospatial database of world-wide political entities from 3400 BCE to 2024 CE”, Scientific Data 12, 247 (2025). https://doi.org/10.1038/s41597-025-04516-9 . The software's data-integrity checks are not an independent historical validation of that dataset.
 - Supplementary labels: Wikidata, CC0. https://www.wikidata.org/wiki/Wikidata:Licensing . Labels are identity-checked against source Wikipedia article associations; additional exact-name Chinese editorial translations are identified in the catalog. Association agreement does not validate every historical identity.
 - Physical basemap: Natural Earth, public domain. https://www.naturalearthdata.com/about/terms-of-use/ . Modern coastline overview; not an ancient shoreline reconstruction. The 2.1 edition adds the unaltered 1:50m land geometry from https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_land.geojson ; source hash and processing notes are in `docs/BASEMAP-50M.json`.
@@ -19,3 +19,15 @@ Chronosphere (globe and time navigation), Phersu Atlas (date-oriented history), 
 - 23篇文明概览及47条历史侧记：本项目原创中英文摘要，CC BY 4.0。每篇`sourceIds`对应博物馆、UNESCO等原始资料链接；原网页版权各自保留。
 - [OpenCC Python Reimplemented](https://github.com/yichen0831/opencc-python)：Apache-2.0，用于构建时繁简转换（t2s），不随运行页面加载。人工补充译名沿用既有归属。
 - Chronosphere与Phersu Atlas仅作为交互设计参考，未合并其专有数据。
+
+## 3.0 地理与城市 / Geography and places
+
+- Natural Earth: public domain. Bundled 1:10 million land, rivers, lakes and authentic shaded relief; `10m` is a scale abbreviation, not ten-metre accuracy. Contemporary coast alignment changes rendering only. Exact sources, transformations and file hashes: `dist/data/physical/ATTRIBUTION.md`, `physical-manifest.json` and `files.json`.
+- Mapterhorn online elevation: upstream attribution and licenses vary by region. [Full attribution](https://mapterhorn.com/attribution/); a retrieved attribution snapshot is bundled. Mapterhorn terrain is a contemporary geographic reference.
+- OpenFreeMap / OpenMapTiles / © OpenStreetMap contributors: online vector service, ODbL source data. [OpenStreetMap copyright](https://www.openstreetmap.org/copyright), [OpenFreeMap](https://openfreemap.org/). Close-zoom default coastline reads only the ocean class, while fine waterways read river/stream classes; contemporary roads, buildings, full water and modern cities are separately enabled. No vector tile archive is bundled.
+- Pleiades ancient places: CC BY 3.0; [downloads and attribution](https://pleiades.stoa.org/downloads). Per-record contributors, original names, attested periods, location evidence and URLs remain in the lazy place archives. The two contradictory date attestations and clearly non-settlement records are documented in `city-quarantine.json.gz`; raw inputs are unchanged.
+- Reba, Reitsma & Seto (2016), historical urban population research: CC BY 4.0; [publication](https://doi.org/10.1038/sdata.2016.34). Chandler and Modelski source observations stay discrete; estimates are never added or interpolated. The China modern column uses the paper's stated 1990 observation year.
+- Dated capital relationships and city coordinate/label statements: Wikidata, CC0. Statement and revision links are retained; a capital tenure is not a city lifespan.
+- Twelve original bilingual city chapters: CC BY 4.0, Meridian Atlas contributors, 2026. Their 39 institutional references retain their own copyrights. No source prose, photographs or third-party city reconstructions are reproduced. Exact source-ID and date bindings are stored with each chapter.
+
+Build instructions: `scripts/cartography/README.md`, `scripts/places/README.md`, and `docs/MAINTENANCE.md`. Original code remains MIT; licenses of embedded datasets remain separate.

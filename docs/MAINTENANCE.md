@@ -66,3 +66,48 @@ python3 -m venv .venv
 `product.css`负责产品布局：浏览栏和地图有独立位置，桌面阅读区和地图分栏，手机阅读区覆盖主区域并禁用背后地图焦点。调整布局后仍需检查桌面、834px平板和390px手机。
 
 `labelCenter`是仅用于显示的新字段，在有效几何最大多边形内取代表点，原始`center`保持不变。新增的50m陆地数据来自Natural Earth维护仓库，未经几何变形，仅移除无用属性并gzip；出处、文件哈希和完整性见`BASEMAP-50M.json`。0.04°概览和0.02°细节均属于展示简化，不改变历史源区间、面积或记录身份。
+
+## 3.0 原始几何、自然地理与历史城市
+
+`native-geometry.js`按record ID查找原始形状，避免59组旧简化ID碰撞。常用11年先读取独立年包，其他年份先出概览再进行最多6个并发的精细请求。取消切年后停止调度未开始的旧请求；已经完成的形状供后续导航复用。以下命令在项目根目录执行，原始输入由上述固定版本下载器准备：
+
+```sh
+scripts/boundaries/.venv/bin/python scripts/boundaries/build_native_assets.py \
+  --source scripts/boundaries/cliopatria.geojson \
+  --source-metadata scripts/boundaries/source.json \
+  --source-archive scripts/boundaries/cliopatria.geojson.zip \
+  --catalog dist/data/fast/catalog.json.gz \
+  --display-data dist/data \
+  --output build/native-shards
+python3 scripts/boundaries/build_small_native_assets.py \
+  --input build/native-shards \
+  --catalog dist/data/fast/catalog.json.gz \
+  --output build/native-release
+```
+
+对照`manifest.json`后再替换`dist/data/native`；不要把旧大分片残留在新目录。原始13条无效几何继续保留和注明，构建器不静默修补历史形状。几何精度是显示保真，不能当作历史边界证据精度。
+
+自然底图重建见`../scripts/cartography/README.md`，城市资料重建见`../scripts/places/README.md`。构建器固定来源哈希、实体版本和过滤规则。可变的上游latest地址将来可能无法恢复旧字节，应另外保留经验证的原始下载缓存。现有城市构建重跑的53个压缩文件已与发布资产逐字节比对；地理矢量/海罩重建已逐字节比对，地形瓦片完整解码检查已完成，未重复执行全部地形重投影。
+
+`geography.js`使用三层加载：全球本地概览、区域Natural Earth细图、在线近距离海岸/河流与高程。在线源的metadata不代表瓦片可用；只有真实loaded tile才能首次确认ready。缓存视口往返用已见有效瓦片和`isSourceLoaded`收敛。错误恢复本地层，重试只重新创建失败的源；海岸、地形、现代参照独立控制。`queryRenderedFeatures`会包含透明要素，点击过滤必须与实际可见图层使用同一ready状态。
+
+城市的文化时期、人口观测和首都关系分别保留各自意义。`places.js`按所选年选择确有依据的地点，人口观测采用±50年并显示真实记录年；`city-narratives.js`仅按明确sourceRecordId、时期和观测年份绑定原创篇章。编写新篇章时编辑`editorial/city-narratives.json`，补齐双语段落、机构来源、日期节点、空间/年代说明和绑定反例；再以确定性gzip写入`dist/data/places/city-narratives.json.gz`。
+
+`view-state.js`保存经纬度、缩放、方位与俯仰；URL恢复必须保留左右年份与阅读对象。语言切换不能重新缩放已在阅读的地图。`startup.js`在地图引擎下载前恢复可见年份。
+
+### 当前验证入口
+
+`npm test`包含原有完整性检查，以及原始几何乱序/重试、城市与篇章语义、地图源失败/缓存恢复、分享与键盘状态和发布文件哈希检查。测试使用实际运行模块，在DOM、网络或渲染器边界使用受控替身；它们不能代替真实浏览器视觉验证或历史学审稿。逐文件发布预算为20,000静态文件、单文件25 MiB，换托管平台时重新核查限制。
+
+重新执行检查并保存报告时，可设置`ATLAS_TEST_REPORT`（地理）、`NATIVE_AUDIT_REPORT`（几何）、`STATE_AUDIT_REPORT`（视图状态）。城市篇章检查的第二个位置参数为报告路径。常规测试不会在源码目录新增结果文件。
+
+
+### 资源更新与城市名称
+
+修改 `dist/` 下的应用脚本或样式后，运行 `npm run prepare:assets`。它以规范化后的全部应用脚本、样式内容计算共享版本号，再更新 HTML 与模块导入链接；`npm test` 首项检查版本是否匹配。版本号跨模块一致，避免循环依赖模块出现两份缓存。JSON 请求重新验证服务器缓存，当前页面内仍合并重复请求。
+
+首都条目缺少可读名称时，构建器会从已锁定版本的同一 Wikidata 坐标实体补齐英文、通用语言和简体中文名称。资料库编号不会充当地名；审核结果见 `capital-label-audit.json`。
+
+`rules/dated-place-names.json` 以精确记录 ID 绑定历史名称和机构依据。人口记录的名称按实际观测年选择；支持指定观测年份集合，不延长城市存在年代。原始研究名与坐标保留；名称说明及链接进入城市“来源”。目前校正江户、长安、君士坦丁堡与特诺奇蒂特兰的已核对记录。补充别名可供搜索，年代筛选仍独立执行。精确名称与明确别名同组排序，优先所选年代的资料，再优先首都记录；普通子串匹配排在其后。
+
+城市篇章现与40条原始记录精确关联，包括618—904年的唐长安首都关系。所有绑定仍由实际时段或实际人口观测约束。

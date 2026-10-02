@@ -1,0 +1,289 @@
+{
+  "schema_version": 2,
+  "inventory_file": "files.json",
+  "inventory_rule": "files.json inventories every release file except itself. Tile and geometry payload checksums are SHA256 of the delivered compressed bytes.",
+  "payload_file_count": 347,
+  "payload_bytes": 34937902,
+  "coordinate_and_time_scope": "Modern physical geography; detailed vector source coordinates retained, separate display overviews generalized. Historical polity and settlement data retain independent provenance.",
+  "vectors": [
+    {
+      "name": "land",
+      "feature_count": 10,
+      "kinds": {
+        "Land": 10
+      },
+      "artificial_count": 0,
+      "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+      "source_sha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
+      "output": "land-10m.json.gz",
+      "gzip_bytes": 3569584,
+      "json_bytes": 10158221,
+      "output_sha256": "429afc8ed8d6a9daaff843b75b1b15896b54776485b438d49a04fb3e5ce05c2a",
+      "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
+      "topology_repairs": [],
+      "zh_conversion": "OpenCC t2s on source name_zh",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "nonempty_feature_count": 10,
+      "known_empty_source_records": []
+    },
+    {
+      "name": "lakes",
+      "feature_count": 1355,
+      "kinds": {
+        "Lake": 1056,
+        "Reservoir": 230,
+        "Alkaline Lake": 69
+      },
+      "artificial_count": 231,
+      "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_lakes.geojson",
+      "source_sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
+      "output": "lakes-10m.json.gz",
+      "gzip_bytes": 1346801,
+      "json_bytes": 4042642,
+      "output_sha256": "49226df099ecdb11117b4db4e7fed2f9ca0667e2b0b6b7c42572fcd145b49ae5",
+      "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
+      "topology_repairs": [
+        {
+          "source_id": 1159112221,
+          "reason": "Ring Self-intersection[-101.775657 58.608011]",
+          "method": "Shapely make_valid",
+          "area_difference_square_degrees": 6.938893903907228e-18
+        },
+        {
+          "source_id": 1159125163,
+          "reason": "Ring Self-intersection[101.810106 55.633168]",
+          "method": "Shapely make_valid",
+          "area_difference_square_degrees": 7.771561172376096e-16
+        }
+      ],
+      "zh_conversion": "OpenCC t2s on source name_zh",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "nonempty_feature_count": 1355,
+      "known_empty_source_records": []
+    },
+    {
+      "name": "rivers_lake_centerlines",
+      "feature_count": 1455,
+      "kinds": {
+        "River": 1202,
+        "Lake Centerline": 253
+      },
+      "artificial_count": 7,
+      "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
+      "source_sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
+      "output": "rivers-10m.json.gz",
+      "gzip_bytes": 2182931,
+      "json_bytes": 6171167,
+      "output_sha256": "127147e7835c5b648e8ef3a37547ccf4240e8ddfae8440833e84230d5b698452",
+      "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
+      "topology_repairs": [],
+      "zh_conversion": "OpenCC t2s on source name_zh",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "nonempty_feature_count": 1454,
+      "known_empty_source_records": [
+        {
+          "id": "ne-rivers_lake_centerlines-1452",
+          "name": "Loire"
+        }
+      ],
+      "name_enrichment": {
+        "mapping": "river-names-zh-en.json",
+        "mapping_sha256": "314315be5ffdc0b583cfebe750080f5bbb4928f3d275421929410e4fd1ba02d9",
+        "river_groups": 30,
+        "feature_count": 56,
+        "changed_properties": [
+          "zh",
+          "label_en",
+          "name_source"
+        ],
+        "geometry_changed": false,
+        "sources": "Official/institutional naming references and per-entry verification depth retained in river-names-zh-en.json",
+        "source_name_preserved": true
+      }
+    }
+  ],
+  "local_relief": {
+    "source": "Natural Earth Shaded Relief Basic 3.2.0",
+    "source_url": "https://naciscdn.org/naturalearth/10m/raster/SR_HR.zip",
+    "source_sha256": "b2619fff2fc73c17152983c066adfaa25c4b626916b822bad2fae8bcd9be41a5",
+    "license": "Public domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "source_dimensions": [
+      21600,
+      10800
+    ],
+    "source_cell_arc_seconds": 60,
+    "projection": "EPSG:3857",
+    "scheme": "xyz",
+    "tile_size": 512,
+    "minzoom": 0,
+    "maxzoom": 4,
+    "tile_count": 341,
+    "tile_bytes": 23428186,
+    "conversion": "Bilinear reprojection at z5; lower levels Lanczos; transparent grayscale relief overlay, source neutral value 206; WebP quality 85/alpha 95. No elevation inference. Release subset z0–4 recompressed at WebP quality75/alpha75; full z5 assets kept separately for archival use.",
+    "bounds": [
+      -180,
+      -85.0511287798,
+      180,
+      85.0511287798
+    ]
+  },
+  "ocean_mask": {
+    "manifest": "modern-ocean-mask.manifest.json",
+    "historical_geometry_modified": false
+  },
+  "overview": {
+    "manifest": "physical-overview.manifest.json",
+    "display_only": true,
+    "published_outputs": [
+      "physical-overview.json.gz",
+      "modern-ocean-mask-overview.json.gz"
+    ]
+  },
+  "bilingual_rivers": {
+    "mapping": "river-names-zh-en.json",
+    "groups": 30,
+    "matched_features": 56
+  },
+  "remote_terrain": {
+    "provider": "Mapterhorn",
+    "tilejson_snapshot": "mapterhorn-tilejson.json",
+    "source_attribution_snapshot": "mapterhorn-attribution.json",
+    "tile_template": "https://tiles.mapterhorn.com/{z}/{x}/{y}.webp",
+    "source_licenses": "See source attribution snapshot; do not equate the renderer/code license with data licenses.",
+    "local_fallback": true
+  },
+  "verification": {
+    "geometry": {
+      "mode": "geometry",
+      "file_count": 357,
+      "total_bytes": 35115051,
+      "geometry": {
+        "lakes-10m.json.gz": {
+          "gzip_crc_valid": true,
+          "json_bytes": 4042642,
+          "features": 1355,
+          "nonempty_features": 1355,
+          "vertices": 162854,
+          "invalid_geometries": [],
+          "empty_geometries": [],
+          "non_simplified_chinese": [],
+          "kind_counts": {
+            "Lake": 1056,
+            "Reservoir": 230,
+            "Alkaline Lake": 69
+          },
+          "artificial_features": 231
+        },
+        "land-10m.json.gz": {
+          "gzip_crc_valid": true,
+          "json_bytes": 10158221,
+          "features": 10,
+          "nonempty_features": 10,
+          "vertices": 446170,
+          "invalid_geometries": [],
+          "empty_geometries": [],
+          "non_simplified_chinese": [],
+          "kind_counts": {
+            "Land": 10
+          },
+          "artificial_features": 0
+        },
+        "modern-ocean-mask-overview.json.gz": {
+          "gzip_crc_valid": true,
+          "json_bytes": 2006656,
+          "features": 6,
+          "nonempty_features": 6,
+          "vertices": 87683,
+          "invalid_geometries": [],
+          "empty_geometries": [],
+          "non_simplified_chinese": [],
+          "kind_counts": {
+            "ModernOceanMaskOverview": 6
+          },
+          "artificial_features": 0
+        },
+        "modern-ocean-mask.json.gz": {
+          "gzip_crc_valid": true,
+          "json_bytes": 10135413,
+          "features": 6,
+          "nonempty_features": 6,
+          "vertices": 445595,
+          "invalid_geometries": [],
+          "empty_geometries": [],
+          "non_simplified_chinese": [],
+          "kind_counts": {
+            "ModernOceanMask": 6
+          },
+          "artificial_features": 0
+        },
+        "physical-overview.json.gz": {
+          "gzip_crc_valid": true,
+          "json_bytes": 390807,
+          "features": 202,
+          "nonempty_features": 202,
+          "vertices": 14664,
+          "invalid_geometries": [],
+          "empty_geometries": [],
+          "non_simplified_chinese": [],
+          "kind_counts": {
+            "River": 96,
+            "Lake Centerline": 22,
+            "Lake": 64,
+            "Alkaline Lake": 20
+          },
+          "artificial_features": 0
+        },
+        "rivers-10m.json.gz": {
+          "gzip_crc_valid": true,
+          "json_bytes": 6171167,
+          "features": 1455,
+          "nonempty_features": 1454,
+          "vertices": 256386,
+          "invalid_geometries": [],
+          "empty_geometries": [
+            {
+              "id": "ne-rivers_lake_centerlines-1452",
+              "name": "Loire",
+              "source_preserved": true
+            }
+          ],
+          "non_simplified_chinese": [],
+          "kind_counts": {
+            "River": 1202,
+            "Lake Centerline": 253
+          },
+          "artificial_features": 7
+        }
+      },
+      "tiles": {},
+      "errors": [],
+      "river_names": {
+        "groups": 30,
+        "matched_features": 56,
+        "all_labels_match_reviewed_mapping": true,
+        "river_geometries_equal_original_source": true
+      }
+    },
+    "tiles": {
+      "mode": "tiles",
+      "file_count": 357,
+      "total_bytes": 35115051,
+      "geometry": {},
+      "tiles": {
+        "count": 341,
+        "bytes": 23428186,
+        "all_decode": true,
+        "all_size_512": true,
+        "all_mode_rgba": true,
+        "complete_xyz_z0_to_4": true,
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0"
+      },
+      "errors": []
+    }
+  }
+}

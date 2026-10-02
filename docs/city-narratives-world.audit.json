@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-02",
+  "output": "work/v4/city-narratives-world.json",
+  "sha256": "08a49dd4325285edca031dd5734ba06caf5e9ec2764e489d0e293a72fd0bc643",
+  "sourceInputs": [
+    {
+      "path": "outputs/world-history-atlas/dist/data/places/historical-settlements.json.gz",
+      "sha256": "87fc2a88e6b2761131254f94826962f77a052d3126fa730a6ec0c1434e9706c4",
+      "recordCount": 11328
+    },
+    {
+      "path": "outputs/world-history-atlas/dist/data/places/historical-capitals.json.gz",
+      "sha256": "093f4c6a7135c9b09e6858eeb1f111fbc01d37e11979a7b1ac75f745325c5e18",
+      "recordCount": 307
+    },
+    {
+      "path": "outputs/world-history-atlas/dist/data/places/urban-observations.json.gz",
+      "sha256": "5803bfb3e86e20cc4ec4b49325278b0c23412c984f126dd3881061bab2bd5af0",
+      "recordCount": 2043
+    }
+  ],
+  "entries": [
+    {
+      "id": "city-rome",
+      "hanCharacters": 338,
+      "chineseCharactersWithPunctuation": 368,
+      "englishWords": 163,
+      "sectionCount": 3,
+      "milestoneCount": 3,
+      "institutionCount": 3,
+      "sourceRecordCount": 6
+    },
+    {
+      "id": "city-constantinople",
+      "hanCharacters": 304,
+      "chineseCharactersWithPunctuation": 349,
+      "englishWords": 164,
+      "sectionCount": 3,
+      "milestoneCount": 3,
+      "institutionCount": 2,
+      "sourceRecordCount": 5
+    },
+    {
+      "id": "city-cairo",
+      "hanCharacters": 320,
+      "chineseCharactersWithPunctuation": 358,
+      "englishWords": 163,
+      "sectionCount": 3,
+      "milestoneCount": 3,
+      "institutionCount": 2,
+      "sourceRecordCount": 5
+    },
+    {
+      "id": "city-timbuktu",
+      "hanCharacters": 330,
+      "chineseCharactersWithPunctuation": 363,
+      "englishWords": 164,
+      "sectionCount": 3,
+      "milestoneCount": 3,
+      "institutionCount": 2,
+      "sourceRecordCount": 1
+    },
+    {
+      "id": "city-tenochtitlan",
+      "hanCharacters": 316,
+      "chineseCharactersWithPunctuation": 353,
+      "englishWords": 161,
+      "sectionCount": 3,
+      "milestoneCount": 3,
+      "institutionCount": 3,
+      "sourceRecordCount": 1
+    },
+    {
+      "id": "city-cusco",
+      "hanCharacters": 325,
+      "chineseCharactersWithPunctuation": 362,
+      "englishWords": 176,
+      "sectionCount": 3,
+      "milestoneCount": 3,
+      "institutionCount": 2,
+      "sourceRecordCount": 1
+    }
+  ],
+  "tests": {
+    "sixEntries": true,
+    "allSourceRecordIdsResolve": true,
+    "allExplicitObservationYearsExist": true,
+    "allEntryLengthsPass": true,
+    "allEntriesHaveThreeSectionsAndMilestones": true,
+    "allEntriesHaveAtLeastTwoInstitutions": true,
+    "siteModifiedByBuilder": false,
+    "simplifiedChineseUnchangedByOpenCCT2S": true,
+    "allMilestonesWithinScope": true,
+    "allSourceReferencesResolve": true,
+    "bindingContractExamplesPassed": 26
+  },
+  "bindingContractTests": [
+    {
+      "case": "Tenochtitlan binds 1500 observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan binds 1520 observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan conquest boundary accepts prior observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan rejects later atlas year",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan rejects later observation",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan requires selected observation",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan rejects modern Mexico City record",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Tenochtitlan rejects hypothetical 1510 observation",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Cairo rejects earlier Fustat-era observation",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Cairo accepts foundation-era observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Cairo rejects pre-foundation atlas year",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Cairo accepts only 1000 in Modelski ancient series",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Cairo rejects 900 in Modelski ancient series",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Constantinople accepts dated historical record",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Constantinople rejects earlier Byzantium entity",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Constantinople rejects modern Istanbul entity",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Constantinople rejects Ottoman-only dated capital claim",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Constantinople rejects post-1453 observation",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Constantinople accepts 1453 boundary observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Rome accepts attested ancient place",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Rome rejects year zero",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Rome rejects settlement period beyond source",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Timbuktu accepts exact observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Cusco accepts exact observation",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "Cusco rejects invented observation",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "Unknown record never matches by name or proximity",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    }
+  ],
+  "coordinateReview": "Existing source coordinates were inspected; no coordinates or historical polygons were added. Matching tests validate identity/date rules, not archaeological boundary accuracy.",
+  "sourceAccessException": "rome-colosseum was read in the web search index of the official page; direct open returned an internal error. All other cited pages opened successfully.",
+  "manualReview": [
+    {
+      "city": "Rome",
+      "identity": "Roma / Rome records are explicitly named; the Pleiades urban point and the later capital/population points lie in the same historic city.",
+      "sourceCoordinates": [
+        [
+          12.491258174554883,
+          41.8899769864849
+        ],
+        [
+          12.481313,
+          41.897902
+        ],
+        [
+          12.4839,
+          41.89474
+        ]
+      ],
+      "time": "The Pleiades record stops at 640; it does not support all later years. Later exact-ID observations/claims remain separate. The dossier does not assign a factual 753 BCE foundation date."
+    },
+    {
+      "city": "Constantinople",
+      "identity": "Use Constantinopolis, the dated Constantinople claims, and explicitly time-filtered Istanbul population observations.",
+      "sourceCoordinates": [
+        [
+          28.965635140087546,
+          41.00659262530202
+        ],
+        [
+          28.976018,
+          41.01224
+        ],
+        [
+          28.976944,
+          41.005275
+        ]
+      ],
+      "time": "Dossier scope 330–1453. Byzantium pleiades:520985, modern İstanbul pleiades:77402394 and the Ottoman-only capital claim are excluded. The text explicitly includes the interruption of Byzantine rule in 1204–1261; broad capital claims are preserved as source claims, not used to erase that interval."
+    },
+    {
+      "city": "Cairo",
+      "identity": "A dossier about al-Qahira from 969, not an assertion that the earlier Fustat, al-Askar and al-Qatai settlements bore that identity.",
+      "sourceCoordinates": [
+        [
+          31.248022,
+          30.051906
+        ],
+        [
+          31.24967,
+          30.06263
+        ]
+      ],
+      "time": "Pre-969 observations are excluded. Commissioning al-Azhar in 970 and beginning citadel work in 1176 are deliberately distinguished from completion. The city reference point is not relabelled as a palace, mosque, or the medieval centre."
+    },
+    {
+      "city": "Timbuktu",
+      "identity": "chandler:1433 is named Tombouctou and is the exact bound record.",
+      "sourceCoordinates": [
+        [
+          -3.00742,
+          16.77348
+        ]
+      ],
+      "time": "Population evidence covers the listed observations 1300–1850. The fourteenth-century manuscript node is a century range, not a precise event on 1 January 1300. The 1733 node is the copying date of a surviving manuscript, not the date the astronomical ideas originated."
+    },
+    {
+      "city": "Tenochtitlan",
+      "identity": "There is no independently named Tenochtitlan record in the current place data. Only the pre-conquest 1500/1520 observations in chandler:921 (Mexico City) are bound.",
+      "sourceCoordinates": [
+        [
+          -99.12766,
+          19.42847
+        ]
+      ],
+      "time": "Scope 1325–1521. The 1325 foundation is identified as traditional. No Modelski 2000 or post-1521 Chandler observations may match.",
+      "space": "The source point is an urban reference near the ancient city, not an archaeological fix on the Templo Mayor, and no ancient-city polygon is supplied. It is preserved unchanged. Modern Mexico City extent and Xochimilco are not substituted for the island city."
+    },
+    {
+      "city": "Cusco",
+      "identity": "chandler:346 is named Cuzco; Q5582862 was separately checked on Wikidata as the historic city of Cusco, not inferred from proximity alone.",
+      "sourceCoordinates": [
+        [
+          -71.972222,
+          -13.525
+        ]
+      ],
+      "time": "The 1438 expansion and 1533 Spanish arrival have institutional sources. Source observations 1438–1850 remain discrete.",
+      "space": "The source coordinate is a city reference point, not a precise Qorikancha or royal-plaza location. The article describes the historic city without relocating the dataset point."
+    }
+  ],
+  "editorialExclusions": [
+    "No population figure was added from museum/UNESCO narrative sources; divergent historical population estimates remain in the underlying observation datasets.",
+    "No comprehensive city-boundary reconstruction or coordinate-accuracy upgrade is implied by these reading dossiers.",
+    "No current opening hours, visitor arrangements, state-of-conservation claims or changing political status were added.",
+    "No paragraph repeats generic non-representation disclaimers; identity and spatial qualifications live in scope/binding metadata.",
+    "No source photographs, maps, or prose were copied. Source title and URL metadata are retained for citations.",
+    "The UNESCO Cairo synthesis contains an apparent east/west reversal for the Nile and Muqattam; that orientation claim is not used.",
+    "INAH main-domain pages returned errors on direct opening; the cited INAH Lugares historic-centre page opened successfully and supports the retained Tenochtitlan claims."
+  ],
+  "integrationRequirements": [
+    "Use exact sourceRecordIds. Never use a fuzzy city-name match or a distance threshold to attach dossiers.",
+    "Pass the selected observation year when binding population records; all such bindings require an observation and an allowed observationYears value.",
+    "Intersect dated-place matches with the source periods. Do not interpolate across period gaps.",
+    "Display milestone labels/date objects; do not format decade/century start years as falsely exact single-year events.",
+    "Keep scope/binding explanations in the sources or dossier-information panel; prose is intended for direct reading.",
+    "The Tenochtitlan dossier must be hidden from modern Mexico City and post-conquest source observations."
+  ]
+}

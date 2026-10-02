@@ -1,0 +1,172 @@
+{
+  "file": "modern-ocean-mask.json.gz",
+  "gzip_bytes": 3536204,
+  "json_bytes": 10135413,
+  "sha256": "589bfd8b8a1e1c10b0e65411765404e97880da4f67fc33ee3bd46f7403f3eabf",
+  "crs": "GeoJSON WGS84 longitude/latitude; rendered in Web Mercator",
+  "source": "Natural Earth 1:10 million modern land polygons (10m denotes map scale, not metres)",
+  "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+  "original_source_sha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
+  "input_file": "land-10m.json.gz",
+  "input_sha256": "429afc8ed8d6a9daaff843b75b1b15896b54776485b438d49a04fb3e5ce05c2a",
+  "license": "Public domain",
+  "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "attribution": "Natural Earth",
+  "method": "Union source land polygons (synthetic Null island already excluded), clip to lon [-180,180] and lat [-85.0511287798066,85.0511287798066], subtract from six 60-degree longitude strips, and orient polygon exterior rings counterclockwise / holes clockwise. No simplification, buffering, or coordinate rounding is applied. Only clip intersections add vertices.",
+  "historical_geometry_modified": false,
+  "purpose_zh": "自然海岸对齐：用现今陆地以外的海洋遮罩历史疆域向海延伸的图形，保留来源疆域坐标供查阅与切换。海岸取自 Natural Earth 1:1000万现代陆地；这一视觉对齐不重建古代海岸、围垦、海侵或历史河道。",
+  "purpose_en": "Natural coastline alignment uses a modern ocean mask to hide historical territory geometry extending beyond present-day land. Original territory coordinates remain unchanged and can be inspected or shown by switching this alignment off. Coastlines come from Natural Earth at 1:10 million scale; this visual alignment does not reconstruct ancient shorelines, reclamation, sea-level changes or historical river courses.",
+  "rendering": {
+    "source_type": "geojson",
+    "source_tolerance": 0,
+    "fill_opacity": 1,
+    "fill_antialias": false,
+    "fill_color": "must match the base ocean color exactly",
+    "layer_order": "Above historical territory fills, outlines and selection borders; below coastline, waterways, place labels and event markers. Re-add/move coastline above the mask so the fine shore remains visible.",
+    "seams": "Six features are an exact partition. Disable fill antialias on the mask to avoid translucent seams on the cut meridians; draw a separate antialiased coastline above the mask."
+  },
+  "validation": {
+    "feature_count": 6,
+    "polygon_count": 32,
+    "ring_count": 6825,
+    "vertex_count": 445595,
+    "all_feature_geometries_valid": true,
+    "union_valid": true,
+    "exterior_winding": "counterclockwise",
+    "interior_winding": "clockwise",
+    "all_rings_closed": true,
+    "bounds": [
+      -180,
+      -85.0511287798066,
+      180,
+      85.0511287798066
+    ],
+    "maximum_longitude_segment_degrees": 60.0,
+    "maximum_ring_longitude_span_degrees": 60.0,
+    "area_units": "square degrees in the construction plane; topology check, not physical area",
+    "symmetric_difference_vs_ocean_area": 1.5870425245873232e-14,
+    "overlap_with_land_area": 9.586025071161252e-15,
+    "uncovered_world_area": 0.0,
+    "partition_area_error": 1.8189894035458565e-10,
+    "deterministic_classification_sample_count": 12063,
+    "classification_mismatches": 0,
+    "known_point_checks": [
+      {
+        "place": "North Atlantic",
+        "lon": -35,
+        "lat": 30,
+        "ocean": true
+      },
+      {
+        "place": "South Atlantic",
+        "lon": -20,
+        "lat": -30,
+        "ocean": true
+      },
+      {
+        "place": "North Pacific west",
+        "lon": 179.99,
+        "lat": 10,
+        "ocean": true
+      },
+      {
+        "place": "North Pacific east",
+        "lon": -179.99,
+        "lat": 10,
+        "ocean": true
+      },
+      {
+        "place": "Indian Ocean",
+        "lon": 80,
+        "lat": -25,
+        "ocean": true
+      },
+      {
+        "place": "Southern Ocean",
+        "lon": 0,
+        "lat": -60,
+        "ocean": true
+      },
+      {
+        "place": "Arctic Ocean near limit",
+        "lon": 0,
+        "lat": 85,
+        "ocean": true
+      },
+      {
+        "place": "Antarctic interior near limit",
+        "lon": 0,
+        "lat": -85,
+        "ocean": false
+      },
+      {
+        "place": "Beijing",
+        "lon": 116.4074,
+        "lat": 39.9042,
+        "ocean": false
+      },
+      {
+        "place": "Paris",
+        "lon": 2.3522,
+        "lat": 48.8566,
+        "ocean": false
+      },
+      {
+        "place": "Nairobi",
+        "lon": 36.8219,
+        "lat": -1.2921,
+        "ocean": false
+      },
+      {
+        "place": "New York",
+        "lon": -74.006,
+        "lat": 40.7128,
+        "ocean": false
+      },
+      {
+        "place": "Sao Paulo",
+        "lon": -46.6333,
+        "lat": -23.5505,
+        "ocean": false
+      },
+      {
+        "place": "Sydney",
+        "lon": 151.2093,
+        "lat": -33.8688,
+        "ocean": false
+      },
+      {
+        "place": "Greenland",
+        "lon": -40,
+        "lat": 72,
+        "ocean": false
+      },
+      {
+        "place": "Madagascar",
+        "lon": 46.5,
+        "lat": -19,
+        "ocean": false
+      },
+      {
+        "place": "Taiwan",
+        "lon": 121,
+        "lat": 23.5,
+        "ocean": false
+      },
+      {
+        "place": "Sri Lanka",
+        "lon": 80.7,
+        "lat": 7.8,
+        "ocean": false
+      },
+      {
+        "place": "Viti Levu, Fiji",
+        "lon": 178,
+        "lat": -18,
+        "ocean": false
+      }
+    ],
+    "build_seconds": 12.904
+  },
+  "build_input_file": "publish/land-10m.json.gz"
+}

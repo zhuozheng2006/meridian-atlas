@@ -1,0 +1,120 @@
+{
+  "outputs": [
+    {
+      "file": "physical-overview.json.gz",
+      "features": 202,
+      "vertices": 14664,
+      "gzip_bytes": 137909,
+      "json_bytes": 390807,
+      "sha256": "260136230add23e6ca1552eee4823e7076d4083d3bbb17ee15c31a77d78dda55",
+      "all_geometries_valid": true
+    },
+    {
+      "file": "modern-ocean-mask-overview.json.gz",
+      "features": 6,
+      "vertices": 87683,
+      "gzip_bytes": 736287,
+      "json_bytes": 2006656,
+      "sha256": "d9b4624c8c607caa4747d64038ab51d7db31002500ce384cabbb7121ff27c43f",
+      "all_geometries_valid": true
+    }
+  ],
+  "physical_inputs": {
+    "rivers": {
+      "file": "rivers-10m.json.gz",
+      "sha256": "127147e7835c5b648e8ef3a37547ccf4240e8ddfae8440833e84230d5b698452",
+      "build_workspace_file": "rivers-10m-named.json.gz"
+    },
+    "lakes": {
+      "file": "lakes-10m.json.gz",
+      "sha256": "49226df099ecdb11117b4db4e7fed2f9ca0667e2b0b6b7c42572fcd145b49ae5",
+      "build_workspace_file": "publish/lakes-10m.json.gz"
+    }
+  },
+  "land_input": {
+    "file": "land-10m.json.gz",
+    "sha256": "429afc8ed8d6a9daaff843b75b1b15896b54776485b438d49a04fb3e5ce05c2a",
+    "build_workspace_file": "publish/land-10m.json.gz"
+  },
+  "physical_selection": "(rank <= 3 OR minzoom <= 3) AND artificial != true, preserving source kind and identifiers",
+  "physical_counts": {
+    "rivers": {
+      "source": 1455,
+      "retained": 118,
+      "before_vertices": 40071,
+      "after_vertices": 7680,
+      "kind_counts": {
+        "River": 96,
+        "Lake Centerline": 22
+      }
+    },
+    "lakes": {
+      "source": 1355,
+      "retained": 84,
+      "before_vertices": 32563,
+      "after_vertices": 6984,
+      "kind_counts": {
+        "Lake": 64,
+        "Alkaline Lake": 20
+      }
+    }
+  },
+  "physical_method": "Shapely/GEOS simplify(tolerance=0.02 degrees, preserve_topology=True) independently on each selected feature; polygon exteriors CCW and holes CW. Lake Centerline features remain identifiable by kind and should be excluded from visible river line strokes when lakes are filled.",
+  "mask_method": "Union the full modern Natural Earth land geometry, clip to visible Mercator latitude, simplify the full union at 0.03 degrees with preserve_topology=True, re-union generalized components to dissolve nested or overlapping shells, then compute its exact ocean complement. Finally split land and ocean into the same six 60-degree longitude strips. Shared edges are derived once, never simplified independently. Coastline is the shared generalized land boundary minus the world clip rectangle boundary, taken before longitude splitting.",
+  "layer_property_values": [
+    "rivers",
+    "lakes"
+  ],
+  "coordinate_units": "longitude/latitude degrees; visual cartographic generalization, not metre-level positional accuracy",
+  "bounds": [
+    -180,
+    -85.0511287798066,
+    180,
+    85.0511287798066
+  ],
+  "display_only": true,
+  "full_10m_geometries_changed": false,
+  "historical_geometries_changed": false,
+  "integration_zh": "首屏加载 physical-overview、modern-ocean-mask-overview；建议同时使用提供的 land-overview 保持陆地和海罩完全共边。在 zoom >= 2.5 时加载精细 10m 陆地、水系、海罩，再把各 source.setData 一并切到精细资产。若继续用旧 50m 陆地作为首屏底图，不能声称它与此海罩完全共边。海罩 fill-antialias=false；独立海岸线置于海罩上方。概览 land-overview 是分片面，直接对它用 line 图层会画出经度切边；提供的 coastline-overview 已去掉日期线和纬度裁剪边，也不包含经度切片边。",
+  "method_zh": "概览图仅为显示提速：主要水系按 0.02°、陆地与海洋共边按 0.03° 做保持拓扑的简化。精细 10m 地理数据与历史疆域来源坐标均未改变。",
+  "method_en": "Overview geometry is generalized only for faster display: major waterways at 0.02 degrees, shared land/ocean edges at 0.03 degrees with topology preservation. Detailed 1:10 million geography and historical territory source coordinates remain unchanged.",
+  "license": "Public domain (Natural Earth); name-source references retained in properties where supplied",
+  "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "attribution": "Natural Earth",
+  "validation": {
+    "all_feature_geometries_valid": true,
+    "generalized_land_component_count_before_union": 6836,
+    "generalized_land_component_count_after_union": 6829,
+    "dissolved_nested_shell_overlap_area_square_degrees": 0.0005442301044240594,
+    "exterior_winding": "counterclockwise",
+    "interior_winding": "clockwise",
+    "maximum_longitude_segment_degrees": 60,
+    "mask_and_land_union_valid": true,
+    "uncovered_world_area_square_degrees": 0.0,
+    "mask_land_overlap_area_square_degrees": 0.0,
+    "mask_difference_from_shared_coast_complement_area_square_degrees": 4.911065137389969e-14,
+    "area_partition_error_square_degrees": 5.820766091346741e-11,
+    "classification_sample_count": 12063,
+    "classification_mismatches": 0
+  },
+  "optional_build_outputs": [
+    {
+      "file": "land-overview.json.gz",
+      "features": 6,
+      "vertices": 87751,
+      "gzip_bytes": 738313,
+      "json_bytes": 2021950,
+      "sha256": "da34713f3a405b938080aade96b8a10dd196816d60172a243f3ebbe2b7311b15",
+      "all_geometries_valid": true
+    },
+    {
+      "file": "coastline-overview.json.gz",
+      "features": 1,
+      "vertices": 87455,
+      "gzip_bytes": 732032,
+      "json_bytes": 1999802,
+      "sha256": "b7791f1c9eb5f15ddbfdd28fc24fad62abda594ff3e5cd5f7896e515b7a3fa17",
+      "all_geometries_valid": true
+    }
+  ]
+}

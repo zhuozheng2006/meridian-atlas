@@ -1,0 +1,190 @@
+{
+  "snapshot": {
+    "path": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/dist/geography.js",
+    "sha256": "b7ac0e47581fb7f8d1802dcb3e4a9446eac63385ea959e12df017c517b1cd416",
+    "mapEngineSha256": "4d0a13a7085125ee81b370af5ade9fc2aaa60f49d5c48f586a3a1e30614ec92d",
+    "capturedAt": "2026-10-02T06:29:02.901Z"
+  },
+  "counts": {
+    "pass": 30,
+    "findings": 0
+  },
+  "results": [
+    {
+      "name": "Fine local data is never replaced by a late coarse success",
+      "status": "pass",
+      "details": [
+        "fine-land",
+        "fine-rivers",
+        "fine-lakes",
+        "fine-ocean"
+      ]
+    },
+    {
+      "name": "Coarse water supplements a failed fine layer without downgrading another fine layer",
+      "status": "pass",
+      "details": {
+        "retriedOnlyMissingFine": true,
+        "loaded": [
+          "land",
+          "rivers",
+          "ocean",
+          "land-overview",
+          "water-overview",
+          "ocean-overview",
+          "lakes"
+        ]
+      }
+    },
+    {
+      "name": "Successful later local retry clears partial status",
+      "status": "pass"
+    },
+    {
+      "name": "Late unused overview failure does not mark complete fine geography partial",
+      "status": "pass"
+    },
+    {
+      "name": "Delayed successful local fetch performs no setData after destroy",
+      "status": "pass",
+      "details": {
+        "writes": 0,
+        "reports": 0
+      }
+    },
+    {
+      "name": "Delayed failed local fetch reports nothing after destroy",
+      "status": "pass"
+    },
+    {
+      "name": "Terrain failure restores local relief without hiding modern reference",
+      "status": "pass",
+      "details": {
+        "fallbackOpacity": 0.82,
+        "referenceStillVisible": true,
+        "terrainRecreated": true
+      }
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables fine DEM",
+      "status": "pass"
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables vector reference",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference failure restores local mask without hiding terrain",
+      "status": "pass",
+      "details": {
+        "maskRestored": true,
+        "terrainUnaffected": true
+      }
+    },
+    {
+      "name": "Modern reference failure invalidates readiness used by territory hit testing",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference off stays off while the default fine coast survives late remote success",
+      "status": "pass",
+      "details": "modern layers hidden; default fine coast remains"
+    },
+    {
+      "name": "Coast alignment off remains off through reference toggles/failure/retry",
+      "status": "pass",
+      "details": "local mask remains hidden"
+    },
+    {
+      "name": "A metadata-only loaded signal cannot substitute for usable modern vector tiles",
+      "status": "pass"
+    },
+    {
+      "name": "Previously ready reference retains local fallback while new viewport tiles load",
+      "status": "pass"
+    },
+    {
+      "name": "Turning terrain off before DEM metadata arrives does not certify usable DEM tiles",
+      "status": "pass"
+    },
+    {
+      "name": "terrain-dem: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/modern: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/default-coast: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "Default coast starts the shared vector source only at zoom 8",
+      "status": "pass",
+      "details": "ocean only; no modern urban or inland-water layers"
+    },
+    {
+      "name": "Pending fine ocean requests tiles while keeping local fallback visible",
+      "status": "pass",
+      "details": "layout visible, opacity zero, local mask opaque"
+    },
+    {
+      "name": "Ready default coast preserves physical rivers and lakes",
+      "status": "pass",
+      "details": "fine coastline with local natural waterways retained"
+    },
+    {
+      "name": "Terrain disabled does not block automatic fine coastline",
+      "status": "pass",
+      "details": "independent coast and terrain controls"
+    },
+    {
+      "name": "Fine coast and modern reference reuse one source through all toggles",
+      "status": "pass",
+      "details": "one vector source; independent modes"
+    },
+    {
+      "name": "Default coast failure/retry restores and reloads only the shared remote coast",
+      "status": "pass",
+      "details": "default coast retry works with modern reference off"
+    },
+    {
+      "name": "Pending transparent fine-ocean geometry cannot block visible fallback land clicks",
+      "status": "pass"
+    },
+    {
+      "name": "Ready default fine ocean rejects water clicks but ignores obsolete coarse ocean hits",
+      "status": "pass",
+      "details": "clicks use the same fine coastline as the visible map"
+    },
+    {
+      "name": "Failed fine coast rejects fallback-water clicks; raw coast mode allows original geometry",
+      "status": "pass",
+      "details": "fallback and raw coast hit tests match visible state"
+    },
+    {
+      "name": "Fine natural waterways replace coarse rivers while modern infrastructure stays hidden",
+      "status": "pass"
+    },
+    {
+      "name": "Fine waterways failure restores the local river and retry removes dependent layers",
+      "status": "pass"
+    }
+  ]
+}

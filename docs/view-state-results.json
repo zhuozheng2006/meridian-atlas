@@ -1,0 +1,232 @@
+{
+  "checkedAt": "2026-10-02T06:29:02.997Z",
+  "method": "Actual repository functions executed in Node VM; DOM, renderer and network boundaries stubbed; no browser visual verification.",
+  "snapshots": {
+    "view-state.js": {
+      "sha256": "1be691d7088ea8062dc07f4fa69182370c19a1b869e0c8a5302d7408387abc4d"
+    },
+    "map-engine.js": {
+      "sha256": "4d0a13a7085125ee81b370af5ade9fc2aaa60f49d5c48f586a3a1e30614ec92d"
+    },
+    "places.js": {
+      "sha256": "1ecf647e0f1ce3de865e2e91dcf6f2945399deba0bf742f166da47cd06a7811c"
+    },
+    "timeline-controls.js": {
+      "sha256": "b3954150517b0a12883f08db32331c3a33fe7a1038a864f26c2936ae85b89a6f"
+    },
+    "polity-reader.js": {
+      "sha256": "c86c08dda6db62fd0422de482790192a8950678b2207eda85644f847d26d0b5e"
+    },
+    "app.js": {
+      "sha256": "e4fbbad4e3fd78772ce941ec3a748b80de99f385129b45f4f24dcbe796027a82"
+    }
+  },
+  "pass": 51,
+  "fail": 0,
+  "results": [
+    {
+      "name": "city to polity navigation opens the left dossier",
+      "pass": true
+    },
+    {
+      "name": "city to polity navigation opens the right dossier",
+      "pass": true
+    },
+    {
+      "name": "event share restores left year with a saved camera",
+      "pass": true
+    },
+    {
+      "name": "event share restores left year without a saved camera",
+      "pass": true
+    },
+    {
+      "name": "event share restores right year with a saved camera",
+      "pass": true
+    },
+    {
+      "name": "event share restores right year without a saved camera",
+      "pass": true
+    },
+    {
+      "name": "polity language switch keeps left camera and reader tab",
+      "pass": true
+    },
+    {
+      "name": "polity language switch keeps right camera and reader tab",
+      "pass": true
+    },
+    {
+      "name": "left draft 1700 ArrowUp yields 1701",
+      "pass": true
+    },
+    {
+      "name": "left draft 1700 ArrowDown yields 1699",
+      "pass": true
+    },
+    {
+      "name": "left draft -1 ArrowUp yields 1",
+      "pass": true
+    },
+    {
+      "name": "left draft 1 ArrowDown yields -1",
+      "pass": true
+    },
+    {
+      "name": "left draft 2026 ArrowUp yields 2026",
+      "pass": true
+    },
+    {
+      "name": "left draft -70000 ArrowDown yields -70000",
+      "pass": true
+    },
+    {
+      "name": "right draft 1700 ArrowUp yields 1701",
+      "pass": true
+    },
+    {
+      "name": "right draft 1700 ArrowDown yields 1699",
+      "pass": true
+    },
+    {
+      "name": "right draft -1 ArrowUp yields 1",
+      "pass": true
+    },
+    {
+      "name": "right draft 1 ArrowDown yields -1",
+      "pass": true
+    },
+    {
+      "name": "right draft 2026 ArrowUp yields 2026",
+      "pass": true
+    },
+    {
+      "name": "right draft -70000 ArrowDown yields -70000",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary 0,0,0.2,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary 180,85.051129,14,180,60",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary -180,-85.051129,0.2,-180,0",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary 25.12345,-30.98765,6.125,-47.5,42",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera null",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera undefined",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera ",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0,0,1",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,NaN,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera Infinity,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 181,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,85.1,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,.199,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,14.001,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,180.001,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0,60.001",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0,-.001",
+      "pass": true
+    },
+    {
+      "name": "encode wraps longitude and bearing without changing position",
+      "pass": true
+    },
+    {
+      "name": "encode round-trip retains valid extreme latitude -85.051129",
+      "pass": true
+    },
+    {
+      "name": "encode round-trip retains valid extreme latitude 85.051129",
+      "pass": true
+    },
+    {
+      "name": "encode rejects nonfinite latitude NaN",
+      "pass": true
+    },
+    {
+      "name": "encode rejects nonfinite latitude Infinity",
+      "pass": true
+    },
+    {
+      "name": "URL initial loading labels use the requested BCE year before data arrives",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=1800&camera=bad",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=0&camera=0,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=-999999&camera=0,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "city URL retains left selection, year and camera",
+      "pass": true
+    },
+    {
+      "name": "city URL retains right selection, year and camera",
+      "pass": true
+    }
+  ]
+}
