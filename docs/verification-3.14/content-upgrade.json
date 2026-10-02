@@ -1,0 +1,1199 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T23:03:41.540Z",
+  "task": "task-16",
+  "summary": {
+    "structuredEventsBefore": 291,
+    "structuredEventsAfter": 251,
+    "upgraded": 40,
+    "eventsTotal": 709,
+    "battlesBefore": 486,
+    "battlesAfter": 506,
+    "battlesByRegionBefore": {
+      "west-central-asia": 60,
+      "africa": 75,
+      "east-asia": 71,
+      "europe": 199,
+      "south-asia": 22,
+      "americas": 33,
+      "southeast-asia": 16,
+      "global": 4,
+      "oceania": 6
+    },
+    "battlesByRegionAfter": {
+      "west-central-asia": 60,
+      "africa": 75,
+      "east-asia": 71,
+      "europe": 199,
+      "south-asia": 22,
+      "americas": 33,
+      "southeast-asia": 28,
+      "global": 4,
+      "oceania": 14
+    },
+    "bceBattleShifts": 70,
+    "bceEventShifts": 27,
+    "titleChanges": 0
+  },
+  "ranking": {
+    "file": "docs/verification-3.14/content-upgrade-ranking.json",
+    "rawFile": "docs/verification-3.14/content-upgrade-ranking-raw.json",
+    "formula": "score = 3 * (has zh.wikipedia article) + min(sitelinks,40)/10 + 0.5 * (has P710 participants)",
+    "wdqsRequests": 8,
+    "apiRequests": 6,
+    "coverage": {
+      "withChineseArticle": 159,
+      "withoutChineseArticle": 132,
+      "withParticipants": 244,
+      "sitelinkMax": 88,
+      "mentionedInNarratives": 6,
+      "battleLayerOverlap": 291,
+      "crossCheckZhTitleMismatch": 0
+    },
+    "selected": [
+      {
+        "rank": 1,
+        "id": "v312wd-q200032",
+        "qid": "Q200032",
+        "titleZh": "曼齐刻尔特战役",
+        "year": 1071,
+        "region": "west-central-asia",
+        "sitelinks": 64,
+        "zhArticle": "曼齐刻尔特战役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 2,
+        "id": "v312wd-q605321",
+        "qid": "Q605321",
+        "titleZh": "第一次帕尼帕特战役",
+        "year": 1526,
+        "region": "south-asia",
+        "sitelinks": 47,
+        "zhArticle": "第一次帕尼帕特之戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 3,
+        "id": "v312wd-q234188",
+        "qid": "Q234188",
+        "titleZh": "关原之战",
+        "year": 1600,
+        "region": "east-asia",
+        "sitelinks": 47,
+        "zhArticle": "關原之戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 4,
+        "id": "v312wd-q52418",
+        "qid": "Q52418",
+        "titleZh": "珍珠港事件",
+        "year": 1941,
+        "region": "americas",
+        "sitelinks": 88,
+        "zhArticle": "珍珠港事件",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 5,
+        "id": "v312wd-q486124",
+        "qid": "Q486124",
+        "titleZh": "白德尔之战",
+        "year": 624,
+        "region": "africa",
+        "sitelinks": 81,
+        "zhArticle": "巴德尔之役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 6,
+        "id": "v312wd-q83224",
+        "qid": "Q83224",
+        "titleZh": "黑斯廷斯战役",
+        "year": 1066,
+        "region": "europe",
+        "sitelinks": 81,
+        "zhArticle": "黑斯廷斯之战",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 7,
+        "id": "v312wd-q31900",
+        "qid": "Q31900",
+        "titleZh": "马拉松战役",
+        "year": -490,
+        "region": "europe",
+        "sitelinks": 76,
+        "zhArticle": "马拉松战役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 8,
+        "id": "v312wd-q134114",
+        "qid": "Q134114",
+        "titleZh": "奥斯特里茨战役",
+        "year": 1805,
+        "region": "europe",
+        "sitelinks": 75,
+        "zhArticle": "奧斯特利茨之戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 9,
+        "id": "v312wd-q173077",
+        "qid": "Q173077",
+        "titleZh": "图尔战役",
+        "year": 732,
+        "region": "europe",
+        "sitelinks": 69,
+        "zhArticle": "圖爾戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 10,
+        "id": "v312wd-q178850",
+        "qid": "Q178850",
+        "titleZh": "萨拉米斯战役",
+        "year": -480,
+        "region": "europe",
+        "sitelinks": 67,
+        "zhArticle": "薩拉米斯海戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 11,
+        "id": "v312wd-q178510",
+        "qid": "Q178510",
+        "titleZh": "第一次摩哈赤战役",
+        "year": 1526,
+        "region": "europe",
+        "sitelinks": 67,
+        "zhArticle": "摩哈赤战役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 12,
+        "id": "v312wd-q87779",
+        "qid": "Q87779",
+        "titleZh": "条顿堡森林战役",
+        "year": 9,
+        "region": "europe",
+        "sitelinks": 65,
+        "zhArticle": "條頓堡森林之戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 13,
+        "id": "v312wd-q179670",
+        "qid": "Q179670",
+        "titleZh": "高加米拉战役",
+        "year": -331,
+        "region": "west-central-asia",
+        "sitelinks": 64,
+        "zhArticle": "高加米拉戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 14,
+        "id": "v312wd-q488278",
+        "qid": "Q488278",
+        "titleZh": "乌胡德战役",
+        "year": 625,
+        "region": "africa",
+        "sitelinks": 64,
+        "zhArticle": "武侯德戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 15,
+        "id": "v312wd-q139808",
+        "qid": "Q139808",
+        "titleZh": "沙隆战役",
+        "year": 451,
+        "region": "europe",
+        "sitelinks": 59,
+        "zhArticle": "沙隆之戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 16,
+        "id": "v312wd-q192660",
+        "qid": "Q192660",
+        "titleZh": "冲绳岛战役",
+        "year": 1945,
+        "region": "east-asia",
+        "sitelinks": 58,
+        "zhArticle": "沖繩島戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 17,
+        "id": "v312wd-q203729",
+        "qid": "Q203729",
+        "titleZh": "卡迭石战役",
+        "year": -1274,
+        "region": "africa",
+        "sitelinks": 56,
+        "zhArticle": "卡迭石战役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 18,
+        "id": "v312wd-q203225",
+        "qid": "Q203225",
+        "titleZh": "斯坦姆福德桥战役",
+        "year": 1066,
+        "region": "europe",
+        "sitelinks": 55,
+        "zhArticle": "斯坦福桥之战",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 19,
+        "id": "v312wd-q192473",
+        "qid": "Q192473",
+        "titleZh": "阿德里安堡战役",
+        "year": 378,
+        "region": "europe",
+        "sitelinks": 51,
+        "zhArticle": "阿德里安堡戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 20,
+        "id": "v312wd-q108102583",
+        "qid": "Q108102583",
+        "titleZh": "攻占喀布尔",
+        "year": 2021,
+        "region": "south-asia",
+        "sitelinks": 51,
+        "zhArticle": "喀布爾戰役 (2021年)",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 21,
+        "id": "v312wd-q213074",
+        "qid": "Q213074",
+        "titleZh": "希达斯皮斯河战役",
+        "year": -326,
+        "region": "south-asia",
+        "sitelinks": 50,
+        "zhArticle": "希達斯皮斯河戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 22,
+        "id": "v312wd-q339321",
+        "qid": "Q339321",
+        "titleZh": "米尔维安大桥战役",
+        "year": 312,
+        "region": "europe",
+        "sitelinks": 45,
+        "zhArticle": "米尔维安大桥战役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 23,
+        "id": "v312wd-q332543",
+        "qid": "Q332543",
+        "titleZh": "金字塔战役",
+        "year": 1798,
+        "region": "africa",
+        "sitelinks": 45,
+        "zhArticle": "金字塔之戰",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 24,
+        "id": "v312wd-q1639459",
+        "qid": "Q1639459",
+        "titleZh": "穆厄塔战役",
+        "year": 629,
+        "region": "west-central-asia",
+        "sitelinks": 44,
+        "zhArticle": "穆阿泰之战",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 25,
+        "id": "v312wd-q504172",
+        "qid": "Q504172",
+        "titleZh": "瓜达莱特之战",
+        "year": 711,
+        "region": "europe",
+        "sitelinks": 44,
+        "zhArticle": "瓜达莱特战役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 26,
+        "id": "v312wd-q957186",
+        "qid": "Q957186",
+        "titleZh": "科瓦东加战役",
+        "year": 718,
+        "region": "europe",
+        "sitelinks": 44,
+        "zhArticle": "科瓦東加戰役",
+        "score": 7.5,
+        "sources": 2
+      },
+      {
+        "rank": 27,
+        "id": "v312wd-q733364",
+        "qid": "Q733364",
+        "titleZh": "米吉多战役",
+        "year": -1457,
+        "region": "west-central-asia",
+        "sitelinks": 38,
+        "zhArticle": "米吉多战役",
+        "score": 7.3,
+        "sources": 2
+      },
+      {
+        "rank": 28,
+        "id": "v312wd-q47465940",
+        "qid": "Q47465940",
+        "titleZh": "橄榄枝行动",
+        "year": 2019,
+        "region": "europe",
+        "sitelinks": 37,
+        "zhArticle": "橄欖枝行動",
+        "score": 7.2,
+        "sources": 2
+      },
+      {
+        "rank": 29,
+        "id": "v312wd-q1233475",
+        "qid": "Q1233475",
+        "titleZh": "龙塞斯瓦列斯山口战役",
+        "year": 778,
+        "region": "europe",
+        "sitelinks": 36,
+        "zhArticle": "龍塞斯瓦列斯山口戰役 (778年)",
+        "score": 7.1,
+        "sources": 2
+      },
+      {
+        "rank": 30,
+        "id": "v312wd-q1259218",
+        "qid": "Q1259218",
+        "titleZh": "第三次帕尼帕特战役",
+        "year": 1761,
+        "region": "south-asia",
+        "sitelinks": 40,
+        "zhArticle": "第三次帕尼帕特之戰",
+        "score": 7,
+        "sources": 2
+      },
+      {
+        "rank": 31,
+        "id": "v312wd-q1165502",
+        "qid": "Q1165502",
+        "titleZh": "埃德萨战役",
+        "year": 260,
+        "region": "europe",
+        "sitelinks": 35,
+        "zhArticle": "埃德萨之战",
+        "score": 7,
+        "sources": 2
+      },
+      {
+        "rank": 32,
+        "id": "v312wd-q41894",
+        "qid": "Q41894",
+        "titleZh": "新奥尔良战役",
+        "year": 1815,
+        "region": "americas",
+        "sitelinks": 35,
+        "zhArticle": "新奥尔良之战",
+        "score": 7,
+        "sources": 2
+      },
+      {
+        "rank": 33,
+        "id": "v312wd-q1121532",
+        "qid": "Q1121532",
+        "titleZh": "三王战役",
+        "year": 1578,
+        "region": "africa",
+        "sitelinks": 33,
+        "zhArticle": "三王战役",
+        "score": 6.8,
+        "sources": 2
+      },
+      {
+        "rank": 34,
+        "id": "v312wd-q2355467",
+        "qid": "Q2355467",
+        "titleZh": "布克萨尔战役",
+        "year": 1764,
+        "region": "south-asia",
+        "sitelinks": 33,
+        "zhArticle": "布克萨尔战役",
+        "score": 6.8,
+        "sources": 2
+      },
+      {
+        "rank": 35,
+        "id": "v312wd-q655777",
+        "qid": "Q655777",
+        "titleZh": "阿利亚之战",
+        "year": -387,
+        "region": "europe",
+        "sitelinks": 32,
+        "zhArticle": "阿利亚之战",
+        "score": 6.7,
+        "sources": 2
+      },
+      {
+        "rank": 36,
+        "id": "v312wd-q849653",
+        "qid": "Q849653",
+        "titleZh": "塔普苏斯会战",
+        "year": -46,
+        "region": "africa",
+        "sitelinks": 31,
+        "zhArticle": "薩普蘇斯戰役",
+        "score": 6.6,
+        "sources": 2
+      },
+      {
+        "rank": 37,
+        "id": "v312wd-q1127337",
+        "qid": "Q1127337",
+        "titleZh": "格劳庇乌山战役",
+        "year": 83,
+        "region": "europe",
+        "sitelinks": 31,
+        "zhArticle": "格劳庇乌山战役",
+        "score": 6.6,
+        "sources": 2
+      },
+      {
+        "rank": 38,
+        "id": "v312wd-q603549",
+        "qid": "Q603549",
+        "titleZh": "纳哈凡战役",
+        "year": 642,
+        "region": "africa",
+        "sitelinks": 31,
+        "zhArticle": "纳哈万德战役",
+        "score": 6.6,
+        "sources": 2
+      },
+      {
+        "rank": 39,
+        "id": "v312wd-q18071930",
+        "qid": "Q18071930",
+        "titleZh": "科巴尼之战",
+        "year": 2014,
+        "region": "europe",
+        "sitelinks": 31,
+        "zhArticle": "科巴尼之戰",
+        "score": 6.6,
+        "sources": 2
+      },
+      {
+        "rank": 40,
+        "id": "v312wd-q734700",
+        "qid": "Q734700",
+        "titleZh": "阿瓦拉尔战役",
+        "year": 451,
+        "region": "west-central-asia",
+        "sitelinks": 30,
+        "zhArticle": "阿瓦拉尔战役",
+        "score": 6.5,
+        "sources": 2
+      }
+    ]
+  },
+  "upgradeBatch": {
+    "file": "editorial/events-upgraded-3.14.json",
+    "entries": 40,
+    "provenanceAfter": "absent",
+    "wikidataQidKept": true,
+    "idStable": true,
+    "sources": {
+      "checked": 80,
+      "missing": 0,
+      "hosts": {
+        "en.wikipedia.org": {
+          "checked": 40,
+          "ok": 40,
+          "missing": 0,
+          "apiStatus": 200
+        },
+        "zh.wikipedia.org": {
+          "checked": 40,
+          "ok": 40,
+          "missing": 0,
+          "apiStatus": 200
+        }
+      }
+    },
+    "titleChanges": []
+  },
+  "antiRegression": {
+    "guardScript": "scripts/places/build-structured-events.mjs",
+    "dryRun": {
+      "generated": 253,
+      "leakedUpgradedQids": 0,
+      "candidates": 1480
+    },
+    "exportedBatch": "editorial/events-wikidata-3.12.json",
+    "exportedEntries": 251,
+    "exportedMatchesShipped": true
+  },
+  "civilYears": {
+    "scripts": [
+      "scripts/places/normalize-civil-years-3.14.mjs",
+      "scripts/places/build-structured-events.mjs",
+      "scripts/places/build-battles.mjs"
+    ],
+    "policy": "Wikidata P585 uses ISO 8601 astronomical years with a year zero; the project uses civil years without one, so isoYear<=0 becomes isoYear-1.",
+    "battleShifts": [
+      {
+        "qid": "Q733364",
+        "nameZh": "米吉多战役",
+        "nameEn": "Battle of Megiddo",
+        "before": -1456,
+        "after": -1457
+      },
+      {
+        "qid": "Q203729",
+        "nameZh": "卡迭石战役",
+        "nameEn": "Battle of Kadesh",
+        "before": -1273,
+        "after": -1274
+      },
+      {
+        "qid": "Q1036947",
+        "nameZh": "三角洲之战",
+        "nameEn": "Battle of the Delta",
+        "before": -1177,
+        "after": -1178
+      },
+      {
+        "qid": "Q849474",
+        "nameZh": "卡尔卡尔之战",
+        "nameEn": "Battle of Qarqar",
+        "before": -852,
+        "after": -853
+      },
+      {
+        "qid": "Q15908564",
+        "nameZh": "长勺之战",
+        "nameEn": "Battle of Changshao",
+        "before": -683,
+        "after": -684
+      },
+      {
+        "qid": "Q4872472",
+        "nameZh": "苏萨战役",
+        "nameEn": "Battle of Susa",
+        "before": -646,
+        "after": -647
+      },
+      {
+        "qid": "Q10943933",
+        "nameZh": "娄林之战",
+        "nameEn": "Battle of Loulin",
+        "before": -644,
+        "after": -645
+      },
+      {
+        "qid": "Q2313318",
+        "nameZh": "城濮之战",
+        "nameEn": "Battle of Chengpu",
+        "before": -631,
+        "after": -632
+      },
+      {
+        "qid": "Q612286",
+        "nameZh": "尼尼微战役",
+        "nameEn": "Fall of Nineveh",
+        "before": -611,
+        "after": -612
+      },
+      {
+        "qid": "Q913818",
+        "nameZh": "米吉多战役 (公元前609年)",
+        "nameEn": "Battle of Megiddo",
+        "before": -608,
+        "after": -609
+      },
+      {
+        "qid": "Q633560",
+        "nameZh": "卡赫美士战役",
+        "nameEn": "Battle of Carchemish",
+        "before": -604,
+        "after": -605
+      },
+      {
+        "qid": "Q1288667",
+        "nameZh": "邲之战",
+        "nameEn": "Battle of Bi",
+        "before": -596,
+        "after": -597
+      },
+      {
+        "qid": "Q4870298",
+        "nameZh": "鞍之战",
+        "nameEn": "Battle of An",
+        "before": -588,
+        "after": -589
+      },
+      {
+        "qid": "Q1568965",
+        "nameZh": "佩特里之战",
+        "nameEn": "Battle of Pteria",
+        "before": -546,
+        "after": -547
+      },
+      {
+        "qid": "Q890341",
+        "nameZh": "廷伯拉战役",
+        "nameEn": "Battle of Thymbra",
+        "before": -546,
+        "after": -547
+      },
+      {
+        "qid": "Q28169617",
+        "nameZh": "巴比倫陷落",
+        "nameEn": "Fall of Babylon",
+        "before": -538,
+        "after": -539
+      },
+      {
+        "qid": "Q3434300",
+        "nameZh": "奥比斯战役",
+        "nameEn": "Battle of Opis",
+        "before": -538,
+        "after": -539
+      },
+      {
+        "qid": "Q544239",
+        "nameZh": "培琉喜阿姆战役",
+        "nameEn": "Battle of Pelusium",
+        "before": -524,
+        "after": -525
+      },
+      {
+        "qid": "Q1644792",
+        "nameZh": "勒吉鲁斯湖战役",
+        "nameEn": "Battle of Lake Regillus",
+        "before": -496,
+        "after": -497
+      },
+      {
+        "qid": "Q31900",
+        "nameZh": "马拉松战役",
+        "nameEn": "Battle of Marathon",
+        "before": -489,
+        "after": -490
+      },
+      {
+        "qid": "Q178850",
+        "nameZh": "萨拉米斯战役",
+        "nameEn": "Battle of Salamis",
+        "before": -479,
+        "after": -480
+      },
+      {
+        "qid": "Q747679",
+        "nameZh": "阿提密西安海战",
+        "nameEn": "Battle of Artemisium",
+        "before": -479,
+        "after": -480
+      },
+      {
+        "qid": "Q914210",
+        "nameZh": "越灭吴之战#笠泽之战",
+        "nameEn": "Battle of Lize",
+        "before": -477,
+        "after": -478
+      },
+      {
+        "qid": "Q2705449",
+        "nameZh": "Mons Algidus战役",
+        "nameEn": "Battle of Mount Algidus",
+        "before": -457,
+        "after": -458
+      },
+      {
+        "qid": "Q637544",
+        "nameZh": "安菲波利斯战役",
+        "nameEn": "Battle of Amphipolis",
+        "before": -421,
+        "after": -422
+      },
+      {
+        "qid": "Q524871",
+        "nameZh": "兹库斯之战",
+        "nameEn": "Battle of Cyzicus",
+        "before": -409,
+        "after": -410
+      },
+      {
+        "qid": "Q975123",
+        "nameZh": "诺提姆之战",
+        "nameEn": "Battle of Notium",
+        "before": -405,
+        "after": -406
+      },
+      {
+        "qid": "Q431205",
+        "nameZh": "库纳克萨战役",
+        "nameEn": "Battle of Cunaxa",
+        "before": -400,
+        "after": -401
+      },
+      {
+        "qid": "Q2118879",
+        "nameZh": "哈里亚图斯之战",
+        "nameEn": "Battle of Haliartus",
+        "before": -394,
+        "after": -395
+      },
+      {
+        "qid": "Q733113",
+        "nameZh": "喀罗尼亚战役",
+        "nameEn": "Battle of Coronea",
+        "before": -393,
+        "after": -394
+      },
+      {
+        "qid": "Q655777",
+        "nameZh": "阿利亚之战",
+        "nameEn": "Battle of the Allia",
+        "before": -386,
+        "after": -387
+      },
+      {
+        "qid": "Q461599",
+        "nameZh": "留克特拉战役",
+        "nameEn": "Battle of Leuctra",
+        "before": -370,
+        "after": -371
+      },
+      {
+        "qid": "Q2005185",
+        "nameZh": "马陵之战",
+        "nameEn": "Battle of Maling",
+        "before": -341,
+        "after": -342
+      },
+      {
+        "qid": "Q200716",
+        "nameZh": "喀罗尼亚战役",
+        "nameEn": "Battle of Chaeronea",
+        "before": -337,
+        "after": -338
+      },
+      {
+        "qid": "Q2237798",
+        "nameZh": "底比斯战役",
+        "nameEn": "Battle of Thebes",
+        "before": -334,
+        "after": -335
+      },
+      {
+        "qid": "Q192938",
+        "nameZh": "格拉尼库斯河战役",
+        "nameEn": "Battle of the Granicus",
+        "before": -333,
+        "after": -334
+      },
+      {
+        "qid": "Q15197556",
+        "nameZh": "乌克西亚峡谷战役",
+        "nameEn": "Battle of the Uxian Defile",
+        "before": -330,
+        "after": -331
+      },
+      {
+        "qid": "Q179670",
+        "nameZh": "高加米拉战役",
+        "nameEn": "Battle of Gaugamela",
+        "before": -330,
+        "after": -331
+      },
+      {
+        "qid": "Q112016",
+        "nameZh": "波斯门战役",
+        "nameEn": "Battle of the Persian Gate on the Mountain",
+        "before": -329,
+        "after": -330
+      },
+      {
+        "qid": "Q213074",
+        "nameZh": "希达斯皮斯河战役",
+        "nameEn": "Battle of the Hydaspes",
+        "before": -325,
+        "after": -326
+      },
+      {
+        "qid": "Q1429804",
+        "nameZh": "克兰农战役",
+        "nameEn": "Battle of Crannon",
+        "before": -321,
+        "after": -322
+      },
+      {
+        "qid": "Q2265548",
+        "nameZh": "阿玛格斯战役",
+        "nameEn": "Battle of Amorgos",
+        "before": -321,
+        "after": -322
+      },
+      {
+        "qid": "Q1357977",
+        "nameZh": "卡夫丁峡谷战役",
+        "nameEn": "Battle of the Caudine Forks",
+        "before": -320,
+        "after": -321
+      },
+      {
+        "qid": "Q1407018",
+        "nameZh": "帕莱塔西奈战役",
+        "nameEn": "Battle of Paraitacene",
+        "before": -316,
+        "after": -317
+      },
+      {
+        "qid": "Q954968",
+        "nameZh": "伽比埃奈战役",
+        "nameEn": "Battle of Gabiene",
+        "before": -315,
+        "after": -316
+      },
+      {
+        "qid": "Q1247317",
+        "nameZh": "萨拉米斯战役",
+        "nameEn": "Battle of Salamis",
+        "before": -305,
+        "after": -306
+      },
+      {
+        "qid": "Q1291237",
+        "nameZh": "伊阙之战",
+        "nameEn": "Battle of Yique",
+        "before": -292,
+        "after": -293
+      },
+      {
+        "qid": "Q744611",
+        "nameZh": "赫拉克利亚战役",
+        "nameEn": "Battle of Heraclea",
+        "before": -279,
+        "after": -280
+      },
+      {
+        "qid": "Q756413",
+        "nameZh": "阿斯库路姆战役",
+        "nameEn": "Battle of Asculum",
+        "before": -278,
+        "after": -279
+      },
+      {
+        "qid": "Q1432659",
+        "nameZh": "利帕里群岛战役",
+        "nameEn": "Battle of the Lipari Islands",
+        "before": -259,
+        "after": -260
+      },
+      {
+        "qid": "Q1886703",
+        "nameZh": "索拉席之役",
+        "nameEn": "Battle of Sulci",
+        "before": -257,
+        "after": -258
+      },
+      {
+        "qid": "Q2888088",
+        "nameZh": "巴格斯达斯河战役",
+        "nameEn": "Battle of the Bagradas River",
+        "before": -239,
+        "after": -240
+      },
+      {
+        "qid": "Q928903",
+        "nameZh": "由提卡战役 (佣兵战争)",
+        "nameEn": "Battle of Utica",
+        "before": -239,
+        "after": -240
+      },
+      {
+        "qid": "Q175985",
+        "nameZh": "泰拉蒙战役",
+        "nameEn": "Battle of Telamon",
+        "before": -224,
+        "after": -225
+      },
+      {
+        "qid": "Q630781",
+        "nameZh": "拉菲亚战役",
+        "nameEn": "Battle of Raphia",
+        "before": -216,
+        "after": -217
+      },
+      {
+        "qid": "Q3270429",
+        "nameZh": "巨鹿之战",
+        "nameEn": "Battle of Julu",
+        "before": -206,
+        "after": -207
+      },
+      {
+        "qid": "Q847402",
+        "nameZh": "彭城之战",
+        "nameEn": "Battle of Pengcheng",
+        "before": -204,
+        "after": -205
+      },
+      {
+        "qid": "Q1349891",
+        "nameZh": "垓下之战",
+        "nameEn": "Battle of Gaixia",
+        "before": -201,
+        "after": -202
+      },
+      {
+        "qid": "Q2920325",
+        "nameZh": "马尔列弗纳战役",
+        "nameEn": "Battle of the Ascent of Lebonah",
+        "before": -166,
+        "after": -167
+      },
+      {
+        "qid": "Q1268339",
+        "nameZh": "霍伦堡战役",
+        "nameEn": "Battle of Beth Horon",
+        "before": -165,
+        "after": -166
+      },
+      {
+        "qid": "Q1268317",
+        "nameZh": "伊茅斯战役",
+        "nameEn": "Battle of Emmaus",
+        "before": -164,
+        "after": -165
+      },
+      {
+        "qid": "Q1290572",
+        "nameZh": "祖尔堡战役",
+        "nameEn": "Battle of Beth Zur",
+        "before": -163,
+        "after": -164
+      },
+      {
+        "qid": "Q1268349",
+        "nameZh": "杰卡里亚堡战役",
+        "nameEn": "Battle of Beth Zechariah",
+        "before": -161,
+        "after": -162
+      },
+      {
+        "qid": "Q1268331",
+        "nameZh": "阿达萨战役",
+        "nameEn": "Battle of Adasa",
+        "before": -160,
+        "after": -161
+      },
+      {
+        "qid": "Q1281077",
+        "nameZh": "伊拉萨战役",
+        "nameEn": "Battle of Elasa",
+        "before": -159,
+        "after": -160
+      },
+      {
+        "qid": "Q722331",
+        "nameZh": "马邑之谋",
+        "nameEn": "Battle of Mayi",
+        "before": -132,
+        "after": -133
+      },
+      {
+        "qid": "Q3555607",
+        "nameZh": "埃克巴坦那战役",
+        "nameEn": "Battle of Ecbatana",
+        "before": -128,
+        "after": -129
+      },
+      {
+        "qid": "Q776215",
+        "nameZh": "阿劳西奥战役",
+        "nameEn": "Battle of Arausio",
+        "before": -104,
+        "after": -105
+      },
+      {
+        "qid": "Q762458",
+        "nameZh": "鲁斯皮纳战役",
+        "nameEn": "Battle of Ruspina",
+        "before": -45,
+        "after": -46
+      },
+      {
+        "qid": "Q849653",
+        "nameZh": "塔普苏斯会战",
+        "nameEn": "Battle of Thapsus",
+        "before": -45,
+        "after": -46
+      }
+    ]
+  },
+  "battles": {
+    "validation": {
+      "battles": 506,
+      "withBelligerents": 374,
+      "withConflict": 447,
+      "withReferences": 7,
+      "withChineseName": 506,
+      "withEnglishName": 506
+    },
+    "passed": true,
+    "thinRegionGuarantee": 20,
+    "byNameSource": {
+      "wikidata-zh-label": 506
+    },
+    "pool": {
+      "oceania": {
+        "qualified": 23,
+        "named": 14
+      },
+      "south-asia": {
+        "qualified": 60,
+        "named": 22
+      },
+      "southeast-asia": {
+        "qualified": 62,
+        "named": 28
+      },
+      "europe": {
+        "qualified": 1738,
+        "named": 899
+      }
+    },
+    "wideClassSweep": "not completed: WDQS answers the class-side subclass sweep with 504/timeouts; a COUNT probe found 159 Oceania candidates in four wider classes, none shipped this round."
+  },
+  "verification": {
+    "validators": {
+      "validate": "pass",
+      "validate-v2": "pass",
+      "validate-places": "pass",
+      "validate-city-time": "pass",
+      "validate-polity-period": "pass",
+      "validate-release": "pass",
+      "validate-battles": "8/8",
+      "audit-language": "0 CJK in English fields"
+    },
+    "gzip": {
+      "events": {
+        "headerMtime": 0,
+        "deepEqual": true
+      },
+      "battles": {
+        "headerMtime": 0,
+        "deepEqual": true
+      }
+    },
+    "browser": {
+      "browser": "Chrome/154.0.8037.98",
+      "url": "http://127.0.0.1:8767/#view=library",
+      "totalRows": 709,
+      "markedRows": 251,
+      "upgradedSample": [
+        {
+          "id": "v312wd-q733364",
+          "found": true,
+          "marked": false,
+          "markerText": "战争与冲突"
+        },
+        {
+          "id": "v312wd-q83224",
+          "found": true,
+          "marked": false,
+          "markerText": "战争与冲突"
+        },
+        {
+          "id": "v312wd-q52418",
+          "found": true,
+          "marked": false,
+          "markerText": "战争与冲突"
+        }
+      ],
+      "stillIndexedControl": [
+        {
+          "id": "v312wd-q1036947",
+          "found": true,
+          "marked": true,
+          "markerText": "结构化索引条目 · 取自维基数据声明，未经独立考订"
+        },
+        {
+          "id": "v312wd-q849474",
+          "found": true,
+          "marked": true,
+          "markerText": "结构化索引条目 · 取自维基数据声明，未经独立考订"
+        }
+      ]
+    }
+  },
+  "files": {
+    "added": [
+      "scripts/places/rank-structured-events.mjs",
+      "scripts/places/fetch-upgrade-extracts.mjs",
+      "scripts/places/fetch-thin-region-battles.mjs",
+      "scripts/places/normalize-civil-years-3.14.mjs",
+      "scripts/places/export-structured-batch.mjs",
+      "editorial/events-upgraded-3.14.json",
+      "docs/verification-3.14/content-upgrade.md",
+      "docs/verification-3.14/content-upgrade.json"
+    ],
+    "modified": [
+      "scripts/places/build-structured-events.mjs",
+      "scripts/places/build-battles.mjs",
+      "editorial/events-wikidata-3.12.json",
+      "public/data/events.json",
+      "public/data/events.json.gz",
+      "public/data/battles.json",
+      "public/data/battles.json.gz"
+    ],
+    "untouched": [
+      "public/app.js",
+      "public/index.html",
+      "public/style.css"
+    ]
+  },
+  "rollback": [
+    "git checkout HEAD -- public/data/events.json public/data/events.json.gz",
+    "git checkout HEAD -- public/data/battles.json public/data/battles.json.gz"
+  ]
+}
