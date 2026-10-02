@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T23:03:41.540Z",
+  "generatedAt": "2026-10-02T23:04:03.277Z",
   "task": "task-16",
   "summary": {
     "structuredEventsBefore": 291,
@@ -33,7 +33,7 @@
     },
     "bceBattleShifts": 70,
     "bceEventShifts": 27,
-    "titleChanges": 0
+    "titleChanges": 6
   },
   "ranking": {
     "file": "docs/verification-3.14/content-upgrade-ranking.json",
@@ -557,7 +557,74 @@
         }
       }
     },
-    "titleChanges": []
+    "titleChanges": [
+      {
+        "id": "v312wd-q605321",
+        "zh": [
+          "第一次帕尼帕特战役",
+          "第一次帕尼帕特战役"
+        ],
+        "en": [
+          "Battle of Panipat",
+          "First Battle of Panipat"
+        ]
+      },
+      {
+        "id": "v312wd-q139808",
+        "zh": [
+          "沙隆战役",
+          "沙隆战役"
+        ],
+        "en": [
+          "Battle of the Maureaco Fields",
+          "Battle of the Catalaunian Plains"
+        ]
+      },
+      {
+        "id": "v312wd-q108102583",
+        "zh": [
+          "攻佔喀布爾",
+          "攻占喀布尔"
+        ],
+        "en": [
+          "Fall of Kabul",
+          "Fall of Kabul (2021)"
+        ]
+      },
+      {
+        "id": "v312wd-q47465940",
+        "zh": [
+          "橄欖枝行動",
+          "橄榄枝行动"
+        ],
+        "en": [
+          "Turkish military operation in Afrin",
+          "Operation Olive Branch"
+        ]
+      },
+      {
+        "id": "v312wd-q603549",
+        "zh": [
+          "纳哈凡战役",
+          "纳哈凡战役"
+        ],
+        "en": [
+          "Battle of Nahāvand",
+          "Battle of Nahavand"
+        ]
+      },
+      {
+        "id": "v312wd-q18071930",
+        "zh": [
+          "科巴尼之战",
+          "科巴尼之战"
+        ],
+        "en": [
+          "Siege of Kobanî",
+          "Siege of Kobani"
+        ]
+      }
+    ]
   },
   "antiRegression": {
     "guardScript": "scripts/places/build-structured-events.mjs",
@@ -1079,7 +1146,8 @@
       "withChineseName": 506,
       "withEnglishName": 506
     },
-    "passed": true,
+    "passed": 8,
+    "total": 8,
     "thinRegionGuarantee": 20,
     "byNameSource": {
       "wikidata-zh-label": 506
@@ -1113,7 +1181,8 @@
       "validate-polity-period": "pass",
       "validate-release": "pass",
       "validate-battles": "8/8",
-      "audit-language": "0 CJK in English fields"
+      "audit-language": "0 CJK in English fields",
+      "npm-test": "EXIT:0"
     },
     "gzip": {
       "events": {

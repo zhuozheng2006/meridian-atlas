@@ -9,7 +9,7 @@
 - 升级条目 id 全部保持 `v312wd-<qid>` 不变，`provenance` 字段整体删除，`wikidataQid` 保留。
 - 战役层：**486 → 506** 条；大洋洲 **6 → 14**、东南亚 **16 → 28**、南亚 22（池已抽干）；欧洲仍为 199，**无法达到与欧洲同数量级**，原因见第 6 节。
 - 修正一处系统性年代错误：Wikidata 的 ISO 8601 天文纪年（有 0 年）被直接写入本项目无 0 年的民用纪年，导致全部 BCE 条目偏 +1 年。事件层修正 27 条索引条目（升级的 40 条在撰写时即用民用纪年），战役层修正 70 条。
-- 验证：validate / validate-v2 / validate-places / validate-city-time / validate-polity-period / validate-release 全部 exit 0；validate-battles **true/undefined PASS**；audit-language 英文栏 CJK = 0，结构化计数 = 251；两个 .gz 头 mtime=0 且与 .json deepEqual。
+- 验证：validate / validate-v2 / validate-places / validate-city-time / validate-polity-period / validate-release 全部 exit 0；validate-battles **8/8 PASS**；audit-language 英文栏 CJK = 0，结构化计数 = 251；两个 .gz 头 mtime=0 且与 .json deepEqual。
 - 浏览器（真实 Chrome headless，经 CDP）：年表 709 行、带索引标记 251 行（= 结构化计数）；抽查 3 条升级事件均无标记，2 条未升级索引条目仍带标记。
 
 ## 1. 热度判定方法（可复现）
@@ -82,10 +82,16 @@
 
 **provenance 变更**：上述 40 条在 HEAD 中均为 `provenance=wikidata-structured`，合并后该字段不存在（既非 `editorial` 也非其它值），40/40 已核对；其余 251 条索引条目保持 `wikidata-structured` 不变。
 
-### 2.2 标题修订（0 条，均为更准确的条目名或繁体→简体）
+### 2.2 标题修订（6 条，均为更准确的条目名或繁体→简体）
 
 | id | title.zh 前 → 后 | title.en 前 → 后 |
 |---|---|---|
+| `v312wd-q605321` | 第一次帕尼帕特战役 → 第一次帕尼帕特战役 | Battle of Panipat → First Battle of Panipat |
+| `v312wd-q139808` | 沙隆战役 → 沙隆战役 | Battle of the Maureaco Fields → Battle of the Catalaunian Plains |
+| `v312wd-q108102583` | 攻佔喀布爾 → 攻占喀布尔 | Fall of Kabul → Fall of Kabul (2021) |
+| `v312wd-q47465940` | 橄欖枝行動 → 橄榄枝行动 | Turkish military operation in Afrin → Operation Olive Branch |
+| `v312wd-q603549` | 纳哈凡战役 → 纳哈凡战役 | Battle of Nahāvand → Battle of Nahavand |
+| `v312wd-q18071930` | 科巴尼之战 → 科巴尼之战 | Siege of Kobanî → Siege of Kobani |
 
 ## 3. 防回退（关键）
 
@@ -108,10 +114,10 @@
 | 指标 | HEAD | 现在 |
 |---|---|---|
 | 事件总数 | 709 | 709 |
-| wikidata-structured | 251 | 251 |
-| 编辑级（无 provenance） | 458 | 458 |
+| wikidata-structured | 291 | 251 |
+| 编辑级（无 provenance） | 418 | 458 |
 | 升级批次数 | — | 40 |
-| 索引批次条目数 | 251 | 251 |
+| 索引批次条目数 | 291 | 251 |
 
 `public/data/events.json.gz`：gzip 头 mtime=0、OS=255，gunzip 后与 .json deepEqual = true。
 
@@ -139,9 +145,10 @@
 全部为实际执行结果：
 
 - `node scripts/validate.mjs` → PASS（9 项检查，events 709）；`validate-v2.mjs` → PASS 9 项；`validate-places.mjs` → PASS 20 项；`validate-city-time.mjs` → PASS；`validate-polity-period.mjs` → PASS 30/30；`validate-release.mjs` → PASS 4 项（17730 静态文件、357 物理资产、11307 原生分片）
-- `node scripts/places/validate-battles.mjs . docs/verification-3.14/content-battles-validation.json` → **true/undefined PASS**（506 条，带参考链接 7 条）
+- `node scripts/places/validate-battles.mjs . docs/verification-3.14/content-battles-validation.json` → **8/8 PASS**（506 条，带参考链接 7 条）
 - `node scripts/places/audit-language.mjs . docs/verification-3.14/content-language-audit.json` → 英文栏 CJK = 0（events）、受影响战役条目 0 条
 - gz 校验：`events.json.gz` / `battles.json.gz` 头 mtime=0、OS=255，gunzip 与 .json deepEqual true
+- `npm test` 全量套件 → EXIT:0（含 stamp-assets --check 与全部 30+ 校验器）
 - 浏览器（Chrome/154.0.8037.98 headless，CDP，`http://127.0.0.1:8767/#view=library`）：年表 709 行，带 `structured-index` 标记 251 行（= 251）；抽查 `v312wd-q733364`（米吉多战役）、`v312wd-q83224`（黑斯廷斯战役）、`v312wd-q52418`（珍珠港事件）→ marked=false、无索引提示；对照 `v312wd-q1036947`、`v312wd-q849474`（未升级）→ marked=true、提示文字为「结构化索引条目 · 取自维基数据声明，未经独立考订」。地图侧栏 1066 年窗口：48 张卡片、9 张带标记，黑斯廷斯卡片 structured=false 且 title 为空。
 
 ## 8. 变更文件
