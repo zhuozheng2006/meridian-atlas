@@ -671,6 +671,72 @@
         "Discrete dated population observations carried by the modelski-ancient-bound records"
       ],
       "usage": "Dataset provenance only; values are read as discrete observations, never interpolated."
+    },
+    {
+      "id": "ayutthaya-wikipedia",
+      "title": "Ayutthaya Kingdom",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Ayutthaya_Kingdom",
+      "accessedAt": "2026-10-03",
+      "access": "read-full-page via MediaWiki extract API",
+      "supports": [
+        "Foundation in 1351 and the river-island capital",
+        "Sixteenth-century standing as a major Asian power",
+        "Destruction of the city in 1767"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "ayutthaya-unesco",
+      "title": "Historic City of Ayutthaya",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/576/",
+      "accessedAt": "2026-10-03",
+      "access": "read-recorded-in-handoff-research",
+      "supports": [
+        "Historic city founded around 1350 and destroyed in 1767",
+        "Representative point and property identification"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "pagan-wikipedia",
+      "title": "Pagan Kingdom",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Pagan_Kingdom",
+      "accessedAt": "2026-10-03",
+      "access": "read-full-page via MediaWiki extract API",
+      "supports": [
+        "Ninth-century settlement and eleventh-century unification",
+        "Theravada Buddhism and temple building",
+        "Mongol invasions and fragmentation around 1297"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "pagan-unesco",
+      "title": "Bagan",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/1588/",
+      "accessedAt": "2026-10-03",
+      "access": "read-recorded-in-handoff-research",
+      "supports": [
+        "Eleventh- to thirteenth-century capital landscape and temple complex",
+        "Component representative point"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "population-chandler-312",
+      "title": "Chandler urban population series (Figshare dataset record)",
+      "publisher": "Reba, Reitsma & Seto (Figshare)",
+      "url": "https://doi.org/10.6084/m9.figshare.2059494",
+      "accessedAt": "2026-10-03",
+      "access": "dataset-record-source-url",
+      "supports": [
+        "Discrete dated population observations carried by the chandler-bound records"
+      ],
+      "usage": "Dataset provenance only; values are read as discrete observations, never interpolated."
     }
   ],
   "entries": [
@@ -4956,6 +5022,348 @@
             1500,
             1550,
             1565
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-ayutthaya",
+      "nameZh": "阿瑜陀耶",
+      "nameEn": "Ayutthaya",
+      "aliases": [
+        "大城",
+        "Ayutthaya Kingdom"
+      ],
+      "sourceRecordIds": [
+        "chandler:103"
+      ],
+      "sourceIds": [
+        "ayutthaya-wikipedia",
+        "ayutthaya-unesco",
+        "population-chandler-312"
+      ],
+      "scope": {
+        "start": 1351,
+        "end": 1767,
+        "zh": "昭披耶河下游岛屿上的暹罗都城及其河网城区，1351年前后建都至1767年陷落。",
+        "en": "The Siamese capital on an island in the lower Chao Phraya, from its foundation around 1351 to its fall in 1767.",
+        "spatial": {
+          "zh": "三条河流交汇处的岛屿旧城及其护城河、运河与寺院遗址；不把现代大城府市区范围当作古代都城边界。",
+          "en": "The island old city at the confluence of three rivers with its moats, canals and temple remains; the modern municipal extent is not the ancient capital's boundary."
+        },
+        "temporal": {
+          "zh": "约1351—1767年的都城时期；1855年的人口观测属于陷落后城镇，保留在来源记录内但不绑定。",
+          "en": "The capital period from about 1351 to 1767; the 1855 population observation belongs to the post-fall town and stays in the source record without being bound."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:103",
+          "start": 1351,
+          "end": 1767,
+          "requiresObservation": true,
+          "noteZh": "只使用1351—1767年间的人口观测（1450年至1767年共12次）；1855年的观测完整保留在 sourceRecords 中，但不属于都城时期，不进入绑定窗口。",
+          "noteEn": "Only the observations between 1351 and 1767 (twelve values from 1450 to 1767) are bound; the 1855 observation is preserved in full in sourceRecords but belongs to the post-fall town and is not bound.",
+          "observationYears": [
+            1450,
+            1500,
+            1543,
+            1545,
+            1550,
+            1600,
+            1636,
+            1650,
+            1700,
+            1720,
+            1750,
+            1767
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "阿瑜陀耶建在昭披耶河、华富里河与巴塞河交汇的岛屿上，护城河与运河网络把都城划分为街区，寺院、宫殿、市场与水利设施沿水道布置。河流既提供防御，也支撑稻米、木材与对外贸易的运输。",
+          "en": "Ayutthaya was built on an island where the Chao Phraya, Lopburi and Pa Sak rivers meet, its moats and canals dividing the capital into quarters and lining the waterways with temples, palaces, markets and waterworks. The rivers served both defence and the movement of rice, timber and foreign trade.",
+          "sourceIds": [
+            "ayutthaya-wikipedia",
+            "ayutthaya-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "1351年前后建都后，阿瑜陀耶成为暹罗地区的核心王国与国际贸易港口，与中国、东南亚、印度、波斯及欧洲商人往来；十六世纪欧洲旅行者把它与维查耶纳伽尔、明帝国并列为亚洲强国。1569年曾被缅甸攻陷，1584年后复国并扩张；1767年缅甸军队再次攻陷并焚毁都城，居民离开旧城。",
+          "en": "After its foundation around 1351, Ayutthaya became the core Siamese kingdom and an international port trading with China, Southeast Asia, India, Persia and Europe; sixteenth-century European travellers ranked it with Vijayanagara and Ming China. It was captured by Burma in 1569, recovered and expanded after 1584, and in 1767 Burmese forces again took and burned the capital, after which its inhabitants left.",
+          "sourceIds": [
+            "ayutthaya-wikipedia",
+            "ayutthaya-unesco"
+          ]
+        },
+        {
+          "id": "evidence",
+          "titleZh": "人口证据与解读",
+          "titleEn": "Population evidence and reading",
+          "zh": "本篇章绑定的人口记录只提供离散观测年：1450年10万、1500年12.5万、1543与1545年15万、1600年10万、1636年12万、1650年12.5万、1700年15万、1720与1750年16万、1767年18万。它们可以与都城时期并列阅读，但不能连成连续人口曲线，也不意味着每一年都具有同等规模。",
+          "en": "The population record bound here provides discrete observation years only: 100,000 in 1450, 125,000 in 1500, 150,000 in 1543 and 1545, 100,000 in 1600, 120,000 in 1636, 125,000 in 1650, 150,000 in 1700, 160,000 in 1720 and 1750, and 180,000 in 1767. They can be read alongside the capital period but must not be joined into a continuous curve.",
+          "sourceIds": [
+            "population-chandler-312",
+            "ayutthaya-wikipedia"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1351,
+          "endYear": 1351,
+          "precision": "year",
+          "date": {
+            "zh": "1351年",
+            "en": "1351 CE"
+          },
+          "labelZh": "1351年前后",
+          "labelEn": "c. 1351",
+          "zh": "阿瑜陀耶在昭披耶河下游的城邦联合中建都。",
+          "en": "Ayutthaya was founded as a capital among the city-states of the lower Chao Phraya.",
+          "sourceIds": [
+            "ayutthaya-wikipedia",
+            "ayutthaya-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1500,
+          "endYear": 1500,
+          "precision": "year",
+          "date": {
+            "zh": "1500年",
+            "en": "1500 CE"
+          },
+          "labelZh": "1500年",
+          "labelEn": "1500 CE",
+          "zh": "城市与海上贸易繁荣，人口记录给出约12.5万的估计。",
+          "en": "The city and its maritime trade flourished, and the population record gives an estimate of about 125,000.",
+          "sourceIds": [
+            "population-chandler-312",
+            "ayutthaya-wikipedia"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1767,
+          "endYear": 1767,
+          "precision": "year",
+          "date": {
+            "zh": "1767年",
+            "en": "1767 CE"
+          },
+          "labelZh": "1767年",
+          "labelEn": "1767 CE",
+          "zh": "缅甸军队攻陷并焚毁都城，居民离开旧城。",
+          "en": "Burmese forces took and burned the capital and its inhabitants left.",
+          "sourceIds": [
+            "ayutthaya-unesco",
+            "ayutthaya-wikipedia"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:103",
+          "name": "Ayutthaya",
+          "nameZh": "阿瑜陀耶",
+          "coordinates": [
+            100.55,
+            14.35
+          ],
+          "periods": null,
+          "observationYears": [
+            1450,
+            1500,
+            1543,
+            1545,
+            1550,
+            1600,
+            1636,
+            1650,
+            1700,
+            1720,
+            1750,
+            1767,
+            1855
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-bagan",
+      "nameZh": "蒲甘",
+      "nameEn": "Bagan",
+      "aliases": [
+        "Pagan",
+        "Bagan Empire"
+      ],
+      "sourceRecordIds": [
+        "chandler:110"
+      ],
+      "sourceIds": [
+        "pagan-wikipedia",
+        "pagan-unesco",
+        "population-chandler-312"
+      ],
+      "scope": {
+        "start": 849,
+        "end": 1297,
+        "zh": "伊洛瓦底江中游的都城景观与寺院群，九世纪聚落兴起至十三世纪末王国解体。",
+        "en": "The capital landscape and temple complex in the middle Irrawaddy valley, from the ninth-century settlement to the fragmentation of the kingdom at the end of the thirteenth century.",
+        "spatial": {
+          "zh": "伊洛瓦底江畔的都城、砖构佛塔与寺院、城墙和灌溉相关遗存；不把现代城镇范围当作古城边界。",
+          "en": "The capital beside the Irrawaddy with its brick stupas and temples, walls and irrigation remains; the modern town extent is not the ancient boundary."
+        },
+        "temporal": {
+          "zh": "九世纪聚落至1297年前后；人口观测集中在1100—1250年，保留实际观测年。",
+          "en": "From the ninth-century settlement to about 1297; the population observations fall between 1100 and 1250 and keep their actual years."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:110",
+          "start": 1100,
+          "end": 1250,
+          "requiresObservation": true,
+          "noteZh": "只使用该记录的四个观测年（1100、1150、1200、1250）；观测值不插值，也不把1250之后视为城市立即废弃。",
+          "noteEn": "Only the record's four observations (1100, 1150, 1200, 1250) are bound; values are never interpolated and the period after 1250 is not treated as immediate abandonment.",
+          "observationYears": [
+            1100,
+            1150,
+            1200,
+            1250
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "蒲甘位于伊洛瓦底江中游的干旱地带，都城、寺院与灌溉系统沿江分布，砖构佛塔和寺院构成主要景观。河流提供运输与水源，水利工程扩大稻田，支撑都城与寺院经济。",
+          "en": "Bagan lies in the dry zone of the middle Irrawaddy valley, where the capital, monasteries and irrigation works follow the river and brick stupas and temples dominate the landscape. The river provided transport and water, while waterworks extended rice land that supported the capital and its monasteries.",
+          "sourceIds": [
+            "pagan-wikipedia",
+            "pagan-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "蒲甘由九世纪伊洛瓦底江流域的缅人聚落发展而来，十一世纪起统一今缅甸大部，是第一个统一缅甸地区的王国。十一至十三世纪，王室与贵族以布施功德营建大量砖构佛塔与寺院，上座部佛教成为主流；十三世纪末蒙古入侵后中央权力崩解，1297年前后分裂为地方政权。",
+          "en": "Pagan grew from a ninth-century Bamar settlement in the Irrawaddy valley and from the eleventh century unified much of present-day Myanmar, the first kingdom to do so. From the eleventh to thirteenth centuries kings and nobles endowed large numbers of brick stupas and temples and Theravada Buddhism became dominant; Mongol invasions at the end of the thirteenth century broke central power and by about 1297 the realm had fragmented.",
+          "sourceIds": [
+            "pagan-wikipedia",
+            "pagan-unesco"
+          ]
+        },
+        {
+          "id": "evidence",
+          "titleZh": "人口证据与解读",
+          "titleEn": "Population evidence and reading",
+          "zh": "绑定的人口记录只有四个观测年：1100年10万、1150年15万、1200年18万、1250年18万。它们显示这一时期城市规模的增长与稳定，但不能连成连续曲线，也不能证明城市在1297年突然无人居住——寺院与聚落在此后仍继续使用。",
+          "en": "The bound population record has only four observations: 100,000 in 1100, 150,000 in 1150, 180,000 in 1200 and 180,000 in 1250. They indicate growth and then stability in this period but cannot form a continuous curve, and they do not show that the city was suddenly abandoned in 1297, since monasteries and settlements continued in use.",
+          "sourceIds": [
+            "population-chandler-312",
+            "pagan-wikipedia"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 849,
+          "endYear": 899,
+          "precision": "century",
+          "date": {
+            "zh": "9世纪",
+            "en": "9th century CE"
+          },
+          "labelZh": "9世纪",
+          "labelEn": "9th century CE",
+          "zh": "缅人聚落在伊洛瓦底江畔的蒲甘发展，成为后来王国的起点。",
+          "en": "A Bamar settlement grew at Pagan beside the Irrawaddy, the starting point of the later kingdom.",
+          "sourceIds": [
+            "pagan-wikipedia"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1200,
+          "endYear": 1200,
+          "precision": "year",
+          "date": {
+            "zh": "1200年",
+            "en": "1200 CE"
+          },
+          "labelZh": "1200年",
+          "labelEn": "1200 CE",
+          "zh": "都城与寺院营建达到高峰，人口记录给出约18万的估计。",
+          "en": "Capital and temple building peaked, and the population record gives an estimate of about 180,000.",
+          "sourceIds": [
+            "population-chandler-312",
+            "pagan-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1297,
+          "endYear": 1297,
+          "precision": "year",
+          "date": {
+            "zh": "1297年前后",
+            "en": "c. 1297 CE"
+          },
+          "labelZh": "1297年前后",
+          "labelEn": "c. 1297 CE",
+          "zh": "蒙古入侵后中央权力崩解，王国分裂为地方政权；寺院与聚落仍继续使用。",
+          "en": "After the Mongol invasions central power dissolved and the kingdom fragmented; monasteries and settlements continued in use.",
+          "sourceIds": [
+            "pagan-wikipedia"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:110",
+          "name": "Bagan",
+          "coordinates": [
+            94.8602,
+            21.172111
+          ],
+          "periods": null,
+          "observationYears": [
+            1100,
+            1150,
+            1200,
+            1250
           ],
           "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
           "dataFile": "urban-observations.json",

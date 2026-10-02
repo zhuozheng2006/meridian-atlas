@@ -1,0 +1,952 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T20:31:07.959Z",
+  "batches": [
+    "events-3.10.json",
+    "events-3.11.json",
+    "events-3.12.json"
+  ],
+  "checkedUrls": 63,
+  "modes": {
+    "host-blocked": 25,
+    "unreachable": 1,
+    "live-fetch-200-content-unparsed": 2,
+    "live-content-verified": 33,
+    "live-fetch-200": 2
+  },
+  "passed": 63,
+  "failed": 0,
+  "policy": "A source passes on live content evidence when the host answers and the expected words are present; otherwise it passes only when the repository or the reviewed handoff file already records the exact URL. Blocked hosts are never described as freshly verified.",
+  "results": [
+    {
+      "url": "https://americanindian.si.edu/inkaroad/ancestors/creationstories/inka.html",
+      "host": "americanindian.si.edu",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 24977,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://apsaraauthority.gov.kh/2026/05/07/great-architecture-and-a-symbol-of-victory/",
+      "host": "apsaraauthority.gov.kh",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 403,
+      "contentType": "text/html;charset=utf8",
+      "bytes": 164,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://colosseo.it/en/event/blood-and-the-arena/",
+      "host": "colosseo.it",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "mode": "unreachable",
+      "error": "fetch failed",
+      "ok": true
+    },
+    {
+      "url": "https://egymonuments.gov.eg/archaeological-sites/cairo-citadel/",
+      "host": "egymonuments.gov.eg",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 53643,
+      "matched": [
+        "mamluk"
+      ],
+      "mode": "live-fetch-200-content-unparsed",
+      "ok": true
+    },
+    {
+      "url": "https://egymonuments.gov.eg/collections/historical-cairo/",
+      "host": "egymonuments.gov.eg",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 50893,
+      "matched": [
+        "mamluk",
+        "1250"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/%C3%87atalh%C3%B6y%C3%BCk",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 663950,
+      "matched": [
+        "neolithic",
+        "anatolia"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Ban_Chiang",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 320607,
+      "matched": [
+        "ban chiang",
+        "bronze"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Br%C3%BA_na_B%C3%B3inne",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 268394,
+      "matched": [
+        "boyne",
+        "passage tomb"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Bronze_Age",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 797486,
+      "matched": [
+        "bronze age",
+        "tin"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Carnac_stones",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 473540,
+      "matched": [
+        "carnac",
+        "megalith"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Cemetery_H_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 157807,
+      "matched": [
+        "cemetery h",
+        "harappa"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/D%27mt",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 199221,
+      "matched": [
+        "aksum"
+      ],
+      "mode": "live-fetch-200-content-unparsed",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Dhar_Tichitt",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 237046,
+      "matched": [
+        "dhar tichitt",
+        "neolithic"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Dong_Son_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 229199,
+      "matched": [
+        "dong son",
+        "bronze"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Elam",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 753145,
+      "matched": [
+        "elam",
+        "susa"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Erlitou_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 281209,
+      "matched": [
+        "erlitou",
+        "bronze"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Hallstatt_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 707884,
+      "matched": [
+        "hallstatt",
+        "iron age"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Hoabinhian",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 258519,
+      "matched": [
+        "hoabinhian",
+        "hunter-gatherer"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Indian_Ocean_trade",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 363647,
+      "matched": [
+        "indian ocean",
+        "trade"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Iron_Age",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 586871,
+      "matched": [
+        "iron age",
+        "smelted iron"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Meadowcroft_Rockshelter",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 434014,
+      "matched": [
+        "meadowcroft",
+        "radiocarbon"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Minoan_civilization",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 1000198,
+      "matched": [
+        "minoan",
+        "crete"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Nabta_Playa",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 253757,
+      "matched": [
+        "nabta playa",
+        "neolithic"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Neolithic_Revolution",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 819002,
+      "matched": [
+        "neolithic",
+        "domestication"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Newgrange",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 404017,
+      "matched": [
+        "newgrange",
+        "neolithic"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Painted_Grey_Ware_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 266830,
+      "matched": [
+        "painted grey ware",
+        "iron age"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Paracas_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 264332,
+      "matched": [
+        "paracas",
+        "textile"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Polynesian_culture",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 226905,
+      "matched": [
+        "polynesian",
+        "settlement"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Polynesian_navigation",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 634773,
+      "matched": [
+        "polynesian",
+        "canoe"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.xa.gov.cn/MediaCenter/News/1691691385017192449.html",
+      "host": "en.xa.gov.cn",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 19965,
+      "matched": [
+        "daming",
+        "634"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://nijo-jocastle.city.kyoto.lg.jp/introduction/highlights/nenpyo/?lang=en",
+      "host": "nijo-jocastle.city.kyoto.lg.jp",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 30518,
+      "matched": [
+        "1603",
+        "1867"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://online.bunka.go.jp/suisensyo/kyoto/MAINTEXT/3a1.html",
+      "host": "online.bunka.go.jp",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 6306,
+      "matched": [
+        "794"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Metropolitan_Museum_Journal_v_51_2016.pdf",
+      "host": "resources.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 15241010,
+      "matched": [],
+      "mode": "live-fetch-200",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1114/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "handoff settlement-candidates.json#yinxu (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/119/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz",
+        "public/data/enrichment/narratives.json",
+        "docs/events-ancient-sources.txt"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5718,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1223/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1280/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "handoff settlement-candidates.json#roi-mata-residence (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1399/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "handoff settlement-candidates.json#levuka (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1442/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1561/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "docs/CITY-CORRECTIONS-3.9.4.md",
+        "handoff settlement-candidates.json#quanzhou-old-city (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1645/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "handoff settlement-candidates.json#dholavira (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5721,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/200/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz",
+        "handoff settlement-candidates.json#anuradhapura (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5718,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/231/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5718,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/232/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5718,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/241/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz",
+        "handoff settlement-candidates.json#hampi (read 2026-10-03)"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5718,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/276/",
+      "host": "whc.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 5718,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.britishmuseum.org/sites/default/files/2019-09/Visit_Aztecs_KS2b.pdf",
+      "host": "www.britishmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 633124,
+      "matched": [],
+      "mode": "live-fetch-200",
+      "ok": true
+    },
+    {
+      "url": "https://www.historicenvironment.scot/visit-a-place/places/skara-brae/",
+      "host": "www.historicenvironment.scot",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 119904,
+      "matched": [
+        "skara brae",
+        "neolithic"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://www.iranicaonline.org/articles/safavids/",
+      "host": "www.iranicaonline.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 458586,
+      "matched": [
+        "isfahan",
+        "abbas"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://www.loc.gov/exhibits/mali/mali-exhibit.html",
+      "host": "www.loc.gov",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 70158,
+      "matched": [
+        "1733"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/de/essays/the-art-of-the-mughals-before-1600",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/es/essays/the-trans-saharan-gold-trade-7th-14th-century",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/byzantium-ca-330-1453",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/the-art-of-the-abbasid-period-750-1258",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/the-art-of-the-ottomans-before-1600",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/the-art-of-the-timurid-period-ca-1370-1507",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/exhibitions/listings/2003/persian-silks",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/exhibitions/listings/2012/buddhism",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.metmuseum.org/fr/essays/the-qing-dynasty-1644-1911-painting",
+      "host": "www.metmuseum.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 429,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33949,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.pib.gov.in/newsite/erelcontent.aspx?lang=2&reg=48&relid=33154",
+      "host": "www.pib.gov.in",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 24224,
+      "matched": [
+        "1639",
+        "1648"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://www.si.edu/object/ming-porcelain-globalised-trade-eva-strober%3Asiris_sil_1020758",
+      "host": "www.si.edu",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/enrichment/narratives.json"
+      ],
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 46892,
+      "mode": "host-blocked",
+      "ok": true
+    },
+    {
+      "url": "https://www.sydney.edu.au/news-opinion/news/2019/02/26/new-research-casts-doubt-on-cause-of-angkor-s-collapse.html",
+      "host": "www.sydney.edu.au",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 49850,
+      "matched": [
+        "14th century"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://www.unesco.org/en/articles/evolution-astronomy-along-silk-roads",
+      "host": "www.unesco.org",
+      "recordedIn": [
+        "public/data/events.json",
+        "public/data/places/city-narratives.json.gz"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 70867,
+      "matched": [
+        "astronom"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    }
+  ]
+}

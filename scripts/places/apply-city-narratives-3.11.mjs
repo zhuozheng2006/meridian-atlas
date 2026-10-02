@@ -22,7 +22,8 @@ const lookup=new Map();
 for(const [file,rows,kind,timeBasis,coordinateUse] of datasets)for(const row of rows)if(!lookup.has(row.id))lookup.set(row.id,{file,row,kind,timeBasis,coordinateUse});
 
 const canonical=JSON.parse(await readFile(resolve(root,'editorial/city-narratives.json'),'utf8'));
-const batch=JSON.parse(await readFile(resolve(root,'editorial/city-narratives-3.11.json'),'utf8'));
+const batchPath=(process.argv.find(arg=>arg.startsWith('--batch='))||'--batch=editorial/city-narratives-3.11.json').slice('--batch='.length);
+const batch=JSON.parse(await readFile(resolve(root,batchPath),'utf8'));
 const sources=new Map(canonical.sources.map(source=>[source.id,source]));
 for(const source of batch.sources){
  if(sources.has(source.id)&&JSON.stringify(sources.get(source.id))!==JSON.stringify(source))fail('source id already registered with different content: '+source.id);
@@ -79,7 +80,7 @@ const gzip=gzipSync(Buffer.from(text),{level:9});
 gzip[4]=gzip[5]=gzip[6]=gzip[7]=0;gzip[9]=255;
 const roundTrip=JSON.parse(gunzipSync(gzip).toString());
 if(JSON.stringify(roundTrip)!==JSON.stringify(merged))fail('gzip mirror does not round-trip');
-const stats={entries:merged.entries.length,sources:merged.sources.length,boundRecords:merged.entries.reduce((n,e)=>n+e.sourceRecordIds.length,0),added:batch.entries.map(e=>e.id),gzipBytes:gzip.length};
+const stats={batch:batchPath,entries:merged.entries.length,sources:merged.sources.length,boundRecords:merged.entries.reduce((n,e)=>n+e.sourceRecordIds.length,0),added:batch.entries.map(e=>e.id),gzipBytes:gzip.length};
 if(problems.length){console.error('FAIL\n'+problems.join('\n'));process.exit(1)}
 if(checkOnly){console.log(JSON.stringify({result:'checked',...stats},null,2));process.exit(0)}
 await writeFile(resolve(root,'editorial/city-narratives.json'),text);

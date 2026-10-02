@@ -29,7 +29,8 @@ export class PolityReader{
   const seq=++this.seq;this.placeComposing=false;this.focusHeading=!keepTab;if(!keepTab){const content=document.querySelector('#detailPanel .reader-content');if(content)content.scrollTop=0;}this.loadErrors=[];this.binding=null;this.record=record;this.whichMap=whichMap;if(!keepTab)this.tab='overview';this.detail=null;this.profile=null;this.editorial=null;this.loading=true;this.placeData=null;this.placeLoading=false;this.placeError=false;if(!keepTab){this.placeQuery='';this.placeKind='all';this.placeLimit=40;}
   this.chain=periodChain(this.context.catalog().records,record);
   this.render();if(this.tab==='cities')this.citiesReady=this.loadCities();
-  const tasks=[recordDetail(record.id),this.loadProfile(record),readJSON('data/enrichment/narratives.json')];
+  // All three reads are issued together; the reader renders as soon as they settle.
+ const tasks=[recordDetail(record.id),this.loadProfile(record),readJSON('data/enrichment/narratives.json.gz')];
   const results=await Promise.allSettled(tasks);if(seq!==this.seq)return;this.loadErrors=results.map((r,i)=>r.status==='rejected'?i:null).filter(x=>x!==null);const [detail,profile,editorials]=results.map(r=>r.status==='fulfilled'?r.value:null);
   this.detail=detail||record;this.profile=profile;const list=Array.isArray(editorials)?editorials:editorials?.entries||[];
   const values=Array.isArray(list)?list:Object.values(list);const e=values.find(e=>narrativeApplies(e,record,this.whichMap.year));this.editorial=e?{...e,...e.sections}:null;
