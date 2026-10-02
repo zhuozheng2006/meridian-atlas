@@ -1,4 +1,4 @@
-import {historicalDateFilter,datedFeatureVisible,historicalYearRange} from './historical-dates.js?v=3.9.3-76012876eda1';
+import {historicalDateFilter,datedFeatureVisible,historicalYearRange} from './historical-dates.js?v=3.9.4-e92afe04dc8c';
 const SOURCE='historical-detail';
 const IDS=['historic-buildings','historic-building-edges','historic-road-casing','historic-roads','historic-railways'];
 const HIT=['historic-buildings','historic-roads','historic-railways'];
@@ -48,7 +48,7 @@ export class HistoricalDetailLayer{
  ensure(){
   if(this.map.getSource(SOURCE))return;
   this.map.addSource(SOURCE,{type:'vector',tiles:['https://vtiles.openhistoricalmap.org/maps/ohm/{z}/{x}/{y}.pbf'],minzoom:11,maxzoom:18,attribution:'<a href="https://www.openhistoricalmap.org/" target="_blank" rel="noopener">OpenHistoricalMap contributors</a> · <a href="https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Sources" target="_blank" rel="noopener">Sources & attribution</a>'});
-  for(const layer of historyLayers(this.year))this.map.addLayer(layer,'boundary');
+  for(const layer of historyLayers(this.year))this.map.addLayer(layer,'boundary');this.atlas.regional?.halc?.landscape?.reconcileOrder();
  }
  update(){
   if(this.atlas.destroyed)return;

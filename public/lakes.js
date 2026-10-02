@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.9.3-76012876eda1';
+import {decodeLakeArchive} from './lake-codec.js?v=3.9.4-e92afe04dc8c';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -90,12 +90,14 @@ export class LakeLayer {
   if(this.atlas.destroyed)return;
   const lang=this.atlas.lang||'bi',visible=this.ready&&this.enabled&&this.atlas.showLabels!==false;
   const blockers=visible&&this.named.length?[...document.querySelectorAll('.map-heading,.map-tools,.layer-panel,.place-marker,.polity-label,.event-marker')].filter(el=>{const style=getComputedStyle(el);return el.getClientRects().length&&style.visibility!=='hidden'&&Number(style.opacity)>.05;}).map(el=>el.getBoundingClientRect()):[];
-  const key=[visible,lang,this.renderSeq,this.map.getZoom(),this.map.getCenter?.().lng,this.map.getCenter?.().lat,...blockers.flatMap(r=>[Math.round(r.x),Math.round(r.y),Math.round(r.width),Math.round(r.height)])].join(':');
+  const landscape=this.atlas.regional?.halc?.landscape;
+  const key=[visible,lang,this.renderSeq,landscape?.revision,landscape?.eligible,this.map.getZoom(),this.map.getCenter?.().lng,this.map.getCenter?.().lat,...blockers.flatMap(r=>[Math.round(r.x),Math.round(r.y),Math.round(r.width),Math.round(r.height)])].join(':');
   if(key===this.labelKey)return;this.labelKey=key;
   for(const marker of this.labels)marker.remove();this.labels=[];if(!visible||!this.named.length)return;
   const container=this.map.getContainer(),origin=container.getBoundingClientRect(),bounds=lakeViewport(this.map),placed=[];
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
   for(const n of [...this.named].sort((a,b)=>b.area-a.area)){
+   if(landscape?.covers(n.center))continue;
    if(this.labels.length>=8)break;if(!intersectsLakeBounds([n.center[0],n.center[1],n.center[0],n.center[1]],bounds))continue;
    const a=this.map.project([n.bbox[0],n.bbox[1]]),b=this.map.project([n.bbox[2],n.bbox[3]]);
    if(Math.abs(b.x-a.x)<85||Math.abs(b.y-a.y)<45)continue;

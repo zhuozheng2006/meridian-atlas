@@ -1,0 +1,26 @@
+{
+  "passed": 4,
+  "total": 4,
+  "cases": [
+    {
+      "name": "A changed compressed source file fails its file checksum",
+      "pass": true,
+      "rejectedBecause": "Shard checksum mismatch: shards/cell-+001-+049-00.geojson.gz"
+    },
+    {
+      "name": "Changing a record and all index hashes still fails the fixed official source lock",
+      "pass": true,
+      "rejectedBecause": "Fixed official-source record lock mismatch; self-consistent index is not sufficient"
+    },
+    {
+      "name": "An index bbox that could hide actual coverage is rejected",
+      "pass": true,
+      "rejectedBecause": "Feature bbox differs from actual coordinates"
+    },
+    {
+      "name": "A manifest cannot relabel an unverified original source",
+      "pass": true,
+      "rejectedBecause": "Source identity mismatch"
+    }
+  ]
+}

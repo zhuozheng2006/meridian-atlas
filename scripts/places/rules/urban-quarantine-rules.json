@@ -33,6 +33,97 @@
       "status": "withheld-from-city-layer",
       "inference": "The 610000/1345000 values suggest a same-name geocoding mismatch, potentially with Soviet Sverdlovsk/Yekaterinburg. That intended population-city identity is NOT proven without the original Chandler pages or an upstream correction. Population magnitude alone cannot establish it.",
       "unresolved": "Original printed Chandler population entries and exact intended metropolitan extent not inspected; quarantine is supported, reassignment is not."
+    },
+    {
+      "recordId": "chandler:715",
+      "expected": {
+        "name": "Kilwa",
+        "coordinates": [
+          38.987675,
+          -9.149644
+        ],
+        "countryReference": "Tanzania",
+        "otherNames": "",
+        "coordinateCertaintyCode": "2",
+        "observations": [
+          [
+            1200,
+            20000
+          ],
+          [
+            1300,
+            20000
+          ],
+          [
+            1400,
+            30000
+          ],
+          [
+            1500,
+            30000
+          ],
+          [
+            1505,
+            24000
+          ],
+          [
+            1587,
+            18000
+          ],
+          [
+            1650,
+            12500
+          ]
+        ]
+      },
+      "issueType": "historical-city-coordinate-conflict",
+      "reasonZh": "这条人口记录的点位距基尔瓦基西瓦尼官方遗址代表点约63公里。定位待核实，原始记录已保存在核查档案。",
+      "reasonEn": "This population point lies about 63 km from the official Kilwa Kisiwani heritage reference point. Its location is under review; the original record is retained in the audit archive.",
+      "sourceURLs": [
+        "https://doi.org/10.6084/m9.figshare.2059494",
+        "https://whc.unesco.org/en/list/144/",
+        "https://whc.unesco.org/en/list/144/maps/"
+      ],
+      "status": "withheld-from-city-layer",
+      "inference": "The inland source coordinate does not locate the documented island port. This supports withholding an unresolved spatial association, not transferring the population series to a UNESCO reference point.",
+      "unresolved": "The intended settlement/urban extent in the printed Chandler entries and the reason for the source geocode have not been verified. Kilwa Kisiwani, Kilwa Kivinje and the Kilwa district must remain distinct.",
+      "reviewed": "2026-10-03"
+    },
+    {
+      "recordId": "chandler:245",
+      "expected": {
+        "name": "Cahokia",
+        "coordinates": [
+          -90.19011,
+          38.57088
+        ],
+        "countryReference": "United States of America",
+        "otherNames": "Missouri",
+        "coordinateCertaintyCode": "1",
+        "observations": [
+          [
+            1100,
+            40000
+          ],
+          [
+            1400,
+            4000
+          ]
+        ]
+      },
+      "issueType": "historical-city-coordinate-conflict",
+      "reasonZh": "这条人口记录的点位与卡霍基亚土丘遗址代表点相距约15公里，原始地点备注也有歧义。定位待核实，人口与点位原值保存在核查档案。",
+      "reasonEn": "This population point is about 15 km from the Cahokia Mounds heritage reference point, and its source locality note is ambiguous. The location is under review; original population and coordinate values remain in the audit archive.",
+      "sourceURLs": [
+        "https://doi.org/10.6084/m9.figshare.2059494",
+        "https://whc.unesco.org/en/list/198/",
+        "https://dnrhistoric.illinois.gov/experience/sites/site.cahokia-mounds.html",
+        "https://www.historyillinois.org/historical-markers/cahokia,-illinois"
+      ],
+      "status": "withheld-from-city-layer",
+      "inference": "Official sources distinguish the Illinois mound site from the later same-named village; the source point is southwest of the mound site. Its OtherName value Missouri is a locality note, not a verified identity. Neither the coordinate nor population magnitude establishes the intended extent.",
+      "unresolved": "Original Chandler entries and metropolitan extent are unverified. The 40000 estimate must not be silently replaced by UNESCO's separately scoped 10000–20000 estimate or attached to the archaeological site.",
+      "reviewed": "2026-10-03"
     }
   ]
 }

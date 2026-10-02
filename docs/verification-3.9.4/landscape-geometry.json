@@ -1,0 +1,1130 @@
+{
+  "source": {
+    "file": "Landscape-1500.gpkg",
+    "bytes": 9252864,
+    "sha1": "ad5923b98e627eed5c8663790b9b3f71ff45f98b",
+    "sha256": "7fc499517b9a71737fd932716e3faa1ed13334ec51f020358f7bc6bc1e9041a2",
+    "dataFileId": 639024,
+    "datasetVersion": 15,
+    "doi": "10.34894/BTKFHV",
+    "license": "CC BY-SA 4.0",
+    "coordinateReferenceSystem": "EPSG:4326"
+  },
+  "schema": {
+    "table_name": "Landscape 1500",
+    "column_name": "geom",
+    "geometry_type_name": "POLYGON",
+    "srs_id": 4326,
+    "z": 0,
+    "m": 0
+  },
+  "records": 2980,
+  "vertices": 514392,
+  "invalid": [],
+  "empty": [],
+  "geometryTypes": {
+    "Polygon": 2980
+  },
+  "classCounts": {
+    "0": 813,
+    "7": 1278,
+    "2": 368,
+    "1": 87,
+    "3": 384,
+    "9": 7,
+    "8": 33,
+    "4": 10
+  },
+  "qualityCounts": {
+    "None": 2881,
+    "1": 99
+  },
+  "datePairs": {
+    "('1500-01-01', '1500-12-31')": 2977,
+    "(None, None)": 3
+  },
+  "missingDates": [
+    {
+      "fid": 106,
+      "LANDSCAPE": 3,
+      "TIME_START": null,
+      "TIME_END": null,
+      "QUALITY": null,
+      "SOURCE": null,
+      "REMARKS": null
+    },
+    {
+      "fid": 2477,
+      "LANDSCAPE": 3,
+      "TIME_START": null,
+      "TIME_END": null,
+      "QUALITY": null,
+      "SOURCE": null,
+      "REMARKS": null
+    },
+    {
+      "fid": 2478,
+      "LANDSCAPE": 3,
+      "TIME_START": null,
+      "TIME_END": null,
+      "QUALITY": null,
+      "SOURCE": null,
+      "REMARKS": null
+    }
+  ],
+  "overlapsAbove1m2": [
+    {
+      "a": 105,
+      "b": 106,
+      "classA": 3,
+      "classB": 3,
+      "areaM2": 710462.8400700793
+    },
+    {
+      "a": 1915,
+      "b": 1916,
+      "classA": 2,
+      "classB": 7,
+      "areaM2": 6181.055257745528
+    },
+    {
+      "a": 1848,
+      "b": 1849,
+      "classA": 1,
+      "classB": 7,
+      "areaM2": 157.659284338566
+    }
+  ],
+  "unionAreaKm2": 285809.248048623,
+  "totalFeatureAreaKm2": 285809.9648501766,
+  "bounds": [
+    -0.2635517291765086,
+    47.49069922359204,
+    8.90256801566143,
+    54.129438097120065
+  ],
+  "publish": {
+    "shards": 49,
+    "gzipBytes": 7723381,
+    "indexBytes": 516382,
+    "indexGzipBytes": 241581,
+    "fullGzipBytes": 7723406,
+    "largestShards": [
+      {
+        "file": "shards/large-01839.geojson.gz",
+        "count": 1,
+        "vertices": 78597,
+        "bytes": 1168362,
+        "bbox": [
+          0.0688774450627154,
+          48.36994110691082,
+          7.61523924503298,
+          51.900778287863425
+        ]
+      },
+      {
+        "file": "shards/large-02106.geojson.gz",
+        "count": 1,
+        "vertices": 55895,
+        "bytes": 818353,
+        "bbox": [
+          5.003329353081225,
+          48.32978983710326,
+          8.90256801566143,
+          53.879438097120065
+        ]
+      },
+      {
+        "file": "shards/large-02281.geojson.gz",
+        "count": 1,
+        "vertices": 29099,
+        "bytes": 432891,
+        "bbox": [
+          4.313567349113278,
+          47.53802110857045,
+          8.87729103376828,
+          52.25404638479973
+        ]
+      },
+      {
+        "file": "shards/large-02232.geojson.gz",
+        "count": 1,
+        "vertices": 26142,
+        "bytes": 402706,
+        "bbox": [
+          4.099061522349351,
+          51.89911223898635,
+          5.352569061151736,
+          52.98630282989374
+        ]
+      },
+      {
+        "file": "shards/large-02060.geojson.gz",
+        "count": 1,
+        "vertices": 18929,
+        "bytes": 298682,
+        "bbox": [
+          -0.26348489405094105,
+          49.288803716190564,
+          8.851825157905113,
+          54.129438097120065
+        ]
+      },
+      {
+        "file": "shards/large-01942.geojson.gz",
+        "count": 1,
+        "vertices": 15458,
+        "bytes": 230148,
+        "bbox": [
+          5.346047722422632,
+          52.63776037892144,
+          6.1578418345427535,
+          53.41229218421226
+        ]
+      },
+      {
+        "file": "shards/large-02213.geojson.gz",
+        "count": 1,
+        "vertices": 14183,
+        "bytes": 219335,
+        "bbox": [
+          4.126175563821458,
+          51.94264812564663,
+          5.293278345267718,
+          52.80937587056376
+        ]
+      },
+      {
+        "file": "shards/cell-+004-+052-02.geojson.gz",
+        "count": 37,
+        "vertices": 13482,
+        "bytes": 208869,
+        "bbox": [
+          4.064501611772199,
+          51.975780330719566,
+          5.113370928743446,
+          52.9735059662585
+        ]
+      },
+      {
+        "file": "shards/cell-+004-+051-02.geojson.gz",
+        "count": 56,
+        "vertices": 13646,
+        "bytes": 201343,
+        "bbox": [
+          3.7116759966969255,
+          50.992662120301425,
+          5.3521767346822715,
+          52.08138583374675
+        ]
+      },
+      {
+        "file": "shards/cell-+005-+051-00.geojson.gz",
+        "count": 139,
+        "vertices": 12639,
+        "bytes": 194445,
+        "bbox": [
+          4.622041928392704,
+          51.02493111307209,
+          6.131281256778378,
+          52.00033320427665
+        ]
+      },
+      {
+        "file": "shards/cell-+004-+051-03.geojson.gz",
+        "count": 95,
+        "vertices": 13118,
+        "bytes": 190940,
+        "bbox": [
+          3.988430653035007,
+          51.09083171329412,
+          5.011599376009573,
+          52.04150946594939
+        ]
+      },
+      {
+        "file": "shards/cell-+003-+051-00.geojson.gz",
+        "count": 172,
+        "vertices": 12541,
+        "bytes": 190764,
+        "bbox": [
+          2.986776860726594,
+          51.211311625861995,
+          4.0424396896551755,
+          51.84756469865993
+        ]
+      }
+    ],
+    "noMissingDuplicateOrChangedRecords": true,
+    "exactIndependentFullExportEquality": true,
+    "geometryTransformation": "none",
+    "retrievalBoundsAreNotCoverage": true
+  },
+  "viewportProbes": [
+    {
+      "city": "Amsterdam",
+      "center": [
+        4.9041,
+        52.3676
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        3.2561507812499997,
+        51.77672814460615,
+        6.55204921875,
+        52.9506729683128
+      ],
+      "shards": 22,
+      "bytes": 5905980,
+      "MiB": 5.632,
+      "bboxCandidateFeatures": 1201,
+      "actualIntersectingFeatures": 1201,
+      "files": [
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+004-+052-03.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/cell-+005-+052-01.geojson.gz",
+        "shards/cell-+006-+051-00.geojson.gz",
+        "shards/cell-+006-+052-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-01942.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Amsterdam",
+      "center": [
+        4.9041,
+        52.3676
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        4.4921126953125,
+        52.22061481654664,
+        5.3160873046875,
+        52.51409773975039
+      ],
+      "shards": 11,
+      "bytes": 3051228,
+      "MiB": 2.91,
+      "bboxCandidateFeatures": 173,
+      "actualIntersectingFeatures": 172,
+      "files": [
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+004-+052-03.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/cell-+005-+052-01.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Amsterdam",
+      "center": [
+        4.9041,
+        52.3676
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        4.770204125976562,
+        52.233232662749415,
+        5.037995874023437,
+        52.501559873984974
+      ],
+      "shards": 11,
+      "bytes": 3051228,
+      "MiB": 2.91,
+      "bboxCandidateFeatures": 92,
+      "actualIntersectingFeatures": 91,
+      "files": [
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+004-+052-03.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/cell-+005-+052-01.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Rotterdam",
+      "center": [
+        4.4777,
+        51.9244
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        2.8297507812499987,
+        51.32764183909501,
+        6.125649218749999,
+        52.51332848454325
+      ],
+      "shards": 24,
+      "bytes": 5890636,
+      "MiB": 5.618,
+      "bboxCandidateFeatures": 1100,
+      "actualIntersectingFeatures": 1100,
+      "files": [
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+003-+051-01.geojson.gz",
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+051-04.geojson.gz",
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+004-+052-03.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/cell-+005-+052-01.geojson.gz",
+        "shards/cell-+006-+051-00.geojson.gz",
+        "shards/cell-+006-+052-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Rotterdam",
+      "center": [
+        4.4777,
+        51.9244
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        4.065712695312499,
+        51.77594604508417,
+        4.889687304687499,
+        52.072364586346424
+      ],
+      "shards": 13,
+      "bytes": 3996152,
+      "MiB": 3.811,
+      "bboxCandidateFeatures": 305,
+      "actualIntersectingFeatures": 303,
+      "files": [
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Rotterdam",
+      "center": [
+        4.4777,
+        51.9244
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        4.343804125976561,
+        51.78868986059143,
+        4.611595874023436,
+        52.05970106710684
+      ],
+      "shards": 11,
+      "bytes": 3592838,
+      "MiB": 3.426,
+      "bboxCandidateFeatures": 150,
+      "actualIntersectingFeatures": 147,
+      "files": [
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Antwerp",
+      "center": [
+        4.4025,
+        51.2194
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        2.754550781249975,
+        50.61335365554498,
+        6.050449218749975,
+        51.817571555719184
+      ],
+      "shards": 22,
+      "bytes": 4882652,
+      "MiB": 4.656,
+      "bboxCandidateFeatures": 752,
+      "actualIntersectingFeatures": 751,
+      "files": [
+        "shards/cell-+002-+050-00.geojson.gz",
+        "shards/cell-+002-+051-00.geojson.gz",
+        "shards/cell-+003-+050-00.geojson.gz",
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+003-+051-01.geojson.gz",
+        "shards/cell-+004-+050-00.geojson.gz",
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+051-04.geojson.gz",
+        "shards/cell-+005-+050-00.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/cell-+006-+050-00.geojson.gz",
+        "shards/cell-+006-+051-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02024.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Antwerp",
+      "center": [
+        4.4025,
+        51.2194
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        3.990512695312475,
+        51.06862809377679,
+        4.814487304687475,
+        51.36967971727277
+      ],
+      "shards": 8,
+      "bytes": 2623018,
+      "MiB": 2.502,
+      "bboxCandidateFeatures": 50,
+      "actualIntersectingFeatures": 48,
+      "files": [
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+051-04.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Antwerp",
+      "center": [
+        4.4025,
+        51.2194
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        4.2686041259765375,
+        51.0815706999908,
+        4.5363958740234125,
+        51.35681787009134
+      ],
+      "shards": 6,
+      "bytes": 2416643,
+      "MiB": 2.305,
+      "bboxCandidateFeatures": 8,
+      "actualIntersectingFeatures": 7,
+      "files": [
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Tilburg",
+      "center": [
+        5.0919,
+        51.5555
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        3.443950781250038,
+        50.9538700975996,
+        6.739849218750038,
+        52.14927602719969
+      ],
+      "shards": 23,
+      "bytes": 5851086,
+      "MiB": 5.58,
+      "bboxCandidateFeatures": 1116,
+      "actualIntersectingFeatures": 1116,
+      "files": [
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+003-+051-01.geojson.gz",
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+051-04.geojson.gz",
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+005-+050-00.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/cell-+006-+051-00.geojson.gz",
+        "shards/cell-+006-+052-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Tilburg",
+      "center": [
+        5.0919,
+        51.5555
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        4.679912695312538,
+        51.4058303086157,
+        5.503887304687538,
+        51.70467880993928
+      ],
+      "shards": 10,
+      "bytes": 3688493,
+      "MiB": 3.518,
+      "bboxCandidateFeatures": 40,
+      "actualIntersectingFeatures": 39,
+      "files": [
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Tilburg",
+      "center": [
+        5.0919,
+        51.5555
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        4.958004125976601,
+        51.41867838868879,
+        5.225795874023476,
+        51.69191127436488
+      ],
+      "shards": 5,
+      "bytes": 2866256,
+      "MiB": 2.733,
+      "bboxCandidateFeatures": 5,
+      "actualIntersectingFeatures": 1,
+      "files": [
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Groningen",
+      "center": [
+        6.5665,
+        53.2194
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        4.918550781249962,
+        52.63994217649753,
+        8.214449218749962,
+        53.7911233458799
+      ],
+      "shards": 17,
+      "bytes": 3396321,
+      "MiB": 3.239,
+      "bboxCandidateFeatures": 641,
+      "actualIntersectingFeatures": 641,
+      "files": [
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+004-+052-03.geojson.gz",
+        "shards/cell-+004-+053-00.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/cell-+005-+052-01.geojson.gz",
+        "shards/cell-+005-+053-00.geojson.gz",
+        "shards/cell-+005-+053-01.geojson.gz",
+        "shards/cell-+006-+052-00.geojson.gz",
+        "shards/cell-+006-+053-00.geojson.gz",
+        "shards/cell-+007-+053-00.geojson.gz",
+        "shards/cell-+008-+053-00.geojson.gz",
+        "shards/large-01942.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz"
+      ]
+    },
+    {
+      "city": "Groningen",
+      "center": [
+        6.5665,
+        53.2194
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        6.154512695312462,
+        53.07526243607733,
+        6.978487304687462,
+        53.36305414683375
+      ],
+      "shards": 4,
+      "bytes": 1507692,
+      "MiB": 1.438,
+      "bboxCandidateFeatures": 51,
+      "actualIntersectingFeatures": 50,
+      "files": [
+        "shards/cell-+006-+053-00.geojson.gz",
+        "shards/large-01942.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz"
+      ]
+    },
+    {
+      "city": "Groningen",
+      "center": [
+        6.5665,
+        53.2194
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        6.432604125976525,
+        53.08763604432761,
+        6.7003958740234,
+        53.35075985833678
+      ],
+      "shards": 3,
+      "bytes": 1277544,
+      "MiB": 1.218,
+      "bboxCandidateFeatures": 20,
+      "actualIntersectingFeatures": 17,
+      "files": [
+        "shards/cell-+006-+053-00.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz"
+      ]
+    },
+    {
+      "city": "Middelburg",
+      "center": [
+        3.6136,
+        51.4988
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        1.9656507812499626,
+        50.896423560083605,
+        5.261549218749963,
+        52.0933189607219
+      ],
+      "shards": 24,
+      "bytes": 5734806,
+      "MiB": 5.469,
+      "bboxCandidateFeatures": 860,
+      "actualIntersectingFeatures": 860,
+      "files": [
+        "shards/cell-+001-+050-00.geojson.gz",
+        "shards/cell-+002-+050-00.geojson.gz",
+        "shards/cell-+002-+051-00.geojson.gz",
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+003-+051-01.geojson.gz",
+        "shards/cell-+004-+050-00.geojson.gz",
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/cell-+004-+051-04.geojson.gz",
+        "shards/cell-+004-+052-00.geojson.gz",
+        "shards/cell-+004-+052-01.geojson.gz",
+        "shards/cell-+004-+052-02.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/cell-+005-+052-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02213.geojson.gz",
+        "shards/large-02232.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Middelburg",
+      "center": [
+        3.6136,
+        51.4988
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        3.2016126953124626,
+        51.348944001246295,
+        4.025587304687463,
+        51.64816489199006
+      ],
+      "shards": 9,
+      "bytes": 2555520,
+      "MiB": 2.437,
+      "bboxCandidateFeatures": 121,
+      "actualIntersectingFeatures": 119,
+      "files": [
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+003-+051-01.geojson.gz",
+        "shards/cell-+004-+051-00.geojson.gz",
+        "shards/cell-+004-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/cell-+004-+051-03.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz"
+      ]
+    },
+    {
+      "city": "Middelburg",
+      "center": [
+        3.6136,
+        51.4988
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        3.479704125976525,
+        51.36180805924267,
+        3.7474958740234,
+        51.63538141546239
+      ],
+      "shards": 6,
+      "bytes": 2058520,
+      "MiB": 1.963,
+      "bboxCandidateFeatures": 67,
+      "actualIntersectingFeatures": 65,
+      "files": [
+        "shards/cell-+003-+051-00.geojson.gz",
+        "shards/cell-+003-+051-01.geojson.gz",
+        "shards/cell-+004-+051-02.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02040.geojson.gz",
+        "shards/large-02060.geojson.gz"
+      ]
+    },
+    {
+      "city": "Cologne",
+      "center": [
+        6.96,
+        50.94
+      ],
+      "case": "desktop-z8",
+      "viewport": [
+        5.3120507812499795,
+        50.330298447365976,
+        8.60794921874998,
+        51.54181020342741
+      ],
+      "shards": 11,
+      "bytes": 3578779,
+      "MiB": 3.413,
+      "bboxCandidateFeatures": 226,
+      "actualIntersectingFeatures": 225,
+      "files": [
+        "shards/cell-+005-+050-00.geojson.gz",
+        "shards/cell-+005-+051-00.geojson.gz",
+        "shards/cell-+005-+051-01.geojson.gz",
+        "shards/cell-+006-+050-00.geojson.gz",
+        "shards/cell-+006-+051-00.geojson.gz",
+        "shards/large-00002.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02024.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Cologne",
+      "center": [
+        6.96,
+        50.94
+      ],
+      "case": "desktop-z10",
+      "viewport": [
+        6.5480126953124795,
+        50.78831578923667,
+        7.3719873046874795,
+        51.0911909864424
+      ],
+      "shards": 5,
+      "bytes": 2823269,
+      "MiB": 2.692,
+      "bboxCandidateFeatures": 8,
+      "actualIntersectingFeatures": 7,
+      "files": [
+        "shards/cell-+006-+050-00.geojson.gz",
+        "shards/large-01839.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    },
+    {
+      "city": "Cologne",
+      "center": [
+        6.96,
+        50.94
+      ],
+      "case": "mobile-z10",
+      "viewport": [
+        6.826104125976542,
+        50.801336633002016,
+        7.093895874023417,
+        51.07825107159178
+      ],
+      "shards": 4,
+      "bytes": 2718288,
+      "MiB": 2.592,
+      "bboxCandidateFeatures": 4,
+      "actualIntersectingFeatures": 3,
+      "files": [
+        "shards/large-01839.geojson.gz",
+        "shards/large-02060.geojson.gz",
+        "shards/large-02106.geojson.gz",
+        "shards/large-02281.geojson.gz"
+      ]
+    }
+  ],
+  "pointProbes": [
+    {
+      "name": "Almere",
+      "coordinate": [
+        5.2236,
+        52.3702
+      ],
+      "records": [
+        {
+          "id": 2060,
+          "class": 9
+        }
+      ]
+    },
+    {
+      "name": "Lelystad",
+      "coordinate": [
+        5.4714,
+        52.5185
+      ],
+      "records": [
+        {
+          "id": 2060,
+          "class": 9
+        }
+      ]
+    },
+    {
+      "name": "Flevoland centre",
+      "coordinate": [
+        5.5,
+        52.55
+      ],
+      "records": [
+        {
+          "id": 2060,
+          "class": 9
+        }
+      ]
+    },
+    {
+      "name": "Amsterdam",
+      "coordinate": [
+        4.9041,
+        52.3676
+      ],
+      "records": [
+        {
+          "id": 2143,
+          "class": 0
+        }
+      ]
+    },
+    {
+      "name": "Tilburg",
+      "coordinate": [
+        5.0919,
+        51.5555
+      ],
+      "records": [
+        {
+          "id": 1839,
+          "class": 0
+        }
+      ]
+    }
+  ],
+  "coverageFixtures": {
+    "bboxInsideButSourceEmpty": {
+      "coordinate": [
+        2.0905686085892583,
+        48.01864759482655
+      ],
+      "noCoveringFeature": true
+    },
+    "actualPolygonInside": {
+      "coordinate": [
+        5.07278652937695,
+        50.812919508852644
+      ]
+    },
+    "uncoveredPolygonInteriorHoles": []
+  },
+  "qml": {
+    "bytes": 54777,
+    "sha1": "5043d8ccccb71546bc87c63412ab16f271b28d2f",
+    "renderer": {
+      "symbollevels": "0",
+      "type": "RuleRenderer",
+      "forceraster": "0",
+      "enableorderby": "0",
+      "referencescale": "-1"
+    },
+    "temporal": {
+      "limitMode": "0",
+      "endField": "TIME_END",
+      "endExpression": "",
+      "mode": "0",
+      "startField": "TIME_START",
+      "startExpression": "",
+      "durationField": "",
+      "accumulate": "0",
+      "durationUnit": "min",
+      "fixedDuration": "0",
+      "enabled": "0"
+    },
+    "rules": [
+      {
+        "key": "{28448df2-bcbc-4c79-9d69-f5335a85d978}",
+        "symbol": "0",
+        "filter": "\"LANDSCAPE\" = 1",
+        "label": "Dunes or sandy soils",
+        "fill": "255,255,127,216,rgb:1,1,0.49803921568627452,0.84705882352941175",
+        "outline": "255,255,255,255,rgb:1,1,1,1",
+        "outlineStyle": "solid"
+      },
+      {
+        "key": "{a9365173-3655-47de-8712-c35b902354d9}",
+        "symbol": "1",
+        "filter": "\"LANDSCAPE\" = 2",
+        "label": "Mud flats or marshes",
+        "fill": "255,255,255,128,rgb:1,1,1,0.50196078431372548",
+        "outline": "255,255,255,255,rgb:1,1,1,1",
+        "outlineStyle": "solid"
+      },
+      {
+        "key": "{dba7acee-2343-4213-97bd-8ef2c2d3ea75}",
+        "symbol": "2",
+        "filter": "\"LANDSCAPE\" = 3",
+        "label": "Forests",
+        "fill": "51,160,44,89,rgb:0.20000000000000001,0.62745098039215685,0.17254901960784313,0.34901960784313724",
+        "outline": "35,35,35,0,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,0",
+        "outlineStyle": "no"
+      },
+      {
+        "key": "{80d1bdc9-09f6-428e-bb5b-9310b7128d72}",
+        "symbol": "3",
+        "filter": "\"LANDSCAPE\" = 4",
+        "label": "Heath or moorland",
+        "fill": "193,123,198,134,hsv:0.82222222222222219,0.38039215686274508,0.77647058823529413,0.52549019607843139",
+        "outline": "35,35,35,0,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,0",
+        "outlineStyle": "no"
+      },
+      {
+        "key": "{0ed3b3f0-70fc-418a-8fc9-b9a6c542c32f}",
+        "symbol": "4",
+        "filter": "\"LANDSCAPE\" = 7",
+        "label": "Fresh or coastal water, navigable for small vessels",
+        "fill": "181,217,234,255,rgb:0.70980392156862748,0.85098039215686272,0.91764705882352937,1",
+        "outline": "255,255,255,255,rgb:1,1,1,1",
+        "outlineStyle": "solid"
+      },
+      {
+        "key": "{c8b3c4ab-1400-4bba-9d71-17d26caf5645}",
+        "symbol": "5",
+        "filter": "\"LANDSCAPE\" = 8",
+        "label": "Fresh water, navigable for larger vessels",
+        "fill": "122,189,223,255,rgb:0.47843137254901963,0.74117647058823533,0.87450980392156863,1",
+        "outline": "255,255,255,255,rgb:1,1,1,1",
+        "outlineStyle": "solid"
+      },
+      {
+        "key": "{08c7a961-3a58-4ff6-b44e-489d19743e3a}",
+        "symbol": "6",
+        "filter": "\"LANDSCAPE\" = 9",
+        "label": "Open sea, navigable for larger vessels",
+        "fill": "166,206,227,255,rgb:0.65098039215686276,0.80784313725490198,0.8901960784313725,1",
+        "outline": "255,255,255,255,rgb:1,1,1,1",
+        "outlineStyle": "solid"
+      }
+    ],
+    "classZeroHasRule": false
+  },
+  "areaMethod": "EPSG:3035 audit-only equal-area reprojection; published EPSG:4326 coordinates untouched. Overlaps are preserved, not unioned or subtracted.",
+  "dateInterpretation": "Only the named 1500 cross-section is supported. Three null row dates remain null; collection membership is not a fabricated row start/end date. Codebook dates disambiguate polygon instances, not exact historical event dates."
+}

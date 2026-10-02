@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Shipped archives and reviewed rules load without an old checkout or raw-source cache",
+      "passed": true
+    },
+    {
+      "name": "Active and archived rows conserve all reviewed source values and observation totals",
+      "passed": true
+    },
+    {
+      "name": "All three corrected source rows match their exact rule bindings",
+      "passed": true
+    },
+    {
+      "name": "All quarantine entries preserve original records, reviewed reasons, uncertainty and source license",
+      "passed": true
+    },
+    {
+      "name": "Source metadata reports the corrected active/archive counts consistently",
+      "passed": true
+    },
+    {
+      "name": "Imports and loads the real places and polity-places modules offline",
+      "passed": true
+    },
+    {
+      "name": "Quarantined source IDs never reappear in real map-loader search results",
+      "passed": true
+    },
+    {
+      "name": "All 27 source observations display Quanzhou without mutating date, population or coordinates",
+      "passed": true
+    },
+    {
+      "name": "Display evidence remains tied to observation years and does not invent a continuous city lifespan",
+      "passed": true
+    },
+    {
+      "name": "Chinese, English and historical aliases find the same corrected source row",
+      "passed": true
+    },
+    {
+      "name": "The real polity reader uses the corrected display while retaining the source alias and spatial/date limits",
+      "passed": true
+    }
+  ],
+  "snapshot": {
+    "active": 2040,
+    "activeObservations": 10339,
+    "quarantined": 3,
+    "quarantinedObservations": 11,
+    "totalRows": 2043,
+    "totalObservations": 10350,
+    "sourceValuesSha256": "8653af1d1cf33bd19e691d2ec4ada4f8de07fd1c921bc2114b6b20aefac064e5"
+  },
+  "requests": [
+    "data/places/historical-capitals.json.gz",
+    "data/places/historical-settlements-index.json.gz",
+    "data/places/modern-cities.json.gz",
+    "data/places/urban-observations.json.gz"
+  ],
+  "limits": "Offline shipped-data and actual-module regression. No browser rendering or new historical fact verification."
+}

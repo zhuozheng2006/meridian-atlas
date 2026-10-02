@@ -1,0 +1,352 @@
+{
+  "baseCommit": "cfc1a432aabb5add21b05778cbb074780403dd95",
+  "checkedAt": "2026-10-03",
+  "oldPatchApplies": true,
+  "newPatchApplies": true,
+  "patchSha256": "d1f7e66eb9be8f28986bdadd973834a3b240df7f608ff2d03b4773fa3d4494f9",
+  "checkoutDependencyHashesUnchanged": true,
+  "fixedBuildTimestamp": "2026-10-03T01:00:00+00:00",
+  "changedAssets": [
+    {
+      "name": "city-sources.json.gz",
+      "beforeSha256": "afad85b1b80380ca762c9eee31760ab2c88250e483a55f6712fb36c91363199b",
+      "afterSha256": "db2aed02c85d6b51bbc99abce8582352995fcab8868bf636c29702fdc8921b78",
+      "afterBytes": 5852
+    },
+    {
+      "name": "urban-observations.json.gz",
+      "beforeSha256": "c36b749241035755b8e44cdbf27e70f70bc5ac65e4e790ca0b309dacad32bada",
+      "afterSha256": "ae04314d2b6106b1d3dbf57a33956a66cf6385cf57ec94a7af6aaf055fd1407a",
+      "afterBytes": 132325
+    },
+    {
+      "name": "urban-quarantine.json.gz",
+      "beforeSha256": "4af2d2be2e30d7a44bcaf5d66c3e43801ec593c89c2430407d1a84605ac444e9",
+      "afterSha256": "d4777ccd4591d95c39173d7f646fa01d9e4d70bca7adb7449d8574c0e8b206be",
+      "afterBytes": 2312
+    }
+  ],
+  "byteIdenticalAssetCount": 51,
+  "byteIdenticalAssets": [
+    "city-quarantine.json.gz",
+    "editorial-aliases.json.gz",
+    "historical-capitals.json.gz",
+    "historical-settlements-index.json.gz",
+    "historical-settlements.json.gz",
+    "modern-cities.json.gz",
+    "settlements-000.json.gz",
+    "settlements-001.json.gz",
+    "settlements-002.json.gz",
+    "settlements-003.json.gz",
+    "settlements-004.json.gz",
+    "settlements-005.json.gz",
+    "settlements-006.json.gz",
+    "settlements-007.json.gz",
+    "settlements-008.json.gz",
+    "settlements-009.json.gz",
+    "settlements-010.json.gz",
+    "settlements-011.json.gz",
+    "settlements-012.json.gz",
+    "settlements-013.json.gz",
+    "settlements-014.json.gz",
+    "settlements-015.json.gz",
+    "settlements-016.json.gz",
+    "settlements-017.json.gz",
+    "settlements-018.json.gz",
+    "settlements-019.json.gz",
+    "settlements-020.json.gz",
+    "settlements-021.json.gz",
+    "settlements-022.json.gz",
+    "settlements-023.json.gz",
+    "settlements-024.json.gz",
+    "settlements-025.json.gz",
+    "settlements-026.json.gz",
+    "settlements-027.json.gz",
+    "settlements-028.json.gz",
+    "settlements-029.json.gz",
+    "settlements-030.json.gz",
+    "settlements-031.json.gz",
+    "settlements-032.json.gz",
+    "settlements-033.json.gz",
+    "settlements-034.json.gz",
+    "settlements-035.json.gz",
+    "settlements-036.json.gz",
+    "settlements-037.json.gz",
+    "settlements-038.json.gz",
+    "settlements-039.json.gz",
+    "settlements-040.json.gz",
+    "settlements-041.json.gz",
+    "settlements-042.json.gz",
+    "settlements-043.json.gz",
+    "settlements-044.json.gz"
+  ],
+  "countsBefore": {
+    "pleiadesSourcePlaces": 42374,
+    "pleiadesSettlementPlaces": 13232,
+    "qualifiedHistoricalSettlements": 11328,
+    "historicalSettlementLocations": 12847,
+    "modernCities": 7342,
+    "urbanObservationCityRows": 2042,
+    "populationObservations": 10348,
+    "datedCapitalClaims": 307,
+    "datedCapitalCities": 249,
+    "capitalClaimsWithCitedSource": 24
+  },
+  "countsAfter": {
+    "pleiadesSourcePlaces": 42374,
+    "pleiadesSettlementPlaces": 13232,
+    "qualifiedHistoricalSettlements": 11328,
+    "historicalSettlementLocations": 12847,
+    "modernCities": 7342,
+    "urbanObservationCityRows": 2040,
+    "populationObservations": 10339,
+    "datedCapitalClaims": 307,
+    "datedCapitalCities": 249,
+    "capitalClaimsWithCitedSource": 24
+  },
+  "impact": {
+    "editedDisplayRows": 1,
+    "editedDisplayObservations": 27,
+    "newlyQuarantinedRows": 2,
+    "newlyQuarantinedObservations": 9,
+    "allRowsPreserved": 2043,
+    "allObservationsPreserved": 10350,
+    "movedCoordinates": 0,
+    "replacedPopulations": 0,
+    "newLifespanIntervals": 0
+  },
+  "tests": {
+    "sourceRowAudit": {
+      "checkedAt": "2026-10-03",
+      "baseCommit": "cfc1a432aabb5add21b05778cbb074780403dd95",
+      "csvSha256": "5b8df64e46988b216988eef18b46ebc2cba57ecc1adc8a5c2e1e6d5b78068031",
+      "sourceURL": "https://doi.org/10.6084/m9.figshare.2059494",
+      "sourceLicense": "CC BY 4.0",
+      "policy": "Distances flag possible source identity/location conflicts; official heritage reference points never overwrite population points. Decimal places are coordinate conversion, not an accuracy claim.",
+      "records": [
+        {
+          "recordId": "chandler:245",
+          "originalCSVFieldsMatch": true,
+          "ruleBindingMatchesCSV": true,
+          "observationCount": 2,
+          "sourceCoordinates": [
+            -90.19011,
+            38.57088
+          ],
+          "officialReferencePoint": {
+            "name": "Cahokia Mounds",
+            "coordinates": [
+              -90.06138888888889,
+              38.65861111111111
+            ],
+            "rawDMS": "N38 39 31 W90 3 41",
+            "url": "https://whc.unesco.org/en/list/198/"
+          },
+          "referencePointDistanceKm": 14.840514028213468
+        },
+        {
+          "recordId": "chandler:715",
+          "originalCSVFieldsMatch": true,
+          "ruleBindingMatchesCSV": true,
+          "observationCount": 7,
+          "sourceCoordinates": [
+            38.987675,
+            -9.149644
+          ],
+          "officialReferencePoint": {
+            "name": "Kilwa Kisiwani",
+            "componentId": "144-001",
+            "coordinates": [
+              39.522777777777776,
+              -8.957777777777777
+            ],
+            "rawDMS": "S8 57 28.00 E39 31 22.00",
+            "url": "https://whc.unesco.org/en/list/144/maps/"
+          },
+          "referencePointDistanceKm": 62.51270297671102
+        },
+        {
+          "recordId": "chandler:1457",
+          "originalCSVFieldsMatch": true,
+          "ruleBindingMatchesCSV": true,
+          "observationCount": 27,
+          "sourceCoordinates": [
+            118.58583,
+            24.913889
+          ],
+          "officialReferencePoint": {
+            "name": "Quanzhou, The Old City",
+            "componentId": "1561rev-001",
+            "coordinates": [
+              118.58999999999999,
+              24.905666666666665
+            ],
+            "rawDMS": "N24 54 20.4 E118 35 24",
+            "url": "https://whc.unesco.org/en/list/1561/maps/"
+          },
+          "referencePointDistanceKm": 1.0063667602952235
+        }
+      ]
+    },
+    "runtime": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "All source values and all population observations survive across active/archive records",
+          "passed": true
+        },
+        {
+          "name": "Quarantine removes two ambiguous points from actual map loader and search",
+          "passed": true
+        },
+        {
+          "name": "All 27 Tsinkiang observations display Quanzhou without changing date/population/location",
+          "passed": true
+        },
+        {
+          "name": "Chinese/English/historical aliases find the same source row and polity reader uses corrected display",
+          "passed": true
+        },
+        {
+          "name": "Display rule is limited to real observation years with independent identity evidence",
+          "passed": true
+        }
+      ],
+      "counts": {
+        "active": 2040,
+        "quarantined": 3,
+        "activePopulationObservations": 10339
+      },
+      "limits": "Offline real-module/data regression; no browser screenshot or production integration performed."
+    },
+    "existingCityTime": {
+      "passed": 22,
+      "total": 22,
+      "syntheticChecks": 18,
+      "realDataChecks": 4,
+      "dataDir": "/Users/zane/Documents/Codex/2026-10-02/new-chat/work/place-corrections-394/derived",
+      "results": [
+        {
+          "name": "URL population window accepts only supported values and preserves exact-year zero",
+          "passed": true
+        },
+        {
+          "name": "Population window limits are inclusive and exact-year mode rejects borrowed observations",
+          "passed": true
+        },
+        {
+          "name": "BCE/CE population window does not insert a fictitious year zero",
+          "passed": true
+        },
+        {
+          "name": "Same-name-period filtering happens before choosing the nearest population record",
+          "passed": true
+        },
+        {
+          "name": "Cross-name-period observations are withheld rather than renamed to the map year",
+          "passed": true
+        },
+        {
+          "name": "Documented overlapping boundary year accepts observations on either side",
+          "passed": true
+        },
+        {
+          "name": "A missing selected-year name period does not manufacture an exclusion or lifespan",
+          "passed": true
+        },
+        {
+          "name": "A missing observation-year name period preserves its original source label",
+          "passed": true
+        },
+        {
+          "name": "An uncovered gap in a name timeline stays unknown rather than becoming a name period",
+          "passed": true
+        },
+        {
+          "name": "Reviewed observation-name ranges are not treated as inferred rename boundaries",
+          "passed": true
+        },
+        {
+          "name": "Population values, source labels, coordinates and dated rules are never rewritten",
+          "passed": true
+        },
+        {
+          "name": "Population window does not change independently attested settlement or capital periods",
+          "passed": true
+        },
+        {
+          "name": "Country city filtering uses the same population window and name-period policy",
+          "passed": true
+        },
+        {
+          "name": "Country city cache differentiates 0, 25 and 50 years without mutating source records",
+          "passed": true
+        },
+        {
+          "name": "An observation in an overlapping renaming year retains both historical names",
+          "passed": true
+        },
+        {
+          "name": "New historical timeline aliases remain searchable in both global and country lists",
+          "passed": true
+        },
+        {
+          "name": "Open name-period bounds constrain names without asserting city existence",
+          "passed": true
+        },
+        {
+          "name": "Display and JSON export retain the observation year and original source record",
+          "passed": true
+        },
+        {
+          "name": "Real Tokyo records: 1867 uses Edo 1854, 1869 uses Tokyo 1875",
+          "passed": true
+        },
+        {
+          "name": "Real Samara: 1971 borrows 1975 Kuybyshev, not the later Samara observation",
+          "passed": true
+        },
+        {
+          "name": "Exact source-row quarantine preserves original geography/population without reassignment",
+          "passed": true
+        },
+        {
+          "name": "Every real name timeline is sourced; all displayed values remain source observations",
+          "passed": true
+        }
+      ]
+    },
+    "builderGuards": {
+      "passed": true,
+      "scope": "Only expected values in isolated review rules are deliberately changed; raw inputs remain unchanged.",
+      "cases": [
+        {
+          "case": "kilwa-coordinate",
+          "recordId": "chandler:715",
+          "exitCode": 1,
+          "error": "ValueError: Urban quarantine binding drift: chandler:715",
+          "urbanAssetsNotEmitted": true,
+          "passed": true
+        },
+        {
+          "case": "cahokia-population",
+          "recordId": "chandler:245",
+          "exitCode": 1,
+          "error": "ValueError: Urban quarantine binding drift: chandler:245",
+          "urbanAssetsNotEmitted": true,
+          "passed": true
+        },
+        {
+          "case": "tsinkiang-alias",
+          "recordId": "chandler:1457",
+          "exitCode": 1,
+          "error": "ValueError: Dated name binding drift: chandler:1457",
+          "urbanAssetsNotEmitted": true,
+          "passed": true
+        }
+      ]
+    },
+    "baseValidationCheckCount": 16
+  },
+  "integrationNote": "Apply code/rules patch together; review and copy only changedAssets from derived to public/data/places. Input snapshot hashes remain unchanged. Source-page/UI stats and derived snapshot lock may need the same reviewed refresh."
+}

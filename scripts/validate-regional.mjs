@@ -20,7 +20,7 @@ test('Interior label anchor stays outside a polygon hole',()=>{
 });
 function make(){
  const sources=new Map(),layers=new Map(),listeners=new Map(),paint=new Map();let zoom=2,features=[],removed=0,coverage=1,calls=0;
- const node=()=>({clientWidth:900,clientHeight:600,hidden:false,textContent:'',remove(){removed++},append(){},dispatchEvent(){}});
+ const node=()=>({clientWidth:900,clientHeight:600,hidden:false,textContent:'',remove(){removed++},append(){},setAttribute(){},dispatchEvent(){}});
  globalThis.document={createElement:node};globalThis.CustomEvent=class{};
  const map={on(t,f){if(!listeners.has(t))listeners.set(t,[]);listeners.get(t).push(f)},off(t,f){listeners.set(t,listeners.get(t).filter(x=>x!==f))},getContainer:node,getZoom:()=>zoom,getSource:id=>sources.get(id),addSource(id,v){sources.set(id,v)},removeSource:id=>sources.delete(id),getLayer:id=>layers.get(id),addLayer(v){layers.set(v.id,v)},removeLayer:id=>layers.delete(id),setLayoutProperty(id,k,v){layers.get(id).layout={...layers.get(id).layout,[k]:v}},setPaintProperty(id,k,v){paint.set(id+':'+k,v)},setFilter(id,v){layers.get(id).filter=v},isSourceLoaded:()=>true,isMoving:()=>false,queryRenderedFeatures(point){if(Array.isArray(point)){calls++;return [{layer:{id:'land'},properties:{}},...(calls%63<Math.round(coverage*63)?features.map(f=>({...f,layer:{id:'regional-wash'}})):[])];}return features;},getCenter:()=>({lat:0,lng:0})};
  const atlas={map,year:1492,lang:'bi',showBorders:true,showLabels:false,destroyed:false,refreshLabels(){}};

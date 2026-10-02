@@ -1,12 +1,12 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.9.3-76012876eda1';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.9.3-76012876eda1';
-import {cityNarrative} from './city-narratives.js?v=3.9.3-76012876eda1';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.9.3-76012876eda1';
-import {sourcesHTML} from './source-reader.js?v=3.9.3-76012876eda1';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.9.3-76012876eda1';
-import {bindTimeline} from './timeline-controls.js?v=3.9.3-76012876eda1';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.9.3-76012876eda1';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.9.3-76012876eda1';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.9.4-e92afe04dc8c';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.9.4-e92afe04dc8c';
+import {cityNarrative} from './city-narratives.js?v=3.9.4-e92afe04dc8c';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.9.4-e92afe04dc8c';
+import {sourcesHTML} from './source-reader.js?v=3.9.4-e92afe04dc8c';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.9.4-e92afe04dc8c';
+import {bindTimeline} from './timeline-controls.js?v=3.9.4-e92afe04dc8c';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.9.4-e92afe04dc8c';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.9.4-e92afe04dc8c';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text=(zh,en)=>state.lang==='en'?en:zh;
@@ -269,7 +269,7 @@ function renderHistoricalStatus(){
 function renderRegionalStatus(){
  $('#boundaryModeLabel').textContent=text(compareMap?'左图边界来源':'边界来源',compareMap?'Left map boundaries':'Boundary source');
  const describe=map=>{const r=map?.regional;if(!r)return text('按视野读取边界','Boundaries follow the view');if(!map.showBorders)return text('疆域图层已收起','Borders are hidden');if(r.mode==='halc')return r.halc.title();if(map.boundaries?.mode==='cshapes')return map.boundaries.title(state.lang);if(r.modern)return text('现代地理参照已开启','Modern reference is on');if(!map.showBorders)return text('疆域图层已收起','Borders are hidden');return r.status==='error'?text('全球疆域 · 详图读取失败，可重试','Global overview · detail failed; retry'):r.status==='partial'?text('全球疆域 · 有局部详图可查看','Global overview · local detail available'):r.status==='updating'?text('地区详图 · 正在补齐视野…','Regional detail · Updating this view…'):r.active?(r.coverageEnough===false?text('局部详图 · 空白处未收录','Local detail · Gaps are unmapped'):text(`地区详图 · ${r.features.length} 条区划`,`Regional detail · ${r.features.length} areas`)):r.status==='loading'?text('全球疆域 · 正在读取详图','Global overview · loading detail'):text('全球疆域 · Cliopatria','Global overview · Cliopatria');};
- $('#mapLegend span:last-child').textContent=atlas?.regional?.halc?.active?text('HALC · 1500 · 地方区划 · 点击阅读来源','HALC · 1500 · Local divisions · Select for sources'):atlas?.boundaries?.isCountry&&!atlas?.regional?.active?text('CShapes · 国家与属地 · 点击阅读记录','CShapes · States & dependencies · Select to read'):atlas?.regional?.active?text('详细历史区划 · 点击阅读年代与来源','Detailed historical areas · Select for dates and sources'):state.allTime?text('事件跨越全部年代；疆域仍为所选年份','Events span all periods; borders remain at the selected year'):text('历史疆域 · 点击阅读档案','Historical territories · Select to read');
+ $('#mapLegend span:last-child').textContent=atlas?.regional?.mode==='halc'?atlas.regional.halc.landscape?.active&&atlas.regional.halc.landscape?.eligible?text('HALC · 1500 · 历史地貌与地方区划','HALC · 1500 · Historical landscape & local divisions'):text('历史疆域 · 现代地理底图','Historical territories · Contemporary geographic base'):atlas?.boundaries?.isCountry&&!atlas?.regional?.active?text('CShapes · 国家与属地 · 点击阅读记录','CShapes · States & dependencies · Select to read'):atlas?.regional?.active?text('详细历史区划 · 点击阅读年代与来源','Detailed historical areas · Select for dates and sources'):state.allTime?text('事件跨越全部年代；疆域仍为所选年份','Events span all periods; borders remain at the selected year'):text('历史疆域 · 点击阅读档案','Historical territories · Select to read');
  $('#regionalStatus').textContent=describe(atlas);$('#regionalStatus2').textContent=compareMap?describe(compareMap):'';$('#boundaryMode2Group').hidden=!compareMap;
 }
 function renderLayerLabels(){

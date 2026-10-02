@@ -280,6 +280,12 @@ for source_id in ['chandler','modelski-ancient','modelski-modern']:
         zh=EDITORIAL_NAMES.get(name) or (match['nameZh'] if match else '')
         urban.append({'id':source_id+':'+str(i+1),'source':source_id,'kind':'urban-observation','name':name,'nameZh':zh, 'nameBasis':'research-source-city-name','coordinates':point,'coordinateCertaintyCode':p.get('Certainty'),'countryReference':p.get('Country'),'otherNames':p.get('OtherName'),'observations':sorted(observations),'qid':match['qid'] if match else None,'translationSource':'editorial-Chinese-name' if name in EDITORIAL_NAMES else ('natural-earth-exact-name-and-nearby-coordinate' if match else None),'timeBasis':'discrete-observations','sourceUrl':sources[source_id]['doi']})
 dated_names=json.loads((RULES/'dated-place-names.json').read_text())
+# Bind identity-sensitive display corrections to the exact population source row.
+# A future source refresh must be reviewed before reusing its display label.
+for rule in dated_names['entries']:
+    if 'expected' not in rule:continue
+    row=next((r for r in urban if r['id']==rule['recordId']),None)
+    if row is None or any(row.get(k)!=v for k,v in rule['expected'].items()):raise ValueError('Dated name binding drift: '+rule['recordId'])
 for rule in urban_quarantine_rules:
     row=next((r for r in urban if r['id']==rule['recordId']),None)
     if row is None or any(row.get(k)!=v for k,v in rule['expected'].items()):raise ValueError('Urban quarantine binding drift: '+rule['recordId'])

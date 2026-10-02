@@ -1,9 +1,9 @@
-import {boundaryNote} from './boundary-notes.js?v=3.9.3-76012876eda1';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.9.3-76012876eda1';
-import {boundaryMode} from './view-state.js?v=3.9.3-76012876eda1';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.9.3-76012876eda1';
-import {historicalYearRange} from './historical-dates.js?v=3.9.3-76012876eda1';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.9.3-76012876eda1';
+import {boundaryNote} from './boundary-notes.js?v=3.9.4-e92afe04dc8c';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.9.4-e92afe04dc8c';
+import {boundaryMode} from './view-state.js?v=3.9.4-e92afe04dc8c';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.9.4-e92afe04dc8c';
+import {historicalYearRange} from './historical-dates.js?v=3.9.4-e92afe04dc8c';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.9.4-e92afe04dc8c';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;

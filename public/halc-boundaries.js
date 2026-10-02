@@ -1,6 +1,7 @@
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.9.3-76012876eda1';
-import {readJSON} from './map-engine.js?v=3.9.3-76012876eda1';
-import {HalcRegions} from './halc-regions.js?v=3.9.3-76012876eda1';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.9.4-e92afe04dc8c';
+import {HalcLandscape} from './halc-landscape.js?v=3.9.4-e92afe04dc8c';
+import {readJSON} from './map-engine.js?v=3.9.4-e92afe04dc8c';
+import {HalcRegions} from './halc-regions.js?v=3.9.4-e92afe04dc8c';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -45,6 +46,7 @@ export class HalcBoundaries{
   on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;if(!this.eligible||!this.active)return;this.beginUpdate();});
   on('error',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.failed=true;this.lastError=String(e.error?.message||'HALC source error');this.reason='error';this.features=[];this.clearSelection();this.setActive(false);this.visibility();this.notify();});
   this.regions=new HalcRegions(this,HALC_BOUNDS);
+  this.landscape=new HalcLandscape(this);
  }
  get lang(){return this.owner.lang;}
  get eligibility(){return halcEligibility({mode:this.owner.mode,year:this.owner.year,borders:this.atlas.showBorders,modern:this.owner.modern,zoom:this.map.getZoom(),bounds:this.map.getBounds?.(),destroyed:this.dead||this.atlas.destroyed});}
@@ -72,7 +74,7 @@ export class HalcBoundaries{
   expression.push('#aaa58d');this.map.setPaintProperty(HALC_LAYERS[0],'fill-color',['case',['==',['get','TYPE'],8],'#78969b',expression]);
  }
  visibility(){
-  this.regions?.visibility();
+  this.regions?.visibility();this.landscape?.reconcileOrder();
   const visible=this.eligible&&!this.failed;
   const regional=!!this.regions?.hasFrame&&!this.regions?.failed,key=visible+':'+this.active+':'+regional;if(key===this.visibilityKey)return;this.visibilityKey=key;
   for(const id of HALC_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible&&(id===HALC_LAYERS[0]||this.active)?'visible':'none');
@@ -84,7 +86,7 @@ export class HalcBoundaries{
   if(this.active===value){this.visibility();return;}this.active=value;this.owner.atlas.boundaries?.applyVisibility(this.owner.detailedActive);this.visibility();this.atlas.refreshLabels();
  }
  update(){
-  if(this.dead)return;const reason=this.eligibility;this.regions.update();
+  if(this.dead)return;const reason=this.eligibility;this.regions.update();this.landscape.update();
   if(reason){this.reason=reason;this.features=[];this.scanKey=null;this.clearSelection();this.setActive(false);this.clearLabels();this.visibility();this.notify();return;}
   if(this.failed){this.reason='error';this.setActive(false);this.visibility();this.notify();return;}
   if(this.active&&!this.map.isSourceLoaded(HALC_SOURCE))this.beginUpdate();
@@ -172,5 +174,5 @@ export class HalcBoundaries{
  }
  retryRegions(){this.regions.retry();this.regions.ensure();this.visibilityKey=null;this.visibility();this.refreshLabels();this.notify();}
  retry(){this.clearSelection();this.regions.retry();this.failed=false;this.lastError=null;this.visibilityKey=null;this.scanKey=null;this.sourceEpoch++;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}
- destroy(){this.dead=true;this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
+ destroy(){this.dead=true;this.landscape.destroy();this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }
