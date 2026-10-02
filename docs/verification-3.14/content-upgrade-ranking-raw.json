@@ -1,0 +1,1713 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-02T22:48:09.596Z",
+  "endpoint": "https://query.wikidata.org/sparql",
+  "batchSize": 80,
+  "policy": "WDQS: one simple-pattern query for zh.wikipedia article titles per batch, one standalone COUNT query for sitelinks per batch; 4s sleep between requests, 15s*attempt backoff on 429. Titles are cross-checked through the Wikidata Action API (wbgetentities, 50 ids per call).",
+  "zhTitles": {
+    "Q112016": "波斯門戰役",
+    "Q87779": "條頓堡森林之戰",
+    "Q31900": "马拉松战役",
+    "Q179670": "高加米拉戰役",
+    "Q178850": "薩拉米斯海戰",
+    "Q139808": "沙隆之戰",
+    "Q192473": "阿德里安堡戰役",
+    "Q203729": "卡迭石战役",
+    "Q734700": "阿瓦拉尔战役",
+    "Q762458": "魯斯皮納戰役",
+    "Q1127353": "阿德底斯姆战役",
+    "Q1151692": "下邳之戰",
+    "Q1057910": "官渡之战",
+    "Q1127337": "格劳庇乌山战役",
+    "Q776215": "阿勞西奧戰役",
+    "Q847402": "彭城之戰",
+    "Q849653": "薩普蘇斯戰役",
+    "Q914210": "越灭吴之战",
+    "Q929265": "纳伊苏斯战役",
+    "Q2588587": "尼西比斯之戰",
+    "Q28169617": "巴比倫陷落",
+    "Q2887977": "荷姆茲甘戰役",
+    "Q3270429": "巨鹿之战",
+    "Q3272217": "昆陽之戰",
+    "Q3780302": "阳城之战",
+    "Q3827914": "荥阳之战 (190年)",
+    "Q4871254": "虎牢之戰",
+    "Q63146684": "貝德里亞庫姆戰役",
+    "Q1165502": "埃德萨之战",
+    "Q1267656": "貝納庫斯湖戰役",
+    "Q1281559": "伊松佐河戰役 (489年)",
+    "Q1330310": "长坂坡之战",
+    "Q1333898": "淝水之戰",
+    "Q1349891": "垓下之战",
+    "Q1421082": "阿伯里圖斯戰役",
+    "Q1424076": "穆尔萨战役",
+    "Q2005185": "馬陵之戰",
+    "Q2313318": "城濮之战",
+    "Q1639459": "穆阿泰之战",
+    "Q213074": "希達斯皮斯河戰役",
+    "Q339321": "米尔维安大桥战役",
+    "Q385604": "達拉戰役",
+    "Q486124": "巴德尔之役",
+    "Q488278": "武侯德戰役",
+    "Q630781": "拉菲亞戰役",
+    "Q655777": "阿利亚之战",
+    "Q722331": "马邑之谋",
+    "Q733364": "米吉多战役",
+    "Q61100": "奇維塔特戰役",
+    "Q128996": "阿克洛伊农战役",
+    "Q173077": "圖爾戰役",
+    "Q83224": "黑斯廷斯之战",
+    "Q200032": "曼齐刻尔特战役",
+    "Q203225": "斯坦福桥之战",
+    "Q349422": "桶狹間之戰",
+    "Q504172": "瓜达莱特战役",
+    "Q178510": "摩哈赤战役",
+    "Q234188": "關原之戰",
+    "Q289492": "扎卜河战役",
+    "Q233414": "第二次帕尼帕特之戰",
+    "Q1233475": "龍塞斯瓦列斯山口戰役 (778年)",
+    "Q1259218": "第三次帕尼帕特之戰",
+    "Q1137980": "拉文納戰役 (1512年)",
+    "Q1192616": "迪德格里战役",
+    "Q1300742": "弗洛登战役",
+    "Q1425362": "卡哈马卡战役",
+    "Q1617667": "马塔基托战役",
+    "Q1047091": "瀝涔吹蔑之戰",
+    "Q1064989": "嚴島之戰",
+    "Q1073429": "白藤江之战 (981年)",
+    "Q1121532": "三王战役",
+    "Q939358": "第一次霍姆斯戰役",
+    "Q957186": "科瓦東加戰役",
+    "Q524828": "莫農加希拉戰役",
+    "Q602880": "安基阿盧斯戰役 (708年)",
+    "Q603549": "纳哈万德战役",
+    "Q650507": "富士川之戰",
+    "Q860789": "摺上原之戰",
+    "Q888904": "阿季奈迪恩战役",
+    "Q605321": "第一次帕尼帕特之戰",
+    "Q1887494": "以仁王舉兵",
+    "Q2237622": "弘安之役",
+    "Q2237381": "粟津之戰",
+    "Q2274112": "今福之戰",
+    "Q2274135": "鴫野之戰",
+    "Q2338569": "奧林太坦坡戰役",
+    "Q2339983": "马乌莱河战役",
+    "Q2355467": "布克萨尔战役",
+    "Q2394344": "萨明之战",
+    "Q2397117": "采石之戰 (1161年)",
+    "Q2726734": "第二次霍姆斯戰役",
+    "Q2237567": "科皮德纳顿战役",
+    "Q2346041": "博塞茹爾堡之戰",
+    "Q41894": "新奥尔良之战",
+    "Q192660": "沖繩島戰役",
+    "Q199371": "米吉多戰役 (1918年)",
+    "Q52418": "珍珠港事件",
+    "Q134114": "奧斯特利茨之戰",
+    "Q200682": "昆士顿高地战役",
+    "Q332543": "金字塔之戰",
+    "Q348998": "伊斯利之戰",
+    "Q379346": "蒂珀卡努战役",
+    "Q383067": "萨拉加希之战",
+    "Q543075": "荷蘭港戰役",
+    "Q696931": "馬尼拉戰役 (1945年)",
+    "Q657502": "埃爾興根之戰",
+    "Q575510": "普天堡戰鬥",
+    "Q1137302": "恩圖曼戰役",
+    "Q949635": "坎布拉战役",
+    "Q994316": "麦塞隆战役",
+    "Q857434": "卡爾迪耶羅之戰 (1805年)",
+    "Q699093": "魯爾包圍戰",
+    "Q709333": "第一次长沙战役",
+    "Q791185": "阿帕兰战役",
+    "Q840006": "施托卡赫-恩根之戰",
+    "Q14303815": "伊特尔堡之战",
+    "Q15913566": "烏牛欄之役",
+    "Q15928518": "青树坪战役",
+    "Q2890423": "玉奧之戰",
+    "Q4087313": "北京之战 (1900年)",
+    "Q4871437": "吉力馬札羅山戰役",
+    "Q2890355": "維羅納之戰",
+    "Q2890079": "西德曼之戰",
+    "Q2661859": "檳城海戰",
+    "Q2663279": "八里橋之戰",
+    "Q2665626": "貝爾謝巴戰役",
+    "Q2748375": "黑色星期五 (1945年)",
+    "Q1193959": "鸟羽伏见之战",
+    "Q1374378": "卡爾斯戰役",
+    "Q1414998": "泰纳鲁河战役",
+    "Q1788393": "城山之战",
+    "Q289102": "朝鮮海峽海戰",
+    "Q491188": "大青島海戰",
+    "Q494058": "天安号沉没事件",
+    "Q588774": "同帥戰役",
+    "Q1330136": "第二次费卢杰战役",
+    "Q1476042": "森蚺行動",
+    "Q1804983": "巴格达之战 (2003年)",
+    "Q18071930": "科巴尼之戰",
+    "Q18639122": "拉馬迪之戰 (2014年至2015年)",
+    "Q22117640": "阿夫迪伊夫卡戰役 (2017年)",
+    "Q30041564": "马拉维危机",
+    "Q3270739": "博川戰鬥",
+    "Q4273438": "崑嵩戰役",
+    "Q4870995": "菲拉卡島戰役",
+    "Q4870849": "達斯曼宮戰役",
+    "Q11211553": "攻打蒙卡達兵營行動",
+    "Q16394378": "圍攻斯拉維揚斯克",
+    "Q4872697": "弗尔巴尼亚桥之战",
+    "Q5778565": "阿莱格里亚德皮奥战役",
+    "Q101305942": "舒沙戰役 (2020年)",
+    "Q108102583": "喀布爾戰役 (2021年)",
+    "Q111383245": "阿夫迪伊夫卡战役 (2022年—2024年)",
+    "Q112206624": "克雷明納戰役",
+    "Q112725430": "克节朗战役",
+    "Q118445706": "拉普拉塔战役",
+    "Q123058059": "蘇法戰役",
+    "Q123290408": "加沙圍城戰",
+    "Q47465940": "橄欖枝行動"
+  },
+  "sitelinks": {
+    "Q31900": 76,
+    "Q87779": 65,
+    "Q112016": 29,
+    "Q139808": 59,
+    "Q178850": 67,
+    "Q179670": 64,
+    "Q192473": 51,
+    "Q203729": 56,
+    "Q213074": 50,
+    "Q339321": 45,
+    "Q385604": 29,
+    "Q486124": 81,
+    "Q488278": 64,
+    "Q524871": 18,
+    "Q595320": 28,
+    "Q617650": 18,
+    "Q630781": 29,
+    "Q637544": 21,
+    "Q639827": 27,
+    "Q653482": 22,
+    "Q655777": 32,
+    "Q722331": 9,
+    "Q733364": 38,
+    "Q734700": 30,
+    "Q747679": 34,
+    "Q762458": 17,
+    "Q762717": 15,
+    "Q767124": 17,
+    "Q769358": 26,
+    "Q776215": 29,
+    "Q847402": 5,
+    "Q849474": 26,
+    "Q849653": 31,
+    "Q851504": 39,
+    "Q914210": 5,
+    "Q929265": 29,
+    "Q966386": 17,
+    "Q975123": 15,
+    "Q1036947": 19,
+    "Q1057910": 25,
+    "Q1127337": 31,
+    "Q1127353": 27,
+    "Q1132306": 12,
+    "Q1137764": 26,
+    "Q1151692": 14,
+    "Q1165502": 35,
+    "Q1265750": 21,
+    "Q1267656": 16,
+    "Q1268317": 8,
+    "Q1268339": 7,
+    "Q1268349": 9,
+    "Q1281559": 13,
+    "Q1290572": 9,
+    "Q1330310": 14,
+    "Q1333898": 24,
+    "Q1349891": 19,
+    "Q1421082": 27,
+    "Q1424076": 17,
+    "Q1639459": 44,
+    "Q1644792": 23,
+    "Q1784785": 15,
+    "Q2005185": 10,
+    "Q2313318": 17,
+    "Q2457256": 9,
+    "Q2588587": 20,
+    "Q2665461": 13,
+    "Q2705449": 9,
+    "Q2887977": 18,
+    "Q2920325": 5,
+    "Q3270429": 10,
+    "Q3272217": 12,
+    "Q3496783": 11,
+    "Q3555607": 9,
+    "Q3780302": 8,
+    "Q3827914": 7,
+    "Q4871254": 11,
+    "Q4871718": 5,
+    "Q4872472": 12,
+    "Q28169617": 20,
+    "Q63146684": 14,
+    "Q61100": 24,
+    "Q83224": 81,
+    "Q128996": 25,
+    "Q173077": 69,
+    "Q178510": 67,
+    "Q200032": 64,
+    "Q203225": 55,
+    "Q233414": 34,
+    "Q234188": 47,
+    "Q289492": 29,
+    "Q349422": 28,
+    "Q382967": 25,
+    "Q504172": 44,
+    "Q524828": 19,
+    "Q532544": 12,
+    "Q541564": 12,
+    "Q577190": 22,
+    "Q592069": 12,
+    "Q602880": 23,
+    "Q603549": 31,
+    "Q605321": 47,
+    "Q636520": 23,
+    "Q650507": 14,
+    "Q652320": 29,
+    "Q860789": 6,
+    "Q868027": 23,
+    "Q888904": 29,
+    "Q932519": 7,
+    "Q939358": 16,
+    "Q957186": 44,
+    "Q966312": 15,
+    "Q1030249": 21,
+    "Q1047091": 8,
+    "Q1064989": 12,
+    "Q1073429": 6,
+    "Q1113509": 14,
+    "Q1113659": 31,
+    "Q1121532": 33,
+    "Q1137980": 21,
+    "Q1148862": 23,
+    "Q1187406": 12,
+    "Q1192616": 29,
+    "Q1233475": 36,
+    "Q1243260": 7,
+    "Q1259218": 40,
+    "Q1273257": 8,
+    "Q1300742": 25,
+    "Q1319855": 12,
+    "Q1362188": 24,
+    "Q1425362": 24,
+    "Q1443091": 15,
+    "Q1617667": 6,
+    "Q1638751": 11,
+    "Q1747219": 10,
+    "Q1855781": 13,
+    "Q1887494": 18,
+    "Q1896360": 13,
+    "Q1987213": 30,
+    "Q2237381": 13,
+    "Q2237386": 13,
+    "Q2237567": 14,
+    "Q2237576": 18,
+    "Q2237622": 15,
+    "Q2237785": 14,
+    "Q2264459": 18,
+    "Q2274112": 8,
+    "Q2274135": 8,
+    "Q2281774": 15,
+    "Q2338569": 11,
+    "Q2339983": 6,
+    "Q2346041": 15,
+    "Q2355467": 33,
+    "Q2394344": 18,
+    "Q2397117": 14,
+    "Q2557155": 12,
+    "Q2599844": 9,
+    "Q2726734": 23,
+    "Q2888296": 20,
+    "Q2888964": 11,
+    "Q3046548": 10,
+    "Q41894": 35,
+    "Q52418": 88,
+    "Q134114": 75,
+    "Q177470": 8,
+    "Q192660": 58,
+    "Q199371": 23,
+    "Q200682": 18,
+    "Q220766": 14,
+    "Q250383": 6,
+    "Q303176": 8,
+    "Q332543": 45,
+    "Q348998": 13,
+    "Q379346": 21,
+    "Q379433": 38,
+    "Q383067": 24,
+    "Q383614": 32,
+    "Q543075": 12,
+    "Q575510": 11,
+    "Q604175": 13,
+    "Q604356": 6,
+    "Q654722": 9,
+    "Q657502": 14,
+    "Q696931": 30,
+    "Q699093": 26,
+    "Q709333": 25,
+    "Q743889": 11,
+    "Q791185": 23,
+    "Q840006": 11,
+    "Q857434": 12,
+    "Q908888": 10,
+    "Q936223": 12,
+    "Q949635": 13,
+    "Q994316": 27,
+    "Q1137302": 29,
+    "Q1192867": 15,
+    "Q1193959": 25,
+    "Q1286106": 12,
+    "Q1288821": 14,
+    "Q1374378": 10,
+    "Q1414998": 23,
+    "Q1416369": 8,
+    "Q1417205": 24,
+    "Q1420382": 17,
+    "Q1497922": 6,
+    "Q1752783": 10,
+    "Q1788393": 25,
+    "Q1888562": 9,
+    "Q2003949": 18,
+    "Q2053030": 6,
+    "Q2091385": 14,
+    "Q2095678": 15,
+    "Q2337526": 21,
+    "Q2420811": 20,
+    "Q2624980": 10,
+    "Q2661859": 17,
+    "Q2663279": 14,
+    "Q2665626": 19,
+    "Q2720985": 14,
+    "Q2748375": 11,
+    "Q2750968": 14,
+    "Q2888406": 7,
+    "Q2889133": 4,
+    "Q2889635": 13,
+    "Q2889668": 7,
+    "Q2890073": 8,
+    "Q2890079": 3,
+    "Q2890355": 7,
+    "Q2890423": 5,
+    "Q2896424": 6,
+    "Q3486072": 7,
+    "Q4087313": 12,
+    "Q4271928": 11,
+    "Q4438362": 4,
+    "Q4871437": 10,
+    "Q4871819": 5,
+    "Q5123963": 6,
+    "Q13423520": 8,
+    "Q14303815": 30,
+    "Q15913566": 1,
+    "Q15928518": 1,
+    "Q259526": 16,
+    "Q280468": 22,
+    "Q289102": 10,
+    "Q491188": 8,
+    "Q494058": 17,
+    "Q588774": 9,
+    "Q786657": 8,
+    "Q1330136": 25,
+    "Q1476042": 22,
+    "Q1616794": 16,
+    "Q1753755": 11,
+    "Q1754030": 11,
+    "Q1804983": 20,
+    "Q2026028": 7,
+    "Q2363420": 14,
+    "Q2664174": 13,
+    "Q2888378": 5,
+    "Q2889338": 5,
+    "Q2889747": 9,
+    "Q2889954": 9,
+    "Q2890373": 9,
+    "Q3270739": 3,
+    "Q4273438": 8,
+    "Q4870849": 10,
+    "Q4870995": 6,
+    "Q4871076": 1,
+    "Q4871330": 13,
+    "Q4872157": 7,
+    "Q4872168": 7,
+    "Q4872697": 7,
+    "Q4872743": 4,
+    "Q4930640": 5,
+    "Q5432157": 15,
+    "Q5778565": 7,
+    "Q11211553": 10,
+    "Q16394378": 20,
+    "Q18071930": 31,
+    "Q18639122": 11,
+    "Q20045970": 15,
+    "Q21685887": 8,
+    "Q22117640": 10,
+    "Q30041564": 26,
+    "Q47465940": 37,
+    "Q101305942": 23,
+    "Q108102583": 51,
+    "Q111383245": 29,
+    "Q112206624": 16,
+    "Q112725430": 1,
+    "Q118445706": 4,
+    "Q123058059": 9,
+    "Q123290408": 7
+  },
+  "apiTitles": {
+    "Q733364": {
+      "zh": "米吉多战役",
+      "en": "Battle of Megiddo (15th century BC)"
+    },
+    "Q203729": {
+      "zh": "卡迭石战役",
+      "en": "Battle of Kadesh"
+    },
+    "Q1036947": {
+      "zh": null,
+      "en": "Battle of the Delta"
+    },
+    "Q849474": {
+      "zh": null,
+      "en": "Battle of Qarqar"
+    },
+    "Q4872472": {
+      "zh": null,
+      "en": "Battle of Susa"
+    },
+    "Q2313318": {
+      "zh": "城濮之战",
+      "en": "Battle of Chengpu"
+    },
+    "Q28169617": {
+      "zh": "巴比倫陷落",
+      "en": "Fall of Babylon"
+    },
+    "Q1644792": {
+      "zh": null,
+      "en": "Battle of Lake Regillus"
+    },
+    "Q31900": {
+      "zh": "马拉松战役",
+      "en": "Battle of Marathon"
+    },
+    "Q178850": {
+      "zh": "薩拉米斯海戰",
+      "en": "Battle of Salamis"
+    },
+    "Q747679": {
+      "zh": null,
+      "en": "Battle of Artemisium"
+    },
+    "Q914210": {
+      "zh": "越灭吴之战",
+      "en": "Battle of Lize"
+    },
+    "Q2705449": {
+      "zh": null,
+      "en": "Battle of Mount Algidus"
+    },
+    "Q637544": {
+      "zh": null,
+      "en": "Battle of Amphipolis"
+    },
+    "Q524871": {
+      "zh": null,
+      "en": "Battle of Cyzicus"
+    },
+    "Q975123": {
+      "zh": null,
+      "en": "Battle of Notium"
+    },
+    "Q655777": {
+      "zh": "阿利亚之战",
+      "en": "Battle of the Allia"
+    },
+    "Q2005185": {
+      "zh": "馬陵之戰",
+      "en": "Battle of Maling"
+    },
+    "Q179670": {
+      "zh": "高加米拉戰役",
+      "en": "Battle of Gaugamela"
+    },
+    "Q112016": {
+      "zh": "波斯門戰役",
+      "en": "Battle of the Persian Gate"
+    },
+    "Q213074": {
+      "zh": "希達斯皮斯河戰役",
+      "en": "Battle of the Hydaspes"
+    },
+    "Q630781": {
+      "zh": "拉菲亞戰役",
+      "en": "Battle of Raphia"
+    },
+    "Q3270429": {
+      "zh": "巨鹿之战",
+      "en": "Battle of Julu"
+    },
+    "Q847402": {
+      "zh": "彭城之戰",
+      "en": "Battle of Pengcheng"
+    },
+    "Q1349891": {
+      "zh": "垓下之战",
+      "en": "Battle of Gaixia"
+    },
+    "Q2920325": {
+      "zh": null,
+      "en": "Battle of the Ascent of Lebonah"
+    },
+    "Q1268339": {
+      "zh": null,
+      "en": "Battle of Beth Horon (166 BC)"
+    },
+    "Q1268317": {
+      "zh": null,
+      "en": "Battle of Emmaus"
+    },
+    "Q1290572": {
+      "zh": null,
+      "en": "Battle of Beth Zur"
+    },
+    "Q1268349": {
+      "zh": null,
+      "en": "Battle of Beth Zechariah"
+    },
+    "Q722331": {
+      "zh": "马邑之谋",
+      "en": "Battle of Mayi"
+    },
+    "Q3555607": {
+      "zh": null,
+      "en": "Battle of Ecbatana"
+    },
+    "Q776215": {
+      "zh": "阿勞西奧戰役",
+      "en": "Battle of Arausio"
+    },
+    "Q762458": {
+      "zh": "魯斯皮納戰役",
+      "en": "Battle of Ruspina"
+    },
+    "Q849653": {
+      "zh": "薩普蘇斯戰役",
+      "en": "Battle of Thapsus"
+    },
+    "Q87779": {
+      "zh": "條頓堡森林之戰",
+      "en": "Battle of the Teutoburg Forest"
+    },
+    "Q3272217": {
+      "zh": "昆陽之戰",
+      "en": "Battle of Kunyang"
+    },
+    "Q617650": {
+      "zh": null,
+      "en": "Battle of the Medway"
+    },
+    "Q3496783": {
+      "zh": null,
+      "en": "Battle of Beth Horon (66)"
+    },
+    "Q63146684": {
+      "zh": "貝德里亞庫姆戰役",
+      "en": "Battle of Bedriacum"
+    },
+    "Q1127337": {
+      "zh": "格劳庇乌山战役",
+      "en": "Battle of Mons Graupius"
+    },
+    "Q3827914": {
+      "zh": "荥阳之战 (190年)",
+      "en": "Battle of Xingyang (190)"
+    },
+    "Q3780302": {
+      "zh": "阳城之战",
+      "en": "Battle of Yangcheng"
+    },
+    "Q653482": {
+      "zh": null,
+      "en": "Battle of Lugdunum"
+    },
+    "Q1151692": {
+      "zh": "下邳之戰",
+      "en": "Battle of Xiapi"
+    },
+    "Q1057910": {
+      "zh": "官渡之战",
+      "en": "Battle of Guandu"
+    },
+    "Q1330310": {
+      "zh": "长坂坡之战",
+      "en": "Battle of Changban"
+    },
+    "Q2588587": {
+      "zh": "尼西比斯之戰",
+      "en": "Battle of Nisibis (217)"
+    },
+    "Q2887977": {
+      "zh": "荷姆茲甘戰役",
+      "en": "Battle of Hormozdgan"
+    },
+    "Q1421082": {
+      "zh": "阿伯里圖斯戰役",
+      "en": "Battle of Abritus"
+    },
+    "Q2665461": {
+      "zh": null,
+      "en": "Battle of Barbalissos"
+    },
+    "Q1165502": {
+      "zh": "埃德萨之战",
+      "en": "Battle of Edessa"
+    },
+    "Q1267656": {
+      "zh": "貝納庫斯湖戰役",
+      "en": "Battle of Lake Benacus"
+    },
+    "Q929265": {
+      "zh": "纳伊苏斯战役",
+      "en": "Battle of Naissus"
+    },
+    "Q339321": {
+      "zh": "米尔维安大桥战役",
+      "en": "Battle of the Milvian Bridge"
+    },
+    "Q1132306": {
+      "zh": null,
+      "en": "Battle of Tzirallum"
+    },
+    "Q1424076": {
+      "zh": "穆尔萨战役",
+      "en": "Battle of Mursa Major"
+    },
+    "Q1784785": {
+      "zh": null,
+      "en": "Battle of Mons Seleucus"
+    },
+    "Q767124": {
+      "zh": null,
+      "en": "Battle of Ctesiphon (363)"
+    },
+    "Q192473": {
+      "zh": "阿德里安堡戰役",
+      "en": "Battle of Adrianople"
+    },
+    "Q1333898": {
+      "zh": "淝水之戰",
+      "en": "Battle of Fei River"
+    },
+    "Q762717": {
+      "zh": null,
+      "en": "Battle of Pollentia"
+    },
+    "Q139808": {
+      "zh": "沙隆之戰",
+      "en": "Battle of the Catalaunian Plains"
+    },
+    "Q734700": {
+      "zh": "阿瓦拉尔战役",
+      "en": "Battle of Avarayr"
+    },
+    "Q2457256": {
+      "zh": null,
+      "en": "Battle of Orléans (463)"
+    },
+    "Q4871718": {
+      "zh": null,
+      "en": "Battle of Mercredesburne"
+    },
+    "Q1281559": {
+      "zh": "伊松佐河戰役 (489年)",
+      "en": "Battle of Isonzo (489)"
+    },
+    "Q595320": {
+      "zh": null,
+      "en": "Battle of Badon"
+    },
+    "Q851504": {
+      "zh": null,
+      "en": "Battle of Vouillé"
+    },
+    "Q966386": {
+      "zh": null,
+      "en": "Battle of Vézeronce"
+    },
+    "Q385604": {
+      "zh": "達拉戰役",
+      "en": "Battle of Dara"
+    },
+    "Q1265750": {
+      "zh": null,
+      "en": "Battle of Callinicum"
+    },
+    "Q1127353": {
+      "zh": "阿德底斯姆战役",
+      "en": "Battle of Ad Decimum"
+    },
+    "Q1137764": {
+      "zh": null,
+      "en": "Battle of Mons Lactarius"
+    },
+    "Q769358": {
+      "zh": null,
+      "en": "Battle of Taginae"
+    },
+    "Q4871254": {
+      "zh": "虎牢之戰",
+      "en": "Battle of Hulao"
+    },
+    "Q486124": {
+      "zh": "巴德尔之役",
+      "en": "Battle of Badr"
+    },
+    "Q488278": {
+      "zh": "武侯德戰役",
+      "en": "Battle of Uhud"
+    },
+    "Q1639459": {
+      "zh": "穆阿泰之战",
+      "en": "Battle of Mu'tah"
+    },
+    "Q639827": {
+      "zh": null,
+      "en": "Siege of Damascus (634)"
+    },
+    "Q888904": {
+      "zh": "阿季奈迪恩战役",
+      "en": "Battle of Ajnadayn"
+    },
+    "Q1030249": {
+      "zh": null,
+      "en": "Battle of Fahl"
+    },
+    "Q2237576": {
+      "zh": null,
+      "en": "Battle of Heliopolis"
+    },
+    "Q603549": {
+      "zh": "纳哈万德战役",
+      "en": "Battle of Nahavand"
+    },
+    "Q1855781": {
+      "zh": null,
+      "en": "Battle of Nikiou"
+    },
+    "Q2237785": {
+      "zh": null,
+      "en": "Battle of Vescera"
+    },
+    "Q2281774": {
+      "zh": null,
+      "en": "Battle of Marj Rahit (684)"
+    },
+    "Q602880": {
+      "zh": "安基阿盧斯戰役 (708年)",
+      "en": "Battle of Anchialus (708)"
+    },
+    "Q504172": {
+      "zh": "瓜达莱特战役",
+      "en": "Battle of Guadalete"
+    },
+    "Q957186": {
+      "zh": "科瓦東加戰役",
+      "en": "Battle of Covadonga"
+    },
+    "Q652320": {
+      "zh": null,
+      "en": "Battle of Toulouse (721)"
+    },
+    "Q173077": {
+      "zh": "圖爾戰役",
+      "en": "Battle of Tours"
+    },
+    "Q1747219": {
+      "zh": null,
+      "en": "Siege of Avignon (737)"
+    },
+    "Q128996": {
+      "zh": "阿克洛伊农战役",
+      "en": "Battle of Akroinon"
+    },
+    "Q289492": {
+      "zh": "扎卜河战役",
+      "en": "Battle of the Zab"
+    },
+    "Q966312": {
+      "zh": null,
+      "en": "Battle of Anchialus (763)"
+    },
+    "Q1233475": {
+      "zh": "龍塞斯瓦列斯山口戰役 (778年)",
+      "en": "Battle of Roncevaux Pass"
+    },
+    "Q2237567": {
+      "zh": "科皮德纳顿战役",
+      "en": "Battle of Kopidnadon"
+    },
+    "Q1073429": {
+      "zh": "白藤江之战 (981年)",
+      "en": "Song–Đại Cồ Việt war"
+    },
+    "Q1896360": {
+      "zh": null,
+      "en": "Battle of Skopje"
+    },
+    "Q868027": {
+      "zh": null,
+      "en": "Battle of Clontarf"
+    },
+    "Q1638751": {
+      "zh": null,
+      "en": "Battle of Shirimni"
+    },
+    "Q532544": {
+      "zh": null,
+      "en": "Battle of Svindax"
+    },
+    "Q61100": {
+      "zh": "奇維塔特戰役",
+      "en": "Battle of Civitate"
+    },
+    "Q1187406": {
+      "zh": null,
+      "en": "Battle of Graus"
+    },
+    "Q1113659": {
+      "zh": null,
+      "en": "Battle of Fulford"
+    },
+    "Q203225": {
+      "zh": "斯坦福桥之战",
+      "en": "Battle of Stamford Bridge"
+    },
+    "Q83224": {
+      "zh": "黑斯廷斯之战",
+      "en": "Battle of Hastings"
+    },
+    "Q200032": {
+      "zh": "曼齐刻尔特战役",
+      "en": "Battle of Manzikert"
+    },
+    "Q1243260": {
+      "zh": null,
+      "en": "Battle of Golpejera"
+    },
+    "Q541564": {
+      "zh": null,
+      "en": "Battle on the Elster"
+    },
+    "Q1987213": {
+      "zh": null,
+      "en": "Battle of Dyrrhachium (1081)"
+    },
+    "Q2394344": {
+      "zh": "萨明之战",
+      "en": "Battle of Sarmin"
+    },
+    "Q1192616": {
+      "zh": "迪德格里战役",
+      "en": "Battle of Didgori"
+    },
+    "Q382967": {
+      "zh": null,
+      "en": "Siege of Damascus (1148)"
+    },
+    "Q2397117": {
+      "zh": "采石之戰 (1161年)",
+      "en": "Battle of Caishi"
+    },
+    "Q636520": {
+      "zh": null,
+      "en": "Battle of Marj Ayyun"
+    },
+    "Q1887494": {
+      "zh": "以仁王舉兵",
+      "en": "Battle of Uji (1180)"
+    },
+    "Q650507": {
+      "zh": "富士川之戰",
+      "en": "Battle of Fujigawa"
+    },
+    "Q2237381": {
+      "zh": "粟津之戰",
+      "en": "Battle of Awazu"
+    },
+    "Q2888964": {
+      "zh": null,
+      "en": "Battle of Kojima"
+    },
+    "Q577190": {
+      "zh": null,
+      "en": "Battle of Cresson"
+    },
+    "Q1319855": {
+      "zh": null,
+      "en": "Battle of Kirina"
+    },
+    "Q1148862": {
+      "zh": null,
+      "en": "Battle of Fariskur (1250)"
+    },
+    "Q939358": {
+      "zh": "第一次霍姆斯戰役",
+      "en": "First Battle of Homs"
+    },
+    "Q2237386": {
+      "zh": null,
+      "en": "Battle of Bun'ei"
+    },
+    "Q2237622": {
+      "zh": "弘安之役",
+      "en": "Battle of Kōan"
+    },
+    "Q2726734": {
+      "zh": "第二次霍姆斯戰役",
+      "en": "Second Battle of Homs"
+    },
+    "Q2888296": {
+      "zh": null,
+      "en": "Portuguese conquest of Ceuta"
+    },
+    "Q2339983": {
+      "zh": "马乌莱河战役",
+      "en": "Battle of the Maule"
+    },
+    "Q1273257": {
+      "zh": null,
+      "en": "Battle of Aguere"
+    },
+    "Q2264459": {
+      "zh": null,
+      "en": "Battle of Cerignola"
+    },
+    "Q1443091": {
+      "zh": null,
+      "en": "Battle of Garigliano (1503)"
+    },
+    "Q2599844": {
+      "zh": null,
+      "en": "Battle of Kletsk"
+    },
+    "Q1137980": {
+      "zh": "拉文納戰役 (1512年)",
+      "en": "Battle of Ravenna (1512)"
+    },
+    "Q1300742": {
+      "zh": "弗洛登战役",
+      "en": "Battle of Flodden"
+    },
+    "Q178510": {
+      "zh": "摩哈赤战役",
+      "en": "Battle of Mohács"
+    },
+    "Q605321": {
+      "zh": "第一次帕尼帕特之戰",
+      "en": "First Battle of Panipat"
+    },
+    "Q1425362": {
+      "zh": "卡哈马卡战役",
+      "en": "Battle of Cajamarca"
+    },
+    "Q2338569": {
+      "zh": "奧林太坦坡戰役",
+      "en": "Battle of Ollantaytambo"
+    },
+    "Q1064989": {
+      "zh": "嚴島之戰",
+      "en": "Battle of Miyajima"
+    },
+    "Q233414": {
+      "zh": "第二次帕尼帕特之戰",
+      "en": "Second Battle of Panipat"
+    },
+    "Q1617667": {
+      "zh": "马塔基托战役",
+      "en": "Battle of Mataquito"
+    },
+    "Q349422": {
+      "zh": "桶狹間之戰",
+      "en": "Battle of Okehazama"
+    },
+    "Q1362188": {
+      "zh": null,
+      "en": "Battle of Talikota"
+    },
+    "Q1121532": {
+      "zh": "三王战役",
+      "en": "Battle of Alcácer Quibir"
+    },
+    "Q1113509": {
+      "zh": null,
+      "en": "Battle of Tenmokuzan"
+    },
+    "Q860789": {
+      "zh": "摺上原之戰",
+      "en": "Battle of Suriagehara"
+    },
+    "Q592069": {
+      "zh": null,
+      "en": "Battle of Șelimbăr"
+    },
+    "Q2274112": {
+      "zh": "今福之戰",
+      "en": "Battle of Imafuku"
+    },
+    "Q234188": {
+      "zh": "關原之戰",
+      "en": "Battle of Sekigahara"
+    },
+    "Q2274135": {
+      "zh": "鴫野之戰",
+      "en": "Battle of Shigino"
+    },
+    "Q932519": {
+      "zh": null,
+      "en": "Battle of Mbororé"
+    },
+    "Q2557155": {
+      "zh": null,
+      "en": "Battle of Sedgemoor"
+    },
+    "Q3046548": {
+      "zh": null,
+      "en": "Raid on Deerfield"
+    },
+    "Q2346041": {
+      "zh": "博塞茹爾堡之戰",
+      "en": "Battle of Fort Beauséjour"
+    },
+    "Q524828": {
+      "zh": "莫農加希拉戰役",
+      "en": "Battle of the Monongahela"
+    },
+    "Q1259218": {
+      "zh": "第三次帕尼帕特之戰",
+      "en": "Third Battle of Panipat"
+    },
+    "Q2355467": {
+      "zh": "布克萨尔战役",
+      "en": "Battle of Buxar"
+    },
+    "Q1047091": {
+      "zh": "瀝涔吹蔑之戰",
+      "en": "Battle of Rạch Gầm-Xoài Mút"
+    },
+    "Q2890079": {
+      "zh": "西德曼之戰",
+      "en": null
+    },
+    "Q332543": {
+      "zh": "金字塔之戰",
+      "en": "Battle of the Pyramids"
+    },
+    "Q2420811": {
+      "zh": null,
+      "en": "Battle of Mount Tabor (1799)"
+    },
+    "Q840006": {
+      "zh": "施托卡赫-恩根之戰",
+      "en": "Battles of Stockach and Engen"
+    },
+    "Q2750968": {
+      "zh": null,
+      "en": "Battle of Alexandria (1801)"
+    },
+    "Q2095678": {
+      "zh": null,
+      "en": "Battle of Assaye"
+    },
+    "Q1888562": {
+      "zh": null,
+      "en": "Action of 5 October 1804"
+    },
+    "Q134114": {
+      "zh": "奧斯特利茨之戰",
+      "en": "Battle of Austerlitz"
+    },
+    "Q2890355": {
+      "zh": "維羅納之戰",
+      "en": "Battle of Verona (1805)"
+    },
+    "Q657502": {
+      "zh": "埃爾興根之戰",
+      "en": "Battle of Elchingen"
+    },
+    "Q857434": {
+      "zh": "卡爾迪耶羅之戰 (1805年)",
+      "en": "Battle of Caldiero (1805)"
+    },
+    "Q1192867": {
+      "zh": null,
+      "en": "Battle of Pułtusk (1806)"
+    },
+    "Q2890073": {
+      "zh": null,
+      "en": "Battle of Suipacha"
+    },
+    "Q379346": {
+      "zh": "蒂珀卡努战役",
+      "en": "Battle of Tippecanoe"
+    },
+    "Q200682": {
+      "zh": "昆士顿高地战役",
+      "en": "Battle of Queenston Heights"
+    },
+    "Q1416369": {
+      "zh": null,
+      "en": "Battle of Crysler's Farm"
+    },
+    "Q1752783": {
+      "zh": null,
+      "en": "Battle of the Chateauguay"
+    },
+    "Q177470": {
+      "zh": null,
+      "en": "Battle of Stoney Creek"
+    },
+    "Q41894": {
+      "zh": "新奥尔良之战",
+      "en": "Battle of New Orleans"
+    },
+    "Q3486072": {
+      "zh": null,
+      "en": "Battle of Akhaltsikhe"
+    },
+    "Q908888": {
+      "zh": null,
+      "en": "Battle of Gandamak"
+    },
+    "Q348998": {
+      "zh": "伊斯利之戰",
+      "en": "Battle of Isly"
+    },
+    "Q2663279": {
+      "zh": "八里橋之戰",
+      "en": "Battle of Palikao"
+    },
+    "Q1193959": {
+      "zh": "鸟羽伏见之战",
+      "en": "Battle of Toba–Fushimi"
+    },
+    "Q1374378": {
+      "zh": "卡爾斯戰役",
+      "en": "Battle of Kars (1877)"
+    },
+    "Q1788393": {
+      "zh": "城山之战",
+      "en": "Battle of Shiroyama"
+    },
+    "Q949635": {
+      "zh": "坎布拉战役",
+      "en": "Battle of Kambula"
+    },
+    "Q1420382": {
+      "zh": null,
+      "en": "Battle of Tell El Kebir"
+    },
+    "Q2890423": {
+      "zh": "玉奧之戰",
+      "en": "Battle of Yu Oc"
+    },
+    "Q604356": {
+      "zh": null,
+      "en": "Battle of Tamai"
+    },
+    "Q1288821": {
+      "zh": null,
+      "en": "Battle of Abu Klea"
+    },
+    "Q654722": {
+      "zh": null,
+      "en": "Battle of Mulayda"
+    },
+    "Q383067": {
+      "zh": "萨拉加希之战",
+      "en": "Battle of Saragarhi"
+    },
+    "Q1137302": {
+      "zh": "恩圖曼戰役",
+      "en": "Battle of Omdurman"
+    },
+    "Q303176": {
+      "zh": null,
+      "en": "Battle of Manila (1898)"
+    },
+    "Q2888406": {
+      "zh": null,
+      "en": "Battle of Diamond Hill"
+    },
+    "Q2889133": {
+      "zh": null,
+      "en": "Battle of Leliefontein"
+    },
+    "Q2889668": {
+      "zh": null,
+      "en": "Battle of Poplar Grove"
+    },
+    "Q4087313": {
+      "zh": "北京之战 (1900年)",
+      "en": "Battle of Peking (1900)"
+    },
+    "Q5123963": {
+      "zh": null,
+      "en": "Bloody Sunday (1900)"
+    },
+    "Q2624980": {
+      "zh": null,
+      "en": "Battle of Tobruk (1911)"
+    },
+    "Q2720985": {
+      "zh": null,
+      "en": "Battle of Kirk Kilisse"
+    },
+    "Q604175": {
+      "zh": null,
+      "en": "Battle of Elli"
+    },
+    "Q1286106": {
+      "zh": null,
+      "en": "Fao Landing"
+    },
+    "Q1417205": {
+      "zh": null,
+      "en": "Battle of Mons"
+    },
+    "Q2003949": {
+      "zh": null,
+      "en": "Battle of Le Cateau"
+    },
+    "Q2053030": {
+      "zh": null,
+      "en": "Winter operations 1914–1915"
+    },
+    "Q2337526": {
+      "zh": null,
+      "en": "First Battle of the Aisne"
+    },
+    "Q250383": {
+      "zh": null,
+      "en": "Affair of Néry"
+    },
+    "Q2661859": {
+      "zh": "檳城海戰",
+      "en": "Battle of Penang"
+    },
+    "Q4871437": {
+      "zh": "吉力馬札羅山戰役",
+      "en": "Battle of Kilimanjaro"
+    },
+    "Q220766": {
+      "zh": null,
+      "en": "Battle of Manzikert (1915)"
+    },
+    "Q936223": {
+      "zh": null,
+      "en": "Battle of Kara Killisse (1915)"
+    },
+    "Q2665626": {
+      "zh": "貝爾謝巴戰役",
+      "en": "Battle of Beersheba (1917)"
+    },
+    "Q4871819": {
+      "zh": null,
+      "en": "Battle of Mughar Ridge"
+    },
+    "Q199371": {
+      "zh": "米吉多戰役 (1918年)",
+      "en": "Battle of Megiddo (1918)"
+    },
+    "Q791185": {
+      "zh": "阿帕兰战役",
+      "en": "Battle of Abaran"
+    },
+    "Q994316": {
+      "zh": "麦塞隆战役",
+      "en": "Battle of Maysalun"
+    },
+    "Q4438362": {
+      "zh": null,
+      "en": "Battle of Ocotal"
+    },
+    "Q575510": {
+      "zh": "普天堡戰鬥",
+      "en": "Battle of Pochonbo"
+    },
+    "Q709333": {
+      "zh": "第一次长沙战役",
+      "en": "Battle of Changsha (1939)"
+    },
+    "Q52418": {
+      "zh": "珍珠港事件",
+      "en": "Attack on Pearl Harbor"
+    },
+    "Q1414998": {
+      "zh": "泰纳鲁河战役",
+      "en": "Battle of the Tenaru"
+    },
+    "Q543075": {
+      "zh": "荷蘭港戰役",
+      "en": "Battle of Dutch Harbor"
+    },
+    "Q2091385": {
+      "zh": null,
+      "en": "Battle of Arawe"
+    },
+    "Q743889": {
+      "zh": null,
+      "en": "Battle of Wau"
+    },
+    "Q383614": {
+      "zh": null,
+      "en": "Battle of Kohima"
+    },
+    "Q13423520": {
+      "zh": null,
+      "en": "Battle of the Oder–Neisse"
+    },
+    "Q14303815": {
+      "zh": "伊特尔堡之战",
+      "en": "Battle of Castle Itter"
+    },
+    "Q1497922": {
+      "zh": null,
+      "en": "Battle of Kuryłówka"
+    },
+    "Q192660": {
+      "zh": "沖繩島戰役",
+      "en": "Battle of Okinawa"
+    },
+    "Q2748375": {
+      "zh": "黑色星期五 (1945年)",
+      "en": "Black Friday (1945)"
+    },
+    "Q2889635": {
+      "zh": null,
+      "en": "Battle of Poljana"
+    },
+    "Q379433": {
+      "zh": null,
+      "en": "Operation Kikusui I"
+    },
+    "Q4271928": {
+      "zh": null,
+      "en": "Battle of Balikpapan (1945)"
+    },
+    "Q696931": {
+      "zh": "馬尼拉戰役 (1945年)",
+      "en": "Battle of Manila (1945)"
+    },
+    "Q699093": {
+      "zh": "魯爾包圍戰",
+      "en": "Ruhr pocket"
+    },
+    "Q15913566": {
+      "zh": "烏牛欄之役",
+      "en": null
+    },
+    "Q2896424": {
+      "zh": null,
+      "en": "Battle of Yad Mordechai"
+    },
+    "Q15928518": {
+      "zh": "青树坪战役",
+      "en": null
+    },
+    "Q2888378": {
+      "zh": null,
+      "en": "Battle of Taegu"
+    },
+    "Q289102": {
+      "zh": "朝鮮海峽海戰",
+      "en": "Battle of Korea Strait"
+    },
+    "Q3270739": {
+      "zh": "博川戰鬥",
+      "en": "Battle of Pakchon"
+    },
+    "Q11211553": {
+      "zh": "攻打蒙卡達兵營行動",
+      "en": "Attack on the Moncada Barracks"
+    },
+    "Q5778565": {
+      "zh": "阿莱格里亚德皮奥战役",
+      "en": "Battle of Alegría de Pío"
+    },
+    "Q118445706": {
+      "zh": "拉普拉塔战役",
+      "en": "Battle of La Plata (1957)"
+    },
+    "Q112725430": {
+      "zh": "克节朗战役",
+      "en": null
+    },
+    "Q280468": {
+      "zh": null,
+      "en": "Battle of Ap Bac"
+    },
+    "Q588774": {
+      "zh": "同帥戰役",
+      "en": "Battle of Đồng Xoài"
+    },
+    "Q2026028": {
+      "zh": null,
+      "en": "Operation Crimp"
+    },
+    "Q259526": {
+      "zh": null,
+      "en": "Battle of Long Tan"
+    },
+    "Q2889954": {
+      "zh": null,
+      "en": "Battle of Saigon (1968)"
+    },
+    "Q2889338": {
+      "zh": null,
+      "en": "Battle of Mirbat"
+    },
+    "Q4273438": {
+      "zh": "崑嵩戰役",
+      "en": "Battle of Kontum"
+    },
+    "Q4872743": {
+      "zh": null,
+      "en": "Battle of Wireless Ridge"
+    },
+    "Q4930640": {
+      "zh": null,
+      "en": "Bluff Cove air attacks"
+    },
+    "Q4870849": {
+      "zh": "達斯曼宮戰役",
+      "en": "Battle of Dasman Palace"
+    },
+    "Q4870995": {
+      "zh": "菲拉卡島戰役",
+      "en": "Battle of Failaka"
+    },
+    "Q4872697": {
+      "zh": "弗尔巴尼亚桥之战",
+      "en": "Battle of Vrbanja Bridge"
+    },
+    "Q786657": {
+      "zh": null,
+      "en": "Battle of Calderón Bridge"
+    },
+    "Q5432157": {
+      "zh": null,
+      "en": "Fall of Kabul (2001)"
+    },
+    "Q1476042": {
+      "zh": "森蚺行動",
+      "en": "Operation Anaconda"
+    },
+    "Q4871330": {
+      "zh": null,
+      "en": "Battle of Jenin (2002)"
+    },
+    "Q1804983": {
+      "zh": "巴格达之战 (2003年)",
+      "en": "Battle of Baghdad (2003)"
+    },
+    "Q1330136": {
+      "zh": "第二次费卢杰战役",
+      "en": "Second Battle of Fallujah"
+    },
+    "Q4872157": {
+      "zh": null,
+      "en": "Battle of Ramadi (2004)"
+    },
+    "Q2889747": {
+      "zh": null,
+      "en": "Battle of Ramadi (2006)"
+    },
+    "Q1616794": {
+      "zh": null,
+      "en": "Operation Achilles"
+    },
+    "Q4872168": {
+      "zh": null,
+      "en": "Battle of Ras Kamboni (2007)"
+    },
+    "Q1754030": {
+      "zh": null,
+      "en": "2008 Mardakert clashes"
+    },
+    "Q2890373": {
+      "zh": null,
+      "en": "Battle of Wanat"
+    },
+    "Q2664174": {
+      "zh": null,
+      "en": "Battle of Kamdesh"
+    },
+    "Q4871076": {
+      "zh": null,
+      "en": "Battle of Ganjgal"
+    },
+    "Q491188": {
+      "zh": "大青島海戰",
+      "en": "Daecheong incident"
+    },
+    "Q1753755": {
+      "zh": null,
+      "en": "2010 Mardakert clashes"
+    },
+    "Q494058": {
+      "zh": "天安号沉没事件",
+      "en": "Sinking of ROKS Cheonan"
+    },
+    "Q2363420": {
+      "zh": null,
+      "en": "2011 southern Israel cross-border attacks"
+    },
+    "Q16394378": {
+      "zh": "圍攻斯拉維揚斯克",
+      "en": "Siege of Sloviansk"
+    },
+    "Q18071930": {
+      "zh": "科巴尼之戰",
+      "en": "Siege of Kobanî"
+    },
+    "Q18639122": {
+      "zh": "拉馬迪之戰 (2014年至2015年)",
+      "en": "Battle of Ramadi (2014–2015)"
+    },
+    "Q20045970": {
+      "zh": null,
+      "en": "Battle of Marinka (2015)"
+    },
+    "Q21685887": {
+      "zh": null,
+      "en": "Battle of Ramadi (2015–2016)"
+    },
+    "Q22117640": {
+      "zh": "阿夫迪伊夫卡戰役 (2017年)",
+      "en": "Battle of Avdiivka (2017)"
+    },
+    "Q30041564": {
+      "zh": "马拉维危机",
+      "en": "Siege of Marawi"
+    },
+    "Q47465940": {
+      "zh": "橄欖枝行動",
+      "en": "Operation Olive Branch"
+    },
+    "Q101305942": {
+      "zh": "舒沙戰役 (2020年)",
+      "en": "Battle of Shusha (2020)"
+    },
+    "Q111383245": {
+      "zh": "阿夫迪伊夫卡战役 (2022年—2024年)",
+      "en": "Battle of Avdiivka (2023–2024)"
+    },
+    "Q112206624": {
+      "zh": "克雷明納戰役",
+      "en": "Battle of Kreminna"
+    },
+    "Q108102583": {
+      "zh": "喀布爾戰役 (2021年)",
+      "en": "Fall of Kabul (2021)"
+    },
+    "Q123058059": {
+      "zh": "蘇法戰役",
+      "en": "Battle of Sufa"
+    },
+    "Q123290408": {
+      "zh": "加沙圍城戰",
+      "en": "Siege of Gaza City"
+    }
+  },
+  "requests": [
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:11.345Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:17.259Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:21.927Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:27.096Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:32.013Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:36.908Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:42.088Z"
+    },
+    {
+      "endpoint": "https://query.wikidata.org/sparql",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:47.476Z"
+    },
+    {
+      "endpoint": "https://www.wikidata.org/w/api.php",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:52.454Z"
+    },
+    {
+      "endpoint": "https://www.wikidata.org/w/api.php",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:54.643Z"
+    },
+    {
+      "endpoint": "https://www.wikidata.org/w/api.php",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:56.873Z"
+    },
+    {
+      "endpoint": "https://www.wikidata.org/w/api.php",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:48:58.957Z"
+    },
+    {
+      "endpoint": "https://www.wikidata.org/w/api.php",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:49:01.141Z"
+    },
+    {
+      "endpoint": "https://www.wikidata.org/w/api.php",
+      "attempt": 1,
+      "status": 200,
+      "at": "2026-10-02T22:49:03.207Z"
+    }
+  ]
+}
