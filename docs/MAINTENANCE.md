@@ -50,10 +50,19 @@ python3 -m venv .venv
 
 ## 2.0 数据层与重建
 
-`dist/data/catalog.json.gz`保持源档案的完整版本；日常首屏使用`fast/catalog.json.gz`，完整记录按256条分片读取。`scripts/build_fast_assets.py`读取既有边界数据，生成0.16°概览、11个常用年份的启动几何及简体名称；放大后继续使用既有0.02°边界分片。构建依赖Shapely与OpenCC Python Reimplemented，已验证版本分别为2.0.7与0.1.7。转换前后记录ID、有效区间、类型与几何关联必须一致。概览简化导致无效形状时回退到可用输入，原有13条问题记录保留。
+`dist/data/catalog.json.gz`保持源档案的完整版本；日常首屏使用`fast/catalog.json.gz`，完整记录按256条分片读取。`scripts/build_fast_assets.py`读取既有边界数据，生成0.04°概览、11个常用年份的0.02°启动几何及简体名称；放大后继续使用既有0.02°边界分片。构建依赖Shapely与OpenCC Python Reimplemented，已验证版本分别为2.0.7与0.1.7。转换前后记录ID、有效区间、类型与几何关联必须一致。概览简化导致无效形状时回退到可用输入，原有13条问题记录保留。
 
 事件编辑完成后同时更新`events.json.gz`，推荐`gzip.compress(bytes,mtime=0,compresslevel=9)`。保持原事件ID稳定，重复主题需人工核对，新增标题、摘要与意义应成对提供中英文。对中文显示文本运行OpenCC t2s检查并人工处理术语。
 
 国家补充数据采用`profile-index.json.gz`、`profiles/Q*.json.gz`与`narratives.json`。精确名称与QID匹配后仍需检查年代：`temporalCompatibility.status=potential_conflict`的记录屏蔽补充实体资料。文明短文同时校验QID、源名称、recordIdsOverlappingScope和当前年份是否落在scope内。主文只采用qualified/unscoped/dated_entity_fact中的有效value声明。标为“所选年代”还需明确有足够精度的起止年或匹配时间点。
 
 运行`npm test`可检查原始档案完整性、新旧目录一致性、启动年几何、数据分片、BCE/CE日期运算、叙事时期约束及未引证声明隔离。发布前另做桌面、手机、国家分栏、事件、语言切换与年份对照的浏览器检查。`docs/VALIDATION.md`记录实测证据；静态字节减少不能直接当作所有网络环境下的加载时间倍率。
+
+
+## 2.1 交互与显示层
+
+`timeline-controls.js`集中处理年份与地图键盘，MapLibre自身键盘处理关闭。左、右地图分别保存待加载年份；地图成功返回后再提交界面年份。读区保持自身滚动、页签语义与焦点，搜索定时器在离开页面时清理。
+
+`product.css`负责产品布局：浏览栏和地图有独立位置，桌面阅读区和地图分栏，手机阅读区覆盖主区域并禁用背后地图焦点。调整布局后仍需检查桌面、834px平板和390px手机。
+
+`labelCenter`是仅用于显示的新字段，在有效几何最大多边形内取代表点，原始`center`保持不变。新增的50m陆地数据来自Natural Earth维护仓库，未经几何变形，仅移除无用属性并gzip；出处、文件哈希和完整性见`BASEMAP-50M.json`。0.04°概览和0.02°细节均属于展示简化，不改变历史源区间、面积或记录身份。

@@ -1,10 +1,10 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
 const ROOT=require('node:path').resolve(__dirname,'../dist')+'/';
 function context(){
- const nodes=new Map();const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(){},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
- const document={querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(){}};
+ const nodes=new Map();const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},focus(){},replaceChildren(){},append(){},closest(){return null},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(){},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
+ const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(){}};
  const c=vm.createContext({console,document,location:{hash:''},history:{replaceState(){}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set});
- for(const name of ['map-engine.js','polity-reader.js','app.js']){const code=fs.readFileSync(ROOT+name,'utf8').replace(/^import .*$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
+ for(const name of ['map-engine.js','timeline-controls.js','polity-reader.js','app.js']){const code=fs.readFileSync(ROOT+name,'utf8').replace(/^import .*$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
  renderEvents=()=>{};renderYear=()=>{};renderBrowse=()=>{};saveURL=()=>{};showView=()=>{};
  globalThis.renderLog=[];
@@ -54,5 +54,23 @@ function context(){
   vm.runInContext(`state.compare=true;compareMap.setYear=async(c,y)=>{compareMap.year=y;return 0};globalThis.openPromise=openEvent({...event,id:'prehistory',start:-48000},{whichMap:compareMap});`,c);
   await vm.runInContext('openPromise',c);
   const result=vm.runInContext('({selected:state.selected?.id,compareYear:state.compareYear,hidden:panel().hidden,renderLog})',c);assert.equal(result.compareYear,-48000);assert.equal(result.hidden,false);assert.deepEqual(Array.from(result.renderLog),['event:prehistory']);console.log('PASS prehistoric events in the comparison map');
+ }
+ {
+  const c=context();vm.runInContext(`state.year=1492;atlas.year=1492;atlas.setYear=async()=>{throw Error('network')};`,c);
+  await vm.runInContext('setYear(1914)',c);
+  const r=vm.runInContext('({year:state.year,displayed:atlas.year,pending:pendingYear,error:document.querySelector("#mapError").hidden})',c);
+  assert.equal(r.year,1492);assert.equal(r.displayed,1492);assert.equal(r.pending,null);assert.equal(r.error,false);
+  console.log('PASS failed year keeps the displayed map and year consistent');
+ }
+ {
+  const c=context();vm.runInContext(`globalThis.finish=null;const oldMap=compareMap;oldMap.setYear=()=>new Promise(r=>finish=r);globalThis.wait=setCompareYear(1914);compareMap=mapStub();`,c);
+  vm.runInContext('finish(1)',c);await vm.runInContext('wait',c);assert.equal(vm.runInContext('state.compareYear',c),1900);
+  console.log('PASS removed comparison cannot commit a late year');
+ }
+ {
+  const c=context();vm.runInContext(`globalThis.finish=null;globalThis.zoom=3;globalThis.renders=0;geometryFor=()=>new Promise(r=>finish=r);const subject={request:1,active:[],year:1492,catalog:{},map:{getZoom:()=>zoom},geometryKey:'o',renderGeometry(){renders++}};globalThis.wait=AtlasMap.prototype.upgradeDetail.call(subject);zoom=1;`,c);
+  vm.runInContext('finish(new Map())',c);await vm.runInContext('wait',c);assert.equal(vm.runInContext('renders',c),0);
+  vm.runInContext('zoom=3;globalThis.wait=AtlasMap.prototype.upgradeDetail.call(subject);finish(new Map());',c);await vm.runInContext('wait',c);assert.equal(vm.runInContext('renders',c),1);
+  console.log('PASS a zoom-out during detail loading does not lock future upgrades');
  }
 })();
