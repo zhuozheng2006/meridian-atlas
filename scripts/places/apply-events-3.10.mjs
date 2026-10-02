@@ -45,6 +45,13 @@ const validate=entry=>{
  // the shipped keys themselves must keep their documented order.
  const presentKeys=Object.keys(entry).filter(key=>KEY_ORDER.includes(key));
  if(JSON.stringify(presentKeys)!==JSON.stringify(KEY_ORDER.filter(key=>key in entry)))fail(where+': shipped keys must follow the order '+KEY_ORDER.join(','));
+ // Structured entries must keep English fields free of CJK characters.
+ if(entry.provenance==='wikidata-structured'){
+  for(const [field,text] of [['title.en',entry.title?.en],['summary.en',entry.summary?.en],['significance.en',entry.significance?.en],['editorialNotes.en',entry.editorialNotes?.en]]){
+   const cjk=String(text||'').match(/[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/);
+   if(cjk)fail(where+': CJK character in English field '+field);
+  }
+ }
  if(JSON.stringify(ordered(entry))!==JSON.stringify(Object.fromEntries(presentKeys.map(key=>[key,entry[key]]))))fail(where+': shipped keys must keep their values in order');
  // Traditional-only characters must not enter the simplified-Chinese corpus.
  for(const group of ['title','summary','significance','editorialNotes'])for(const text of group==='editorialNotes'?[entry.editorialNotes?.zh||'']:[entry[group]?.zh||'']){
@@ -68,7 +75,10 @@ const withExtras=entry=>{const built=ordered(entry);for(const key of Object.keys
 const additions=new Map(editorial.entries.map(entry=>[entry.id,withExtras(entry)]));
 const existingIds=new Set(current.map(entry=>entry.id));
 for(const id of additions.keys())if(existingIds.has(id)&&!current.find(entry=>entry.id===id))fail('id collision: '+id);
-const merged=[...current.filter(entry=>!additions.has(entry.id)),...additions.values()];
+// A regenerated structured batch replaces the previous structured entries entirely, so
+// no orphaned index entry survives a rebuild.
+const incomingStructured=[...additions.values()].some(entry=>entry.provenance==='wikidata-structured');
+const merged=[...current.filter(entry=>!additions.has(entry.id)&&!(incomingStructured&&entry.provenance==='wikidata-structured')),...additions.values()];
 const order=(a,b)=>a.start-b.start||a.end-b.end;
 merged.sort(order);
 const output=JSON.stringify(merged,null,2)+'\n';

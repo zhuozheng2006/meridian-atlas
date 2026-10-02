@@ -1,11 +1,11 @@
-import {boundaryMesh} from './boundary-mesh.js?v=3.10.0-50293716d76d';
-import {curvedBorders} from './border-curves.js?v=3.10.0-50293716d76d';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.10.0-50293716d76d';
-import {BoundaryController} from './boundary-controller.js?v=3.10.0-50293716d76d';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.10.0-50293716d76d';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.10.0-50293716d76d';
-import {Geography} from './geography.js?v=3.10.0-50293716d76d';
-import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.10.0-50293716d76d';
+import {boundaryMesh} from './boundary-mesh.js?v=3.10.0-7f761edc12c7';
+import {curvedBorders} from './border-curves.js?v=3.10.0-7f761edc12c7';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.10.0-7f761edc12c7';
+import {BoundaryController} from './boundary-controller.js?v=3.10.0-7f761edc12c7';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.10.0-7f761edc12c7';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.10.0-7f761edc12c7';
+import {Geography} from './geography.js?v=3.10.0-7f761edc12c7';
+import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.10.0-7f761edc12c7';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
@@ -83,7 +83,7 @@ export class AtlasMap{
   const seq=++this.request,selectedPopup=this.boundaries?.selectedPopup,selectedId=this.boundaries?.selectedId;this.lang=lang;this.catalog=catalog;await this.ready;
   let frame;do{frame=await this.boundaries.prepare(year,()=>this.prepareOverview(year));if(seq!==this.request||this.destroyed)return false;}while(frame.requested!==this.boundaries.mode);
   const restoreSelection=year===this.year&&selectedPopup&&selectedPopup===this.boundaries.selectedPopup;const records=activeRecords(catalog,year);this.upgradeLand();this.year=year;this.active=records;this.recordMap=new Map(records.map(r=>[r.id,r]));this.boundaries.commit(frame);
-  this.refreshLabels();this.upgradeDetail();this.places?.setYear(year,lang);this.historical?.setYear(year,lang);this.regional?.setYear(year,lang);if(restoreSelection)this.boundaries.openRecord(selectedId);return records.length;
+  this.refreshLabels();this.upgradeDetail();this.places?.setYear(year,lang);this.battles?.setYear(year,lang);this.historical?.setYear(year,lang);this.regional?.setYear(year,lang);if(restoreSelection)this.boundaries.openRecord(selectedId);return records.length;
  }
  renderGeometry(geos,high){
   if(this.boundaries?.isCountry)return;

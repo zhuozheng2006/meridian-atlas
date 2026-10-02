@@ -53,6 +53,17 @@ await check('Belligerents and conflicts stay arrays of source strings and are ne
   assert(typeof battle.notes==='string'&&battle.notes.length>10,battle.id+' notes');
  }
 });
+await check('English fields contain Latin script only and Chinese fields are present',()=>{
+ const CJK=/[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/;
+ for(const battle of data.battles){
+  for(const field of ['nameEn','notesEn'])assert(!CJK.test(battle[field]||''),battle.id+' '+field);
+  for(const field of ['belligerents','conflict','countries'])for(const value of battle[field])assert(!CJK.test(value),battle.id+' '+field+' '+value);
+  assert(battle.nameZh&&battle.nameZh.trim().length>0,battle.id+' nameZh');
+  for(const field of ['belligerentsZh','conflictZh','countriesZh'])assert(Array.isArray(battle[field]),battle.id+' '+field);
+ }
+ assert(data.policy.language.includes('QID'),'language policy must explain the QID fallback');
+ assert(data.policy.outcome.includes('does not infer victors'),'outcome policy must explain why the field stays empty');
+});
 await check('Every battle cites its Wikidata entity and any statement reference',()=>{
  for(const battle of data.battles){
   assert(Array.isArray(battle.sources)&&battle.sources.length,battle.id+' sources');

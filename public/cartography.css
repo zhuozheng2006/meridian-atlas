@@ -20,6 +20,10 @@
 /* Structured index entries come from dataset statements rather than editorial review.
    They are useful to find, but must not read like curated entries. */
 .event-card.structured-index{border-left-style:dashed}
+/* Dated battles: a point layer, deliberately distinct from settlement markers. */
+.battle-marker{display:flex;align-items:center;gap:4px;padding:1px 3px;border:0;background:none!important;box-shadow:none!important;color:#5b2f2a;font-size:11px;line-height:1.3;white-space:nowrap}
+.battle-marker i{flex:none;display:block;width:9px;height:9px;background:#b4553f;border:1.5px solid #f6e7c8;transform:rotate(45deg);box-shadow:0 0 0 1px #b4553f66}
+.battle-marker span{background:#fdf6e6d9;border-radius:3px;padding:0 3px}
 .place-marker small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .place-marker .place-date{font-size:9px;color:#596158}
 .place-marker:hover span,.place-marker:focus-visible span{color:#312510;text-decoration:underline;text-underline-offset:3px}.place-marker:focus-visible{outline:2px solid #b77736;outline-offset:3px;border-radius:5px}
