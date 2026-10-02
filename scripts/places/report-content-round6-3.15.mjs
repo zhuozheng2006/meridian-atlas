@@ -12,7 +12,10 @@ import {fileURLToPath} from 'node:url';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const outPath=resolve(root,'docs/verification-3.15/content-round6.json');
-const git=path=>JSON.parse(execSync('git show HEAD:'+path,{cwd:root,maxBuffer:64*1024*1024}).toString());
+// The comparison baseline is the commit the task was opened against, not HEAD: the lead commits
+// this round's files as they land, so HEAD moves while the round is still running.
+const baselineCommit=(process.argv.find(arg=>arg.startsWith('--baseline='))||'--baseline=a7784a02').slice('--baseline='.length);
+const git=path=>JSON.parse(execSync('git show '+baselineCommit+':'+path,{cwd:root,maxBuffer:64*1024*1024}).toString());
 const readText=path=>readFile(resolve(root,path),'utf8');
 const readJson=async path=>JSON.parse(await readText(path));
 const regionCounts=list=>list.reduce((all,item)=>(all[item.region]=(all[item.region]||0)+1,all),{});
@@ -66,7 +69,7 @@ for(const [command] of commands){
 const language=await readJson('docs/verification-3.15/content-language-audit.json');
 const battleValidation=await readJson('docs/verification-3.15/content-battles-validation.json');
 
-const report={schemaVersion:1,generatedAt:new Date().toISOString(),task:'task-17',
+const report={schemaVersion:1,generatedAt:new Date().toISOString(),task:'task-17',baselineCommit,
  scope:'Promote index-level events ranked 41-100 to editorial level and extend the battle layer for Oceania, South Asia and Southeast Asia.',
  events:{baselineTotal:baselineEvents.length,total:events.length,
   structuredBaseline:structuredOf(baselineEvents).length,structured:structuredOf(events).length,

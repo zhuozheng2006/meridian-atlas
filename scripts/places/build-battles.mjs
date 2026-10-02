@@ -31,9 +31,9 @@ const supplementItems=supplements.flatMap(entry=>entry.items);
 // layer. Three individual records are excluded by hand because Wikidata classes them as a
 // military operation or an airstrike while their own articles describe one-sided killings of
 // civilians; every exclusion carries its reason and the round report gives the pool sizes.
-const SUPPLEMENT_CLASS_EXCLUSIONS={'Q3199915':'massacre root: one-sided killings belong to a different layer'};
+const SUPPLEMENT_CLASS_EXCLUSIONS={'Q3199915':'massacre root: one-sided killings belong to a different layer',
+ 'Q97368680':'police raid: a law-enforcement action, not an armed clash'};
 const SUPPLEMENT_ITEM_EXCLUSIONS={
- 'Q97368680':'police raid on the Apple Daily offices in 2020: not an armed clash',
  'Q208855':'Jallianwala Bagh killings in 1919: a one-sided killing of civilians classed as a military operation',
  'Q1136783':'Granai airstrike in 2009: a one-sided killing of civilians classed as an airstrike'};
 const excludedSupplement=supplementItems.filter(item=>SUPPLEMENT_CLASS_EXCLUSIONS[item.classQid]||SUPPLEMENT_ITEM_EXCLUSIONS[item.qid]);
