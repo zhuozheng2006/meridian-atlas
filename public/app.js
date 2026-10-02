@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-d3eecbd3ebaf';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-d3eecbd3ebaf';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-d3eecbd3ebaf';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-d3eecbd3ebaf';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-d3eecbd3ebaf';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-d3eecbd3ebaf';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-d3eecbd3ebaf';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-d3eecbd3ebaf';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-d3eecbd3ebaf';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-d3eecbd3ebaf';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-c79f4b452ec0';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-c79f4b452ec0';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-c79f4b452ec0';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-c79f4b452ec0';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-c79f4b452ec0';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-c79f4b452ec0';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-c79f4b452ec0';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-c79f4b452ec0';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-c79f4b452ec0';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-c79f4b452ec0';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -144,7 +144,8 @@ async function renderSources(){const counts=Object.keys(REGIONS).filter(k=>k!=='
  // the polity total comes from the catalogue metadata, the place and observation
  // totals from the same archives the map reads.
  const places=await loadPlaces().catch(()=>null);
- const stats=places?{placeRecords:places.length,observations:places.reduce((n,p)=>n+((p.observations?.length)||0),0),attested:places.filter(p=>p.kind==='attested-site').length}:null;
+ const battles=await loadBattles().catch(()=>null);
+ const stats=places?{placeRecords:places.length,observations:places.reduce((n,p)=>n+((p.observations?.length)||0),0),attested:places.filter(p=>p.kind==='attested-site').length,battles:battles?battles.length:0}:null;
  $('#contentView').innerHTML=sourcesHTML(catalog,events,state.lang,stats);$('#downloadEvents').onclick=()=>downloadJSON(events,'meridian-events.json');$('#downloadCatalog').onclick=async()=>downloadJSON(await readJSON('data/catalog.json.gz'),'meridian-territory-catalog.json');$('#downloadCoverage').onclick=()=>downloadJSON({boundaryMetadata:catalog.metadata,eventCounts:Object.fromEntries(counts),events:events.length,coverage},'meridian-coverage.json');}
 function noteTranslation(note){if(state.lang!=='en')return typeof note==='string'?note:note.zh;const notes={'中文名为与源Wikipedia词条对应的Wikidata标签；原始名称保留。':'Chinese labels come from Wikidata items associated with source Wikipedia articles. Original names are retained.','按源数据完整名称人工译名，保留国家、王朝及阶段区分。':'Editorial translations of exact source names retain distinctions between states, dynasties and periods.','暂无通过身份核对的中文标签，显示源数据原名。':'No identity-checked Chinese label is available; the original source name is shown.','关系名称保留原文，避免以参与者或统治者名称代替关系。':'The relation name is retained rather than replaced with a participant or ruler label.','源名称和百科关联存在年代歧义，保留原名，暂不译为后周。':'The source name and encyclopedia association have a chronological ambiguity. The original name is retained.'};return notes[note]||'Editorial label note: original source names are preserved.';}
 function warningTranslation(w){if(state.lang!=='en')return w;const q=w.match(/Q\d+/g);if(q?.length===2)return `The source Wikidata ID ${q[0]} differs from ${q[1]}, the item associated with the source Wikipedia article. Labels from the mismatched ID were not used.`;if(w.includes('Later Zhou'))return 'The source applies Later Zhou to BCE intervals but links to the dynasty of 951–960 CE. Identity remains ambiguous; source geometry and dates are preserved.';if(w.includes('几何'))return 'The source polygon has geometry-validity issues. It has not been silently repaired and is used only for overview display.';if(w.includes('0年'))return 'The source interval has a year-zero endpoint. It is preserved in the raw data while the selectable timeline skips year zero.';if(w.includes('关系'))return 'This relation may overlap member polities; its encyclopedia ID may describe a participant or ruler.';if(w.includes('历史主题'))return 'The encyclopedia item describes a historical topic or list and was not used as a polity translation.';return 'The source encyclopedia association could not be verified; its automatic label was not adopted.';}

@@ -1,7 +1,7 @@
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.10.0-d3eecbd3ebaf';
-import {HalcLandscape} from './halc-landscape.js?v=3.10.0-d3eecbd3ebaf';
-import {readJSON} from './map-engine.js?v=3.10.0-d3eecbd3ebaf';
-import {HalcRegions} from './halc-regions.js?v=3.10.0-d3eecbd3ebaf';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.10.0-c79f4b452ec0';
+import {HalcLandscape} from './halc-landscape.js?v=3.10.0-c79f4b452ec0';
+import {readJSON} from './map-engine.js?v=3.10.0-c79f4b452ec0';
+import {HalcRegions} from './halc-regions.js?v=3.10.0-c79f4b452ec0';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
