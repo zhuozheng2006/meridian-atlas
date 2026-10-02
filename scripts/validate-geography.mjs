@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 
 const sourcePath=new URL('../dist/geography.js',import.meta.url);
 const source=fs.readFileSync(sourcePath,'utf8');
-const transformed=source.replace(/^import[^\n]*\n/,'').replace('export class Geography','globalThis.Geography = class Geography');
+const transformed=source.replace(/^import[^\n]*\n/gm,'').replace('export class Geography','globalThis.Geography = class Geography');
 const EMPTY={type:'FeatureCollection',features:[]};
 const results=[];
 const flush=async()=>{for(let i=0;i<6;i++)await Promise.resolve();};
@@ -35,7 +35,7 @@ function environment(zoom=1){
   destroy(){this.removed=true;atlas.destroyed=true;},
  };
  atlas.map=map;
- const context=vm.createContext({EMPTY,URL,location:{href:'https://atlas.test/index.html'},maplibregl:{ScaleControl:class{}},CustomEvent:class{constructor(type,options){this.type=type;Object.assign(this,options);}},readJSON:url=>new Promise((resolve,reject)=>requests.push({url,resolve,reject,done:false})),console});
+ const context=vm.createContext({LakeLayer:class{constructor(){this.status='overview';this.ready=false;}update(){}},EMPTY,URL,location:{href:'https://atlas.test/index.html'},maplibregl:{ScaleControl:class{}},CustomEvent:class{constructor(type,options){this.type=type;Object.assign(this,options);}},readJSON:url=>new Promise((resolve,reject)=>requests.push({url,resolve,reject,done:false})),console});
  vm.runInContext(transformed,context,{filename:sourcePath.pathname});
  const geography=new context.Geography(atlas);
  const init=geography.init();

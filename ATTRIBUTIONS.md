@@ -31,3 +31,12 @@ Chronosphere (globe and time navigation), Phersu Atlas (date-oriented history), 
 - Twelve original bilingual city chapters: CC BY 4.0, Meridian Atlas contributors, 2026. Their 39 institutional references retain their own copyrights. No source prose, photographs or third-party city reconstructions are reproduced. Exact source-ID and date bindings are stored with each chapter.
 
 Build instructions: `scripts/cartography/README.md`, `scripts/places/README.md`, and `docs/MAINTENANCE.md`. Original code remains MIT; licenses of embedded datasets remain separate.
+
+
+## HydroLAKES v1.0 — detailed lake shores
+
+Messager, M.L., Lehner, B., Grill, G., Nedeva, I. & Schmitt, O. (2016), *Estimating the volume and age of water stored in global lakes using a geo-statistical approach*. Nature Communications 7, 13603. https://doi.org/10.1038/ncomms13603. Dataset: https://www.hydrosheds.org/products/hydrolakes. License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+This project distributes a transformed selection in `dist/data/lakes/`, with attribution and the original download link. It does not mirror the raw shapefile archive. We retain types 1 (lake, the default classification) and 3 (natural lake with regulation), and exclude type 2 (reservoir). Type 1 may include unidentified reservoirs. The shorelines describe varying modern source dates, not historical yearly shorelines. Regional mapping scales range approximately from 1:100,000 to 1:1,000,000; no metre-level source-accuracy claim is made.
+
+Transformations: spatial partitioning without clipping or smoothing; original vertex counts retained; coordinates quantized to 0.000001 degree and delta-encoded. Maximum coordinate displacement is below 0.08 metre at the equator, far below the source scale. The 122 geometries whose validity would be degraded by quantization retain original floating-point coordinates. The manifest lists 649 remaining source-invalid geometries; they are retained without invented repair. This list covers invalid outputs, not a full inventory of all upstream invalid geometries. Label points are interior representative points calculated from the source; 24 Chinese lake names are editorial translations bound to exact HydroLAKES IDs.

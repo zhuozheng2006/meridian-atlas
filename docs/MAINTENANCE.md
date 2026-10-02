@@ -111,3 +111,18 @@ python3 scripts/boundaries/build_small_native_assets.py \
 `rules/dated-place-names.json` 以精确记录 ID 绑定历史名称和机构依据。人口记录的名称按实际观测年选择；支持指定观测年份集合，不延长城市存在年代。原始研究名与坐标保留；名称说明及链接进入城市“来源”。目前校正江户、长安、君士坦丁堡与特诺奇蒂特兰的已核对记录。补充别名可供搜索，年代筛选仍独立执行。精确名称与明确别名同组排序，优先所选年代的资料，再优先首都记录；普通子串匹配排在其后。
 
 城市篇章现与40条原始记录精确关联，包括618—904年的唐长安首都关系。所有绑定仍由实际时段或实际人口观测约束。
+
+
+## 精细湖岸 / Fine lake shores
+
+`dist/data/lakes/` 是HydroLAKES v1.0的CC BY 4.0派生数据。仅在放大至4级后读取131,887字节索引，再按当前视野选取空间分片。4级显示面积至少100 km²的湖体，6级加入5 km²以上湖体，9级显示来源内全部保留湖体。源码中的`LakeCache`合并并发请求并限制已解码存储；当前画面的地图引擎另保留所需几何。
+
+重建环境使用PyShp 2.3.1、Shapely 2.0.7；浏览器运行无需这些依赖。下载链接和ZIP/SHP/SHX/DBF/PRJ哈希见`scripts/lakes/source-lock.json`。原始ZIP只放在工作缓存，不发布原始格式镜像。
+
+```sh
+python scripts/lakes/build_lakes.py --source /path/to/cache/HydroLAKES_polys_v10 --output /path/to/cache/derived-lakes
+```
+
+构建器逐一验证源文件哈希。确认输出后整体替换`dist/data/lakes/`，运行`node scripts/validate-lakes.mjs`。派生文件使用`encoding: delta-1e6`，并不是未经解码即可使用的GeoJSON。每个Polygon存为一个多边形列表，每个环是`[dx,dy,dx,dy,...]`，累加后除以1,000,000；MultiPolygon保留多个多边形。`geometry.coordinates`字段出现时表示审计后保留的原始浮点坐标。`decodeLakeFeature`返回标准GeoJSON。
+
+湖名中文映射按稳定Hylak_id绑定，编辑`scripts/lakes/name-translations.json`。湖名代表点从原始多边形内部计算，不是城市坐标或湖泊入口。新增映射时核对源名称和位置。重建不自动补造译名、历史湖岸或成湖日期。

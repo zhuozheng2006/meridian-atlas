@@ -1,4 +1,5 @@
-import {readJSON,EMPTY} from './map-engine.js?v=3.0.0-7a49737b7ed7';
+import {LakeLayer} from './lakes.js?v=3.1.0-45b670115122';
+import {readJSON,EMPTY} from './map-engine.js?v=3.1.0-45b670115122';
 
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.
@@ -12,6 +13,7 @@ export class Geography {
   for(const name of ['rivers','lakes'])map.addSource('physical-'+name,{type:'geojson',data:EMPTY,tolerance:.05});
   map.addLayer({id:'physical-lakes',type:'fill',source:'physical-lakes',filter:['==','artificial',false],paint:{'fill-color':'#40738a','fill-opacity':['interpolate',['linear'],['zoom'],1,.25,3,.8]}},'boundary');
   map.addLayer({id:'physical-rivers',type:'line',source:'physical-rivers',filter:['all',['==','artificial',false],['!=','kind','Lake Centerline']],layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#3d7388','line-opacity':['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85],'line-width':['interpolate',['linear'],['zoom'],1,.12,4,.5,8,1.25]}},'boundary');
+  this.lakes=new LakeLayer(this);
   map.addSource('coastal-water',{type:'geojson',data:EMPTY,tolerance:0,maxzoom:14});
   map.addLayer({id:'coastal-water',type:'fill',source:'coastal-water',paint:{'fill-color':'#163246','fill-antialias':false}});
   map.moveLayer('coast');
@@ -36,7 +38,7 @@ export class Geography {
    if(e.sourceId==='terrain-dem'&&e.tile.dem&&this.enabled&&map.getZoom()>=5){map.setPaintProperty('relief','raster-opacity',['interpolate',['linear'],['zoom'],4,.82,5,.55,6,0]);this.terrainReady=true;this.syncStatus();}
    if(e.sourceId==='geographic-reference'&&map.getZoom()>=5){this.referenceReady=true;this.referenceVisibility(this.reference);}
   });
-  await this.loadLocal();this.detail();
+  await this.loadLocal();this.detail();this.lakes.update();
  }
  reconcileRemote(){
   if(this.atlas.destroyed)return;
@@ -66,7 +68,7 @@ export class Geography {
   const loaded=this.localLoaded,errors=this.localErrors;
   const groups=this.map.getZoom()>=2.5?[['land'],['rivers'],['lakes'],['ocean']]:[['land','land-overview'],['rivers','water-overview'],['lakes','water-overview'],['ocean','ocean-overview']];
   const partial=groups.some(group=>!group.some(n=>loaded.has(n))&&group.some(n=>errors.has(n)));
-  this.status=this.failed.size?'fallback':partial?'partial':this.terrainReady&&this.enabled&&this.map.getZoom()>=5?'fine':'local';this.report();
+  this.status=this.failed.size?'fallback':partial||this.lakes?.status==='error'?'partial':this.terrainReady&&this.enabled&&this.map.getZoom()>=5?'fine':'local';this.report();
  }
  report(){if(!this.atlas.destroyed)this.map.getContainer().dispatchEvent(new CustomEvent('geography-status',{bubbles:true,detail:{status:this.status,reference:this.reference}}));}
  detail(){
@@ -78,14 +80,14 @@ export class Geography {
    this.map.addLayer({id:'terrain-shade',type:'hillshade',source:'terrain-dem',minzoom:5,paint:{'hillshade-exaggeration':.5,'hillshade-shadow-color':'#33392f','hillshade-highlight-color':'#f7eac5','hillshade-accent-color':'#97866b','hillshade-illumination-direction':315,'hillshade-illumination-anchor':'map'}},'physical-lakes');
   }
  }
- toggle(v){this.enabled=v;for(const id of ['relief','terrain-shade','physical-lakes','physical-rivers'])if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',v&&!(id==='terrain-shade'&&this.failed.has('terrain-dem'))?'visible':'none');if(v){this.loadLocal();this.detail();this.reconcileRemote();}this.referenceVisibility(this.reference);this.syncStatus();}
+ toggle(v){this.enabled=v;for(const id of ['relief','terrain-shade','physical-lakes','physical-rivers'])if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',v&&!(id==='terrain-shade'&&this.failed.has('terrain-dem'))?'visible':'none');if(v){this.loadLocal();this.detail();this.reconcileRemote();}this.referenceVisibility(this.reference);this.lakes?.update();this.syncStatus();}
  alignCoast(v){this.coastAligned=v;this.map.setLayoutProperty('coastal-water','visibility',v?'visible':'none');if(v)this.detail();this.referenceVisibility(this.reference);this.reconcileRemote();}
  retry(){
   for(const[id,layers]of [['terrain-dem',['terrain-shade']],['geographic-reference',['reference-base','reference-ocean','reference-natural-rivers','reference-water','reference-waterway','reference-roads','reference-buildings']]])if(this.failed.has(id)){this.seenRemote.delete(id);for(const layer of layers)if(this.map.getLayer(layer))this.map.removeLayer(layer);if(this.map.getSource(id))this.map.removeSource(id);}
-  this.failed.clear();this.status='local';this.loadLocal();this.detail();if(this.reference)this.setReference(true);this.report();
+  this.failed.clear();this.status='local';this.lakes?.update();this.loadLocal();this.detail();if(this.reference)this.setReference(true);this.report();
  }
  setReference(v){
-  this.reference=v;
+  this.reference=v;this.lakes?.update();
   if(v)this.ensureReference();
   this.referenceVisibility(v);if(v)this.reconcileRemote();this.report();
  }
@@ -102,6 +104,7 @@ export class Geography {
    this.map.addLayer({id:'reference-roads',type:'line',source:'geographic-reference','source-layer':'transportation',minzoom:8,filter:['in','class','motorway','trunk','primary','secondary','tertiary','minor','street'],paint:{'line-color':'#ede2c3','line-opacity':.6,'line-width':['interpolate',['linear'],['zoom'],8,.3,14,1.5]}},'boundary');
    this.map.addLayer({id:'reference-buildings',type:'fill',source:'geographic-reference','source-layer':'building',minzoom:13,paint:{'fill-color':'#7d7060','fill-opacity':.35}},'boundary');
   }
+  if(this.map.getLayer('lake-detail'))this.map.moveLayer('lake-detail','boundary');
   this.referenceVisibility(this.reference);
  }
  referenceVisibility(v){
@@ -115,6 +118,6 @@ export class Geography {
   this.map.setPaintProperty('coastal-water','fill-opacity',fineCoast?['step',['zoom'],1,8,0]:1);
   this.map.setPaintProperty('coast','line-opacity',fineCoast?['step',['zoom'],.55,8,0]:.55);
   this.map.setPaintProperty('physical-rivers','line-opacity',natural&&this.referenceReady?['interpolate',['linear'],['zoom'],1,.08,3,.55,8,.85,9,0]:fine?['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85,8,0]:['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85]);
-  this.map.setPaintProperty('physical-lakes','fill-opacity',fine?['interpolate',['linear'],['zoom'],1,.25,3,.8,7,.8,8,0]:['interpolate',['linear'],['zoom'],1,.25,3,.8]);
+  this.map.setPaintProperty('physical-lakes','fill-opacity',this.lakes?.ready&&this.lakes.enabled?0:fine?['interpolate',['linear'],['zoom'],1,.25,3,.8,7,.8,8,0]:['interpolate',['linear'],['zoom'],1,.25,3,.8]);
  }
 }

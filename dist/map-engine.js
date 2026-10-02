@@ -1,5 +1,5 @@
-import {Geography} from './geography.js?v=3.0.0-7a49737b7ed7';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=3.0.0-7a49737b7ed7';
+import {Geography} from './geography.js?v=3.1.0-45b670115122';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=3.1.0-45b670115122';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
@@ -71,7 +71,7 @@ export class AtlasMap{
   finally{if(this.highRequest===seq)this.highRequest=null;}
  }
  refreshLabels(){
-  this.labels.forEach(m=>m.remove());this.labels=[];this.labelBoxes=[];
+  this.labels.forEach(m=>m.remove());this.labels=[];this.labelBoxes=[];this.geography?.lakes?.refreshLabels();
   if(!this.showLabels||!this.showBorders||this.destroyed){this.places?.refresh();return;}
   const bounds=this.map.getBounds(),zoom=this.map.getZoom(),placed=[];
   const origin=this.map.getContainer().getBoundingClientRect();
@@ -115,5 +115,5 @@ export class AtlasMap{
  fly(lon,lat,zoom=2.6){this.map.flyTo({center:[lon,lat],zoom:Math.min(13,zoom),duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:650,essential:false});}
  reset(){this.map.flyTo({center:[25,18],zoom:this.map.getProjection().type==='globe'?worldZoom(this.map.getContainer()):.6,duration:650});}
  projection(globe){this.map.setProjection({type:globe?'globe':'mercator'});}
- destroy(){this.destroyed=true;this.places?.destroy();this.markers.forEach(m=>m.remove());this.labels.forEach(m=>m.remove());this.map.remove();}
+ destroy(){this.destroyed=true;this.geography?.lakes?.destroy();this.places?.destroy();this.markers.forEach(m=>m.remove());this.labels.forEach(m=>m.remove());this.map.remove();}
 }
