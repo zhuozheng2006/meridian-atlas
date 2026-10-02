@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-7f761edc12c7';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-7f761edc12c7';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-7f761edc12c7';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-7f761edc12c7';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-7f761edc12c7';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-7f761edc12c7';
-import {BattleLayer} from './battles.js?v=3.10.0-7f761edc12c7';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-7f761edc12c7';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-7f761edc12c7';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-7f761edc12c7';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-0601e1f7044e';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-0601e1f7044e';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-0601e1f7044e';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-0601e1f7044e';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-0601e1f7044e';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-0601e1f7044e';
+import {BattleLayer} from './battles.js?v=3.10.0-0601e1f7044e';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-0601e1f7044e';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-0601e1f7044e';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-0601e1f7044e';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -242,7 +242,17 @@ function installMapExport(){
  paint();tools.append(toggle);
  }catch{/* Export is optional: never let it break the rest of the bindings. */}
 }
-function bind(){bindLayers();const cancelCamera=e=>{if(e.target.closest?.('.maplibregl-canvas,.maplibregl-ctrl-zoom-in,.maplibregl-ctrl-zoom-out'))cancelBoundaryComparison();};document.addEventListener('pointerdown',cancelCamera,{passive:true});document.addEventListener('wheel',cancelCamera,{passive:true});document.addEventListener('click',cancelCamera,true);$('.skip-link').onclick=e=>{e.preventDefault();if(state.view!=='atlas')showView('atlas');$('#yearInput').focus();};let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>renderBrowse(),120);}); $('#browseBtn').onclick=()=>{state.browse=!state.browse;renderBrowse();saveURL();};$('#step').onchange=e=>{state.step=+e.target.value;saveURL();};bindTimeline({getYear:()=>pendingYear??state.year,getCompareYear:()=>pendingCompareYear??state.compareYear,getStep:()=>+$('#step').value,commit:setYear,commitCompare:setCompareYear,pause,isAtlas:()=>state.view==='atlas',isDialogOpen:()=>$('#helpDialog').open||!$('#layerPanel').hidden,closeReader:closeDetail,readerOpen:()=>!$('#detailPanel').hidden,togglePlay:()=>$('#playBtn').click(),getMap:target=>{cancelBoundaryComparison();return target.closest('#map2')?compareMap?.map:atlas?.map;}});
+function bind(){bindLayers();
+ // One keyboard entry point for search, from anywhere on the page: Cmd/Ctrl+K or
+ // a bare slash focuses the search field, but never while the reader is typing.
+ document.addEventListener('keydown',e=>{
+  if(e.defaultPrevented||e.isComposing)return;
+  const target=e.target,typing=!!target&&(target.tagName==='INPUT'||target.tagName==='TEXTAREA'||target.tagName==='SELECT'||target.isContentEditable===true);
+  const combo=(e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K');
+  if(!combo&&!(e.key==='/'&&!typing))return;
+  const field=$('#search');if(!field)return;
+  e.preventDefault();if(state.view!=='atlas')showView('atlas');field.focus();field.select();
+ });const cancelCamera=e=>{if(e.target.closest?.('.maplibregl-canvas,.maplibregl-ctrl-zoom-in,.maplibregl-ctrl-zoom-out'))cancelBoundaryComparison();};document.addEventListener('pointerdown',cancelCamera,{passive:true});document.addEventListener('wheel',cancelCamera,{passive:true});document.addEventListener('click',cancelCamera,true);$('.skip-link').onclick=e=>{e.preventDefault();if(state.view!=='atlas')showView('atlas');$('#yearInput').focus();};let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>renderBrowse(),120);}); $('#browseBtn').onclick=()=>{state.browse=!state.browse;renderBrowse();saveURL();};$('#step').onchange=e=>{state.step=+e.target.value;saveURL();};bindTimeline({getYear:()=>pendingYear??state.year,getCompareYear:()=>pendingCompareYear??state.compareYear,getStep:()=>+$('#step').value,commit:setYear,commitCompare:setCompareYear,pause,isAtlas:()=>state.view==='atlas',isDialogOpen:()=>$('#helpDialog').open||!$('#layerPanel').hidden,closeReader:closeDetail,readerOpen:()=>!$('#detailPanel').hidden,togglePlay:()=>$('#playBtn').click(),getMap:target=>{cancelBoundaryComparison();return target.closest('#map2')?compareMap?.map:atlas?.map;}});
  $('#prevYear').onclick=()=>{pause();setYear(stepYear(pendingYear??state.year,-(+$('#step').value)));};$('#nextYear').onclick=()=>{pause();setYear(stepYear(pendingYear??state.year,+$('#step').value));};
  let debounce;$('#yearSlider').oninput=e=>{pause();const y=unscaled(+e.target.value);$('#yearInput').value=y;$('#yearSlider').setAttribute('aria-valuetext',yr(y));clearTimeout(debounce);debounce=setTimeout(()=>setYear(y),160);};$('#yearSlider').onchange=e=>{clearTimeout(debounce);setYear(unscaled(+e.target.value));};
  $('#language').onchange=e=>{state.lang=e.target.value;renderLanguage();setYear(state.year);if(compareMap)setCompareYear(state.compareYear);if(state.selected)renderEventDetail(state.selected);if(state.selectedPlace)renderPlaceDetail(state.selectedPlace,{keepFocus:true});if(state.selectedPolity)openPolity(state.selectedPolity,state.selectedSide==='right'&&compareMap?compareMap:atlas,{keepView:true});if(state.view!=='atlas')showView(state.view);};$('#search').oninput=e=>{state.search=e.target.value;$('#eventList').setAttribute('aria-busy','true');clearTimeout(bind.searchTimer);bind.searchTimer=setTimeout(()=>{renderEvents();saveURL();},100);};for(const [id,key]of [['region','region'],['category','category']])$('#'+id).onchange=e=>{state[key]=e.target.value;renderEvents();saveURL();};$('#window').onchange=e=>{state.span=+e.target.value;renderEvents();saveURL();};$('#nearBtn').onclick=()=>{state.allTime=false;renderYear();renderEvents();};$('#allBtn').onclick=()=>{state.allTime=true;renderYear();renderEvents();};$('#playBtn').onclick=()=>{if(playing)pause();else{playing=true;$('#playBtn').textContent='Ⅱ';$('#playBtn').setAttribute('aria-label',text('暂停','Pause'));playTick();}};
