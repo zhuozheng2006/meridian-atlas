@@ -9,11 +9,11 @@
 | [Phersu Atlas](https://www.phersu-atlas.com/) | 按年代阅读历史地理 | 年份输入、边界变化跳转、两年对照；未复制其数据库，也未承诺日级重建 |
 | [Running Reality](https://www.runningreality.org/) | 把历史放进时间和空间 | 地图事件定位、区域与主题筛选；当前没有战役部队移动模拟 |
 | [HistoryMaps](https://history-maps.com/timeline) | 从事件进入连续历史叙事 | 12条专题阅读线索与完整双语事件详情；路线只是阅读顺序 |
-| [OpenHistoricalMap](https://www.openhistoricalmap.org/) | 来源透明、可持续补充的历史地理 | 导出、固定版本、审计说明、可复现处理；当前没有在线社区编辑或街道级历史图层 |
+| [OpenHistoricalMap](https://www.openhistoricalmap.org/) | 来源透明、可持续补充的历史地理 | 带日期筛选的地区区划与历史街区图层、来源档案和可复现处理；在线社区编辑仍通过原项目进行 |
 
 地图引擎采用 [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js)，底图采用 [Natural Earth](https://www.naturalearthdata.com/)。许可见项目 ATTRIBUTIONS.md。
 
-本版的“完整”指可启动、可部署、可读、可检索、可导出的应用交付；内容是全球通史精选集，不能等同于穷尽所有事件、地区与年度的权威百科。提高历史精度需要持续的领域校审，而非仅扩大条目数。
+当前应用已支持启动、部署、阅读、检索和导出；内容覆盖仍按地区、时期与主题分别审查。通史资料的完整性与历史精度继续作为项目目标，依据新增来源、时期核验和具体覆盖统计推进。
 
 
 ## 2.0 阅读与交互改版（2026-10-02）

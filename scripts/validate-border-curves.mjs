@@ -46,9 +46,9 @@ test('Narrow spaces and nonincident edge contacts remain protected',()=>{
 const mapFile=fileURLToPath(new URL('../public/map-engine.js',import.meta.url));
 const revision=fs.readFileSync(mapFile,'utf8').match(/\?v=[a-zA-Z0-9.-]+/)?.[0]||'';
 const {AtlasMap}=await import(pathToFileURL(mapFile).href+revision);
-test('Switch restores exact source; all fill, line and selection use one displayed source',()=>{
- const frames=[],atlas=Object.create(AtlasMap.prototype);Object.assign(atlas,{smoothBorders:true,boundaries:{isCountry:false},map:{getSource(id){assert.equal(id,'polities');return {setData(data){frames.push(data);}};}}});
- atlas.displayTerritories(input);assert.notDeepEqual(frames.at(-1),input);atlas.setBorderCurves(false);assert.equal(frames.at(-1),input);atlas.setBorderCurves(true);assert.deepEqual(frames.at(-1),result);
- atlas.boundaries.isCountry=true;atlas.displayTerritories(input);assert.equal(frames.at(-1),input,'CShapes must retain original geometry');
+test('Switch restores exact source; fill and selection keep the same displayed polygons',()=>{
+ const frames=[],atlas=Object.create(AtlasMap.prototype);Object.assign(atlas,{smoothBorders:true,boundaries:{isCountry:false},map:{getSource(id){assert.equal(id,'polities');return {setData(data){assert.equal(data.features.filter(f=>f.properties._atlasBoundaryLine).length,1);frames.push({...data,features:data.features.filter(f=>!f.properties._atlasBoundaryLine)});}};}}});
+ atlas.displayTerritories(input);assert.notDeepEqual(frames.at(-1),input);atlas.setBorderCurves(false);assert.deepEqual(frames.at(-1),input);atlas.setBorderCurves(true);assert.deepEqual(frames.at(-1),result);
+ atlas.boundaries.isCountry=true;atlas.displayTerritories(input);assert.deepEqual(frames.at(-1),input,'CShapes must retain original geometry');
 });
 console.log(`${count}/${count} border portrayal checks passed`);

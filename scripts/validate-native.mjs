@@ -187,7 +187,7 @@ if(!process.argv.includes('--case')){
  const subject=(records=[])=>{
   const instance=Object.create(AtlasMap.prototype);const frames=[];
   Object.assign(instance,{request:1,active:records,year:1666,catalog,geometryKey:'o',ready:Promise.resolve(),lang:'bi',destroyed:false,frames,
-   map:{setPaintProperty(){},getSource:id=>{assert.equal(id,'polities');return {setData:data=>frames.push(data)};}},
+   map:{setPaintProperty(){},getSource:id=>{assert.equal(id,'polities');return {setData:data=>frames.push({...data,features:data.features.filter(f=>!f.properties._atlasBoundaryLine)})};}},
    upgradeLand(){},refreshLabels(){}});
   instance.boundaries=new BoundaryController(instance,{mode:'auto',color});
   return instance;

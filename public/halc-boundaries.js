@@ -1,5 +1,6 @@
-import {readJSON} from './map-engine.js?v=3.9.2-2ba2437fa3b9';
-import {HalcRegions} from './halc-regions.js?v=3.9.2-2ba2437fa3b9';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.9.3-76012876eda1';
+import {readJSON} from './map-engine.js?v=3.9.3-76012876eda1';
+import {HalcRegions} from './halc-regions.js?v=3.9.3-76012876eda1';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -155,6 +156,8 @@ export class HalcBoundaries{
    if(kind==='record'){
     const dl=make('dl');row(dl,'资料年份','Snapshot year','1500');row(dl,'原始地名','Source place name',r.NAME);row(dl,'最高层级归属','Highest-level attribution',halcMembership(r.ADM0,'ADM0',dict,lang));row(dl,'领地区域','Territorial region',halcMembership(r.ADM1,'ADM1',dict,lang));row(dl,'区划性质','Unit type',label(dict.TYPE[String(r.TYPE)],lang));row(dl,'图形面积','Polygon area',Number.isFinite(r.KM2)?new Intl.NumberFormat(lang==='en'?'en':'zh-CN',{maximumFractionDigits:4}).format(r.KM2)+' km²':null);row(dl,'高等司法权','High jurisdiction',r.HIGH_JURISD);row(dl,'中等司法权','Middle jurisdiction',r.MID_JURISD);row(dl,'低等司法权','Low jurisdiction',r.LOW_JURISD);row(dl,'总教区','Archdiocese',r.ARCH_DIOC);row(dl,'教区','Diocese',r.DIOCESE);row(dl,'别名','Alternative names',r.NAME_ALT);row(dl,'原始备注','Source remarks',r.REMARKS);panel.append(dl);
     if(r.NAME_EXT){const note=make('details');note.append(make('summary',translate('原始细分说明','Source subdivision note')),make('p',r.NAME_EXT),make('p',label(dict.ui.nameExtCaption,lang),'historical-credit'));panel.append(note);}
+   }else if(kind==='environment'){
+    renderHalcLandscape(panel,r,lang);
    }else if(kind==='sources'){
     panel.append(make('h4',translate('边界重建依据','Boundary reconstruction basis')),make('p',label(dict.QUALITY[String(r.QUALITY)],lang)||String(r.QUALITY)));
     const list=make('ul',null,'halc-citations');for(const code of String(r.SOURCE||'').split(';').filter(Boolean)){const entry=bibliography[code],item=make('li');item.append(make('p',entry?.citation||code));for(const [i,url]of (entry?.urls||[]).entries())link(item,translate('查阅','Open')+(i?' '+(i+1):''),url);list.append(item);}if(!r.SOURCE)panel.append(make('p',label(dict.ui.noSource,lang)));else panel.append(list);
@@ -165,7 +168,7 @@ export class HalcBoundaries{
     const download=make('button',translate('下载原始字段','Download original attributes'),'regional-dossier');download.onclick=()=>{const content={dataset:'HALC v15',source:SOURCE_URL,license:'CC BY-SA 4.0',snapshotYear:1500,record:r},url=URL.createObjectURL(new Blob([JSON.stringify(content,null,2)],{type:'application/json'})),a=make('a');a.href=url;a.download='HALC-1500-'+r.SHORT_ID+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};panel.append(download);const links=make('div',null,'historical-source-links');link(links,translate('完整原始几何','Complete source geometry'),'https://dataverse.nl/api/access/datafile/639014');panel.append(links);
    }
   };
-  for(const [key,zh,en]of [['record','区划资料','Record'],['sources','重建与来源','Sources'],['raw','原始字段','Original fields']]){const b=make('button',translate(zh,en));b.dataset.tab=key;b.id='halc-tab-'+this.atlas.container+'-'+r.fid+'-'+key;b.setAttribute('role','tab');b.setAttribute('aria-controls',panel.id);b.onclick=()=>show(key);b.onkeydown=e=>{const buttons=[...tabs.children],i=buttons.indexOf(b);let target;if(e.key==='ArrowRight')target=buttons[(i+1)%buttons.length];if(e.key==='ArrowLeft')target=buttons[(i+buttons.length-1)%buttons.length];if(e.key==='Home')target=buttons[0];if(e.key==='End')target=buttons.at(-1);if(target){e.preventDefault();e.stopPropagation();target.click();target.focus();}};tabs.append(b);}node.append(tabs,panel);show('record');
+  for(const [key,zh,en]of [['record','区划资料','Record'],['environment','地理环境','Environment'],['sources','来源依据','Sources'],['raw','原始字段','Original fields']]){const b=make('button',translate(zh,en));b.dataset.tab=key;b.id='halc-tab-'+this.atlas.container+'-'+r.fid+'-'+key;b.setAttribute('role','tab');b.setAttribute('aria-controls',panel.id);b.onclick=()=>show(key);b.onkeydown=e=>{const buttons=[...tabs.children],i=buttons.indexOf(b);let target;if(e.key==='ArrowRight')target=buttons[(i+1)%buttons.length];if(e.key==='ArrowLeft')target=buttons[(i+buttons.length-1)%buttons.length];if(e.key==='Home')target=buttons[0];if(e.key==='End')target=buttons.at(-1);if(target){e.preventDefault();e.stopPropagation();target.click();target.focus();}};tabs.append(b);}node.append(tabs,panel);show('record');
  }
  retryRegions(){this.regions.retry();this.regions.ensure();this.visibilityKey=null;this.visibility();this.refreshLabels();this.notify();}
  retry(){this.clearSelection();this.regions.retry();this.failed=false;this.lastError=null;this.visibilityKey=null;this.scanKey=null;this.sourceEpoch++;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}

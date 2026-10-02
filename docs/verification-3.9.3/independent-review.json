@@ -1,0 +1,33 @@
+{
+  "reviewedAt": "2026-10-02T17:25:57.191373+00:00",
+  "release": "3.9.3",
+  "scope": "Final read-only review requested by root: exact mesh, single source frame, synthetic click isolation, raw/curved toggle, source preservation and refinement document consistency. No additional data research or checkout changes.",
+  "releaseBlockers": [],
+  "result": "No actual release-blocking issue found within the requested scope.",
+  "hashes": {
+    "public/boundary-mesh.js": "df9e5a9351f05dc9b80a476918b6f09edca7eca5e68e5db4e61d7c80431af502",
+    "public/map-engine.js": "a00f5806522c3654661c703f724e4991513cbec274040a776565a99652b6ea6a",
+    "public/border-curves.js": "f26baea5f62967af4945cf54b088b38e9450aab2afe7e2620574f562236ffcc4",
+    "public/boundary-controller.js": "1bf98c6be5513023d2412637cec0bf5484481adb377e821dc771c660c4272bd0",
+    "public/polity-places.js": "a4d24a37514f9461d4a01b5de940793ff6f831b0b9760fbb2c31a18640b90370",
+    "docs/BOUNDARY-REFINEMENT-3.9.3.md": "6595395c74fd16e192718a053e4b05772f16ff8caba3c64f25aecd64b94e104f"
+  },
+  "verification": {
+    "actualCheckoutMeshAndDisplayTests": {
+      "passed": 20,
+      "total": 20,
+      "report": "final-mesh-validation.json"
+    },
+    "actualConstructorStyleCapture": "Passed: territories filters geometry-type Polygon; boundary filters _atlasBoundaryLine=true; both reference the same polities source. Constructor captured directly without creating WebGL.",
+    "selectionIsolation": "Passed: actual selectPolity/selectBoundary retain id filters, synthetic line has no id; click handler is bound only to territories, so the helper line cannot produce a polity click.",
+    "atomicFrame": "One setData call contains current display polygon features and their derived line feature. There is no separately updated line GeoJSON source.",
+    "rawAndCurved": "rawTerritories keeps the pre-augmentation source collection; softening and mesh do not mutate it; repeated raw/soft switches do not accumulate line features. Selection remains the per-record polygon geometry corresponding to the displayed soft/raw state.",
+    "sourceGeometry": "All original unique undirected segments are preserved exactly by mesh; reversal, junctions, closed/open rings, holes/islands, full 1500 native/softened frames and antimeridian input tests passed. Different subdivisions remain unmerged.",
+    "archivesAndCities": "BoundaryController.current.data retains original frame features rather than augmented map source features; source download and native city containment use the original archive geometry.",
+    "document": "BOUNDARY-REFINEMENT-3.9.3.md accurately describes exact coincident-line deduplication, degree-two joins, non-snapping, common fill/line portrayal, CShapes scope, independent source comparison and no added historical precision. Its original-polity-face wording refers to retained polygon features, not a claim that display softening is disabled."
+  },
+  "limits": [
+    "No independent browser/GPU pixel comparison in this final pass; root is performing browser visual and interaction QA.",
+    "Only actual release blockers were requested; no optional style or data suggestions included."
+  ]
+}

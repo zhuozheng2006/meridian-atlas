@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-02T17:25:07.643Z",
+  "moduleSha256": "df9e5a9351f05dc9b80a476918b6f09edca7eca5e68e5db4e61d7c80431af502",
+  "borderCurvesSha256": "f26baea5f62967af4945cf54b088b38e9450aab2afe7e2620574f562236ffcc4",
+  "mapEngineSha256": "a00f5806522c3654661c703f724e4991513cbec274040a776565a99652b6ea6a",
+  "passed": 20,
+  "total": 20,
+  "cases": [
+    {
+      "name": "One polygon remains one exactly closed cycle",
+      "pass": true
+    },
+    {
+      "name": "Reversed coincident polygons draw each edge only once",
+      "pass": true
+    },
+    {
+      "name": "Adjacent polygons join degree-two runs and stop at degree-three junctions",
+      "pass": true
+    },
+    {
+      "name": "T-junction does not gain a connecting chord",
+      "pass": true,
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "MultiLineString",
+            "coordinates": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ]
+              ],
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Different subdivisions are not snapped, split or inferred equivalent",
+      "pass": true
+    },
+    {
+      "name": "Almost equal coordinates remain separate",
+      "pass": true
+    },
+    {
+      "name": "Open source rings are not silently closed",
+      "pass": true
+    },
+    {
+      "name": "Holes and disconnected MultiPolygon islands are retained",
+      "pass": true
+    },
+    {
+      "name": "Antimeridian input segments retain exact endpoints and longitude values",
+      "pass": true
+    },
+    {
+      "name": "Degenerate segments remain once without interrupting real runs",
+      "pass": true
+    },
+    {
+      "name": "Coordinate dimensions are retained and participate in exact identity",
+      "pass": true
+    },
+    {
+      "name": "Empty/nonpolygon geometry produces an empty network",
+      "pass": true
+    },
+    {
+      "name": "Invalid numerical positions fail explicitly rather than inventing a boundary",
+      "pass": true
+    },
+    {
+      "name": "Output positions do not alias mutable original positions",
+      "pass": true
+    },
+    {
+      "name": "Actual displayTerritories commits polygon fill and deduplicated boundary mesh in one source frame",
+      "pass": true
+    },
+    {
+      "name": "Actual softened fill and mesh use exactly the same derived segment set",
+      "pass": true
+    },
+    {
+      "name": "Actual raw/soft toggle always rebuilds from raw polygons without accumulating synthetic features",
+      "pass": true
+    },
+    {
+      "name": "Actual CShapes path keeps original polygon rings and stroke multiplicity",
+      "pass": true
+    },
+    {
+      "name": "Actual 1500 native: exact segment set, once-only mesh, source immutability and order independence",
+      "pass": true,
+      "millisecondsIncludingAssertions": 30.68154100000001,
+      "globalPaths": 781,
+      "box": [
+        5,
+        45,
+        14,
+        50
+      ],
+      "polygonSegmentDraws": 1520,
+      "meshSegmentDraws": 534,
+      "uniqueSegments": 534,
+      "repeatedMeshSegments": 0,
+      "sourceRecordCount": 137
+    },
+    {
+      "name": "Actual 1500 curved: exact segment set, once-only mesh, source immutability and order independence",
+      "pass": true,
+      "millisecondsIncludingAssertions": 692.090958,
+      "globalPaths": 781,
+      "box": [
+        5,
+        45,
+        14,
+        50
+      ],
+      "polygonSegmentDraws": 25146,
+      "meshSegmentDraws": 8499,
+      "uniqueSegments": 8499,
+      "repeatedMeshSegments": 0,
+      "sourceRecordCount": 137
+    }
+  ]
+}

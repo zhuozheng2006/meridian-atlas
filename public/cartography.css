@@ -106,8 +106,8 @@
 .place-name-history{padding:0;list-style:none;margin:12px 0}.place-name-history li{display:grid;grid-template-columns:minmax(90px,1fr) 1fr;gap:4px 16px;padding:10px 0;border-bottom:1px solid #c9b99520}.place-name-history span{font-size:12px;color:var(--muted);line-height:1.6}.place-name-history b{font-size:14px;font-weight:400}.place-name-history small{grid-column:2;color:var(--muted)}
 
 /* HALC local dossiers. */
-.halc-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;border-bottom:1px solid #c4b28444;margin:14px 0 16px}
-.halc-tabs button{min-height:44px;padding:8px 4px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:#b9c4c5;font:14px/1.4 var(--body);cursor:pointer}
+.halc-tabs{display:flex;overflow-x:auto;scrollbar-width:thin;gap:4px;border-bottom:1px solid #c4b28444;margin:14px 0 16px}
+.halc-tabs button{flex:1 0 auto;white-space:nowrap;min-height:44px;padding:8px 5px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:#b9c4c5;font:13px/1.4 var(--body);cursor:pointer}
 .halc-tabs button[aria-selected=true]{border-bottom-color:#dabb7a;color:#f0dfb6;background:#cbb5780c}
 .halc-tabs button:focus-visible,.halc-record-body:focus-visible{outline:2px solid #dabb7a;outline-offset:2px}
 .halc-record-body{min-width:0;overflow-wrap:anywhere}
@@ -121,3 +121,37 @@
 
 .regional-popup:not(.regional-index){left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;width:min(350px,calc(100% - 28px))}.regional-popup:not(.regional-index) .maplibregl-popup-tip{display:none}.regional-popup:not(.regional-index) .maplibregl-popup-content{max-height:min(520px,var(--regional-panel-height,60dvh));width:100%}
 @media(min-width:761px){.regional-popup:not(.regional-index){left:auto!important;right:64px;width:min(350px,calc(100% - 80px));transform:translateY(-50%)!important}}
+
+.halc-environment h4{margin:8px 0 10px;font:18px/1.4 var(--serif)}
+.halc-environment .halc-environment-summary{color:#e2d3b4;font-size:14px;margin:8px 0}
+.halc-environment .halc-environment-caption{font-size:12px;line-height:1.6;color:#aebdbd}
+.halc-environment-en{display:block;font-size:.82em;line-height:1.5;color:#acbabd;margin-top:3px}
+.halc-environment-stack{display:flex;height:12px;border-radius:3px;overflow:hidden;background:#ffffff0a;margin:16px 0}
+.halc-environment-stack>span{display:block;flex-shrink:0;background:var(--landscape-color)}
+.halc-environment-areas{list-style:none;padding:0;margin:0}
+.halc-environment-area{display:grid;grid-template-columns:9px minmax(0,1fr) auto;gap:9px;align-items:start;padding:10px 0;border-bottom:1px solid #b6baad18}
+.halc-environment-swatch{width:8px;height:8px;border-radius:2px;margin-top:6px;background:var(--landscape-color)}
+.halc-environment-label{font-size:13px;line-height:1.5}
+.halc-environment-label small{display:block;font-size:11px;line-height:1.5;color:#aebdbd;margin-top:2px}
+.halc-environment-amount{font-size:12px;line-height:1.5;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.halc-environment-percent{display:block;color:#aebdbd;font-size:11px;margin-top:2px}
+.halc-environment-area[data-value-state=missing] .halc-environment-swatch,.halc-environment-area[data-value-state=invalid] .halc-environment-swatch{background:transparent;border:1px solid #899c9c}
+.halc-environment-urban{margin-top:24px}
+.halc-environment .halc-environment-urban-title{color:#e5d5b7;margin-bottom:4px}
+.halc-environment-source{margin-top:18px;border-top:1px solid #b6baad30}
+.halc-environment-source p,.halc-environment-source li{font-size:12px;line-height:1.7}
+.halc-environment-source a{display:inline-block;padding:8px 0;color:#dfbf80}
+
+/* Keep both source maps readable on a narrow screen. */
+@media(max-width:600px){
+ .comparing #map{right:0;bottom:50%}
+ .comparing #map2{left:0;top:50%;border-left:0;border-top:1px solid #dfbd7399}
+ .comparing .compare-heading{left:12px;top:calc(50% + 8px)}
+ .comparing .map-heading{left:12px;top:8px;max-width:calc(100% - 150px);padding:10px 14px}
+ .comparing .map-heading strong{font-size:24px;margin:0 0 5px}
+ .comparing .map-heading #mapEra{font-size:9px;max-width:180px}
+ .comparing .map-heading:after{display:none}
+ .comparing .map-tools{top:8px;right:10px;bottom:auto;flex-direction:row;padding:3px}
+ .comparing .map-tools button{font-size:11px;min-height:34px;padding:5px 7px}
+ .comparing .map-legend{left:12px;bottom:calc(50% + 8px);font-size:9px}
+}
