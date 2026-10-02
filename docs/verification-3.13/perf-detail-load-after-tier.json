@@ -1,0 +1,4544 @@
+{
+  "report": "perf-detail-load.mjs",
+  "generatedAt": "2026-10-02T22:06:34.434Z",
+  "command": "node scripts/verification/perf-detail-load.mjs --label after-tier --url http://127.0.0.1:8769 --profiles=unthrottled,slow-4g-1.6mbps --kinds=zoom3 --append",
+  "target": {
+    "url": "http://127.0.0.1:8769",
+    "viewport": {
+      "width": 1400,
+      "height": 900
+    }
+  },
+  "meta": {
+    "provenance": {
+      "gitHead": "da6f4ef1e2264ab850876f193df3aa84c91f47aa",
+      "dirtyPaths": [
+        "M docs/verification-3.11/ohm-frozen-verification.md",
+        " M public/geography.js",
+        " M public/regional-boundaries.js",
+        "?? docs/verification-3.13/ohm-eastasia.md",
+        "?? docs/verification-3.13/perf-detail-load-before-tier.json",
+        "?? docs/verification-3.13/perf-detail-load-round4-mobile.json",
+        "?? docs/verification-3.13/shots/",
+        "?? editorial/battles-wikidata-source.json",
+        "?? public/data/battles.json",
+        "?? public/data/battles.json.gz",
+        "?? scripts/places/build-battles.mjs",
+        "?? scripts/places/fetch-wikidata-events.mjs",
+        "?? scripts/places/validate-battles.mjs"
+      ],
+      "assetVersion": "3.10.0-bedf722e4358",
+      "files": {
+        "public/index.html": "8a49f79ca9b7a420",
+        "public/app.js": "e3108c64a1e5fa3d",
+        "public/map-engine.js": "12bf89c25f70b2b2",
+        "public/timeline-controls.js": "b3954150517b0a12",
+        "public/view-state.js": "1b57cdfe210a7322",
+        "public/style.css": "95f5e8ac64efeda8",
+        "public/product.css": "2631908c806f7e1e",
+        "public/cartography.css": "a7977d34d3e62c2b",
+        "public/boundary-controller.js": "96902b354183666c",
+        "public/regional-boundaries.js": "a71d070d4db4aff4",
+        "public/geography.js": "87b34e95417bb9ef"
+      },
+      "node": "v26.7.0",
+      "platform": "darwin",
+      "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+    }
+  },
+  "checks": [],
+  "limitations": [],
+  "notes": [],
+  "label": "after-tier",
+  "device": "desktop",
+  "systemAtStart": {
+    "loadavg": [
+      6.48,
+      7.63,
+      7.03
+    ],
+    "chromeProcesses": 25,
+    "cpus": 18
+  },
+  "runs": [
+    {
+      "profile": "unthrottled",
+      "scenario": "zoom3-1450",
+      "firstFrameMs": 5073,
+      "physicalBytesAtFirstFrame": 733574,
+      "zoom3SettleMs": 11263,
+      "physicalBytesAfterZoom3": 2502268,
+      "physicalBytesForZoom3": 1768694,
+      "stateAfterZoom3": {
+        "ms": 11263,
+        "zoom": 3,
+        "year": 1450,
+        "geometryKeyTail": "nn",
+        "nativeComplete": true,
+        "geographyStatus": "local",
+        "localLoaded": [
+          "land-overview",
+          "ocean-overview",
+          "water-overview",
+          "land"
+        ],
+        "terrainReady": false,
+        "lakesStatus": "overview",
+        "lakesCount": 0,
+        "regionalStatus": "zoom",
+        "ohmState": "idle",
+        "regionalFeatures": 0,
+        "places": 24,
+        "sources": {
+          "polities": true,
+          "land": true,
+          "physicalLakes": true,
+          "physicalRivers": true,
+          "lakeDetail": true,
+          "reference": null,
+          "terrain": null
+        },
+        "features": {
+          "land": 140,
+          "physicalLakes": 143,
+          "lakeDetail": 0,
+          "ohm": null
+        }
+      },
+      "zoom3Samples": 9,
+      "physicalFiles": {
+        "1.webp": 565274,
+        "2.webp": 1099200,
+        "0.webp": 241086,
+        "3.webp": 569028,
+        "4.webp": 27680
+      },
+      "requests": 218,
+      "connections": 14,
+      "collected": {
+        "wallMs": 17056,
+        "nav": {
+          "responseStart": 1,
+          "responseEnd": 2,
+          "domContentLoaded": 29,
+          "loadEvent": 46,
+          "paints": [
+            [
+              "first-paint",
+              2676
+            ],
+            [
+              "first-contentful-paint",
+              2676
+            ]
+          ]
+        },
+        "fetches": [
+          {
+            "url": "fast/catalog.json.gz",
+            "full": "data/fast/catalog.json.gz",
+            "start": 28,
+            "end": 46,
+            "status": 200,
+            "bytes": 602739
+          },
+          {
+            "url": "data/events.json.gz",
+            "full": "data/events.json.gz",
+            "start": 29,
+            "end": 47,
+            "status": 200,
+            "bytes": 244567
+          },
+          {
+            "url": "data/coverage.json",
+            "full": "data/coverage.json",
+            "start": 64,
+            "end": 1171,
+            "status": 200,
+            "bytes": 15654
+          },
+          {
+            "url": "data/land-50m.json.gz",
+            "full": "data/land-50m.json.gz",
+            "start": 3403,
+            "end": 3407,
+            "status": 200,
+            "bytes": 527552
+          },
+          {
+            "url": "physical/modern-ocean-mask-overview.json.gz",
+            "full": "data/physical/modern-ocean-mask-overview.json.gz",
+            "start": 3404,
+            "end": 3407,
+            "status": 200,
+            "bytes": 736287
+          },
+          {
+            "url": "physical/physical-overview.json.gz",
+            "full": "data/physical/physical-overview.json.gz",
+            "start": 3404,
+            "end": 3407,
+            "status": 200,
+            "bytes": 137909
+          },
+          {
+            "url": "fast/overview-010.json.gz",
+            "full": "data/fast/overview-010.json.gz",
+            "start": 3406,
+            "end": 3413,
+            "status": 200,
+            "bytes": 425460
+          },
+          {
+            "url": "fast/overview-002.json.gz",
+            "full": "data/fast/overview-002.json.gz",
+            "start": 3406,
+            "end": 3413,
+            "status": 200,
+            "bytes": 424857
+          },
+          {
+            "url": "fast/overview-004.json.gz",
+            "full": "data/fast/overview-004.json.gz",
+            "start": 3406,
+            "end": 3413,
+            "status": 200,
+            "bytes": 385489
+          },
+          {
+            "url": "fast/overview-006.json.gz",
+            "full": "data/fast/overview-006.json.gz",
+            "start": 3406,
+            "end": 3413,
+            "status": 200,
+            "bytes": 372561
+          },
+          {
+            "url": "fast/overview-008.json.gz",
+            "full": "data/fast/overview-008.json.gz",
+            "start": 3406,
+            "end": 3413,
+            "status": 200,
+            "bytes": 431588
+          },
+          {
+            "url": "fast/overview-009.json.gz",
+            "full": "data/fast/overview-009.json.gz",
+            "start": 3406,
+            "end": 3414,
+            "status": 200,
+            "bytes": 465723
+          },
+          {
+            "url": "fast/overview-007.json.gz",
+            "full": "data/fast/overview-007.json.gz",
+            "start": 3406,
+            "end": 3414,
+            "status": 200,
+            "bytes": 424778
+          },
+          {
+            "url": "2/1.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/2/1.webp",
+            "start": 3408,
+            "end": 3414,
+            "status": 200,
+            "bytes": 182770
+          },
+          {
+            "url": "2/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/2/2.webp",
+            "start": 3409,
+            "end": 3416,
+            "status": 200,
+            "bytes": 27522
+          },
+          {
+            "url": "1/1.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/1/1.webp",
+            "start": 3409,
+            "end": 3416,
+            "status": 200,
+            "bytes": 69126
+          },
+          {
+            "url": "1/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/1/2.webp",
+            "start": 3409,
+            "end": 3416,
+            "status": 200,
+            "bytes": 43610
+          },
+          {
+            "url": "3/1.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/3/1.webp",
+            "start": 3409,
+            "end": 3423,
+            "status": 200,
+            "bytes": 132890
+          },
+          {
+            "url": "2/0.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/2/0.webp",
+            "start": 3409,
+            "end": 3427,
+            "status": 200,
+            "bytes": 39132
+          },
+          {
+            "url": "1/0.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/1/0.webp",
+            "start": 3409,
+            "end": 3427,
+            "status": 200,
+            "bytes": 99382
+          },
+          {
+            "url": "3/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/3/2.webp",
+            "start": 3409,
+            "end": 3427,
+            "status": 200,
+            "bytes": 36570
+          },
+          {
+            "url": "3/0.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/3/0.webp",
+            "start": 3409,
+            "end": 3427,
+            "status": 200,
+            "bytes": 58558
+          },
+          {
+            "url": "0/0.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/2/0/0.webp",
+            "start": 3409,
+            "end": 3427,
+            "status": 200,
+            "bytes": 44014
+          },
+          {
+            "url": "native/index.json.gz",
+            "full": "data/native/index.json.gz",
+            "start": 3777,
+            "end": 3801,
+            "status": 200,
+            "bytes": 118419
+          },
+          {
+            "url": "places/historical-capitals.json.gz",
+            "full": "data/places/historical-capitals.json.gz",
+            "start": 3784,
+            "end": 3802,
+            "status": 200,
+            "bytes": 55637
+          },
+          {
+            "url": "places/historical-settlements-index.json.gz",
+            "full": "data/places/historical-settlements-index.json.gz",
+            "start": 3784,
+            "end": 3802,
+            "status": 200,
+            "bytes": 629588
+          },
+          {
+            "url": "places/attested-places.json.gz",
+            "full": "data/places/attested-places.json.gz",
+            "start": 3784,
+            "end": 3802,
+            "status": 200,
+            "bytes": 21966
+          },
+          {
+            "url": "places/urban-observations.json.gz",
+            "full": "data/places/urban-observations.json.gz",
+            "start": 3784,
+            "end": 3802,
+            "status": 200,
+            "bytes": 132325
+          },
+          {
+            "url": "005/ng05932.json.gz",
+            "full": "data/native/geos/005/ng05932.json.gz",
+            "start": 3836,
+            "end": 3839,
+            "status": 200,
+            "bytes": 4531
+          },
+          {
+            "url": "005/ng05912.json.gz",
+            "full": "data/native/geos/005/ng05912.json.gz",
+            "start": 3836,
+            "end": 3839,
+            "status": 200,
+            "bytes": 6647
+          },
+          {
+            "url": "005/ng05921.json.gz",
+            "full": "data/native/geos/005/ng05921.json.gz",
+            "start": 3836,
+            "end": 3839,
+            "status": 200,
+            "bytes": 7207
+          },
+          {
+            "url": "005/ng05689.json.gz",
+            "full": "data/native/geos/005/ng05689.json.gz",
+            "start": 3836,
+            "end": 3839,
+            "status": 200,
+            "bytes": 2085
+          },
+          {
+            "url": "005/ng05924.json.gz",
+            "full": "data/native/geos/005/ng05924.json.gz",
+            "start": 3836,
+            "end": 3839,
+            "status": 200,
+            "bytes": 2412
+          },
+          {
+            "url": "005/ng05904.json.gz",
+            "full": "data/native/geos/005/ng05904.json.gz",
+            "start": 3836,
+            "end": 3839,
+            "status": 200,
+            "bytes": 3860
+          },
+          {
+            "url": "005/ng05727.json.gz",
+            "full": "data/native/geos/005/ng05727.json.gz",
+            "start": 3841,
+            "end": 3842,
+            "status": 200,
+            "bytes": 4392
+          },
+          {
+            "url": "005/ng05896.json.gz",
+            "full": "data/native/geos/005/ng05896.json.gz",
+            "start": 3841,
+            "end": 3843,
+            "status": 200,
+            "bytes": 5129
+          },
+          {
+            "url": "005/ng05937.json.gz",
+            "full": "data/native/geos/005/ng05937.json.gz",
+            "start": 3841,
+            "end": 3843,
+            "status": 200,
+            "bytes": 7728
+          },
+          {
+            "url": "005/ng05933.json.gz",
+            "full": "data/native/geos/005/ng05933.json.gz",
+            "start": 3841,
+            "end": 3843,
+            "status": 200,
+            "bytes": 9552
+          },
+          {
+            "url": "005/ng05731.json.gz",
+            "full": "data/native/geos/005/ng05731.json.gz",
+            "start": 3841,
+            "end": 3843,
+            "status": 200,
+            "bytes": 2016
+          },
+          {
+            "url": "005/ng05903.json.gz",
+            "full": "data/native/geos/005/ng05903.json.gz",
+            "start": 3841,
+            "end": 3843,
+            "status": 200,
+            "bytes": 7019
+          },
+          {
+            "url": "005/ng05934.json.gz",
+            "full": "data/native/geos/005/ng05934.json.gz",
+            "start": 3844,
+            "end": 3845,
+            "status": 200,
+            "bytes": 3165
+          },
+          {
+            "url": "005/ng05631.json.gz",
+            "full": "data/native/geos/005/ng05631.json.gz",
+            "start": 3844,
+            "end": 3846,
+            "status": 200,
+            "bytes": 8259
+          },
+          {
+            "url": "005/ng05935.json.gz",
+            "full": "data/native/geos/005/ng05935.json.gz",
+            "start": 3845,
+            "end": 3846,
+            "status": 200,
+            "bytes": 2039
+          },
+          {
+            "url": "005/ng05905.json.gz",
+            "full": "data/native/geos/005/ng05905.json.gz",
+            "start": 3845,
+            "end": 3846,
+            "status": 200,
+            "bytes": 1372
+          },
+          {
+            "url": "005/ng05945.json.gz",
+            "full": "data/native/geos/005/ng05945.json.gz",
+            "start": 3845,
+            "end": 3846,
+            "status": 200,
+            "bytes": 4012
+          },
+          {
+            "url": "005/ng05927.json.gz",
+            "full": "data/native/geos/005/ng05927.json.gz",
+            "start": 3845,
+            "end": 3847,
+            "status": 200,
+            "bytes": 2484
+          },
+          {
+            "url": "005/ng05929.json.gz",
+            "full": "data/native/geos/005/ng05929.json.gz",
+            "start": 3845,
+            "end": 3847,
+            "status": 200,
+            "bytes": 4790
+          },
+          {
+            "url": "005/ng05881.json.gz",
+            "full": "data/native/geos/005/ng05881.json.gz",
+            "start": 3846,
+            "end": 3848,
+            "status": 200,
+            "bytes": 2145
+          },
+          {
+            "url": "005/ng05907.json.gz",
+            "full": "data/native/geos/005/ng05907.json.gz",
+            "start": 3847,
+            "end": 3848,
+            "status": 200,
+            "bytes": 3318
+          },
+          {
+            "url": "005/ng05720.json.gz",
+            "full": "data/native/geos/005/ng05720.json.gz",
+            "start": 3848,
+            "end": 3849,
+            "status": 200,
+            "bytes": 1899
+          },
+          {
+            "url": "005/ng05723.json.gz",
+            "full": "data/native/geos/005/ng05723.json.gz",
+            "start": 3848,
+            "end": 3849,
+            "status": 200,
+            "bytes": 1470
+          },
+          {
+            "url": "005/ng05910.json.gz",
+            "full": "data/native/geos/005/ng05910.json.gz",
+            "start": 3848,
+            "end": 3849,
+            "status": 200,
+            "bytes": 1949
+          },
+          {
+            "url": "004/ng04547.json.gz",
+            "full": "data/native/geos/004/ng04547.json.gz",
+            "start": 3848,
+            "end": 3849,
+            "status": 200,
+            "bytes": 921
+          },
+          {
+            "url": "005/ng05931.json.gz",
+            "full": "data/native/geos/005/ng05931.json.gz",
+            "start": 3849,
+            "end": 3850,
+            "status": 200,
+            "bytes": 904
+          },
+          {
+            "url": "005/ng05918.json.gz",
+            "full": "data/native/geos/005/ng05918.json.gz",
+            "start": 3850,
+            "end": 3851,
+            "status": 200,
+            "bytes": 8061
+          },
+          {
+            "url": "005/ng05879.json.gz",
+            "full": "data/native/geos/005/ng05879.json.gz",
+            "start": 3849,
+            "end": 3851,
+            "status": 200,
+            "bytes": 2037
+          },
+          {
+            "url": "005/ng05908.json.gz",
+            "full": "data/native/geos/005/ng05908.json.gz",
+            "start": 3848,
+            "end": 3851,
+            "status": 200,
+            "bytes": 1402
+          },
+          {
+            "url": "005/ng05531.json.gz",
+            "full": "data/native/geos/005/ng05531.json.gz",
+            "start": 3850,
+            "end": 3851,
+            "status": 200,
+            "bytes": 1169
+          },
+          {
+            "url": "005/ng05780.json.gz",
+            "full": "data/native/geos/005/ng05780.json.gz",
+            "start": 3850,
+            "end": 3852,
+            "status": 200,
+            "bytes": 2512
+          },
+          {
+            "url": "004/ng04249.json.gz",
+            "full": "data/native/geos/004/ng04249.json.gz",
+            "start": 3850,
+            "end": 3852,
+            "status": 200,
+            "bytes": 3422
+          },
+          {
+            "url": "005/ng05820.json.gz",
+            "full": "data/native/geos/005/ng05820.json.gz",
+            "start": 3852,
+            "end": 3852,
+            "status": 200,
+            "bytes": 1470
+          },
+          {
+            "url": "005/ng05936.json.gz",
+            "full": "data/native/geos/005/ng05936.json.gz",
+            "start": 3852,
+            "end": 3853,
+            "status": 200,
+            "bytes": 3163
+          },
+          {
+            "url": "005/ng05445.json.gz",
+            "full": "data/native/geos/005/ng05445.json.gz",
+            "start": 3852,
+            "end": 3853,
+            "status": 200,
+            "bytes": 1195
+          },
+          {
+            "url": "005/ng05898.json.gz",
+            "full": "data/native/geos/005/ng05898.json.gz",
+            "start": 3852,
+            "end": 3854,
+            "status": 200,
+            "bytes": 2019
+          },
+          {
+            "url": "004/ng04927.json.gz",
+            "full": "data/native/geos/004/ng04927.json.gz",
+            "start": 3853,
+            "end": 3854,
+            "status": 200,
+            "bytes": 1889
+          },
+          {
+            "url": "005/ng05861.json.gz",
+            "full": "data/native/geos/005/ng05861.json.gz",
+            "start": 3853,
+            "end": 3854,
+            "status": 200,
+            "bytes": 1901
+          },
+          {
+            "url": "005/ng05909.json.gz",
+            "full": "data/native/geos/005/ng05909.json.gz",
+            "start": 3854,
+            "end": 3855,
+            "status": 200,
+            "bytes": 1886
+          },
+          {
+            "url": "002/ng02103.json.gz",
+            "full": "data/native/geos/002/ng02103.json.gz",
+            "start": 3854,
+            "end": 3855,
+            "status": 200,
+            "bytes": 751
+          },
+          {
+            "url": "005/ng05920.json.gz",
+            "full": "data/native/geos/005/ng05920.json.gz",
+            "start": 3854,
+            "end": 3856,
+            "status": 200,
+            "bytes": 3059
+          },
+          {
+            "url": "005/ng05874.json.gz",
+            "full": "data/native/geos/005/ng05874.json.gz",
+            "start": 3854,
+            "end": 3856,
+            "status": 200,
+            "bytes": 2938
+          },
+          {
+            "url": "005/ng05802.json.gz",
+            "full": "data/native/geos/005/ng05802.json.gz",
+            "start": 3855,
+            "end": 3856,
+            "status": 200,
+            "bytes": 576
+          },
+          {
+            "url": "005/ng05886.json.gz",
+            "full": "data/native/geos/005/ng05886.json.gz",
+            "start": 3855,
+            "end": 3856,
+            "status": 200,
+            "bytes": 2748
+          },
+          {
+            "url": "005/ng05902.json.gz",
+            "full": "data/native/geos/005/ng05902.json.gz",
+            "start": 3856,
+            "end": 3857,
+            "status": 200,
+            "bytes": 1198
+          },
+          {
+            "url": "005/ng05913.json.gz",
+            "full": "data/native/geos/005/ng05913.json.gz",
+            "start": 3857,
+            "end": 3858,
+            "status": 200,
+            "bytes": 1415
+          },
+          {
+            "url": "005/ng05545.json.gz",
+            "full": "data/native/geos/005/ng05545.json.gz",
+            "start": 3857,
+            "end": 3858,
+            "status": 200,
+            "bytes": 521
+          },
+          {
+            "url": "005/ng05786.json.gz",
+            "full": "data/native/geos/005/ng05786.json.gz",
+            "start": 3857,
+            "end": 3858,
+            "status": 200,
+            "bytes": 1481
+          },
+          {
+            "url": "005/ng05939.json.gz",
+            "full": "data/native/geos/005/ng05939.json.gz",
+            "start": 3857,
+            "end": 3859,
+            "status": 200,
+            "bytes": 861
+          },
+          {
+            "url": "005/ng05670.json.gz",
+            "full": "data/native/geos/005/ng05670.json.gz",
+            "start": 3857,
+            "end": 3859,
+            "status": 200,
+            "bytes": 918
+          },
+          {
+            "url": "005/ng05724.json.gz",
+            "full": "data/native/geos/005/ng05724.json.gz",
+            "start": 3858,
+            "end": 3859,
+            "status": 200,
+            "bytes": 792
+          },
+          {
+            "url": "005/ng05914.json.gz",
+            "full": "data/native/geos/005/ng05914.json.gz",
+            "start": 3858,
+            "end": 3859,
+            "status": 200,
+            "bytes": 1280
+          },
+          {
+            "url": "005/ng05876.json.gz",
+            "full": "data/native/geos/005/ng05876.json.gz",
+            "start": 3858,
+            "end": 5027,
+            "status": 200,
+            "bytes": 787
+          },
+          {
+            "url": "005/ng05776.json.gz",
+            "full": "data/native/geos/005/ng05776.json.gz",
+            "start": 3859,
+            "end": 5027,
+            "status": 200,
+            "bytes": 1214
+          },
+          {
+            "url": "004/ng04875.json.gz",
+            "full": "data/native/geos/004/ng04875.json.gz",
+            "start": 3859,
+            "end": 5027,
+            "status": 200,
+            "bytes": 908
+          },
+          {
+            "url": "005/ng05788.json.gz",
+            "full": "data/native/geos/005/ng05788.json.gz",
+            "start": 5499,
+            "end": 5500,
+            "status": 200,
+            "bytes": 682
+          },
+          {
+            "url": "005/ng05756.json.gz",
+            "full": "data/native/geos/005/ng05756.json.gz",
+            "start": 5498,
+            "end": 5500,
+            "status": 200,
+            "bytes": 1285
+          },
+          {
+            "url": "005/ng05272.json.gz",
+            "full": "data/native/geos/005/ng05272.json.gz",
+            "start": 5498,
+            "end": 5500,
+            "status": 200,
+            "bytes": 729
+          },
+          {
+            "url": "001/ng01258.json.gz",
+            "full": "data/native/geos/001/ng01258.json.gz",
+            "start": 5498,
+            "end": 5501,
+            "status": 200,
+            "bytes": 528
+          },
+          {
+            "url": "005/ng05403.json.gz",
+            "full": "data/native/geos/005/ng05403.json.gz",
+            "start": 5499,
+            "end": 5501,
+            "status": 200,
+            "bytes": 1314
+          },
+          {
+            "url": "005/ng05943.json.gz",
+            "full": "data/native/geos/005/ng05943.json.gz",
+            "start": 5499,
+            "end": 5501,
+            "status": 200,
+            "bytes": 957
+          },
+          {
+            "url": "005/ng05947.json.gz",
+            "full": "data/native/geos/005/ng05947.json.gz",
+            "start": 5505,
+            "end": 5507,
+            "status": 200,
+            "bytes": 2168
+          },
+          {
+            "url": "005/ng05938.json.gz",
+            "full": "data/native/geos/005/ng05938.json.gz",
+            "start": 5505,
+            "end": 5507,
+            "status": 200,
+            "bytes": 1442
+          },
+          {
+            "url": "004/ng04917.json.gz",
+            "full": "data/native/geos/004/ng04917.json.gz",
+            "start": 5505,
+            "end": 5507,
+            "status": 200,
+            "bytes": 1836
+          },
+          {
+            "url": "005/ng05917.json.gz",
+            "full": "data/native/geos/005/ng05917.json.gz",
+            "start": 5505,
+            "end": 5507,
+            "status": 200,
+            "bytes": 2460
+          },
+          {
+            "url": "005/ng05665.json.gz",
+            "full": "data/native/geos/005/ng05665.json.gz",
+            "start": 5505,
+            "end": 5508,
+            "status": 200,
+            "bytes": 512
+          },
+          {
+            "url": "005/ng05816.json.gz",
+            "full": "data/native/geos/005/ng05816.json.gz",
+            "start": 5505,
+            "end": 5508,
+            "status": 200,
+            "bytes": 785
+          },
+          {
+            "url": "005/ng05604.json.gz",
+            "full": "data/native/geos/005/ng05604.json.gz",
+            "start": 5509,
+            "end": 5509,
+            "status": 200,
+            "bytes": 630
+          },
+          {
+            "url": "004/ng04133.json.gz",
+            "full": "data/native/geos/004/ng04133.json.gz",
+            "start": 5508,
+            "end": 5510,
+            "status": 200,
+            "bytes": 838
+          },
+          {
+            "url": "005/ng05796.json.gz",
+            "full": "data/native/geos/005/ng05796.json.gz",
+            "start": 5508,
+            "end": 5510,
+            "status": 200,
+            "bytes": 911
+          },
+          {
+            "url": "005/ng05942.json.gz",
+            "full": "data/native/geos/005/ng05942.json.gz",
+            "start": 5509,
+            "end": 5510,
+            "status": 200,
+            "bytes": 780
+          },
+          {
+            "url": "005/ng05919.json.gz",
+            "full": "data/native/geos/005/ng05919.json.gz",
+            "start": 5509,
+            "end": 5511,
+            "status": 200,
+            "bytes": 815
+          },
+          {
+            "url": "005/ng05940.json.gz",
+            "full": "data/native/geos/005/ng05940.json.gz",
+            "start": 5508,
+            "end": 5511,
+            "status": 200,
+            "bytes": 761
+          },
+          {
+            "url": "005/ng05884.json.gz",
+            "full": "data/native/geos/005/ng05884.json.gz",
+            "start": 5510,
+            "end": 5511,
+            "status": 200,
+            "bytes": 1500
+          },
+          {
+            "url": "005/ng05752.json.gz",
+            "full": "data/native/geos/005/ng05752.json.gz",
+            "start": 5510,
+            "end": 5512,
+            "status": 200,
+            "bytes": 1156
+          },
+          {
+            "url": "005/ng05279.json.gz",
+            "full": "data/native/geos/005/ng05279.json.gz",
+            "start": 5511,
+            "end": 5512,
+            "status": 200,
+            "bytes": 424
+          },
+          {
+            "url": "004/ng04939.json.gz",
+            "full": "data/native/geos/004/ng04939.json.gz",
+            "start": 5512,
+            "end": 5513,
+            "status": 200,
+            "bytes": 555
+          },
+          {
+            "url": "005/ng05930.json.gz",
+            "full": "data/native/geos/005/ng05930.json.gz",
+            "start": 5512,
+            "end": 5513,
+            "status": 200,
+            "bytes": 468
+          },
+          {
+            "url": "005/ng05335.json.gz",
+            "full": "data/native/geos/005/ng05335.json.gz",
+            "start": 5512,
+            "end": 5514,
+            "status": 200,
+            "bytes": 550
+          },
+          {
+            "url": "005/ng05941.json.gz",
+            "full": "data/native/geos/005/ng05941.json.gz",
+            "start": 5512,
+            "end": 5514,
+            "status": 200,
+            "bytes": 3113
+          },
+          {
+            "url": "005/ng05794.json.gz",
+            "full": "data/native/geos/005/ng05794.json.gz",
+            "start": 5512,
+            "end": 5514,
+            "status": 200,
+            "bytes": 768
+          },
+          {
+            "url": "005/ng05901.json.gz",
+            "full": "data/native/geos/005/ng05901.json.gz",
+            "start": 5512,
+            "end": 5514,
+            "status": 200,
+            "bytes": 704
+          },
+          {
+            "url": "005/ng05946.json.gz",
+            "full": "data/native/geos/005/ng05946.json.gz",
+            "start": 5514,
+            "end": 5515,
+            "status": 200,
+            "bytes": 1992
+          },
+          {
+            "url": "005/ng05339.json.gz",
+            "full": "data/native/geos/005/ng05339.json.gz",
+            "start": 5514,
+            "end": 5515,
+            "status": 200,
+            "bytes": 662
+          },
+          {
+            "url": "005/ng05713.json.gz",
+            "full": "data/native/geos/005/ng05713.json.gz",
+            "start": 5515,
+            "end": 5516,
+            "status": 200,
+            "bytes": 634
+          },
+          {
+            "url": "005/ng05830.json.gz",
+            "full": "data/native/geos/005/ng05830.json.gz",
+            "start": 5515,
+            "end": 5516,
+            "status": 200,
+            "bytes": 1106
+          },
+          {
+            "url": "005/ng05777.json.gz",
+            "full": "data/native/geos/005/ng05777.json.gz",
+            "start": 5516,
+            "end": 5516,
+            "status": 200,
+            "bytes": 766
+          },
+          {
+            "url": "004/ng04882.json.gz",
+            "full": "data/native/geos/004/ng04882.json.gz",
+            "start": 5515,
+            "end": 5517,
+            "status": 200,
+            "bytes": 987
+          },
+          {
+            "url": "005/ng05911.json.gz",
+            "full": "data/native/geos/005/ng05911.json.gz",
+            "start": 5516,
+            "end": 5517,
+            "status": 200,
+            "bytes": 859
+          },
+          {
+            "url": "005/ng05899.json.gz",
+            "full": "data/native/geos/005/ng05899.json.gz",
+            "start": 5516,
+            "end": 5517,
+            "status": 200,
+            "bytes": 1355
+          },
+          {
+            "url": "005/ng05860.json.gz",
+            "full": "data/native/geos/005/ng05860.json.gz",
+            "start": 5516,
+            "end": 5517,
+            "status": 200,
+            "bytes": 1013
+          },
+          {
+            "url": "004/ng04897.json.gz",
+            "full": "data/native/geos/004/ng04897.json.gz",
+            "start": 5516,
+            "end": 5518,
+            "status": 200,
+            "bytes": 667
+          },
+          {
+            "url": "005/ng05772.json.gz",
+            "full": "data/native/geos/005/ng05772.json.gz",
+            "start": 5517,
+            "end": 5518,
+            "status": 200,
+            "bytes": 764
+          },
+          {
+            "url": "005/ng05865.json.gz",
+            "full": "data/native/geos/005/ng05865.json.gz",
+            "start": 5518,
+            "end": 5519,
+            "status": 200,
+            "bytes": 930
+          },
+          {
+            "url": "005/ng05880.json.gz",
+            "full": "data/native/geos/005/ng05880.json.gz",
+            "start": 5517,
+            "end": 5519,
+            "status": 200,
+            "bytes": 354
+          },
+          {
+            "url": "005/ng05890.json.gz",
+            "full": "data/native/geos/005/ng05890.json.gz",
+            "start": 5518,
+            "end": 5520,
+            "status": 200,
+            "bytes": 580
+          },
+          {
+            "url": "005/ng05948.json.gz",
+            "full": "data/native/geos/005/ng05948.json.gz",
+            "start": 5520,
+            "end": 5521,
+            "status": 200,
+            "bytes": 1812
+          },
+          {
+            "url": "005/ng05892.json.gz",
+            "full": "data/native/geos/005/ng05892.json.gz",
+            "start": 5520,
+            "end": 5521,
+            "status": 200,
+            "bytes": 1095
+          },
+          {
+            "url": "005/ng05474.json.gz",
+            "full": "data/native/geos/005/ng05474.json.gz",
+            "start": 5520,
+            "end": 5522,
+            "status": 200,
+            "bytes": 568
+          },
+          {
+            "url": "005/ng05944.json.gz",
+            "full": "data/native/geos/005/ng05944.json.gz",
+            "start": 5520,
+            "end": 5522,
+            "status": 200,
+            "bytes": 553
+          },
+          {
+            "url": "005/ng05852.json.gz",
+            "full": "data/native/geos/005/ng05852.json.gz",
+            "start": 5520,
+            "end": 5522,
+            "status": 200,
+            "bytes": 601
+          },
+          {
+            "url": "005/ng05453.json.gz",
+            "full": "data/native/geos/005/ng05453.json.gz",
+            "start": 5520,
+            "end": 5522,
+            "status": 200,
+            "bytes": 448
+          },
+          {
+            "url": "005/ng05883.json.gz",
+            "full": "data/native/geos/005/ng05883.json.gz",
+            "start": 5522,
+            "end": 5523,
+            "status": 200,
+            "bytes": 344
+          },
+          {
+            "url": "005/ng05916.json.gz",
+            "full": "data/native/geos/005/ng05916.json.gz",
+            "start": 5523,
+            "end": 5523,
+            "status": 200,
+            "bytes": 678
+          },
+          {
+            "url": "003/ng03315.json.gz",
+            "full": "data/native/geos/003/ng03315.json.gz",
+            "start": 5523,
+            "end": 5524,
+            "status": 200,
+            "bytes": 392
+          },
+          {
+            "url": "005/ng05774.json.gz",
+            "full": "data/native/geos/005/ng05774.json.gz",
+            "start": 5523,
+            "end": 5524,
+            "status": 200,
+            "bytes": 610
+          },
+          {
+            "url": "005/ng05588.json.gz",
+            "full": "data/native/geos/005/ng05588.json.gz",
+            "start": 5523,
+            "end": 5525,
+            "status": 200,
+            "bytes": 637
+          },
+          {
+            "url": "005/ng05868.json.gz",
+            "full": "data/native/geos/005/ng05868.json.gz",
+            "start": 5524,
+            "end": 5525,
+            "status": 200,
+            "bytes": 549
+          },
+          {
+            "url": "005/ng05504.json.gz",
+            "full": "data/native/geos/005/ng05504.json.gz",
+            "start": 5524,
+            "end": 5525,
+            "status": 200,
+            "bytes": 277
+          },
+          {
+            "url": "005/ng05870.json.gz",
+            "full": "data/native/geos/005/ng05870.json.gz",
+            "start": 5524,
+            "end": 5526,
+            "status": 200,
+            "bytes": 638
+          },
+          {
+            "url": "005/ng05925.json.gz",
+            "full": "data/native/geos/005/ng05925.json.gz",
+            "start": 5524,
+            "end": 5526,
+            "status": 200,
+            "bytes": 654
+          },
+          {
+            "url": "005/ng05355.json.gz",
+            "full": "data/native/geos/005/ng05355.json.gz",
+            "start": 5525,
+            "end": 5526,
+            "status": 200,
+            "bytes": 576
+          },
+          {
+            "url": "005/ng05286.json.gz",
+            "full": "data/native/geos/005/ng05286.json.gz",
+            "start": 5526,
+            "end": 5526,
+            "status": 200,
+            "bytes": 309
+          },
+          {
+            "url": "005/ng05757.json.gz",
+            "full": "data/native/geos/005/ng05757.json.gz",
+            "start": 5526,
+            "end": 5527,
+            "status": 200,
+            "bytes": 266
+          },
+          {
+            "url": "005/ng05345.json.gz",
+            "full": "data/native/geos/005/ng05345.json.gz",
+            "start": 5527,
+            "end": 5527,
+            "status": 200,
+            "bytes": 277
+          },
+          {
+            "url": "005/ng05915.json.gz",
+            "full": "data/native/geos/005/ng05915.json.gz",
+            "start": 5526,
+            "end": 5528,
+            "status": 200,
+            "bytes": 493
+          },
+          {
+            "url": "005/ng05751.json.gz",
+            "full": "data/native/geos/005/ng05751.json.gz",
+            "start": 5527,
+            "end": 5528,
+            "status": 200,
+            "bytes": 308
+          },
+          {
+            "url": "005/ng05527.json.gz",
+            "full": "data/native/geos/005/ng05527.json.gz",
+            "start": 5527,
+            "end": 5528,
+            "status": 200,
+            "bytes": 353
+          },
+          {
+            "url": "005/ng05387.json.gz",
+            "full": "data/native/geos/005/ng05387.json.gz",
+            "start": 5527,
+            "end": 5528,
+            "status": 200,
+            "bytes": 363
+          },
+          {
+            "url": "005/ng05319.json.gz",
+            "full": "data/native/geos/005/ng05319.json.gz",
+            "start": 5527,
+            "end": 5529,
+            "status": 200,
+            "bytes": 298
+          },
+          {
+            "url": "005/ng05906.json.gz",
+            "full": "data/native/geos/005/ng05906.json.gz",
+            "start": 5528,
+            "end": 5529,
+            "status": 200,
+            "bytes": 336
+          },
+          {
+            "url": "005/ng05493.json.gz",
+            "full": "data/native/geos/005/ng05493.json.gz",
+            "start": 5529,
+            "end": 5530,
+            "status": 200,
+            "bytes": 332
+          },
+          {
+            "url": "004/ng04189.json.gz",
+            "full": "data/native/geos/004/ng04189.json.gz",
+            "start": 5529,
+            "end": 5530,
+            "status": 200,
+            "bytes": 252
+          },
+          {
+            "url": "005/ng05783.json.gz",
+            "full": "data/native/geos/005/ng05783.json.gz",
+            "start": 5529,
+            "end": 5530,
+            "status": 200,
+            "bytes": 333
+          },
+          {
+            "url": "005/ng05419.json.gz",
+            "full": "data/native/geos/005/ng05419.json.gz",
+            "start": 5530,
+            "end": 5531,
+            "status": 200,
+            "bytes": 205
+          },
+          {
+            "url": "005/ng05458.json.gz",
+            "full": "data/native/geos/005/ng05458.json.gz",
+            "start": 5530,
+            "end": 5531,
+            "status": 200,
+            "bytes": 252
+          },
+          {
+            "url": "005/ng05877.json.gz",
+            "full": "data/native/geos/005/ng05877.json.gz",
+            "start": 5530,
+            "end": 5531,
+            "status": 200,
+            "bytes": 279
+          },
+          {
+            "url": "005/ng05928.json.gz",
+            "full": "data/native/geos/005/ng05928.json.gz",
+            "start": 5529,
+            "end": 5532,
+            "status": 200,
+            "bytes": 308
+          },
+          {
+            "url": "004/ng04262.json.gz",
+            "full": "data/native/geos/004/ng04262.json.gz",
+            "start": 5530,
+            "end": 5532,
+            "status": 200,
+            "bytes": 180
+          },
+          {
+            "url": "005/ng05247.json.gz",
+            "full": "data/native/geos/005/ng05247.json.gz",
+            "start": 5531,
+            "end": 5532,
+            "status": 200,
+            "bytes": 196
+          },
+          {
+            "url": "004/ng04804.json.gz",
+            "full": "data/native/geos/004/ng04804.json.gz",
+            "start": 5532,
+            "end": 5532,
+            "status": 200,
+            "bytes": 161
+          },
+          {
+            "url": "physical/land-10m.json.gz",
+            "full": "data/physical/land-10m.json.gz",
+            "start": 5794,
+            "end": 5796,
+            "status": 200,
+            "bytes": 3569584
+          },
+          {
+            "url": "4/1.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/4/1.webp",
+            "start": 6872,
+            "end": 10040,
+            "status": 200,
+            "bytes": 45296
+          },
+          {
+            "url": "4/3.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/4/3.webp",
+            "start": 6872,
+            "end": 10040,
+            "status": 200,
+            "bytes": 184250
+          },
+          {
+            "url": "3/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/3/2.webp",
+            "start": 6872,
+            "end": 10040,
+            "status": 200,
+            "bytes": 34424
+          },
+          {
+            "url": "4/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/4/2.webp",
+            "start": 6872,
+            "end": 10040,
+            "status": 200,
+            "bytes": 176622
+          },
+          {
+            "url": "5/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/5/2.webp",
+            "start": 6872,
+            "end": 10040,
+            "status": 200,
+            "bytes": 201742
+          },
+          {
+            "url": "3/3.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/3/3.webp",
+            "start": 6872,
+            "end": 10040,
+            "status": 200,
+            "bytes": 51350
+          },
+          {
+            "url": "3/1.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/3/1.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 63404
+          },
+          {
+            "url": "2/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/2/2.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 111080
+          },
+          {
+            "url": "2/3.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/2/3.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 59454
+          },
+          {
+            "url": "3/4.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/3/4.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 19778
+          },
+          {
+            "url": "5/3.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/5/3.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 136364
+          },
+          {
+            "url": "6/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/6/2.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 256252
+          },
+          {
+            "url": "5/4.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/5/4.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 7902
+          },
+          {
+            "url": "6/3.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/6/3.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 137610
+          },
+          {
+            "url": "5/1.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/5/1.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 71788
+          },
+          {
+            "url": "1/2.webp",
+            "full": "http://127.0.0.1:8769/data/physical/relief/3/1/2.webp",
+            "start": 6873,
+            "end": 10040,
+            "status": 200,
+            "bytes": 211378
+          }
+        ],
+        "geometry": [
+          {
+            "t": 3774,
+            "fine": false
+          },
+          {
+            "t": 5533,
+            "fine": true
+          }
+        ],
+        "resources": {
+          "count": 212,
+          "encodedBytes": 12877470,
+          "byType": {
+            "link": {
+              "count": 6,
+              "bytes": 878038
+            },
+            "other": {
+              "count": 1,
+              "bytes": 30817
+            },
+            "script": {
+              "count": 30,
+              "bytes": 134252
+            },
+            "fetch": {
+              "count": 175,
+              "bytes": 11834363
+            }
+          },
+          "byHost": {
+            "local": {
+              "count": 212,
+              "bytes": 12877470
+            }
+          },
+          "lastEndMs": 6879,
+          "slowest": [
+            {
+              "u": "http://127.0.0.1:8769/data/physical/land-10m.json.gz",
+              "n": "physical/land-10m.json.gz",
+              "type": "fetch",
+              "start": 5794,
+              "end": 5803,
+              "ms": 8,
+              "bytes": 3569584,
+              "transfer": 3569884
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-009.json.gz",
+              "n": "fast/overview-009.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 7,
+              "bytes": 465723,
+              "transfer": 466023
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-007.json.gz",
+              "n": "fast/overview-007.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 7,
+              "bytes": 424778,
+              "transfer": 425078
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-002.json.gz",
+              "n": "fast/overview-002.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 6,
+              "bytes": 424857,
+              "transfer": 425157
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-008.json.gz",
+              "n": "fast/overview-008.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 6,
+              "bytes": 431588,
+              "transfer": 431888
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-006.json.gz",
+              "n": "fast/overview-006.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 6,
+              "bytes": 372561,
+              "transfer": 372861
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/1/2.webp",
+              "n": "1/2.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6879,
+              "ms": 6,
+              "bytes": 211378,
+              "transfer": 211678
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/catalog.json.gz",
+              "n": "fast/catalog.json.gz",
+              "type": "link",
+              "start": 3,
+              "end": 8,
+              "ms": 5,
+              "bytes": 602739,
+              "transfer": 603039
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/3/1.webp",
+              "n": "3/1.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 132890,
+              "transfer": 133190
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/2/0.webp",
+              "n": "2/0.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 39132,
+              "transfer": 39432
+            }
+          ],
+          "all": [
+            {
+              "u": "http://127.0.0.1:8769/assets/maplibre-gl.js?v=3.10.0-bedf722e4358",
+              "n": "assets/maplibre-gl.js?v=3.10.0-bedf722e4358",
+              "type": "link",
+              "start": 3,
+              "end": 7,
+              "ms": 4,
+              "bytes": 247699,
+              "transfer": 247999
+            },
+            {
+              "u": "http://127.0.0.1:8769/app.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/app.js?v=3.10.0-bedf722e4358",
+              "type": "other",
+              "start": 3,
+              "end": 5,
+              "ms": 1,
+              "bytes": 30817,
+              "transfer": 31117
+            },
+            {
+              "u": "http://127.0.0.1:8769/assets/maplibre-gl.css?v=3.10.0-bedf722e4358",
+              "n": "assets/maplibre-gl.css?v=3.10.0-bedf722e4358",
+              "type": "link",
+              "start": 3,
+              "end": 6,
+              "ms": 3,
+              "bytes": 10051,
+              "transfer": 10351
+            },
+            {
+              "u": "http://127.0.0.1:8769/style.css?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/style.css?v=3.10.0-bedf722e4358",
+              "type": "link",
+              "start": 3,
+              "end": 7,
+              "ms": 4,
+              "bytes": 6367,
+              "transfer": 6667
+            },
+            {
+              "u": "http://127.0.0.1:8769/cartography.css?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/cartography.css?v=3.10.0-bedf722e4358",
+              "type": "link",
+              "start": 3,
+              "end": 7,
+              "ms": 4,
+              "bytes": 6511,
+              "transfer": 6811
+            },
+            {
+              "u": "http://127.0.0.1:8769/product.css?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/product.css?v=3.10.0-bedf722e4358",
+              "type": "link",
+              "start": 3,
+              "end": 7,
+              "ms": 4,
+              "bytes": 4671,
+              "transfer": 4971
+            },
+            {
+              "u": "http://127.0.0.1:8769/startup.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/startup.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 3,
+              "end": 7,
+              "ms": 4,
+              "bytes": 787,
+              "transfer": 1087
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/catalog.json.gz",
+              "n": "fast/catalog.json.gz",
+              "type": "link",
+              "start": 3,
+              "end": 8,
+              "ms": 5,
+              "bytes": 602739,
+              "transfer": 603039
+            },
+            {
+              "u": "http://127.0.0.1:8769/view-state.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/view-state.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 19,
+              "ms": 1,
+              "bytes": 606,
+              "transfer": 906
+            },
+            {
+              "u": "http://127.0.0.1:8769/source-reader.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/source-reader.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 20,
+              "ms": 1,
+              "bytes": 14289,
+              "transfer": 14589
+            },
+            {
+              "u": "http://127.0.0.1:8769/boundary-comparison.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/boundary-comparison.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 20,
+              "ms": 2,
+              "bytes": 1218,
+              "transfer": 1518
+            },
+            {
+              "u": "http://127.0.0.1:8769/places.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/places.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 20,
+              "ms": 2,
+              "bytes": 4746,
+              "transfer": 5046
+            },
+            {
+              "u": "http://127.0.0.1:8769/timeline-controls.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/timeline-controls.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 20,
+              "ms": 2,
+              "bytes": 1322,
+              "transfer": 1622
+            },
+            {
+              "u": "http://127.0.0.1:8769/city-narratives.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/city-narratives.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 21,
+              "ms": 2,
+              "bytes": 1196,
+              "transfer": 1496
+            },
+            {
+              "u": "http://127.0.0.1:8769/polity-reader.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/polity-reader.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 21,
+              "ms": 2,
+              "bytes": 12794,
+              "transfer": 13094
+            },
+            {
+              "u": "http://127.0.0.1:8769/map-engine.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/map-engine.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 18,
+              "end": 21,
+              "ms": 2,
+              "bytes": 7367,
+              "transfer": 7667
+            },
+            {
+              "u": "http://127.0.0.1:8769/boundary-controller.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/boundary-controller.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 22,
+              "ms": 1,
+              "bytes": 3569,
+              "transfer": 3869
+            },
+            {
+              "u": "http://127.0.0.1:8769/border-curves.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/border-curves.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 22,
+              "ms": 1,
+              "bytes": 3027,
+              "transfer": 3327
+            },
+            {
+              "u": "http://127.0.0.1:8769/boundary-mesh.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/boundary-mesh.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 23,
+              "ms": 2,
+              "bytes": 1406,
+              "transfer": 1706
+            },
+            {
+              "u": "http://127.0.0.1:8769/boundary-style.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/boundary-style.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 23,
+              "ms": 2,
+              "bytes": 500,
+              "transfer": 800
+            },
+            {
+              "u": "http://127.0.0.1:8769/regional-boundaries.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/regional-boundaries.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 24,
+              "ms": 3,
+              "bytes": 14932,
+              "transfer": 15232
+            },
+            {
+              "u": "http://127.0.0.1:8769/historical-detail.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/historical-detail.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 23,
+              "ms": 2,
+              "bytes": 4853,
+              "transfer": 5153
+            },
+            {
+              "u": "http://127.0.0.1:8769/native-geometry.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/native-geometry.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 23,
+              "ms": 2,
+              "bytes": 965,
+              "transfer": 1265
+            },
+            {
+              "u": "http://127.0.0.1:8769/geography.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/geography.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 24,
+              "ms": 3,
+              "bytes": 4072,
+              "transfer": 4372
+            },
+            {
+              "u": "http://127.0.0.1:8769/polity-places.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/polity-places.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 24,
+              "ms": 3,
+              "bytes": 2149,
+              "transfer": 2449
+            },
+            {
+              "u": "http://127.0.0.1:8769/fact-period.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/fact-period.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 21,
+              "end": 24,
+              "ms": 3,
+              "bytes": 936,
+              "transfer": 1236
+            },
+            {
+              "u": "http://127.0.0.1:8769/country-archive.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/country-archive.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 22,
+              "end": 24,
+              "ms": 2,
+              "bytes": 1470,
+              "transfer": 1770
+            },
+            {
+              "u": "http://127.0.0.1:8769/historical-dates.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/historical-dates.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 23,
+              "end": 24,
+              "ms": 1,
+              "bytes": 611,
+              "transfer": 911
+            },
+            {
+              "u": "http://127.0.0.1:8769/lakes.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/lakes.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 24,
+              "end": 25,
+              "ms": 1,
+              "bytes": 3893,
+              "transfer": 4193
+            },
+            {
+              "u": "http://127.0.0.1:8769/country-names.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/country-names.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 24,
+              "end": 25,
+              "ms": 1,
+              "bytes": 1139,
+              "transfer": 1439
+            },
+            {
+              "u": "http://127.0.0.1:8769/boundary-notes.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/boundary-notes.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 24,
+              "end": 25,
+              "ms": 1,
+              "bytes": 797,
+              "transfer": 1097
+            },
+            {
+              "u": "http://127.0.0.1:8769/halc-boundaries.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/halc-boundaries.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 24,
+              "end": 26,
+              "ms": 1,
+              "bytes": 8310,
+              "transfer": 8610
+            },
+            {
+              "u": "http://127.0.0.1:8769/simplified-chinese.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/simplified-chinese.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 24,
+              "end": 25,
+              "ms": 1,
+              "bytes": 25345,
+              "transfer": 25645
+            },
+            {
+              "u": "http://127.0.0.1:8769/lake-codec.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/lake-codec.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 25,
+              "end": 26,
+              "ms": 1,
+              "bytes": 1083,
+              "transfer": 1383
+            },
+            {
+              "u": "http://127.0.0.1:8769/halc-landscape-reader.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/halc-landscape-reader.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 26,
+              "end": 27,
+              "ms": 1,
+              "bytes": 4365,
+              "transfer": 4665
+            },
+            {
+              "u": "http://127.0.0.1:8769/halc-regions.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/halc-regions.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 26,
+              "end": 27,
+              "ms": 1,
+              "bytes": 1283,
+              "transfer": 1583
+            },
+            {
+              "u": "http://127.0.0.1:8769/halc-landscape.js?v=3.10.0-bedf722e4358",
+              "n": "127.0.0.1:8769/halc-landscape.js?v=3.10.0-bedf722e4358",
+              "type": "script",
+              "start": 26,
+              "end": 27,
+              "ms": 1,
+              "bytes": 5222,
+              "transfer": 5522
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/events.json.gz",
+              "n": "data/events.json.gz",
+              "type": "fetch",
+              "start": 29,
+              "end": 30,
+              "ms": 1,
+              "bytes": 244567,
+              "transfer": 244867
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/coverage.json",
+              "n": "data/coverage.json",
+              "type": "fetch",
+              "start": 64,
+              "end": 66,
+              "ms": 1,
+              "bytes": 15654,
+              "transfer": 15954
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/land-50m.json.gz",
+              "n": "data/land-50m.json.gz",
+              "type": "fetch",
+              "start": 3404,
+              "end": 3407,
+              "ms": 3,
+              "bytes": 527552,
+              "transfer": 527852
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/physical-overview.json.gz",
+              "n": "physical/physical-overview.json.gz",
+              "type": "fetch",
+              "start": 3404,
+              "end": 3406,
+              "ms": 2,
+              "bytes": 137909,
+              "transfer": 138209
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/modern-ocean-mask-overview.json.gz",
+              "n": "physical/modern-ocean-mask-overview.json.gz",
+              "type": "fetch",
+              "start": 3404,
+              "end": 3407,
+              "ms": 3,
+              "bytes": 736287,
+              "transfer": 736587
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-010.json.gz",
+              "n": "fast/overview-010.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3408,
+              "ms": 2,
+              "bytes": 425460,
+              "transfer": 425760
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-002.json.gz",
+              "n": "fast/overview-002.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 6,
+              "bytes": 424857,
+              "transfer": 425157
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-004.json.gz",
+              "n": "fast/overview-004.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3410,
+              "ms": 4,
+              "bytes": 385489,
+              "transfer": 385789
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-008.json.gz",
+              "n": "fast/overview-008.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 6,
+              "bytes": 431588,
+              "transfer": 431888
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-009.json.gz",
+              "n": "fast/overview-009.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 7,
+              "bytes": 465723,
+              "transfer": 466023
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-007.json.gz",
+              "n": "fast/overview-007.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 7,
+              "bytes": 424778,
+              "transfer": 425078
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/fast/overview-006.json.gz",
+              "n": "fast/overview-006.json.gz",
+              "type": "fetch",
+              "start": 3406,
+              "end": 3412,
+              "ms": 6,
+              "bytes": 372561,
+              "transfer": 372861
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/2/1.webp",
+              "n": "2/1.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3412,
+              "ms": 4,
+              "bytes": 182770,
+              "transfer": 183070
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/2/2.webp",
+              "n": "2/2.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3413,
+              "ms": 4,
+              "bytes": 27522,
+              "transfer": 27822
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/1/1.webp",
+              "n": "1/1.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3413,
+              "ms": 4,
+              "bytes": 69126,
+              "transfer": 69426
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/1/2.webp",
+              "n": "1/2.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3413,
+              "ms": 4,
+              "bytes": 43610,
+              "transfer": 43910
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/3/1.webp",
+              "n": "3/1.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 132890,
+              "transfer": 133190
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/2/0.webp",
+              "n": "2/0.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 39132,
+              "transfer": 39432
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/3/2.webp",
+              "n": "3/2.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 36570,
+              "transfer": 36870
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/1/0.webp",
+              "n": "1/0.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 99382,
+              "transfer": 99682
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/3/0.webp",
+              "n": "3/0.webp",
+              "type": "fetch",
+              "start": 3409,
+              "end": 3414,
+              "ms": 5,
+              "bytes": 58558,
+              "transfer": 58858
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/2/0/0.webp",
+              "n": "0/0.webp",
+              "type": "fetch",
+              "start": 3410,
+              "end": 3415,
+              "ms": 5,
+              "bytes": 44014,
+              "transfer": 44314
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/index.json.gz",
+              "n": "native/index.json.gz",
+              "type": "fetch",
+              "start": 3777,
+              "end": 3778,
+              "ms": 2,
+              "bytes": 118419,
+              "transfer": 118719
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/places/historical-capitals.json.gz",
+              "n": "places/historical-capitals.json.gz",
+              "type": "fetch",
+              "start": 3784,
+              "end": 3786,
+              "ms": 1,
+              "bytes": 55637,
+              "transfer": 55937
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/places/historical-settlements-index.json.gz",
+              "n": "places/historical-settlements-index.json.gz",
+              "type": "fetch",
+              "start": 3784,
+              "end": 3787,
+              "ms": 3,
+              "bytes": 629588,
+              "transfer": 629888
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/places/attested-places.json.gz",
+              "n": "places/attested-places.json.gz",
+              "type": "fetch",
+              "start": 3784,
+              "end": 3786,
+              "ms": 2,
+              "bytes": 21966,
+              "transfer": 22266
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/places/urban-observations.json.gz",
+              "n": "places/urban-observations.json.gz",
+              "type": "fetch",
+              "start": 3784,
+              "end": 3786,
+              "ms": 2,
+              "bytes": 132325,
+              "transfer": 132625
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05912.json.gz",
+              "n": "005/ng05912.json.gz",
+              "type": "fetch",
+              "start": 3836,
+              "end": 3838,
+              "ms": 2,
+              "bytes": 6647,
+              "transfer": 6947
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05921.json.gz",
+              "n": "005/ng05921.json.gz",
+              "type": "fetch",
+              "start": 3836,
+              "end": 3838,
+              "ms": 2,
+              "bytes": 7207,
+              "transfer": 7507
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05932.json.gz",
+              "n": "005/ng05932.json.gz",
+              "type": "fetch",
+              "start": 3836,
+              "end": 3838,
+              "ms": 2,
+              "bytes": 4531,
+              "transfer": 4831
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05689.json.gz",
+              "n": "005/ng05689.json.gz",
+              "type": "fetch",
+              "start": 3836,
+              "end": 3838,
+              "ms": 2,
+              "bytes": 2085,
+              "transfer": 2385
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05924.json.gz",
+              "n": "005/ng05924.json.gz",
+              "type": "fetch",
+              "start": 3836,
+              "end": 3838,
+              "ms": 2,
+              "bytes": 2412,
+              "transfer": 2712
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05904.json.gz",
+              "n": "005/ng05904.json.gz",
+              "type": "fetch",
+              "start": 3836,
+              "end": 3838,
+              "ms": 2,
+              "bytes": 3860,
+              "transfer": 4160
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05896.json.gz",
+              "n": "005/ng05896.json.gz",
+              "type": "fetch",
+              "start": 3841,
+              "end": 3843,
+              "ms": 2,
+              "bytes": 5129,
+              "transfer": 5429
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05727.json.gz",
+              "n": "005/ng05727.json.gz",
+              "type": "fetch",
+              "start": 3841,
+              "end": 3842,
+              "ms": 1,
+              "bytes": 4392,
+              "transfer": 4692
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05937.json.gz",
+              "n": "005/ng05937.json.gz",
+              "type": "fetch",
+              "start": 3841,
+              "end": 3843,
+              "ms": 2,
+              "bytes": 7728,
+              "transfer": 8028
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05933.json.gz",
+              "n": "005/ng05933.json.gz",
+              "type": "fetch",
+              "start": 3841,
+              "end": 3843,
+              "ms": 2,
+              "bytes": 9552,
+              "transfer": 9852
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05731.json.gz",
+              "n": "005/ng05731.json.gz",
+              "type": "fetch",
+              "start": 3841,
+              "end": 3843,
+              "ms": 2,
+              "bytes": 2016,
+              "transfer": 2316
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05903.json.gz",
+              "n": "005/ng05903.json.gz",
+              "type": "fetch",
+              "start": 3841,
+              "end": 3843,
+              "ms": 2,
+              "bytes": 7019,
+              "transfer": 7319
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05934.json.gz",
+              "n": "005/ng05934.json.gz",
+              "type": "fetch",
+              "start": 3844,
+              "end": 3844,
+              "ms": 1,
+              "bytes": 3165,
+              "transfer": 3465
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05631.json.gz",
+              "n": "005/ng05631.json.gz",
+              "type": "fetch",
+              "start": 3844,
+              "end": 3846,
+              "ms": 1,
+              "bytes": 8259,
+              "transfer": 8559
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05935.json.gz",
+              "n": "005/ng05935.json.gz",
+              "type": "fetch",
+              "start": 3845,
+              "end": 3846,
+              "ms": 1,
+              "bytes": 2039,
+              "transfer": 2339
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05927.json.gz",
+              "n": "005/ng05927.json.gz",
+              "type": "fetch",
+              "start": 3845,
+              "end": 3846,
+              "ms": 2,
+              "bytes": 2484,
+              "transfer": 2784
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05905.json.gz",
+              "n": "005/ng05905.json.gz",
+              "type": "fetch",
+              "start": 3845,
+              "end": 3846,
+              "ms": 2,
+              "bytes": 1372,
+              "transfer": 1672
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05945.json.gz",
+              "n": "005/ng05945.json.gz",
+              "type": "fetch",
+              "start": 3845,
+              "end": 3846,
+              "ms": 2,
+              "bytes": 4012,
+              "transfer": 4312
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05929.json.gz",
+              "n": "005/ng05929.json.gz",
+              "type": "fetch",
+              "start": 3845,
+              "end": 3847,
+              "ms": 2,
+              "bytes": 4790,
+              "transfer": 5090
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05881.json.gz",
+              "n": "005/ng05881.json.gz",
+              "type": "fetch",
+              "start": 3847,
+              "end": 3847,
+              "ms": 1,
+              "bytes": 2145,
+              "transfer": 2445
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05907.json.gz",
+              "n": "005/ng05907.json.gz",
+              "type": "fetch",
+              "start": 3847,
+              "end": 3848,
+              "ms": 1,
+              "bytes": 3318,
+              "transfer": 3618
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05720.json.gz",
+              "n": "005/ng05720.json.gz",
+              "type": "fetch",
+              "start": 3848,
+              "end": 3849,
+              "ms": 1,
+              "bytes": 1899,
+              "transfer": 2199
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05723.json.gz",
+              "n": "005/ng05723.json.gz",
+              "type": "fetch",
+              "start": 3848,
+              "end": 3849,
+              "ms": 1,
+              "bytes": 1470,
+              "transfer": 1770
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05910.json.gz",
+              "n": "005/ng05910.json.gz",
+              "type": "fetch",
+              "start": 3848,
+              "end": 3849,
+              "ms": 1,
+              "bytes": 1949,
+              "transfer": 2249
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04547.json.gz",
+              "n": "004/ng04547.json.gz",
+              "type": "fetch",
+              "start": 3848,
+              "end": 3850,
+              "ms": 2,
+              "bytes": 921,
+              "transfer": 1221
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05908.json.gz",
+              "n": "005/ng05908.json.gz",
+              "type": "fetch",
+              "start": 3849,
+              "end": 3851,
+              "ms": 2,
+              "bytes": 1402,
+              "transfer": 1702
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05931.json.gz",
+              "n": "005/ng05931.json.gz",
+              "type": "fetch",
+              "start": 3849,
+              "end": 3849,
+              "ms": 1,
+              "bytes": 904,
+              "transfer": 1204
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05879.json.gz",
+              "n": "005/ng05879.json.gz",
+              "type": "fetch",
+              "start": 3849,
+              "end": 3851,
+              "ms": 1,
+              "bytes": 2037,
+              "transfer": 2337
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05918.json.gz",
+              "n": "005/ng05918.json.gz",
+              "type": "fetch",
+              "start": 3850,
+              "end": 3851,
+              "ms": 1,
+              "bytes": 8061,
+              "transfer": 8361
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05780.json.gz",
+              "n": "005/ng05780.json.gz",
+              "type": "fetch",
+              "start": 3850,
+              "end": 3852,
+              "ms": 1,
+              "bytes": 2512,
+              "transfer": 2812
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04249.json.gz",
+              "n": "004/ng04249.json.gz",
+              "type": "fetch",
+              "start": 3850,
+              "end": 3852,
+              "ms": 1,
+              "bytes": 3422,
+              "transfer": 3722
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05531.json.gz",
+              "n": "005/ng05531.json.gz",
+              "type": "fetch",
+              "start": 3850,
+              "end": 3851,
+              "ms": 1,
+              "bytes": 1169,
+              "transfer": 1469
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05820.json.gz",
+              "n": "005/ng05820.json.gz",
+              "type": "fetch",
+              "start": 3852,
+              "end": 3853,
+              "ms": 1,
+              "bytes": 1470,
+              "transfer": 1770
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05936.json.gz",
+              "n": "005/ng05936.json.gz",
+              "type": "fetch",
+              "start": 3852,
+              "end": 3853,
+              "ms": 1,
+              "bytes": 3163,
+              "transfer": 3463
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05445.json.gz",
+              "n": "005/ng05445.json.gz",
+              "type": "fetch",
+              "start": 3852,
+              "end": 3853,
+              "ms": 1,
+              "bytes": 1195,
+              "transfer": 1495
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05898.json.gz",
+              "n": "005/ng05898.json.gz",
+              "type": "fetch",
+              "start": 3852,
+              "end": 3853,
+              "ms": 1,
+              "bytes": 2019,
+              "transfer": 2319
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05861.json.gz",
+              "n": "005/ng05861.json.gz",
+              "type": "fetch",
+              "start": 3853,
+              "end": 3854,
+              "ms": 1,
+              "bytes": 1901,
+              "transfer": 2201
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04927.json.gz",
+              "n": "004/ng04927.json.gz",
+              "type": "fetch",
+              "start": 3853,
+              "end": 3854,
+              "ms": 1,
+              "bytes": 1889,
+              "transfer": 2189
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05909.json.gz",
+              "n": "005/ng05909.json.gz",
+              "type": "fetch",
+              "start": 3854,
+              "end": 3855,
+              "ms": 2,
+              "bytes": 1886,
+              "transfer": 2186
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05920.json.gz",
+              "n": "005/ng05920.json.gz",
+              "type": "fetch",
+              "start": 3854,
+              "end": 3856,
+              "ms": 2,
+              "bytes": 3059,
+              "transfer": 3359
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/002/ng02103.json.gz",
+              "n": "002/ng02103.json.gz",
+              "type": "fetch",
+              "start": 3854,
+              "end": 3855,
+              "ms": 1,
+              "bytes": 751,
+              "transfer": 1051
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05874.json.gz",
+              "n": "005/ng05874.json.gz",
+              "type": "fetch",
+              "start": 3854,
+              "end": 3856,
+              "ms": 1,
+              "bytes": 2938,
+              "transfer": 3238
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05886.json.gz",
+              "n": "005/ng05886.json.gz",
+              "type": "fetch",
+              "start": 3855,
+              "end": 3856,
+              "ms": 2,
+              "bytes": 2748,
+              "transfer": 3048
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05802.json.gz",
+              "n": "005/ng05802.json.gz",
+              "type": "fetch",
+              "start": 3855,
+              "end": 3856,
+              "ms": 1,
+              "bytes": 576,
+              "transfer": 876
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05902.json.gz",
+              "n": "005/ng05902.json.gz",
+              "type": "fetch",
+              "start": 3856,
+              "end": 3857,
+              "ms": 1,
+              "bytes": 1198,
+              "transfer": 1498
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05913.json.gz",
+              "n": "005/ng05913.json.gz",
+              "type": "fetch",
+              "start": 3857,
+              "end": 3858,
+              "ms": 1,
+              "bytes": 1415,
+              "transfer": 1715
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05545.json.gz",
+              "n": "005/ng05545.json.gz",
+              "type": "fetch",
+              "start": 3857,
+              "end": 3858,
+              "ms": 1,
+              "bytes": 521,
+              "transfer": 821
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05939.json.gz",
+              "n": "005/ng05939.json.gz",
+              "type": "fetch",
+              "start": 3857,
+              "end": 3859,
+              "ms": 2,
+              "bytes": 861,
+              "transfer": 1161
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05670.json.gz",
+              "n": "005/ng05670.json.gz",
+              "type": "fetch",
+              "start": 3857,
+              "end": 3859,
+              "ms": 2,
+              "bytes": 918,
+              "transfer": 1218
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05786.json.gz",
+              "n": "005/ng05786.json.gz",
+              "type": "fetch",
+              "start": 3857,
+              "end": 3859,
+              "ms": 1,
+              "bytes": 1481,
+              "transfer": 1781
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05724.json.gz",
+              "n": "005/ng05724.json.gz",
+              "type": "fetch",
+              "start": 3858,
+              "end": 3860,
+              "ms": 2,
+              "bytes": 792,
+              "transfer": 1092
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05876.json.gz",
+              "n": "005/ng05876.json.gz",
+              "type": "fetch",
+              "start": 3858,
+              "end": 3859,
+              "ms": 1,
+              "bytes": 787,
+              "transfer": 1087
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05914.json.gz",
+              "n": "005/ng05914.json.gz",
+              "type": "fetch",
+              "start": 3858,
+              "end": 3859,
+              "ms": 1,
+              "bytes": 1280,
+              "transfer": 1580
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05776.json.gz",
+              "n": "005/ng05776.json.gz",
+              "type": "fetch",
+              "start": 3859,
+              "end": 3860,
+              "ms": 1,
+              "bytes": 1214,
+              "transfer": 1514
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04875.json.gz",
+              "n": "004/ng04875.json.gz",
+              "type": "fetch",
+              "start": 3859,
+              "end": 3860,
+              "ms": 1,
+              "bytes": 908,
+              "transfer": 1208
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05272.json.gz",
+              "n": "005/ng05272.json.gz",
+              "type": "fetch",
+              "start": 5498,
+              "end": 5500,
+              "ms": 2,
+              "bytes": 729,
+              "transfer": 1029
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/001/ng01258.json.gz",
+              "n": "001/ng01258.json.gz",
+              "type": "fetch",
+              "start": 5498,
+              "end": 5500,
+              "ms": 2,
+              "bytes": 528,
+              "transfer": 828
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05756.json.gz",
+              "n": "005/ng05756.json.gz",
+              "type": "fetch",
+              "start": 5498,
+              "end": 5500,
+              "ms": 2,
+              "bytes": 1285,
+              "transfer": 1585
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05788.json.gz",
+              "n": "005/ng05788.json.gz",
+              "type": "fetch",
+              "start": 5499,
+              "end": 5500,
+              "ms": 1,
+              "bytes": 682,
+              "transfer": 982
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05403.json.gz",
+              "n": "005/ng05403.json.gz",
+              "type": "fetch",
+              "start": 5499,
+              "end": 5501,
+              "ms": 2,
+              "bytes": 1314,
+              "transfer": 1614
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05943.json.gz",
+              "n": "005/ng05943.json.gz",
+              "type": "fetch",
+              "start": 5499,
+              "end": 5501,
+              "ms": 2,
+              "bytes": 957,
+              "transfer": 1257
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05947.json.gz",
+              "n": "005/ng05947.json.gz",
+              "type": "fetch",
+              "start": 5505,
+              "end": 5507,
+              "ms": 2,
+              "bytes": 2168,
+              "transfer": 2468
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05938.json.gz",
+              "n": "005/ng05938.json.gz",
+              "type": "fetch",
+              "start": 5505,
+              "end": 5507,
+              "ms": 2,
+              "bytes": 1442,
+              "transfer": 1742
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05816.json.gz",
+              "n": "005/ng05816.json.gz",
+              "type": "fetch",
+              "start": 5505,
+              "end": 5507,
+              "ms": 3,
+              "bytes": 785,
+              "transfer": 1085
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05917.json.gz",
+              "n": "005/ng05917.json.gz",
+              "type": "fetch",
+              "start": 5505,
+              "end": 5507,
+              "ms": 2,
+              "bytes": 2460,
+              "transfer": 2760
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05665.json.gz",
+              "n": "005/ng05665.json.gz",
+              "type": "fetch",
+              "start": 5505,
+              "end": 5507,
+              "ms": 2,
+              "bytes": 512,
+              "transfer": 812
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04917.json.gz",
+              "n": "004/ng04917.json.gz",
+              "type": "fetch",
+              "start": 5505,
+              "end": 5507,
+              "ms": 2,
+              "bytes": 1836,
+              "transfer": 2136
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05796.json.gz",
+              "n": "005/ng05796.json.gz",
+              "type": "fetch",
+              "start": 5508,
+              "end": 5510,
+              "ms": 2,
+              "bytes": 911,
+              "transfer": 1211
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04133.json.gz",
+              "n": "004/ng04133.json.gz",
+              "type": "fetch",
+              "start": 5508,
+              "end": 5510,
+              "ms": 1,
+              "bytes": 838,
+              "transfer": 1138
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05940.json.gz",
+              "n": "005/ng05940.json.gz",
+              "type": "fetch",
+              "start": 5508,
+              "end": 5511,
+              "ms": 2,
+              "bytes": 761,
+              "transfer": 1061
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05604.json.gz",
+              "n": "005/ng05604.json.gz",
+              "type": "fetch",
+              "start": 5509,
+              "end": 5509,
+              "ms": 1,
+              "bytes": 630,
+              "transfer": 930
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05919.json.gz",
+              "n": "005/ng05919.json.gz",
+              "type": "fetch",
+              "start": 5509,
+              "end": 5511,
+              "ms": 2,
+              "bytes": 815,
+              "transfer": 1115
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05942.json.gz",
+              "n": "005/ng05942.json.gz",
+              "type": "fetch",
+              "start": 5509,
+              "end": 5511,
+              "ms": 2,
+              "bytes": 780,
+              "transfer": 1080
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05884.json.gz",
+              "n": "005/ng05884.json.gz",
+              "type": "fetch",
+              "start": 5510,
+              "end": 5511,
+              "ms": 1,
+              "bytes": 1500,
+              "transfer": 1800
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05752.json.gz",
+              "n": "005/ng05752.json.gz",
+              "type": "fetch",
+              "start": 5510,
+              "end": 5511,
+              "ms": 1,
+              "bytes": 1156,
+              "transfer": 1456
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05279.json.gz",
+              "n": "005/ng05279.json.gz",
+              "type": "fetch",
+              "start": 5511,
+              "end": 5511,
+              "ms": 1,
+              "bytes": 424,
+              "transfer": 724
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04939.json.gz",
+              "n": "004/ng04939.json.gz",
+              "type": "fetch",
+              "start": 5512,
+              "end": 5513,
+              "ms": 1,
+              "bytes": 555,
+              "transfer": 855
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05901.json.gz",
+              "n": "005/ng05901.json.gz",
+              "type": "fetch",
+              "start": 5512,
+              "end": 5514,
+              "ms": 2,
+              "bytes": 704,
+              "transfer": 1004
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05941.json.gz",
+              "n": "005/ng05941.json.gz",
+              "type": "fetch",
+              "start": 5512,
+              "end": 5514,
+              "ms": 1,
+              "bytes": 3113,
+              "transfer": 3413
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05335.json.gz",
+              "n": "005/ng05335.json.gz",
+              "type": "fetch",
+              "start": 5512,
+              "end": 5514,
+              "ms": 2,
+              "bytes": 550,
+              "transfer": 850
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05930.json.gz",
+              "n": "005/ng05930.json.gz",
+              "type": "fetch",
+              "start": 5512,
+              "end": 5513,
+              "ms": 1,
+              "bytes": 468,
+              "transfer": 768
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05794.json.gz",
+              "n": "005/ng05794.json.gz",
+              "type": "fetch",
+              "start": 5512,
+              "end": 5514,
+              "ms": 2,
+              "bytes": 768,
+              "transfer": 1068
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05946.json.gz",
+              "n": "005/ng05946.json.gz",
+              "type": "fetch",
+              "start": 5514,
+              "end": 5514,
+              "ms": 1,
+              "bytes": 1992,
+              "transfer": 2292
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05339.json.gz",
+              "n": "005/ng05339.json.gz",
+              "type": "fetch",
+              "start": 5514,
+              "end": 5515,
+              "ms": 0,
+              "bytes": 662,
+              "transfer": 962
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05713.json.gz",
+              "n": "005/ng05713.json.gz",
+              "type": "fetch",
+              "start": 5515,
+              "end": 5516,
+              "ms": 1,
+              "bytes": 634,
+              "transfer": 934
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05830.json.gz",
+              "n": "005/ng05830.json.gz",
+              "type": "fetch",
+              "start": 5515,
+              "end": 5516,
+              "ms": 1,
+              "bytes": 1106,
+              "transfer": 1406
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04882.json.gz",
+              "n": "004/ng04882.json.gz",
+              "type": "fetch",
+              "start": 5516,
+              "end": 5517,
+              "ms": 1,
+              "bytes": 987,
+              "transfer": 1287
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05777.json.gz",
+              "n": "005/ng05777.json.gz",
+              "type": "fetch",
+              "start": 5516,
+              "end": 5517,
+              "ms": 1,
+              "bytes": 766,
+              "transfer": 1066
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04897.json.gz",
+              "n": "004/ng04897.json.gz",
+              "type": "fetch",
+              "start": 5516,
+              "end": 5518,
+              "ms": 2,
+              "bytes": 667,
+              "transfer": 967
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05911.json.gz",
+              "n": "005/ng05911.json.gz",
+              "type": "fetch",
+              "start": 5516,
+              "end": 5517,
+              "ms": 1,
+              "bytes": 859,
+              "transfer": 1159
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05860.json.gz",
+              "n": "005/ng05860.json.gz",
+              "type": "fetch",
+              "start": 5516,
+              "end": 5518,
+              "ms": 1,
+              "bytes": 1013,
+              "transfer": 1313
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05899.json.gz",
+              "n": "005/ng05899.json.gz",
+              "type": "fetch",
+              "start": 5516,
+              "end": 5517,
+              "ms": 1,
+              "bytes": 1355,
+              "transfer": 1655
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05772.json.gz",
+              "n": "005/ng05772.json.gz",
+              "type": "fetch",
+              "start": 5517,
+              "end": 5519,
+              "ms": 2,
+              "bytes": 764,
+              "transfer": 1064
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05880.json.gz",
+              "n": "005/ng05880.json.gz",
+              "type": "fetch",
+              "start": 5517,
+              "end": 5518,
+              "ms": 1,
+              "bytes": 354,
+              "transfer": 654
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05865.json.gz",
+              "n": "005/ng05865.json.gz",
+              "type": "fetch",
+              "start": 5518,
+              "end": 5518,
+              "ms": 1,
+              "bytes": 930,
+              "transfer": 1230
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05890.json.gz",
+              "n": "005/ng05890.json.gz",
+              "type": "fetch",
+              "start": 5518,
+              "end": 5519,
+              "ms": 1,
+              "bytes": 580,
+              "transfer": 880
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05474.json.gz",
+              "n": "005/ng05474.json.gz",
+              "type": "fetch",
+              "start": 5520,
+              "end": 5522,
+              "ms": 2,
+              "bytes": 568,
+              "transfer": 868
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05948.json.gz",
+              "n": "005/ng05948.json.gz",
+              "type": "fetch",
+              "start": 5520,
+              "end": 5522,
+              "ms": 2,
+              "bytes": 1812,
+              "transfer": 2112
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05944.json.gz",
+              "n": "005/ng05944.json.gz",
+              "type": "fetch",
+              "start": 5520,
+              "end": 5522,
+              "ms": 2,
+              "bytes": 553,
+              "transfer": 853
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05892.json.gz",
+              "n": "005/ng05892.json.gz",
+              "type": "fetch",
+              "start": 5520,
+              "end": 5521,
+              "ms": 1,
+              "bytes": 1095,
+              "transfer": 1395
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05852.json.gz",
+              "n": "005/ng05852.json.gz",
+              "type": "fetch",
+              "start": 5520,
+              "end": 5522,
+              "ms": 2,
+              "bytes": 601,
+              "transfer": 901
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05453.json.gz",
+              "n": "005/ng05453.json.gz",
+              "type": "fetch",
+              "start": 5520,
+              "end": 5522,
+              "ms": 2,
+              "bytes": 448,
+              "transfer": 748
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05883.json.gz",
+              "n": "005/ng05883.json.gz",
+              "type": "fetch",
+              "start": 5522,
+              "end": 5523,
+              "ms": 1,
+              "bytes": 344,
+              "transfer": 644
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05916.json.gz",
+              "n": "005/ng05916.json.gz",
+              "type": "fetch",
+              "start": 5523,
+              "end": 5523,
+              "ms": 1,
+              "bytes": 678,
+              "transfer": 978
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05588.json.gz",
+              "n": "005/ng05588.json.gz",
+              "type": "fetch",
+              "start": 5523,
+              "end": 5525,
+              "ms": 2,
+              "bytes": 637,
+              "transfer": 937
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/003/ng03315.json.gz",
+              "n": "003/ng03315.json.gz",
+              "type": "fetch",
+              "start": 5523,
+              "end": 5524,
+              "ms": 1,
+              "bytes": 392,
+              "transfer": 692
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05774.json.gz",
+              "n": "005/ng05774.json.gz",
+              "type": "fetch",
+              "start": 5523,
+              "end": 5525,
+              "ms": 1,
+              "bytes": 610,
+              "transfer": 910
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05504.json.gz",
+              "n": "005/ng05504.json.gz",
+              "type": "fetch",
+              "start": 5524,
+              "end": 5525,
+              "ms": 2,
+              "bytes": 277,
+              "transfer": 577
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05868.json.gz",
+              "n": "005/ng05868.json.gz",
+              "type": "fetch",
+              "start": 5524,
+              "end": 5525,
+              "ms": 2,
+              "bytes": 549,
+              "transfer": 849
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05870.json.gz",
+              "n": "005/ng05870.json.gz",
+              "type": "fetch",
+              "start": 5524,
+              "end": 5525,
+              "ms": 2,
+              "bytes": 638,
+              "transfer": 938
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05925.json.gz",
+              "n": "005/ng05925.json.gz",
+              "type": "fetch",
+              "start": 5524,
+              "end": 5526,
+              "ms": 1,
+              "bytes": 654,
+              "transfer": 954
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05355.json.gz",
+              "n": "005/ng05355.json.gz",
+              "type": "fetch",
+              "start": 5525,
+              "end": 5526,
+              "ms": 1,
+              "bytes": 576,
+              "transfer": 876
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05286.json.gz",
+              "n": "005/ng05286.json.gz",
+              "type": "fetch",
+              "start": 5526,
+              "end": 5526,
+              "ms": 0,
+              "bytes": 309,
+              "transfer": 609
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05757.json.gz",
+              "n": "005/ng05757.json.gz",
+              "type": "fetch",
+              "start": 5526,
+              "end": 5527,
+              "ms": 1,
+              "bytes": 266,
+              "transfer": 566
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05915.json.gz",
+              "n": "005/ng05915.json.gz",
+              "type": "fetch",
+              "start": 5526,
+              "end": 5528,
+              "ms": 1,
+              "bytes": 493,
+              "transfer": 793
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05345.json.gz",
+              "n": "005/ng05345.json.gz",
+              "type": "fetch",
+              "start": 5527,
+              "end": 5528,
+              "ms": 1,
+              "bytes": 277,
+              "transfer": 577
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05751.json.gz",
+              "n": "005/ng05751.json.gz",
+              "type": "fetch",
+              "start": 5527,
+              "end": 5528,
+              "ms": 1,
+              "bytes": 308,
+              "transfer": 608
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05527.json.gz",
+              "n": "005/ng05527.json.gz",
+              "type": "fetch",
+              "start": 5527,
+              "end": 5528,
+              "ms": 2,
+              "bytes": 353,
+              "transfer": 653
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05387.json.gz",
+              "n": "005/ng05387.json.gz",
+              "type": "fetch",
+              "start": 5527,
+              "end": 5529,
+              "ms": 2,
+              "bytes": 363,
+              "transfer": 663
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05319.json.gz",
+              "n": "005/ng05319.json.gz",
+              "type": "fetch",
+              "start": 5527,
+              "end": 5529,
+              "ms": 2,
+              "bytes": 298,
+              "transfer": 598
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05906.json.gz",
+              "n": "005/ng05906.json.gz",
+              "type": "fetch",
+              "start": 5528,
+              "end": 5529,
+              "ms": 1,
+              "bytes": 336,
+              "transfer": 636
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05493.json.gz",
+              "n": "005/ng05493.json.gz",
+              "type": "fetch",
+              "start": 5529,
+              "end": 5529,
+              "ms": 0,
+              "bytes": 332,
+              "transfer": 632
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04189.json.gz",
+              "n": "004/ng04189.json.gz",
+              "type": "fetch",
+              "start": 5529,
+              "end": 5530,
+              "ms": 1,
+              "bytes": 252,
+              "transfer": 552
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05783.json.gz",
+              "n": "005/ng05783.json.gz",
+              "type": "fetch",
+              "start": 5529,
+              "end": 5531,
+              "ms": 1,
+              "bytes": 333,
+              "transfer": 633
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05928.json.gz",
+              "n": "005/ng05928.json.gz",
+              "type": "fetch",
+              "start": 5529,
+              "end": 5531,
+              "ms": 2,
+              "bytes": 308,
+              "transfer": 608
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05419.json.gz",
+              "n": "005/ng05419.json.gz",
+              "type": "fetch",
+              "start": 5530,
+              "end": 5531,
+              "ms": 1,
+              "bytes": 205,
+              "transfer": 505
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05877.json.gz",
+              "n": "005/ng05877.json.gz",
+              "type": "fetch",
+              "start": 5530,
+              "end": 5531,
+              "ms": 1,
+              "bytes": 279,
+              "transfer": 579
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05458.json.gz",
+              "n": "005/ng05458.json.gz",
+              "type": "fetch",
+              "start": 5530,
+              "end": 5531,
+              "ms": 1,
+              "bytes": 252,
+              "transfer": 552
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04262.json.gz",
+              "n": "004/ng04262.json.gz",
+              "type": "fetch",
+              "start": 5530,
+              "end": 5531,
+              "ms": 1,
+              "bytes": 180,
+              "transfer": 480
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/005/ng05247.json.gz",
+              "n": "005/ng05247.json.gz",
+              "type": "fetch",
+              "start": 5532,
+              "end": 5532,
+              "ms": 1,
+              "bytes": 196,
+              "transfer": 496
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/native/geos/004/ng04804.json.gz",
+              "n": "004/ng04804.json.gz",
+              "type": "fetch",
+              "start": 5532,
+              "end": 5532,
+              "ms": 1,
+              "bytes": 161,
+              "transfer": 461
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/land-10m.json.gz",
+              "n": "physical/land-10m.json.gz",
+              "type": "fetch",
+              "start": 5794,
+              "end": 5803,
+              "ms": 8,
+              "bytes": 3569584,
+              "transfer": 3569884
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/4/2.webp",
+              "n": "4/2.webp",
+              "type": "fetch",
+              "start": 6872,
+              "end": 6875,
+              "ms": 3,
+              "bytes": 176622,
+              "transfer": 176922
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/3/2.webp",
+              "n": "3/2.webp",
+              "type": "fetch",
+              "start": 6872,
+              "end": 6875,
+              "ms": 2,
+              "bytes": 34424,
+              "transfer": 34724
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/4/3.webp",
+              "n": "4/3.webp",
+              "type": "fetch",
+              "start": 6872,
+              "end": 6876,
+              "ms": 4,
+              "bytes": 184250,
+              "transfer": 184550
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/4/1.webp",
+              "n": "4/1.webp",
+              "type": "fetch",
+              "start": 6872,
+              "end": 6874,
+              "ms": 2,
+              "bytes": 45296,
+              "transfer": 45596
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/3/3.webp",
+              "n": "3/3.webp",
+              "type": "fetch",
+              "start": 6872,
+              "end": 6875,
+              "ms": 3,
+              "bytes": 51350,
+              "transfer": 51650
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/5/2.webp",
+              "n": "5/2.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6875,
+              "ms": 3,
+              "bytes": 201742,
+              "transfer": 202042
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/3/1.webp",
+              "n": "3/1.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6876,
+              "ms": 3,
+              "bytes": 63404,
+              "transfer": 63704
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/5/3.webp",
+              "n": "5/3.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6878,
+              "ms": 5,
+              "bytes": 136364,
+              "transfer": 136664
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/2/2.webp",
+              "n": "2/2.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6877,
+              "ms": 4,
+              "bytes": 111080,
+              "transfer": 111380
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/2/3.webp",
+              "n": "2/3.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6876,
+              "ms": 4,
+              "bytes": 59454,
+              "transfer": 59754
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/3/4.webp",
+              "n": "3/4.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6876,
+              "ms": 4,
+              "bytes": 19778,
+              "transfer": 20078
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/5/1.webp",
+              "n": "5/1.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6878,
+              "ms": 5,
+              "bytes": 71788,
+              "transfer": 72088
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/5/4.webp",
+              "n": "5/4.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6878,
+              "ms": 5,
+              "bytes": 7902,
+              "transfer": 8202
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/6/2.webp",
+              "n": "6/2.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6878,
+              "ms": 5,
+              "bytes": 256252,
+              "transfer": 256552
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/6/3.webp",
+              "n": "6/3.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6878,
+              "ms": 5,
+              "bytes": 137610,
+              "transfer": 137910
+            },
+            {
+              "u": "http://127.0.0.1:8769/data/physical/relief/3/1/2.webp",
+              "n": "1/2.webp",
+              "type": "fetch",
+              "start": 6873,
+              "end": 6879,
+              "ms": 6,
+              "bytes": 211378,
+              "transfer": 211678
+            }
+          ]
+        },
+        "phases": {
+          "htmlMs": 2,
+          "cssDoneMs": 7,
+          "jsDoneMs": 7,
+          "firstGeometryMs": 8,
+          "allDataMs": 6879,
+          "jsBytes": 412768,
+          "cssBytes": 27600,
+          "dataBytes": 12437102,
+          "externalRequests": 0
+        },
+        "groups": {
+          "fast": {
+            "count": 8,
+            "bytes": 3533195,
+            "lastEndMs": 3414
+          },
+          "native": {
+            "count": 132,
+            "bytes": 330570,
+            "lastEndMs": 5532
+          },
+          "physical": {
+            "count": 29,
+            "bytes": 6946048,
+            "lastEndMs": 10040
+          },
+          "lakes": {
+            "count": 0,
+            "bytes": 0,
+            "lastEndMs": null
+          },
+          "places": {
+            "count": 4,
+            "bytes": 839516,
+            "lastEndMs": 3802
+          },
+          "app": {
+            "count": 150,
+            "bytes": 9934834,
+            "lastEndMs": 5796
+          }
+        },
+        "nativeTimeline": [
+          {
+            "file": "native/index.json.gz",
+            "start": 3777,
+            "end": 3801
+          },
+          {
+            "file": "005/ng05932.json.gz",
+            "start": 3836,
+            "end": 3839
+          },
+          {
+            "file": "005/ng05912.json.gz",
+            "start": 3836,
+            "end": 3839
+          },
+          {
+            "file": "005/ng05921.json.gz",
+            "start": 3836,
+            "end": 3839
+          },
+          {
+            "file": "005/ng05689.json.gz",
+            "start": 3836,
+            "end": 3839
+          },
+          {
+            "file": "005/ng05924.json.gz",
+            "start": 3836,
+            "end": 3839
+          },
+          {
+            "file": "005/ng05904.json.gz",
+            "start": 3836,
+            "end": 3839
+          },
+          {
+            "file": "005/ng05727.json.gz",
+            "start": 3841,
+            "end": 3842
+          },
+          {
+            "file": "005/ng05896.json.gz",
+            "start": 3841,
+            "end": 3843
+          },
+          {
+            "file": "005/ng05937.json.gz",
+            "start": 3841,
+            "end": 3843
+          },
+          {
+            "file": "005/ng05933.json.gz",
+            "start": 3841,
+            "end": 3843
+          },
+          {
+            "file": "005/ng05731.json.gz",
+            "start": 3841,
+            "end": 3843
+          },
+          {
+            "file": "005/ng05903.json.gz",
+            "start": 3841,
+            "end": 3843
+          },
+          {
+            "file": "005/ng05934.json.gz",
+            "start": 3844,
+            "end": 3845
+          },
+          {
+            "file": "005/ng05631.json.gz",
+            "start": 3844,
+            "end": 3846
+          },
+          {
+            "file": "005/ng05935.json.gz",
+            "start": 3845,
+            "end": 3846
+          },
+          {
+            "file": "005/ng05905.json.gz",
+            "start": 3845,
+            "end": 3846
+          },
+          {
+            "file": "005/ng05945.json.gz",
+            "start": 3845,
+            "end": 3846
+          },
+          {
+            "file": "005/ng05927.json.gz",
+            "start": 3845,
+            "end": 3847
+          },
+          {
+            "file": "005/ng05929.json.gz",
+            "start": 3845,
+            "end": 3847
+          },
+          {
+            "file": "005/ng05881.json.gz",
+            "start": 3846,
+            "end": 3848
+          },
+          {
+            "file": "005/ng05907.json.gz",
+            "start": 3847,
+            "end": 3848
+          },
+          {
+            "file": "005/ng05720.json.gz",
+            "start": 3848,
+            "end": 3849
+          },
+          {
+            "file": "005/ng05723.json.gz",
+            "start": 3848,
+            "end": 3849
+          },
+          {
+            "file": "005/ng05910.json.gz",
+            "start": 3848,
+            "end": 3849
+          },
+          {
+            "file": "004/ng04547.json.gz",
+            "start": 3848,
+            "end": 3849
+          },
+          {
+            "file": "005/ng05908.json.gz",
+            "start": 3848,
+            "end": 3851
+          },
+          {
+            "file": "005/ng05931.json.gz",
+            "start": 3849,
+            "end": 3850
+          },
+          {
+            "file": "005/ng05879.json.gz",
+            "start": 3849,
+            "end": 3851
+          },
+          {
+            "file": "005/ng05918.json.gz",
+            "start": 3850,
+            "end": 3851
+          },
+          {
+            "file": "005/ng05531.json.gz",
+            "start": 3850,
+            "end": 3851
+          },
+          {
+            "file": "005/ng05780.json.gz",
+            "start": 3850,
+            "end": 3852
+          },
+          {
+            "file": "004/ng04249.json.gz",
+            "start": 3850,
+            "end": 3852
+          },
+          {
+            "file": "005/ng05820.json.gz",
+            "start": 3852,
+            "end": 3852
+          },
+          {
+            "file": "005/ng05936.json.gz",
+            "start": 3852,
+            "end": 3853
+          },
+          {
+            "file": "005/ng05445.json.gz",
+            "start": 3852,
+            "end": 3853
+          },
+          {
+            "file": "005/ng05898.json.gz",
+            "start": 3852,
+            "end": 3854
+          },
+          {
+            "file": "004/ng04927.json.gz",
+            "start": 3853,
+            "end": 3854
+          },
+          {
+            "file": "005/ng05861.json.gz",
+            "start": 3853,
+            "end": 3854
+          },
+          {
+            "file": "005/ng05909.json.gz",
+            "start": 3854,
+            "end": 3855
+          },
+          {
+            "file": "002/ng02103.json.gz",
+            "start": 3854,
+            "end": 3855
+          },
+          {
+            "file": "005/ng05920.json.gz",
+            "start": 3854,
+            "end": 3856
+          },
+          {
+            "file": "005/ng05874.json.gz",
+            "start": 3854,
+            "end": 3856
+          },
+          {
+            "file": "005/ng05802.json.gz",
+            "start": 3855,
+            "end": 3856
+          },
+          {
+            "file": "005/ng05886.json.gz",
+            "start": 3855,
+            "end": 3856
+          },
+          {
+            "file": "005/ng05902.json.gz",
+            "start": 3856,
+            "end": 3857
+          },
+          {
+            "file": "005/ng05913.json.gz",
+            "start": 3857,
+            "end": 3858
+          },
+          {
+            "file": "005/ng05545.json.gz",
+            "start": 3857,
+            "end": 3858
+          },
+          {
+            "file": "005/ng05786.json.gz",
+            "start": 3857,
+            "end": 3858
+          },
+          {
+            "file": "005/ng05939.json.gz",
+            "start": 3857,
+            "end": 3859
+          },
+          {
+            "file": "005/ng05670.json.gz",
+            "start": 3857,
+            "end": 3859
+          },
+          {
+            "file": "005/ng05724.json.gz",
+            "start": 3858,
+            "end": 3859
+          },
+          {
+            "file": "005/ng05914.json.gz",
+            "start": 3858,
+            "end": 3859
+          },
+          {
+            "file": "005/ng05876.json.gz",
+            "start": 3858,
+            "end": 5027
+          },
+          {
+            "file": "005/ng05776.json.gz",
+            "start": 3859,
+            "end": 5027
+          },
+          {
+            "file": "004/ng04875.json.gz",
+            "start": 3859,
+            "end": 5027
+          },
+          {
+            "file": "005/ng05756.json.gz",
+            "start": 5498,
+            "end": 5500
+          },
+          {
+            "file": "005/ng05272.json.gz",
+            "start": 5498,
+            "end": 5500
+          },
+          {
+            "file": "001/ng01258.json.gz",
+            "start": 5498,
+            "end": 5501
+          },
+          {
+            "file": "005/ng05788.json.gz",
+            "start": 5499,
+            "end": 5500
+          },
+          {
+            "file": "005/ng05403.json.gz",
+            "start": 5499,
+            "end": 5501
+          },
+          {
+            "file": "005/ng05943.json.gz",
+            "start": 5499,
+            "end": 5501
+          },
+          {
+            "file": "005/ng05947.json.gz",
+            "start": 5505,
+            "end": 5507
+          },
+          {
+            "file": "005/ng05938.json.gz",
+            "start": 5505,
+            "end": 5507
+          },
+          {
+            "file": "004/ng04917.json.gz",
+            "start": 5505,
+            "end": 5507
+          },
+          {
+            "file": "005/ng05917.json.gz",
+            "start": 5505,
+            "end": 5507
+          },
+          {
+            "file": "005/ng05665.json.gz",
+            "start": 5505,
+            "end": 5508
+          },
+          {
+            "file": "005/ng05816.json.gz",
+            "start": 5505,
+            "end": 5508
+          },
+          {
+            "file": "004/ng04133.json.gz",
+            "start": 5508,
+            "end": 5510
+          },
+          {
+            "file": "005/ng05796.json.gz",
+            "start": 5508,
+            "end": 5510
+          },
+          {
+            "file": "005/ng05940.json.gz",
+            "start": 5508,
+            "end": 5511
+          },
+          {
+            "file": "005/ng05604.json.gz",
+            "start": 5509,
+            "end": 5509
+          },
+          {
+            "file": "005/ng05942.json.gz",
+            "start": 5509,
+            "end": 5510
+          },
+          {
+            "file": "005/ng05919.json.gz",
+            "start": 5509,
+            "end": 5511
+          },
+          {
+            "file": "005/ng05884.json.gz",
+            "start": 5510,
+            "end": 5511
+          },
+          {
+            "file": "005/ng05752.json.gz",
+            "start": 5510,
+            "end": 5512
+          },
+          {
+            "file": "005/ng05279.json.gz",
+            "start": 5511,
+            "end": 5512
+          },
+          {
+            "file": "004/ng04939.json.gz",
+            "start": 5512,
+            "end": 5513
+          },
+          {
+            "file": "005/ng05930.json.gz",
+            "start": 5512,
+            "end": 5513
+          },
+          {
+            "file": "005/ng05335.json.gz",
+            "start": 5512,
+            "end": 5514
+          },
+          {
+            "file": "005/ng05941.json.gz",
+            "start": 5512,
+            "end": 5514
+          },
+          {
+            "file": "005/ng05794.json.gz",
+            "start": 5512,
+            "end": 5514
+          },
+          {
+            "file": "005/ng05901.json.gz",
+            "start": 5512,
+            "end": 5514
+          },
+          {
+            "file": "005/ng05946.json.gz",
+            "start": 5514,
+            "end": 5515
+          },
+          {
+            "file": "005/ng05339.json.gz",
+            "start": 5514,
+            "end": 5515
+          },
+          {
+            "file": "005/ng05713.json.gz",
+            "start": 5515,
+            "end": 5516
+          },
+          {
+            "file": "005/ng05830.json.gz",
+            "start": 5515,
+            "end": 5516
+          },
+          {
+            "file": "004/ng04882.json.gz",
+            "start": 5515,
+            "end": 5517
+          },
+          {
+            "file": "005/ng05777.json.gz",
+            "start": 5516,
+            "end": 5516
+          },
+          {
+            "file": "005/ng05911.json.gz",
+            "start": 5516,
+            "end": 5517
+          },
+          {
+            "file": "005/ng05899.json.gz",
+            "start": 5516,
+            "end": 5517
+          },
+          {
+            "file": "005/ng05860.json.gz",
+            "start": 5516,
+            "end": 5517
+          },
+          {
+            "file": "004/ng04897.json.gz",
+            "start": 5516,
+            "end": 5518
+          },
+          {
+            "file": "005/ng05772.json.gz",
+            "start": 5517,
+            "end": 5518
+          },
+          {
+            "file": "005/ng05880.json.gz",
+            "start": 5517,
+            "end": 5519
+          },
+          {
+            "file": "005/ng05865.json.gz",
+            "start": 5518,
+            "end": 5519
+          },
+          {
+            "file": "005/ng05890.json.gz",
+            "start": 5518,
+            "end": 5520
+          },
+          {
+            "file": "005/ng05948.json.gz",
+            "start": 5520,
+            "end": 5521
+          },
+          {
+            "file": "005/ng05892.json.gz",
+            "start": 5520,
+            "end": 5521
+          },
+          {
+            "file": "005/ng05474.json.gz",
+            "start": 5520,
+            "end": 5522
+          },
+          {
+            "file": "005/ng05944.json.gz",
+            "start": 5520,
+            "end": 5522
+          },
+          {
+            "file": "005/ng05852.json.gz",
+            "start": 5520,
+            "end": 5522
+          },
+          {
+            "file": "005/ng05453.json.gz",
+            "start": 5520,
+            "end": 5522
+          },
+          {
+            "file": "005/ng05883.json.gz",
+            "start": 5522,
+            "end": 5523
+          },
+          {
+            "file": "005/ng05916.json.gz",
+            "start": 5523,
+            "end": 5523
+          },
+          {
+            "file": "003/ng03315.json.gz",
+            "start": 5523,
+            "end": 5524
+          },
+          {
+            "file": "005/ng05774.json.gz",
+            "start": 5523,
+            "end": 5524
+          },
+          {
+            "file": "005/ng05588.json.gz",
+            "start": 5523,
+            "end": 5525
+          },
+          {
+            "file": "005/ng05868.json.gz",
+            "start": 5524,
+            "end": 5525
+          },
+          {
+            "file": "005/ng05504.json.gz",
+            "start": 5524,
+            "end": 5525
+          },
+          {
+            "file": "005/ng05870.json.gz",
+            "start": 5524,
+            "end": 5526
+          },
+          {
+            "file": "005/ng05925.json.gz",
+            "start": 5524,
+            "end": 5526
+          },
+          {
+            "file": "005/ng05355.json.gz",
+            "start": 5525,
+            "end": 5526
+          },
+          {
+            "file": "005/ng05286.json.gz",
+            "start": 5526,
+            "end": 5526
+          },
+          {
+            "file": "005/ng05757.json.gz",
+            "start": 5526,
+            "end": 5527
+          },
+          {
+            "file": "005/ng05915.json.gz",
+            "start": 5526,
+            "end": 5528
+          },
+          {
+            "file": "005/ng05345.json.gz",
+            "start": 5527,
+            "end": 5527
+          },
+          {
+            "file": "005/ng05751.json.gz",
+            "start": 5527,
+            "end": 5528
+          },
+          {
+            "file": "005/ng05527.json.gz",
+            "start": 5527,
+            "end": 5528
+          },
+          {
+            "file": "005/ng05387.json.gz",
+            "start": 5527,
+            "end": 5528
+          },
+          {
+            "file": "005/ng05319.json.gz",
+            "start": 5527,
+            "end": 5529
+          },
+          {
+            "file": "005/ng05906.json.gz",
+            "start": 5528,
+            "end": 5529
+          },
+          {
+            "file": "005/ng05493.json.gz",
+            "start": 5529,
+            "end": 5530
+          },
+          {
+            "file": "004/ng04189.json.gz",
+            "start": 5529,
+            "end": 5530
+          },
+          {
+            "file": "005/ng05783.json.gz",
+            "start": 5529,
+            "end": 5530
+          },
+          {
+            "file": "005/ng05928.json.gz",
+            "start": 5529,
+            "end": 5532
+          },
+          {
+            "file": "005/ng05419.json.gz",
+            "start": 5530,
+            "end": 5531
+          },
+          {
+            "file": "005/ng05458.json.gz",
+            "start": 5530,
+            "end": 5531
+          },
+          {
+            "file": "005/ng05877.json.gz",
+            "start": 5530,
+            "end": 5531
+          },
+          {
+            "file": "004/ng04262.json.gz",
+            "start": 5530,
+            "end": 5532
+          },
+          {
+            "file": "005/ng05247.json.gz",
+            "start": 5531,
+            "end": 5532
+          },
+          {
+            "file": "004/ng04804.json.gz",
+            "start": 5532,
+            "end": 5532
+          }
+        ]
+      }
+    }
+  ],
+  "systemAtEnd": {
+    "loadavg": [
+      9.13,
+      8.14,
+      7.23
+    ],
+    "chromeProcesses": 26,
+    "cpus": 18
+  },
+  "wallClockMs": 20827,
+  "summary": [
+    {
+      "id": "zoom3-1450/unthrottled",
+      "firstFrameMs": 5073,
+      "nativeCompleteMs": null,
+      "ohmReadyTotalMs": null,
+      "requests": 218,
+      "connections": 14,
+      "encodedMiB": 12.28,
+      "nativeReq": 132,
+      "physicalMiB": 6.62,
+      "zoomSettleMs": null,
+      "physicalBytesForZoom3": 1768694,
+      "zoom3SettleMs": 11263,
+      "fatal": null
+    }
+  ]
+}

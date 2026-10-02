@@ -1,10 +1,10 @@
-import {boundaryNote} from './boundary-notes.js?v=3.10.0-bedf722e4358';
-import {readJSON} from './map-engine.js?v=3.10.0-bedf722e4358';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.10.0-bedf722e4358';
-import {boundaryMode} from './view-state.js?v=3.10.0-bedf722e4358';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.10.0-bedf722e4358';
-import {historicalYearRange} from './historical-dates.js?v=3.10.0-bedf722e4358';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.10.0-bedf722e4358';
+import {boundaryNote} from './boundary-notes.js?v=3.10.0-dcc51a2107d6';
+import {readJSON} from './map-engine.js?v=3.10.0-dcc51a2107d6';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.10.0-dcc51a2107d6';
+import {boundaryMode} from './view-state.js?v=3.10.0-dcc51a2107d6';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.10.0-dcc51a2107d6';
+import {historicalYearRange} from './historical-dates.js?v=3.10.0-dcc51a2107d6';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.10.0-dcc51a2107d6';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;
@@ -54,16 +54,35 @@ export function regionalLayers(year,maxLevel=4){
  ];
 }
 export const OHM_ROOT='data/ohm-1500/',OHM_SOURCE='ohm-frozen',OHM_LAYERS=['ohm-frozen-wash','ohm-frozen-edges','ohm-frozen-partial','ohm-frozen-selected'],OHM_SELECTED='ohm-frozen-selected';
-// Years and window of the frozen OpenHistoricalMap extract shipped in public/data/ohm-1500.
-export const OHM_YEARS=[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900],OHM_BOUNDS=[4.5,44.0,14.5,50.5];
-export const ohmCoversYear=year=>OHM_YEARS.includes(Number(year));
-export function ohmInView(bounds){
+// Frozen windows shipped with the atlas. bounds are west,south,east,north; root is repo-relative.
+export const OHM_WINDOWS=[
+ {id:'central-europe',zh:'中欧',en:'Central Europe',root:'data/ohm-1500/',bounds:[4.5,44.0,14.5,50.5],years:[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900]},
+ {id:'east-asia',zh:'东亚',en:'East Asia',root:'data/ohm-eastasia/',bounds:[95.0,18.0,150.0,55.0],years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]}
+];
+export const OHM_YEARS=[...new Set(OHM_WINDOWS.flatMap(window_=>window_.years))].sort((a,b)=>a-b);
+export const OHM_BOUNDS=OHM_WINDOWS[0].bounds;
+export const ohmCoversYear=year=>OHM_WINDOWS.some(window_=>window_.years.includes(Number(year)));
+export function ohmWindowInView(window_,bounds){
  if(!bounds)return false;
  const west=bounds.getWest(),east=bounds.getEast(),south=bounds.getSouth(),north=bounds.getNorth();
- if(![west,east,south,north].every(Number.isFinite)||south>OHM_BOUNDS[3]||north<OHM_BOUNDS[1])return false;
+ if(![west,east,south,north].every(Number.isFinite)||south>window_.bounds[3]||north<window_.bounds[1])return false;
  const end=east<west?east+360:east;if(end-west>=360)return true;
- const shift=Math.round(((west+end)/2-(OHM_BOUNDS[0]+OHM_BOUNDS[2])/2)/360)*360;
- return west<=OHM_BOUNDS[2]+shift&&end>=OHM_BOUNDS[0]+shift;
+ const shift=Math.round(((west+end)/2-(window_.bounds[0]+window_.bounds[2])/2)/360)*360;
+ return west<=window_.bounds[2]+shift&&end>=window_.bounds[0]+shift;
+}
+export const ohmInView=bounds=>OHM_WINDOWS.some(window_=>ohmWindowInView(window_,bounds));
+// Which window answers for this view: the one holding the view centre, else the largest overlap.
+export function ohmWindowFor(bounds){
+ if(!bounds)return null;
+ const west=bounds.getWest(),east=bounds.getEast(),south=bounds.getSouth(),north=bounds.getNorth();
+ if(![west,east,south,north].every(Number.isFinite))return null;
+ const centerLon=(west+east)/2,centerLat=(south+north)/2;
+ const inside=OHM_WINDOWS.find(window_=>centerLon>=window_.bounds[0]&&centerLon<=window_.bounds[2]&&centerLat>=window_.bounds[1]&&centerLat<=window_.bounds[3]);
+ if(inside)return inside;
+ const candidates=OHM_WINDOWS.filter(window_=>ohmWindowInView(window_,bounds));
+ if(!candidates.length)return null;
+ const overlap=window_=>Math.max(0,Math.min(east,window_.bounds[2])-Math.max(west,window_.bounds[0]))*Math.max(0,Math.min(north,window_.bounds[3])-Math.max(south,window_.bounds[1]));
+ return candidates.reduce((best,window_)=>overlap(window_)>overlap(best)?window_:best);
 }
 // The frozen extract keeps the source stroke palette but a rust outline, so a record drawn from
 // it never reads as the tile archive. It is added under the same boundary anchor as the tiles.
@@ -141,7 +160,7 @@ export function regionalAnchor(feature,box){
 export const regionalPeriod=(p,lang='bi')=>p.archive==='halc'?'1500':[p.start_date||recordYear(p.start_decdate,lang),p.end_date||recordYear(p.end_decdate,lang)].join(' — ');
 export class RegionalBoundaries{
  constructor(atlas,{enabled=true,modern=false,mode='auto'}={}){
-  this.atlas=atlas;this.map=atlas.map;this.mode=enabled?boundaryMode(mode):'overview';this.modern=modern;this.year=atlas.year;this.lang=atlas.lang;this.status='zoom';this.active=false;this.failed=false;this.features=[];this.markers=[];this.listeners=[];this.settling=false;this.samples=[];this.maxLevel=this.map.getZoom()>=8?6:4;this.ohmState='idle';this.ohmData=null;this.ohmIds=[];
+  this.atlas=atlas;this.map=atlas.map;this.mode=enabled?boundaryMode(mode):'overview';this.modern=modern;this.year=atlas.year;this.lang=atlas.lang;this.status='zoom';this.active=false;this.failed=false;this.features=[];this.markers=[];this.listeners=[];this.settling=false;this.samples=[];this.maxLevel=this.map.getZoom()>=8?6:4;this.ohmState='idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
   this.controls=document.createElement('div');this.controls.className='regional-controls';this.controls.hidden=true;
   this.badge=document.createElement('button');this.badge.className='regional-badge';this.badge.onclick=()=>this.openIndex();
@@ -159,7 +178,9 @@ export class RegionalBoundaries{
  // Coverage verdict of the frozen snapshot for the selected year: good / partial / sparse.
  get ohmCoverage(){return this.ohmReady?this.ohmData.metadata?.coverage||null:null;}
  get ohmVerdict(){return this.ohmCoverage?.verdict||null;}
- get ohmEligible(){return this.eligible&&ohmCoversYear(this.year)&&ohmInView(this.map.getBounds?.());}
+ get ohmWindow(){return ohmWindowFor(this.map.getBounds?.());}
+ get ohmWindowLabel(){const window_=this.ohmWindow;return window_?tr(this.lang,window_.zh,window_.en):'';}
+ get ohmEligible(){const window_=this.ohmWindow;return this.eligible&&!!window_&&window_.years.includes(Number(this.year));}
  ensure(){
   if(this.map.getSource(SOURCE))return;
   this.map.addSource(SOURCE,{type:'vector',tiles:['https://vtiles.openhistoricalmap.org/maps/ohm_admin/{z}/{x}/{y}'],minzoom:REGIONAL_MIN_ZOOM,maxzoom:14,attribution:'<a href="https://www.openhistoricalmap.org/copyright" target="_blank" rel="noopener">OpenHistoricalMap contributors</a> · <a href="https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Sources" target="_blank" rel="noopener">Sources & attribution</a>'});
@@ -169,18 +190,27 @@ export class RegionalBoundaries{
  // covers and only while the view intersects its window. A failed load leaves the tile archive
  // untouched instead of pretending to have data.
  ensureOhm(){
-  if(this.ohmState!=='idle'||!this.ohmEligible)return;
+  const window_=this.ohmWindow,year=this.year;
+  if(!window_||!this.eligible||!window_.years.includes(Number(year)))return;
+  const key=window_.id+'|'+year;
+  if(this.ohmState==='loading'||this.ohmState==='ready'&&this.ohmKey===key)return;
   if(typeof location==='undefined'||!/^https?:$/.test(location.protocol))return;
-  const year=this.year;this.ohmState='loading';
-  readJSON(OHM_ROOT+'year-'+year+'.json.gz').then(data=>{
-   if(this.atlas.destroyed||this.year!==year){this.ohmState='idle';return;}
+  // Another window or year answers this view now: drop the previous geometry first, so one
+  // window's boundaries are never drawn on top of another's.
+  if(this.ohmKey&&this.ohmKey!==key){this.ohmKey=null;this.ohmData=null;this.ohmIds=[];const source=this.map.getSource(OHM_SOURCE);if(source)source.setData({type:'FeatureCollection',features:[]});this.applyFilters();this.visibility();}
+  this.ohmState='loading';
+  readJSON(window_.root+'year-'+year+'.json.gz').then(data=>{
+   if(this.atlas.destroyed){this.ohmState='idle';return;}
+   const current=this.ohmWindow;
+   if(!current||current.id!==window_.id||this.year!==year){this.ohmState='idle';return;}
    if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw Error('Invalid frozen OHM extract');
-   this.ohmData=data;this.ohmIds=data.features.map(f=>f.properties?.osm_id).filter(id=>Number.isSafeInteger(id)&&id!==0);
+   this.ohmData=data;this.ohmIds=data.features.map(f=>f.properties?.osm_id).filter(id=>Number.isSafeInteger(id)&&id!==0);this.ohmKey=key;
    this.ohmState='ready';this.addOhmLayers();this.applyFilters();this.update();this.settle();
-  }).catch(()=>{if(this.atlas.destroyed)return;this.ohmState=this.year===year?'failed':'idle';this.ohmData=null;this.ohmIds=[];if(this.year!==year)return;this.applyFilters();this.visibility();this.setStatus(this.status);this.refreshLabels();});
+  }).catch(()=>{if(this.atlas.destroyed)return;this.ohmState=this.year===year&&this.ohmWindow?.id===window_.id?'failed':'idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;if(this.year!==year)return;this.applyFilters();this.visibility();this.setStatus(this.status);this.refreshLabels();});
  }
  addOhmLayers(){
-  if(this.map.getSource(OHM_SOURCE)||!this.ohmData)return;
+  if(!this.ohmData)return;
+  if(this.map.getSource(OHM_SOURCE)){this.map.getSource(OHM_SOURCE).setData(this.ohmData);this.visibilityKey=null;this.visibility();return;}
   this.map.addSource(OHM_SOURCE,{type:'geojson',data:this.ohmData,attribution:'<a href="https://www.openhistoricalmap.org/copyright" target="_blank" rel="noopener">OpenHistoricalMap contributors</a> · CC0 · 1492/1500 static extract'});
   for(const layer of ohmLayers())this.map.addLayer(layer,'boundary');
   this.visibilityKey=null;this.visibility();
@@ -205,7 +235,7 @@ export class RegionalBoundaries{
   const coverage=this.ohmCoverage,records=this.ohmData?.metadata?.relationCount??this.features.length;
   if(!coverage)return tr(this.lang,'OHM 固化详图与在线瓦片合并显示；两来源都没有记录的地方留白。','The static OHM extract is merged with the online tiles; wherever both sources are silent the map stays blank.');
   const percent=Math.round((coverage.ratio||0)*100),sparse=coverage.verdict==='sparse';
-  return tr(this.lang,'OHM 固化详图（'+this.year+' 年 · '+records+' 条 · 陆地采样覆盖 '+percent+'%'+(sparse?' · 覆盖不足，自动模式仍用概览':'')+'）与在线瓦片合并显示；两来源都没有记录的地方留白。','Static OHM extract ('+this.year+' · '+records+' records · '+percent+'% of sampled land'+(sparse?' · too sparse, auto mode keeps the overview':'')+') merged with the online tiles; wherever both sources are silent the map stays blank.');
+  return tr(this.lang,'OHM 固化详图（'+this.ohmWindowLabel+' · '+this.year+' 年 · '+records+' 条 · 陆地采样覆盖 '+percent+'%'+(sparse?' · 覆盖不足，自动模式仍用概览':'')+'）与在线瓦片合并显示；两来源都没有记录的地方留白。','Static OHM extract ('+this.ohmWindowLabel+' · '+this.year+' · '+records+' records · '+percent+'% of sampled land'+(sparse?' · too sparse, auto mode keeps the overview':'')+') merged with the online tiles; wherever both sources are silent the map stays blank.');
  }
  // Polities the frozen snapshot checks for and does not find. They are listed as missing rather
  // than drawn from another year or from the global overview.
@@ -291,7 +321,7 @@ export class RegionalBoundaries{
  }
  setYear(year,lang){
   const previous=this.year;this.year=year;this.lang=lang;this.features=[];this.samples=[];this.closePopup();this.clearLabels();this.setActive(false);
-  if(year!==previous){this.ohmState='idle';this.ohmData=null;this.ohmIds=[];this.removeOhmLayers();}
+  if(year!==previous){this.ohmState='idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;this.removeOhmLayers();}
   this.applyFilters();this.update();
  }
  setMode(mode){this.modeRevision=(this.modeRevision||0)+1;this.mode=boundaryMode(mode);this.closePopup();this.update();this.settle();this.atlas.onBoundaryMode?.(this.mode);this.atlas.boundaries?.setMode(this.mode);}

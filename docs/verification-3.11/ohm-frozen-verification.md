@@ -1,5 +1,9 @@
 # 固化 OHM 快照扩展到 10 个年份：数据与验证
 
+> **后续更新（task-13，3.13）**：冻结数据现在是两个窗口（中欧 + 东亚，24 个窗口×年份快照）。中欧在 task-13 里从缓存重放了一次，**几何逐字节不变**，但每年文件因新增 `window` 元数据而换了 gzip sha256（例如 1500 年由 `73b705c067da28e0…` 变为 `9feec7f4a12dffa2…`）。当前数据、覆盖矩阵与多窗口接入见
+> [docs/verification-3.13/ohm-eastasia.md](../verification-3.13/ohm-eastasia.md) 与 [ohm-frozen-coverage.md](../verification-3.13/ohm-frozen-coverage.md)。
+> 本文的验证方法与诚实口径仍然有效，哈希表以 manifest.json 为准。
+
 承接 task-1（1492/1500）。本轮把同一窗口中欧窗口（bbox 4.5/44/14.5/50.5，行政 2–4 级）的固化 OpenHistoricalMap 快照扩到 **1000、1200、1300、1400、1492、1500、1600、1700、1800、1900** 共 10 个年份。
 覆盖矩阵与"哪些年份值得切详图"的结论见 [ohm-frozen-coverage.md](ohm-frozen-coverage.md)。
 

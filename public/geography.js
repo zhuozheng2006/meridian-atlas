@@ -1,5 +1,5 @@
-import {LakeLayer} from './lakes.js?v=3.10.0-bedf722e4358';
-import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-bedf722e4358';
+import {LakeLayer} from './lakes.js?v=3.10.0-dcc51a2107d6';
+import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-dcc51a2107d6';
 
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.
@@ -50,8 +50,14 @@ export class Geography {
  }
  async loadLocal(){
   if(this.atlas.destroyed)return;
-  const fine=this.map.getZoom()>=2.5;
-  const names=(fine?['land','rivers','lakes','ocean']:['land-overview','water-overview','ocean-overview']).filter(n=>!this.localLoaded.has(n)&&!this.localLoading.has(n));
+  const zoom=this.map.getZoom(),fine=zoom>=2.5;
+  // The 10 m water set is 6.7 MB (rivers 2.1 + lakes 1.3 + ocean mask 3.4). Below
+  // WATER_ZOOM the overview water is already loaded and the river/lake opacity is at
+  // most 0.55, so fetching those megabytes early spends them on a view that is
+  // dominated by the 10 m coastline. Land stays at 2.5: the coastline is the edge
+  // the user actually zooms to read.
+  const WATER_ZOOM=4;
+  const names=(fine?['land',...(zoom>=WATER_ZOOM?['rivers','lakes','ocean']:['water-overview','ocean-overview'])]:['land-overview','water-overview','ocean-overview']).filter(n=>!this.localLoaded.has(n)&&!this.localLoading.has(n));
   const results=await Promise.allSettled(names.map(async name=>{this.localLoading.add(name);try{
    const url=name==='land-overview'?'data/land-50m.json.gz':name==='water-overview'?'data/physical/physical-overview.json.gz':name==='ocean'?'data/physical/modern-ocean-mask.json.gz':name==='ocean-overview'?'data/physical/modern-ocean-mask-overview.json.gz':`data/physical/${name}-10m.json.gz`;
    const data=await readJSON(url);if(this.atlas.destroyed)return;
