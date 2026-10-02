@@ -203,8 +203,38 @@ async function openBoundaryComparison(side){
 }
 
 function downloadJSON(data,name){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+// Map export. MapLibre draws into a WebGL canvas without preserveDrawingBuffer, so the
+// pixels are only readable inside the render callback that produced them; we capture
+// there, then compose the year, era and source line onto a plain 2D canvas.
+async function exportMapImage(){
+ const map=atlas?.map;if(!map)return null;
+ const canvas=map.getCanvas();
+ const shot=await new Promise(resolve=>{const timer=setTimeout(()=>resolve(null),3000);map.once("render",()=>{clearTimeout(timer);try{const copy=document.createElement("canvas");copy.width=canvas.width;copy.height=canvas.height;copy.getContext("2d").drawImage(canvas,0,0);resolve(copy);}catch{resolve(null);}});map.triggerRepaint();});
+ if(!shot)return null;
+ const pad=Math.round(shot.width*0.028),bar=Math.max(58,Math.round(shot.width*0.062));
+ const out=document.createElement("canvas");out.width=shot.width+pad*2;out.height=shot.height+pad+bar;
+ const ctx=out.getContext("2d");ctx.fillStyle="#080e1a";ctx.fillRect(0,0,out.width,out.height);ctx.drawImage(shot,pad,pad);
+ const era=currentEra();
+ ctx.fillStyle="#f0eee7";ctx.font=`600 ${Math.round(bar*0.4)}px system-ui, -apple-system, "PingFang SC", sans-serif`;
+ ctx.fillText(yr(state.year)+" · "+text(era[1],era[2]),pad,shot.height+pad+bar*0.46);
+ ctx.fillStyle="#a9b8c3";ctx.font=`${Math.round(bar*0.26)}px system-ui, -apple-system, "PingFang SC", sans-serif`;
+ const note=text("经纬纪 · 疆域来源 Cliopatria / Seshat（CC BY 4.0）；底图 Natural Earth。断代与精度见应用“资料”页。","Meridian Atlas · Boundaries from Cliopatria / Seshat (CC BY 4.0); basemap Natural Earth. See the Sources page for dating and precision.");
+ ctx.fillText(note,pad,shot.height+pad+bar*0.78);
+ return out.toDataURL("image/png");
+}
+async function downloadMapImage(){
+ const url=await exportMapImage();if(!url){notify(text("地图尚未就绪，请稍后重试","The map is not ready yet"));return;}
+ const a=document.createElement("a");a.href=url;a.download=`meridian-${state.year}.png`;document.body.append(a);a.click();a.remove();
+ notify(text("已导出当前地图图片","Map image exported"));
+}
 async function copyView(){saveURL();try{await navigator.clipboard.writeText(location.href);notify(text('视图链接已复制','View link copied'));}catch{notify(text('请复制浏览器地址栏中的链接','Copy the link in the address bar'));}}
-function bind(){bindLayers();const cancelCamera=e=>{if(e.target.closest?.('.maplibregl-canvas,.maplibregl-ctrl-zoom-in,.maplibregl-ctrl-zoom-out'))cancelBoundaryComparison();};document.addEventListener('pointerdown',cancelCamera,{passive:true});document.addEventListener('wheel',cancelCamera,{passive:true});document.addEventListener('click',cancelCamera,true);$('.skip-link').onclick=e=>{e.preventDefault();if(state.view!=='atlas')showView('atlas');$('#yearInput').focus();};let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>renderBrowse(),120);}); $('#browseBtn').onclick=()=>{state.browse=!state.browse;renderBrowse();saveURL();};$('#step').onchange=e=>{state.step=+e.target.value;saveURL();};bindTimeline({getYear:()=>pendingYear??state.year,getCompareYear:()=>pendingCompareYear??state.compareYear,getStep:()=>+$('#step').value,commit:setYear,commitCompare:setCompareYear,pause,isAtlas:()=>state.view==='atlas',isDialogOpen:()=>$('#helpDialog').open||!$('#layerPanel').hidden,closeReader:closeDetail,readerOpen:()=>!$('#detailPanel').hidden,togglePlay:()=>$('#playBtn').click(),getMap:target=>{cancelBoundaryComparison();return target.closest('#map2')?compareMap?.map:atlas?.map;}});
+function installMapExport(){
+ const tools=document.querySelector(".map-tools");if(!tools||document.getElementById("exportMapBtn"))return;
+ const btn=document.createElement("button");btn.id="exportMapBtn";btn.type="button";
+ btn.textContent=text("导出图片","Export image");btn.title=text("把当前地图导出为 PNG","Export the current map as a PNG");
+ btn.onclick=downloadMapImage;tools.append(btn);
+}
+function bind(){bindLayers();installMapExport();if(window.__meridian)window.__meridian.exportMapImage=exportMapImage;const cancelCamera=e=>{if(e.target.closest?.('.maplibregl-canvas,.maplibregl-ctrl-zoom-in,.maplibregl-ctrl-zoom-out'))cancelBoundaryComparison();};document.addEventListener('pointerdown',cancelCamera,{passive:true});document.addEventListener('wheel',cancelCamera,{passive:true});document.addEventListener('click',cancelCamera,true);$('.skip-link').onclick=e=>{e.preventDefault();if(state.view!=='atlas')showView('atlas');$('#yearInput').focus();};let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>renderBrowse(),120);}); $('#browseBtn').onclick=()=>{state.browse=!state.browse;renderBrowse();saveURL();};$('#step').onchange=e=>{state.step=+e.target.value;saveURL();};bindTimeline({getYear:()=>pendingYear??state.year,getCompareYear:()=>pendingCompareYear??state.compareYear,getStep:()=>+$('#step').value,commit:setYear,commitCompare:setCompareYear,pause,isAtlas:()=>state.view==='atlas',isDialogOpen:()=>$('#helpDialog').open||!$('#layerPanel').hidden,closeReader:closeDetail,readerOpen:()=>!$('#detailPanel').hidden,togglePlay:()=>$('#playBtn').click(),getMap:target=>{cancelBoundaryComparison();return target.closest('#map2')?compareMap?.map:atlas?.map;}});
  $('#prevYear').onclick=()=>{pause();setYear(stepYear(pendingYear??state.year,-(+$('#step').value)));};$('#nextYear').onclick=()=>{pause();setYear(stepYear(pendingYear??state.year,+$('#step').value));};
  let debounce;$('#yearSlider').oninput=e=>{pause();const y=unscaled(+e.target.value);$('#yearInput').value=y;$('#yearSlider').setAttribute('aria-valuetext',yr(y));clearTimeout(debounce);debounce=setTimeout(()=>setYear(y),160);};$('#yearSlider').onchange=e=>{clearTimeout(debounce);setYear(unscaled(+e.target.value));};
  $('#language').onchange=e=>{state.lang=e.target.value;renderLanguage();setYear(state.year);if(compareMap)setCompareYear(state.compareYear);if(state.selected)renderEventDetail(state.selected);if(state.selectedPlace)renderPlaceDetail(state.selectedPlace,{keepFocus:true});if(state.selectedPolity)openPolity(state.selectedPolity,state.selectedSide==='right'&&compareMap?compareMap:atlas,{keepView:true});if(state.view!=='atlas')showView(state.view);};$('#search').oninput=e=>{state.search=e.target.value;$('#eventList').setAttribute('aria-busy','true');clearTimeout(bind.searchTimer);bind.searchTimer=setTimeout(()=>{renderEvents();saveURL();},100);};for(const [id,key]of [['region','region'],['category','category']])$('#'+id).onchange=e=>{state[key]=e.target.value;renderEvents();saveURL();};$('#window').onchange=e=>{state.span=+e.target.value;renderEvents();saveURL();};$('#nearBtn').onclick=()=>{state.allTime=false;renderYear();renderEvents();};$('#allBtn').onclick=()=>{state.allTime=true;renderYear();renderEvents();};$('#playBtn').onclick=()=>{if(playing)pause();else{playing=true;$('#playBtn').textContent='Ⅱ';$('#playBtn').setAttribute('aria-label',text('暂停','Pause'));playTick();}};
