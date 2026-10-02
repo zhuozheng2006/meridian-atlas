@@ -76,23 +76,39 @@ const collect=result=>{
 for(const box of BOXES){
  let added=0,failedChunks=0,usedFallback=false;
  const boxOf=qid=>{if(rows.has(qid)&&!rows.get(qid).box)rows.get(qid).box=box.id};
+ // A chunk that times out is split in half and retried, so the broad classes (battle, siege,
+// naval battle, military operation) that carry the most instances cannot silently drop out of
+// the sweep; only chunks of 24 classes or fewer are given up on, and those are logged.
  if(classes.length){
-  const chunks=chunksOf(classes,120);
-  for(let index=0;index<chunks.length;index++){
+  const harvestChunk=async(list,label)=>{
+   if(!list.length)return 0;
    const query='SELECT DISTINCT ?item ?date ?lat ?lon ?class WHERE {'
-    +' VALUES ?class { '+chunks[index].map(qid=>'wd:'+qid).join(' ')+' }'
+    +' VALUES ?class { '+list.map(qid=>'wd:'+qid).join(' ')+' }'
     +' ?item wdt:P31 ?class ; wdt:P585 ?date ; p:P625/psv:P625 ?node .'
     +' ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon .'
     +' FILTER(?lon >= '+box.lon[0]+' && ?lon <= '+box.lon[1]+' && ?lat >= '+box.lat[0]+' && ?lat <= '+box.lat[1]+')'
     +' FILTER(YEAR(?date) >= -4000 && YEAR(?date) <= 2026) }';
-   const result=await sparql(query,'classes-box:'+box.id+':'+index);
-   if(!result){failedChunks++;console.log('chunk',box.id,index,'FAILED');await sleep(5000);continue}
-   const before=rows.size;
-   added+=collect(result);
-   for(const row of result.results.bindings)boxOf(row.item.value.split('/').pop());
-   if(rows.size!==before)added=added; // rows already counted by collect
-   await sleep(5000);
-  }
+   const result=await sparql(query,'classes-box:'+label);
+   if(result){
+    let gained=0;
+    for(const row of result.results.bindings){
+     const qid=row.item.value.split('/').pop();
+     if(!rows.has(qid)){
+      rows.set(qid,{qid,year:Number(/^(-?\d{1,6})-/.exec(row.date.value)[1]),coordinates:[Number(row.lon.value),Number(row.lat.value)],
+       classQid:(row.class?.value||'').split('/').pop()||null,box:null});
+      gained++;
+     }
+     if(rows.get(qid)&&!rows.get(qid).box)rows.get(qid).box=box.id;
+    }
+    await sleep(5000);
+    return gained;
+   }
+   if(list.length<=24){failedChunks++;console.log('chunk',label,'FAILED permanently with',list.length,'classes');await sleep(5000);return 0}
+   const half=Math.ceil(list.length/2);
+   console.log('chunk',label,'FAILED, splitting',list.length,'classes into',half,'+',list.length-half);
+   return await harvestChunk(list.slice(0,half),label+'a')+await harvestChunk(list.slice(half),label+'b');
+  };
+  for(const [index,chunk] of chunksOf(classes,60).entries())added+=await harvestChunk(chunk,box.id+':'+index);
  }
  if(added===0){
   usedFallback=true;

@@ -1,6 +1,33 @@
-import {LakeLayer} from './lakes.js?v=3.10.0-ad7beb47f25d';
-import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-ad7beb47f25d';
+import {LakeLayer} from './lakes.js?v=3.10.0-4f89524ff74c';
+import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-4f89524ff74c';
 
+// #region compact-geometry
+// Physical layers ship as compact payloads: integer coordinates quantised to 1e-5 deg
+// (half a step = 5e-6 deg ~ 0.55 m, below the source's own accuracy and below one screen
+// pixel at every zoom the atlas uses) and delta-encoded along each ring. The wire format
+// is still gzipped JSON read through readJSON(), and plain GeoJSON passes through
+// untouched so the fixtures in scripts/validate-geography.mjs and any un-migrated asset
+// keep working. scripts/build-compact-physical.mjs encodes the shipped files and audits
+// this exact function for a per-feature/per-ring/per-vertex round trip.
+function compactGeometry(payload){
+ if(!payload||payload.v!==1||!Array.isArray(payload.c))return payload;
+ const q=payload.q||100000,origin=Array.isArray(payload.o)?payload.o:[0,0],ox=origin[0],oy=origin[1];
+ const ring=flat=>{
+  const count=flat.length>>1;if(!count)return [];
+  const out=new Array(count);let x=flat[0]+ox,y=flat[1]+oy;out[0]=[x/q,y/q];
+  for(let i=2,k=1;i<flat.length;i+=2,k++){x+=flat[i];y+=flat[i+1];out[k]=[x/q,y/q];}
+  return out;
+ };
+ const features=payload.c.map(entry=>{
+  const properties=entry[0],type=entry[1],coords=entry[2];
+  const coordinates=type==='LineString'?ring(coords):type==='MultiLineString'||type==='Polygon'?coords.map(ring):coords.map(polygon=>polygon.map(ring));
+  return {type:'Feature',properties,geometry:{type,coordinates}};
+ });
+ const collection={type:'FeatureCollection',features};
+ if(Array.isArray(payload.b))collection.bbox=payload.b;
+ return collection;
+}
+// #endregion compact-geometry
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.
 export class Geography {
@@ -61,7 +88,7 @@ export class Geography {
   const names=(fine?['land',...(zoom>=WATER_ZOOM?['rivers','lakes','ocean']:['water-overview','ocean-overview'])]:['land-overview','water-overview','ocean-overview']).filter(n=>!this.localLoaded.has(n)&&!this.localLoading.has(n));
   const results=await Promise.allSettled(names.map(async name=>{this.localLoading.add(name);try{
    const url=name==='land-overview'?'data/land-50m.json.gz':name==='water-overview'?'data/physical/physical-overview.json.gz':name==='ocean'?'data/physical/modern-ocean-mask.json.gz':name==='ocean-overview'?'data/physical/modern-ocean-mask-overview.json.gz':`data/physical/${name}-10m.json.gz`;
-   const data=await readJSON(url);if(this.atlas.destroyed)return;
+   const data=compactGeometry(await readJSON(url));if(this.atlas.destroyed)return;
    if(name==='water-overview'){for(const layer of ['rivers','lakes'])if(!this.localLoaded.has(layer))this.map.getSource('physical-'+layer)?.setData({type:'FeatureCollection',features:data.features.filter(f=>f.properties.layer===layer)});}
    else if(!name.endsWith('-overview')||!this.localLoaded.has(name.replace('-overview',''))){const target=name.startsWith('land')?'land':name.startsWith('ocean')?'coastal-water':'physical-'+name;this.map.getSource(target)?.setData(data);}
    this.localLoaded.add(name);this.localErrors.delete(name);

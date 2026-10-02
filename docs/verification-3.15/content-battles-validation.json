@@ -1,0 +1,71 @@
+{
+  "testedAt": "2026-10-02T23:37:23.635Z",
+  "data": "public/data/battles.json.gz",
+  "dataSha256": "60cd02fd8e134aa36bdd95784cb6534b04bb4daf0eba9255b7989ff413d7b600",
+  "counts": {
+    "battles": 604,
+    "withBelligerents": 374,
+    "withConflict": 447,
+    "withReferences": 9,
+    "withChineseName": 604,
+    "withEnglishName": 604
+  },
+  "byRegion": {
+    "west-central-asia": 60,
+    "africa": 75,
+    "east-asia": 97,
+    "europe": 199,
+    "south-asia": 57,
+    "americas": 33,
+    "southeast-asia": 49,
+    "oceania": 30,
+    "global": 4
+  },
+  "byCentury": {
+    "-1500..-501": 18,
+    "-500..0": 52,
+    "1..499": 52,
+    "500..999": 54,
+    "1000..1499": 57,
+    "1500..1799": 71,
+    "1800..1899": 75,
+    "1900..1944": 92,
+    "1945..1999": 68,
+    "2000..2026": 65
+  },
+  "checks": [
+    {
+      "name": "The battle archive is deterministic and mirrors the editable JSON",
+      "passed": true
+    },
+    {
+      "name": "At least three hundred battles with unique ids ship in the layer",
+      "passed": true
+    },
+    {
+      "name": "Every battle keeps valid coordinates, years and region codes from the source",
+      "passed": true
+    },
+    {
+      "name": "Belligerents and conflicts stay arrays of source strings and are never invented",
+      "passed": true
+    },
+    {
+      "name": "English fields contain Latin script only and Chinese fields are present",
+      "passed": true
+    },
+    {
+      "name": "Every battle cites its Wikidata entity and any statement reference",
+      "passed": true
+    },
+    {
+      "name": "Layer metadata records the selection policy and drop counts",
+      "passed": true
+    },
+    {
+      "name": "The layer does not duplicate ids or coordinates of existing place datasets",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

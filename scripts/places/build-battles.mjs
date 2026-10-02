@@ -24,9 +24,23 @@ const supplementFiles=(await readdir(resolve(root,'editorial'))).filter(name=>/^
 const supplements=[];
 for(const file of supplementFiles){const document=await optional('editorial/'+file);if(document)supplements.push({file,items:document.items||[]})}
 const supplementItems=supplements.flatMap(entry=>entry.items);
+// The sweep's class roots include massacre (Q3199915), but one-sided killings are not what this
+// layer documents: that closure alone is 298 of the 841 items harvested in the 3.15 pass (31 of
+// them with a Chinese name) and would turn a battle layer into an atrocity index. Those items
+// stay in editorial/battles-thin-regions-3.15.json as a recorded pool for a possible separate
+// layer. Three individual records are excluded by hand because Wikidata classes them as a
+// military operation or an airstrike while their own articles describe one-sided killings of
+// civilians; every exclusion carries its reason and the round report gives the pool sizes.
+const SUPPLEMENT_CLASS_EXCLUSIONS={'Q3199915':'massacre root: one-sided killings belong to a different layer'};
+const SUPPLEMENT_ITEM_EXCLUSIONS={
+ 'Q97368680':'police raid on the Apple Daily offices in 2020: not an armed clash',
+ 'Q208855':'Jallianwala Bagh killings in 1919: a one-sided killing of civilians classed as a military operation',
+ 'Q1136783':'Granai airstrike in 2009: a one-sided killing of civilians classed as an airstrike'};
+const excludedSupplement=supplementItems.filter(item=>SUPPLEMENT_CLASS_EXCLUSIONS[item.classQid]||SUPPLEMENT_ITEM_EXCLUSIONS[item.qid]);
+const shippedSupplement=supplementItems.filter(item=>!SUPPLEMENT_CLASS_EXCLUSIONS[item.classQid]&&!SUPPLEMENT_ITEM_EXCLUSIONS[item.qid]);
 const seenQid=new Set();
 const harvestItems=[];
-for(const item of [...source.items,...supplementItems]){
+for(const item of [...source.items,...shippedSupplement]){
  if(!item||!item.qid||seenQid.has(item.qid))continue;
  seenQid.add(item.qid);harvestItems.push(item);
 }
@@ -88,7 +102,7 @@ for(const item of harvestItems){
   sources,
   notes:(hasReference?'坐标与年代取自维基数据实体声明，并附该声明中的参考链接。':'维基数据实体声明未附参考链接；坐标与年代以实体声明为准，发布前建议补一次文献核对。')+(DATE_CONFLICTS[item.qid]?' '+DATE_CONFLICTS[item.qid].zh:''),
   notesEn:(hasReference?'Coordinates and dates come from the Wikidata entity statements and their recorded reference links.':'The Wikidata entity statements carry no reference link; coordinates and dates follow the entity statements and should be checked against literature before release.')+(DATE_CONFLICTS[item.qid]?' '+DATE_CONFLICTS[item.qid].en:''),
-  nameSource,supplementSource:item.box?('thin-region-sweep:'+item.box):'global-sweep',
+  nameSource,supplementSource:item.box?('thin-region-sweep:'+item.box):'global-sweep',fromSupplement:Boolean(item.box),
   regionBasis:'coordinate-box'});
 }
 const byCentury=new Map();
@@ -100,9 +114,14 @@ for(const item of candidates){
 }
 const score=item=>(item.belligerents.length?2:0)+(item.conflict.length?1:0)+(item.sources.length>1?1:0);
 const selected=[];
+// Supplement entities do not compete in the per-century quota. That quota is the fairness rule
+// for the global harvest, and re-running it over a larger pool silently drops records that
+// already ship: the 3.15 supplement alone displaced 24 European records in a dry run. The
+// supplement is therefore additive-only, which is also what the thin-region guarantee intends.
 const perCentury=Math.ceil(TARGET/byCentury.size);
 for(const [key,items] of [...byCentury.entries()].sort((a,b)=>a[0]-b[0])){
- const sorted=items.sort((a,b)=>score(b)-score(a)||a.year-b.year||a.id.localeCompare(b.id));
+ const baseItems=items.filter(item=>!item.fromSupplement);
+ const sorted=baseItems.sort((a,b)=>score(b)-score(a)||a.year-b.year||a.id.localeCompare(b.id));
  const regionCounts={};
  const picked=[];
  for(const item of sorted){
@@ -119,7 +138,8 @@ for(const [key,items] of [...byCentury.entries()].sort((a,b)=>a[0]-b[0])){
 // must not silently empty the regions with the smallest pools. The guarantee only adds
 // entities that already meet every standard (coordinate, year, Chinese name).
 const THIN_REGIONS=new Set(['oceania','south-asia','southeast-asia']);
-const guaranteed=candidates.filter(item=>THIN_REGIONS.has(item.region)&&!selected.includes(item));
+const supplementShipped=candidates.filter(item=>item.fromSupplement);
+const guaranteed=[...candidates.filter(item=>!item.fromSupplement&&THIN_REGIONS.has(item.region)&&!selected.includes(item)),...supplementShipped];
 const battles=[...selected,...guaranteed].sort((a,b)=>a.year-b.year||a.id.localeCompare(b.id));
 for(const battle of battles){
  for(const field of ['nameEn','notesEn'])if(CJK.test(battle[field]||''))throw new Error('CJK in English field '+battle.id+' '+field);
@@ -134,13 +154,16 @@ const document={schemaVersion:1,builtAt:'2026-10-03T00:00:00+00:00',layer:'battl
   participants:'Belligerents come from P710 statements of the same entity; empty arrays mean the source does not state them and no value was invented.',
   dates:'Years come from the P585 statement; single-year precision is retained and no month or day is inferred. Wikidata stores ISO 8601 astronomical years, so BCE values are converted to the project civil-year convention, which has no year zero (ISO -489, i.e. 490 BCE, ships as -490). Where P585 contradicts the English and Chinese Wikipedia articles the record keeps the source value and states the conflict in its notes instead of silently changing it.',
   names:'Chinese names come from Wikidata zh labels; when an entity has no Chinese label but has a zh.wikipedia article, the article title is used and the record keeps labelSource=zhwiki-sitelink. An entity with no Chinese name in either place is not shipped.',
-  coverage:'The thin-region supplements (editorial/battles-thin-regions-*.json, harvested by scripts/places/fetch-thin-region-battles.mjs in the 3.14 and 3.15 passes) sweep the Oceania, South Asia and Southeast Asia coordinate boxes and guarantee that every qualifying entity in those three regions ships, so a global quota cannot empty them.',
+  coverage:'The thin-region supplements (editorial/battles-thin-regions-*.json, harvested by scripts/places/fetch-thin-region-battles.mjs in the 3.14 and 3.15 passes) sweep the Oceania, South Asia and Southeast Asia coordinate boxes and guarantee that every qualifying entity in those three regions ships, so a global quota cannot empty them. Entities whose Wikidata class is the massacre root, and three individually listed one-sided killings classed differently by Wikidata, are kept out of this layer and recorded in counts.supplementExcluded for a possible separate layer.',
   outcome:'The outcome field is intentionally absent: Wikidata has no stable, sourced property for battle results, and this project does not infer victors. It can be added later where a verifiable source states the result.',
   provenance:'Every entry links its Wikidata entity; statement-level reference URLs are included when Wikidata records them.',
   region:'Regions are assigned by a documented coordinate box rule (regionBasis=coordinate-box), not by political judgement.'},
- counts:{items:harvestItems.length,baseHarvest:source.items.length,supplement:supplementItems.length,supplements:supplements.map(entry=>({file:entry.file,items:entry.items.length})),candidates:candidates.length,shipped:battles.length,dropped,byRegion,byCentury:byCenturyOut,
+ counts:{items:harvestItems.length,baseHarvest:source.items.length,supplement:shippedSupplement.length,supplementHarvested:supplementItems.length,
+  supplementExcluded:{total:excludedSupplement.length,byClass:excludedSupplement.reduce((all,item)=>(all[item.classQid||'none']=(all[item.classQid||'none']||0)+1,all),{}),
+   reasons:excludedSupplement.map(item=>({qid:item.qid,nameZh:item.labelZh||null,classQid:item.classQid||null,reason:SUPPLEMENT_CLASS_EXCLUSIONS[item.classQid]||SUPPLEMENT_ITEM_EXCLUSIONS[item.qid]}))},
+  supplements:supplements.map(entry=>({file:entry.file,items:entry.items.length})),candidates:candidates.length,shipped:battles.length,dropped,byRegion,byCentury:byCenturyOut,
   byNameSource:battles.reduce((all,item)=>{all[item.nameSource]=(all[item.nameSource]||0)+1;return all},{}),
-  thinRegionGuarantee:guaranteed.length},
+  thinRegionGuarantee:guaranteed.length,supplementShipped:supplementShipped.length},
  battles};
 const text=JSON.stringify(document,null,2)+'\n';
 const gzip=gzipSync(Buffer.from(text),{level:9});

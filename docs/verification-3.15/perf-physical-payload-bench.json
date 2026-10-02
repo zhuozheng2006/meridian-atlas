@@ -1,0 +1,404 @@
+{
+  "generatedAt": "2026-10-02T23:35:05.170Z",
+  "servers": {
+    "before": "8768 = git HEAD public/ (pristine)",
+    "after": "8767 = working tree (compact payloads)"
+  },
+  "loadavg": [
+    4.98,
+    7.65,
+    6.96
+  ],
+  "profiles": {
+    "unthrottled": {
+      "before": {
+        "rows": [
+          {
+            "name": "rivers-10m.json.gz",
+            "bytes": 2182931,
+            "transferMs": 6,
+            "parseMs": 26,
+            "buildMs": 0,
+            "features": 1455,
+            "format": "geojson"
+          },
+          {
+            "name": "lakes-10m.json.gz",
+            "bytes": 1346801,
+            "transferMs": 4,
+            "parseMs": 17,
+            "buildMs": 0,
+            "features": 1355,
+            "format": "geojson"
+          },
+          {
+            "name": "land-10m.json.gz",
+            "bytes": 3569584,
+            "transferMs": 8,
+            "parseMs": 37,
+            "buildMs": 0,
+            "features": 10,
+            "format": "geojson"
+          },
+          {
+            "name": "modern-ocean-mask.json.gz",
+            "bytes": 3536204,
+            "transferMs": 12,
+            "parseMs": 33,
+            "buildMs": 0,
+            "features": 6,
+            "format": "geojson"
+          },
+          {
+            "name": "physical-overview.json.gz",
+            "bytes": 137909,
+            "transferMs": 1,
+            "parseMs": 2,
+            "buildMs": 0,
+            "features": 202,
+            "format": "geojson"
+          },
+          {
+            "name": "modern-ocean-mask-overview.json.gz",
+            "bytes": 736287,
+            "transferMs": 2,
+            "parseMs": 7,
+            "buildMs": 0,
+            "features": 6,
+            "format": "geojson"
+          }
+        ],
+        "total": {
+          "bytes": 11509716,
+          "transferMs": 33,
+          "parseMs": 122,
+          "buildMs": 0
+        }
+      },
+      "after": {
+        "rows": [
+          {
+            "name": "rivers-10m.json.gz",
+            "bytes": 1089537,
+            "transferMs": 4,
+            "parseMs": 11,
+            "buildMs": 4,
+            "features": 1455,
+            "format": "compact"
+          },
+          {
+            "name": "lakes-10m.json.gz",
+            "bytes": 584726,
+            "transferMs": 3,
+            "parseMs": 6,
+            "buildMs": 1,
+            "features": 1355,
+            "format": "compact"
+          },
+          {
+            "name": "land-10m.json.gz",
+            "bytes": 1828038,
+            "transferMs": 5,
+            "parseMs": 14,
+            "buildMs": 2,
+            "features": 10,
+            "format": "compact"
+          },
+          {
+            "name": "modern-ocean-mask.json.gz",
+            "bytes": 1824974,
+            "transferMs": 4,
+            "parseMs": 14,
+            "buildMs": 4,
+            "features": 6,
+            "format": "compact"
+          },
+          {
+            "name": "physical-overview.json.gz",
+            "bytes": 80465,
+            "transferMs": 2,
+            "parseMs": 1,
+            "buildMs": 0,
+            "features": 202,
+            "format": "compact"
+          },
+          {
+            "name": "modern-ocean-mask-overview.json.gz",
+            "bytes": 453272,
+            "transferMs": 2,
+            "parseMs": 4,
+            "buildMs": 0,
+            "features": 6,
+            "format": "compact"
+          }
+        ],
+        "total": {
+          "bytes": 5861012,
+          "transferMs": 20,
+          "parseMs": 50,
+          "buildMs": 11
+        }
+      }
+    },
+    "wifi-4mbps": {
+      "before": {
+        "rows": [
+          {
+            "name": "rivers-10m.json.gz",
+            "bytes": 2182931,
+            "transferMs": 4281,
+            "parseMs": 45,
+            "buildMs": 0,
+            "features": 1455,
+            "format": "geojson"
+          },
+          {
+            "name": "lakes-10m.json.gz",
+            "bytes": 1346801,
+            "transferMs": 2677,
+            "parseMs": 31,
+            "buildMs": 0,
+            "features": 1355,
+            "format": "geojson"
+          },
+          {
+            "name": "land-10m.json.gz",
+            "bytes": 3569584,
+            "transferMs": 6921,
+            "parseMs": 55,
+            "buildMs": 0,
+            "features": 10,
+            "format": "geojson"
+          },
+          {
+            "name": "modern-ocean-mask.json.gz",
+            "bytes": 3536204,
+            "transferMs": 6857,
+            "parseMs": 51,
+            "buildMs": 0,
+            "features": 6,
+            "format": "geojson"
+          },
+          {
+            "name": "physical-overview.json.gz",
+            "bytes": 137909,
+            "transferMs": 372,
+            "parseMs": 5,
+            "buildMs": 0,
+            "features": 202,
+            "format": "geojson"
+          },
+          {
+            "name": "modern-ocean-mask-overview.json.gz",
+            "bytes": 736287,
+            "transferMs": 1517,
+            "parseMs": 15,
+            "buildMs": 0,
+            "features": 6,
+            "format": "geojson"
+          }
+        ],
+        "total": {
+          "bytes": 11509716,
+          "transferMs": 22625,
+          "parseMs": 202,
+          "buildMs": 0
+        }
+      },
+      "after": {
+        "rows": [
+          {
+            "name": "rivers-10m.json.gz",
+            "bytes": 1089537,
+            "transferMs": 2192,
+            "parseMs": 22,
+            "buildMs": 7,
+            "features": 1455,
+            "format": "compact"
+          },
+          {
+            "name": "lakes-10m.json.gz",
+            "bytes": 584726,
+            "transferMs": 1223,
+            "parseMs": 13,
+            "buildMs": 5,
+            "features": 1355,
+            "format": "compact"
+          },
+          {
+            "name": "land-10m.json.gz",
+            "bytes": 1828038,
+            "transferMs": 3595,
+            "parseMs": 28,
+            "buildMs": 3,
+            "features": 10,
+            "format": "compact"
+          },
+          {
+            "name": "modern-ocean-mask.json.gz",
+            "bytes": 1824974,
+            "transferMs": 3587,
+            "parseMs": 27,
+            "buildMs": 6,
+            "features": 6,
+            "format": "compact"
+          },
+          {
+            "name": "physical-overview.json.gz",
+            "bytes": 80465,
+            "transferMs": 257,
+            "parseMs": 2,
+            "buildMs": 1,
+            "features": 202,
+            "format": "compact"
+          },
+          {
+            "name": "modern-ocean-mask-overview.json.gz",
+            "bytes": 453272,
+            "transferMs": 972,
+            "parseMs": 8,
+            "buildMs": 1,
+            "features": 6,
+            "format": "compact"
+          }
+        ],
+        "total": {
+          "bytes": 5861012,
+          "transferMs": 11826,
+          "parseMs": 100,
+          "buildMs": 23
+        }
+      }
+    },
+    "slow-4g-1.6mbps": {
+      "before": {
+        "rows": [
+          {
+            "name": "rivers-10m.json.gz",
+            "bytes": 2182931,
+            "transferMs": 10725,
+            "parseMs": 27,
+            "buildMs": 0,
+            "features": 1455,
+            "format": "geojson"
+          },
+          {
+            "name": "lakes-10m.json.gz",
+            "bytes": 1346801,
+            "transferMs": 6727,
+            "parseMs": 17,
+            "buildMs": 0,
+            "features": 1355,
+            "format": "geojson"
+          },
+          {
+            "name": "land-10m.json.gz",
+            "bytes": 3569584,
+            "transferMs": 17330,
+            "parseMs": 42,
+            "buildMs": 0,
+            "features": 10,
+            "format": "geojson"
+          },
+          {
+            "name": "modern-ocean-mask.json.gz",
+            "bytes": 3536204,
+            "transferMs": 17183,
+            "parseMs": 60,
+            "buildMs": 0,
+            "features": 6,
+            "format": "geojson"
+          },
+          {
+            "name": "physical-overview.json.gz",
+            "bytes": 137909,
+            "transferMs": 972,
+            "parseMs": 5,
+            "buildMs": 0,
+            "features": 202,
+            "format": "geojson"
+          },
+          {
+            "name": "modern-ocean-mask-overview.json.gz",
+            "bytes": 736287,
+            "transferMs": 3816,
+            "parseMs": 19,
+            "buildMs": 0,
+            "features": 6,
+            "format": "geojson"
+          }
+        ],
+        "total": {
+          "bytes": 11509716,
+          "transferMs": 56753,
+          "parseMs": 170,
+          "buildMs": 0
+        }
+      },
+      "after": {
+        "rows": [
+          {
+            "name": "rivers-10m.json.gz",
+            "bytes": 1089537,
+            "transferMs": 5511,
+            "parseMs": 22,
+            "buildMs": 7,
+            "features": 1455,
+            "format": "compact"
+          },
+          {
+            "name": "lakes-10m.json.gz",
+            "bytes": 584726,
+            "transferMs": 3103,
+            "parseMs": 6,
+            "buildMs": 2,
+            "features": 1355,
+            "format": "compact"
+          },
+          {
+            "name": "land-10m.json.gz",
+            "bytes": 1828038,
+            "transferMs": 9026,
+            "parseMs": 15,
+            "buildMs": 2,
+            "features": 10,
+            "format": "compact"
+          },
+          {
+            "name": "modern-ocean-mask.json.gz",
+            "bytes": 1824974,
+            "transferMs": 9005,
+            "parseMs": 14,
+            "buildMs": 4,
+            "features": 6,
+            "format": "compact"
+          },
+          {
+            "name": "physical-overview.json.gz",
+            "bytes": 80465,
+            "transferMs": 690,
+            "parseMs": 1,
+            "buildMs": 0,
+            "features": 202,
+            "format": "compact"
+          },
+          {
+            "name": "modern-ocean-mask-overview.json.gz",
+            "bytes": 453272,
+            "transferMs": 2464,
+            "parseMs": 4,
+            "buildMs": 1,
+            "features": 6,
+            "format": "compact"
+          }
+        ],
+        "total": {
+          "bytes": 5861012,
+          "transferMs": 29799,
+          "parseMs": 62,
+          "buildMs": 16
+        }
+      }
+    }
+  }
+}

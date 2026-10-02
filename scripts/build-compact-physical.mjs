@@ -125,8 +125,11 @@ function refreshInventories(entries, write) {
     oldGz.set(e.oldBytes, e.bytes);
     oldJson.set(e.oldJsonBytes, e.jsonBytes);
   }
-  const files = ['files.json', 'physical-manifest.json', 'release-manifest.json', 'modern-ocean-mask.manifest.json', 'physical-overview.manifest.json'];
-  for (const name of files) {
+  // files.json inventories every other physical file, the rewritten manifests included,
+  // so the manifests are written first and the inventory is refreshed from their new bytes.
+  const rewritten = new Map();
+  const manifests = ['physical-manifest.json', 'release-manifest.json', 'modern-ocean-mask.manifest.json', 'physical-overview.manifest.json'];
+  for (const name of manifests) {
     const target = path.join(PHYS, name);
     const before = fs.readFileSync(target, 'utf8');
     const data = JSON.parse(before);
@@ -142,10 +145,6 @@ function refreshInventories(entries, write) {
       }
     };
     walk(data);
-    if (name === 'files.json') {
-      for (const e of entries) data[e.file] = { bytes: e.bytes, sha256: e.sha256, json_bytes: e.jsonBytes, encoding: FORMAT + ' q=' + QUANT };
-      touched++;
-    }
     if (name === 'release-manifest.json') {
       const meta = read('files.json');
       data.payload_file_count = Object.keys(meta).length;
@@ -171,9 +170,25 @@ function refreshInventories(entries, write) {
       }
     }
     const after = JSON.stringify(data, null, 2) + '\n';
-    if (after !== before) { if (write) fs.writeFileSync(target, after); report.push({ file: name, changed: true, replacements: touched }); }
-    else report.push({ file: name, changed: false, replacements: touched });
+    const buffer = Buffer.from(after, 'utf8');
+    // The manifest's own bytes/sha256 are inventoried in files.json, so they are recorded
+    // whether or not this run changed the file.
+    rewritten.set(name, { bytes: buffer.length, sha256: sha(buffer) });
+    if (after !== before) {
+      if (write) fs.writeFileSync(target, buffer);
+      report.push({ file: name, changed: true, replacements: touched });
+    } else report.push({ file: name, changed: false, replacements: touched });
   }
+  const target = path.join(PHYS, 'files.json');
+  const before = fs.readFileSync(target, 'utf8');
+  const data = JSON.parse(before);
+  for (const e of entries) data[e.file] = { bytes: e.bytes, sha256: e.sha256, json_bytes: e.jsonBytes, encoding: FORMAT + ' q=' + QUANT };
+  for (const [name, meta] of rewritten) {
+    if (!data[name] || data[name].bytes !== meta.bytes || data[name].sha256 !== meta.sha256) data[name] = { ...data[name], bytes: meta.bytes, sha256: meta.sha256 };
+  }
+  const after = JSON.stringify(data, null, 2) + '\n';
+  if (after !== before) { if (write) fs.writeFileSync(target, after); report.push({ file: 'files.json', changed: true, replacements: entries.length + rewritten.size }); }
+  else report.push({ file: 'files.json', changed: false, replacements: 0 });
   return report;
 }
 
@@ -222,7 +237,20 @@ async function main() {
       rows.push(record);
       continue;
     }
-    const original = JSON.parse(gunzip(target));
+    const parsed = JSON.parse(gunzip(target));
+    if (parsed && parsed.v === 1 && Array.isArray(parsed.c)) {
+      // Already compact: never re-encode a compact payload (git checkout restores the source).
+      record.bytes = compressed.length;
+      record.sha256 = record.oldSha;
+      record.jsonBytes = zlib.gunzipSync(compressed).length;
+      record.oldJsonBytes = record.jsonBytes;
+      record.features = parsed.c.length;
+      record.alreadyCompact = true;
+      entries.push(record);
+      rows.push(record);
+      continue;
+    }
+    const original = parsed;
     record.oldJsonBytes = JSON.stringify(original).length;
     const started = Date.now();
     const { payload, rings, vertices } = encodeCompact(original);
@@ -246,7 +274,7 @@ async function main() {
   }
   if (!check && !auditGit) {
     const inventories = refreshInventories(entries, write);
-    for (const row of rows) console.log([row.file.padEnd(34), String(row.oldBytes).padStart(9), String(row.bytes).padStart(9), (row.oldBytes / row.bytes).toFixed(2) + 'x', 'json ' + row.oldJsonBytes + '->' + row.jsonBytes, 'dev ' + (row.maxDeviation ?? 0).toExponential(1), (row.problemCount ? 'FAIL ' + row.problems.join('; ') : 'round-trip ok')].join('  '));
+    for (const row of rows) console.log([row.file.padEnd(34), String(row.oldBytes).padStart(9), String(row.bytes).padStart(9), (row.oldBytes / row.bytes).toFixed(2) + 'x', 'json ' + row.oldJsonBytes + '->' + row.jsonBytes, row.alreadyCompact ? 'already compact (inventory refresh only)' : 'dev ' + (row.maxDeviation ?? 0).toExponential(1), (row.problemCount ? 'FAIL ' + row.problems.join('; ') : 'round-trip ok')].join('  '));
     for (const inv of inventories) console.log('inventory', inv.file, inv.changed ? (write ? 'updated' : 'needs update') : 'unchanged', '(' + inv.replacements + ' replacements)');
     if (!write) console.log('dry run: pass --write to rewrite payloads and inventories');
   }

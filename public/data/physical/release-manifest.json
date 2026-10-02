@@ -2,8 +2,8 @@
   "schema_version": 2,
   "inventory_file": "files.json",
   "inventory_rule": "files.json inventories every release file except itself. Tile and geometry payload checksums are SHA256 of the delivered compressed bytes.",
-  "payload_file_count": 347,
-  "payload_bytes": 34937902,
+  "payload_file_count": 357,
+  "payload_bytes": 29433104,
   "coordinate_and_time_scope": "Modern physical geography; detailed vector source coordinates retained, separate display overviews generalized. Historical polity and settlement data retain independent provenance.",
   "vectors": [
     {
@@ -16,9 +16,9 @@
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
       "source_sha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
       "output": "land-10m.json.gz",
-      "gzip_bytes": 3569584,
+      "gzip_bytes": 1828038,
       "json_bytes": 10158221,
-      "output_sha256": "429afc8ed8d6a9daaff843b75b1b15896b54776485b438d49a04fb3e5ce05c2a",
+      "output_sha256": "e4e4c274f1492fdeac01c9f0f9b542dc0e264c7387ac64d4cbbced748f8c8c30",
       "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
       "topology_repairs": [],
       "zh_conversion": "OpenCC t2s on source name_zh",
@@ -39,9 +39,9 @@
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_lakes.geojson",
       "source_sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
       "output": "lakes-10m.json.gz",
-      "gzip_bytes": 1346801,
+      "gzip_bytes": 584726,
       "json_bytes": 4042642,
-      "output_sha256": "49226df099ecdb11117b4db4e7fed2f9ca0667e2b0b6b7c42572fcd145b49ae5",
+      "output_sha256": "afbeccef564f53b51610c18b0e58b44fb79e759876cd3050f941eb99aa187914",
       "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
       "topology_repairs": [
         {
@@ -74,9 +74,9 @@
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
       "source_sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
       "output": "rivers-10m.json.gz",
-      "gzip_bytes": 2182931,
+      "gzip_bytes": 1089537,
       "json_bytes": 6171167,
-      "output_sha256": "127147e7835c5b648e8ef3a37547ccf4240e8ddfae8440833e84230d5b698452",
+      "output_sha256": "45cdb40c9f169f6fb08ad0d04f8d49404459ddae5c86fdd08d2b2d45e0caef69",
       "coordinates": "No geometry simplification. Synthetic Null island excluded; zero-area ring self-intersections repaired with make_valid and separately logged.",
       "topology_repairs": [],
       "zh_conversion": "OpenCC t2s on source name_zh",
@@ -160,11 +160,11 @@
     "geometry": {
       "mode": "geometry",
       "file_count": 357,
-      "total_bytes": 35115051,
+      "total_bytes": 29433104,
       "geometry": {
         "lakes-10m.json.gz": {
           "gzip_crc_valid": true,
-          "json_bytes": 4042642,
+          "json_bytes": 1743095,
           "features": 1355,
           "nonempty_features": 1355,
           "vertices": 162854,
@@ -176,11 +176,13 @@
             "Reservoir": 230,
             "Alkaline Lake": 69
           },
-          "artificial_features": 231
+          "artificial_features": 231,
+          "bytes": 584726,
+          "encoding": "atlas-compact-geojson/1 q=100000"
         },
         "land-10m.json.gz": {
           "gzip_crc_valid": true,
-          "json_bytes": 10158221,
+          "json_bytes": 4487260,
           "features": 10,
           "nonempty_features": 10,
           "vertices": 446170,
@@ -190,11 +192,13 @@
           "kind_counts": {
             "Land": 10
           },
-          "artificial_features": 0
+          "artificial_features": 0,
+          "bytes": 1828038,
+          "encoding": "atlas-compact-geojson/1 q=100000"
         },
         "modern-ocean-mask-overview.json.gz": {
           "gzip_crc_valid": true,
-          "json_bytes": 2006656,
+          "json_bytes": 1036266,
           "features": 6,
           "nonempty_features": 6,
           "vertices": 87683,
@@ -204,11 +208,13 @@
           "kind_counts": {
             "ModernOceanMaskOverview": 6
           },
-          "artificial_features": 0
+          "artificial_features": 0,
+          "bytes": 453272,
+          "encoding": "atlas-compact-geojson/1 q=100000"
         },
         "modern-ocean-mask.json.gz": {
           "gzip_crc_valid": true,
-          "json_bytes": 10135413,
+          "json_bytes": 4467069,
           "features": 6,
           "nonempty_features": 6,
           "vertices": 445595,
@@ -218,11 +224,13 @@
           "kind_counts": {
             "ModernOceanMask": 6
           },
-          "artificial_features": 0
+          "artificial_features": 0,
+          "bytes": 1824974,
+          "encoding": "atlas-compact-geojson/1 q=100000"
         },
         "physical-overview.json.gz": {
           "gzip_crc_valid": true,
-          "json_bytes": 390807,
+          "json_bytes": 211516,
           "features": 202,
           "nonempty_features": 202,
           "vertices": 14664,
@@ -235,11 +243,13 @@
             "Lake": 64,
             "Alkaline Lake": 20
           },
-          "artificial_features": 0
+          "artificial_features": 0,
+          "bytes": 80465,
+          "encoding": "atlas-compact-geojson/1 q=100000"
         },
         "rivers-10m.json.gz": {
           "gzip_crc_valid": true,
-          "json_bytes": 6171167,
+          "json_bytes": 2815219,
           "features": 1455,
           "nonempty_features": 1454,
           "vertices": 256386,
@@ -256,7 +266,9 @@
             "River": 1202,
             "Lake Centerline": 253
           },
-          "artificial_features": 7
+          "artificial_features": 7,
+          "bytes": 1089537,
+          "encoding": "atlas-compact-geojson/1 q=100000"
         }
       },
       "tiles": {},

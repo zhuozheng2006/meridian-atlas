@@ -4,36 +4,36 @@
       "file": "physical-overview.json.gz",
       "features": 202,
       "vertices": 14664,
-      "gzip_bytes": 137909,
+      "gzip_bytes": 80465,
       "json_bytes": 390807,
-      "sha256": "260136230add23e6ca1552eee4823e7076d4083d3bbb17ee15c31a77d78dda55",
+      "sha256": "cf14f3f0df28f2bf2b0fa603f69c2ac4126ce87c1b0e6451b753d59577483dd6",
       "all_geometries_valid": true
     },
     {
       "file": "modern-ocean-mask-overview.json.gz",
       "features": 6,
       "vertices": 87683,
-      "gzip_bytes": 736287,
+      "gzip_bytes": 453272,
       "json_bytes": 2006656,
-      "sha256": "d9b4624c8c607caa4747d64038ab51d7db31002500ce384cabbb7121ff27c43f",
+      "sha256": "e1728b595070ffd6e1fb5ab7ebd4ab0cfc4c7d91656f5e5cafb0d320ee92fea3",
       "all_geometries_valid": true
     }
   ],
   "physical_inputs": {
     "rivers": {
       "file": "rivers-10m.json.gz",
-      "sha256": "127147e7835c5b648e8ef3a37547ccf4240e8ddfae8440833e84230d5b698452",
+      "sha256": "45cdb40c9f169f6fb08ad0d04f8d49404459ddae5c86fdd08d2b2d45e0caef69",
       "build_workspace_file": "rivers-10m-named.json.gz"
     },
     "lakes": {
       "file": "lakes-10m.json.gz",
-      "sha256": "49226df099ecdb11117b4db4e7fed2f9ca0667e2b0b6b7c42572fcd145b49ae5",
+      "sha256": "afbeccef564f53b51610c18b0e58b44fb79e759876cd3050f941eb99aa187914",
       "build_workspace_file": "publish/lakes-10m.json.gz"
     }
   },
   "land_input": {
     "file": "land-10m.json.gz",
-    "sha256": "429afc8ed8d6a9daaff843b75b1b15896b54776485b438d49a04fb3e5ce05c2a",
+    "sha256": "e4e4c274f1492fdeac01c9f0f9b542dc0e264c7387ac64d4cbbced748f8c8c30",
     "build_workspace_file": "publish/land-10m.json.gz"
   },
   "physical_selection": "(rank <= 3 OR minzoom <= 3) AND artificial != true, preserving source kind and identifiers",
@@ -90,8 +90,8 @@
     "interior_winding": "clockwise",
     "maximum_longitude_segment_degrees": 60,
     "mask_and_land_union_valid": true,
-    "uncovered_world_area_square_degrees": 0.0,
-    "mask_land_overlap_area_square_degrees": 0.0,
+    "uncovered_world_area_square_degrees": 0,
+    "mask_land_overlap_area_square_degrees": 0,
     "mask_difference_from_shared_coast_complement_area_square_degrees": 4.911065137389969e-14,
     "area_partition_error_square_degrees": 5.820766091346741e-11,
     "classification_sample_count": 12063,
