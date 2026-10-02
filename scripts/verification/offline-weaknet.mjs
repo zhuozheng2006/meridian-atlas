@@ -36,7 +36,7 @@ async function waitOutcome(s, timeout = 60000) {
     last = await evaluate(s, '(() => { const e = document.querySelector("#mapError"); const l = document.querySelector("#loading"); return { error: e && !e.hidden, loading: l && !l.hidden }; })()');
     if (last.error) return { outcome: 'error-ui', ms: Date.now() - t0 };
     if (!last.loading) return { outcome: 'ready', ms: Date.now() - t0 };
-    await sleep(250);
+    await sleep(1000); // >=1 s: faster evaluate polling can itself miss the settled state
   }
   return { outcome: 'timeout', ms: Date.now() - t0, last };
 }
@@ -52,7 +52,7 @@ function netRecorder(s) {
 }
 const countUrl = (list, re) => list.filter(x => x.url && re.test(x.url)).length;
 
-const s = await launch({ port: PORT, width: 1400, height: 900, profile: '/tmp/atlas-net-' + Date.now() });
+const s = await launch({ port: await C.pickPort(PORT), width: 1400, height: 900, profile: '/tmp/atlas-net-' + Date.now() });
 try {
   await C.installInstrument(s);
   const net = netRecorder(s);

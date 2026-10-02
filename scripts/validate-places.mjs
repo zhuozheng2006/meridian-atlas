@@ -24,6 +24,7 @@ const index=await diskJSON('historical-settlements-index');
 const urban=await diskJSON('urban-observations');
 const capitals=await diskJSON('historical-capitals');
 const modern=await diskJSON('modern-cities');
+const attested=await diskJSON('attested-places');
 const results=[];
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(error){results.push({name,passed:false,error:error.message});console.error('FAIL',name,':',error.message);}}
 let historical;
@@ -49,9 +50,27 @@ await check('Dated city names follow the observation and preserve raw names acro
 await check('One unavailable archive preserves other sources and is retryable',async()=>{
   failOnce.add('data/places/historical-capitals.json.gz');
   const partial=await loadPlaces();assert.equal(partial.partial,true);
-  assert.equal(partial.length,index.places.length+urban.cities.length);
+  assert.equal(partial.length,index.places.length+urban.cities.length+attested.records.length);
   historical=await loadPlaces();assert.equal(historical.partial,false);
-  assert.equal(historical.length,index.places.length+urban.cities.length+capitals.claims.length);
+  assert.equal(historical.length,index.places.length+urban.cities.length+capitals.claims.length+attested.records.length);
+});
+await check('Reviewed archaeological sites join the layer with their own period only',async()=>{
+  const sites=historical.filter(p=>p.kind==='attested-site');
+  assert.equal(sites.length,attested.records.length);
+  for(const site of sites){
+    const record=attested.records.find(r=>r.id===site.id);assert(record,site.id);
+    assert.deepEqual(site.periods,[[record.period.start,record.period.end]]);
+    assert.deepEqual(site.coordinates,record.location.coordinates);
+    const before=placeAtYear(site,record.period.start-1),inside=placeAtYear(site,record.period.start),after=placeAtYear(site,record.period.end+1);
+    assert.equal(before,null,site.id+' should not exist before its source period');
+    assert.equal(after,null,site.id+' should not exist after its source period');
+    assert(inside,site.id+' should exist inside its source period');
+  }
+  // Search lists records regardless of the selected year; the year filter stays
+  // in placeAtYear, so a site outside its period is findable but not map-active.
+  assert.equal((await searchPlaces('阿瑜陀耶',1450)).some(p=>p.id==='attested:ayutthaya'),true);
+  assert.equal((await searchPlaces('Ayutthaya',1200)).some(p=>p.id==='attested:ayutthaya'),true);
+  assert.equal(placeAtYear((await searchPlaces('Ayutthaya',1200)).find(p=>p.id==='attested:ayutthaya'),1200),null);
 });
 await check('Modern reference is opt-in and never contaminates default loads',async()=>{
   assert.equal(historical.some(p=>p.kind==='modern-reference'),false);

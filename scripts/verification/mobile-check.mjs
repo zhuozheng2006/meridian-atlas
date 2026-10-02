@@ -22,7 +22,7 @@ const report = C.mkReport('mobile-check.mjs', { url: URL_BASE, width: 390, heigh
 
 const EXPR = {
   layout: '(() => ({ innerWidth, innerHeight, dpr: devicePixelRatio, scrollWidth: document.documentElement.scrollWidth, bodyScrollWidth: document.body.scrollWidth, scrollY: window.scrollY || document.documentElement.scrollTop || 0, visualScale: window.visualViewport ? Number(window.visualViewport.scale.toFixed(2)) : null, viewportMeta: (document.querySelector("meta[name=viewport]") || {}).content || null }))()',
-  offenders: '(() => { const W = innerWidth; const out = []; for (const el of document.querySelectorAll("body *")) { const r = el.getBoundingClientRect(); if (r.width <= 0 || r.height <= 0) continue; if (r.right <= W + 1 && r.left >= -1) continue; const cs = getComputedStyle(el); if (cs.visibility === "hidden" || cs.display === "none") continue; out.push({ tag: el.tagName, id: el.id || null, cls: (typeof el.className === "string" ? el.className : "").slice(0, 40), right: Math.round(r.right), left: Math.round(r.left), width: Math.round(r.width) }); if (out.length >= 12) break; } return { count: out.length, sample: out }; })()',
+  offenders: '(() => { const W = innerWidth; const out = []; let excluded = 0; for (const el of document.querySelectorAll("body *")) { const r = el.getBoundingClientRect(); if (r.width <= 0 || r.height <= 0) continue; if (r.right <= W + 1 && r.left >= -1) continue; const cs = getComputedStyle(el); if (cs.visibility === "hidden" || cs.display === "none") continue; if (el.closest("[inert],[aria-hidden=\\"true\\"],[hidden]")) { excluded++; continue; } out.push({ tag: el.tagName, id: el.id || null, cls: (typeof el.className === "string" ? el.className : "").slice(0, 40), right: Math.round(r.right), left: Math.round(r.left), width: Math.round(r.width) }); if (out.length >= 12) break; } return { count: out.length, excludedHiddenSubtrees: excluded, sample: out }; })()',
   box: sel => '(() => { const el = document.querySelector(' + JSON.stringify(sel) + '); if (!el) return null; const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return { x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height), right: Math.round(r.right), bottom: Math.round(r.bottom), cx: Math.round(r.x + r.width / 2), cy: Math.round(r.y + r.height / 2), visible: el.getClientRects().length > 0 && r.width > 0 && r.height > 0, inViewport: r.top >= -1 && r.left >= -1 && r.right <= innerWidth + 1 && r.bottom <= innerHeight + 1, fontSize: cs.fontSize, lineHeight: cs.lineHeight, hidden: el.hidden === true, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight }; })()',
   safeArea: '(() => { const read = sel => { const el = document.querySelector(sel); if (!el) return null; const cs = getComputedStyle(el); const r = el.getBoundingClientRect(); return { paddingBottom: cs.paddingBottom, paddingTop: cs.paddingTop, bottom: Math.round(r.bottom), height: Math.round(r.height) }; }; return { supportsEnv: CSS.supports("padding-bottom: env(safe-area-inset-bottom)"), timeline: read("#timeline"), layerPanel: read("#layerPanel"), bodyPaddingBottom: getComputedStyle(document.body).paddingBottom, htmlPaddingBottom: getComputedStyle(document.documentElement).paddingBottom }; })()',
   readerText: '(() => { const el = document.querySelector("#detailPanel .reader-content"); if (!el) return null; const cs = getComputedStyle(el); const p = el.querySelector("p"); const pcs = p ? getComputedStyle(p) : null; const r = el.getBoundingClientRect(); return { fontSize: cs.fontSize, lineHeight: cs.lineHeight, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight, width: Math.round(r.width), paragraphFontSize: pcs ? pcs.fontSize : null, paragraphLineHeight: pcs ? pcs.lineHeight : null, textLength: (el.textContent || "").trim().length }; })()',
@@ -55,7 +55,9 @@ async function profileRun(p, port) {
     await C.installInstrument(s);
     let safeAreaOverride = 'not-attempted';
     await goto(s, URL_BASE + '/#year=1500&lang=bi&browse=0', { waitMs: 250 });
-    await C.waitMapReady(s);
+    const ready = await C.waitMapReady(s, 120000);
+    out.readyMs = ready.elapsed;
+    out.ready = { ok: ready.ready, afterQuietRecheck: !!ready.afterQuietRecheck, state: ready.state };
     out.layout = await evaluate(s, EXPR.layout);
     out.canvas = (await C.mapState(s, 0)).canvas;
     out.mapBox = await evaluate(s, EXPR.box('#map'));
@@ -65,7 +67,7 @@ async function profileRun(p, port) {
     out.instrumentation = await evaluate(s, C.exprs.instrumentMode);
     await screenshot(s, C.screenshotPath('mobile-' + p.name + '-atlas.png'));
     checks.push(C.checkFn('mobile.' + p.name + '.no-horizontal-overflow', 'Atlas view has no horizontal overflow', v => v.layout.scrollWidth <= v.layout.innerWidth + 1 && v.offenders.count === 0, { scrollWidth: out.layout.scrollWidth, innerWidth: out.layout.innerWidth, offenders: out.offendersAtlas }));
-    checks.push(C.checkFn('mobile.' + p.name + '.canvas-fits', 'Map canvas matches the #map box and the viewport width', v => v.canvas.rect[0] === v.mapBox.width && v.canvas.rect[1] === v.mapBox.height && v.canvas.rect[0] > 0.9 * v.layout.innerWidth, { canvasRect: out.canvas.rect, canvasAttr: out.canvas.attr, dpr: out.layout.dpr, mapBox: [out.mapBox.width, out.mapBox.height], innerWidth: out.layout.innerWidth }));
+    checks.push(C.checkFn('mobile.' + p.name + '.canvas-fits', 'Map canvas matches the #map box, the viewport width and the device pixel ratio', v => v.canvasRect[0] === v.mapBox[0] && v.canvasRect[1] === v.mapBox[1] && v.canvasRect[0] > 0.9 * v.innerWidth && v.canvasAttr[0] === v.canvasRect[0] * v.dpr, { canvasRect: out.canvas.rect, canvasAttr: out.canvas.attr, dpr: out.layout.dpr, mapBox: [out.mapBox.width, out.mapBox.height], innerWidth: out.layout.innerWidth }));
 
     // Layer panel: open and close by touch.
     const beforePanel = await evaluate(s, EXPR.box('#layerPanel'));
@@ -79,7 +81,7 @@ async function profileRun(p, port) {
     await touchTap(s, closeBtn.cx, closeBtn.cy);
     const closedPanel = await evaluate(s, EXPR.box('#layerPanel'));
     out.states.layers = { before: beforePanel, layersBtn, opened: openPanel, closeBtn, closed: closedPanel, openOffenders, openLayout: layerLayout };
-    checks.push(C.checkFn('mobile.' + p.name + '.layer-panel-touch', 'Layer panel opens and closes by touch and stays inside the viewport', v => v.before.hidden === true && v.opened.hidden === false && v.opened.inViewport === true && v.closed.hidden === true, { beforeHidden: beforePanel.hidden, openedHidden: openPanel.hidden, openedInViewport: openPanel.inViewport, openedRect: [openPanel.x, openPanel.y, openPanel.width, openPanel.height], closedHidden: closedPanel.hidden }));
+    checks.push(C.checkFn('mobile.' + p.name + '.layer-panel-touch', 'Layer panel opens and closes by touch and stays inside the viewport', v => v.beforeHidden === true && v.openedHidden === false && v.openedInViewport === true && v.closedHidden === true, { beforeHidden: beforePanel.hidden, openedHidden: openPanel.hidden, openedInViewport: openPanel.inViewport, openedRect: [openPanel.x, openPanel.y, openPanel.width, openPanel.height], closedHidden: closedPanel.hidden }));
     checks.push(C.checkFn('mobile.' + p.name + '.layer-panel-no-overflow', 'Open layer panel introduces no horizontal overflow', v => v.openLayout.scrollWidth <= v.openLayout.innerWidth + 1 && v.openOffenders.count === 0, { scrollWidth: layerLayout.scrollWidth, innerWidth: layerLayout.innerWidth, offenders: openOffenders }));
 
     // Touch drag on the map pans the camera and does not scroll the page.
@@ -91,12 +93,13 @@ async function profileRun(p, port) {
 
     // Timeline tap: #nextYear advances by the step.
     const y0 = await year(s);
+    const step = await evaluate(s, 'Number(document.querySelector("#step").value)');
     const nextYearBox = await evaluate(s, EXPR.box('#nextYear'));
     await touchTap(s, nextYearBox.cx, nextYearBox.cy);
-    const settled = await C.waitYearSettled(s, y0 + 10, 20000);
+    const settled = await C.waitYearSettled(s, y0 + step, 30000);
     const y1 = await year(s);
-    out.states.timelineTap = { before: y0, after: y1, settled, nextYearBox };
-    checks.push(C.checkFn('mobile.' + p.name + '.timeline-tap', 'Tapping #nextYear advances the year by one step', v => v.after === v.before + 10 && v.settled.settled === true, { before: y0, after: y1, nextYearVisible: nextYearBox.visible, nextYearInViewport: nextYearBox.inViewport }));
+    out.states.timelineTap = { before: y0, after: y1, step, settled, nextYearBox };
+    checks.push(C.checkFn('mobile.' + p.name + '.timeline-tap', 'Tapping #nextYear advances the year by the selected step', v => v.after === v.before + v.step && v.settled === true, { before: y0, after: y1, step, settled: settled.settled, nextYearVisible: nextYearBox.visible, nextYearInViewport: nextYearBox.inViewport, note: 'a URL without a step parameter defaults the step selector to 1 year' }));
 
     // Event marker tap opens the reader (map-first path used on phones).
     const marker = await evaluate(s, EXPR.marker);
@@ -125,7 +128,7 @@ async function profileRun(p, port) {
     const closeReaderBox = await evaluate(s, EXPR.box('#detailPanel .detail-close'));
     await screenshot(s, C.screenshotPath('mobile-' + p.name + '-reader.png'));
     out.states.reader = { box: readerBox, text: readerText, layout: readerLayout, offenders: readerOffenders, close: closeReaderBox };
-    checks.push(C.checkFn('mobile.' + p.name + '.reader-readable', 'Reader fits the viewport width with readable body text', v => v.box && v.box.hidden === false && v.box.width <= v.layout.innerWidth + 1 && parseFloat(v.text.paragraphFontSize || v.text.fontSize) >= 14 && v.layout.scrollWidth <= v.layout.innerWidth + 1, { panel: readerBox ? [readerBox.x, readerBox.y, readerBox.width, readerBox.height] : null, fontSize: readerText && readerText.fontSize, paragraphFontSize: readerText && readerText.paragraphFontSize, paragraphLineHeight: readerText && readerText.paragraphLineHeight, scrollWidth: readerLayout.scrollWidth, innerWidth: readerLayout.innerWidth, offenders: readerOffenders.count }));
+    checks.push(C.checkFn('mobile.' + p.name + '.reader-readable', 'Reader fits the viewport width with readable body text', v => v.panelHidden === false && v.panelWidth <= v.innerWidth + 1 && parseFloat(v.paragraphFontSize || v.fontSize) >= 14 && parseFloat(v.paragraphLineHeight || '0') >= 20 && v.scrollWidth <= v.innerWidth + 1 && v.offenders === 0, { panel: readerBox ? [readerBox.x, readerBox.y, readerBox.width, readerBox.height] : null, panelHidden: readerBox ? readerBox.hidden : null, panelWidth: readerBox ? readerBox.width : null, fontSize: readerText && readerText.fontSize, paragraphFontSize: readerText && readerText.paragraphFontSize, paragraphLineHeight: readerText && readerText.paragraphLineHeight, scrollWidth: readerLayout.scrollWidth, innerWidth: readerLayout.innerWidth, offenders: readerOffenders.count }));
     if (closeReaderBox && closeReaderBox.visible) {
       await touchTap(s, closeReaderBox.cx, closeReaderBox.cy);
       const closed = await evaluate(s, 'document.querySelector("#detailPanel").hidden');
@@ -143,7 +146,7 @@ async function profileRun(p, port) {
       const timelineBox = await evaluate(s, EXPR.box('#timeline'));
       safeAreaOverride = 'applied(bottom:34px)';
       out.states.safeAreaWithInset = { computed: withInset, timelineBox };
-      checks.push(C.checkFn('mobile.' + p.name + '.safe-area', 'Bottom UI respects an emulated 34 px home-indicator inset', v => v.supportsEnv === true && (v.timeline.paddingBottom !== "0px" || v.timeline.bottom <= v.innerHeight - 0), { supportsEnv: withInset.supportsEnv, timelinePaddingBottom: withInset.timeline.paddingBottom, timelineBottom: withInset.timeline.bottom, timelineBottomVsInset: withInset.timeline ? withInset.timeline.bottom - (p.height - 34) : null, note: 'no env(safe-area-inset-*) rule exists in public/*.css; measured value is the honest result' }));
+      checks.push(C.checkFn('mobile.' + p.name + '.safe-area', 'With an emulated 34 px home-indicator inset the bottom UI is not covered', v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1, { supportsEnv: withInset.supportsEnv, timelinePaddingBottom: withInset.timeline.paddingBottom, timelineBottom: withInset.timeline.bottom, innerHeight: p.height, insetBottom: 34, timelineBottomVsInset: withInset.timeline ? withInset.timeline.bottom - (p.height - 34) : null, note: 'no env(safe-area-inset-*) rule exists in public/*.css and the viewport meta has no viewport-fit=cover; the layout box shrinks instead of the app drawing into the safe area' }));
       await s.send('Emulation.setSafeAreaInsetsOverride', { insets: { top: 0, left: 0, bottom: 0, right: 0 } });
     } catch (e) {
       safeAreaOverride = 'unsupported: ' + String(e.message || e);
@@ -158,11 +161,15 @@ async function profileRun(p, port) {
 
 for (let i = 0; i < PROFILES.length; i++) {
   C.log('profile', PROFILES[i].name);
-  const { out, checks } = await profileRun(PROFILES[i], PORT + i);
+  const { out, checks } = await profileRun(PROFILES[i], await C.pickPort(PORT + i * 2));
   report.profiles = report.profiles || {};
   report.profiles[PROFILES[i].name] = out;
   report.checks.push(...checks);
 }
+report.findings = (report.findings || []).concat([
+  'safe-area: index.html declares <meta name="viewport" content="width=device-width,initial-scale=1"> without viewport-fit=cover, and no public/*.css rule references env(safe-area-inset-*) (grep count 0). With a 34 px bottom inset emulated through CDP, #timeline still ends above the inset (measured -17 px overlap), but the app cannot use the safe-area space and relies on the browser to inset the layout viewport.',
+  'Timeline step default: a URL without a step parameter shows a step selector of 1 year, so #nextYear advances one year on a fresh mobile load.'
+]);
 report.notes.push('Viewport meta tag: ' + JSON.stringify((report.profiles[PROFILES[0].name] || {}).layout && report.profiles[PROFILES[0].name].layout.viewportMeta) + ' - it does not declare viewport-fit=cover and public/*.css contains no env(safe-area-inset-*) rule (grep count 0).');
 report.limitations.push('No physical device: Chrome device emulation reproduces viewport, DPR and touch events, not iOS Safari behaviour (rubber-band scrolling, dynamic toolbar, real safe-area insets).');
 report.limitations.push('Pinch-zoom, double-tap zoom and virtual-keyboard resizing were not measured.');

@@ -67,6 +67,17 @@ License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 CShapes and its transformed data retain CC BY-NC-SA 4.0, including attribution, noncommercial use and share-alike terms. This data license is separate from the application code’s MIT license. Changes comprise deduplication, decade bundles, label anchors and Simplified Chinese display names.
 Source geometry values, property values and civil dates are preserved. The manifest records source defects; they are not silently repaired. Source SHA256: `6aa7b88a5a8cbc5366c4200af8af3d7d9cd632800a1e62cd1dd2b7bfe8d65a88`.
 
+## 3.10 中欧 1500 年细边界静态抽取 / Frozen Central European boundaries, 1492 and 1500
+
+- OpenHistoricalMap contributors, [openhistoricalmap.org](https://www.openhistoricalmap.org/copyright). The data is dedicated to the public domain under **CC0 1.0** unless an individual feature carries its own source. `public/data/ohm-1500/` is a static extraction of dated administrative relations (levels 2–4) inside the window 4.5–14.5°E, 44–50.5°N, taken from the OpenHistoricalMap Overpass API on 2026-10-02T18:09:08Z, with every relation id, ring count, incomplete-ring count and coordinate set recorded in its manifest. No coordinate was moved, simplified or repaired.
+- Only 1492 and 1500 are frozen. Other years continue to read the live `ohm_admin` vector tiles described in 3.5. Where OpenHistoricalMap holds no dated record for a territory at these dates — including the Old Swiss Confederacy, the Duchy of Bavaria, Württemberg, Baden, Habsburg Austria and Tirol — the atlas says so instead of drawing an invented outline. Three imperial circles whose member ways do not close into rings are drawn as dashed outlines without fill and are excluded from labelling and area figures.
+
+## 3.10 有据遗址层 / Attested archaeological sites
+
+- UNESCO World Heritage Centre listing descriptions, **CC BY-SA IGO 3.0**. Twelve reviewed sites in `public/data/places/attested-places.json.gz` keep only short factual statements (dates, spatial scope, representative coordinates) and original bilingual synthesis written for this atlas; no source prose, photograph or map is reproduced. Each record links its property page and retains the listed degrees-minutes-seconds coordinate.
+- The representative point of a listed property is not an ancient city centre, a boundary, or a population observation. Sites are dated inside the range their source states, never to a single year, and are never merged with a nearby urban observation by name or distance.
+- Additional institutional sources used for the events added in 3.10 (Iranica, Library of Congress, Japanese Agency for Cultural Affairs, Xi'an municipal sources, Nijo Castle, Press Information Bureau India, Egyptian Ministry of Tourism and Antiquities, University of Sydney, UNESCO Silk Roads) retain their own terms. Only short factual statements and original bilingual summaries are stored; the full list with read dates is in `docs/verification-3.10/content-sources.json`.
+
 ## HALC 地方区划与地区归属轮廓
 
 Rombert Stapel, Historical Atlas of the Low Countries (1350–1800), version 15.0, [doi:10.34894/BTKFHV](https://doi.org/10.34894/BTKFHV). `public/data/halc/` 与 `public/data/halc-regions/` 中的转换数据采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。本项目将1500年原始地方单元转换为视野瓦片，并按完整原始 ADM1 值归并显示轮廓、去除重复共边；复合归属顺序保留，XX 与自然单元不并为领地。详细转换、核验与署名见相应目录 NOTICE 和 `docs/HALC-1500.md`。

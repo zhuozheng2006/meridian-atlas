@@ -1,4 +1,4 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.9.4-3392a69da753';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.9.4-380fd480ab21';
 const native=new Map();
 const bootYears=new Set([-3400,-221,1,500,1000,1492,1500,1750,1914,1945,1991,2024]);
 export const hasNativeBootstrap=year=>bootYears.has(year);

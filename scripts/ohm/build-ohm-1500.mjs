@@ -148,6 +148,9 @@ function properties(relation,geometry,stats){
 }
 
 // ---------------------------------------------------------------------------
+// Importing this module must only expose the pure helpers; the extract is written by running it.
+const invoked=(()=>{try{return !!process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url);}catch{return false;}})();
+if(invoked){
 const report={relations:[],excluded:[],years:{},totals:{}};
 fs.mkdirSync(CACHE,{recursive:true});fs.mkdirSync(OUT,{recursive:true});
 
@@ -242,14 +245,16 @@ function gapReport(year){
  });
 }
 
-const manifest={schema:'meridian-ohm-frozen/1',generated:new Date().toISOString(),source:{name:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0 (OpenHistoricalMap data)',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',copyright:'https://www.openhistoricalmap.org/copyright',timestamp},bbox:BBOX,adminLevels:LEVELS,years:YEARS,
+const previousManifest=(()=>{try{return JSON.parse(fs.readFileSync(path.join(OUT,'manifest.json'),'utf8'));}catch{return null;}})();
+const generated=flag('fetch')||!previousManifest?.generated?new Date().toISOString():previousManifest.generated;
+const manifest={schema:'meridian-ohm-frozen/1',generated,source:{name:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0 (OpenHistoricalMap data)',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',copyright:'https://www.openhistoricalmap.org/copyright',timestamp},bbox:BBOX,adminLevels:LEVELS,years:YEARS,
  queries:{tags:tagsSource.query||'[out:json][timeout:180];rel["boundary"="administrative"]["admin_level"~"^(2|3|4)$"]('+BBOX.join(',')+');out tags;',geometry:geomSource?.query||'[out:json][timeout:280];rel(id:<selected>);out geom;',rawTagsSha256:sha256(fs.readFileSync(TAGS_FILE)),rawGeometrySha256:sha256(fs.readFileSync(GEOM_FILE))},
  method:'Member ways chained in stored order; coordinates copied unchanged; no simplification, rounding or boolean repair; holes assigned by containment; area from spherical ring area (R=6371008.8 m).',
  relations:[]};
 
 for(const year of YEARS){
  const features=build(year),gaps=gapReport(year);
- const payload={type:'FeatureCollection',metadata:{schema:'meridian-ohm-frozen/1',year,source:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0',attribution:'OpenHistoricalMap contributors',timestamp,bbox:BBOX,adminLevels:LEVELS,generated:manifest.generated,gaps,relationCount:features.length},features};
+ const payload={type:'FeatureCollection',metadata:{schema:'meridian-ohm-frozen/1',year,source:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0',attribution:'OpenHistoricalMap contributors',timestamp,bbox:BBOX,adminLevels:LEVELS,generated,gaps,relationCount:features.length},features};
  const json=JSON.stringify(payload),gzipped=zlib.gzipSync(Buffer.from(json,'utf8'),{level:9});
  const file='year-'+year+'.json.gz';
  fs.writeFileSync(path.join(OUT,file),gzipped);
@@ -277,3 +282,4 @@ const notice=['# OpenHistoricalMap frozen extract (1492 / 1500, central Europe)'
 fs.writeFileSync(path.join(OUT,'NOTICE.md'),notice);
 process.stderr.write('wrote '+Object.keys(report.years).length+' year files and manifest.json to '+OUT+'\n');
 console.log(JSON.stringify({manifest:path.join(OUT,'manifest.json'),totals:manifest.totals,years:report.years,excluded:manifest.excluded.length,relations:manifest.relations.length},null,1));
+}

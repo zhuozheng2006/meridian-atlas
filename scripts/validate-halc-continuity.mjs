@@ -29,6 +29,10 @@ function walk(node){return [node,...(node.children||[]).filter(n=>typeof n==='ob
 function cls(node,name){return walk(node).find(n=>n.className===name);}
 function wireActualIndex(h){
  h.owner.openIndex=RegionalBoundaries.prototype.openIndex;
+ // openIndex also asks the frozen-source layer for its uncovered-polity notice. The
+ // harness owner is a stub, so bind that method too: with no frozen metadata loaded it
+ // returns null, exactly as it does in the app before data/ohm-1500 is read.
+ h.owner.ohmGapNotice=RegionalBoundaries.prototype.ohmGapNotice;
  const close=h.owner.closePopup.bind(h.owner);h.owner.closePopup=()=>{h.owner.indexRefresh=null;close();};
  h.owner.setStatus=function(status){this.status=status;this.indexRefresh?.();};
 }

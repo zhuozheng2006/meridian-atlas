@@ -75,7 +75,7 @@ const scenarios=[
 ];
 
 fs.mkdirSync(outDir,{recursive:true});
-const session=await launch({width:1600,height:900,port:9337});
+const session=await launch({width:1600,height:900,port:Number(arg('port','9351')),profile:'/tmp/atlas-cdp-ohm1500'});
 const allResponses=[];
 session.on(m=>{if(m.method==='Network.responseReceived'){const r=m.params.response;allResponses.push({url:r.url,status:r.status});}});
 const report={label,base,camera:CAMERA,checkedAt:new Date().toISOString(),scenarios:[],console:[]};

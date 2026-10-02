@@ -66,6 +66,21 @@ export function provenance() {
 
 export function ensureDirs() { for (const d of arguments) fs.mkdirSync(d, { recursive: true }); }
 
+// Chrome releases the CDP port a moment after SIGKILL. Launching the next session
+// on a port that is still answering makes the driver attach to the dying browser,
+// which shows up as a page that never becomes ready. Always pick a free port.
+export async function portFree(port) {
+  try { const r = await fetch('http://127.0.0.1:' + port + '/json/version'); return !r.ok; } catch (e) { return true; }
+}
+export async function pickPort(base, tries = 12) {
+  for (let i = 0; i < tries; i++) {
+    const port = base + i;
+    if (await portFree(port)) return port;
+    await sleep(300);
+  }
+  return base + tries;
+}
+
 export function writeJSON(rel, data) {
   const file = path.isAbsolute(rel) ? rel : path.join(ROOT, rel);
   ensureDirs(path.dirname(file));
@@ -186,7 +201,11 @@ function settledExpr(year) {
   const busy = document.querySelector('#atlasView');
   const loading = document.querySelector('#loading');
   const big = document.querySelector('#bigYear');
-  return Number(params.year) === year && !m.isMoving() && busy && busy.getAttribute('aria-busy') === 'false' && loading && loading.hidden === true && big && big.textContent.indexOf(String(Math.abs(year))) >= 0;
+  const label = big ? big.textContent : '';
+  const plain = String(Math.abs(year));
+  const grouped = Math.abs(year).toLocaleString('en-US');
+  const labelled = label.indexOf(plain) >= 0 || label.indexOf(grouped) >= 0;
+  return Number(params.year) === year && !m.isMoving() && busy && busy.getAttribute('aria-busy') === 'false' && loading && loading.hidden === true && labelled;
 }
 export const exprs = {
   instrumentMode: 'window.__instrument ? window.__instrument.mode : "none"',
@@ -227,20 +246,40 @@ export function frameStats(frameList) {
 
 export const zhYear = y => { const n = Math.abs(y) >= 10000 ? Math.abs(y).toLocaleString('en-US') : String(Math.abs(y)); return (y < 0 ? '公元前 ' : '公元 ') + n + ' 年'; };
 
+// Polling note (measured by the Lead and reproduced here): driving Runtime.evaluate
+// at 200-250 ms while the map is loading can keep missing #loading.hidden even though
+// the page settled seconds earlier. All waiting below polls at >= 250 ms (ready: 1 s)
+// and the precise per-step timings come from the in-page MutationObserver timeline,
+// never from the poll loop.
 export async function waitYearSettled(s, target, timeout = 30000) {
   const start = Date.now();
   const expr = '(' + settledExpr.toString() + ')(' + target + ')';
   let last = null;
   while (Date.now() - start < timeout) {
     try { last = await evaluate(s, expr); } catch (e) { last = 'eval-error'; }
-    if (last === true) return { settled: true, elapsed: Date.now() - start };
-    await sleep(20);
+    if (last === true) return { settled: true, elapsed: Date.now() - start, pollMs: 300 };
+    await sleep(300);
   }
-  return { settled: false, elapsed: Date.now() - start, last };
+  return { settled: false, elapsed: Date.now() - start, last, pollMs: 300 };
 }
 
-export async function waitMapReady(s, timeout = 60000) {
-  return waitFor(s, 'document.querySelector("#loading") && document.querySelector("#loading").hidden === true', { timeout, interval: 150 });
+export async function appReady(s) {
+  return evaluate(s, '(() => { const l = document.querySelector("#loading"); const a = document.querySelector("#atlasView"); const m = (window.__maps || [])[0]; return { loadingHidden: !!(l && l.hidden), busy: a ? a.getAttribute("aria-busy") : null, mapYear: m ? m.year : null, hashYear: Number(new URLSearchParams(location.hash.slice(1)).get("year")) }; })()');
+}
+
+export async function waitMapReady(s, timeout = 90000) {
+  const start = Date.now();
+  let last = null;
+  while (Date.now() - start < timeout) {
+    try { last = await appReady(s); } catch (e) { last = { error: String(e.message || e) }; }
+    if (last && last.loadingHidden === true) return { ready: true, elapsed: Date.now() - start, state: last };
+    await sleep(1000);
+  }
+  // One calm re-check: some loads only settle once the polling stops.
+  await sleep(3000);
+  try { last = await appReady(s); } catch (e) { last = { error: String(e.message || e) }; }
+  if (last && last.loadingHidden === true) return { ready: true, elapsed: Date.now() - start, state: last, afterQuietRecheck: true };
+  return { ready: false, elapsed: Date.now() - start, state: last };
 }
 
 export async function waitNotMoving(s, timeout = 10000) {

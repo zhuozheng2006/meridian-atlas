@@ -1,6 +1,6 @@
 {
   "report": "keyboard-focus.mjs",
-  "generatedAt": "2026-10-02T18:51:14.559Z",
+  "generatedAt": "2026-10-02T19:10:34.315Z",
   "command": "node scripts/verification/keyboard-focus.mjs",
   "target": {
     "url": "http://127.0.0.1:8767",
@@ -11,15 +11,20 @@
   },
   "meta": {
     "provenance": {
-      "gitHead": "7ee94b4a179eaef4a4ac619c8e44a6f19151a77d",
+      "gitHead": "a294df47e0fc8e1e1f7d865f7ce80871db18f73c",
       "dirtyPaths": [
-        "M public/app.js",
+        "M ATTRIBUTIONS.md",
+        " M docs/real-fact-period-validation.json",
+        " M docs/verification-3.10/content-attested-places-build.json",
+        " M docs/verification-3.10/content-balance.json",
+        " M docs/verification-3.10/keyboard-focus.json",
+        " M public/app.js",
         " M public/boundary-controller.js",
-        " M public/boundary-style.js",
         " M public/city-narratives.js",
         " M public/country-archive.js",
-        " M public/data/events.json",
-        " M public/data/events.json.gz",
+        " M public/data/ohm-1500/manifest.json",
+        " M public/data/ohm-1500/year-1492.json.gz",
+        " M public/data/ohm-1500/year-1500.json.gz",
         " M public/geography.js",
         " M public/halc-boundaries.js",
         " M public/halc-landscape.js",
@@ -32,28 +37,48 @@
         " M public/polity-places.js",
         " M public/polity-reader.js",
         " M public/regional-boundaries.js",
-        "?? docs/verification-3.10/",
-        "?? editorial/events-3.10.json",
-        "?? public/data/ohm-1500/",
-        "?? scripts/ohm/",
-        "?? scripts/places/apply-events-3.10.mjs",
-        "?? scripts/places/check-event-sources.mjs",
-        "?? scripts/places/content-balance.mjs",
-        "?? scripts/verification/"
+        " M scripts/ohm/browser-check-ohm-1500.mjs",
+        " M scripts/ohm/build-ohm-1500.mjs",
+        " M scripts/places/validate-city-narratives.mjs",
+        " M scripts/places/validate-places.mjs",
+        " M scripts/validate-city-time.mjs",
+        " M scripts/validate-places.mjs",
+        " M scripts/verification/keyboard-focus.mjs",
+        " M scripts/verification/lib/common.mjs",
+        " M scripts/verification/mobile-check.mjs",
+        " M scripts/verification/offline-weaknet.mjs",
+        " M scripts/verification/perf-baseline.mjs",
+        "?? docs/verification-3.10/content-attested-places.md",
+        "?? docs/verification-3.10/content-coverage.md",
+        "?? docs/verification-3.10/content-events-east-asia-1600.png",
+        "?? docs/verification-3.10/mobile-check.json",
+        "?? docs/verification-3.10/ohm-1500.md",
+        "?? docs/verification-3.10/shots/keyboard-skiplink-target.png",
+        "?? docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
+        "?? docs/verification-3.10/shots/mobile-android-360x740-layers.png",
+        "?? docs/verification-3.10/shots/mobile-android-360x740-reader.png",
+        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
+        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
+        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-reader.png",
+        "?? docs/verification-3.10/shots/ohm1500-after-1492.jpg",
+        "?? docs/verification-3.10/shots/ohm1500-after-regional.jpg",
+        "?? docs/verification-3.10/shots/ohm1500-before-1492.jpg",
+        "?? docs/verification-3.10/shots/ohm1500-before-regional.jpg",
+        "?? scripts/verification/independent-review.mjs"
       ],
-      "assetVersion": "3.9.4-42c35784bd11",
+      "assetVersion": "3.9.4-380fd480ab21",
       "files": {
-        "public/index.html": "c3229fac0b06f808",
-        "public/app.js": "66ad6483e95acd3c",
-        "public/map-engine.js": "c3eeda86e07bd5e8",
+        "public/index.html": "6cb91affa0d4fbec",
+        "public/app.js": "177dc76f6aa1db10",
+        "public/map-engine.js": "20b3e2573a800e65",
         "public/timeline-controls.js": "b3954150517b0a12",
         "public/view-state.js": "1b57cdfe210a7322",
         "public/style.css": "95f5e8ac64efeda8",
         "public/product.css": "2631908c806f7e1e",
         "public/cartography.css": "117414b5e2a91d3d",
-        "public/boundary-controller.js": "d541554687c25c60",
-        "public/regional-boundaries.js": "f8e4b62a9278cd8a",
-        "public/geography.js": "982bf0d9c3e1bde1"
+        "public/boundary-controller.js": "170f7551345509a1",
+        "public/regional-boundaries.js": "a1f54263074dbf10",
+        "public/geography.js": "7fa26e91e61e4d75"
       },
       "node": "v26.7.0",
       "platform": "darwin",
@@ -64,7 +89,7 @@
     {
       "id": "kb.canvas-focused",
       "description": "The map canvas is focusable and receives the key events",
-      "expected": "v => v && v.ok === true",
+      "expected": "v => v.focusCanvas && v.focusCanvas.ok === true",
       "observed": {
         "focusCanvas": {
           "ok": true,
@@ -72,7 +97,7 @@
           "cls": "maplibregl-canvas"
         },
         "lastKey": {
-          "t": 4102.6,
+          "t": 5523.5,
           "key": "ArrowRight",
           "alt": false,
           "shift": false,
@@ -81,12 +106,12 @@
           "target": "maplibregl-canvas"
         }
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "kb.arrows-change-year",
       "description": "ArrowRight/ArrowLeft change the year by the selected step while the canvas is focused",
-      "expected": "v => v.right.year === v.base + 10 && v.left.year === v.base",
+      "expected": "v => v.right === v.base + 10 && v.left === v.base",
       "observed": {
         "base": 1500,
         "right": 1510,
@@ -94,7 +119,7 @@
         "rightSettled": true,
         "leftSettled": true
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "kb.shift-accelerates",
@@ -118,7 +143,7 @@
           0
         ],
         "keyEventObservable": {
-          "t": 4102.6,
+          "t": 5523.5,
           "key": "ArrowRight",
           "alt": false,
           "shift": false,
@@ -132,7 +157,7 @@
     {
       "id": "kb.alt-arrows-pan",
       "description": "Alt+Arrow pans the map (panBy with an 80 px offset)",
-      "expected": "v => v.camops.some(o => o.name === 'panBy' && Array.isArray(o.args && o.args[0]) && Math.abs(o.args[0][0]) === 80)",
+      "expected": "v => v.some(o => o.name === 'panBy' && Array.isArray(o.args && o.args[0]) && Math.abs(o.args[0][0]) === 80)",
       "observed": [
         {
           "name": "panBy",
@@ -169,7 +194,7 @@
           ]
         }
       ],
-      "pass": false
+      "pass": true
     },
     {
       "id": "kb.alt-arrows-camera-moved",
@@ -184,18 +209,18 @@
     {
       "id": "kb.alt-arrows-keep-year",
       "description": "Alt+Arrow never changes the year (no simultaneous year + pan)",
-      "expected": "v => v.before === v.afterRight && v.before === v.afterUp",
+      "expected": "v => v.before === v.afterAltRight && v.before === v.afterAltUp",
       "observed": {
         "before": 1500,
         "afterAltRight": 1500,
         "afterAltUp": 1500
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "kb.alt-arrows-ignored-outside-canvas",
       "description": "Alt+Arrow with focus outside the map canvas is inert (year and camera unchanged)",
-      "expected": "v => v.after.year === v.before.year && isZero(delta(v.before.center, v.after.center)) && v.after.camops.length === 0",
+      "expected": "v => v.yearAfter === v.yearBefore && isZero(v.centerDelta) && v.camops.length === 0",
       "observed": {
         "yearBefore": 1500,
         "yearAfter": 1500,
@@ -216,16 +241,98 @@
           "visible": true
         }
       },
-      "pass": false
+      "pass": true
+    },
+    {
+      "id": "kb.year-input-owns-arrows",
+      "description": "#yearInput: ArrowUp steps the year, ArrowRight/ArrowLeft are inert",
+      "expected": "v => v.up === v.base + 10 && v.right === v.base && Number(v.rightInputValue) === v.base",
+      "observed": {
+        "base": 1500,
+        "up": 1510,
+        "right": 1500,
+        "rightInputValue": "1500"
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.year-input-no-pan",
+      "description": "#yearInput: stepping the year does not pan the map",
+      "expected": "v => v.camops.length === 0 && isZero(v.centerDelta)",
+      "observed": {
+        "camops": [],
+        "centerDelta": [
+          0,
+          0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.year-input-escape-enter",
+      "description": "#yearInput: Escape restores the current year, Enter commits the typed year",
+      "expected": "v => Number(v.escapeValue) === v.base && v.enterYear === 1750 && v.enterSettled === true",
+      "observed": {
+        "base": 1500,
+        "escapeValue": "1500",
+        "enterYear": 1750,
+        "enterSettled": true
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.search-owns-arrows",
+      "description": "#search: arrow keys do not change the year or pan the map, and focus stays in the field",
+      "expected": "v => v.yearAfter === v.yearBefore && isZero(v.centerDelta) && v.camops.length === 0 && v.active && v.active.id === 'search'",
+      "observed": {
+        "yearBefore": 1500,
+        "yearAfter": 1500,
+        "centerDelta": [
+          0,
+          0
+        ],
+        "camops": [],
+        "active": {
+          "tag": "INPUT",
+          "id": "search",
+          "cls": "",
+          "text": "",
+          "rect": [
+            304,
+            38
+          ],
+          "visible": true
+        },
+        "keysSeen": [
+          "search",
+          "search",
+          "search"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.slider-owns-arrows",
+      "description": "#yearSlider: ArrowRight steps the year, Home/End jump to the timeline bounds",
+      "expected": "v => v.right === v.base + 10 && v.homeSettled === true && v.endSettled === true",
+      "observed": {
+        "base": 1500,
+        "right": 1510,
+        "homeYear": -70000,
+        "endYear": 2026,
+        "homeSettled": true,
+        "endSettled": true
+      },
+      "pass": true
     },
     {
       "id": "kb.compare-year-owns-arrows",
       "description": "#compareYear: ArrowUp steps only the comparison year; the primary year is untouched",
-      "expected": "v => v.open.ok === true && v.up.compare === v.base.compare + 10 && v.up.primary === v.base.primary && v.up.camops.length === 0",
+      "expected": "v => v.open.ok === true && v.up.compare === v.before.compare + 10 && v.up.primary === v.before.primary && v.up.camops.length === 0",
       "observed": {
         "open": {
           "ok": true,
-          "ms": 6467,
+          "ms": 7036,
           "maps": 2
         },
         "before": {
@@ -237,7 +344,7 @@
           "compare": 1910,
           "camops": [],
           "key": {
-            "t": 11940.8,
+            "t": 15014.5,
             "key": "ArrowUp",
             "alt": false,
             "shift": false,
@@ -248,21 +355,30 @@
         },
         "settled": {
           "ok": true,
-          "elapsed": 1467
+          "elapsed": 460
         }
       },
-      "pass": false
+      "pass": true
     }
   ],
   "limitations": [],
-  "notes": [
-    "session inputs-slider aborted: waitFor timeout: document.querySelector(\"#loading\") && document.querySelector(\"#loading\").hidden === true last=false"
-  ],
+  "notes": [],
   "sessions": [
     {
       "name": "arrows-altpan",
-      "startedAt": "2026-10-02T18:51:14.606Z",
+      "attempt": 0,
+      "startedAt": "2026-10-02T19:10:34.361Z",
+      "port": 9421,
       "focusEmulation": "enabled",
+      "ready": {
+        "ms": 4823,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
       "environment": {
         "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
         "viewport": {
@@ -277,9 +393,57 @@
     },
     {
       "name": "inputs-slider",
-      "startedAt": "2026-10-02T18:51:28.478Z",
+      "attempt": 0,
+      "startedAt": "2026-10-02T19:10:51.866Z",
+      "port": 9425,
       "focusEmulation": "enabled",
-      "error": "Error: waitFor timeout: document.querySelector(\"#loading\") && document.querySelector(\"#loading\").hidden === true last=false\n    at waitFor (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/browser.mjs:63:9)\n    at async withSession (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/keyboard-focus.mjs:79:5)\n    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/keyboard-focus.mjs:331:1"
+      "ready": {
+        "ms": 4858,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "viewport": {
+          "w": 1600,
+          "h": 900,
+          "dpr": 1,
+          "hasFocus": true
+        },
+        "instrumentation": "subclass+camops"
+      },
+      "ok": true
+    },
+    {
+      "name": "compare-year",
+      "attempt": 0,
+      "startedAt": "2026-10-02T19:11:14.069Z",
+      "port": 9429,
+      "focusEmulation": "enabled",
+      "ready": {
+        "ms": 4096,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "viewport": {
+          "w": 1600,
+          "h": 900,
+          "dpr": 1,
+          "hasFocus": true
+        },
+        "instrumentation": "subclass+camops"
+      },
+      "ok": true
     }
   ],
   "environment": {
@@ -314,7 +478,7 @@
       ],
       "camops": [],
       "key": {
-        "t": 4102.6,
+        "t": 5523.5,
         "key": "ArrowRight",
         "alt": false,
         "shift": false,
@@ -335,7 +499,8 @@
       "expected": 1600,
       "settled": {
         "settled": true,
-        "elapsed": 213
+        "elapsed": 209,
+        "pollMs": 300
       },
       "after": {
         "year": 1600,
@@ -345,7 +510,7 @@
         ],
         "camops": [],
         "key": {
-          "t": 6389.9,
+          "t": 6283.6,
           "key": "ArrowRight",
           "alt": false,
           "shift": true,
@@ -450,7 +615,7 @@
         }
       ],
       "key": {
-        "t": 11651.5,
+        "t": 13572.4,
         "key": "ArrowUp",
         "alt": true,
         "shift": false,
@@ -488,10 +653,140 @@
       }
     }
   },
+  "yearInputFocus": {
+    "before": {
+      "year": 1500,
+      "center": [
+        25,
+        18
+      ],
+      "input": "1500"
+    },
+    "afterArrowUp": {
+      "year": 1510,
+      "center": [
+        25,
+        18
+      ],
+      "input": "1510",
+      "camops": [],
+      "key": {
+        "t": 5565.1,
+        "key": "ArrowUp",
+        "alt": false,
+        "shift": false,
+        "composing": false,
+        "repeat": false,
+        "target": "yearInput"
+      }
+    },
+    "afterArrowRight": {
+      "year": 1500,
+      "input": "1500",
+      "camops": []
+    },
+    "afterEscape": {
+      "value": "1500",
+      "year": 1500
+    },
+    "enter": {
+      "expected": 1750,
+      "year": 1750,
+      "settled": {
+        "settled": true,
+        "elapsed": 370,
+        "pollMs": 300
+      }
+    }
+  },
+  "searchFocus": {
+    "before": {
+      "year": 1500,
+      "center": [
+        25,
+        18
+      ]
+    },
+    "after": {
+      "year": 1500,
+      "center": [
+        25,
+        18
+      ],
+      "camops": [],
+      "active": {
+        "tag": "INPUT",
+        "id": "search",
+        "cls": "",
+        "text": "",
+        "rect": [
+          304,
+          38
+        ],
+        "visible": true
+      },
+      "keys": [
+        {
+          "t": 12701.1,
+          "key": "ArrowUp",
+          "alt": false,
+          "shift": false,
+          "composing": false,
+          "repeat": false,
+          "target": "search"
+        },
+        {
+          "t": 12824.3,
+          "key": "ArrowRight",
+          "alt": false,
+          "shift": false,
+          "composing": false,
+          "repeat": false,
+          "target": "search"
+        },
+        {
+          "t": 13001.7,
+          "key": "ArrowLeft",
+          "alt": false,
+          "shift": false,
+          "composing": false,
+          "repeat": false,
+          "target": "search"
+        }
+      ]
+    }
+  },
+  "sliderFocus": {
+    "before": {
+      "year": 1500
+    },
+    "afterArrowRight": {
+      "year": 1510,
+      "input": "1510"
+    },
+    "home": {
+      "expected": -70000,
+      "settled": {
+        "settled": true,
+        "elapsed": 1,
+        "pollMs": 300
+      },
+      "year": -70000
+    },
+    "end": {
+      "expected": 2026,
+      "settled": {
+        "settled": true,
+        "elapsed": 4,
+        "pollMs": 300
+      },
+      "year": 2026
+    }
+  },
   "compareYearFocus": {
     "open": {
       "ok": true,
-      "ms": 6467,
+      "ms": 7036,
       "maps": 2
     },
     "before": {
@@ -503,7 +798,7 @@
       "compare": 1910,
       "camops": [],
       "key": {
-        "t": 11940.8,
+        "t": 15014.5,
         "key": "ArrowUp",
         "alt": false,
         "shift": false,

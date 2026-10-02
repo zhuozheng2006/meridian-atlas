@@ -1,0 +1,1695 @@
+{
+  "report": "mobile-check.mjs",
+  "generatedAt": "2026-10-02T19:08:09.823Z",
+  "command": "node scripts/verification/mobile-check.mjs",
+  "target": {
+    "url": "http://127.0.0.1:8767",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "meta": {
+    "provenance": {
+      "gitHead": "a294df47e0fc8e1e1f7d865f7ce80871db18f73c",
+      "dirtyPaths": [
+        "M ATTRIBUTIONS.md",
+        " M docs/real-fact-period-validation.json",
+        " M docs/verification-3.10/content-attested-places-build.json",
+        " M docs/verification-3.10/content-balance.json",
+        " M docs/verification-3.10/keyboard-focus.json",
+        " M public/app.js",
+        " M public/boundary-controller.js",
+        " M public/city-narratives.js",
+        " M public/country-archive.js",
+        " M public/data/ohm-1500/manifest.json",
+        " M public/data/ohm-1500/year-1492.json.gz",
+        " M public/data/ohm-1500/year-1500.json.gz",
+        " M public/geography.js",
+        " M public/halc-boundaries.js",
+        " M public/halc-landscape.js",
+        " M public/historical-detail.js",
+        " M public/index.html",
+        " M public/lakes.js",
+        " M public/map-engine.js",
+        " M public/native-geometry.js",
+        " M public/places.js",
+        " M public/polity-places.js",
+        " M public/polity-reader.js",
+        " M public/regional-boundaries.js",
+        " M scripts/ohm/browser-check-ohm-1500.mjs",
+        " M scripts/ohm/build-ohm-1500.mjs",
+        " M scripts/places/validate-city-narratives.mjs",
+        " M scripts/places/validate-places.mjs",
+        " M scripts/validate-city-time.mjs",
+        " M scripts/validate-places.mjs",
+        " M scripts/verification/keyboard-focus.mjs",
+        " M scripts/verification/lib/common.mjs",
+        " M scripts/verification/mobile-check.mjs",
+        " M scripts/verification/offline-weaknet.mjs",
+        " M scripts/verification/perf-baseline.mjs",
+        "?? docs/verification-3.10/content-attested-places.md",
+        "?? docs/verification-3.10/content-coverage.md",
+        "?? docs/verification-3.10/content-events-east-asia-1600.png",
+        "?? docs/verification-3.10/mobile-check.json",
+        "?? docs/verification-3.10/ohm-1500.md",
+        "?? docs/verification-3.10/shots/keyboard-skiplink-target.png",
+        "?? docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
+        "?? docs/verification-3.10/shots/mobile-android-360x740-layers.png",
+        "?? docs/verification-3.10/shots/mobile-android-360x740-reader.png",
+        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
+        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
+        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-reader.png",
+        "?? docs/verification-3.10/shots/ohm1500-after-1492.jpg",
+        "?? docs/verification-3.10/shots/ohm1500-after-regional.jpg",
+        "?? docs/verification-3.10/shots/ohm1500-before-1492.jpg",
+        "?? docs/verification-3.10/shots/ohm1500-before-regional.jpg",
+        "?? scripts/verification/independent-review.mjs"
+      ],
+      "assetVersion": "3.9.4-380fd480ab21",
+      "files": {
+        "public/index.html": "6cb91affa0d4fbec",
+        "public/app.js": "177dc76f6aa1db10",
+        "public/map-engine.js": "20b3e2573a800e65",
+        "public/timeline-controls.js": "b3954150517b0a12",
+        "public/view-state.js": "1b57cdfe210a7322",
+        "public/style.css": "95f5e8ac64efeda8",
+        "public/product.css": "2631908c806f7e1e",
+        "public/cartography.css": "117414b5e2a91d3d",
+        "public/boundary-controller.js": "170f7551345509a1",
+        "public/regional-boundaries.js": "a1f54263074dbf10",
+        "public/geography.js": "7fa26e91e61e4d75"
+      },
+      "node": "v26.7.0",
+      "platform": "darwin",
+      "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+    },
+    "profiles": [
+      "iphone-14-390x844",
+      "android-360x740"
+    ]
+  },
+  "checks": [
+    {
+      "id": "mobile.iphone-14-390x844.no-horizontal-overflow",
+      "description": "Atlas view has no horizontal overflow",
+      "expected": "v => v.layout.scrollWidth <= v.layout.innerWidth + 1 && v.offenders.count === 0",
+      "observed": {
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "offenders": {
+          "count": 7,
+          "excludedHiddenSubtrees": 238,
+          "sample": [
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 434,
+              "left": 370,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 503,
+              "left": 439,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "active",
+              "right": 572,
+              "left": 508,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 653,
+              "left": 577,
+              "width": 76
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 722,
+              "left": 658,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 791,
+              "left": 727,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 836,
+              "left": 796,
+              "width": 40
+            }
+          ]
+        }
+      },
+      "pass": false
+    },
+    {
+      "id": "mobile.iphone-14-390x844.canvas-fits",
+      "description": "Map canvas matches the #map box, the viewport width and the device pixel ratio",
+      "expected": "v => v.canvasRect[0] === v.mapBox[0] && v.canvasRect[1] === v.mapBox[1] && v.canvasRect[0] > 0.9 * v.innerWidth && v.canvasAttr[0] === v.canvasRect[0] * v.dpr",
+      "observed": {
+        "canvasRect": [
+          390,
+          571
+        ],
+        "canvasAttr": [
+          1170,
+          1713
+        ],
+        "dpr": 3,
+        "mapBox": [
+          390,
+          571
+        ],
+        "innerWidth": 390
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.layer-panel-touch",
+      "description": "Layer panel opens and closes by touch and stays inside the viewport",
+      "expected": "v => v.beforeHidden === true && v.openedHidden === false && v.openedInViewport === true && v.closedHidden === true",
+      "observed": {
+        "beforeHidden": true,
+        "openedHidden": false,
+        "openedInViewport": true,
+        "openedRect": [
+          9,
+          80,
+          372,
+          559
+        ],
+        "closedHidden": true
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.layer-panel-no-overflow",
+      "description": "Open layer panel introduces no horizontal overflow",
+      "expected": "v => v.openLayout.scrollWidth <= v.openLayout.innerWidth + 1 && v.openOffenders.count === 0",
+      "observed": {
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "offenders": {
+          "count": 7,
+          "excludedHiddenSubtrees": 238,
+          "sample": [
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 434,
+              "left": 370,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 503,
+              "left": 439,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "active",
+              "right": 572,
+              "left": 508,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 653,
+              "left": 577,
+              "width": 76
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 722,
+              "left": 658,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 791,
+              "left": 727,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 836,
+              "left": 796,
+              "width": 40
+            }
+          ]
+        }
+      },
+      "pass": false
+    },
+    {
+      "id": "mobile.iphone-14-390x844.touch-drag-pans",
+      "description": "One-finger touch drag pans the map and does not scroll the page",
+      "expected": "v => (Math.abs(v.delta[0]) > 0.5 || Math.abs(v.delta[1]) > 0.5) && v.after.layout.scrollY === 0 && v.before.layout.scrollY === 0",
+      "observed": {
+        "before": {
+          "center": [
+            25,
+            18
+          ],
+          "layout": {
+            "innerWidth": 390,
+            "innerHeight": 844,
+            "dpr": 3,
+            "scrollWidth": 390,
+            "bodyScrollWidth": 390,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          }
+        },
+        "after": {
+          "center": [
+            72.97432,
+            -12.61404
+          ],
+          "layout": {
+            "innerWidth": 390,
+            "innerHeight": 844,
+            "dpr": 3,
+            "scrollWidth": 390,
+            "bodyScrollWidth": 390,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          }
+        },
+        "delta": [
+          47.9743,
+          -30.614
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.timeline-tap",
+      "description": "Tapping #nextYear advances the year by the selected step",
+      "expected": "v => v.after === v.before + v.step && v.settled === true",
+      "observed": {
+        "before": 1500,
+        "after": 1501,
+        "step": 1,
+        "settled": true,
+        "nextYearVisible": true,
+        "nextYearInViewport": true,
+        "note": "a URL without a step parameter defaults the step selector to 1 year"
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.marker-tap-opens-reader",
+      "description": "Tapping an event marker opens the reader",
+      "expected": "v => v.opened && v.opened.hidden === false",
+      "observed": {
+        "marker": {
+          "cx": 134,
+          "cy": 221,
+          "count": 39
+        },
+        "opened": {
+          "hidden": false,
+          "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.reader-readable",
+      "description": "Reader fits the viewport width with readable body text",
+      "expected": "v => v.panelHidden === false && v.panelWidth <= v.innerWidth + 1 && parseFloat(v.paragraphFontSize || v.fontSize) >= 14 && parseFloat(v.paragraphLineHeight || '0') >= 20 && v.scrollWidth <= v.innerWid",
+      "observed": {
+        "panel": [
+          0,
+          65,
+          390,
+          728
+        ],
+        "panelHidden": false,
+        "panelWidth": 390,
+        "fontSize": "16px",
+        "paragraphFontSize": "18px",
+        "paragraphLineHeight": "34.2px",
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "offenders": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.reader-close-touch",
+      "description": "Reader close button is touch-reachable and closes the reader",
+      "expected": "v => v === true",
+      "observed": true,
+      "pass": true
+    },
+    {
+      "id": "mobile.iphone-14-390x844.safe-area",
+      "description": "With an emulated 34 px home-indicator inset the bottom UI is not covered",
+      "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1",
+      "observed": {
+        "supportsEnv": true,
+        "timelinePaddingBottom": "8px",
+        "timelineBottom": 793,
+        "innerHeight": 844,
+        "insetBottom": 34,
+        "timelineBottomVsInset": -17,
+        "note": "no env(safe-area-inset-*) rule exists in public/*.css and the viewport meta has no viewport-fit=cover; the layout box shrinks instead of the app drawing into the safe area"
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.no-horizontal-overflow",
+      "description": "Atlas view has no horizontal overflow",
+      "expected": "v => v.layout.scrollWidth <= v.layout.innerWidth + 1 && v.offenders.count === 0",
+      "observed": {
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "offenders": {
+          "count": 8,
+          "excludedHiddenSubtrees": 248,
+          "sample": [
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 365,
+              "left": 301,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 434,
+              "left": 370,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 503,
+              "left": 439,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "active",
+              "right": 572,
+              "left": 508,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 653,
+              "left": 577,
+              "width": 76
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 722,
+              "left": 658,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 791,
+              "left": 727,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 836,
+              "left": 796,
+              "width": 40
+            }
+          ]
+        }
+      },
+      "pass": false
+    },
+    {
+      "id": "mobile.android-360x740.canvas-fits",
+      "description": "Map canvas matches the #map box, the viewport width and the device pixel ratio",
+      "expected": "v => v.canvasRect[0] === v.mapBox[0] && v.canvasRect[1] === v.mapBox[1] && v.canvasRect[0] > 0.9 * v.innerWidth && v.canvasAttr[0] === v.canvasRect[0] * v.dpr",
+      "observed": {
+        "canvasRect": [
+          360,
+          467
+        ],
+        "canvasAttr": [
+          1080,
+          1401
+        ],
+        "dpr": 3,
+        "mapBox": [
+          360,
+          467
+        ],
+        "innerWidth": 360
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.layer-panel-touch",
+      "description": "Layer panel opens and closes by touch and stays inside the viewport",
+      "expected": "v => v.beforeHidden === true && v.openedHidden === false && v.openedInViewport === true && v.closedHidden === true",
+      "observed": {
+        "beforeHidden": true,
+        "openedHidden": false,
+        "openedInViewport": true,
+        "openedRect": [
+          9,
+          80,
+          342,
+          455
+        ],
+        "closedHidden": true
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.layer-panel-no-overflow",
+      "description": "Open layer panel introduces no horizontal overflow",
+      "expected": "v => v.openLayout.scrollWidth <= v.openLayout.innerWidth + 1 && v.openOffenders.count === 0",
+      "observed": {
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "offenders": {
+          "count": 8,
+          "excludedHiddenSubtrees": 248,
+          "sample": [
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 365,
+              "left": 301,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 434,
+              "left": 370,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 503,
+              "left": 439,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "active",
+              "right": 572,
+              "left": 508,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 653,
+              "left": 577,
+              "width": 76
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 722,
+              "left": 658,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 791,
+              "left": 727,
+              "width": 64
+            },
+            {
+              "tag": "BUTTON",
+              "id": null,
+              "cls": "",
+              "right": 836,
+              "left": 796,
+              "width": 40
+            }
+          ]
+        }
+      },
+      "pass": false
+    },
+    {
+      "id": "mobile.android-360x740.touch-drag-pans",
+      "description": "One-finger touch drag pans the map and does not scroll the page",
+      "expected": "v => (Math.abs(v.delta[0]) > 0.5 || Math.abs(v.delta[1]) > 0.5) && v.after.layout.scrollY === 0 && v.before.layout.scrollY === 0",
+      "observed": {
+        "before": {
+          "center": [
+            25,
+            18
+          ],
+          "layout": {
+            "innerWidth": 360,
+            "innerHeight": 740,
+            "dpr": 3,
+            "scrollWidth": 360,
+            "bodyScrollWidth": 360,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          }
+        },
+        "after": {
+          "center": [
+            73.01693,
+            -11.22479
+          ],
+          "layout": {
+            "innerWidth": 360,
+            "innerHeight": 740,
+            "dpr": 3,
+            "scrollWidth": 360,
+            "bodyScrollWidth": 360,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          }
+        },
+        "delta": [
+          48.0169,
+          -29.2248
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.timeline-tap",
+      "description": "Tapping #nextYear advances the year by the selected step",
+      "expected": "v => v.after === v.before + v.step && v.settled === true",
+      "observed": {
+        "before": 1500,
+        "after": 1501,
+        "step": 1,
+        "settled": true,
+        "nextYearVisible": true,
+        "nextYearInViewport": true,
+        "note": "a URL without a step parameter defaults the step selector to 1 year"
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.marker-tap-opens-reader",
+      "description": "Tapping an event marker opens the reader",
+      "expected": "v => v.opened && v.opened.hidden === false",
+      "observed": {
+        "marker": {
+          "cx": 124,
+          "cy": 182,
+          "count": 39
+        },
+        "opened": {
+          "hidden": false,
+          "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.reader-readable",
+      "description": "Reader fits the viewport width with readable body text",
+      "expected": "v => v.panelHidden === false && v.panelWidth <= v.innerWidth + 1 && parseFloat(v.paragraphFontSize || v.fontSize) >= 14 && parseFloat(v.paragraphLineHeight || '0') >= 20 && v.scrollWidth <= v.innerWid",
+      "observed": {
+        "panel": [
+          0,
+          65,
+          360,
+          624
+        ],
+        "panelHidden": false,
+        "panelWidth": 360,
+        "fontSize": "16px",
+        "paragraphFontSize": "18px",
+        "paragraphLineHeight": "34.2px",
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "offenders": 0
+      },
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.reader-close-touch",
+      "description": "Reader close button is touch-reachable and closes the reader",
+      "expected": "v => v === true",
+      "observed": true,
+      "pass": true
+    },
+    {
+      "id": "mobile.android-360x740.safe-area",
+      "description": "With an emulated 34 px home-indicator inset the bottom UI is not covered",
+      "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1",
+      "observed": {
+        "supportsEnv": true,
+        "timelinePaddingBottom": "8px",
+        "timelineBottom": 689,
+        "innerHeight": 740,
+        "insetBottom": 34,
+        "timelineBottomVsInset": -17,
+        "note": "no env(safe-area-inset-*) rule exists in public/*.css and the viewport meta has no viewport-fit=cover; the layout box shrinks instead of the app drawing into the safe area"
+      },
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "No physical device: Chrome device emulation reproduces viewport, DPR and touch events, not iOS Safari behaviour (rubber-band scrolling, dynamic toolbar, real safe-area insets).",
+    "Pinch-zoom, double-tap zoom and virtual-keyboard resizing were not measured."
+  ],
+  "notes": [
+    "Viewport meta tag: \"width=device-width,initial-scale=1\" - it does not declare viewport-fit=cover and public/*.css contains no env(safe-area-inset-*) rule (grep count 0)."
+  ],
+  "profiles": {
+    "iphone-14-390x844": {
+      "profile": {
+        "name": "iphone-14-390x844",
+        "width": 390,
+        "height": 844,
+        "dsf": 3
+      },
+      "states": {
+        "layers": {
+          "before": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0,
+            "cx": 0,
+            "cy": 0,
+            "visible": false,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": true,
+            "scrollHeight": 0,
+            "clientHeight": 0
+          },
+          "layersBtn": {
+            "x": 309,
+            "y": 125,
+            "width": 68,
+            "height": 44,
+            "right": 377,
+            "bottom": 169,
+            "cx": 343,
+            "cy": 147,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "12px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 44,
+            "clientHeight": 44
+          },
+          "opened": {
+            "x": 9,
+            "y": 80,
+            "width": 372,
+            "height": 559,
+            "right": 381,
+            "bottom": 639,
+            "cx": 195,
+            "cy": 360,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 557,
+            "clientHeight": 557
+          },
+          "closeBtn": {
+            "x": 29,
+            "y": 579,
+            "width": 332,
+            "height": 40,
+            "right": 361,
+            "bottom": 619,
+            "cx": 195,
+            "cy": 599,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "14px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 38,
+            "clientHeight": 38
+          },
+          "closed": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0,
+            "cx": 0,
+            "cy": 0,
+            "visible": false,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": true,
+            "scrollHeight": 0,
+            "clientHeight": 0
+          },
+          "openOffenders": {
+            "count": 7,
+            "excludedHiddenSubtrees": 238,
+            "sample": [
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 434,
+                "left": 370,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 503,
+                "left": 439,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "active",
+                "right": 572,
+                "left": 508,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 653,
+                "left": 577,
+                "width": 76
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 722,
+                "left": 658,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 791,
+                "left": 727,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 836,
+                "left": 796,
+                "width": 40
+              }
+            ]
+          },
+          "openLayout": {
+            "innerWidth": 390,
+            "innerHeight": 844,
+            "dpr": 3,
+            "scrollWidth": 390,
+            "bodyScrollWidth": 390,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          }
+        },
+        "touchDrag": {
+          "before": {
+            "center": [
+              25,
+              18
+            ],
+            "layout": {
+              "innerWidth": 390,
+              "innerHeight": 844,
+              "dpr": 3,
+              "scrollWidth": 390,
+              "bodyScrollWidth": 390,
+              "scrollY": 0,
+              "visualScale": 1,
+              "viewportMeta": "width=device-width,initial-scale=1"
+            }
+          },
+          "after": {
+            "center": [
+              72.97432,
+              -12.61404
+            ],
+            "layout": {
+              "innerWidth": 390,
+              "innerHeight": 844,
+              "dpr": 3,
+              "scrollWidth": 390,
+              "bodyScrollWidth": 390,
+              "scrollY": 0,
+              "visualScale": 1,
+              "viewportMeta": "width=device-width,initial-scale=1"
+            }
+          },
+          "delta": [
+            47.9743,
+            -30.614
+          ]
+        },
+        "timelineTap": {
+          "before": 1500,
+          "after": 1501,
+          "step": 1,
+          "settled": {
+            "settled": true,
+            "elapsed": 4,
+            "pollMs": 300
+          },
+          "nextYearBox": {
+            "x": 138,
+            "y": 647,
+            "width": 44,
+            "height": 44,
+            "right": 182,
+            "bottom": 691,
+            "cx": 160,
+            "cy": 669,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "23px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 42,
+            "clientHeight": 42
+          }
+        },
+        "markerTap": {
+          "marker": {
+            "cx": 134,
+            "cy": 221,
+            "count": 39
+          },
+          "opened": {
+            "hidden": false,
+            "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+          }
+        },
+        "reader": {
+          "box": {
+            "x": 0,
+            "y": 65,
+            "width": 390,
+            "height": 728,
+            "right": 390,
+            "bottom": 793,
+            "cx": 195,
+            "cy": 429,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 727,
+            "clientHeight": 727
+          },
+          "text": {
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "scrollHeight": 719,
+            "clientHeight": 441,
+            "width": 390,
+            "paragraphFontSize": "18px",
+            "paragraphLineHeight": "34.2px",
+            "textLength": 612
+          },
+          "layout": {
+            "innerWidth": 390,
+            "innerHeight": 844,
+            "dpr": 3,
+            "scrollWidth": 390,
+            "bodyScrollWidth": 390,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          },
+          "offenders": {
+            "count": 0,
+            "excludedHiddenSubtrees": 262,
+            "sample": []
+          },
+          "close": {
+            "x": 338,
+            "y": 74,
+            "width": 44,
+            "height": 44,
+            "right": 382,
+            "bottom": 118,
+            "cx": 360,
+            "cy": 96,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "25px",
+            "lineHeight": "44px",
+            "hidden": false,
+            "scrollHeight": 44,
+            "clientHeight": 44
+          },
+          "closedByTouch": true
+        },
+        "safeAreaWithInset": {
+          "computed": {
+            "supportsEnv": true,
+            "timeline": {
+              "paddingBottom": "8px",
+              "paddingTop": "10px",
+              "bottom": 793,
+              "height": 157
+            },
+            "layerPanel": {
+              "paddingBottom": "19px",
+              "paddingTop": "19px",
+              "bottom": 0,
+              "height": 0
+            },
+            "bodyPaddingBottom": "0px",
+            "htmlPaddingBottom": "0px"
+          },
+          "timelineBox": {
+            "x": 0,
+            "y": 636,
+            "width": 390,
+            "height": 157,
+            "right": 390,
+            "bottom": 793,
+            "cx": 195,
+            "cy": 715,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 156,
+            "clientHeight": 156
+          }
+        }
+      },
+      "readyMs": 5491,
+      "ready": {
+        "ok": true,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "layout": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "dpr": 3,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "scrollY": 0,
+        "visualScale": 1,
+        "viewportMeta": "width=device-width,initial-scale=1"
+      },
+      "canvas": {
+        "attr": [
+          1170,
+          1713
+        ],
+        "rect": [
+          390,
+          571
+        ],
+        "dpr": 3
+      },
+      "mapBox": {
+        "x": 0,
+        "y": 65,
+        "width": 390,
+        "height": 571,
+        "right": 390,
+        "bottom": 636,
+        "cx": 195,
+        "cy": 351,
+        "visible": true,
+        "inViewport": true,
+        "fontSize": "12px",
+        "lineHeight": "20px",
+        "hidden": false,
+        "scrollHeight": 571,
+        "clientHeight": 571
+      },
+      "offendersAtlas": {
+        "count": 7,
+        "excludedHiddenSubtrees": 238,
+        "sample": [
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 434,
+            "left": 370,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 503,
+            "left": 439,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "active",
+            "right": 572,
+            "left": 508,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 653,
+            "left": 577,
+            "width": 76
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 722,
+            "left": 658,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 791,
+            "left": 727,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 836,
+            "left": 796,
+            "width": 40
+          }
+        ]
+      },
+      "safeArea": {
+        "supportsEnv": true,
+        "timeline": {
+          "paddingBottom": "8px",
+          "paddingTop": "10px",
+          "bottom": 793,
+          "height": 157
+        },
+        "layerPanel": {
+          "paddingBottom": "19px",
+          "paddingTop": "19px",
+          "bottom": 0,
+          "height": 0
+        },
+        "bodyPaddingBottom": "0px",
+        "htmlPaddingBottom": "0px"
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "instrumentation": "subclass+camops",
+      "safeAreaOverride": "applied(bottom:34px)",
+      "pageErrors": []
+    },
+    "android-360x740": {
+      "profile": {
+        "name": "android-360x740",
+        "width": 360,
+        "height": 740,
+        "dsf": 3
+      },
+      "states": {
+        "layers": {
+          "before": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0,
+            "cx": 0,
+            "cy": 0,
+            "visible": false,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": true,
+            "scrollHeight": 0,
+            "clientHeight": 0
+          },
+          "layersBtn": {
+            "x": 279,
+            "y": 125,
+            "width": 68,
+            "height": 44,
+            "right": 347,
+            "bottom": 169,
+            "cx": 313,
+            "cy": 147,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "12px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 44,
+            "clientHeight": 44
+          },
+          "opened": {
+            "x": 9,
+            "y": 80,
+            "width": 342,
+            "height": 455,
+            "right": 351,
+            "bottom": 535,
+            "cx": 180,
+            "cy": 308,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 453,
+            "clientHeight": 453
+          },
+          "closeBtn": {
+            "x": 29,
+            "y": 475,
+            "width": 302,
+            "height": 40,
+            "right": 331,
+            "bottom": 515,
+            "cx": 180,
+            "cy": 495,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "14px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 38,
+            "clientHeight": 38
+          },
+          "closed": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "right": 0,
+            "bottom": 0,
+            "cx": 0,
+            "cy": 0,
+            "visible": false,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": true,
+            "scrollHeight": 0,
+            "clientHeight": 0
+          },
+          "openOffenders": {
+            "count": 8,
+            "excludedHiddenSubtrees": 248,
+            "sample": [
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 365,
+                "left": 301,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 434,
+                "left": 370,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 503,
+                "left": 439,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "active",
+                "right": 572,
+                "left": 508,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 653,
+                "left": 577,
+                "width": 76
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 722,
+                "left": 658,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 791,
+                "left": 727,
+                "width": 64
+              },
+              {
+                "tag": "BUTTON",
+                "id": null,
+                "cls": "",
+                "right": 836,
+                "left": 796,
+                "width": 40
+              }
+            ]
+          },
+          "openLayout": {
+            "innerWidth": 360,
+            "innerHeight": 740,
+            "dpr": 3,
+            "scrollWidth": 360,
+            "bodyScrollWidth": 360,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          }
+        },
+        "touchDrag": {
+          "before": {
+            "center": [
+              25,
+              18
+            ],
+            "layout": {
+              "innerWidth": 360,
+              "innerHeight": 740,
+              "dpr": 3,
+              "scrollWidth": 360,
+              "bodyScrollWidth": 360,
+              "scrollY": 0,
+              "visualScale": 1,
+              "viewportMeta": "width=device-width,initial-scale=1"
+            }
+          },
+          "after": {
+            "center": [
+              73.01693,
+              -11.22479
+            ],
+            "layout": {
+              "innerWidth": 360,
+              "innerHeight": 740,
+              "dpr": 3,
+              "scrollWidth": 360,
+              "bodyScrollWidth": 360,
+              "scrollY": 0,
+              "visualScale": 1,
+              "viewportMeta": "width=device-width,initial-scale=1"
+            }
+          },
+          "delta": [
+            48.0169,
+            -29.2248
+          ]
+        },
+        "timelineTap": {
+          "before": 1500,
+          "after": 1501,
+          "step": 1,
+          "settled": {
+            "settled": true,
+            "elapsed": 4,
+            "pollMs": 300
+          },
+          "nextYearBox": {
+            "x": 138,
+            "y": 543,
+            "width": 44,
+            "height": 44,
+            "right": 182,
+            "bottom": 587,
+            "cx": 160,
+            "cy": 565,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "23px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 42,
+            "clientHeight": 42
+          }
+        },
+        "markerTap": {
+          "marker": {
+            "cx": 124,
+            "cy": 182,
+            "count": 39
+          },
+          "opened": {
+            "hidden": false,
+            "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+          }
+        },
+        "reader": {
+          "box": {
+            "x": 0,
+            "y": 65,
+            "width": 360,
+            "height": 624,
+            "right": 360,
+            "bottom": 689,
+            "cx": 180,
+            "cy": 377,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 623,
+            "clientHeight": 623
+          },
+          "text": {
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "scrollHeight": 769,
+            "clientHeight": 337,
+            "width": 360,
+            "paragraphFontSize": "18px",
+            "paragraphLineHeight": "34.2px",
+            "textLength": 612
+          },
+          "layout": {
+            "innerWidth": 360,
+            "innerHeight": 740,
+            "dpr": 3,
+            "scrollWidth": 360,
+            "bodyScrollWidth": 360,
+            "scrollY": 0,
+            "visualScale": 1,
+            "viewportMeta": "width=device-width,initial-scale=1"
+          },
+          "offenders": {
+            "count": 0,
+            "excludedHiddenSubtrees": 262,
+            "sample": []
+          },
+          "close": {
+            "x": 308,
+            "y": 74,
+            "width": 44,
+            "height": 44,
+            "right": 352,
+            "bottom": 118,
+            "cx": 330,
+            "cy": 96,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "25px",
+            "lineHeight": "44px",
+            "hidden": false,
+            "scrollHeight": 44,
+            "clientHeight": 44
+          },
+          "closedByTouch": true
+        },
+        "safeAreaWithInset": {
+          "computed": {
+            "supportsEnv": true,
+            "timeline": {
+              "paddingBottom": "8px",
+              "paddingTop": "10px",
+              "bottom": 689,
+              "height": 157
+            },
+            "layerPanel": {
+              "paddingBottom": "19px",
+              "paddingTop": "19px",
+              "bottom": 0,
+              "height": 0
+            },
+            "bodyPaddingBottom": "0px",
+            "htmlPaddingBottom": "0px"
+          },
+          "timelineBox": {
+            "x": 0,
+            "y": 532,
+            "width": 360,
+            "height": 157,
+            "right": 360,
+            "bottom": 689,
+            "cx": 180,
+            "cy": 611,
+            "visible": true,
+            "inViewport": true,
+            "fontSize": "16px",
+            "lineHeight": "normal",
+            "hidden": false,
+            "scrollHeight": 156,
+            "clientHeight": 156
+          }
+        }
+      },
+      "readyMs": 5588,
+      "ready": {
+        "ok": true,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "layout": {
+        "innerWidth": 360,
+        "innerHeight": 740,
+        "dpr": 3,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "scrollY": 0,
+        "visualScale": 1,
+        "viewportMeta": "width=device-width,initial-scale=1"
+      },
+      "canvas": {
+        "attr": [
+          1080,
+          1401
+        ],
+        "rect": [
+          360,
+          467
+        ],
+        "dpr": 3
+      },
+      "mapBox": {
+        "x": 0,
+        "y": 65,
+        "width": 360,
+        "height": 467,
+        "right": 360,
+        "bottom": 532,
+        "cx": 180,
+        "cy": 299,
+        "visible": true,
+        "inViewport": true,
+        "fontSize": "12px",
+        "lineHeight": "20px",
+        "hidden": false,
+        "scrollHeight": 467,
+        "clientHeight": 467
+      },
+      "offendersAtlas": {
+        "count": 8,
+        "excludedHiddenSubtrees": 248,
+        "sample": [
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 365,
+            "left": 301,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 434,
+            "left": 370,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 503,
+            "left": 439,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "active",
+            "right": 572,
+            "left": 508,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 653,
+            "left": 577,
+            "width": 76
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 722,
+            "left": 658,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 791,
+            "left": 727,
+            "width": 64
+          },
+          {
+            "tag": "BUTTON",
+            "id": null,
+            "cls": "",
+            "right": 836,
+            "left": 796,
+            "width": 40
+          }
+        ]
+      },
+      "safeArea": {
+        "supportsEnv": true,
+        "timeline": {
+          "paddingBottom": "8px",
+          "paddingTop": "10px",
+          "bottom": 689,
+          "height": 157
+        },
+        "layerPanel": {
+          "paddingBottom": "19px",
+          "paddingTop": "19px",
+          "bottom": 0,
+          "height": 0
+        },
+        "bodyPaddingBottom": "0px",
+        "htmlPaddingBottom": "0px"
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "instrumentation": "subclass+camops",
+      "safeAreaOverride": "applied(bottom:34px)",
+      "pageErrors": []
+    }
+  },
+  "findings": [
+    "safe-area: index.html declares <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> without viewport-fit=cover, and no public/*.css rule references env(safe-area-inset-*) (grep count 0). With a 34 px bottom inset emulated through CDP, #timeline still ends above the inset (measured -17 px overlap), but the app cannot use the safe-area space and relies on the browser to inset the layout viewport.",
+    "Timeline step default: a URL without a step parameter shows a step selector of 1 year, so #nextYear advances one year on a fresh mobile load."
+  ]
+}

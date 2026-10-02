@@ -34,7 +34,9 @@ async function coldRun(index, port) {
     const t0 = Date.now();
     await goto(s, URL_BASE + '/#year=1500&lang=bi&browse=1&step=10', { waitMs: 200 });
     run.systemAtStart = C.systemLoad();
-    run.mapReadyMs = await C.waitMapReady(s, 120000).then(() => Date.now() - t0).catch(e => ({ timeout: true, error: String(e.message) }));
+    const ready = await C.waitMapReady(s, 120000);
+    run.mapReadyMs = ready.ready ? Date.now() - t0 : { timeout: true, state: ready.state };
+    run.readyAfterQuietRecheck = !!ready.afterQuietRecheck;
     run.measureMs = Date.now() - t0;
     const nav = await evaluate(s, NAV_EXPR);
     run.navigation = { ttfbMs: nav.ttfbMs, responseEndMs: nav.responseEndMs, domContentLoadedMs: nav.domContentLoadedMs, loadEventMs: nav.loadEventMs, paints: nav.paints };
@@ -211,15 +213,15 @@ async function compareOpen(port) {
 const t0 = Date.now();
 report.systemAtStart = C.systemLoad();
 C.log('cold run 1/2');
-report.coldLoad = { runs: [await coldRun(1, PORT), await coldRun(2, PORT + 1)] };
+report.coldLoad = { runs: [await coldRun(1, await C.pickPort(PORT)), await coldRun(2, await C.pickPort(PORT + 2))] };
 C.log('year sequence 1490->1510');
-report.yearSequence = await yearSequence(PORT + 2);
+report.yearSequence = await yearSequence(await C.pickPort(PORT + 4));
 C.log('large drag');
-report.bigDrag = await bigDrag(PORT + 3);
+report.bigDrag = await bigDrag(await C.pickPort(PORT + 6));
 C.log('layer source blocked + retry');
-report.layerRetry = await layerRetry(PORT + 4);
+report.layerRetry = await layerRetry(await C.pickPort(PORT + 8));
 C.log('two-map comparison');
-report.compareOpen = await compareOpen(PORT + 5);
+report.compareOpen = await compareOpen(await C.pickPort(PORT + 10));
 
 const okReady = report.coldLoad.runs.map(r => typeof r.mapReadyMs === 'number' ? r.mapReadyMs : null).filter(Number.isFinite);
 const seq = report.yearSequence.summary || {};

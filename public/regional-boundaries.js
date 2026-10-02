@@ -1,10 +1,10 @@
-import {boundaryNote} from './boundary-notes.js?v=3.9.4-3392a69da753';
-import {readJSON} from './map-engine.js?v=3.9.4-3392a69da753';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.9.4-3392a69da753';
-import {boundaryMode} from './view-state.js?v=3.9.4-3392a69da753';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.9.4-3392a69da753';
-import {historicalYearRange} from './historical-dates.js?v=3.9.4-3392a69da753';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.9.4-3392a69da753';
+import {boundaryNote} from './boundary-notes.js?v=3.9.4-380fd480ab21';
+import {readJSON} from './map-engine.js?v=3.9.4-380fd480ab21';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.9.4-380fd480ab21';
+import {boundaryMode} from './view-state.js?v=3.9.4-380fd480ab21';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.9.4-380fd480ab21';
+import {historicalYearRange} from './historical-dates.js?v=3.9.4-380fd480ab21';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.9.4-380fd480ab21';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;
@@ -53,7 +53,7 @@ export function regionalLayers(year,maxLevel=4){
   {...base,id:IDS[2],type:'line',filter:['all',regionalFilter(year,maxLevel),['==',['get','osm_id'],0]],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#e6bc6a','line-width':2.5,'line-opacity':.9}}
  ];
 }
-export const OHM_ROOT='data/ohm-1500/',OHM_SOURCE='ohm-frozen',OHM_LAYERS=['ohm-frozen-wash','ohm-frozen-edges','ohm-frozen-selected'];
+export const OHM_ROOT='data/ohm-1500/',OHM_SOURCE='ohm-frozen',OHM_LAYERS=['ohm-frozen-wash','ohm-frozen-edges','ohm-frozen-partial','ohm-frozen-selected'],OHM_SELECTED='ohm-frozen-selected';
 // Years and window of the frozen OpenHistoricalMap extract shipped in public/data/ohm-1500.
 export const OHM_YEARS=[1492,1500],OHM_BOUNDS=[4.5,44.0,14.5,50.5];
 export const ohmCoversYear=year=>OHM_YEARS.includes(Number(year));
@@ -71,8 +71,9 @@ export function ohmLayers(){
  const base={source:OHM_SOURCE,minzoom:REGIONAL_MIN_ZOOM};
  return [
   {...base,id:OHM_LAYERS[0],type:'fill',paint:{'fill-color':['to-color',['at',['%',['abs',['number',['get','osm_id'],0]],6],['literal',['#a89563','#6f9693','#93936a','#a38e83','#879baa','#ab9a75']]]],'fill-opacity':0}},
-  {...base,id:OHM_LAYERS[1],type:'line',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#a4552b','line-width':['interpolate',['linear'],['zoom'],6,.85,10,1.25,15,1.6],'line-opacity':['case',['==',['get','partial_geometry'],1],.7,.85],'line-dasharray':['case',['==',['get','partial_geometry'],1],['literal',[2,1.4]],['literal',[1,0]]],'line-blur':.12}},
-  {...base,id:OHM_LAYERS[2],type:'line',filter:['==',['get','osm_id'],0],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#e0913c','line-width':2.6,'line-opacity':.95}}
+  {...base,id:OHM_LAYERS[1],type:'line',filter:['!=',['get','partial_geometry'],1],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#a4552b','line-width':['interpolate',['linear'],['zoom'],6,.85,10,1.25,15,1.6],'line-opacity':.85,'line-blur':.12}},
+  {...base,id:OHM_LAYERS[2],type:'line',filter:['==',['get','partial_geometry'],1],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#a4552b','line-width':['interpolate',['linear'],['zoom'],6,1,10,1.4,15,1.7],'line-opacity':.7,'line-dasharray':[2,1.4],'line-blur':.12}},
+  {...base,id:OHM_SELECTED,type:'line',filter:['==',['get','osm_id'],0],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#e0913c','line-width':2.6,'line-opacity':.95}}
  ];
 }
 // Records already drawn from the frozen extract are removed from the tile filter, so one boundary
@@ -194,7 +195,7 @@ export class RegionalBoundaries{
  }
  applySelection(id){
   if(this.map.getLayer(IDS[2]))this.map.setFilter(IDS[2],['all',regionalFilterExcluding(this.year,this.maxLevel,this.ohmReady?this.ohmIds:[]),['==',['get','osm_id'],id]]);
-  if(this.map.getLayer(OHM_LAYERS[2]))this.map.setFilter(OHM_LAYERS[2],['==',['get','osm_id'],id]);
+  if(this.map.getLayer(OHM_SELECTED))this.map.setFilter(OHM_SELECTED,['==',['get','osm_id'],id]);
  }
  // Polities the frozen snapshot checks for and does not find. They are listed as missing rather
  // than drawn from another year or from the global overview.

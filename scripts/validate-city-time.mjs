@@ -22,6 +22,7 @@ const fixtures=new Map([
  ['data/places/historical-settlements-index.json.gz',{places:[]}],
  ['data/places/historical-capitals.json.gz',{claims:[]}],
  ['data/places/urban-observations.json.gz',{cities:[cachePlace,base]}],
+ ['data/places/attested-places.json.gz',{schemaVersion:1,layer:'attested-places',records:[]}],
  ['data/enrichment/profile-index.json.gz',{records:{}}],
  ['data/native/year-1914.json.gz',{year:1914,recordIndex:{[record.id]:'g'},geometries:{g:geometry}}],
 ]);

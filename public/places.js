@@ -1,9 +1,28 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.9.4-3392a69da753';
-import {placeWindow} from './view-state.js?v=3.9.4-3392a69da753';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.9.4-380fd480ab21';
+import {placeWindow} from './view-state.js?v=3.9.4-380fd480ab21';
+// Editorially reviewed archaeological sites. They live in their own sourced
+// layer: representative points of listed heritage properties, dated only to the
+// period their source states, and never merged with the urban observations that
+// happen to sit nearby.
+const attestedCache=new WeakMap();
+export function attestedPlaces(layer){
+ if(!layer||typeof layer!=='object')return [];
+ // Derived once per loaded layer: repeated loads must hand back the same objects,
+ // otherwise callers that compare cached place lists stop matching by identity.
+ if(attestedCache.has(layer))return attestedCache.get(layer);
+ const list=(layer.records||[]).filter(r=>r.period&&Number.isFinite(r.period.start)&&Number.isFinite(r.period.end)&&r.location?.coordinates?.length===2).map(r=>({
+  id:r.id,kind:'attested-site',name:r.nameEn,nameZh:r.nameZh,displayName:r.nameEn,displayNameZh:r.nameZh,
+  otherNames:r.aliases||[],region:r.region,coordinates:r.location.coordinates,
+  periods:[[r.period.start,r.period.end]],
+  sourceUrl:r.sources?.[0]?.url,referenceCount:(r.sources||[]).length,
+  attested:r
+ }));
+ attestedCache.set(layer,list);return list;
+}
 export async function loadPlaces(includeModern=false){
  const names=['historical-settlements-index','historical-capitals','urban-observations',...(includeModern?['modern-cities']:[])];
- const results=await Promise.allSettled(names.map(n=>readJSON(`data/places/${n}.json.gz`)));
- const data=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value.places||r.value.claims||r.value.cities);
+ const results=await Promise.allSettled([...names.map(n=>readJSON(`data/places/${n}.json.gz`)),readJSON('data/places/attested-places.json.gz')]);
+ const data=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value.places||r.value.claims||r.value.cities||attestedPlaces(r.value));
  if(!data.length)throw Error('Place archives unavailable');
  data.partial=results.some(r=>r.status==='rejected');return data;
 }
@@ -78,7 +97,7 @@ export class PlaceLayer {
   for(const p of candidates){
    if(this.markers.length>=max)break;
    const modern=p.kind==='modern-reference';if(modern&&zoom<Math.max(3,(p.minZoom||4)-2))continue;
-   if(p.kind==='attested-settlement'&&zoom<3.4)continue;
+   if((p.kind==='attested-settlement'||p.kind==='attested-site')&&zoom<3.4)continue;
    if(map.getProjection().type==='globe'&&zoom<3){const rad=Math.PI/180,[lon,lat]=p.coordinates;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.2)continue;}
    const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
    const width=Math.min(172,Math.max(name.length*(p.nameZh&&this.lang!=='en'?12:6.5),secondary.length*6)+30),height=(secondary?46:32)+(p.observation?14:0);
