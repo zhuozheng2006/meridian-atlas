@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-ec690e4dca51';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-ec690e4dca51';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-ec690e4dca51';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-ec690e4dca51';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-ec690e4dca51';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-ec690e4dca51';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-ec690e4dca51';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-ec690e4dca51';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-ec690e4dca51';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-ec690e4dca51';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-5ec9cef82842';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-5ec9cef82842';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-5ec9cef82842';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-5ec9cef82842';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-5ec9cef82842';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-5ec9cef82842';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-5ec9cef82842';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-5ec9cef82842';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-5ec9cef82842';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-5ec9cef82842';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -261,6 +261,7 @@ function installMapExport(){
  const paint=()=>{toggle.classList.toggle("active",!!state.battles);toggle.textContent=text("战役","Battles");toggle.title=text("在地图上显示同期战役记录","Show dated battles on the map");};
  toggle.onclick=()=>{state.battles=!state.battles;for(const m of [atlas,compareMap].filter(Boolean))m.battles?.toggle(state.battles);paint();saveURL();};
  paint();tools.append(toggle);
+ const status=document.createElement("span");status.id="battleStatus";status.className="layer-note";status.setAttribute("aria-live","polite");tools.append(status);
  }catch{/* Export is optional: never let it break the rest of the bindings. */}
 }
 function bind(){bindLayers();
@@ -294,7 +295,7 @@ async function openBattle(b,whichMap=atlas){
  const focus=$("#battleTitle");if(focus)focus.focus({preventScroll:true});
 }
 function bindPlaceLayer(map){map.places=new PlaceLayer(map,{window:state.placeWindow,onSelect:openPlace,onStatus:(status,count)=>{if(map===atlas){const el=$('#placeStatus');if(el)el.textContent=status!=='ready'?text('城市资料暂未载入 · 点击重试','Cities unavailable · retry'):text('有年代依据的城市与遗址','Dated cities and archaeological sites');}}});map.places.toggle(state.cities);map.places.setModern(state.reference);
- map.battles=new BattleLayer(map,{window:state.span,onSelect:openBattle,onStatus:(status,count)=>{if(map===atlas){const el=$('#battleStatus');if(el)el.textContent=status!=='ready'?text('战役资料暂未载入','Battles unavailable'):text(`${count} 条同期战役`,'Battles in this window')+' · '+count;}}});map.battles.toggle(state.battles);map.battles.setYear(map.year,state.lang);}
+ map.battles=new BattleLayer(map,{window:state.span,onSelect:openBattle,onStatus:(status,count)=>{if(map===atlas){const el=$('#battleStatus');if(el)el.textContent=status!=='ready'?text('战役资料暂未载入','Battles unavailable'):text(`${count} 条同期战役`,'Battles in this window');}}});map.battles.toggle(state.battles);map.battles.setYear(map.year,state.lang);}
 const placeSourceName=p=>p.source==='wikidata-capitals'?text('维基数据 · 首都资料','Wikidata · Capital records'):p.source==='pleiades'?text('Pleiades · 古地名档案','Pleiades · Ancient places'):p.source==='natural-earth'?text('Natural Earth · 现代参照','Natural Earth · Modern reference'):p.source==='chandler'?text('城市人口研究 · Chandler','Urban population · Chandler'):p.source?.startsWith('modelski')?text('城市人口研究 · Modelski','Urban population · Modelski'):p.source;
 let placeSearchSequence=0;
 async function renderPlaceSearch(){
