@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-93e2ce05ef93';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-93e2ce05ef93';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-93e2ce05ef93';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-93e2ce05ef93';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-93e2ce05ef93';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-93e2ce05ef93';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-93e2ce05ef93';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-93e2ce05ef93';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-93e2ce05ef93';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-93e2ce05ef93';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-3d8b0212d2ef';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-3d8b0212d2ef';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-3d8b0212d2ef';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-3d8b0212d2ef';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-3d8b0212d2ef';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-3d8b0212d2ef';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-3d8b0212d2ef';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-3d8b0212d2ef';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-3d8b0212d2ef';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-3d8b0212d2ef';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -290,7 +290,7 @@ async function openBattle(b,whichMap=atlas){
  if(b.countries?.length)rows.push([text("现代位置","Present-day location"),b.countries.map(escape).join(" · ")]);
  if(b.region)rows.push([text("地区","Region"),escape(b.region)]);
  const links=(b.sources||[]).map(s=>`<a class="source-link" href="${escape(s.url||s)}" target="_blank" rel="noopener noreferrer">${escape(s.title||s.publisher||s.url||s)}</a>`).join("");
- $("#detailPanel").hidden=false;$("#detailPanel").innerHTML=`<button class="detail-close" aria-label="${text("关闭详情","Close details")}">×</button><div class="reader-header"><span class="eyebrow">${text("战役记录","Battle record")}</span><h2 id="battleTitle" tabindex="-1">${escape(b.nameZh||b.nameEn||b.id)}${secondary}</h2><div class="tags"><span class="tag">${escape(when)}</span></div></div><div class="reader-content"><p>${text("这条战役记录来自结构化数据集：名称、年代与坐标取自来源实体的声明。数据集没有稳定的胜负属性，因此本站不标注结果；参战方按来源声明原样列出。","This battle comes from a structured dataset: name, date and coordinates are the source entity statements. The dataset has no stable outcome property, so no result is claimed here, and belligerents are listed as the source states them.")}</p>${rows.length?`<dl class="fact-list">${rows.map(([k,v])=>`<div class="fact-row"><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`:""}<h3>${text("来源","Sources")}</h3>${links||`<p class="evidence">${escape(b.id)}</p>`}</div>`;
+ $("#detailPanel").hidden=false;$("#detailPanel").innerHTML=`<button class="detail-close" aria-label="${text("关闭详情","Close details")}">×</button><div class="reader-header"><span class="eyebrow">${text("战役记录","Battle record")}</span><h2 id="battleTitle" tabindex="-1">${escape(b.nameZh||b.nameEn||b.id)}${secondary}</h2><div class="tags"><span class="tag">${escape(when)}</span></div></div><div class="reader-content"><p>${text("这条战役记录来自结构化数据集：名称、年代与坐标取自来源实体的声明。数据集没有稳定的胜负属性，因此本站不标注结果；参战方按来源声明原样列出。本层的地区覆盖不均：欧洲记录最多，大洋洲、南亚与东南亚明显偏少，空白表示该来源未收录，不代表当地没有战争。","This battle comes from a structured dataset: name, date and coordinates are the source entity statements. The dataset has no stable outcome property, so no result is claimed here, and belligerents are listed as the source states them. Coverage in this layer is uneven: Europe is by far the densest, while Oceania, South Asia and Southeast Asia are thinly represented; a gap means the source has no record, not that no fighting took place there.")}</p>${rows.length?`<dl class="fact-list">${rows.map(([k,v])=>`<div class="fact-row"><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>`:""}<h3>${text("来源","Sources")}</h3>${links||`<p class="evidence">${escape(b.id)}</p>`}</div>`;
  $("#detailPanel").querySelector(".detail-close").onclick=closeDetail;
  const focus=$("#battleTitle");if(focus)focus.focus({preventScroll:true});
 }
