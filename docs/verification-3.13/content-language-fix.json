@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "round": "3.13-task-15",
+  "generatedAt": "2026-10-02T22:28:04.093Z",
+  "before": {
+    "eventsStructured": 291,
+    "eventsWithCjkInEnglish": 283,
+    "eventFields": {
+      "summary.en": 283,
+      "significance.en": 249
+    },
+    "battles": 486,
+    "battleMixedValues": {
+      "belligerents": 789,
+      "countries": 489,
+      "conflict": 420
+    }
+  },
+  "after": {
+    "eventsStructured": 291,
+    "eventsWithCjkInEnglish": 0,
+    "battles": 486,
+    "battlesWithCjkInEnglish": 0
+  },
+  "fix": {
+    "englishLabelsResolved": 486,
+    "entitiesWithoutEnglishLabel": 1,
+    "fallback": "QID",
+    "transliteration": false,
+    "machineTranslation": false,
+    "buildGuards": [
+      "build-battles.mjs asserts Latin-only English fields",
+      "build-structured-events.mjs asserts Latin-only English text",
+      "apply-events-3.10.mjs rejects CJK in structured English fields",
+      "validate-battles.mjs check 8 verifies the language policy"
+    ]
+  },
+  "artifacts": {
+    "audit": "docs/verification-3.13/content-language-audit.json",
+    "report": "docs/verification-3.13/content-language-fix.md",
+    "screenshot": "docs/verification-3.13/content-structured-event-bi.png"
+  },
+  "validators": {
+    "audit-language.mjs": "0 offenders",
+    "validate-battles.mjs": "PASS 8/8",
+    "validate.mjs": "PASS",
+    "validate-v2.mjs": "PASS",
+    "validate-places.mjs": "PASS",
+    "validate-city-time.mjs": "PASS",
+    "validate-city-narratives.mjs": "PASS 10/10",
+    "validate-polity-period.mjs": "PASS",
+    "validate-release.mjs": "PASS"
+  },
+  "nextRound": [
+    "battle layer is Europe-heavy (199/486)",
+    "only 7 https statement references remain",
+    "291 structured events still index-level",
+    "Chinese participant arrays keep Latin source labels when Wikidata has no Chinese label"
+  ]
+}
