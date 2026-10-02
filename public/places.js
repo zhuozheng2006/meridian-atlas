@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.8.1-2ea22886372e';
-import {placeWindow} from './view-state.js?v=3.8.1-2ea22886372e';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.9.0-1c4dec897b32';
+import {placeWindow} from './view-state.js?v=3.9.0-1c4dec897b32';
 export async function loadPlaces(includeModern=false){
  const names=['historical-settlements-index','historical-capitals','urban-observations',...(includeModern?['modern-cities']:[])];
  const results=await Promise.allSettled(names.map(n=>readJSON(`data/places/${n}.json.gz`)));

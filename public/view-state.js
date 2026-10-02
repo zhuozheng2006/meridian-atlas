@@ -16,5 +16,5 @@ export function encodeCamera(map){
 
 export const placeWindow=value=>value!==null&&value!==''&&[0,25,50].includes(Number(value))?Number(value):50;
 
-export const BOUNDARY_MODES=['auto','overview','regional','cshapes'];
+export const BOUNDARY_MODES=['auto','overview','regional','cshapes','halc'];
 export const boundaryMode=value=>BOUNDARY_MODES.includes(value)?value:'auto';

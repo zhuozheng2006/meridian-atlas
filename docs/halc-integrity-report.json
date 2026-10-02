@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "datasetId": "halc-v15-1500",
+  "snapshotYear": 1500,
+  "hashVerifiedAssetFiles": 881,
+  "assetBytes": 27788109,
+  "tiles": 814,
+  "emptyTiles": 400,
+  "detailShards": 59,
+  "records": 14863,
+  "sharedAdm1Records": 1123,
+  "xxMembershipRecords": 638,
+  "allowedExtraFiles": [
+    "labels.json"
+  ],
+  "postAuditTextChanges": [
+    {
+      "path": "NOTICE.txt",
+      "beforeSha256": "9f4acad518475adbf24bc8327773adec365a79f3723677b68746f0b7ea2eb999",
+      "beforeBytes": 5402,
+      "afterSha256": "fa40f0d5b3321da9c5ddeb447e593f7039cd5eeb98f1de9d5bc14e3fc07f0573",
+      "afterBytes": 4501,
+      "reason": "Replace staging paths/status with formal bilingual source, license, geometry conversion and coverage notice. All 880 other assets remain byte-identical; prior full MVT/source-attribute audit is unchanged."
+    }
+  ],
+  "mvtAudit": "Reused prior complete geometry/attribute audit after exact SHA256 matching; no MVT decoding in this run.",
+  "zoom6MissingFids": [
+    1970,
+    7010,
+    10002,
+    11961,
+    14141,
+    14160
+  ],
+  "sourceTimeMeaning": "Source reconstruction for 1500, not exact historical locality lifetimes.",
+  "publicBudget": {
+    "files": 16821,
+    "bytes": 441077079,
+    "maxFiles": null
+  }
+}

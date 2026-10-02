@@ -1,27 +1,30 @@
 {
-  "checkedAt": "2026-10-02T06:37:07.438Z",
+  "checkedAt": "2026-10-02T14:49:49.536Z",
   "method": "Actual repository functions executed in Node VM; DOM, renderer and network boundaries stubbed; no browser visual verification.",
   "snapshots": {
     "view-state.js": {
-      "sha256": "1be691d7088ea8062dc07f4fa69182370c19a1b869e0c8a5302d7408387abc4d"
+      "sha256": "1b57cdfe210a73227345694623902a3555e94b24b0f07fb0f7fc142a23e18a7a"
     },
     "map-engine.js": {
-      "sha256": "cc0294ef879e4e213afe17b625f99cbe10914d2181698f55a8e8a2271adaf36c"
+      "sha256": "91bf739ca9f5d42b84a66117a2287c28cc3c37eeda9dff68c21f4455a92c98bf"
     },
     "places.js": {
-      "sha256": "2b6a5836bce15393b7cf0f39e3111a768cefa506beac969a81a825479e111e5f"
+      "sha256": "88d7eecbbc0935d516b72b0bef02b593b966ea736dc3fbe161c66db440bcfd20"
     },
     "timeline-controls.js": {
       "sha256": "b3954150517b0a12883f08db32331c3a33fe7a1038a864f26c2936ae85b89a6f"
     },
     "polity-reader.js": {
-      "sha256": "25c5bea15f813032d6d0437d1d03d0d7d3e8bc9173dfa904afce8f943e397133"
+      "sha256": "14d6815840350963ace35dcd4d85b07ada131be388ba61de0ec3792147d06d57"
+    },
+    "regional-boundaries.js": {
+      "sha256": "590573144a4201849d039444ca7be98c012c7a89aa58594bdd0d5bdc036ffa4c"
     },
     "app.js": {
-      "sha256": "9138ec24f33496dd8255a4dc584afee8c62c2401d128f5a036e25b501d988910"
+      "sha256": "3d7d618a1f6b667a63f7f6eada9b637f02ee9ff57dc23319fdf83f36180e2c66"
     }
   },
-  "pass": 51,
+  "pass": 69,
   "fail": 0,
   "results": [
     {
@@ -105,11 +108,15 @@
       "pass": true
     },
     {
+      "name": "comparison input waits for initial map readiness before accepting year edits",
+      "pass": true
+    },
+    {
       "name": "decode accepts camera boundary 0,0,0.2,0,0",
       "pass": true
     },
     {
-      "name": "decode accepts camera boundary 180,85.051129,14,180,60",
+      "name": "decode accepts camera boundary 180,85.051129,18,180,60",
       "pass": true
     },
     {
@@ -165,7 +172,7 @@
       "pass": true
     },
     {
-      "name": "decode rejects invalid camera 0,0,14.001,0,0",
+      "name": "decode rejects invalid camera 0,0,18.001,0,0",
       "pass": true
     },
     {
@@ -226,6 +233,74 @@
     },
     {
       "name": "city URL retains right selection, year and camera",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=halc&boundaries2=overview",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=overview&boundaries2=halc",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=halc",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #year=1492&boundaries=halc",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=regional&boundaries2=overview",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=overview",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #regional=0",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=bad&boundaries2=bad",
+      "pass": true
+    },
+    {
+      "name": "Border portrayal restores and shares #borderCurves=0",
+      "pass": true
+    },
+    {
+      "name": "Border portrayal restores and shares #borderCurves=1",
+      "pass": true
+    },
+    {
+      "name": "Border portrayal restores and shares #year=1500",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore left: normal preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore left: overview preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore left: away-and-back preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore right: normal preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore right: overview preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore right: away-and-back preserves the newest source intent",
       "pass": true
     }
   ]

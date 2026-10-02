@@ -1,8 +1,8 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),zlib=require('zlib'),crypto=require('crypto'),assert=require('node:assert/strict');
-const candidates=[process.env.ATLAS_DIST,path.resolve(__dirname,'../public'),path.resolve(__dirname,'../../../outputs/world-history-atlas/public')].filter(Boolean);
+const candidates=process.argv[2]?[path.resolve(process.argv[2],'public'),path.resolve(process.argv[2])]:[process.env.ATLAS_DIST,path.resolve(process.cwd(),'public'),path.resolve(__dirname,'../public')].filter(Boolean);
 const ROOT=candidates.find(p=>fs.existsSync(path.join(p,'app.js')));
-if(!ROOT)throw Error('Set ATLAS_DIST to the atlas dist directory');
-const files=['view-state.js','map-engine.js','places.js','timeline-controls.js','polity-reader.js','app.js'];
+if(!ROOT)throw Error('Run from the atlas checkout, place this test in scripts/, provide its root argument, or set ATLAS_DIST to its public directory');
+const files=['view-state.js','map-engine.js','places.js','timeline-controls.js','polity-reader.js','regional-boundaries.js','app.js'];
 const snapshots=Object.fromEntries(files.map(n=>[n,fs.readFileSync(path.join(ROOT,n),'utf8')]));
 const readData=n=>JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(ROOT,'data',n+'.json.gz'))));
 const realCatalog=readData('fast/catalog'),realEvents=readData('events');
@@ -12,14 +12,14 @@ const realPlace=readData('places/urban-observations').cities.find(p=>p.id==='cha
 assert(realEvent&&realPolity&&realPlace,'Required real historical fixtures exist');
 const flush=()=>new Promise(r=>setImmediate(r));
 function context(hash=''){
- const nodes=new Map(),keyListeners=[];
+ const nodes=new Map(),keyListeners=[],eventListeners=new Map();
  const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},dataset:{},isConnected:true,scrollTop:0,focus(){},replaceChildren(){},append(){},insertAdjacentHTML(){},closest(){return null},matches(){return false},click(){this.onclick?.({target:this})},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(k,v){this[k]=v},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
- const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(type,fn){if(type==='keydown')keyListeners.push(fn)}};
+ const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(type,fn){if(type==='keydown')keyListeners.push(fn);if(!eventListeners.has(type))eventListeners.set(type,[]);eventListeners.get(type).push(fn)}};
  const location={hash,href:'https://example.test/'+hash};
- const c=vm.createContext({console,document,location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,cityNarrative:async()=>null});
+ const c=vm.createContext({console,document,location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null});
  for(const name of files){const code=snapshots[name].replace(/^import .*$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
- globalThis.renderLog=[];globalThis.focusLog=[];globalThis.readerOptions=[];
+ globalThis.renderLog=[];globalThis.focusLog=[];globalThis.readerOptions=[];globalThis.originalBindLayers=bindLayers;
  const makeMap=()=>({year:1492,geometryKey:'o',active:[],map:{camera:{center:[25,18],zoom:2,bearing:0,pitch:0},resize(){},getCenter(){const a=this.camera.center;return {lng:a[0],lat:a[1],toArray(){return a}}},getZoom(){return this.camera.zoom},getBearing(){return this.camera.bearing},getPitch(){return this.camera.pitch},jumpTo(camera){const center=camera.center;this.camera={...this.camera,...camera,...(center?{center:Array.isArray(center)?center:[center.lng,center.lat]}:{})}},on(){},off(){}},places:{select(p){this.selected=p},toggle(){},setModern(){},setYear(){}},geography:{toggle(){},alignCoast(){},setReference(){}},selectPolity(){},refreshLabels(){},toggleBorders(){},projection(){},setEvents(){},destroy(){this.destroyed=true},async setYear(c,y){this.year=y;return 1},fly(lon,lat,zoom){this.map.camera={...this.map.camera,center:[lon,lat],zoom}},focusPolity(r){focusLog.push(r.id);this.map.camera={...this.map.camera,center:r.center||[10,20],zoom:3}}});
  atlas=makeMap();compareMap=null;catalog=realCatalog;events=realEvents;
  polityReader={seq:0,open(r,m,opts){document.querySelector('#detailPanel').hidden=false;renderLog.push('polity:'+r.id);readerOptions.push(opts)}};
@@ -91,8 +91,37 @@ async function run(){
   const params=new URLSearchParams({year:1500,lang:'en',place:realPlace.id,camera:'12.5,41.9,7.25,-20,35'});if(side==='right'){params.set('compare','1');params.set('compareYear','1600');params.set('side','right')}
   const c=context('#'+params);value(c,'prepareInit()');await value(c,'init()');assert.equal(value(c,'state.selectedPlace?.id'),realPlace.id);assert.equal(value(c,'state.selectedSide'),side);assert.equal(value(c,'state.year'),1500);if(side==='right')assert.equal(value(c,'state.compareYear'),1600);assert.equal(value(c,'encodeCamera(atlas.map)'),'12.5,41.9,7.25,-20,35');assert.equal(value(c,'state.selectedPlace.observation[0]'),side==='right'?1600:1500);
  });
- for(const [hash,left,right] of [['#boundaries=regional&boundaries2=overview','regional','overview'],['#boundaries=overview','overview','overview'],['#regional=0','overview','overview'],['#boundaries=bad&boundaries2=bad','auto','auto']])await test('Boundary archive choices restore and share independently '+hash,()=>{const c=context(hash);assert.equal(value(c,'state.boundaryMode'),left);assert.equal(value(c,'state.compareBoundaryMode'),right);value(c,'state.compare=true;saveURL()');const restored=context(value(c,'location.hash'));assert.equal(value(restored,'state.boundaryMode'),left);assert.equal(value(restored,'state.compareBoundaryMode'),right)});
+ for(const [hash,left,right] of [['#boundaries=halc&boundaries2=overview','halc','overview'],['#boundaries=overview&boundaries2=halc','overview','halc'],['#boundaries=halc','halc','halc'],['#year=1492&boundaries=halc','halc','halc'],['#boundaries=regional&boundaries2=overview','regional','overview'],['#boundaries=overview','overview','overview'],['#regional=0','overview','overview'],['#boundaries=bad&boundaries2=bad','auto','auto']])await test('Boundary archive choices restore and share independently '+hash,()=>{const c=context(hash);assert.equal(value(c,'state.boundaryMode'),left);assert.equal(value(c,'state.compareBoundaryMode'),right);value(c,'state.compare=true;saveURL()');const restored=context(value(c,'location.hash'));assert.equal(value(restored,'state.boundaryMode'),left);assert.equal(value(restored,'state.compareBoundaryMode'),right)});
  for(const [hash,expected] of [['#borderCurves=0',false],['#borderCurves=1',true],['#year=1500',true]])await test('Border portrayal restores and shares '+hash,()=>{const c=context(hash);assert.equal(value(c,'state.borderCurves'),expected);value(c,'saveURL()');const restored=context(value(c,'location.hash'));assert.equal(value(restored,'state.borderCurves'),expected);});
+ // Actual event binding and RegionalBoundaries.setMode run against deferred map loading.
+ // A new source choice must win even when the user leaves HALC and then returns.
+ for(const side of ['left','right'])for(const action of ['normal','overview','away-and-back'])await test(`HALC Explore ${side}: ${action} preserves the newest source intent`,async()=>{
+  const c=context('#boundaries=halc&boundaries2=halc');
+  value(c,`state.compare=true;compareMap=makeMap();globalThis.exploreTarget=${side==='right'?'compareMap':'atlas'};
+   globalThis.flyLog=[];globalThis.yearCallCount=0;
+   exploreTarget.regional=Object.assign(Object.create(RegionalBoundaries.prototype),{mode:'halc',atlas:exploreTarget,closePopup(){},update(){},settle(){}});
+   exploreTarget.boundaries={setMode(){}};
+   exploreTarget.fly=(...args)=>flyLog.push(args);
+   exploreTarget.setYear=(catalog,year)=>{yearCallCount++;return new Promise(resolve=>{globalThis.finishExploreYear=()=>{exploreTarget.year=year;resolve(1)}})};
+   originalBindLayers();globalThis.exploreHandler=eventListeners.get('halc-explore')[0];
+  `);
+  const pending=value(c,`exploreHandler({target:{id:'${side==='right'?'map2':'map'}'}})`);
+  assert.equal(value(c,'yearCallCount'),1,'The actual handler should begin loading the requested year');
+  assert.equal(value(c,'flyLog.length'),0,'The camera must wait for the year load');
+  if(action!=='normal')value(c,"exploreTarget.regional.setMode('overview')");
+  if(action==='away-and-back')value(c,"exploreTarget.regional.setMode('halc')");
+  const revision=value(c,'exploreTarget.regional.modeRevision');
+  value(c,'finishExploreYear()');await pending;
+  assert.equal(value(c,'exploreTarget.year'),1500);
+  assert.equal(value(c,'exploreTarget.regional.mode'),action==='overview'?'overview':'halc');
+  if(action==='normal'){
+   assert.equal(value(c,'flyLog.length'),1);
+   assert.equal(value(c,'JSON.stringify(flyLog[0])'),JSON.stringify([4.8,51.3,7]));
+  }else{
+   assert.equal(value(c,'flyLog.length'),0,'An older Explore request overrode a newer source choice');
+   assert.equal(value(c,'exploreTarget.regional.modeRevision'),revision,'An older Explore request wrote the source mode again');
+  }
+ });
  const report={checkedAt:new Date().toISOString(),method:'Actual repository functions executed in Node VM; DOM, renderer and network boundaries stubbed; no browser visual verification.',snapshots:Object.fromEntries(files.map(n=>[n,{sha256:crypto.createHash('sha256').update(snapshots[n]).digest('hex')}])),pass:results.filter(r=>r.pass).length,fail:results.filter(r=>!r.pass).length,results};
  if(process.env.STATE_AUDIT_REPORT)fs.writeFileSync(process.env.STATE_AUDIT_REPORT,JSON.stringify(report,null,2)+'\n');
  console.log(`${report.pass}/${results.length} view-state checks passed`);if(report.fail)process.exitCode=1;

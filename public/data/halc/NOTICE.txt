@@ -1,0 +1,69 @@
+HALC v15 — 1500 localities / HALC 第15版：1500年地方单位
+
+Source and attribution / 来源与署名
+Rombert Stapel, Historical Atlas of the Low Countries (1350–1800), version 15.0,
+DataverseNL. Dataset DOI: https://doi.org/10.34894/BTKFHV
+Official geometry: https://dataverse.nl/api/access/datafile/639014
+Official codebook: https://dataverse.nl/api/access/datafile/639016
+Source geometry SHA1: 33da3c0222f9a94f3539ad0f780c6b899ab09a97
+Source codebook SHA1: 3ff58e73740970b2af8e54767c1ccb9c7c239aa7
+
+License / 许可证
+The source dataset and these adapted data assets are provided under Creative
+Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+Retain the attribution, dataset version/DOI, license link and this description
+of changes when sharing the adapted data. Apply the license's ShareAlike terms
+to adapted data. No endorsement by the source author is implied. This notice
+describes the HALC data assets; it does not assign a license to unrelated app
+code or other datasets.
+
+Coverage and meaning / 覆盖范围与含义
+This layer contains the source reconstruction for 1500 of the Low Countries and
+adjacent northern France and western Germany. Bounds (WGS84): 0.5394290755 to
+8.3519884661 degrees east, 48.5402029861 to 54.0243305418 degrees north. The data
+describe local administrative/judicial, combined religious-administrative and
+natural units. They are not merged into national outlines. The Alps, Switzerland
+and Bavaria are outside this layer's coverage.
+
+Source TIME_START=1500-01-01 and TIME_END=1500-12-31 identify this reconstruction
+snapshot, not exact historical locality lifetimes. NAME preserves the source's
+modern normalized spelling. NAME_EXT and some ADM8/ADM9 values contain later
+periods' comparison labels and remain only in detailed source attributes.
+Complete semicolon memberships retain their original order for shared or
+contested affiliation. XX groups small sovereign regions; it is not one state.
+TYPE 8 identifies natural features. QUALITY records the basis of reconstruction,
+including modern-derived or estimated boundaries, not a numeric accuracy scale.
+
+Changes made for this atlas / 本图集进行的转换
+Original WGS84 polygons were projected to Web Mercator and quantized to a shared
+integer grid separately at zoom levels 6–10 (MVT extent 8192). Each polygon was
+clipped to tile bounds with a 64-unit buffer using the same grid. Quantization
+can collapse very small parts. Exact collinear redundancies were removed at zero
+tolerance, with topological equality checked after quantization. Ring winding
+was encoded for MVT. There was no geographic smoothing, manual boundary repair,
+historical interpolation or ADM1 union. The original GeoPackage is unchanged
+and remains available from the official source above.
+
+All 14,863 original localities and all 55 non-geometry attributes are preserved
+in 59 compressed detail shards. Original fid values identify both tile features
+and detail records within source version 15.0. There are 814 uncompressed MVT
+tiles, including 400 valid empty tiles; every tile inside the source's per-zoom
+rectangular range is provided. At z6, six tiny localities have no encoded polygon:
+fid 1970, 7010, 10002, 11961, 14141 and 14160. All 14,863 appear at z7–10 and in
+details. Zooming beyond z10 enlarges those tiles without adding source detail.
+Map properties are fid, NAME, SHORT_ID, ADM0, ADM1, TYPE and QUALITY. The remaining
+source attributes, 68 region definitions, administrative dictionaries and 246
+bibliographic entries are retained. Chinese legend labels are editorial
+translations; original codebook definitions remain available.
+
+本层提供1500年低地国家及邻接地区的地方单位重建，覆盖范围不含阿尔卑斯、
+瑞士和巴伐利亚。地名采用来源的现代规范拼写，共有或争议归属及其顺序完整
+保留。图形仅作投影、瓦片网格量化和裁剪；细密矢量不等同于更高的历史确定性。
+TYPE、QUALITY、SOURCE与REMARKS帮助读者理解每条记录的类型和重建依据。
+原始数据与本层转换数据遵循CC BY-SA 4.0，完整署名、版本、来源和转换过程如上。
+
+Related paper / 相关论文
+Rombert Stapel (2023), Historical Atlas of the Low Countries: A GIS Dataset of
+Locality-Level Boundaries (1350–1800), https://doi.org/10.1163/24523666-bja10033
+The paper's separate CC BY 4.0 text license does not replace the dataset license.
