@@ -1,6 +1,6 @@
 {
   "compare": "baseline -> round3",
-  "generatedAt": "2026-10-02T21:26:09.918Z",
+  "generatedAt": "2026-10-02T21:47:17.581Z",
   "before": {
     "gitHead": "6125d0ebe3108bbdda7d688ae43e2158a13ede82",
     "dirtyPaths": [],
@@ -25,18 +25,36 @@
   "after": {
     "gitHead": "6125d0ebe3108bbdda7d688ae43e2158a13ede82",
     "dirtyPaths": [
-      "M docs/verification-3.12/perf-detail-load-baseline.json",
+      "D docs/verification-3.12/keepalive-bench-after-http11-preview.json",
+      " M docs/verification-3.12/perf-detail-load-baseline.json",
       " M public/index.html",
       " M public/map-engine.js",
       " M scripts/verification/perf-detail-load.mjs",
       "?? docs/verification-3.10/shots/detail-smoke-cold-unthrottled.png",
-      "?? docs/verification-3.12/perf-detail-load-smoke.json"
+      "?? docs/verification-3.12/keepalive-bench-after-http11.json",
+      "?? docs/verification-3.12/perf-detail-compare-baseline-round3.json",
+      "?? docs/verification-3.12/perf-detail-load-round3-mobile.json",
+      "?? docs/verification-3.12/perf-detail-load-round3.json",
+      "?? docs/verification-3.12/perf-detail-load-smoke.json",
+      "?? docs/verification-3.12/perf-round3.md",
+      "?? docs/verification-3.12/shots/detail-round3-cold-slow-3g-400kbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-cold-slow-4g-1.6mbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-cold-unthrottled.png",
+      "?? docs/verification-3.12/shots/detail-round3-cold-wifi-4mbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-detail-slow-3g-400kbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-detail-slow-4g-1.6mbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-detail-unthrottled.png",
+      "?? docs/verification-3.12/shots/detail-round3-detail-wifi-4mbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-mobile-cold-unthrottled-mobile.png",
+      "?? docs/verification-3.12/shots/detail-round3-mobile-cold-wifi-4mbps-mobile.png",
+      "?? docs/verification-3.12/shots/detail-round3-regional-unthrottled.png",
+      "?? docs/verification-3.12/shots/detail-round3-regional-wifi-4mbps.png"
     ],
     "assetVersion": "3.10.0-efa001839176",
     "files": {
       "public/index.html": "800de36c3f0d2033",
       "public/app.js": "c6346f7e4a8f8adc",
-      "public/map-engine.js": "127752edf64eec32",
+      "public/map-engine.js": "87478e77def800f4",
       "public/timeline-controls.js": "b3954150517b0a12",
       "public/view-state.js": "1b57cdfe210a7322",
       "public/style.css": "95f5e8ac64efeda8",
@@ -55,7 +73,7 @@
       "run": "cold-1500/slow-3g-400kbps",
       "firstFrameMs": {
         "before": 66934,
-        "after": null
+        "after": 67324
       },
       "nativeCompleteMs": {
         "before": null,
@@ -67,11 +85,11 @@
       },
       "requests": {
         "before": 63,
-        "after": null
+        "after": 63
       },
       "connections": {
         "before": 47,
-        "after": null
+        "after": 14
       },
       "nativeReq": {
         "before": null,
@@ -94,7 +112,7 @@
       "run": "cold-1500/slow-4g-1.6mbps",
       "firstFrameMs": {
         "before": 18587,
-        "after": null
+        "after": 19222
       },
       "nativeCompleteMs": {
         "before": null,
@@ -106,11 +124,11 @@
       },
       "requests": {
         "before": 63,
-        "after": null
+        "after": 63
       },
       "connections": {
         "before": 50,
-        "after": null
+        "after": 14
       },
       "nativeReq": {
         "before": null,
@@ -211,7 +229,7 @@
       "run": "detail-1450/slow-3g-400kbps",
       "firstFrameMs": {
         "before": 69177,
-        "after": null
+        "after": 94464
       },
       "nativeCompleteMs": {
         "before": null,
@@ -223,11 +241,11 @@
       },
       "requests": {
         "before": 108,
-        "after": null
+        "after": 107
       },
       "connections": {
         "before": 73,
-        "after": null
+        "after": 30
       },
       "nativeReq": {
         "before": null,
@@ -247,18 +265,22 @@
           3174,
           21515
         ],
-        "after": []
+        "after": [
+          3893,
+          3037,
+          21489
+        ]
       }
     },
     {
       "run": "detail-1450/slow-4g-1.6mbps",
       "firstFrameMs": {
         "before": 34236,
-        "after": null
+        "after": 40408
       },
       "nativeCompleteMs": {
         "before": null,
-        "after": null
+        "after": 54637
       },
       "ohmReadyTotalMs": {
         "before": null,
@@ -266,11 +288,11 @@
       },
       "requests": {
         "before": 117,
-        "after": null
+        "after": 243
       },
       "connections": {
         "before": 87,
-        "after": null
+        "after": 21
       },
       "nativeReq": {
         "before": null,
@@ -290,18 +312,22 @@
           17429,
           13617
         ],
-        "after": []
+        "after": [
+          11452,
+          18739,
+          13285
+        ]
       }
     },
     {
       "run": "detail-1450/unthrottled",
       "firstFrameMs": {
         "before": 5678,
-        "after": 4990
+        "after": 4816
       },
       "nativeCompleteMs": {
         "before": 6656,
-        "after": 5502
+        "after": 5336
       },
       "ohmReadyTotalMs": {
         "before": null,
@@ -334,9 +360,9 @@
           3631
         ],
         "after": [
-          8996,
-          5181,
-          4959
+          9113,
+          5334,
+          3200
         ]
       }
     },
@@ -344,11 +370,11 @@
       "run": "detail-1450/wifi-4mbps",
       "firstFrameMs": {
         "before": 17287,
-        "after": 16774
+        "after": 16953
       },
       "nativeCompleteMs": {
         "before": 22141,
-        "after": 21811
+        "after": 21866
       },
       "ohmReadyTotalMs": {
         "before": null,
@@ -360,7 +386,7 @@
       },
       "connections": {
         "before": 227,
-        "after": 20
+        "after": 19
       },
       "nativeReq": {
         "before": null,
@@ -381,9 +407,9 @@
           5152
         ],
         "after": [
-          8286,
-          8904,
-          6069
+          7593,
+          9752,
+          5825
         ]
       }
     },
