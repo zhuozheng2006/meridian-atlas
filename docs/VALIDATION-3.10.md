@@ -11,6 +11,7 @@
 | P0 中欧 1500 | 固化 OHM 1500 年 98 条 / 1492 年 91 条行政边界（CC0），空白如实标注 | `ohm-1500.md`，`node scripts/ohm/verify-ohm-1500.mjs` 13/13 |
 | P1 内容 | 事件 343→378（+35 双语）；薄格 33→27；有据遗址层 12 条 + 2 条增强 + 4 条留档 | `content-balance.json`、`content-coverage.md`、`content-attested-places.md` |
 | P1 产品 | 手机 safe-area 适配；年份步长默认与页面标注一致（10 年）；浏览器验证驱动纳入仓库 | `scripts/verification/browser.mjs` |
+| P1 研究可用性 | 政体阅读器「疆域」栏新增**源轮廓精度**折叠块：直接从未改动的原生几何现算顶点数、边数、边长中位数与严格水平/垂直边数，并写明地图未做平滑/补点/取整。实测巴伐利亚公国 1500 年记录显示“55 个顶点、54 条边、中位 19.0 公里、11 条边严格水平或垂直”。 | 真实浏览器 `#year=1500&polity=clio-07350` 打开「疆域」栏，控制台零错误 |
 | P1 验证 | 性能、键盘焦点、手机、弱网四类可重跑基线 | `perf-baseline.json`、`keyboard-focus.json`、`mobile-check.json`、`network-resilience.json` |
 
 ## 二、自动化验证
