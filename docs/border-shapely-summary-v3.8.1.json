@@ -1,0 +1,47 @@
+{
+  "moduleSha256": "f26baea5f62967af4945cf54b088b38e9450aab2afe7e2620574f562236ffcc4",
+  "frames": 12,
+  "recordInstances": 1202,
+  "allSnapshotsPassed": true,
+  "reusedAuditByExactSha256Match": true,
+  "maxFrameExportMs": 201.996709,
+  "globalNewOverlapPairs": 0,
+  "globalNewInternalGapDegreeSquared": 0,
+  "newInvalid": 0,
+  "componentOrHoleChanges": 0,
+  "above2PctArea": 0,
+  "cutCapKm": 4,
+  "focus1500": {
+    "records": 137,
+    "europeRecords": 28,
+    "maxEuropeBoundaryDeviationMApprox": 1978.5494900549772,
+    "countries": [
+      {
+        "id": "clio-07350",
+        "name": "Duchy of Bavaria",
+        "maxDeviationMApprox": 1887.8235173052997,
+        "areaChangePct": -0.004068959109349013
+      },
+      {
+        "id": "clio-07639",
+        "name": "Swiss Confederation",
+        "maxDeviationMApprox": 1733.0941689052797,
+        "areaChangePct": 0.04231527601281648
+      },
+      {
+        "id": "clio-07666",
+        "name": "Duchy of Lorraine",
+        "maxDeviationMApprox": 1788.614672415526,
+        "areaChangePct": -0.13573786928735565
+      }
+    ],
+    "existingOverlapDeltaPairCount": 45
+  },
+  "limitations": [
+    "Checks cover these 12 snapshots, not every year.",
+    "Display interpolation changes geometry but adds no historical evidence or source precision.",
+    "Existing source overlaps and gaps are retained; existing overlap area may change.",
+    "Europe distances use approximate equirectangular metric at 48N, not geodesic accuracy.",
+    "Global union-gap test erodes by 0.12 degrees; narrow coasts/islands are not exhaustively covered."
+  ]
+}
