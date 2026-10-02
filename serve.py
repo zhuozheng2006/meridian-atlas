@@ -2,7 +2,15 @@
 """Serve the atlas locally. Bundled layers work offline; fine online layers are optional."""
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-import argparse, functools, threading, webbrowser
+from urllib.parse import urlsplit
+import argparse, functools, gzip, os, threading, webbrowser
+
+# Text assets ship uncompressed on disk; gzip on the fly cuts the wire size about
+# 3-4x (maplibre-gl.js 915 -> 241 KB, CSS ~75%, coverage.json -94%). Files that are
+# already compressed (.gz/.br/.webp/...) are never re-encoded.
+COMPRESSIBLE=('.js','.css','.html','.json','.geojson','.svg','.txt','.md','.xml','.webmanifest')
+COMPRESS_CACHE={}
+COMPRESS_CACHE_MAX=64
 
 class AtlasHandler(SimpleHTTPRequestHandler):
     # HTTP/1.1 keeps the connection alive. One year of native geometry is ~130 small
@@ -11,6 +19,36 @@ class AtlasHandler(SimpleHTTPRequestHandler):
     # Content-Length, so a keep-alive client can delimit every response.
     protocol_version='HTTP/1.1'
     timeout=65
+
+    def compressed(self,path):
+        stat=os.stat(path)
+        key=(path,stat.st_mtime_ns,stat.st_size)
+        hit=COMPRESS_CACHE.get(key)
+        if hit is not None:return hit
+        with open(path,'rb') as f:raw=f.read()
+        body=gzip.compress(raw,6)
+        if len(COMPRESS_CACHE)>=COMPRESS_CACHE_MAX:COMPRESS_CACHE.clear()
+        COMPRESS_CACHE[key]=body
+        return body
+
+    def do_GET(self):
+        path=self.translate_path(urlsplit(self.path).path)
+        if (self.headers.get('Range') or 'gzip' not in self.headers.get('Accept-Encoding','')
+                or not os.path.isfile(path) or os.path.getsize(path)<1024
+                or not path.lower().endswith(COMPRESSIBLE)):
+            return SimpleHTTPRequestHandler.do_GET(self)
+        try:body=self.compressed(path)
+        except OSError:
+            return SimpleHTTPRequestHandler.do_GET(self)
+        self.send_response(200)
+        self.send_header('Content-Type',self.guess_type(path))
+        self.send_header('Content-Encoding','gzip')
+        self.send_header('Content-Length',str(len(body)))
+        self.send_header('Vary','Accept-Encoding')
+        self.send_header('Last-Modified',self.date_time_string(os.stat(path).st_mtime))
+        self.end_headers()
+        try:self.wfile.write(body)
+        except (BrokenPipeError,ConnectionResetError):pass
 
 parser=argparse.ArgumentParser(description='Meridian Atlas local server')
 parser.add_argument('--port',type=int,default=8766)

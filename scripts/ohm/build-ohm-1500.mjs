@@ -1,7 +1,10 @@
-// Builds the frozen OpenHistoricalMap extract used by the regional detail layer at 1492 and 1500.
+// Builds the frozen OpenHistoricalMap extracts used by the regional detail layer.
 //
-//   node scripts/ohm/build-ohm-1500.mjs --fetch          # query OHM Overpass, cache the raw answers
-//   node scripts/ohm/build-ohm-1500.mjs                  # rebuild from the cached raw answers
+//   node scripts/ohm/build-ohm-1500.mjs --fetch                        # central Europe (default)
+//   node scripts/ohm/build-ohm-1500.mjs --window=east-asia --fetch     # East Asia
+//   node scripts/ohm/build-ohm-1500.mjs --window=east-asia             # rebuild from the cache
+//
+// Windows live in WINDOWS below; each writes its own directory, year files and manifest.
 //
 // The extract keeps the source geometry untouched: member ways of every boundary relation are
 // chained in their original order, coordinates are never simplified, rounded or repaired, and
@@ -16,14 +19,29 @@ import {coverageOf} from './coverage.mjs';
 
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const ENDPOINT='https://overpass-api.openhistoricalmap.org/api/interpreter';
-const BBOX=[44.0,4.5,50.5,14.5];              // south,west,north,east
 const LEVELS=[2,3,4];
-const YEARS=[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900];
-const OUT=path.resolve(root,'public/data/ohm-1500');
-const CACHE=path.resolve(root,'scripts/ohm/.cache');
+// Two non-overlapping windows. bbox is south,west,north,east; dir is repo-relative.
+const WINDOWS={
+ 'central-europe':{id:'central-europe',zh:'中欧',en:'Central Europe',bbox:[44.0,4.5,50.5,14.5],dir:'public/data/ohm-1500',cache:'scripts/ohm/.cache',
+  years:[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900]},
+ 'east-asia':{id:'east-asia',zh:'东亚',en:'East Asia',bbox:[18.0,95.0,55.0,150.0],dir:'public/data/ohm-eastasia',cache:'scripts/ohm/.cache/east-asia',
+  years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]}
+};
 const args=process.argv.slice(2);
 const flag=name=>args.includes('--'+name);
-const value=(name,fallback)=>args.includes('--'+name)?args[args.indexOf('--'+name)+1]:fallback;
+// Accept both --name=value and --name value.
+const value=(name,fallback)=>{
+ const inline=args.find(argument=>argument.startsWith('--'+name+'='));
+ if(inline)return inline.slice(name.length+3);
+ const index=args.indexOf('--'+name);
+ return index<0?fallback:args[index+1];
+};
+const WINDOW=WINDOWS[value('window','central-europe')];
+if(!WINDOW)throw Error('Unknown window: '+value('window','')+' (known: '+Object.keys(WINDOWS).join(', ')+')');
+const BBOX=WINDOW.bbox;                      // south,west,north,east
+const YEARS=WINDOW.years;
+const OUT=path.resolve(root,value('out',WINDOW.dir));
+const CACHE=path.resolve(root,value('cache',WINDOW.cache));
 const TAGS_FILE=path.resolve(value('tags',path.join(CACHE,'ohm-admin-tags.json')));
 const GEOM_FILE=path.resolve(value('geom',path.join(CACHE,'ohm-admin-geom.json')));
 const USER_AGENT='meridian-atlas/3.9.4 (frozen regional extract; +https://github.com/openhistoricalmap)';
