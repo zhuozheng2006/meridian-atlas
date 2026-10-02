@@ -265,7 +265,10 @@ function build(year){
 // Each probe carries the era in which the polity existed, so an anachronistic probe is never
 // reported for a year it does not belong to. "exclude" removes entities that merely share a name
 // (a Reichskreis is not the duchy); whatever it removes is reported as excludedMatches instead.
-const GAP_PROBES=[
+// Probes are per window: the polities worth checking in central Europe are not the ones worth
+// checking in East Asia, and an anachronistic probe would be noise.
+const GAP_PROBES_BY_WINDOW={
+'central-europe':[
  {id:'holy-roman-empire',zh:'神圣罗马帝国',en:'Holy Roman Empire',pattern:'Holy Roman Empire|Heiliges R(ö|o)misches Reich|Sacrum Imperium|Roman Empire',exclude:'Byzantine|Eastern Roman|Western Roman',from:962,to:1806},
  {id:'duchy-of-swabia',zh:'施瓦本公国',en:'Duchy of Swabia',pattern:'Schwaben|Swabia|Alemannia',exclude:'Kreis|Circle|Bezirk|Bayern',from:922,to:1268},
  {id:'kingdom-of-burgundy',zh:'勃艮第王国',en:'Kingdom of Burgundy',pattern:'Burgund|Burgundy|Bourgogne|Arelat',exclude:'Kreis|Duchy of Burgundy|Herzogtum Burgund|Franche|Haus Burgund',from:933,to:1378},
@@ -281,7 +284,24 @@ const GAP_PROBES=[
  {id:'german-reich',zh:'德意志帝国',en:'German Empire',pattern:'Deutsches Reich|German Empire|Deutschland|Germany|Norddeutscher Bund',exclude:'K(ö|o)nigreich|Preu(ß|ss)en|Bayern|Sachsen|W(ü|u)rttemberg|Baden',from:1871,to:1918},
  {id:'austria-hungary',zh:'奥匈帝国',en:'Austria-Hungary',pattern:'(Ö|O)sterreich-Ungarn|Austria-Hungary|Cisleithania|Transleithania',exclude:'',from:1867,to:1918},
  {id:'switzerland-modern',zh:'瑞士联邦',en:'Switzerland',pattern:'Schweiz|Switzerland|Suisse|Svizzera|Svizra',exclude:'Kanton|Canton',from:1848,to:2026}
-];
+],
+// East Asia: probe names were checked against the OHM tag dump for bbox 18/95/55/150 before being
+// written down, so each entry has a known presence or absence in the source.
+'east-asia':[
+ {id:'ming-qing-china',zh:'明清中国',en:'Ming / Qing China',pattern:'Ming|Qing|Great Qing|Chinese Empire|China|中國|中国',exclude:'Republic|People|Taiwan|Manchuria|Manchukuo|K(ö|o)nigreich',from:1368,to:1912},
+ {id:'yuan-mongol',zh:'元朝 / 蒙古帝国',en:'Yuan / Mongol Empire',pattern:'Yuan|Mongol|Mongolia|元朝',exclude:'Republic|People|Inner Mongolia|Outer Mongolia',from:1206,to:1368},
+ {id:'japan-shogunate',zh:'日本幕府',en:'Japan (shogunate)',pattern:'Japan|日本|Tokugawa|Edo|Shogunate|Shogun',exclude:'Prefecture|Empire of Japan|Republic',from:1185,to:1868},
+ {id:'korea-joseon',zh:'高丽 / 朝鲜王朝',en:'Goryeo / Joseon Korea',pattern:'Joseon|Choson|Korea|Goryeo|Koryo|高麗|朝鮮',exclude:'North Korea|South Korea|Empire of Korea|Republic',from:918,to:1910},
+ {id:'vietnam-dai-viet',zh:'大越 / 越南',en:'Đại Việt / Vietnam',pattern:'Viet ?Nam|Dai Viet|An Nam|Annam|Tongking|Tonkin|大越|越南',exclude:'Socialist|Republic|Democratic',from:1000,to:1945},
+ {id:'tibet',zh:'西藏',en:'Tibet',pattern:'Tibet|Tubo|吐蕃',exclude:'',from:600,to:1951},
+ {id:'ryukyu',zh:'琉球国',en:'Ryukyu Kingdom',pattern:'Ryukyu|Liuqiu|琉球',exclude:'',from:1429,to:1879},
+ {id:'champa',zh:'占婆',en:'Champa',pattern:'Champa|占婆',exclude:'',from:192,to:1832},
+ {id:'khmer',zh:'高棉 / 吴哥',en:'Khmer / Angkor',pattern:'Khmer|Chenla|Angkor|Cambodia',exclude:'',from:550,to:1863},
+ {id:'siam-ayutthaya',zh:'暹罗 / 阿瑜陀耶',en:'Siam / Ayutthaya',pattern:'Siam|Ayutthaya|Thailand',exclude:'',from:1351,to:1939},
+ {id:'manchuria',zh:'满洲',en:'Manchuria',pattern:'Manchuria|Manchu|Manchukuo|满洲',exclude:'',from:1600,to:1945}
+]
+};
+const GAP_PROBES=GAP_PROBES_BY_WINDOW[WINDOW.id]||[];
 const startYearOf=entry=>{const value=String(entry?.start||'').trim(),match=/^(-?\d{1,6})/.exec(value);return match?Number(match[1]):null;};
 function gapReport(year){
  return GAP_PROBES.filter(probe=>year>=probe.from&&year<=probe.to).map(probe=>{
@@ -304,7 +324,7 @@ function gapReport(year){
 const landMaskData=JSON.parse(fs.readFileSync(path.resolve(root,'public/data/land.geojson'),'utf8'));
 const previousManifest=(()=>{try{return JSON.parse(fs.readFileSync(path.join(OUT,'manifest.json'),'utf8'));}catch{return null;}})();
 const generated=flag('fetch')||!previousManifest?.generated?new Date().toISOString():previousManifest.generated;
-const manifest={schema:'meridian-ohm-frozen/1',generated,source:{name:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0 (OpenHistoricalMap data)',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',copyright:'https://www.openhistoricalmap.org/copyright',timestamp},bbox:BBOX,adminLevels:LEVELS,years:YEARS,
+const manifest={schema:'meridian-ohm-frozen/1',generated,window:{id:WINDOW.id,zh:WINDOW.zh,en:WINDOW.en},source:{name:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0 (OpenHistoricalMap data)',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/',copyright:'https://www.openhistoricalmap.org/copyright',timestamp},bbox:BBOX,adminLevels:LEVELS,years:YEARS,
  queries:{tags:tagsSource.query||'[out:json][timeout:180];rel["boundary"="administrative"]["admin_level"~"^(2|3|4)$"]('+BBOX.join(',')+');out tags;',geometry:geomSource?.query||'[out:json][timeout:280];rel(id:<selected>);out geom;',rawTagsSha256:sha256(fs.readFileSync(TAGS_FILE)),rawGeometrySha256:sha256(fs.readFileSync(GEOM_FILE))},
  method:'Member ways chained in stored order; coordinates copied unchanged; no simplification, rounding or boolean repair; holes assigned by containment; area from spherical ring area (R=6371008.8 m). Coverage samples the atlas land mask on a 24x24 grid over the window and tests every land point against the year polygons (holes excluded); verdict thresholds are >=0.45 good, >=0.12 partial, else sparse, and fewer than eight records is always sparse.',
  relations:[]};
@@ -314,7 +334,7 @@ for(const year of YEARS){
  const window=[BBOX[1],BBOX[0],BBOX[3],BBOX[2]];
  const features=build(year),gaps=gapReport(year),coverage={...coverageOf(landMaskData,features,window),records:features.length};
  const undrawable=report.excluded.filter(entry=>entry.year===year).map(entry=>({ohm_relation:entry.id,name:entry.name,admin_level:entry.level,status:entry.status,open_chains:entry.openOuterRings+entry.openInnerRings}));
- const payload={type:'FeatureCollection',metadata:{schema:'meridian-ohm-frozen/1',year,source:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0',attribution:'OpenHistoricalMap contributors',timestamp,bbox:BBOX,adminLevels:LEVELS,generated,gaps,coverage,undrawable,relationCount:features.length},features};
+ const payload={type:'FeatureCollection',metadata:{schema:'meridian-ohm-frozen/1',window:{id:WINDOW.id,zh:WINDOW.zh,en:WINDOW.en},year,source:'OpenHistoricalMap',endpoint:ENDPOINT,license:'CC0 1.0',attribution:'OpenHistoricalMap contributors',timestamp,bbox:BBOX,adminLevels:LEVELS,generated,gaps,coverage,undrawable,relationCount:features.length},features};
  const json=JSON.stringify(payload),gzipped=zlib.gzipSync(Buffer.from(json,'utf8'),{level:9});
  const file='year-'+year+'.json.gz';
  fs.writeFileSync(path.join(OUT,file),gzipped);
@@ -326,7 +346,7 @@ manifest.years=report.years;
 manifest.totals={relations:manifest.relations.length,excluded:manifest.excluded.length,sourceRelations:allRelations.length,features:Object.values(report.years).reduce((sum,y)=>sum+y.features,0)};
 fs.writeFileSync(path.join(OUT,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
 
-const notice=['# OpenHistoricalMap frozen extract — central Europe, years '+YEARS.join(' / '),'',
+const notice=['# OpenHistoricalMap frozen extract — '+WINDOW.en+' ('+WINDOW.zh+'), years '+YEARS.join(' / '),'',
  'One gzipped GeoJSON FeatureCollection per year (year-<year>.json.gz), plus manifest.json with the',
  'per-relation rings, dropped chains, vertex counts and the land-sample coverage verdict.','',
  'Source: OpenHistoricalMap (OHM), queried through the OHM Overpass API on '+timestamp+'.',

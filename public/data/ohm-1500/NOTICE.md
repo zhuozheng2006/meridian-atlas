@@ -1,4 +1,4 @@
-# OpenHistoricalMap frozen extract — central Europe, years 1000 / 1200 / 1300 / 1400 / 1492 / 1500 / 1600 / 1700 / 1800 / 1900
+# OpenHistoricalMap frozen extract — Central Europe (中欧), years 1000 / 1200 / 1300 / 1400 / 1492 / 1500 / 1600 / 1700 / 1800 / 1900
 
 One gzipped GeoJSON FeatureCollection per year (year-<year>.json.gz), plus manifest.json with the
 per-relation rings, dropped chains, vertex counts and the land-sample coverage verdict.

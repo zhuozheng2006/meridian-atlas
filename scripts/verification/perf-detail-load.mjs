@@ -6,7 +6,7 @@
 //   node scripts/verification/perf-detail-load.mjs --device mobile --label round3-mobile --kinds=cold --append
 //   node scripts/verification/perf-detail-load.mjs --compare baseline,round3
 //   node scripts/verification/perf-detail-load.mjs --keepalive-bench --label before-http10 --url http://127.0.0.1:8767
-// Reports: docs/verification-3.12/perf-detail-load-<label>.json, keepalive-bench-<label>.json,
+// Reports: docs/verification-3.13/perf-detail-load-<label>.json, keepalive-bench-<label>.json,
 //          perf-detail-compare-<a>-<b>.json and shots/.
 // Flags: --profiles=a,b --kinds=cold,detail,regional --append --force --quick --url --device mobile
 //
@@ -25,7 +25,7 @@ for (const raw of process.argv.slice(2)) { const m = raw.match(/^--([a-z-]+)=(.*
 const URL_BASE = String(args.url || C.DEFAULT_URL).replace(/\/$/, '');
 const PORT = Number(args.port || 9521);
 const LABEL = String(args.label || 'run');
-const OUT = String(args.out || ('docs/verification-3.12/perf-detail-load-' + LABEL + '.json'));
+const OUT = String(args.out || ('docs/verification-3.13/perf-detail-load-' + LABEL + '.json'));
 const QUICK = !!args.quick;
 const DEVICE = String(args.device || 'desktop'); // desktop | mobile
 const ALL_PROFILES = [
@@ -123,7 +123,7 @@ const groupBy = (list, key) => list.reduce((acc, x) => { const k = key(x) || 'ot
 const sumGroup = (list, re) => { const hit = list.filter(f => re.test(f.full || '')); return { count: hit.length, bytes: hit.reduce((a, f) => a + (f.bytes || 0), 0), lastEndMs: hit.length ? Math.max(...hit.map(f => f.end)) : null }; };
 
 // Task-7 screenshots belong to docs/verification-3.12/, not the 3.10 shot folder.
-const shotPath = name => { const dir = path.join(C.ROOT, 'docs', 'verification-3.12', 'shots'); fs.mkdirSync(dir, { recursive: true }); return path.join(dir, name); };
+const shotPath = name => { const dir = path.join(C.ROOT, 'docs', 'verification-3.13', 'shots'); fs.mkdirSync(dir, { recursive: true }); return path.join(dir, name); };
 async function newSession(name, mobile) {
   const s = guardSession(await launch({ port: await C.pickPort(PORT + (mobile ? 40 : 0)), width: mobile ? 390 : 1400, height: mobile ? 844 : 900, mobile: !!mobile, profile: '/tmp/atlas-detail-' + name + '-' + Date.now() }));
   await s.send('Page.addScriptToEvaluateOnNewDocument', { source: PERF_SETUP });
@@ -232,6 +232,50 @@ async function scenarioDetail(profile, { withZoom = true } = {}) {
     out.connections = conns.size;
     out.requests = netReq.length;
     await screenshot(s, shotPath('detail-' + LABEL + '-detail-' + profile.name + '.png'));
+  } catch (e) { out.fatal = String((e && e.stack) || e).slice(0, 400); }
+  finally { await s.close(); }
+  return out;
+}
+
+// Mid-zoom visit: how many detail bytes does a single zoom to level 3 cost?
+// This is the measurement the fine-layer tiering is judged on.
+async function scenarioZoom3(profile) {
+  const s = await newSession('zoom3-' + profile.name, false);
+  const conns = new Set(); const netReq = [];
+  s.on(m => {
+    if (m.method === 'Network.requestWillBeSent') netReq.push(m.params.request.url);
+    if (m.method === 'Network.responseReceived') conns.add(m.params.response.connectionId);
+  });
+  const out = { profile: profile.name, scenario: 'zoom3-1450' };
+  const physicalBytes = () => evaluate(s, '(window.__perf ? window.__perf.fetches.filter(f => /\\/data\\/physical\\//.test(f.full || "")).reduce((a, f) => a + (f.bytes || 0), 0) : null)');
+  try {
+    await setupThrottle(s, profile);
+    const t0 = Date.now();
+    await C.navigate(s, URL_BASE + '/#year=1450&lang=bi&browse=1&step=10');
+    const ready = await C.waitMapReady(s, 240000);
+    out.firstFrameMs = ready.elapsed;
+    await waitFor(s, '(() => { const a = (window.__meridian.instances || [])[0]; return !!(a && a.geometryKey && a.geometryKey.endsWith("n")); })()', 300000, 200);
+    out.physicalBytesAtFirstFrame = await physicalBytes();
+    const zt = Date.now();
+    await evaluate(s, '(() => { const a = window.__meridian.instances[0]; a.map.jumpTo({ center: [8.2, 46.9], zoom: 3 }); return true; })()');
+    const samples = [];
+    for (let i = 0; i < 200; i++) {
+      const st = await evaluate(s, STATE).catch(() => null);
+      if (!st) break;
+      samples.push({ ms: Date.now() - zt, ...st });
+      const settled = st.lakesStatus !== 'loading' && st.lakesStatus !== 'rendering' && st.sources.polities === true;
+      if (settled && samples.length > 8) break;
+      await sleep(250);
+    }
+    out.zoom3SettleMs = samples.length ? samples[samples.length - 1].ms : null;
+    out.physicalBytesAfterZoom3 = await physicalBytes();
+    out.physicalBytesForZoom3 = out.physicalBytesAfterZoom3 - out.physicalBytesAtFirstFrame;
+    out.stateAfterZoom3 = samples.length ? samples[samples.length - 1] : null;
+    out.zoom3Samples = samples.length;
+    out.physicalFiles = await evaluate(s, '(() => { const m = {}; for (const f of (window.__perf ? window.__perf.fetches : [])) { if (/\\/data\\/physical\\//.test(f.full || "")) { const k = (f.full || "").split("/").slice(-1)[0]; m[k] = (m[k] || 0) + (f.bytes || 0); } } return m; })()');
+    out.requests = netReq.length; out.connections = conns.size;
+    out.collected = await collect(s, t0);
+    await screenshot(s, shotPath('detail-' + LABEL + '-zoom3-' + profile.name + '.png'));
   } catch (e) { out.fatal = String((e && e.stack) || e).slice(0, 400); }
   finally { await s.close(); }
   return out;
@@ -352,24 +396,26 @@ const save = () => {
     nativeReq: r.collected ? r.collected.groups.native.count : null,
     physicalMiB: r.collected ? Number((r.collected.groups.physical.bytes / 1048576).toFixed(2)) : null,
     zoomSettleMs: r.zoom ? r.zoom.map(z => z.settleMs) : null,
+    physicalBytesForZoom3: r.physicalBytesForZoom3 === undefined ? null : r.physicalBytesForZoom3,
+    zoom3SettleMs: r.zoom3SettleMs === undefined ? null : r.zoom3SettleMs,
     fatal: r.fatal || null
   }));
   return C.writeJSON(OUT, report);
 };
-const scenarioRunners = { cold: p => scenarioCold(p, DEVICE === 'mobile'), detail: p => scenarioDetail(p), regional: p => scenarioRegional(p) };
+const scenarioRunners = { cold: p => scenarioCold(p, DEVICE === 'mobile'), detail: p => scenarioDetail(p), regional: p => scenarioRegional(p), zoom3: p => scenarioZoom3(p) };
 for (const p of PROFILES) {
-  const kinds = args.kinds ? String(args.kinds).split(',') : ['cold', 'detail', 'regional'];
+  const kinds = args.kinds ? String(args.kinds).split(',') : ['cold', 'detail', 'regional']; // also: zoom3
   for (const kind of kinds) {
     if (kind === 'regional' && QUICK && !args.regional) continue;
     const id = kind + '/' + p.name;
-    const fullKey = (kind === 'cold' ? 'cold-1500/' : kind === 'detail' ? 'detail-1450/' : 'regional-ohm-1500/') + p.name;
+    const fullKey = (kind === 'cold' ? 'cold-1500/' : kind === 'detail' ? 'detail-1450/' : kind === 'zoom3' ? 'zoom3-1450/' : 'regional-ohm-1500/') + p.name;
     if (!args.force && report.runs.some(r => (r.scenario + '/' + r.profile) === fullKey)) { C.log('skip (already measured)', id); continue; }
     if (args.force) report.runs = report.runs.filter(r => (r.scenario + '/' + r.profile) !== fullKey);
     for (let attempt = 0; attempt < 2; attempt++) {
       C.log(kind, p.name, attempt ? '(retry)' : '');
       let run;
       try { run = await withTimeout(scenarioRunners[kind](p), 600000, id + ' attempt ' + attempt); }
-      catch (e) { run = { profile: p.name, scenario: kind === 'cold' ? 'cold-1500' : kind === 'detail' ? 'detail-1450' : 'regional-ohm-1500', fatal: String((e && e.message) || e) }; }
+      catch (e) { run = { profile: p.name, scenario: kind === 'cold' ? 'cold-1500' : kind === 'detail' ? 'detail-1450' : kind === 'zoom3' ? 'zoom3-1450' : 'regional-ohm-1500', fatal: String((e && e.message) || e) }; }
       if (!run.fatal) { report.runs.push(run); save(); C.log('done', id, 'firstFrameMs', run.firstFrameMs, 'nativeCompleteMs', run.nativeCompleteMs); break; }
       C.log('failed', id, String(run.fatal).slice(0, 160));
       if (attempt === 1) { report.runs.push(run); save(); }
