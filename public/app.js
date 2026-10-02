@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-3d8b0212d2ef';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-3d8b0212d2ef';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-3d8b0212d2ef';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-3d8b0212d2ef';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-3d8b0212d2ef';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-3d8b0212d2ef';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-3d8b0212d2ef';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-3d8b0212d2ef';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-3d8b0212d2ef';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-3d8b0212d2ef';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-0bbbc41cb2ad';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-0bbbc41cb2ad';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-0bbbc41cb2ad';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-0bbbc41cb2ad';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-0bbbc41cb2ad';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-0bbbc41cb2ad';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-0bbbc41cb2ad';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-0bbbc41cb2ad';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-0bbbc41cb2ad';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-0bbbc41cb2ad';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -60,7 +60,7 @@ function renderYear(){const era=currentEra();$('#bigYear').textContent=yr(state.
  $('#prevYear').disabled=state.year<=-70000;$('#nextYear').disabled=state.year>=2026;$('#nearBtn').classList.toggle('active',!state.allTime);$('#allBtn').classList.toggle('active',state.allTime);$('#window').disabled=state.allTime;
  renderRegionalStatus();
  let notice='';if(state.year< -3400)notice=text('史前世界 · 从事件中探索人类早期的足迹。疆域档案始于公元前3400年。','Prehistoric worlds · Explore the earliest human stories through events. Territory records begin in 3400 BCE.');if(state.year>2024)notice=text('疆域档案更新至2024年。选择2024年可查看最近一期地图。','The territory archive extends to 2024. Select 2024 to view the latest map.');$('#mapNotice').hidden=!notice;$('#mapNotice').textContent=notice;saveURL();}
-function renderEvents(){renderPlaceSearch();searchPlaces.token=searchPlaces.token||0;const list=filteredEvents().sort((a,b)=>state.allTime?a.start-b.start:Math.abs(a.start-state.year)-Math.abs(b.start-state.year)||a.start-b.start);$('#resultCount').textContent=`${list.length} ${text('项','events')}`;let polityHTML='';if(state.search.trim().length>1&&catalog){const q=state.search.toLowerCase();const seen=new Set();const matches=catalog.records.filter(r=>{const n=[r.name,r.enName,r.zhName].join(' ').toLowerCase();if(r.type!=='POLITY'||!n.includes(q)||seen.has(r.name))return false;seen.add(r.name);return true;}).slice(0,12);if(matches.length)polityHTML=`<div class="polity-results"><div class="result-heading">${text('政体检索 · 点击跳转','Polities · Click to explore')}</div>${matches.map(r=>`<button class="polity-result" data-polity="${r.id}">${escape(polityName(r,state.lang))}<small class="secondary">${escape(r.name)}</small></button>`).join('')}</div>`;}
+function renderEvents(){renderPlaceSearch();searchPlaces.token=searchPlaces.token||0;const query=state.search.trim().toLowerCase();const titleHit=e=>{const zh=String(e.title?.zh||'').toLowerCase(),en=String(e.title?.en||'').toLowerCase();return zh===query||en===query?0:zh.startsWith(query)||en.startsWith(query)?1:zh.includes(query)||en.includes(query)?2:3;};const list=filteredEvents().sort((a,b)=>(query?titleHit(a)-titleHit(b):0)||(state.allTime?a.start-b.start:Math.abs(a.start-state.year)-Math.abs(b.start-state.year)||a.start-b.start));$('#resultCount').textContent=`${list.length} ${text('项','events')}`;let polityHTML='';if(state.search.trim().length>1&&catalog){const q=state.search.toLowerCase();const seen=new Set();const matches=catalog.records.filter(r=>{const n=[r.name,r.enName,r.zhName].join(' ').toLowerCase();if(r.type!=='POLITY'||!n.includes(q)||seen.has(r.name))return false;seen.add(r.name);return true;}).slice(0,12);if(matches.length)polityHTML=`<div class="polity-results"><div class="result-heading">${text('政体检索 · 点击跳转','Polities · Click to explore')}</div>${matches.map(r=>`<button class="polity-result" data-polity="${r.id}">${escape(polityName(r,state.lang))}<small class="secondary">${escape(r.name)}</small></button>`).join('')}</div>`;}
   // Places join the same search field as events and polities. Results are keyed by a
  // token so a slow archive load cannot overwrite a newer query.
  const placeToken=++searchPlaces.token;
