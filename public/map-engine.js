@@ -1,7 +1,7 @@
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.3.0-321a12f73566';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.3.0-321a12f73566';
-import {Geography} from './geography.js?v=3.3.0-321a12f73566';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=3.3.0-321a12f73566';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.4.0-87749ce3b390';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.4.0-87749ce3b390';
+import {Geography} from './geography.js?v=3.4.0-87749ce3b390';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=3.4.0-87749ce3b390';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;

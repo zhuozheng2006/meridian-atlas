@@ -1,6 +1,6 @@
-import {simplifiedChinese} from './simplified-chinese.js?v=3.3.0-321a12f73566';
-import {historicalYearRange} from './historical-dates.js?v=3.3.0-321a12f73566';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.3.0-321a12f73566';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.4.0-87749ce3b390';
+import {historicalYearRange} from './historical-dates.js?v=3.4.0-87749ce3b390';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.4.0-87749ce3b390';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;

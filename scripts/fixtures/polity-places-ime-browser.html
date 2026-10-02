@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>Polity place input verification</title><div id="detailPanel"></div><pre id="result">Checking Chinese composition…</pre><script type="module">
+import {PolityReader} from './polity-reader.js';
+const results=[],check=(name,test)=>{if(!test)throw Error(name);results.push({name,passed:true});};
+try{
+const r={id:'test',name:'Roman Empire',zhName:'罗马帝国',start:-27,end:395,area:1,type:'POLITY'},p={id:'rome',name:'Rome',nameZh:'罗马',kind:'dated-capital',source:'wikidata-capitals',period:[-27,395],coordinates:[12,42]};
+const reader=new PolityReader({language:()=> 'bi',catalog:()=>({records:[r],metadata:{}}),events:()=>[],close(){},share(){},openPlace(){}});
+Object.assign(reader,{record:r,whichMap:{year:100},chain:[r],tab:'cities',loadErrors:[],placeData:{year:100,places:[p],counts:{capitals:1,settlements:0,observations:0}}});reader.render();
+let input=document.querySelector('#polityPlaceSearch');input.focus();input.dispatchEvent(new CompositionEvent('compositionstart',{bubbles:true,data:''}));input.value='luo';input.dispatchEvent(new InputEvent('input',{bubbles:true,data:'luo',isComposing:true,inputType:'insertCompositionText'}));
+check('Composition input keeps the live editor',document.querySelector('#polityPlaceSearch')===input&&input.value==='luo');
+reader.loading=false;reader.detail=r;reader.render();check('Background dossier completion defers rendering during composition',document.querySelector('#polityPlaceSearch')===input&&document.activeElement===input);
+input.value='罗马';input.setSelectionRange(2,2);input.dispatchEvent(new CompositionEvent('compositionend',{bubbles:true,data:'罗马'}));
+const next=document.querySelector('#polityPlaceSearch');check('Committed Chinese text filters and retains caret',next!==input&&next.value==='罗马'&&next.selectionStart===2&&document.activeElement===next&&document.querySelectorAll('[data-dossier-place]').length===1);
+input.value='late event';input.dispatchEvent(new CompositionEvent('compositionend',{bubbles:true,data:'late event'}));check('Detached editor cannot overwrite a later query',document.querySelector('#polityPlaceSearch')===next&&reader.placeQuery==='罗马');
+next.value='';next.dispatchEvent(new InputEvent('input',{bubbles:true,inputType:'deleteContentBackward'}));check('Normal input still updates after composition',reader.placeQuery===''&&document.querySelectorAll('[data-dossier-place]').length===1);
+document.querySelector('#result').textContent=JSON.stringify({status:'passed',results},null,2);
+}catch(e){document.querySelector('#result').textContent=JSON.stringify({status:'failed',error:String(e),results},null,2)}
+</script>
