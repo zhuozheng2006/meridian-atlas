@@ -1,5 +1,5 @@
-import {LakeLayer} from './lakes.js?v=3.9.4-e92afe04dc8c';
-import {readJSON,EMPTY} from './map-engine.js?v=3.9.4-e92afe04dc8c';
+import {LakeLayer} from './lakes.js?v=3.9.4-3392a69da753';
+import {readJSON,EMPTY} from './map-engine.js?v=3.9.4-3392a69da753';
 
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.
@@ -9,7 +9,9 @@ export class Geography {
  async init(){
   const map=this.map;
   map.addSource('relief',{type:'raster',tiles:[new URL('data/physical/relief/{z}/{x}/{y}.webp',location.href).href.replaceAll('%7B','{').replaceAll('%7D','}')],tileSize:512,minzoom:0,maxzoom:4,attribution:'Natural Earth · Public domain'});
-  map.addLayer({id:'relief',type:'raster',source:'relief',paint:{'raster-opacity':.82,'raster-fade-duration':160}},'boundary');
+  // Shaded relief is the base the historical claim is drawn onto: it belongs
+  // under the political fills, otherwise it mutes every territory and border.
+  map.addLayer({id:'relief',type:'raster',source:'relief',paint:{'raster-opacity':.82,'raster-fade-duration':160}},'territories');
   for(const name of ['rivers','lakes'])map.addSource('physical-'+name,{type:'geojson',data:EMPTY,tolerance:.05});
   map.addLayer({id:'physical-lakes',type:'fill',source:'physical-lakes',filter:['==','artificial',false],paint:{'fill-color':'#40738a','fill-opacity':['interpolate',['linear'],['zoom'],1,.25,3,.8]}},'boundary');
   map.addLayer({id:'physical-rivers',type:'line',source:'physical-rivers',filter:['all',['==','artificial',false],['!=','kind','Lake Centerline']],layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#3d7388','line-opacity':['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85],'line-width':['interpolate',['linear'],['zoom'],1,.12,4,.5,8,1.25]}},'boundary');
@@ -77,7 +79,7 @@ export class Geography {
   if(this.map.getZoom()<5||!this.enabled||this.failed.has('terrain-dem'))return;
   if(!this.map.getSource('terrain-dem')){
    this.map.addSource('terrain-dem',{type:'raster-dem',tiles:['https://tiles.mapterhorn.com/{z}/{x}/{y}.webp'],tileSize:512,minzoom:5,maxzoom:12,encoding:'terrarium',attribution:'<a href="https://mapterhorn.com/attribution/" target="_blank" rel="noopener">Mapterhorn · Terrain sources</a>'});
-   this.map.addLayer({id:'terrain-shade',type:'hillshade',source:'terrain-dem',minzoom:5,paint:{'hillshade-exaggeration':.5,'hillshade-shadow-color':'#33392f','hillshade-highlight-color':'#f7eac5','hillshade-accent-color':'#97866b','hillshade-illumination-direction':315,'hillshade-illumination-anchor':'map'}},'physical-lakes');
+   this.map.addLayer({id:'terrain-shade',type:'hillshade',source:'terrain-dem',minzoom:5,paint:{'hillshade-exaggeration':.5,'hillshade-shadow-color':'#33392f','hillshade-highlight-color':'#f7eac5','hillshade-accent-color':'#97866b','hillshade-illumination-direction':315,'hillshade-illumination-anchor':'map'}},'territories');
   }
  }
  toggle(v){this.enabled=v;for(const id of ['relief','terrain-shade','physical-lakes','physical-rivers'])if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',v&&!(id==='terrain-shade'&&this.failed.has('terrain-dem'))?'visible':'none');if(v){this.loadLocal();this.detail();this.reconcileRemote();}this.referenceVisibility(this.reference);this.lakes?.update();this.atlas.regional?.halc?.landscape?.update();this.syncStatus();}

@@ -1,0 +1,1633 @@
+{
+ "auditedUtc": "2026-10-02T18:54:08.263Z",
+ "question": "Which stage loses the detail the user reported at 1500: the source dataset, the build-time simplification, or the renderer?",
+ "pipeline": [
+  {
+   "stage": "source",
+   "detail": "Cliopatria polys only, fixed commit ad28a691. public/data/native keeps it byte-faithful: simplification=false, coordinateQuantization=false, coordinateRounding=false, repairs=false.",
+   "evidence": "public/data/native/manifest.json"
+  },
+  {
+   "stage": "native bootstrap",
+   "detail": "data/native/year-<Y>.json.gz is served for -3400, -221, 1, 500, 1000, 1492, 1500, 1750, 1914, 1945, 1991, 2024. At these years the map paints the untouched source geometry.",
+   "evidence": "public/native-geometry.js"
+  },
+  {
+   "stage": "display derivative",
+   "detail": "public/data/geometries-*.json.gz applies simplify(0.02 deg, preserve_topology) once at build time and rounds to 4 decimals (~11 m).",
+   "evidence": "scripts/build_fast_assets.py"
+  },
+  {
+   "stage": "overview snapshot",
+   "detail": "public/data/fast/overview-*.json.gz applies a further simplify(0.04 deg). Served first for years without a native bootstrap, then upgraded to the display derivative on moveend.",
+   "evidence": "scripts/build_fast_assets.py + public/map-engine.js upgradeDetail"
+  },
+  {
+   "stage": "renderer",
+   "detail": "The polities geojson source is created with tolerance:0, so MapLibre adds no extra simplification. Boundary lines are drawn from the same coordinates. \"Border curves\" is a reversible corner-rounding portrayal with a cut of 0.02-4 km that keeps every original vertex as a control point; it re-derives lines from the displayed geometry and never replaces source geometry.",
+   "evidence": "public/map-engine.js, public/border-curves.js"
+  }
+ ],
+ "reportedViews": [
+  {
+   "label": "user-reported 1500 view",
+   "id": "clio-07350",
+   "name": "Duchy of Bavaria",
+   "start": 1459,
+   "end": 1506,
+   "areaKm2": 36100.41615771284,
+   "geometryId": "g05872",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 55,
+    "segments": 54,
+    "axisAlignedSegments": 11,
+    "medianSegmentKm": 18.985469747462016,
+    "maxSegmentKm": 66.28410069418496,
+    "bbox": [
+     10.027185440063477,
+     47.26897048950195,
+     13.847192764282227,
+     49.2500114440918
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 53,
+    "segments": 52,
+    "axisAlignedSegments": 10,
+    "medianSegmentKm": 19.027891228026448,
+    "maxSegmentKm": 66.2723546686229,
+    "maxDeviationFromSourceKm": 0.9057
+   },
+   "overviewSnapshot": {
+    "vertices": 52,
+    "segments": 51,
+    "axisAlignedSegments": 9,
+    "medianSegmentKm": 19.023138379280315,
+    "maxSegmentKm": 66.27054550319845,
+    "maxDeviationFromSourceKm": 3.1468
+   }
+  },
+  {
+   "label": "user-reported 1500 view",
+   "id": "clio-07639",
+   "name": "Swiss Confederation",
+   "start": 1497,
+   "end": 1501,
+   "areaKm2": 22745.37907362302,
+   "geometryId": "g06218",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 68,
+    "segments": 65,
+    "axisAlignedSegments": 20,
+    "medianSegmentKm": 14.61853493189137,
+    "maxSegmentKm": 54.099162722568586,
+    "bbox": [
+     6.670964241027832,
+     45.889827728271484,
+     9.624298095703125,
+     47.730003356933594
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 60,
+    "segments": 57,
+    "axisAlignedSegments": 16,
+    "medianSegmentKm": 19.394171149197607,
+    "maxSegmentKm": 54.12539736270126,
+    "maxDeviationFromSourceKm": 1.5293
+   },
+   "overviewSnapshot": {
+    "vertices": 56,
+    "segments": 53,
+    "axisAlignedSegments": 13,
+    "medianSegmentKm": 20.256289467991046,
+    "maxSegmentKm": 65.71198544047974,
+    "maxDeviationFromSourceKm": 4.1523
+   }
+  },
+  {
+   "label": "user-reported 1500 view",
+   "id": "clio-07666",
+   "name": "Duchy of Lorraine",
+   "start": 1497,
+   "end": 1501,
+   "areaKm2": 17186.359382150273,
+   "geometryId": "g06241",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 102,
+    "segments": 95,
+    "axisAlignedSegments": 32,
+    "medianSegmentKm": 14.13912232250885,
+    "maxSegmentKm": 66.7743553983141,
+    "bbox": [
+     4.865273475646973,
+     47.86185836791992,
+     7.529807567596436,
+     49.58156967163086
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 89,
+    "segments": 82,
+    "axisAlignedSegments": 22,
+    "medianSegmentKm": 14.746626388035894,
+    "maxSegmentKm": 67.0413198984149,
+    "maxDeviationFromSourceKm": 1.7533
+   },
+   "overviewSnapshot": {
+    "vertices": 80,
+    "segments": 73,
+    "axisAlignedSegments": 16,
+    "medianSegmentKm": 16.089604039333786,
+    "maxSegmentKm": 67.00257533979244,
+    "maxDeviationFromSourceKm": 4.272
+   }
+  }
+ ],
+ "crossEraSample": [
+  {
+   "label": "cross-era sample",
+   "id": "clio-00004",
+   "name": "Early Dynastic Period of Egypt",
+   "start": -3000,
+   "end": -2701,
+   "areaKm2": 93286.0629244843,
+   "geometryId": "g00004",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 61,
+    "segments": 60,
+    "axisAlignedSegments": 0,
+    "medianSegmentKm": 41.34357508883891,
+    "maxSegmentKm": 166.92335735668294,
+    "bbox": [
+     29.497160077412527,
+     23.995802001554413,
+     33.1323302880233,
+     31.601398909376332
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 60,
+    "segments": 59,
+    "axisAlignedSegments": 0,
+    "medianSegmentKm": 41.34735401651611,
+    "maxSegmentKm": 166.92597427788826,
+    "maxDeviationFromSourceKm": 0.0586
+   },
+   "overviewSnapshot": {
+    "vertices": 60,
+    "segments": 59,
+    "axisAlignedSegments": 0,
+    "medianSegmentKm": 41.347076985547574,
+    "maxSegmentKm": 166.92891956379395,
+    "maxDeviationFromSourceKm": 0.0589
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00003",
+   "name": "Sumerian City-States",
+   "start": -3000,
+   "end": -2701,
+   "areaKm2": 45289.54883803891,
+   "geometryId": "g00003",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 32,
+    "segments": 31,
+    "axisAlignedSegments": 6,
+    "medianSegmentKm": 35.88857746014732,
+    "maxSegmentKm": 153.95942989131046,
+    "bbox": [
+     44.16355895996094,
+     30.307893753051758,
+     47.29846954345703,
+     33.45735549926758
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 32,
+    "segments": 31,
+    "axisAlignedSegments": 6,
+    "medianSegmentKm": 35.88800262331693,
+    "maxSegmentKm": 153.95953226172986,
+    "maxDeviationFromSourceKm": 0.0007
+   },
+   "overviewSnapshot": {
+    "vertices": 31,
+    "segments": 30,
+    "axisAlignedSegments": 6,
+    "medianSegmentKm": 37.38989470472284,
+    "maxSegmentKm": 153.94923454420453,
+    "maxDeviationFromSourceKm": 3.3379
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00005",
+   "name": "Indus Valley Civilization",
+   "start": -3000,
+   "end": -2701,
+   "areaKm2": 4997.632390870805,
+   "geometryId": "g00005",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 13,
+    "segments": 12,
+    "axisAlignedSegments": 4,
+    "medianSegmentKm": 29.82895060321599,
+    "maxSegmentKm": 34.719273374460535,
+    "bbox": [
+     67.93557739257812,
+     26.515121459960938,
+     68.87496948242188,
+     27.2866268157959
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 13,
+    "segments": 12,
+    "axisAlignedSegments": 4,
+    "medianSegmentKm": 29.82948074028263,
+    "maxSegmentKm": 34.7195343094151,
+    "maxDeviationFromSourceKm": 0.0007
+   },
+   "overviewSnapshot": {
+    "vertices": 13,
+    "segments": 12,
+    "axisAlignedSegments": 4,
+    "medianSegmentKm": 29.82551376845871,
+    "maxSegmentKm": 34.72135292525018,
+    "maxDeviationFromSourceKm": 0.0054
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00002",
+   "name": "Elam",
+   "start": -3200,
+   "end": -2701,
+   "areaKm2": 4927.8478131011,
+   "geometryId": "g00002",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 14,
+    "segments": 13,
+    "axisAlignedSegments": 5,
+    "medianSegmentKm": 28.76888911302147,
+    "maxSegmentKm": 33.61104727059987,
+    "bbox": [
+     47.94719314575195,
+     31.78606605529785,
+     48.89824676513672,
+     32.557350158691406
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 14,
+    "segments": 13,
+    "axisAlignedSegments": 5,
+    "medianSegmentKm": 28.76834178954825,
+    "maxSegmentKm": 33.611024193237334,
+    "maxDeviationFromSourceKm": 0.0006
+   },
+   "overviewSnapshot": {
+    "vertices": 14,
+    "segments": 13,
+    "axisAlignedSegments": 5,
+    "medianSegmentKm": 28.769868902590897,
+    "maxSegmentKm": 33.609586406325725,
+    "maxDeviationFromSourceKm": 0.0072
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00111",
+   "name": "Zhou Dynasty",
+   "start": -1000,
+   "end": -801,
+   "areaKm2": 699623.2872120326,
+   "geometryId": "g00092",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 135,
+    "segments": 134,
+    "axisAlignedSegments": 21,
+    "medianSegmentKm": 27.329980305922227,
+    "maxSegmentKm": 223.44421841003611,
+    "bbox": [
+     106.9844741821289,
+     31.079113006591797,
+     122.71288299560547,
+     40.29063034057617
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 134,
+    "segments": 133,
+    "axisAlignedSegments": 21,
+    "medianSegmentKm": 27.345015923656955,
+    "maxSegmentKm": 223.51712598854238,
+    "maxDeviationFromSourceKm": 0.0146
+   },
+   "overviewSnapshot": {
+    "vertices": 132,
+    "segments": 131,
+    "axisAlignedSegments": 19,
+    "medianSegmentKm": 27.44625423216677,
+    "maxSegmentKm": 223.5507466395,
+    "maxDeviationFromSourceKm": 3.6985
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00113",
+   "name": "New Kingdom of Egypt",
+   "start": -1000,
+   "end": -901,
+   "areaKm2": 340593.22038589965,
+   "geometryId": "g00094",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 70,
+    "segments": 69,
+    "axisAlignedSegments": 14,
+    "medianSegmentKm": 25.8301156417112,
+    "maxSegmentKm": 164.42615849082654,
+    "bbox": [
+     28.248868942260742,
+     23.36486053466797,
+     33.46641540527344,
+     31.65752601623535
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 70,
+    "segments": 69,
+    "axisAlignedSegments": 14,
+    "medianSegmentKm": 25.830363991571048,
+    "maxSegmentKm": 164.4264019093641,
+    "maxDeviationFromSourceKm": 0.0006
+   },
+   "overviewSnapshot": {
+    "vertices": 68,
+    "segments": 67,
+    "axisAlignedSegments": 12,
+    "medianSegmentKm": 29.128209254280744,
+    "maxSegmentKm": 164.4352937305216,
+    "maxDeviationFromSourceKm": 3.2989
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00120",
+   "name": "Kingdom of Kush",
+   "start": -1000,
+   "end": -801,
+   "areaKm2": 336378.97179939743,
+   "geometryId": "g00101",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 52,
+    "segments": 51,
+    "axisAlignedSegments": 10,
+    "medianSegmentKm": 43.910996828658625,
+    "maxSegmentKm": 301.56512292143293,
+    "bbox": [
+     30.534862518310547,
+     15.200387001037598,
+     36.05393600463867,
+     23.814878463745117
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 50,
+    "segments": 49,
+    "axisAlignedSegments": 9,
+    "medianSegmentKm": 46.371116790898206,
+    "maxSegmentKm": 301.5673503428082,
+    "maxDeviationFromSourceKm": 0.7093
+   },
+   "overviewSnapshot": {
+    "vertices": 49,
+    "segments": 48,
+    "axisAlignedSegments": 9,
+    "medianSegmentKm": 46.58925632661897,
+    "maxSegmentKm": 301.5723727160035,
+    "maxDeviationFromSourceKm": 2.7449
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-00115",
+   "name": "Greek Dark Ages",
+   "start": -1000,
+   "end": -901,
+   "areaKm2": 60722.01303110502,
+   "geometryId": "g00096",
+   "sourceShard": "geometries-000.json",
+   "source": {
+    "vertices": 135,
+    "segments": 126,
+    "axisAlignedSegments": 35,
+    "medianSegmentKm": 23.030409485409898,
+    "maxSegmentKm": 123.05906754918053,
+    "bbox": [
+     21.243581771850586,
+     34.55062484741211,
+     34.542076110839844,
+     40.0964469909668
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 130,
+    "segments": 121,
+    "axisAlignedSegments": 30,
+    "medianSegmentKm": 24.59404569472433,
+    "maxSegmentKm": 122.97348595372365,
+    "maxDeviationFromSourceKm": 2.0453
+   },
+   "overviewSnapshot": {
+    "vertices": 129,
+    "segments": 120,
+    "axisAlignedSegments": 29,
+    "medianSegmentKm": 24.66297938501611,
+    "maxSegmentKm": 122.96515508338565,
+    "maxDeviationFromSourceKm": 2.3
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01065",
+   "name": "Han Dynasty",
+   "start": -36,
+   "end": 5,
+   "areaKm2": 4465320.938997095,
+   "geometryId": "g00925",
+   "sourceShard": "geometries-001.json",
+   "source": {
+    "vertices": 551,
+    "segments": 547,
+    "axisAlignedSegments": 103,
+    "medianSegmentKm": 28.853752024277775,
+    "maxSegmentKm": 451.15450295661645,
+    "bbox": [
+     72.998046875,
+     16.9361629486084,
+     127.098876953125,
+     42.75628662109375
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 547,
+    "segments": 543,
+    "axisAlignedSegments": 101,
+    "medianSegmentKm": 28.885681176738764,
+    "maxSegmentKm": 451.3000440804464,
+    "maxDeviationFromSourceKm": 1.8477
+   },
+   "overviewSnapshot": {
+    "vertices": 543,
+    "segments": 539,
+    "axisAlignedSegments": 101,
+    "medianSegmentKm": 28.909893043360718,
+    "maxSegmentKm": 451.1696022633214,
+    "maxDeviationFromSourceKm": 4.1009
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01111",
+   "name": "Roman Empire",
+   "start": 1,
+   "end": 5,
+   "areaKm2": 3550372.1782314517,
+   "geometryId": "g00960",
+   "sourceShard": "geometries-001.json",
+   "source": {
+    "vertices": 1230,
+    "segments": 1201,
+    "axisAlignedSegments": 252,
+    "medianSegmentKm": 26.479256159531527,
+    "maxSegmentKm": 185.63073086735642,
+    "bbox": [
+     -9.571974754333496,
+     23.36486053466797,
+     40.549720764160156,
+     53.52959060668945
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 1207,
+    "segments": 1178,
+    "axisAlignedSegments": 232,
+    "medianSegmentKm": 27.245711526478527,
+    "maxSegmentKm": 185.59513312594052,
+    "maxDeviationFromSourceKm": 2.045
+   },
+   "overviewSnapshot": {
+    "vertices": 1193,
+    "segments": 1164,
+    "axisAlignedSegments": 222,
+    "medianSegmentKm": 27.719294070469797,
+    "maxSegmentKm": 185.458352406245,
+    "maxDeviationFromSourceKm": 4.0781
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01108",
+   "name": "Parthian Empire",
+   "start": 1,
+   "end": 42,
+   "areaKm2": 2702797.085745107,
+   "geometryId": "g00958",
+   "sourceShard": "geometries-001.json",
+   "source": {
+    "vertices": 357,
+    "segments": 354,
+    "axisAlignedSegments": 59,
+    "medianSegmentKm": 33.97458184892447,
+    "maxSegmentKm": 332.02031200178243,
+    "bbox": [
+     39.497074127197266,
+     22.914846420288086,
+     67.50210571289062,
+     40.873565673828125
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 350,
+    "segments": 347,
+    "axisAlignedSegments": 58,
+    "medianSegmentKm": 34.3319954584045,
+    "maxSegmentKm": 332.0222346826581,
+    "maxDeviationFromSourceKm": 1.01
+   },
+   "overviewSnapshot": {
+    "vertices": 346,
+    "segments": 343,
+    "axisAlignedSegments": 55,
+    "medianSegmentKm": 34.42444789514326,
+    "maxSegmentKm": 332.0163157280513,
+    "maxDeviationFromSourceKm": 3.8547
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01061",
+   "name": "Xiongnu",
+   "start": -40,
+   "end": 5,
+   "areaKm2": 2403942.7908379575,
+   "geometryId": "g00921",
+   "sourceShard": "geometries-001.json",
+   "source": {
+    "vertices": 224,
+    "segments": 221,
+    "axisAlignedSegments": 50,
+    "medianSegmentKm": 19.652635898795666,
+    "maxSegmentKm": 451.9438651143398,
+    "bbox": [
+     77.71977996826172,
+     38.60969924926758,
+     115.05366516113281,
+     52.250450134277344
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 223,
+    "segments": 220,
+    "axisAlignedSegments": 49,
+    "medianSegmentKm": 19.82858098540051,
+    "maxSegmentKm": 451.96728682132095,
+    "maxDeviationFromSourceKm": 0.5069
+   },
+   "overviewSnapshot": {
+    "vertices": 222,
+    "segments": 219,
+    "axisAlignedSegments": 49,
+    "medianSegmentKm": 19.81962205727898,
+    "maxSegmentKm": 451.79906593113407,
+    "maxDeviationFromSourceKm": 3.3886
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01892",
+   "name": "Rouran Khaganate",
+   "start": 480,
+   "end": 533,
+   "areaKm2": 3852569.9705467517,
+   "geometryId": "g01592",
+   "sourceShard": "geometries-003.json",
+   "source": {
+    "vertices": 242,
+    "segments": 240,
+    "axisAlignedSegments": 50,
+    "medianSegmentKm": 24.94049078606364,
+    "maxSegmentKm": 234.65570681642296,
+    "bbox": [
+     77.93187713623047,
+     37.44829177856445,
+     125.05272674560547,
+     52.99003219604492
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 242,
+    "segments": 240,
+    "axisAlignedSegments": 50,
+    "medianSegmentKm": 24.94029008567678,
+    "maxSegmentKm": 234.65527228427186,
+    "maxDeviationFromSourceKm": 0.0007
+   },
+   "overviewSnapshot": {
+    "vertices": 239,
+    "segments": 237,
+    "axisAlignedSegments": 48,
+    "medianSegmentKm": 25.057642064421373,
+    "maxSegmentKm": 234.65806046440306,
+    "maxDeviationFromSourceKm": 3.9651
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01909",
+   "name": "White Huns",
+   "start": 490,
+   "end": 522,
+   "areaKm2": 3300387.7930988763,
+   "geometryId": "g01605",
+   "sourceShard": "geometries-003.json",
+   "source": {
+    "vertices": 231,
+    "segments": 229,
+    "axisAlignedSegments": 42,
+    "medianSegmentKm": 31.465162213262964,
+    "maxSegmentKm": 242.38308391280754,
+    "bbox": [
+     52.71352767944336,
+     23.36486053466797,
+     80.02848815917969,
+     45.300437927246094
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 226,
+    "segments": 224,
+    "axisAlignedSegments": 40,
+    "medianSegmentKm": 32.332407471694076,
+    "maxSegmentKm": 242.35954414257543,
+    "maxDeviationFromSourceKm": 1.6746
+   },
+   "overviewSnapshot": {
+    "vertices": 223,
+    "segments": 221,
+    "axisAlignedSegments": 38,
+    "medianSegmentKm": 32.69857759911767,
+    "maxSegmentKm": 242.35320745821534,
+    "maxDeviationFromSourceKm": 3.7421
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01928",
+   "name": "Southern Qi",
+   "start": 500,
+   "end": 509,
+   "areaKm2": 2361417.2593314014,
+   "geometryId": "g01504",
+   "sourceShard": "geometries-003.json",
+   "source": {
+    "vertices": 273,
+    "segments": 270,
+    "axisAlignedSegments": 54,
+    "medianSegmentKm": 29.4983663197281,
+    "maxSegmentKm": 198.12076348454104,
+    "bbox": [
+     100.88105010986328,
+     16.9361629486084,
+     122.27982330322266,
+     34.80794906616211
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 270,
+    "segments": 267,
+    "axisAlignedSegments": 53,
+    "medianSegmentKm": 29.574342844936893,
+    "maxSegmentKm": 205.587914561118,
+    "maxDeviationFromSourceKm": 2.1886
+   },
+   "overviewSnapshot": {
+    "vertices": 270,
+    "segments": 267,
+    "axisAlignedSegments": 53,
+    "medianSegmentKm": 29.568775676052027,
+    "maxSegmentKm": 205.5965984192215,
+    "maxDeviationFromSourceKm": 2.1928
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-01900",
+   "name": "Sasanian Empire",
+   "start": 490,
+   "end": 509,
+   "areaKm2": 2154742.778662121,
+   "geometryId": "g01598",
+   "sourceShard": "geometries-003.json",
+   "source": {
+    "vertices": 359,
+    "segments": 351,
+    "axisAlignedSegments": 63,
+    "medianSegmentKm": 29.098423406364244,
+    "maxSegmentKm": 229.0692956368995,
+    "bbox": [
+     40.10289764404297,
+     22.914846420288086,
+     63.52873229980469,
+     41.586883544921875
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 353,
+    "segments": 345,
+    "axisAlignedSegments": 61,
+    "medianSegmentKm": 29.531805862523242,
+    "maxSegmentKm": 229.09924792866724,
+    "maxDeviationFromSourceKm": 1.7787
+   },
+   "overviewSnapshot": {
+    "vertices": 352,
+    "segments": 344,
+    "axisAlignedSegments": 60,
+    "medianSegmentKm": 29.590128946444416,
+    "maxSegmentKm": 229.14804075838376,
+    "maxDeviationFromSourceKm": 3.6423
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-04035",
+   "name": "Northern Song",
+   "start": 990,
+   "end": 1017,
+   "areaKm2": 2764372.207048415,
+   "geometryId": "g03286",
+   "sourceShard": "geometries-006.json",
+   "source": {
+    "vertices": 315,
+    "segments": 312,
+    "axisAlignedSegments": 58,
+    "medianSegmentKm": 29.17176070429815,
+    "maxSegmentKm": 304.0305868730016,
+    "bbox": [
+     100.92024230957031,
+     18.2219181060791,
+     122.71288299560547,
+     39.06184005737305
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 311,
+    "segments": 308,
+    "axisAlignedSegments": 56,
+    "medianSegmentKm": 29.45684097165559,
+    "maxSegmentKm": 304.0290074325995,
+    "maxDeviationFromSourceKm": 1.5914
+   },
+   "overviewSnapshot": {
+    "vertices": 305,
+    "segments": 302,
+    "axisAlignedSegments": 54,
+    "medianSegmentKm": 30.231756092632352,
+    "maxSegmentKm": 304.039415613998,
+    "maxDeviationFromSourceKm": 4.3313
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-04097",
+   "name": "Ghaznavid Empire",
+   "start": 1000,
+   "end": 1014,
+   "areaKm2": 2127931.573043427,
+   "geometryId": "g03340",
+   "sourceShard": "geometries-006.json",
+   "source": {
+    "vertices": 181,
+    "segments": 180,
+    "axisAlignedSegments": 31,
+    "medianSegmentKm": 32.709279411594544,
+    "maxSegmentKm": 234.19803975125348,
+    "bbox": [
+     52.69942855834961,
+     24.843517303466797,
+     73.0851678405694,
+     43.6678352355957
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 176,
+    "segments": 175,
+    "axisAlignedSegments": 30,
+    "medianSegmentKm": 35.873423732185586,
+    "maxSegmentKm": 234.19694411932727,
+    "maxDeviationFromSourceKm": 1.3777
+   },
+   "overviewSnapshot": {
+    "vertices": 171,
+    "segments": 170,
+    "axisAlignedSegments": 29,
+    "medianSegmentKm": 36.01607070959165,
+    "maxSegmentKm": 234.19506369758514,
+    "maxDeviationFromSourceKm": 3.7816
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-04039",
+   "name": "Fatimid Caliphate",
+   "start": 990,
+   "end": 1014,
+   "areaKm2": 1946466.6204056893,
+   "geometryId": "g03220",
+   "sourceShard": "geometries-006.json",
+   "source": {
+    "vertices": 412,
+    "segments": 409,
+    "axisAlignedSegments": 65,
+    "medianSegmentKm": 29.951945305644994,
+    "maxSegmentKm": 191.9182068305828,
+    "bbox": [
+     -0.390394359827042,
+     17.514753341674805,
+     44.46821975708008,
+     37.3193473815918
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 410,
+    "segments": 407,
+    "axisAlignedSegments": 64,
+    "medianSegmentKm": 29.994101120031136,
+    "maxSegmentKm": 191.90215879592608,
+    "maxDeviationFromSourceKm": 0.0007
+   },
+   "overviewSnapshot": {
+    "vertices": 406,
+    "segments": 403,
+    "axisAlignedSegments": 62,
+    "medianSegmentKm": 30.033248200432443,
+    "maxSegmentKm": 191.88087090528683,
+    "maxDeviationFromSourceKm": 2.9392
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-04027",
+   "name": "Liao Dynasty",
+   "start": 990,
+   "end": 1039,
+   "areaKm2": 1923984.4077864382,
+   "geometryId": "g03280",
+   "sourceShard": "geometries-006.json",
+   "source": {
+    "vertices": 225,
+    "segments": 223,
+    "axisAlignedSegments": 43,
+    "medianSegmentKm": 25.86816532684599,
+    "maxSegmentKm": 278.8828063051524,
+    "bbox": [
+     99.67115783691406,
+     38.48057174682617,
+     138.42510986328125,
+     48.786521911621094
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 223,
+    "segments": 221,
+    "axisAlignedSegments": 43,
+    "medianSegmentKm": 25.859906397626585,
+    "maxSegmentKm": 278.7027377207922,
+    "maxDeviationFromSourceKm": 0.8353
+   },
+   "overviewSnapshot": {
+    "vertices": 222,
+    "segments": 220,
+    "axisAlignedSegments": 42,
+    "medianSegmentKm": 25.905013418108076,
+    "maxSegmentKm": 278.7233129440628,
+    "maxDeviationFromSourceKm": 3.8378
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-07512",
+   "name": "Mongol Khanate",
+   "start": 1482,
+   "end": 1515,
+   "areaKm2": 4550986.3114177985,
+   "geometryId": "g06114",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 346,
+    "segments": 344,
+    "axisAlignedSegments": 61,
+    "medianSegmentKm": 24.62270160455688,
+    "maxSegmentKm": 248.8224028956156,
+    "bbox": [
+     81.27923583984375,
+     33.77885055541992,
+     126.13313293457031,
+     55.83982467651367
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 343,
+    "segments": 341,
+    "axisAlignedSegments": 59,
+    "medianSegmentKm": 24.742248651735018,
+    "maxSegmentKm": 248.8799009321377,
+    "maxDeviationFromSourceKm": 1.4965
+   },
+   "overviewSnapshot": {
+    "vertices": 336,
+    "segments": 334,
+    "axisAlignedSegments": 55,
+    "medianSegmentKm": 24.956674994583448,
+    "maxSegmentKm": 248.73222209855368,
+    "maxDeviationFromSourceKm": 3.8112
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-07416",
+   "name": "Ming Dynasty",
+   "start": 1468,
+   "end": 1515,
+   "areaKm2": 4335857.522521183,
+   "geometryId": "g06034",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 467,
+    "segments": 464,
+    "axisAlignedSegments": 88,
+    "medianSegmentKm": 28.97843354463249,
+    "maxSegmentKm": 300.9289459152067,
+    "bbox": [
+     97.58908081054688,
+     18.2219181060791,
+     129.88758850097656,
+     46.348915100097656
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 463,
+    "segments": 460,
+    "axisAlignedSegments": 86,
+    "medianSegmentKm": 28.998810275515847,
+    "maxSegmentKm": 300.98777024825273,
+    "maxDeviationFromSourceKm": 1.1468
+   },
+   "overviewSnapshot": {
+    "vertices": 458,
+    "segments": 455,
+    "axisAlignedSegments": 84,
+    "medianSegmentKm": 28.993323127727418,
+    "maxSegmentKm": 300.9838412552115,
+    "maxDeviationFromSourceKm": 3.8258
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-07670",
+   "name": "Khanate of Sibir",
+   "start": 1497,
+   "end": 1520,
+   "areaKm2": 2824701.662894385,
+   "geometryId": "g06244",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 506,
+    "segments": 505,
+    "axisAlignedSegments": 142,
+    "medianSegmentKm": 15.895788390735099,
+    "maxSegmentKm": 196.88758263043877,
+    "bbox": [
+     56.66015625,
+     50.17946243286133,
+     90.48031616210938,
+     73.00454711914062
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 506,
+    "segments": 505,
+    "axisAlignedSegments": 142,
+    "medianSegmentKm": 15.896030022979867,
+    "maxSegmentKm": 196.8875311231591,
+    "maxDeviationFromSourceKm": 0.0006
+   },
+   "overviewSnapshot": {
+    "vertices": 503,
+    "segments": 502,
+    "axisAlignedSegments": 141,
+    "medianSegmentKm": 15.949246674513862,
+    "maxSegmentKm": 196.65681979318526,
+    "maxDeviationFromSourceKm": 2.7324
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-07675",
+   "name": "Grand Principality of Moscow",
+   "start": 1497,
+   "end": 1501,
+   "areaKm2": 2139299.565078137,
+   "geometryId": "g06248",
+   "sourceShard": "geometries-010.json",
+   "source": {
+    "vertices": 464,
+    "segments": 460,
+    "axisAlignedSegments": 113,
+    "medianSegmentKm": 17.8942917902023,
+    "maxSegmentKm": 214.4738466180287,
+    "bbox": [
+     27.88040542602539,
+     53.732303619384766,
+     68.29022216796875,
+     70.5650405883789
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 458,
+    "segments": 454,
+    "axisAlignedSegments": 108,
+    "medianSegmentKm": 18.187904115959178,
+    "maxSegmentKm": 214.41773148107046,
+    "maxDeviationFromSourceKm": 0.6759
+   },
+   "overviewSnapshot": {
+    "vertices": 453,
+    "segments": 449,
+    "axisAlignedSegments": 107,
+    "medianSegmentKm": 18.32383747466455,
+    "maxSegmentKm": 214.35998724189886,
+    "maxDeviationFromSourceKm": 3.8441
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-10502",
+   "name": "Russian Empire",
+   "start": 1799,
+   "end": 1802,
+   "areaKm2": 16718994.473858152,
+   "geometryId": "g08635",
+   "sourceShard": "geometries-020.json",
+   "source": {
+    "vertices": 2399,
+    "segments": 2356,
+    "axisAlignedSegments": 667,
+    "medianSegmentKm": 17.731602571149295,
+    "maxSegmentKm": 447.95622436523433,
+    "bbox": [
+     -169.5359344482422,
+     42.62621307373047,
+     180,
+     77.75786590576172
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 2368,
+    "segments": 2325,
+    "axisAlignedSegments": 647,
+    "medianSegmentKm": 17.968935621057177,
+    "maxSegmentKm": 447.95572919999984,
+    "maxDeviationFromSourceKm": 1.7563
+   },
+   "overviewSnapshot": {
+    "vertices": 2350,
+    "segments": 2307,
+    "axisAlignedSegments": 637,
+    "medianSegmentKm": 18.052891513404496,
+    "maxSegmentKm": 447.9490575000009,
+    "maxDeviationFromSourceKm": 3.0738
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-10465",
+   "name": "Qing Dynasty",
+   "start": 1797,
+   "end": 1804,
+   "areaKm2": 12509373.828864256,
+   "geometryId": "g08561",
+   "sourceShard": "geometries-020.json",
+   "source": {
+    "vertices": 815,
+    "segments": 810,
+    "axisAlignedSegments": 168,
+    "medianSegmentKm": 26.775639022353314,
+    "maxSegmentKm": 190.0244766677763,
+    "bbox": [
+     73.37991333007812,
+     18.2219181060791,
+     141.55662536621094,
+     56.182064056396484
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 805,
+    "segments": 800,
+    "axisAlignedSegments": 164,
+    "medianSegmentKm": 27.247005628769006,
+    "maxSegmentKm": 197.2586247637536,
+    "maxDeviationFromSourceKm": 2.1292
+   },
+   "overviewSnapshot": {
+    "vertices": 797,
+    "segments": 792,
+    "axisAlignedSegments": 160,
+    "medianSegmentKm": 27.660193838336447,
+    "maxSegmentKm": 197.24720333525315,
+    "maxDeviationFromSourceKm": 4.0604
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-10533",
+   "name": "(Spanish Empire)",
+   "start": 1800,
+   "end": 1802,
+   "areaKm2": 11744248.990052648,
+   "geometryId": "g08659",
+   "sourceShard": "geometries-020.json",
+   "source": {
+    "vertices": 1828,
+    "segments": 1766,
+    "axisAlignedSegments": 300,
+    "medianSegmentKm": 32.87325271932639,
+    "maxSegmentKm": 1105.0030035622449,
+    "bbox": [
+     -122.5805435180664,
+     -51.65480041503906,
+     144.96832275390625,
+     45.169586181640625
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 1789,
+    "segments": 1727,
+    "axisAlignedSegments": 278,
+    "medianSegmentKm": 33.295077673150296,
+    "maxSegmentKm": 1106.0334682001928,
+    "maxDeviationFromSourceKm": 2.0108
+   },
+   "overviewSnapshot": {
+    "vertices": 1763,
+    "segments": 1701,
+    "axisAlignedSegments": 268,
+    "medianSegmentKm": 33.89334208559902,
+    "maxSegmentKm": 1106.034750518678,
+    "maxDeviationFromSourceKm": 4.0662
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-10519",
+   "name": "Spanish Empire",
+   "start": 1800,
+   "end": 1802,
+   "areaKm2": 11242168.465551332,
+   "geometryId": "g08648",
+   "sourceShard": "geometries-020.json",
+   "source": {
+    "vertices": 1689,
+    "segments": 1633,
+    "axisAlignedSegments": 272,
+    "medianSegmentKm": 33.151067665537724,
+    "maxSegmentKm": 1113.3142445276121,
+    "bbox": [
+     -122.5805435180664,
+     -51.65480041503906,
+     144.96832275390625,
+     37.835243225097656
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 1655,
+    "segments": 1599,
+    "axisAlignedSegments": 255,
+    "medianSegmentKm": 33.51092192172726,
+    "maxSegmentKm": 1113.9600693101247,
+    "maxDeviationFromSourceKm": 2.0247
+   },
+   "overviewSnapshot": {
+    "vertices": 1631,
+    "segments": 1575,
+    "axisAlignedSegments": 245,
+    "medianSegmentKm": 34.165706408205565,
+    "maxSegmentKm": 1114.0435578325641,
+    "maxDeviationFromSourceKm": 4.0834
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-12191",
+   "name": "(British Empire)",
+   "start": 1900,
+   "end": 1904,
+   "areaKm2": 27336908.262913182,
+   "geometryId": "g10068",
+   "sourceShard": "geometries-028.json",
+   "source": {
+    "vertices": 4817,
+    "segments": 4691,
+    "axisAlignedSegments": 1016,
+    "medianSegmentKm": 28.76014877999126,
+    "maxSegmentKm": 2954.1651170962687,
+    "bbox": [
+     -141.25601196289062,
+     -55.02883529663086,
+     179.86134338378906,
+     69.71734619140625
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 4716,
+    "segments": 4590,
+    "axisAlignedSegments": 964,
+    "medianSegmentKm": 29.249410768659704,
+    "maxSegmentKm": 2952.687659896931,
+    "maxDeviationFromSourceKm": 2.2147
+   },
+   "overviewSnapshot": {
+    "vertices": 4637,
+    "segments": 4511,
+    "axisAlignedSegments": 928,
+    "medianSegmentKm": 29.628958658134326,
+    "maxSegmentKm": 2951.6239373333133,
+    "maxDeviationFromSourceKm": 4.4138
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-12170",
+   "name": "Russian Empire",
+   "start": 1900,
+   "end": 1904,
+   "areaKm2": 23074979.9043066,
+   "geometryId": "g10054",
+   "sourceShard": "geometries-028.json",
+   "source": {
+    "vertices": 2947,
+    "segments": 2909,
+    "axisAlignedSegments": 842,
+    "medianSegmentKm": 18.29958869844588,
+    "maxSegmentKm": 447.95622436523433,
+    "bbox": [
+     17.666772842407227,
+     35.194007873535156,
+     180,
+     77.75786590576172
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 2910,
+    "segments": 2872,
+    "axisAlignedSegments": 819,
+    "medianSegmentKm": 18.765422434917525,
+    "maxSegmentKm": 447.95572919999984,
+    "maxDeviationFromSourceKm": 2.0283
+   },
+   "overviewSnapshot": {
+    "vertices": 2899,
+    "segments": 2861,
+    "axisAlignedSegments": 811,
+    "medianSegmentKm": 19.011797199928694,
+    "maxSegmentKm": 447.9490575000009,
+    "maxDeviationFromSourceKm": 4.0215
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-12182",
+   "name": "British Colonial Empire",
+   "start": 1900,
+   "end": 1904,
+   "areaKm2": 13690377.648231845,
+   "geometryId": "g10061",
+   "sourceShard": "geometries-028.json",
+   "source": {
+    "vertices": 3086,
+    "segments": 2997,
+    "axisAlignedSegments": 730,
+    "medianSegmentKm": 25.442747660495783,
+    "maxSegmentKm": 2969.512864641098,
+    "bbox": [
+     -141.25601196289062,
+     -55.02883529663086,
+     179.86134338378906,
+     69.71734619140625
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 3025,
+    "segments": 2936,
+    "axisAlignedSegments": 697,
+    "medianSegmentKm": 26.384015547301775,
+    "maxSegmentKm": 2968.4342239143643,
+    "maxDeviationFromSourceKm": 2.2154
+   },
+   "overviewSnapshot": {
+    "vertices": 2977,
+    "segments": 2888,
+    "axisAlignedSegments": 673,
+    "medianSegmentKm": 26.854673682034715,
+    "maxSegmentKm": 2967.1623765109157,
+    "maxDeviationFromSourceKm": 4.4146
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-12189",
+   "name": "Qing Dynasty",
+   "start": 1900,
+   "end": 1904,
+   "areaKm2": 10369188.147735184,
+   "geometryId": "g10066",
+   "sourceShard": "geometries-028.json",
+   "source": {
+    "vertices": 712,
+    "segments": 708,
+    "axisAlignedSegments": 152,
+    "medianSegmentKm": 26.33787807733971,
+    "maxSegmentKm": 193.48316882671074,
+    "bbox": [
+     73.61043548583984,
+     18.2219181060791,
+     127.30615997314453,
+     53.597137451171875
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 699,
+    "segments": 695,
+    "axisAlignedSegments": 147,
+    "medianSegmentKm": 26.638519291053846,
+    "maxSegmentKm": 193.44926665056354,
+    "maxDeviationFromSourceKm": 1.8575
+   },
+   "overviewSnapshot": {
+    "vertices": 688,
+    "segments": 684,
+    "axisAlignedSegments": 140,
+    "medianSegmentKm": 26.77524284795869,
+    "maxSegmentKm": 193.41915611176032,
+    "maxDeviationFromSourceKm": 4.2346
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-13523",
+   "name": "(Russian Federation)",
+   "start": 2000,
+   "end": 2005,
+   "areaKm2": 16915600.43497067,
+   "geometryId": "g11180",
+   "sourceShard": "geometries-036.json",
+   "source": {
+    "vertices": 3185,
+    "segments": 3118,
+    "axisAlignedSegments": 964,
+    "medianSegmentKm": 17.39714542784111,
+    "maxSegmentKm": 447.95622436523433,
+    "bbox": [
+     19.819725036621094,
+     41.19768524169922,
+     180,
+     81.9329605102539
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 3133,
+    "segments": 3066,
+    "axisAlignedSegments": 928,
+    "medianSegmentKm": 17.84032949644711,
+    "maxSegmentKm": 447.95572919999984,
+    "maxDeviationFromSourceKm": 2.0042
+   },
+   "overviewSnapshot": {
+    "vertices": 3118,
+    "segments": 3051,
+    "axisAlignedSegments": 918,
+    "medianSegmentKm": 17.922088546301048,
+    "maxSegmentKm": 447.9490575000009,
+    "maxDeviationFromSourceKm": 3.8747
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-13519",
+   "name": "Russian Federation",
+   "start": 2000,
+   "end": 2005,
+   "areaKm2": 16908693.371531468,
+   "geometryId": "g11176",
+   "sourceShard": "geometries-036.json",
+   "source": {
+    "vertices": 3154,
+    "segments": 3090,
+    "axisAlignedSegments": 962,
+    "medianSegmentKm": 17.305966024874735,
+    "maxSegmentKm": 447.95622436523433,
+    "bbox": [
+     19.819725036621094,
+     41.19768524169922,
+     180,
+     81.9329605102539
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 3099,
+    "segments": 3035,
+    "axisAlignedSegments": 923,
+    "medianSegmentKm": 17.796170885049314,
+    "maxSegmentKm": 447.95572919999984,
+    "maxDeviationFromSourceKm": 2.0025
+   },
+   "overviewSnapshot": {
+    "vertices": 3079,
+    "segments": 3015,
+    "axisAlignedSegments": 911,
+    "medianSegmentKm": 17.91004973209474,
+    "maxSegmentKm": 447.9490575000009,
+    "maxDeviationFromSourceKm": 4.2641
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-13356",
+   "name": "Canada",
+   "start": 1976,
+   "end": 2023,
+   "areaKm2": 10026435.799936099,
+   "geometryId": "g10841",
+   "sourceShard": "geometries-035.json",
+   "source": {
+    "vertices": 3641,
+    "segments": 3585,
+    "axisAlignedSegments": 1108,
+    "medianSegmentKm": 17.463325061845335,
+    "maxSegmentKm": 1260.807773473535,
+    "bbox": [
+     -141.25601196289062,
+     42.041324615478516,
+     -52.621849060058594,
+     83.1254653930664
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 3600,
+    "segments": 3544,
+    "axisAlignedSegments": 1070,
+    "medianSegmentKm": 17.775194398575778,
+    "maxSegmentKm": 1261.8347605955294,
+    "maxDeviationFromSourceKm": 1.8665
+   },
+   "overviewSnapshot": {
+    "vertices": 3586,
+    "segments": 3530,
+    "axisAlignedSegments": 1061,
+    "medianSegmentKm": 17.86370279200997,
+    "maxSegmentKm": 1262.0784825849541,
+    "maxDeviationFromSourceKm": 4.1641
+   }
+  },
+  {
+   "label": "cross-era sample",
+   "id": "clio-13248",
+   "name": "United States of America",
+   "start": 1967,
+   "end": 2005,
+   "areaKm2": 9610607.976488188,
+   "geometryId": "g10982",
+   "sourceShard": "geometries-035.json",
+   "source": {
+    "vertices": 1874,
+    "segments": 1823,
+    "axisAlignedSegments": 509,
+    "medianSegmentKm": 20.091582851450763,
+    "maxSegmentKm": 2106.857197242519,
+    "bbox": [
+     -170.33604431152344,
+     6.714424133300781,
+     179.82798767089844,
+     71.42146301269531
+    ],
+    "auditedVertices": null
+   },
+   "displayDerivative": {
+    "vertices": 1842,
+    "segments": 1791,
+    "axisAlignedSegments": 488,
+    "medianSegmentKm": 20.4559833667248,
+    "maxSegmentKm": 2102.4510184061696,
+    "maxDeviationFromSourceKm": 1.8719
+   },
+   "overviewSnapshot": {
+    "vertices": 1824,
+    "segments": 1773,
+    "axisAlignedSegments": 480,
+    "medianSegmentKm": 20.63893468026663,
+    "maxSegmentKm": 2097.678816756979,
+    "maxDeviationFromSourceKm": 4.1849
+   }
+  }
+ ],
+ "summary": {
+  "sampleSize": 36,
+  "sourceVertices": {
+   "count": 36,
+   "median": 412,
+   "p90": 3154,
+   "max": 4817
+  },
+  "overviewVertices": {
+   "count": 36,
+   "median": 406,
+   "p90": 3079,
+   "max": 4637
+  },
+  "overviewDeviationKm": {
+   "count": 36,
+   "median": 3.8378,
+   "p90": 4.2641,
+   "max": 4.4146
+  },
+  "displayDeviationKm": {
+   "count": 36,
+   "median": 1.6746,
+   "p90": 2.1292,
+   "max": 2.2154
+  }
+ },
+ "conclusion": "At 1500 the atlas paints the untouched Cliopatria geometry (native bootstrap) immediately, so neither the build-time simplification nor the renderer is responsible for the stair-stepped outlines in the reported view. The reported outlines are what the source contains: Duchy of Bavaria has 55 vertices, median segment 19.0 km, 11/54 exactly axis-aligned; Swiss Confederation has 68 vertices, median segment 14.6 km, 20/65 exactly axis-aligned; Duchy of Lorraine has 102 vertices, median segment 14.1 km, 32/95 exactly axis-aligned. Simplification is a transient, not a steady state: on years without a native bootstrap pack the first overview paint can sit up to 4.41 km from source, and is then replaced by the untouched native geometry once data/native/index.json.gz and the per-geometry pieces load (verified in a real browser at 1503: 137/137 active records native after ~12 s). Portrayal (border curves, halo casing, line weight, fill opacity) only changes how those same coordinates look; it is reversible and documented, and 3.10 added a light casing under the historical line so the source outline stays readable over the modern relief instead of being muted by it.",
+ "steadyStateVerification": {
+  "method": "Real browser via scripts/verification/browser.mjs: load #year=1503 (not a native bootstrap year), wait for the map to settle, then read the atlas instance geometry key through the window.__meridian verification handle. A key whose entries all end in \"n\" means every active record is drawn from data/native (source coordinates).",
+  "observedUtc": "2026-10-02T18:54:08.264Z",
+  "url": "http://127.0.0.1:8767/#year=1503&lang=bi&camera=9.32,48.08,6.72,0,0&boundaries=overview&browse=0",
+  "activeRecords": 137,
+  "allRecordsNative": true,
+  "networkResponses": 208,
+  "elapsedSeconds": 12,
+  "note": "The steady state therefore renders source geometry at every year. Simplification is confined to the first paint of years without a native bootstrap pack, which is then replaced."
+ }
+}

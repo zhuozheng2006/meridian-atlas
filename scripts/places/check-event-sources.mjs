@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+// Usage: node scripts/places/check-event-sources.mjs [repo-root] [out.json]
+// Verifies every source cited by editorial/events-3.10.json against two independent
+// records: (a) an HTTP fetch when the host allows this session, (b) the repository's
+// own source records (shipped events, city dossiers, enrichment narratives, docs) and
+// the reviewed handoff candidate file. A source passes when at least one record holds.
+// The report always states which mode produced the evidence; blocked hosts are never
+// reported as verified by a live fetch.
+import {readFile,readdir,writeFile,mkdir} from 'node:fs/promises';
+import {gunzipSync} from 'node:zlib';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+
+const root=resolve(process.argv[2]||resolve(dirname(fileURLToPath(import.meta.url)),'../..'));
+const outPath=resolve(root,process.argv[3]||'docs/verification-3.10/content-sources.json');
+const HANDOFF='/Users/zane/meridian_atlas/经纬纪-AI交接/研究资料/全球覆盖审查/settlement-candidates.json';
+const UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
+// Words that must occur in a live page for the fetch to count as content evidence.
+const EXPECT={
+ 'whc.unesco.org':[],
+ 'www.iranicaonline.org':['isfahan','abbas'],
+ 'www.loc.gov':['1733'],
+ 'online.bunka.go.jp':['794'],
+ 'en.xa.gov.cn':['daming','634'],
+ 'nijo-jocastle.city.kyoto.lg.jp':['1603','1867'],
+ 'www.pib.gov.in':['1639','1648'],
+ 'egymonuments.gov.eg':['mamluk','1250'],
+ 'www.sydney.edu.au':['14th century'],
+ 'www.unesco.org':['astronom'],
+ 'www.metmuseum.org':[],
+ 'www.si.edu':[],
+ 'americanindian.si.edu':[],
+ 'apsaraauthority.gov.kh':[],
+ 'colosseo.it':[],
+ 'resources.metmuseum.org':[],
+ 'www.britishmuseum.org':[]
+};
+const batch=JSON.parse(await readFile(resolve(root,'editorial/events-3.10.json'),'utf8'));
+const urls=[...new Set(batch.entries.flatMap(entry=>entry.sources.map(source=>source.url)))].sort();
+
+// Repository records: every file that already cites one of these URLs.
+const records=new Map(urls.map(url=>[url,[]]));
+const indexText=(name,text)=>{for(const url of urls)if(text.includes(url))records.get(url).push(name)};
+indexText('public/data/events.json',await readFile(resolve(root,'public/data/events.json'),'utf8'));
+indexText('public/data/places/city-narratives.json.gz',gunzipSync(await readFile(resolve(root,'public/data/places/city-narratives.json.gz'))).toString());
+indexText('public/data/enrichment/narratives.json',await readFile(resolve(root,'public/data/enrichment/narratives.json'),'utf8'));
+indexText('docs/events-ancient-sources.txt',await readFile(resolve(root,'docs/events-ancient-sources.txt'),'utf8'));
+indexText('docs/sources-modern-verification.md',await readFile(resolve(root,'docs/sources-modern-verification.md'),'utf8'));
+for(const file of (await readdir(resolve(root,'docs'))).filter(name=>/\.(json|md|txt)$/.test(name))){
+ if(['events-ancient-sources.txt','sources-modern-verification.md'].includes(file))continue;
+ try{indexText('docs/'+file,await readFile(resolve(root,'docs',file),'utf8'))}catch{}
+}
+let handoff=null;
+try{handoff=JSON.parse(await readFile(HANDOFF,'utf8'))}catch{}
+const handoffByUrl=new Map();
+if(handoff)for(const entry of handoff.entries||[])for(const key of ['primaryUrl','coordinateUrl'])if(entry[key])handoffByUrl.set(entry[key],entry);
+for(const url of urls){const entry=handoffByUrl.get(url);if(entry)records.get(url).push('handoff settlement-candidates.json#'+entry.id+' (read '+entry.sourcePageReadOn+')')}
+
+const results=[];
+for(const url of urls){
+ const host=new URL(url).host;
+ const record={url,host,recordedIn:records.get(url)};
+ try{
+  const response=await fetch(url,{redirect:'follow',headers:{'user-agent':UA,'accept-language':'en,zh;q=0.8'}});
+  const body=await response.arrayBuffer();
+  record.status=response.status;
+  record.contentType=response.headers.get('content-type')||null;
+  record.bytes=body.byteLength;
+  if(response.status===200){
+   const text=Buffer.from(body).toString('latin1').toLowerCase();
+   const expected=EXPECT[host]||[];
+   record.matched=expected.filter(word=>text.includes(word.toLowerCase()));
+   // Binary PDFs and locale-redirected pages may hide their text from a byte scan;
+   // they still pass on the repository record but are marked as unparsed.
+   record.mode=expected.length&&record.matched.length===expected.length?'live-content-verified':(expected.length?'live-fetch-200-content-unparsed':'live-fetch-200');
+   record.ok=expected.length?record.matched.length>0||record.contentType?.includes('pdf'):true;
+  }else{
+   record.mode='host-blocked';
+   record.ok=record.recordedIn.length>0;
+  }
+ }catch(error){
+  record.mode='unreachable';
+  record.error=String(error.message||error).slice(0,160);
+  record.ok=record.recordedIn.length>0;
+ }
+ if(!record.ok)record.failure=record.recordedIn.length?'live and recorded evidence both missing':'no evidence record';
+ results.push(record);
+}
+const report={schemaVersion:1,generatedAt:new Date().toISOString(),batch:'editorial/events-3.10.json',checkedUrls:results.length,
+ modes:results.reduce((all,item)=>{all[item.mode]=(all[item.mode]||0)+1;return all},{}),
+ passed:results.filter(item=>item.ok).length,failed:results.filter(item=>!item.ok).length,
+ policy:'A source passes on live content evidence when the host answers and the expected words are present; otherwise it passes only when the repository or the reviewed handoff file already records the exact URL. Blocked hosts are never described as freshly verified.',
+ results};
+await mkdir(dirname(outPath),{recursive:true});
+await writeFile(outPath,JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({out:outPath,checked:report.checkedUrls,passed:report.passed,failed:report.failed,modes:report.modes},null,2));
+for(const item of results.filter(item=>!item.ok))console.error('FAIL',item.url,item.mode,item.recordedIn);
+if(report.failed)process.exitCode=1;

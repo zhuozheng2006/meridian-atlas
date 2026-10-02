@@ -1,0 +1,658 @@
+{
+  "report": "perf-baseline.mjs",
+  "generatedAt": "2026-10-02T18:45:31.017Z",
+  "command": "node scripts/verification/perf-baseline.mjs",
+  "target": {
+    "url": "http://127.0.0.1:8767",
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "meta": {
+    "provenance": {
+      "gitHead": "7ee94b4a179eaef4a4ac619c8e44a6f19151a77d",
+      "dirtyPaths": [
+        "M public/boundary-controller.js",
+        " M public/boundary-style.js",
+        " M public/geography.js",
+        " M public/map-engine.js",
+        "?? docs/verification-3.10/",
+        "?? scripts/ohm/",
+        "?? scripts/places/content-balance.mjs",
+        "?? scripts/verification/"
+      ],
+      "assetVersion": "3.9.4-e92afe04dc8c",
+      "files": {
+        "public/index.html": "39bf3528ad3c5c4b",
+        "public/app.js": "06b54fc279398399",
+        "public/map-engine.js": "8b582e77494d6cac",
+        "public/timeline-controls.js": "b3954150517b0a12",
+        "public/view-state.js": "1b57cdfe210a7322",
+        "public/style.css": "95f5e8ac64efeda8",
+        "public/product.css": "2631908c806f7e1e",
+        "public/cartography.css": "117414b5e2a91d3d",
+        "public/boundary-controller.js": "3a00fbfc420b24a3",
+        "public/regional-boundaries.js": "7882cc85a1a53133",
+        "public/geography.js": "576764e92f004eb5"
+      },
+      "node": "v26.7.0",
+      "platform": "darwin",
+      "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+    }
+  },
+  "checks": [
+    {
+      "id": "perf.first-screen-ready",
+      "description": "First screen reaches map-ready in both cold runs (network cache disabled)",
+      "expected": "v => v.every(x => x !== null && x < 20000)",
+      "observed": [
+        6290,
+        4731
+      ],
+      "pass": true,
+      "note": "mapReady = #loading hidden after data + first territory frame"
+    },
+    {
+      "id": "perf.no-console-errors",
+      "description": "No uncaught page errors on first load",
+      "expected": "v => (report.coldLoad.runs[0].consoleErrors || []).filter(c => c.type === 'exception').length === 0 && (report.yearSequence.pageErrors || []).length === 0",
+      "observed": {
+        "coldConsole": []
+      },
+      "pass": true
+    },
+    {
+      "id": "perf.year-step-latency",
+      "description": "Every 1-year step commits within 1000 ms of the keypress",
+      "expected": "v => v.length === 20 && v.every(x => x < 1000)",
+      "observed": [],
+      "pass": false
+    },
+    {
+      "id": "perf.year-steps-all-settled",
+      "description": "All 20 consecutive steps reached the target year",
+      "expected": "v => v === 20",
+      "observed": 0,
+      "pass": false
+    },
+    {
+      "id": "perf.drag-settles",
+      "description": "An 800 px drag settles and moves the camera",
+      "expected": "v => v && v.settleMs !== null && Math.abs(v.camera.deltaLng) > 1",
+      "observed": {
+        "wallMs": 29014,
+        "settleMs": 2939,
+        "camera": {
+          "before": [
+            25,
+            18
+          ],
+          "after": [
+            -148.74222,
+            -20.35411
+          ],
+          "deltaLng": -173.742,
+          "deltaLat": -38.354,
+          "zoomBefore": 1.65,
+          "zoomAfter": 1.629
+        },
+        "cameraOps": [],
+        "longTasks": {
+          "count": 7,
+          "longestMs": 2951,
+          "totalMs": 11769
+        },
+        "rafRate": {
+          "count": 47,
+          "spanMs": 36196
+        },
+        "heapDeltaMB": -64.1,
+        "pageErrors": []
+      },
+      "pass": true
+    },
+    {
+      "id": "perf.layer-retry-recovers",
+      "description": "Blocked geography source surfaces a status and #terrainRetry recovers after unblocking",
+      "expected": "v => v && v.recovered === true && v.requestsAfterRetry > 0",
+      "observed": {
+        "recovered": true,
+        "retryMs": 7547,
+        "requestsAfterRetry": 2
+      },
+      "pass": true
+    },
+    {
+      "id": "perf.compare-opens",
+      "description": "Two-map comparison opens with a second live map and no error",
+      "expected": "v => v.maps >= 2 && v.compareYearEnabled === true && !v.mapError",
+      "observed": {
+        "openMs": 8039,
+        "maps": 2,
+        "compareYearEnabled": true,
+        "map2Canvas": {
+          "attr": [
+            799,
+            672
+          ],
+          "rect": [
+            799,
+            672
+          ],
+          "dpr": 1
+        },
+        "cameraSync": {
+          "left": [
+            25,
+            18
+          ],
+          "right": [
+            25,
+            18
+          ],
+          "deltaLng": 0,
+          "deltaLat": 0
+        },
+        "heapDeltaMB": 336.3,
+        "pageErrors": []
+      },
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "requestAnimationFrame is throttled to ~2 fps in this headless configuration ({\"count\":12,\"spanMs\":6207}), so per-frame FPS/jank is NOT reported; the per-step timeline uses MutationObserver timestamps instead.",
+    "performance.measureUserAgentSpecificMemory() is unavailable (page is not crossOriginIsolated); JS heap comes from the non-standard performance.memory.usedJSHeapSize.",
+    "GPU raster times are from SwiftShader software rendering, not the user GPU.",
+    "The CDP driver sets Network.setCacheDisabled(true), so cold/warm cache differences and disk-cache reuse are not measured.",
+    "Frame timing during the drag is inferred from long tasks > 50 ms, not from compositor frames."
+  ],
+  "notes": [],
+  "coldLoad": {
+    "runs": [
+      {
+        "index": 1,
+        "profile": "fresh (network cache disabled by driver)",
+        "mapReadyMs": 6290,
+        "measureMs": 6290,
+        "navigation": {
+          "ttfbMs": 2,
+          "responseEndMs": 2,
+          "domContentLoadedMs": 45,
+          "loadEventMs": 66,
+          "paints": [
+            [
+              "first-paint",
+              3632
+            ],
+            [
+              "first-contentful-paint",
+              3632
+            ]
+          ]
+        },
+        "resources": {
+          "count": 56,
+          "encodedBytes": 5607344,
+          "transferBytes": 5624144,
+          "byType": {
+            "link": {
+              "count": 4,
+              "encoded": 135803
+            },
+            "script": {
+              "count": 32,
+              "encoded": 1346448
+            },
+            "fetch": {
+              "count": 20,
+              "encoded": 4125093
+            }
+          },
+          "largest": [
+            {
+              "name": "assets/maplibre-gl.js?v=3.9.4-e92afe04dc8c",
+              "ms": 7,
+              "encodedBytes": 937395,
+              "decodedBytes": 937395
+            },
+            {
+              "name": "data/physical/modern-ocean-mask-overview.json.gz",
+              "ms": 4,
+              "encodedBytes": 736287,
+              "decodedBytes": 736287
+            },
+            {
+              "name": "data/places/historical-settlements-index.json.gz",
+              "ms": 4,
+              "encodedBytes": 629588,
+              "decodedBytes": 629588
+            },
+            {
+              "name": "data/fast/catalog.json.gz",
+              "ms": 3,
+              "encodedBytes": 602739,
+              "decodedBytes": 602739
+            },
+            {
+              "name": "data/land-50m.json.gz",
+              "ms": 3,
+              "encodedBytes": 527552,
+              "decodedBytes": 527552
+            },
+            {
+              "name": "data/coverage.json",
+              "ms": 2,
+              "encodedBytes": 227984,
+              "decodedBytes": 227984
+            },
+            {
+              "name": "data/events.json.gz",
+              "ms": 2,
+              "encodedBytes": 190412,
+              "decodedBytes": 190412
+            },
+            {
+              "name": "data/physical/relief/2/2/1.webp",
+              "ms": 4,
+              "encodedBytes": 182770,
+              "decodedBytes": 182770
+            },
+            {
+              "name": "data/native/year-1500.json.gz",
+              "ms": 2,
+              "encodedBytes": 151086,
+              "decodedBytes": 151086
+            },
+            {
+              "name": "data/physical/physical-overview.json.gz",
+              "ms": 2,
+              "encodedBytes": 137909,
+              "decodedBytes": 137909
+            },
+            {
+              "name": "data/physical/relief/2/3/1.webp",
+              "ms": 3,
+              "encodedBytes": 132890,
+              "decodedBytes": 132890
+            },
+            {
+              "name": "data/places/urban-observations.json.gz",
+              "ms": 3,
+              "encodedBytes": 132325,
+              "decodedBytes": 132325
+            }
+          ]
+        },
+        "instrumentation": "subclass+camops",
+        "rafRate": {
+          "count": 12,
+          "spanMs": 6207
+        },
+        "mapCanvas": {
+          "attr": [
+            1242,
+            672
+          ],
+          "rect": [
+            1242,
+            672
+          ],
+          "dpr": 1
+        },
+        "heapMB": 125.2,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "consoleErrors": [],
+        "datasetStatus": "137 个当年政体 · 343 条事件",
+        "mapErrorShown": false
+      },
+      {
+        "index": 2,
+        "profile": "fresh (network cache disabled by driver)",
+        "mapReadyMs": 4731,
+        "measureMs": 4731,
+        "navigation": {
+          "ttfbMs": 2,
+          "responseEndMs": 2,
+          "domContentLoadedMs": 39,
+          "loadEventMs": 59,
+          "paints": [
+            [
+              "first-paint",
+              3388
+            ],
+            [
+              "first-contentful-paint",
+              3388
+            ]
+          ]
+        },
+        "resources": {
+          "count": 53,
+          "encodedBytes": 4789794,
+          "transferBytes": 4805694,
+          "byType": {
+            "link": {
+              "count": 4,
+              "encoded": 135803
+            },
+            "script": {
+              "count": 32,
+              "encoded": 1346448
+            },
+            "fetch": {
+              "count": 17,
+              "encoded": 3307543
+            }
+          },
+          "largest": [
+            {
+              "name": "assets/maplibre-gl.js?v=3.9.4-e92afe04dc8c",
+              "ms": 6,
+              "encodedBytes": 937395,
+              "decodedBytes": 937395
+            },
+            {
+              "name": "data/physical/modern-ocean-mask-overview.json.gz",
+              "ms": 5,
+              "encodedBytes": 736287,
+              "decodedBytes": 736287
+            },
+            {
+              "name": "data/fast/catalog.json.gz",
+              "ms": 3,
+              "encodedBytes": 602739,
+              "decodedBytes": 602739
+            },
+            {
+              "name": "data/land-50m.json.gz",
+              "ms": 4,
+              "encodedBytes": 527552,
+              "decodedBytes": 527552
+            },
+            {
+              "name": "data/coverage.json",
+              "ms": 2,
+              "encodedBytes": 227984,
+              "decodedBytes": 227984
+            },
+            {
+              "name": "data/events.json.gz",
+              "ms": 2,
+              "encodedBytes": 190412,
+              "decodedBytes": 190412
+            },
+            {
+              "name": "data/physical/relief/2/2/1.webp",
+              "ms": 3,
+              "encodedBytes": 182770,
+              "decodedBytes": 182770
+            },
+            {
+              "name": "data/native/year-1500.json.gz",
+              "ms": 2,
+              "encodedBytes": 151086,
+              "decodedBytes": 151086
+            },
+            {
+              "name": "data/physical/physical-overview.json.gz",
+              "ms": 3,
+              "encodedBytes": 137909,
+              "decodedBytes": 137909
+            },
+            {
+              "name": "data/physical/relief/2/3/1.webp",
+              "ms": 4,
+              "encodedBytes": 132890,
+              "decodedBytes": 132890
+            },
+            {
+              "name": "data/physical/relief/2/1/0.webp",
+              "ms": 5,
+              "encodedBytes": 99382,
+              "decodedBytes": 99382
+            },
+            {
+              "name": "app.js?v=3.9.4-e92afe04dc8c",
+              "ms": 4,
+              "encodedBytes": 88681,
+              "decodedBytes": 88681
+            }
+          ]
+        },
+        "instrumentation": "subclass+camops",
+        "rafRate": {
+          "count": 9,
+          "spanMs": 4228
+        },
+        "mapCanvas": {
+          "attr": [
+            1242,
+            672
+          ],
+          "rect": [
+            1242,
+            672
+          ],
+          "dpr": 1
+        },
+        "heapMB": 186.6,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "consoleErrors": [],
+        "datasetStatus": "137 个当年政体 · 343 条事件",
+        "mapErrorShown": false
+      }
+    ]
+  },
+  "yearSequence": {
+    "startYear": 1490,
+    "step": 1,
+    "steps": [],
+    "fatal": "Error: waitFor timeout: document.querySelector(\"#loading\") && document.querySelector(\"#loading\").hidden === true last=false\n    at waitFor (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/browser.mjs:63:9)\n    at async yearSequence (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/perf-baseline.mjs:61:5)\n    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/perf-baseline.mjs:210:23"
+  },
+  "bigDrag": {
+    "wallMs": 29014,
+    "settleMs": 2939,
+    "camera": {
+      "before": [
+        25,
+        18
+      ],
+      "after": [
+        -148.74222,
+        -20.35411
+      ],
+      "deltaLng": -173.742,
+      "deltaLat": -38.354,
+      "zoomBefore": 1.65,
+      "zoomAfter": 1.629
+    },
+    "cameraOps": [],
+    "longTasks": {
+      "count": 7,
+      "longestMs": 2951,
+      "totalMs": 11769
+    },
+    "rafRate": {
+      "count": 47,
+      "spanMs": 36196
+    },
+    "heapDeltaMB": -64.1,
+    "pageErrors": []
+  },
+  "layerRetry": {
+    "blockedPatterns": [
+      "*data/physical/physical-overview.json.gz*",
+      "*data/land-50m.json.gz*"
+    ],
+    "baselineStatus": {
+      "terrain": "本地晕渲 · 放大加载精细地形",
+      "lake": "放大查看湖岸细节"
+    },
+    "baselineRequests": 2,
+    "blockedReadyMs": "ready",
+    "blockedStatus": {
+      "terrain": "部分精细图层暂不可用 · 可重试",
+      "lake": "放大查看湖岸细节",
+      "mapError": null
+    },
+    "blockedRequests": 4,
+    "blockedTerrainStatusVisible": {
+      "text": "部分精细图层暂不可用 · 可重试",
+      "visible": false
+    },
+    "panelOpen": true,
+    "retryMs": 7547,
+    "recovered": true,
+    "recoveredStatus": {
+      "terrain": "本地晕渲 · 放大加载精细地形",
+      "lake": "放大查看湖岸细节",
+      "mapError": null
+    },
+    "requestsAfterRetry": 2,
+    "stepTimeline": [
+      {
+        "t": 1548.4,
+        "kind": "terrainStatus",
+        "value": "本地晕渲 · 放大加载精细地形",
+        "heap": 211.1
+      },
+      {
+        "t": 2255.2,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 21.4
+      },
+      {
+        "t": 2273.3,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 21.4
+      },
+      {
+        "t": 2273.3,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 21.4
+      },
+      {
+        "t": 2273.3,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 21.4
+      },
+      {
+        "t": 2582.6,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 139.1
+      },
+      {
+        "t": 2587.8,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 139.1
+      },
+      {
+        "t": 2609.1,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 139.1
+      },
+      {
+        "t": 5578.5,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 252.7
+      },
+      {
+        "t": 11518.4,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 264.5
+      },
+      {
+        "t": 11519.3,
+        "kind": "terrainStatus",
+        "value": "部分精细图层暂不可用 · 可重试",
+        "heap": 264.5
+      },
+      {
+        "t": 11519.4,
+        "kind": "terrainStatus",
+        "value": "本地晕渲 · 放大加载精细地形",
+        "heap": 264.5
+      }
+    ],
+    "pageErrors": []
+  },
+  "compareOpen": {
+    "openMs": 8039,
+    "maps": 2,
+    "compareYearEnabled": true,
+    "map2Canvas": {
+      "attr": [
+        799,
+        672
+      ],
+      "rect": [
+        799,
+        672
+      ],
+      "dpr": 1
+    },
+    "cameraSync": {
+      "left": [
+        25,
+        18
+      ],
+      "right": [
+        25,
+        18
+      ],
+      "deltaLng": 0,
+      "deltaLat": 0
+    },
+    "heapDeltaMB": 336.3,
+    "pageErrors": []
+  },
+  "bottlenecks": [
+    {
+      "item": "heaviest single resource",
+      "detail": "assets/maplibre-gl.js?v=3.9.4-e92afe04dc8c",
+      "encodedBytes": 937395,
+      "ms": 7
+    },
+    {
+      "item": "year step latency",
+      "detail": "key -> idle p95"
+    },
+    {
+      "item": "longest main-thread task",
+      "detail": "during year sequence"
+    },
+    {
+      "item": "js heap growth",
+      "detail": "20 year steps"
+    },
+    {
+      "item": "js heap after first load",
+      "detail": "run 1",
+      "valueMB": 125.2
+    },
+    {
+      "item": "two-map heap cost",
+      "detail": "compare open",
+      "valueMB": 336.3
+    }
+  ],
+  "conclusions": [
+    "First screen: [6290,4731] ms map-ready (2 cold runs, cache disabled), DOMContentLoaded 45 ms, load event 66 ms.",
+    "Resource weight for one 1500 CE first screen: 56 requests / 5476 KiB encoded.",
+    "Year stepping 1490->1510 (21 steps of 1 year): key->idle median undefined ms, max undefined ms, long tasks undefined.",
+    "Large drag ~800 px: settled in 2939 ms wall (29014 ms of CDP mouse moves), camera moved -173.742 deg lng.",
+    "Blocked geography sources: status text after block = {\"terrain\":\"部分精细图层暂不可用 · 可重试\",\"lake\":\"放大查看湖岸细节\",\"mapError\":null}; after unblock + #terrainRetry recovered=true in 7547 ms.",
+    "Comparison map: opened in 8039 ms, 2 live maps, heap +336.3 MB."
+  ],
+  "wallClockMs": 167993
+}

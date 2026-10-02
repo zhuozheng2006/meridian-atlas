@@ -1,6 +1,6 @@
-import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.9.4-e92afe04dc8c';
-import {interiorPoint} from './regional-boundaries.js?v=3.9.4-e92afe04dc8c';
-import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.9.4-e92afe04dc8c';
+import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.9.4-3392a69da753';
+import {interiorPoint} from './regional-boundaries.js?v=3.9.4-3392a69da753';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.9.4-3392a69da753';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -21,9 +21,10 @@ export class BoundaryController{
  }
  applyVisibility(regional){
   const map=this.atlas.map;
-  for(const [id,p]of [['territories','fill-opacity'],['boundary','line-opacity'],['selection','line-opacity'],['selection-fill','fill-opacity']])map.setPaintProperty(id,p+'-transition',{duration:0,delay:0});
+  for(const [id,p]of [['territories','fill-opacity'],['boundary','line-opacity'],['boundary-halo','line-opacity'],['selection','line-opacity'],['selection-fill','fill-opacity']])map.setPaintProperty(id,p+'-transition',{duration:0,delay:0});
   map.setPaintProperty('territories','fill-opacity',regional?0:territoryOpacity);
   for(const [property,value]of Object.entries(boundaryPaint(this.current?.source)))map.setPaintProperty('boundary',property,regional&&property==='line-opacity'?0:value);
+  for(const [property,value]of Object.entries(boundaryHaloPaint(this.current?.source)))map.setPaintProperty('boundary-halo',property,regional&&property==='line-opacity'?0:value);
   map.setPaintProperty('selection','line-opacity',regional?0:1);map.setPaintProperty('selection-fill','fill-opacity',regional?0:.08);
  }
  async setMode(mode){
