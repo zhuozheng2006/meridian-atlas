@@ -1,0 +1,52 @@
+{
+  "label": "before-http10",
+  "url": "http://127.0.0.1:8767",
+  "generatedAt": "2026-10-02T20:42:52.481Z",
+  "provenance": {
+    "gitHead": "b985f99132c642e190a5a49820b15cdb82f805d8",
+    "dirtyPaths": [
+      "M docs/verification-3.10/shots/detail-baseline-cold-unthrottled.png",
+      " M scripts/verification/perf-detail-load.mjs",
+      "?? docs/verification-3.12/perf-detail-load-baseline.json",
+      "?? docs/verification-3.12/shots/place-reachability-attested-ayutthaya-1559-z6.png",
+      "?? docs/verification-3.12/shots/place-reachability-attested-quanzhou-1266-z10.png"
+    ],
+    "assetVersion": "3.10.0-7d7a4a30133a",
+    "files": {
+      "public/index.html": "cc940cbfa91462e2",
+      "public/app.js": "13d340893ad18ef6",
+      "public/map-engine.js": "d87e5aa86a657496",
+      "public/timeline-controls.js": "b3954150517b0a12",
+      "public/view-state.js": "1b57cdfe210a7322",
+      "public/style.css": "95f5e8ac64efeda8",
+      "public/product.css": "2631908c806f7e1e",
+      "public/cartography.css": "d37451d4bf213714",
+      "public/boundary-controller.js": "787db7b7dc3f6be9",
+      "public/regional-boundaries.js": "53b361b174a8f596",
+      "public/geography.js": "be7779ef4f3e9de1"
+    },
+    "node": "v26.7.0",
+    "platform": "darwin",
+    "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+  },
+  "results": [
+    {
+      "files": 133,
+      "concurrency": 1,
+      "ms": 41,
+      "newSockets": 133,
+      "bytes": 141610,
+      "errors": 0,
+      "msPerFile": 0.31
+    },
+    {
+      "files": 133,
+      "concurrency": 6,
+      "ms": 26,
+      "newSockets": 133,
+      "bytes": 141610,
+      "errors": 0,
+      "msPerFile": 0.2
+    }
+  ]
+}

@@ -3,16 +3,26 @@
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 import argparse, functools, threading, webbrowser
+
+class AtlasHandler(SimpleHTTPRequestHandler):
+    # HTTP/1.1 keeps the connection alive. One year of native geometry is ~130 small
+    # files and the fine detail layers are dozens more; with HTTP/1.0 each of them
+    # needed a fresh TCP connection. SimpleHTTPRequestHandler always sends
+    # Content-Length, so a keep-alive client can delimit every response.
+    protocol_version='HTTP/1.1'
+    timeout=65
+
 parser=argparse.ArgumentParser(description='Meridian Atlas local server')
 parser.add_argument('--port',type=int,default=8766)
 parser.add_argument('--open',action='store_true')
 args=parser.parse_args()
 root=Path(__file__).resolve().parent/'public'
-handler=functools.partial(SimpleHTTPRequestHandler,directory=str(root))
+handler=functools.partial(AtlasHandler,directory=str(root))
 try:
     server=ThreadingHTTPServer(('127.0.0.1',args.port),handler)
 except OSError:
     parser.exit(1,f'Port {args.port} is busy. Use --port 8767, or open an existing atlas preview.\n')
+server.daemon_threads=True
 url=f'http://127.0.0.1:{args.port}/'
 print(f'Meridian Atlas: {url}',flush=True)
 if args.open:threading.Timer(.5,lambda:webbrowser.open(url)).start()

@@ -71,8 +71,10 @@ async function strictAttested(){
      session=await launch({width:1600,height:900,port,profile:'/tmp/atlas-cdp-reach-shared'});
      await session.send('Page.addScriptToEvaluateOnNewDocument',{source:INSTRUMENT});
      await goto(session,base+'/#'+hash,{waitMs:2000});
-     try{await waitFor(session,"!!(window.__meridian&&window.__meridian.instances&&window.__meridian.instances.length)",{timeout:15000,interval:200});}catch{}
-     await sleep(1800);
+     // Wait until the place archives have actually been applied: window.__meridian exists long
+     // before places.active is populated, and probing too early reports a false "not shown".
+     try{await waitFor(session,"!!(window.__meridian&&window.__meridian.instances&&window.__meridian.instances[0].places&&window.__meridian.instances[0].places.active&&window.__meridian.instances[0].places.active.length>0)",{timeout:30000,interval:250});}catch{}
+     await sleep(2000);
      const info=await evaluate(session,PROBE);
      const target=info.entries.filter(entry=>entry.text.includes(record.nameEn)||entry.text.includes(record.nameZh));
      row.markerCount=info.entries.length;row.active=info.active;row.onScreen=inBounds(info.bounds,lon,lat);
@@ -219,11 +221,61 @@ function writeMarkdown(report){
   for(const row of rows){regionRows[row.region]=regionRows[row.region]||{total:0,reachable:0};regionRows[row.region].total++;if(row.reachable)regionRows[row.region].reachable++;}
   lines.push('### 分区可达率','','| 分区 | 抽样 | 可达 |','| --- | --- | --- |',...Object.entries(regionRows).filter(([,value])=>value.total>=5).sort((a,b)=>b[1].total-a[1].total).map(([name,value])=>'| '+name+' | '+value.total+' | '+value.reachable+' |'),'');
  }
+ lines.push('## 3. 结论与最小改动建议','',
+  '1. **唯一的系统性不可达原因是标签避让（label-collision）**：抽样 320 条中 59 条（18.4%）、有据遗址 z4 4/36 格——记录在 active 里、年份在期内、标记预算未满，仅因标签框与既有标记或界面元素重叠就整条不画。',
+  '   最小改动建议（任一即可，都只动 public/places.js 的 PlaceLayer.refresh()）：(a) 默认框冲突时按 1–2 个备选位置（锚点翻到左侧/上方，或水平位移 ±14px）重试一次再放弃；(b) 冲突时降级为「只画点、不画文字」（宽度按 0 计），保证记录至少可见可点，点击后再展开标签。',
+  '2. **低缩放下有据遗址仍会被人口标记挤掉**：ayutthaya(1454) 与 yinxu 三个代表年在 z4 不可见，但 z6/z8/z10 全部可见。若要覆盖世界视野，可对 attested-site 在 z4–z5 采用「点优先」或更高优先级。',
+  '3. 4 个 z4 未命中格可稳定复现（重跑两次一致、markerCount 0–10、无探针错误、预算未满），原因未完全定位；由于 z6–z10 全部可见，对「阅读单个遗址」的实际使用没有影响。',
+  '4. not-active-at-year 与 marker-budget 在 320 条抽样中均为 0：当前的「该隐藏就隐藏」口径准确，标记预算也不是瓶颈。',
+  '5. 可达 ≠ 好读：本审计只测「是否生成了该记录的标记」，不评估标签是否被其他标签遮住、是否容易点击。','',
+  '## 4. 方法边界','',
+  '- 严格巡测：一个用例独立启动一次 Chrome（共享 profile 以复用缓存），端口 9500+；等待 places.active 非空后再稳定 2 s。首轮等待过短造成 5 格假阴性，已用 --mode=retry 重跑全部失败格 + 6 个对照格（对照格结果未变）。',
+  '- 抽样：单页驱动，通过应用自身 setter（map.jumpTo + places.setYear）逐条对准记录，先 z5 后 z8；因此「z8 可见数」只对 z5 未命中的记录有意义。',
+  '- 年份选择：抽样用记录自身时段的代表年（人口观测用观测年中位数），因此 not-active-at-year 为 0 是设计使然，不代表「全年份都可见」。','');
  lines.push('## 复现','','\`\`\`bash','node scripts/verification/place-reachability.mjs --mode=attested   # 12×3×4 严格巡测','node scripts/verification/place-reachability.mjs --mode=sample     # 300+ 条分层抽样','node scripts/verification/place-reachability.mjs --mode=report     # 合并报告','\`\`\`','');
  fs.mkdirSync(docs,{recursive:true});
  fs.writeFileSync(path.join(docs,'place-reachability.md'),lines.join('\n'));
 }
 
+async function retryMode(){
+ // Re-run the cells that came back empty plus a control set, now that the readiness wait is fixed.
+ const report=loadReport(),rows=report.attested.rows;
+ const targets=rows.filter(row=>!row.present||row.error);
+ const controls=rows.filter(row=>row.present).slice(0,6);
+ const layer=read('attested-places.json.gz'),byId=new Map(layer.records.map(record=>[record.id,record]));
+ let index=0;
+ for(const row of [...targets,...controls]){
+  index++;
+  const record=byId.get(row.id);if(!record)continue;
+  const port=9500+(index%100),hash='year='+row.year+'&lang=en&camera='+record.location.coordinates[0]+','+record.location.coordinates[1]+','+row.zoom+',0,0&boundaries=overview';
+  const fresh={id:row.id,name:record.nameEn,year:row.year,zoom:row.zoom,port,error:null,present:false,markerCount:0,active:null,budget:budgetFor(row.zoom),retried:true,previousPresent:row.present,previousError:row.error||null};
+  let session=null;
+  try{
+   session=await launch({width:1600,height:900,port,profile:'/tmp/atlas-cdp-reach-shared'});
+   await session.send('Page.addScriptToEvaluateOnNewDocument',{source:INSTRUMENT});
+   await goto(session,base+'/#'+hash,{waitMs:2000});
+   try{await waitFor(session,"!!(window.__meridian&&window.__meridian.instances&&window.__meridian.instances[0].places&&window.__meridian.instances[0].places.active&&window.__meridian.instances[0].places.active.length>0)",{timeout:30000,interval:250});}catch{}
+   await sleep(2500);
+   const info=await evaluate(session,PROBE);
+   const [lon,lat]=record.location.coordinates;
+   const target=info.entries.filter(entry=>entry.text.includes(record.nameEn)||entry.text.includes(record.nameZh));
+   fresh.markerCount=info.entries.length;fresh.active=info.active;
+   fresh.present=markerHit(info.entries,lon,lat)||target.length>0;
+   fresh.texts=info.entries.slice(0,6).map(entry=>entry.text);
+   if(!fresh.present){fresh.nearbyMarkers=info.entries.filter(entry=>Math.abs(entry.lngLat[0]-lon)<0.05&&Math.abs(entry.lngLat[1]-lat)<0.05).map(entry=>entry.text).slice(0,4);fresh.budgetFull=info.entries.length>=fresh.budget;}
+  }catch(error){fresh.error=String(error).slice(0,160);}
+  finally{if(session)await session.close().catch(()=>{});}
+  Object.assign(row,fresh);
+  console.error('retry '+row.id+' '+row.year+' z'+row.zoom+' -> '+(row.present?'visible':(row.error?'error':'not-shown')));
+ }
+ report.attested.visible=rows.filter(row=>row.present).length;
+ report.attested.errors=rows.filter(row=>row.error).length;
+ report.attested.retriedAt=new Date().toISOString();
+ report.attested.retryNote='失败格与 6 个对照格在修正就绪等待（places.active 非空 + 2.5 s）后重跑';
+ saveReport(report);
+ return report.attested;
+}
 if(mode==='attested')await strictAttested();
 else if(mode==='sample')await sampleMode();
+else if(mode==='retry')await retryMode();
 writeMarkdown(loadReport());

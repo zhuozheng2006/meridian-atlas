@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T20:31:07.959Z",
+  "generatedAt": "2026-10-02T20:55:30.263Z",
   "batches": [
     "events-3.10.json",
     "events-3.11.json",
     "events-3.12.json"
   ],
-  "checkedUrls": 63,
+  "checkedUrls": 80,
   "modes": {
     "host-blocked": 25,
     "unreachable": 1,
     "live-fetch-200-content-unparsed": 2,
-    "live-content-verified": 33,
+    "live-content-verified": 50,
     "live-fetch-200": 2
   },
-  "passed": 63,
+  "passed": 80,
   "failed": 0,
   "policy": "A source passes on live content evidence when the host answers and the expected words are present; otherwise it passes only when the repository or the reviewed handoff file already records the exact URL. Blocked hosts are never described as freshly verified.",
   "results": [
@@ -80,7 +80,7 @@
       ],
       "status": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytes": 50893,
+      "bytes": 50888,
       "matched": [
         "mamluk",
         "1250"
@@ -100,6 +100,22 @@
       "matched": [
         "neolithic",
         "anatolia"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Aq_Qoyunlu",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 908021,
+      "matched": [
+        "aq qoyunlu",
+        "turkoman"
       ],
       "mode": "live-content-verified",
       "ok": true
@@ -185,6 +201,22 @@
       "ok": true
     },
     {
+      "url": "https://en.wikipedia.org/wiki/China_and_the_World_Trade_Organization",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 346738,
+      "matched": [
+        "world trade organization",
+        "2001"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
       "url": "https://en.wikipedia.org/wiki/D%27mt",
       "host": "en.wikipedia.org",
       "recordedIn": [
@@ -232,6 +264,22 @@
       "ok": true
     },
     {
+      "url": "https://en.wikipedia.org/wiki/Durrani_Empire",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 577114,
+      "matched": [
+        "durrani",
+        "afghan"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
       "url": "https://en.wikipedia.org/wiki/Elam",
       "host": "en.wikipedia.org",
       "recordedIn": [
@@ -259,6 +307,38 @@
       "matched": [
         "erlitou",
         "bronze"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/First_Anglo-Afghan_War",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 683997,
+      "matched": [
+        "anglo-afghan",
+        "kabul"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Gyeongguk_daejeon",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 118034,
+      "matched": [
+        "joseon",
+        "code of law"
       ],
       "mode": "live-content-verified",
       "ok": true
@@ -328,6 +408,54 @@
       "ok": true
     },
     {
+      "url": "https://en.wikipedia.org/wiki/Jai_Singh_II",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 240230,
+      "matched": [
+        "jaipur",
+        "jai singh"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Khalji_dynasty",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 460384,
+      "matched": [
+        "khalji",
+        "delhi"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Kingdom_of_Sicily",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 550235,
+      "matched": [
+        "sicily",
+        "norman"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
       "url": "https://en.wikipedia.org/wiki/Meadowcroft_Rockshelter",
       "host": "en.wikipedia.org",
       "recordedIn": [
@@ -355,6 +483,22 @@
       "matched": [
         "minoan",
         "crete"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Mit%27a",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 230492,
+      "matched": [
+        "inca",
+        "mandatory"
       ],
       "mode": "live-content-verified",
       "ok": true
@@ -392,6 +536,22 @@
       "ok": true
     },
     {
+      "url": "https://en.wikipedia.org/wiki/New_France",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 956184,
+      "matched": [
+        "new france",
+        "1763"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
       "url": "https://en.wikipedia.org/wiki/Newgrange",
       "host": "en.wikipedia.org",
       "recordedIn": [
@@ -403,6 +563,38 @@
       "matched": [
         "newgrange",
         "neolithic"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/North_Sea_Empire",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 375387,
+      "matched": [
+        "north sea empire",
+        "cnut"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Pacific_Islands_Forum",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 848152,
+      "matched": [
+        "pacific islands forum",
+        "1971"
       ],
       "mode": "live-content-verified",
       "ok": true
@@ -467,6 +659,86 @@
       "matched": [
         "polynesian",
         "canoe"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Sugar_plantations_in_the_Caribbean",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 282773,
+      "matched": [
+        "sugar",
+        "caribbean"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/The_Great_Game",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 962007,
+      "matched": [
+        "great game",
+        "central asia"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Third_Crusade",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 634617,
+      "matched": [
+        "third crusade",
+        "saladin"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/War_in_Afghanistan_(2001%E2%80%932021)",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 2820258,
+      "matched": [
+        "afghanistan",
+        "taliban"
+      ],
+      "mode": "live-content-verified",
+      "ok": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/War_of_the_Spanish_Succession",
+      "host": "en.wikipedia.org",
+      "recordedIn": [
+        "public/data/events.json"
+      ],
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 908099,
+      "matched": [
+        "spanish succession",
+        "1701"
       ],
       "mode": "live-content-verified",
       "ok": true
@@ -895,7 +1167,7 @@
       ],
       "status": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytes": 24224,
+      "bytes": 24225,
       "matched": [
         "1639",
         "1648"

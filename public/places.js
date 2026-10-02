@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.10.0-7d7a4a30133a';
-import {placeWindow} from './view-state.js?v=3.10.0-7d7a4a30133a';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.10.0-efa001839176';
+import {placeWindow} from './view-state.js?v=3.10.0-efa001839176';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -101,16 +101,29 @@ export class PlaceLayer {
    if(map.getProjection().type==='globe'&&zoom<3){const rad=Math.PI/180,[lon,lat]=p.coordinates;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.2)continue;}
    const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
    const width=Math.min(172,Math.max(name.length*(p.nameZh&&this.lang!=='en'?12:6.5),secondary.length*6)+30),height=(secondary?46:32)+(p.observation?14:0);
-   const box={left:origin.left+screen.x-12,right:origin.left+screen.x+width,top:origin.top+screen.y-height/2,bottom:origin.top+screen.y+height/2};
-   if(box.left<origin.left+10||box.right>origin.right-12||box.top<origin.top+12||box.bottom>origin.bottom-52||boxes.some(b=>overlap(box,b)))continue;
+   // A record that exists in the data should still be visible and clickable when its
+   // label cannot be placed. Try the label on the right, then on the left, then fall
+   // back to the dot alone instead of dropping the record entirely.
+   const fits=candidate=>candidate.left>=origin.left+10&&candidate.right<=origin.right-12&&candidate.top>=origin.top+12&&candidate.bottom<=origin.bottom-52&&!boxes.some(b=>overlap(candidate,b));
+   const labelBox=side=>side==='right'
+    ?{left:origin.left+screen.x-12,right:origin.left+screen.x+width,top:origin.top+screen.y-height/2,bottom:origin.top+screen.y+height/2}
+    :{left:origin.left+screen.x-width+12,right:origin.left+screen.x+12,top:origin.top+screen.y-height/2,bottom:origin.top+screen.y+height/2};
+   const dotBox={left:origin.left+screen.x-7,right:origin.left+screen.x+7,top:origin.top+screen.y-7,bottom:origin.top+screen.y+7};
+   let box=null,side='right',dotOnly=false;
+   for(const [candidate,place]of [[labelBox('right'),'right'],[labelBox('left'),'left'],[dotBox,'dot']]){
+    if(!fits(candidate))continue;
+    box=candidate;dotOnly=place==='dot';side=place==='dot'?'right':place;break;
+   }
+   if(!box)continue;
    boxes.push({...box,left:box.left-8,right:box.right+8,top:box.top-5,bottom:box.bottom+5});
-   const el=document.createElement('button');el.className='place-marker '+(modern?'modern':p.kind==='dated-capital'?'capital':'historic');
+   const el=document.createElement('button');el.className='place-marker '+(modern?'modern':p.kind==='dated-capital'?'capital':'historic')+(dotOnly?' dot-only':'');
    const dot=document.createElement('i'),label=document.createElement('span');label.textContent=name;el.append(dot,label);
    if(secondary){const sub=document.createElement('small');sub.textContent=secondary;label.append(sub);}
    if(p.observation){const stamp=document.createElement('small');stamp.className='place-date';stamp.textContent=(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh');label.append(stamp);}
    el.title=(modern?(this.lang==='en'?'Modern reference · ':'现代参照 · '):'')+name;el.setAttribute('aria-label',el.title);
    el.onclick=e=>{e.stopPropagation();this.onSelect?.(p,this.atlas);};
-   this.markers.push(new maplibregl.Marker({element:el,anchor:'left',offset:[-5,0],opacityWhenCovered:'0'}).setLngLat(p.coordinates).addTo(map));
+   const anchor=dotOnly?'center':side==='left'?'right':'left',offset=dotOnly?[0,0]:side==='left'?[5,0]:[-5,0];
+   this.markers.push(new maplibregl.Marker({element:el,anchor,offset,opacityWhenCovered:'0'}).setLngLat(p.coordinates).addTo(map));
   }
  }
  destroy(){this.seq++;this.selection?.remove();this.map.off('moveend',this.move);this.map.off('resize',this.move);this.markers.forEach(m=>m.remove());}

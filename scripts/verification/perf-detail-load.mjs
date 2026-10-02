@@ -9,10 +9,13 @@
 // All timings are in-page performance.now() marks; request counts/bytes come from an
 // in-page fetch() wrapper plus CDP Network events (connection ids prove reuse).
 import fs from 'node:fs';
+import path from 'node:path';
 import { launch, evaluate, screenshot, sleep } from './browser.mjs';
 import * as C from './lib/common.mjs';
 
 const args = C.parseArgs();
+// Accept both "--url value" and "--url=value" (parseArgs only splits on whitespace).
+for (const raw of process.argv.slice(2)) { const m = raw.match(/^--([a-z-]+)=(.*)$/); if (m && args[m[1]] === undefined) args[m[1]] = m[2]; }
 const URL_BASE = String(args.url || C.DEFAULT_URL).replace(/\/$/, '');
 const PORT = Number(args.port || 9521);
 const LABEL = String(args.label || 'run');
@@ -85,10 +88,21 @@ async function collect(s, t0) {
   const fetches = await evaluate(s, '(window.__perf ? window.__perf.fetches : [])');
   const geometry = await evaluate(s, '(window.__perf ? window.__perf.geometry : [])');
   const nav = await evaluate(s, '(() => { const n = performance.getEntriesByType("navigation")[0] || {}; const p = performance.getEntriesByType("paint").map(x => [x.name, Math.round(x.startTime)]); return { responseStart: Math.round(n.responseStart || 0), responseEnd: Math.round(n.responseEnd || 0), domContentLoaded: Math.round(n.domContentLoadedEventEnd || 0), loadEvent: Math.round(n.loadEventEnd || 0), paints: p }; })()');
-  const res = await evaluate(s, 'performance.getEntriesByType("resource").map(r => ({ n: r.name.split("/").slice(-2).join("/"), type: r.initiatorType, start: Math.round(r.startTime), end: Math.round(r.responseEnd), ms: Math.round(r.duration), bytes: r.encodedBodySize, transfer: r.transferSize }))');
+  const res = await evaluate(s, 'performance.getEntriesByType("resource").map(r => ({ u: r.name, n: r.name.split("/").slice(-2).join("/"), type: r.initiatorType, start: Math.round(r.startTime), end: Math.round(r.responseEnd), ms: Math.round(r.duration), bytes: r.encodedBodySize, transfer: r.transferSize }))');
   return {
     wallMs: Date.now() - t0, nav, fetches, geometry,
-    resources: { count: res.length, encodedBytes: res.reduce((a, r) => a + (r.bytes || 0), 0), byType: groupBy(res, r => r.type), slowest: [...res].sort((a, b) => b.ms - a.ms).slice(0, 10) },
+    resources: { count: res.length, encodedBytes: res.reduce((a, r) => a + (r.bytes || 0), 0), byType: groupBy(res, r => r.type), byHost: groupBy(res, r => { const m = (r.u || '').match(/^https?:\/\/([^/]+)/); return m && !/127[.]0[.]0[.]1|localhost/.test(m[1]) ? m[1] : 'local'; }), lastEndMs: res.length ? Math.max(...res.map(r => r.end || 0)) : null, slowest: [...res].sort((a, b) => b.ms - a.ms).slice(0, 10), all: res },
+    phases: {
+      htmlMs: nav.responseEnd,
+      cssDoneMs: maxEnd(res, r => /[.]css(\?|$)/.test(r.u)),
+      jsDoneMs: maxEnd(res, r => /maplibre-gl[.]js|app[.]js|startup[.]js/.test(r.u)),
+      firstGeometryMs: minEnd(res, r => /\/data\//.test(r.u)),
+      allDataMs: maxEnd(res, r => /\/data\//.test(r.u)),
+      jsBytes: sumBytes(res, r => /[.]js(\?|$)/.test(r.u)),
+      cssBytes: sumBytes(res, r => /[.]css(\?|$)/.test(r.u)),
+      dataBytes: sumBytes(res, r => /\/data\//.test(r.u)),
+      externalRequests: res.filter(r => /^https?:\/\/([^/]+)/.test(r.u) && !/127[.]0[.]0[.]1|localhost/.test((r.u.match(/^https?:\/\/([^/]+)/) || [])[1] || '')).length
+    },
     groups: {
       fast: sumGroup(fetches, /data\/fast\//), native: sumGroup(fetches, /data\/native\//), physical: sumGroup(fetches, /data\/physical\//),
       lakes: sumGroup(fetches, /data\/lakes\//), places: sumGroup(fetches, /data\/places\//), app: sumGroup(fetches, /[.]js|[.]css|^\/$/)
@@ -96,6 +110,9 @@ async function collect(s, t0) {
     nativeTimeline: fetches.filter(f => /data\/native\//.test(f.full || '')).map(f => ({ file: (f.full || '').split('/').slice(-2).join('/'), start: f.start, end: f.end })).sort((a, b) => a.start - b.start)
   };
 }
+const maxEnd = (list, pred) => { const hit = list.filter(x => pred(x) && Number.isFinite(x.end)); return hit.length ? Math.max(...hit.map(x => x.end)) : null; };
+const minEnd = (list, pred) => { const hit = list.filter(x => pred(x) && Number.isFinite(x.end)); return hit.length ? Math.min(...hit.map(x => x.end)) : null; };
+const sumBytes = (list, pred) => list.filter(pred).reduce((a, x) => a + (x.bytes || 0), 0);
 const groupBy = (list, key) => list.reduce((acc, x) => { const k = key(x) || 'other'; acc[k] = acc[k] || { count: 0, bytes: 0 }; acc[k].count++; acc[k].bytes += x.bytes || 0; return acc; }, {});
 const sumGroup = (list, re) => { const hit = list.filter(f => re.test(f.full || '')); return { count: hit.length, bytes: hit.reduce((a, f) => a + (f.bytes || 0), 0), lastEndMs: hit.length ? Math.max(...hit.map(f => f.end)) : null }; };
 
@@ -156,7 +173,9 @@ async function scenarioDetail(profile, { withZoom = true } = {}) {
   try {
     await setupThrottle(s, profile);
     const t0 = Date.now();
-    await C.navigate(s, URL_BASE + '/#year=1450&lang=bi&browse=1&step=10&camera=9.32,48.08,6.0,0,0');
+    // Start at the default globe view (the user's first screen) so the zoom steps
+    // measure the real overview -> fine-layer transition rather than a warm zoom.
+    await C.navigate(s, URL_BASE + '/#year=1450&lang=bi&browse=1&step=10');
     const ready = await C.waitMapReady(s, 240000);
     out.firstFrameMs = ready.elapsed;
     out.afterFirstFrame = await evaluate(s, STATE);
@@ -170,15 +189,38 @@ async function scenarioDetail(profile, { withZoom = true } = {}) {
       for (const z of [3, 7, 9]) {
         const zt = Date.now();
         await evaluate(s, '(() => { const a = window.__meridian.instances[0]; a.map.jumpTo({ center: [8.2, 46.9], zoom: ' + z + ' }); return true; })()');
-        // wait until the layers relevant at this zoom stop changing
-        const settled = await waitFor(s, '(() => { const a = (window.__meridian.instances || [])[0]; if (!a) return false; const g = a.geography; const lakesReady = !g || !g.lakes || g.lakes.status === "ready" || g.lakes.status === "error"; return !!g && lakesReady && a.map.isSourceLoaded("polities") && (a.map.getSource("physical-lakes") ? a.map.isSourceLoaded("physical-lakes") : true); })()', 120000, 250);
-        await sleep(1200);
-        out.zoom.push({ zoom: z, settleMs: settled, elapsedMs: Date.now() - zt, state: await evaluate(s, STATE) });
+        // Sample the layer state every 250 ms instead of waiting for one predicate:
+        // the point is to record WHEN each detail layer first becomes usable.
+        const samples = [];
+        let stable = 0;
+        for (let i = 0; i < 240; i++) {
+          const st = await evaluate(s, STATE).catch(() => null);
+          if (!st) break;
+          samples.push({ ms: Date.now() - zt, ...st });
+          const settled = st.lakesStatus !== 'loading' && st.lakesStatus !== 'rendering' && st.sources.polities === true;
+          stable = settled ? stable + 1 : 0;
+          if (stable >= 6 && samples.length > 12) break; // ~1.5 s of unchanged state
+          await sleep(250);
+        }
+        const first = pred => { const hit = samples.find(x => { try { return pred(x); } catch (e) { return false; } }); return hit ? hit.ms : null; };
+        out.zoom.push({
+          zoom: z, elapsedMs: Date.now() - zt, samples: samples.length,
+          markers: {
+            physicalLoadedMs: first(x => x.sources.land === true && x.sources.physicalLakes === true),
+            lakesDetailMs: first(x => x.lakesStatus === 'ready'),
+            lakesOverviewMs: first(x => x.lakesStatus === 'overview'),
+            terrainMs: first(x => x.terrainReady === true),
+            referenceMs: first(x => x.referenceReady === true),
+            regionalReadyMs: first(x => x.regionalStatus === 'partial' || x.regionalStatus === 'empty' || x.features.ohm !== null),
+            ohmFeaturesMs: first(x => (x.features.ohm || 0) > 0),
+            nativeMs: first(x => x.nativeComplete === true)
+          },
+          settleMs: samples.length ? samples[samples.length - 1].ms : null,
+          lastState: samples.length ? samples[samples.length - 1] : null
+        });
       }
-      out.collected = await collect(s, t0);
-    } else {
-      out.collected = await collect(s, t0);
     }
+    out.collected = await collect(s, t0);
     out.connections = conns.size;
     out.requests = netReq.length;
     await screenshot(s, C.screenshotPath('detail-' + LABEL + '-detail-' + profile.name + '.png'));
@@ -205,6 +247,52 @@ async function scenarioRegional(profile) {
   } catch (e) { out.fatal = String((e && e.stack) || e).slice(0, 400); }
   finally { await s.close(); }
   return out;
+}
+
+// --keepalive-bench : measure how the static server handles many small files.
+// Node's http.Agent with keepAlive reuses sockets only when the server allows it, so
+// newSockets vs requests is a direct read-out of HTTP/1.0 vs HTTP/1.1 behaviour.
+if (args['keepalive-bench']) {
+  const { default: http } = await import('node:http');
+  const limit = Number(args.files || 133);
+  const root = path.join(C.PUBLIC, 'data', 'native', 'geos');
+  const list = [];
+  const dirs = fs.readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name).sort();
+  for (const dir of dirs) {
+    if (list.length >= limit) break;
+    for (const file of fs.readdirSync(path.join(root, dir)).sort()) {
+      list.push(dir + '/' + file);
+      if (list.length >= limit) break;
+    }
+  }
+  const run = async (concurrency) => {
+    const agent = new http.Agent({ keepAlive: true, maxSockets: concurrency });
+    const seen = new WeakSet();
+    let newSockets = 0, bytes = 0, errors = 0;
+    const t0 = Date.now();
+    let cursor = 0;
+    await Promise.all(Array.from({ length: Math.min(concurrency, list.length) }, async () => {
+      while (cursor < list.length) {
+        const file = list[cursor++];
+        await new Promise(resolve => {
+          const req = http.get(URL_BASE + '/data/native/geos/' + file, { agent }, res => {
+            res.on('data', d => { bytes += d.length; });
+            res.on('end', resolve);
+          });
+          req.on('socket', s => { if (!seen.has(s)) { seen.add(s); newSockets++; } });
+          req.on('error', () => { errors++; resolve(); });
+        });
+      }
+    }));
+    const ms = Date.now() - t0;
+    agent.destroy();
+    return { files: list.length, concurrency, ms, newSockets, bytes, errors, msPerFile: Number((ms / list.length).toFixed(2)) };
+  };
+  const out = { label: LABEL, url: URL_BASE, generatedAt: C.nowIso(), provenance: C.provenance(), results: [await run(1), await run(6)] };
+  const file3 = C.writeJSON('docs/verification-3.12/keepalive-bench-' + LABEL + '.json', out);
+  C.log('wrote', file3);
+  for (const r of out.results) C.log(JSON.stringify(r));
+  process.exit(0);
 }
 
 // --compare before,after : read two finished reports and print/write a delta table.
@@ -262,10 +350,13 @@ const save = () => {
 };
 const scenarioRunners = { cold: p => scenarioCold(p, DEVICE === 'mobile'), detail: p => scenarioDetail(p), regional: p => scenarioRegional(p) };
 for (const p of PROFILES) {
-  for (const kind of ['cold', 'detail', 'regional']) {
+  const kinds = args.kinds ? String(args.kinds).split(',') : ['cold', 'detail', 'regional'];
+  for (const kind of kinds) {
     if (kind === 'regional' && QUICK && !args.regional) continue;
     const id = kind + '/' + p.name;
-    if (report.runs.some(r => (r.scenario + '/' + r.profile) === (kind === 'cold' ? 'cold-1500/' : kind === 'detail' ? 'detail-1450/' : 'regional-ohm-1500/') + p.name)) { C.log('skip (already measured)', id); continue; }
+    const fullKey = (kind === 'cold' ? 'cold-1500/' : kind === 'detail' ? 'detail-1450/' : 'regional-ohm-1500/') + p.name;
+    if (!args.force && report.runs.some(r => (r.scenario + '/' + r.profile) === fullKey)) { C.log('skip (already measured)', id); continue; }
+    if (args.force) report.runs = report.runs.filter(r => (r.scenario + '/' + r.profile) !== fullKey);
     for (let attempt = 0; attempt < 2; attempt++) {
       C.log(kind, p.name, attempt ? '(retry)' : '');
       let run;
