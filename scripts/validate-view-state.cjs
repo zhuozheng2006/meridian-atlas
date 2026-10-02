@@ -65,9 +65,14 @@ async function run(){
   value(c,`bind();document.querySelector('#step').value='1';document.querySelector('${selector}').value='${draft}';globalThis.e={target:document.querySelector('${selector}'),key:'${key}',code:'${key}',preventDefault(){},stopPropagation(){}};for(const fn of keyListeners)fn(e);`);await flush();
   assert.equal(value(c,side==='right'?'state.compareYear':'state.year'),expected);assert.equal(+value(c,`document.querySelector('${selector}').value`),expected);
  });
+ await test('comparison input waits for initial map readiness before accepting year edits',async()=>{
+  const c=context();value(c,`bindPlaceLayer=()=>{};AtlasMap=class{constructor(){Object.assign(this,makeMap());this.ready=new Promise(resolve=>globalThis.resolveComparisonReady=resolve);}};`);
+  const pending=value(c,'toggleCompare()');assert.equal(value(c,"document.querySelector('#compareYear').disabled"),true);
+  value(c,'resolveComparisonReady()');await pending;assert.equal(value(c,"document.querySelector('#compareYear').disabled"),false);
+ });
  const cameraContext=context();
- for(const camera of ['0,0,0.2,0,0','180,85.051129,14,180,60','-180,-85.051129,0.2,-180,0','25.12345,-30.98765,6.125,-47.5,42'])await test('decode accepts camera boundary '+camera,()=>assert(value(cameraContext,`decodeCamera(${JSON.stringify(camera)})`)));
- for(const camera of [null,undefined,'','0,0,1,0','0,0,1,0,0,1','0,,1,0,0','0,0,NaN,0,0','Infinity,0,1,0,0','181,0,1,0,0','0,85.1,1,0,0','0,0,.199,0,0','0,0,14.001,0,0','0,0,1,180.001,0','0,0,1,0,60.001','0,0,1,0,-.001'])await test('decode rejects invalid camera '+String(camera),()=>assert.equal(value(cameraContext,`decodeCamera(${JSON.stringify(camera)??'undefined'})`),null));
+ for(const camera of ['0,0,0.2,0,0','180,85.051129,18,180,60','-180,-85.051129,0.2,-180,0','25.12345,-30.98765,6.125,-47.5,42'])await test('decode accepts camera boundary '+camera,()=>assert(value(cameraContext,`decodeCamera(${JSON.stringify(camera)})`)));
+ for(const camera of [null,undefined,'','0,0,1,0','0,0,1,0,0,1','0,,1,0,0','0,0,NaN,0,0','Infinity,0,1,0,0','181,0,1,0,0','0,85.1,1,0,0','0,0,.199,0,0','0,0,18.001,0,0','0,0,1,180.001,0','0,0,1,0,60.001','0,0,1,0,-.001'])await test('decode rejects invalid camera '+String(camera),()=>assert.equal(value(cameraContext,`decodeCamera(${JSON.stringify(camera)??'undefined'})`),null));
  await test('encode wraps longitude and bearing without changing position',()=>{
   value(cameraContext,'atlas.map.jumpTo({center:[540,-12.345678],zoom:4.12345,bearing:540,pitch:20.1234})');const encoded=value(cameraContext,'encodeCamera(atlas.map)');assert.equal(encoded,'-180,-12.345678,4.123,-180,20.123');assert(value(cameraContext,`decodeCamera(${JSON.stringify(encoded)})`));
  });

@@ -3,7 +3,7 @@ export function decodeCamera(value){
  if(typeof value!=='string')return null;
  const fields=value.split(',');if(fields.length!==5||fields.some(v=>!v.trim()))return null;
  const [lon,lat,zoom,bearing,pitch]=fields.map(Number);
- if(![lon,lat,zoom,bearing,pitch].every(Number.isFinite)||Math.abs(lon)>180||Math.abs(lat)>85.051129||zoom<.2||zoom>14||Math.abs(bearing)>180||pitch<0||pitch>60)return null;
+ if(![lon,lat,zoom,bearing,pitch].every(Number.isFinite)||Math.abs(lon)>180||Math.abs(lat)>85.051129||zoom<.2||zoom>18||Math.abs(bearing)>180||pitch<0||pitch>60)return null;
  return {center:[lon,lat],zoom,bearing,pitch};
 }
 export function encodeCamera(map){

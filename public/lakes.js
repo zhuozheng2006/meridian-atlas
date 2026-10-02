@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.1.0-e7a6263b51ba';
+import {decodeLakeArchive} from './lake-codec.js?v=3.2.0-a6cebd0ac9b0';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;

@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>Street recovery verification</title><link rel="stylesheet" href="assets/maplibre-gl.css"><style>#map{width:650px;height:450px}pre{white-space:pre-wrap}</style><div id="map"></div><pre id="result">Testing a failed historical source and recovery…</pre><script src="assets/maplibre-gl.js"></script><script type="module">
+import {AtlasMap} from './map-engine.js';
+const errors=[],atlas=new AtlasMap('map',{year:1870,camera:{center:[-74.008,40.71],zoom:15},onError:e=>errors.push(String(e))});
+let failedEndpoint=true;const original=atlas.map.addSource.bind(atlas.map);
+atlas.map.addSource=(id,source)=>original(id,id==='historical-detail'&&failedEndpoint?{...source,tiles:[location.origin+'/index.html?invalid-street-tile={z}/{x}/{y}']}:source);
+const waitFor=fn=>new Promise((resolve,reject)=>{const start=Date.now(),tick=()=>{if(fn())resolve();else if(Date.now()-start>30000)reject(Error('State timeout'));else setTimeout(tick,100)};tick()});
+try{
+ await atlas.ready;await waitFor(()=>atlas.historical.status==='error');
+ const failed={status:atlas.historical.status,fatalErrors:errors.slice(),baseAvailable:!!atlas.map.getLayer('land'),retryLabel:atlas.historical.button.textContent};
+ failedEndpoint=false;atlas.historical.retry();await waitFor(()=>atlas.historical.status==='ready');
+ const recovered={status:atlas.historical.status,records:atlas.historical.features.length,fatalErrors:errors.slice()};
+ document.querySelector('#result').textContent=JSON.stringify({status:failed.status==='error'&&failed.baseAvailable&&!errors.length&&recovered.records>0?'passed':'failed',failed,recovered},null,2);
+}catch(e){document.querySelector('#result').textContent=JSON.stringify({status:'failed',error:String(e),errors},null,2);}
+</script>
