@@ -35,12 +35,12 @@ await check('Capital labels are readable and use pinned entity names',()=>{
  assert.equal(changan.name,"Chang'an, Tang Empire");assert.equal(changan.nameZh,'唐长安城');
  assert(changan.coordinateRevision);assert.deepEqual(changan.periods,[[618,904]]);
 });
-await check('Dated city names follow the observation, preserve raw names and clear on later records',async()=>{
+await check('Dated city names follow the observation and preserve raw names across transitions',async()=>{
  const p=urban.cities.find(p=>p.id==='chandler:1429');
  const edo=placeAtYear(p,1600);assert.equal(edo.displayName,'Edo');assert.equal(edo.displayNameZh,'江户');assert.equal(edo.name,'Tokyo');
  assert.equal(placeAtYear(p,1860).displayName,'Edo');assert.equal(placeAtYear(p,1860).observation[0],1854);
- const tokyo=placeAtYear(edo,1875);assert.equal(tokyo.displayName,undefined);assert.equal(tokyo.labelEvidence,undefined);assert.equal(tokyo.name,'Tokyo');
- assert(edo.labelEvidence.source.url.startsWith('https://www.english.metro.tokyo.lg.jp/'));
+ const tokyo=placeAtYear(edo,1875);assert.equal(tokyo.displayName,'Tokyo');assert.equal(tokyo.labelEvidence.name,'Tokyo');assert.equal(tokyo.name,'Tokyo');
+ assert(edo.labelEvidence.source.url.startsWith('https://www.archives.go.jp/'));assert.equal(placeAtYear(p,1867).observation[0],1854);assert.equal(placeAtYear(p,1869).observation[0],1875);
  const mexico=urban.cities.find(p=>p.id==='chandler:921');
  assert.equal(placeAtYear(mexico,1500).displayName,'Tenochtitlan');assert.equal(placeAtYear(mexico,1520).displayNameZh,'特诺奇蒂特兰');assert.equal(placeAtYear(mexico,1600).displayName,undefined);
  assert.equal(placeAtYear(urban.cities.find(p=>p.id==='chandler:623'),1200).displayName,'Constantinople');

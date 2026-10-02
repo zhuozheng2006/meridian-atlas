@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "recordId": "chandler:1356",
+      "expected": {
+        "name": "Sverdlovs'k",
+        "coordinates": [
+          39.651631,
+          48.08455
+        ],
+        "countryReference": "Ukraine",
+        "observations": [
+          [
+            1950,
+            610000
+          ],
+          [
+            1975,
+            1345000
+          ]
+        ]
+      },
+      "issueType": "city-identity-coordinate-conflict",
+      "reasonZh": "这条人口记录的同名城市身份尚待核实，坐标位于乌克兰东部。暂停地图展示，原值保存在核查档案；人口归属与定位不作替换。",
+      "reasonEn": "This same-name population record has an unresolved city identity; its coordinate lies in eastern Ukraine. Withheld from the map, with original values retained for review. Neither population ownership nor coordinates are reassigned.",
+      "sourceURLs": [
+        "https://doi.org/10.6084/m9.figshare.2059494",
+        "https://maps.visicom.ua/c/39.62666%2C48.06454%2C12/f/STL1O3HTT?lang=en",
+        "https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CS%5CV%5CSverdlovsk.htm",
+        "https://ukrstat.gov.ua/druk/publicat/kat_u/2019/zb/06/zb_chnn2019.pdf"
+      ],
+      "status": "withheld-from-city-layer",
+      "inference": "The 610000/1345000 values suggest a same-name geocoding mismatch, potentially with Soviet Sverdlovsk/Yekaterinburg. That intended population-city identity is NOT proven without the original Chandler pages or an upstream correction. Population magnitude alone cannot establish it.",
+      "unresolved": "Original printed Chandler population entries and exact intended metropolitan extent not inspected; quarantine is supported, reassignment is not."
+    }
+  ]
+}

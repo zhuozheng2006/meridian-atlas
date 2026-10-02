@@ -1,7 +1,7 @@
-import {boundaryMode} from './view-state.js?v=3.6.0-8e0c6ac31e93';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.6.0-8e0c6ac31e93';
-import {historicalYearRange} from './historical-dates.js?v=3.6.0-8e0c6ac31e93';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.6.0-8e0c6ac31e93';
+import {boundaryMode} from './view-state.js?v=3.7.0-62a409ec10d1';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.7.0-62a409ec10d1';
+import {historicalYearRange} from './historical-dates.js?v=3.7.0-62a409ec10d1';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.7.0-62a409ec10d1';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;

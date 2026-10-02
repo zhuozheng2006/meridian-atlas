@@ -90,7 +90,7 @@ const overview=year=>({source:'cliopatria',year,records:[{id:'clio-test'}],key:'
 function deferred(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};}
 function setup({loadCountry=async y=>fakeCountry(y),loadOverview=async y=>overview(y),year=1900}={}){
  const writes=[],paint=new Map(),status=[];
- const atlas={year,request:1,catalog:{},active:[],lang:'en',destroyed:false,geometryKey:'',prepareOverview:loadOverview,refreshLabels(){},upgradeDetail(){},map:{getSource(){return {setData:d=>writes.push(d)};},setPaintProperty:(id,key,value)=>paint.set(id+':'+key,value)},regional:{active:false,setStatus:s=>status.push(s),update(){}}};
+ const atlas={displayTerritories(data){writes.push(data);},year,request:1,catalog:{},active:[],lang:'en',destroyed:false,geometryKey:'',prepareOverview:loadOverview,refreshLabels(){},upgradeDetail(){},map:{getSource(){return {setData:d=>writes.push(d)};},setPaintProperty:(id,key,value)=>paint.set(id+':'+key,value)},regional:{active:false,setStatus:s=>status.push(s),update(){}}};
  const controller=new BoundaryController(atlas,{mode:'auto',color:()=> '#123456',loadCountry});atlas.boundaries=controller;return {atlas,controller,writes,paint,status};
 }
 await test('Supported explicit country mode does not depend on a working overview archive',async()=>{

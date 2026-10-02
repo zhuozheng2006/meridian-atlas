@@ -253,6 +253,8 @@ write('historical-settlements-index',{'schemaVersion':1,'source':'pleiades','tim
 
 urban=[]
 urban_issues=[]
+urban_quarantine_rules=json.loads((RULES/'urban-quarantine-rules.json').read_text())['entries']
+urban_quarantine=[]
 for source_id in ['chandler','modelski-ancient','modelski-modern']:
     rows=list(csv.DictReader((ROOT/sources[source_id]['file']).open(encoding='cp1252'),skipinitialspace=True))
     for i,p in enumerate(rows):
@@ -278,10 +280,14 @@ for source_id in ['chandler','modelski-ancient','modelski-modern']:
         zh=EDITORIAL_NAMES.get(name) or (match['nameZh'] if match else '')
         urban.append({'id':source_id+':'+str(i+1),'source':source_id,'kind':'urban-observation','name':name,'nameZh':zh, 'nameBasis':'research-source-city-name','coordinates':point,'coordinateCertaintyCode':p.get('Certainty'),'countryReference':p.get('Country'),'otherNames':p.get('OtherName'),'observations':sorted(observations),'qid':match['qid'] if match else None,'translationSource':'editorial-Chinese-name' if name in EDITORIAL_NAMES else ('natural-earth-exact-name-and-nearby-coordinate' if match else None),'timeBasis':'discrete-observations','sourceUrl':sources[source_id]['doi']})
 dated_names=json.loads((RULES/'dated-place-names.json').read_text())
+for rule in urban_quarantine_rules:
+    row=next((r for r in urban if r['id']==rule['recordId']),None)
+    if row is None or any(row.get(k)!=v for k,v in rule['expected'].items()):raise ValueError('Urban quarantine binding drift: '+rule['recordId'])
+    urban_quarantine.append({**rule,'source':row['source'],'license':sources[row['source']]['license'],'sourceUrl':row['sourceUrl'],'originalRecord':row})
+    urban.remove(row)
 for row in urban:
     matched=[x for x in dated_names['entries'] if x['recordId']==row['id']]
     if matched:row['datedNames']=matched
-write('urban-observations',{'schemaVersion':1,'timeBasis':'discrete-observations','cities':urban})
 
 capital_claims=json.loads((ROOT/'capital-claims.json').read_text())
 capitals=[]
@@ -334,7 +340,18 @@ for x in capital_claims:
 for row in capitals:
     matched=[x for x in dated_names['entries'] if x['recordId']==row['id']]
     if matched:row['datedNames']=matched
+name_timelines=json.loads((RULES/'name-timelines.json').read_text())
+all_place_records={r['id']:r for r in urban+capitals}
+for rule in name_timelines['entries']:
+    row=all_place_records.get(rule['recordId'])
+    if row is None or any(row.get(k)!=v for k,v in rule['expected'].items()):raise ValueError('Name timeline binding drift: '+rule['recordId'])
+    for n in rule['timeline']:
+        if n['start'] is not None and n['end'] is not None and n['start']>n['end']:raise ValueError('Inverted name period: '+rule['recordId'])
+        if not n['source']['url'].startswith('https://'):raise ValueError('Missing name source')
+    row['nameTimeline']=rule['timeline']
+write('urban-observations',{'schemaVersion':1,'timeBasis':'discrete-observations','cities':urban})
 write('historical-capitals',{'schemaVersion':1,'timeBasis':'explicit-capital-qualifiers','claims':capitals})
+write('urban-quarantine',{'schemaVersion':1,'rawSourceUnmodified':True,'policy':'Exact source-row identity conflicts are withheld from display and spatial association, not moved or merged. Source licenses and original records are retained per entry.','entries':urban_quarantine})
 write('editorial-aliases',EDITORIAL_ALIASES)
 quarantine_entries=[{**x,'issueType':'source-date-conflict','scope':'single-attestation'} for x in quarantined_attestations]+TYPE_QUARANTINE
 write('city-quarantine',{'schemaVersion':1,'source':'pleiades','license':'CC BY 3.0','rawSourceUnmodified':True,'policy':'Withhold explicit internally contradictory source attestations and clearly identified non-settlement geographic features. Do not guess corrected years or remove documented settlements merely because they lie on a mountain. Other coarse source periods remain coarse.','entries':quarantine_entries})
@@ -345,6 +362,8 @@ for name in ['pleiades-places-latest.json.gz','pleiades_gis_data.zip','ne_10m_po
 manifest['searchPolicy']={'searchAliases':'Deduplicated Pleiades names, original written forms, and editorial Chinese translations. Name aliases support discovery only; each original name retains its own attestation dates in lazy detail. Related modernNameReference is deliberately excluded.','aliasCount':sum(len(p['searchAliases']) for p in historical_index),'representativePointSourceUrls':'Canonical Pleiades source URLs are included in the lightweight index before full detail loading.'}
 manifest['quarantine']={'file':'city-quarantine.json.gz','placeCount':len({x['placeId'] for x in quarantine_entries}),'attestationCount':len(quarantined_attestations),'featureTypeExclusionCount':len(TYPE_QUARANTINE),'originalRangesUnmodifiedInRawSource':True,'reason':'Explicit internal date contradictions or non-settlement feature identity in the source title/description.'}
 manifest['editorialAliases']={'file':'editorial-aliases.json.gz','entryCount':len(EDITORIAL_ALIASES['entries']),'timeBasis':'Undated display/search translations; no inferred historical lifespan or identity merge.'}
+manifest['urbanQuarantine']={'file':'urban-quarantine.json.gz','records':len(urban_quarantine),'sourceRowValuesPreserved':True}
+manifest['nameTimelines']={'rules':'scripts/places/rules/name-timelines.json','records':len(name_timelines['entries']),'transitionPolicy':'Annual transition years retain both names; candidate observation and selected year must share a known name period. Unknown chronology does not create a new boundary.'}
 for f in OUT.glob('*.gz'):
     if f.name=='city-sources.json.gz':continue
     manifest['files'][f.name]={'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()}

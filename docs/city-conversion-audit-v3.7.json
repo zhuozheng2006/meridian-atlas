@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "8f482a2a9fe53eb04a1732767f7fb06426ff62ca",
+  "currentHeadCommit": "8f482a2a9fe53eb04a1732767f7fb06426ff62ca",
+  "comparison": "Immutable Git baseline versus current public/data/places; full JSON record comparison. Only the new top-level nameTimeline field is excluded for active urban and capital records. Quarantine originalRecord is compared without any exclusions. Object key order is ignored; array order, scalar types, and all values are retained by canonical JSON comparison.",
+  "allowedConversion": "2,043 original urban records remain as 2,042 active records plus one exact originalRecord in urban-quarantine. Twelve urban and two capital records receive separate nameTimeline metadata; original names, coordinates, observations, identity links, source citations, dates, periods, and all other fields are unchanged.",
+  "urbanIncludingQuarantine": {
+    "beforeCount": 2043,
+    "afterCount": 2043,
+    "beforeUniqueIds": 2043,
+    "afterUniqueIds": 2043,
+    "duplicateIdsAbsent": true,
+    "differences": [],
+    "beforeCanonicalSha256": "0cf333ddf5b82e33ccd0962d6907fe6b45cc826ecc36fdfd2a2e8bb0bc9a3060",
+    "afterCanonicalSha256": "0cf333ddf5b82e33ccd0962d6907fe6b45cc826ecc36fdfd2a2e8bb0bc9a3060",
+    "passed": true,
+    "activeCount": 2042,
+    "quarantinedCount": 1,
+    "quarantinedIds": [
+      "chandler:1356"
+    ],
+    "activeOrderPreserved": true,
+    "containerMetadataUnchanged": true,
+    "timelineAddedTo": [
+      "chandler:734",
+      "chandler:1014",
+      "chandler:1219",
+      "chandler:1232",
+      "chandler:1429",
+      "chandler:1520",
+      "chandler:1565",
+      "modelski-modern:187",
+      "modelski-modern:226",
+      "modelski-modern:228",
+      "modelski-modern:263",
+      "modelski-modern:283"
+    ],
+    "populationObservationCountBefore": 10350,
+    "populationObservationCountAfterIncludingQuarantine": 10350
+  },
+  "quarantineOriginalRecords": {
+    "beforeCount": 1,
+    "afterCount": 1,
+    "beforeUniqueIds": 1,
+    "afterUniqueIds": 1,
+    "duplicateIdsAbsent": true,
+    "differences": [],
+    "beforeCanonicalSha256": "b5648ffe17f39c73f2c91e8e26594e26ea269013e2d22065174d7126c02cb00f",
+    "afterCanonicalSha256": "b5648ffe17f39c73f2c91e8e26594e26ea269013e2d22065174d7126c02cb00f",
+    "passed": true,
+    "activeQuarantineOverlap": [],
+    "eachRecordIdMatchesOriginal": true,
+    "allWithheldFromCityLayer": true
+  },
+  "historicalCapitals": {
+    "beforeCount": 307,
+    "afterCount": 307,
+    "beforeUniqueIds": 307,
+    "afterUniqueIds": 307,
+    "duplicateIdsAbsent": true,
+    "differences": [],
+    "beforeCanonicalSha256": "d3121801989857e7e799cef817b87a2072c96a1dde8df56df35d2c003849bb8a",
+    "afterCanonicalSha256": "d3121801989857e7e799cef817b87a2072c96a1dde8df56df35d2c003849bb8a",
+    "passed": true,
+    "claimOrderPreserved": true,
+    "containerMetadataUnchanged": true,
+    "timelineAddedTo": [
+      "capital:q34266$BDDBE739-A467-4D52-8C66-64D6F2F84AE5",
+      "capital:q186096$84F0F6C5-7BB7-46B5-8121-F96C1892953C"
+    ]
+  },
+  "otherTrackedPlaceArchives": [
+    {
+      "file": "public/data/places/city-narratives.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/city-quarantine.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/city-sources.json.gz",
+      "jsonValuesUnchanged": false,
+      "gzipBytesUnchanged": false
+    },
+    {
+      "file": "public/data/places/editorial-aliases.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/historical-settlements-index.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/historical-settlements.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/modern-cities.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-000.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-001.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-002.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-003.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-004.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-005.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-006.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-007.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-008.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-009.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-010.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-011.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-012.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-013.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-014.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-015.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-016.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-017.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-018.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-019.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-020.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-021.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-022.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-023.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-024.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-025.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-026.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-027.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-028.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-029.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-030.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-031.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-032.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-033.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-034.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-035.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-036.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-037.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-038.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-039.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-040.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-041.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-042.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-043.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    },
+    {
+      "file": "public/data/places/settlements-044.json.gz",
+      "jsonValuesUnchanged": true,
+      "gzipBytesUnchanged": true
+    }
+  ],
+  "originalValuesUnchanged": true,
+  "otherArchiveContentUnchanged": true,
+  "sourceManifestAudit": {
+    "changes": [
+      {
+        "path": "/builtAt",
+        "change": "modified",
+        "before": "2026-10-02T01:28:24.096158+00:00",
+        "after": "2026-10-02T12:30:00+00:00"
+      },
+      {
+        "path": "/counts/populationObservations",
+        "change": "modified",
+        "before": 10350,
+        "after": 10348
+      },
+      {
+        "path": "/counts/urbanObservationCityRows",
+        "change": "modified",
+        "before": 2043,
+        "after": 2042
+      },
+      {
+        "path": "/files/historical-capitals.json.gz/bytes",
+        "change": "modified",
+        "before": 55014,
+        "after": 55637
+      },
+      {
+        "path": "/files/historical-capitals.json.gz/sha256",
+        "change": "modified",
+        "before": "f7661291815d7da1582d5773f52c205b5647d2774155106ccdc143b40ac1c8f2",
+        "after": "ddbdebfe284dd3e26db925e61f2a40200732465f9fe157fdbc39608af84cb5f6"
+      },
+      {
+        "path": "/files/urban-observations.json.gz/bytes",
+        "change": "modified",
+        "before": 128486,
+        "after": 131709
+      },
+      {
+        "path": "/files/urban-observations.json.gz/sha256",
+        "change": "modified",
+        "before": "4c410567ca912f21663efb97797e9fbaf8f1c512c11f997c3ccbe280638f3aea",
+        "after": "c36b749241035755b8e44cdbf27e70f70bc5ac65e4e790ca0b309dacad32bada"
+      },
+      {
+        "path": "/files/urban-quarantine.json.gz",
+        "change": "added",
+        "after": {
+          "bytes": 1283,
+          "sha256": "4af2d2be2e30d7a44bcaf5d66c3e43801ec593c89c2430407d1a84605ac444e9"
+        }
+      },
+      {
+        "path": "/nameTimelines",
+        "change": "added",
+        "after": {
+          "rules": "scripts/places/rules/name-timelines.json",
+          "records": 14,
+          "transitionPolicy": "Annual transition years retain both names; candidate observation and selected year must share a known name period. Unknown chronology does not create a new boundary."
+        }
+      },
+      {
+        "path": "/urbanQuarantine",
+        "change": "added",
+        "after": {
+          "file": "urban-quarantine.json.gz",
+          "records": 1,
+          "sourceRowValuesPreserved": true
+        }
+      }
+    ],
+    "sourceDescriptionsUnchanged": true,
+    "missingFileRegistrations": [],
+    "passed": true,
+    "note": "This separately reviews manifest bookkeeping. Changed build time, active counts, output archive hashes, quarantine registration, and name-timeline metadata accompany the intended conversion. A removed registration for an archive still present needs review."
+  },
+  "passed": true,
+  "limitations": "This audit proves preservation of the prior source values. It does not validate historical truth, resolve the quarantined source identity, or authenticate newly added naming evidence."
+}

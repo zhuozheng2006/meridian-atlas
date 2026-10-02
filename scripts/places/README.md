@@ -1,12 +1,12 @@
 # Historical place data rebuild
 
-This folder contains code, rules, download URLs and checksums. It contains no raw Pleiades, population, Natural Earth or Wikidata dataset. It rebuilds the 53 place assets used by the atlas; the 12 authored city readings remain a separate editorial asset.
+This folder contains code, rules, download URLs and checksums. It contains no raw Pleiades, population, Natural Earth or Wikidata dataset. It rebuilds the 54 place assets used by the atlas; the 12 authored city readings remain a separate editorial asset.
 
 ## Requirements
 
 - Python 3.9 or newer; `opencc-python-reimplemented==0.1.7` is the only nonstandard Python dependency.
 - Node 20 or newer for the runtime validators (`fetch`, `Response`, `Blob`, `DecompressionStream`); no npm packages are required.
-- The atlas's frozen `dist/data/enrichment/profiles/*.json.gz` files for extracting P36 capital statements.
+- The atlas's frozen `public/data/enrichment/profiles/*.json.gz` files for extracting P36 capital statements.
 - Roughly 200 MB of downloaded bulk inputs, plus Wikidata entity caches and temporary/derived storage. The full Pleiades JSON is loaded into memory; allow several GB of free RAM.
 
 From the repository root:
@@ -22,7 +22,7 @@ scripts/places/.venv/bin/python -m pip install -r scripts/places/requirements.tx
 
 ```sh
 python3 scripts/places/extract_capitals.py \
-  --profiles-dir dist/data/enrichment/profiles \
+  --profiles-dir public/data/enrichment/profiles \
   --input-dir scripts/places/raw
 
 python3 scripts/places/fetch_inputs.py \
@@ -38,7 +38,7 @@ python3 scripts/places/validate.py \
   --output-dir scripts/places/derived
 ```
 
-Use a fresh `--output-dir` for each build. `--rules-dir` can point to an explicitly reviewed replacement for the included rules; `--manifest` selects a reviewed snapshot lock. The builder itself checks bulk inputs, entity contents and extracted capital claims against this lock before producing data. Omitting `--built-at` records the current UTC time. Only after validation should the generated `.json.gz` files be copied to `dist/data/places/`; the rebuild scripts do not publish or edit the Site.
+Use a fresh `--output-dir` for each build. `--rules-dir` can point to an explicitly reviewed replacement for the included rules; `--manifest` selects a reviewed snapshot lock. The builder itself checks bulk inputs, entity contents and extracted capital claims against this lock before producing data. Omitting `--built-at` records the current UTC time. Only after validation should the generated `.json.gz` files be copied to `public/data/places/`; the rebuild scripts do not publish or edit the Site.
 
 For existing downloads, use `fetch_inputs.py --input-dir /path/to/cache --verify-only`; this makes no network requests. `--datasets-only` and `--entities-only` split the check/download work. `--workers 1..4` controls Wikidata concurrency; `--report /path/to/report.json` saves the outcome. Failed checks return a nonzero exit status.
 
@@ -71,3 +71,5 @@ Exact URLs, hashes, attribution and licenses are in `input-manifest.json`. Datas
 The selection rules intentionally preserve gaps, original coordinates, chronology precision and uncertain representative points. Two contradictory name attestations and eight clearly non-settlement features are quarantined in derived output while original downloads remain intact. The Modelski modern China column is assigned the paper's stated 1990 observation year. Related modern names do not become ancient-city aliases.
 
 References for data access: [Pleiades downloads](https://pleiades.stoa.org/downloads), [Pleiades GIS package](https://atlantides.org/downloads/pleiades/gis/), [Wikidata data access](https://www.wikidata.org/wiki/Help:Data_access).
+
+Name histories use exact record bindings in `rules/name-timelines.json`. Annual transition years overlap because year-only observations cannot be assigned an invented month/day. These periods constrain display names and borrowing; they never create settlement lifespans. `rules/urban-quarantine-rules.json` checks exact source fields before withholding a record, and `urban-quarantine.json.gz` preserves the full original derived row and source license.
