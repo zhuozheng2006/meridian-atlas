@@ -16,6 +16,17 @@ const checkOnly=process.argv.includes('--check');
 const CJK=/[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/;
 const source=JSON.parse(await readFile(resolve(root,'editorial/battles-wikidata-source.json'),'utf8'));
 const english=JSON.parse(await readFile(resolve(root,'editorial/entity-labels-en.json'),'utf8')).labels;
+// 3.14 thin-region supplement harvested by scripts/places/fetch-thin-region-battles.mjs.
+// It is optional so the base build still runs without it; on a duplicate QID the base
+// harvest record wins, so the supplement can only add entities.
+const optional=async path=>{try{return JSON.parse(await readFile(resolve(root,path),'utf8'))}catch{return null}};
+const supplement=await optional('editorial/battles-thin-regions-3.14.json');
+const seenQid=new Set();
+const harvestItems=[];
+for(const item of [...source.items,...(supplement?.items||[])]){
+ if(!item||!item.qid||seenQid.has(item.qid))continue;
+ seenQid.add(item.qid);harvestItems.push(item);
+}
 const TARGET=520;
 const CENTURIES=[[-4000,-1500],[-1500,-500],[-500,1],[1,500],[500,1000],[1000,1500],[1500,1800],[1800,1900],[1900,1945],[1945,2000],[2000,2027]];
 const regionOf=([lon,lat])=>{
@@ -38,14 +49,18 @@ const slug=qid=>qid.toLowerCase().replace(/[^a-z0-9]/g,'');
 const candidates=[];
 const dropped={noChineseLabel:0,badCoordinates:0,badYear:0,duplicate:0};
 const seen=new Set();
-for(const item of source.items){
+for(const item of harvestItems){
  const nameZh=(item.labelZh||'').trim();
  const nameEn=(item.enLabel||(item.labelLang==='en'?item.label:'')||'').trim();
  if(!nameZh){dropped.noChineseLabel++;continue}
+ const nameSource=item.labelSource||'wikidata-zh-label';
  const coordinates=item.coordinates;
  if(!Array.isArray(coordinates)||coordinates.length!==2||!(coordinates[0]>=-180&&coordinates[0]<=180)||!(coordinates[1]>=-90&&coordinates[1]<=90)){dropped.badCoordinates++;continue}
- const year=item.year;
- if(!Number.isInteger(year)||year===0||year<-4000||year>2026){dropped.badYear++;continue}
+ // Wikidata P585 is an ISO 8601 astronomical year (year 0 exists, so -489 is 490 BCE);
+ // the layer, like the place catalog, uses the civil convention without a year zero.
+ if(!Number.isInteger(item.year)){dropped.badYear++;continue}
+ const year=item.year<=0?item.year-1:item.year;
+ if(year===0||year<-4000||year>2026){dropped.badYear++;continue}
  const id='battle-'+slug(item.qid);
  if(seen.has(id)){dropped.duplicate++;continue}
  seen.add(id);
@@ -60,6 +75,7 @@ for(const item of source.items){
   sources,
   notes:hasReference?'坐标与年代取自维基数据实体声明，并附该声明中的参考链接。':'维基数据实体声明未附参考链接；坐标与年代以实体声明为准，发布前建议补一次文献核对。',
   notesEn:hasReference?'Coordinates and dates come from the Wikidata entity statements and their recorded reference links.':'The Wikidata entity statements carry no reference link; coordinates and dates follow the entity statements and should be checked against literature before release.',
+  nameSource,supplementSource:item.box?('thin-region-sweep:'+item.box):'global-sweep',
   regionBasis:'coordinate-box'});
 }
 const byCentury=new Map();
@@ -85,7 +101,13 @@ for(const [key,items] of [...byCentury.entries()].sort((a,b)=>a[0]-b[0])){
  for(const item of sorted)if(picked.length<perCentury&&!picked.includes(item))picked.push(item);
  selected.push(...picked);
 }
-const battles=selected.sort((a,b)=>a.year-b.year||a.id.localeCompare(b.id));
+// Thin-region guarantee: every qualifying Oceania, South Asia and Southeast Asia entity
+// ships. The per-century quota and the nine-per-region cap are global fairness rules and
+// must not silently empty the regions with the smallest pools. The guarantee only adds
+// entities that already meet every standard (coordinate, year, Chinese name).
+const THIN_REGIONS=new Set(['oceania','south-asia','southeast-asia']);
+const guaranteed=candidates.filter(item=>THIN_REGIONS.has(item.region)&&!selected.includes(item));
+const battles=[...selected,...guaranteed].sort((a,b)=>a.year-b.year||a.id.localeCompare(b.id));
 for(const battle of battles){
  for(const field of ['nameEn','notesEn'])if(CJK.test(battle[field]||''))throw new Error('CJK in English field '+battle.id+' '+field);
  for(const field of ['belligerents','conflict','countries'])for(const value of battle[field])if(CJK.test(value))throw new Error('CJK in English list '+battle.id+' '+field+' '+value);
@@ -97,11 +119,15 @@ const document={schemaVersion:1,builtAt:'2026-10-03T00:00:00+00:00',layer:'battl
   language:'English fields (nameEn, belligerents, conflict, countries, notesEn) contain Latin script only; an entity without an English label appears as its QID. Chinese fields (nameZh, belligerentsZh, conflictZh, countriesZh, notes) stay simplified. No transliteration or machine translation is used.',
   coordinates:'Points come from the Wikidata P625 statement of the battle entity; no coordinate is estimated or moved.',
   participants:'Belligerents come from P710 statements of the same entity; empty arrays mean the source does not state them and no value was invented.',
-  dates:'Years come from the P585 statement; single-year precision is retained and no month or day is inferred.',
+  dates:'Years come from the P585 statement; single-year precision is retained and no month or day is inferred. Wikidata stores ISO 8601 astronomical years, so BCE values are converted to the project civil-year convention, which has no year zero (ISO -489, i.e. 490 BCE, ships as -490).',
+  names:'Chinese names come from Wikidata zh labels; when an entity has no Chinese label but has a zh.wikipedia article, the article title is used and the record keeps labelSource=zhwiki-sitelink. An entity with no Chinese name in either place is not shipped.',
+  coverage:'The 3.14 supplement sweeps the Oceania, South Asia and Southeast Asia coordinate boxes (scripts/places/fetch-thin-region-battles.mjs) and guarantees that every qualifying entity in those three regions ships, so a global quota cannot empty them.',
   outcome:'The outcome field is intentionally absent: Wikidata has no stable, sourced property for battle results, and this project does not infer victors. It can be added later where a verifiable source states the result.',
   provenance:'Every entry links its Wikidata entity; statement-level reference URLs are included when Wikidata records them.',
   region:'Regions are assigned by a documented coordinate box rule (regionBasis=coordinate-box), not by political judgement.'},
- counts:{items:source.items.length,candidates:candidates.length,shipped:battles.length,dropped,byRegion,byCentury:byCenturyOut},
+ counts:{items:harvestItems.length,baseHarvest:source.items.length,supplement:supplement?.items?.length||0,candidates:candidates.length,shipped:battles.length,dropped,byRegion,byCentury:byCenturyOut,
+  byNameSource:battles.reduce((all,item)=>{all[item.nameSource]=(all[item.nameSource]||0)+1;return all},{}),
+  thinRegionGuarantee:guaranteed.length},
  battles};
 const text=JSON.stringify(document,null,2)+'\n';
 const gzip=gzipSync(Buffer.from(text),{level:9});

@@ -1,19 +1,20 @@
 #!/usr/bin/env node
 // Usage: node scripts/places/fetch-thin-region-battles.mjs [out.json]
 // Harvests the Wikidata entities that document armed events inside the three regions the
-// battle layer covers thinly: Oceania, South Asia and Southeast Asia. The region boxes are
-// the same documented coordinate boxes scripts/places/build-battles.mjs assigns regions
-// with, so the sweep cannot import an entity the layer would then place elsewhere.
+// battle layer covers thinly: Oceania, South Asia and Southeast Asia. The boxes are the
+// same documented coordinate boxes scripts/places/build-battles.mjs assigns regions with,
+// so the sweep cannot import an entity the layer would then place elsewhere.
 //
 // Standards are unchanged: an entity ships only when Wikidata records BOTH a P625
-// coordinate and a P585 date. The class set is wider than the base harvest (battle and
-// subclasses, naval battle, siege, military operation, massacre) because the three boxes
-// are thin in the battle class alone; every extra class is still an armed event with a
-// source statement, and the class QID is recorded on every item so the choice is auditable.
-// Chinese names come from the Wikidata zh labels; when an entity has none but has a
-// zh.wikipedia article, the article title is used and marked labelSource=zhwiki-sitelink.
+// coordinate and a P585 date, and only when a Chinese name exists (Wikidata zh label or a
+// zh.wikipedia article title, the latter marked labelSource=zhwiki-sitelink).
 //
-// The harvested file is an intermediate research record for scripts/places/build-battles.mjs.
+// The class roots are battle (Q178561), naval battle (Q1261499), siege (Q188055),
+// military operation (Q645883) and massacre (Q3199915), each expanded through its subclass
+// path on the class side (?class wdt:P279* ?root). The class QID is recorded per item so
+// the choice is auditable. A heavy ?item wdt:P31/wdt:P279* ?root sweep over a bounding box
+// times out on WDQS (HTTP 504), which is why the traversal runs on the small class
+// hierarchy instead of on the item set.
 import {writeFile} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -26,11 +27,16 @@ const sleep=ms=>new Promise(done=>setTimeout(done,ms));
 const requests=[];
 const sparql=async query=>{
  for(let attempt=1;attempt<=4;attempt++){
-  const response=await fetch(ENDPOINT,{method:'POST',headers:{'user-agent':UA,accept:'application/sparql-results+json','content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({query})});
-  requests.push({endpoint:'wdqs',attempt,status:response.status});
-  if(response.ok)return await response.json();
-  if(attempt===4)throw new Error('WDQS HTTP '+response.status);
-  await sleep(response.status===429?15000*attempt:4000*attempt);
+  try{
+   const response=await fetch(ENDPOINT,{method:'POST',headers:{'user-agent':UA,accept:'application/sparql-results+json','content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({query}),signal:AbortSignal.timeout(150000)});
+   requests.push({endpoint:'wdqs',attempt,status:response.status});
+   if(response.ok)return await response.json();
+   if(attempt===4)throw new Error('WDQS HTTP '+response.status);
+  }catch(error){
+   requests.push({endpoint:'wdqs',attempt,error:String(error.message||error).slice(0,80)});
+   if(attempt===4)throw error;
+  }
+  await sleep(15000*attempt);
  }
 };
 const CLASSES=['Q178561','Q1261499','Q188055','Q645883','Q3199915'];
@@ -43,8 +49,9 @@ const traditional=/[與臺灣國學會東車馬鳥魚點線個時間問題則無
 const rows=new Map();
 for(const box of BOXES){
  const query='SELECT DISTINCT ?item ?itemLabel ?date ?lat ?lon ?enLabel ?class WHERE {'
-  +' VALUES ?class { '+CLASSES.map(qid=>'wd:'+qid).join(' ')+' }'
-  +' ?item wdt:P31/wdt:P279* ?class ; wdt:P585 ?date ; p:P625/psv:P625 ?node .'
+  +' VALUES ?root { '+CLASSES.map(qid=>'wd:'+qid).join(' ')+' }'
+  +' ?class wdt:P279* ?root .'
+  +' ?item wdt:P31 ?class ; wdt:P585 ?date ; p:P625/psv:P625 ?node .'
   +' ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon .'
   +' FILTER(?lon >= '+box.lon[0]+' && ?lon <= '+box.lon[1]+' && ?lat >= '+box.lat[0]+' && ?lat <= '+box.lat[1]+')'
   +' FILTER(YEAR(?date) >= -4000 && YEAR(?date) <= 2026)'
@@ -62,13 +69,13 @@ for(const box of BOXES){
   added++;
  }
  console.log('box',box.id,'new items',added,'total',rows.size);
- await sleep(4000);
+ await sleep(5000);
 }
 
 const details=new Map();
 const qids=[...rows.keys()];
-for(let i=0;i<qids.length;i+=120){
- const chunk=qids.slice(i,i+120);
+for(let i=0;i<qids.length;i+=100){
+ const chunk=qids.slice(i,i+100);
  const query='SELECT ?item ?belligerentLabel ?partLabel ?countryLabel ?refUrl WHERE {'
   +' VALUES ?item { '+chunk.map(qid=>'wd:'+qid).join(' ')+' }'
   +' OPTIONAL { ?item wdt:P710 ?belligerent }'
@@ -85,17 +92,16 @@ for(let i=0;i<qids.length;i+=120){
   push('belligerents',row.belligerentLabel?.value);push('parts',row.partLabel?.value);push('countries',row.countryLabel?.value);push('refs',row.refUrl?.value);
  }
  console.log('details chunk',i,'items with context',details.size);
- await sleep(4000);
+ await sleep(5000);
 }
 
-// Chinese names: Wikidata zh labels first; a zh.wikipedia article title is the documented
-// fallback for entities that have no Chinese label at all.
+// Chinese names: Wikidata zh labels first; a zh.wikipedia article title is the fallback.
 const zhwiki=new Map();
 const noZh=[...rows.values()].filter(item=>!(item.labelLang||'').startsWith('zh')).map(item=>item.qid);
 for(let i=0;i<noZh.length;i+=50){
  const chunk=noZh.slice(i,i+50);
  const url='https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=sitelinks&sitefilter=zhwiki&ids='+chunk.join('%7C');
- const response=await fetch(url,{headers:{'user-agent':UA,accept:'application/json'}});
+ const response=await fetch(url,{headers:{'user-agent':UA,accept:'application/json'},signal:AbortSignal.timeout(60000)});
  requests.push({endpoint:'wikidata-api',status:response.status});
  if(!response.ok)throw new Error('Wikidata API HTTP '+response.status);
  const data=await response.json();
@@ -103,8 +109,6 @@ for(let i=0;i<noZh.length;i+=50){
  await sleep(1500);
 }
 
-// Mechanical traditional-to-simplified conversion (zh.wikipedia parse API, variant=zh-cn),
-// exactly as scripts/places/fetch-wikidata-battles.mjs does: no machine translation.
 const toConvert=new Set();
 for(const item of rows.values()){
  const zh=zhwiki.get(item.qid);
@@ -117,7 +121,7 @@ const list=[...toConvert];
 for(let i=0;i<list.length;i+=60){
  const chunk=list.slice(i,i+60);
  try{
-  const response=await fetch('https://zh.wikipedia.org/w/api.php',{method:'POST',headers:{'user-agent':UA,'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({action:'parse',format:'json',formatversion:'2',variant:'zh-cn',prop:'text',text:chunk.join('\n')})});
+  const response=await fetch('https://zh.wikipedia.org/w/api.php',{method:'POST',headers:{'user-agent':UA,'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({action:'parse',format:'json',formatversion:'2',variant:'zh-cn',prop:'text',text:chunk.join('\n')}),signal:AbortSignal.timeout(60000)});
   requests.push({endpoint:'zh.wikipedia-parse',status:response.status});
   const data=await response.json();
   const text=(data?.parse?.text||'').replace(/<[^>]*>/g,' ').replace(/&[a-z]+;/g,' ').split('\n').map(line=>line.trim()).filter(Boolean);
@@ -139,9 +143,12 @@ const items=[...rows.values()].map(item=>{
   refs:detail.refs};
 });
 const output={schemaVersion:1,fetchedAt:new Date().toISOString(),
- source:'Wikidata Query Service sweep of the Oceania, South Asia and Southeast Asia coordinate boxes; classes battle (Q178561) and subclasses, naval battle (Q1261499), siege (Q188055), military operation (Q645883) and massacre (Q3199915); every item keeps a P625 coordinate and a P585 date.',
+ source:'Wikidata Query Service sweep of the Oceania, South Asia and Southeast Asia coordinate boxes, with the class roots battle (Q178561), naval battle (Q1261499), siege (Q188055), military operation (Q645883) and massacre (Q3199915) expanded through their subclass paths; every item keeps a P625 coordinate and a P585 date.',
  endpoint:ENDPOINT,boxes:BOXES.reduce((all,box)=>(all[box.id]=box,all),{}),classQids:CLASSES,count:items.length,items};
 await writeFile(outPath,JSON.stringify(output,null,2)+'\n');
 const byBox=items.reduce((all,item)=>(all[item.box]=(all[item.box]||0)+1,all),{});
-console.log(JSON.stringify({out:outPath,items:items.length,byBox,withZh:items.filter(item=>item.labelZh).length,
- fromZhwikiSitelink:items.filter(item=>item.labelSource==='zhwiki-sitelink').length,withRefs:items.filter(item=>item.refs.length).length},null,2));
+const byClass=items.reduce((all,item)=>(all[item.classQid]=(all[item.classQid]||0)+1,all),{});
+const byBoxNamed=items.reduce((all,item)=>{if(item.labelZh)all[item.box]=(all[item.box]||0)+1;return all},{});
+console.log(JSON.stringify({out:outPath,items:items.length,byBox,byBoxNamed,byClass,
+ withZh:items.filter(item=>item.labelZh).length,fromZhwikiSitelink:items.filter(item=>item.labelSource==='zhwiki-sitelink').length,
+ withRefs:items.filter(item=>item.refs.length).length},null,2));
