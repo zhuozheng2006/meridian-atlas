@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-eabb6ee771e7';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-eabb6ee771e7';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-eabb6ee771e7';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-eabb6ee771e7';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-eabb6ee771e7';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-eabb6ee771e7';
-import {BattleLayer} from './battles.js?v=3.10.0-eabb6ee771e7';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-eabb6ee771e7';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-eabb6ee771e7';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-eabb6ee771e7';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-dab996e2798f';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-dab996e2798f';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-dab996e2798f';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-dab996e2798f';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-dab996e2798f';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-dab996e2798f';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-dab996e2798f';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-dab996e2798f';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-dab996e2798f';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-dab996e2798f';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -70,6 +70,15 @@ function renderEvents(){renderPlaceSearch();searchPlaces.token=searchPlaces.toke
   const shown=found.slice(0,6);
   const html='<div class="search-group">'+text('地点与遗址','Places & sites')+'</div>'+shown.map(p=>{const active=placeAtYear(p,state.year,state.span)||p;const name=placeName(active,state.lang);return `<button class="event-card place-hit" data-search-place="${escape(p.id)}"><div class="event-meta"><b>${escape(name)}</b><span>${escape(text('地点记录','Place record'))}</span></div><p>${escape(text('查看该地点的年代与来源','Open its dates and sources'))}</p></button>`;}).join('');
   const wrap=document.createElement('div');wrap.innerHTML=html;host.append(wrap);
+  // Battles come from the same archive the map uses, loaded through its own reader
+  // so the search never depends on whether the map layer has been primed yet.
+  loadBattles().then(all=>{
+   if(placeToken!==searchPlaces.token)return;
+   const q=state.search.trim().toLocaleLowerCase(),hits=q.length>1?all.filter(b=>String(b.nameZh||'').toLocaleLowerCase().includes(q)||String(b.nameEn||'').toLocaleLowerCase().includes(q)).slice(0,6):[];
+   if(!hits.length)return;const host=$('#eventList');if(!host)return;
+   const wrap=document.createElement('div');wrap.innerHTML='<div class="search-group">'+text('战役','Battles')+'</div>'+hits.map(b=>`<button class="event-card battle-hit" data-search-battle="${escape(b.id)}"><div class="event-meta"><b>${escape(b.nameZh||b.nameEn)}</b><span>${escape(String(b.year??''))}</span></div><p>${escape(b.nameEn||'')}</p></button>`).join('');host.append(wrap);
+   wrap.querySelectorAll('[data-search-battle]').forEach(el=>el.onclick=()=>{const b=hits.find(x=>x.id===el.dataset.searchBattle);if(b)openBattle(b,atlas);});
+  }).catch(()=>{});
   wrap.querySelectorAll('[data-search-place]').forEach(b=>b.onclick=async()=>{const p=found.find(x=>x.id===b.dataset.searchPlace);if(p)openPlace(placeAtYear(p,state.year,state.span)||p,atlas);});
  }).catch(()=>{});
  $('#eventList').innerHTML=polityHTML+(list.length?list.map(e=>`<button class="event-card ${state.selected?.id===e.id?'selected':''}${e.provenance?' structured-index':''}" data-event="${e.id}" title="${e.provenance?escape(text('结构化索引条目：取自维基数据声明，未经本项目独立史料考订','Structured index entry: taken from Wikidata statements, not independently reviewed here')):''}" style="--cat:${COLORS[e.category]}"><div class="event-meta"><b>${escape(eventDate(e))}</b><span>${text(...CATS[e.category])}</span></div><h3>${bilingual(e.title)}</h3><p>${escape(text(e.summary.zh,e.summary.en))}</p></button>`).join(''):`<div class="empty">${text('这一小段时间里，暂时没有匹配的事件。试着扩大年份范围，或者沿全部年代寻找。','No matching events in this time window. Widen the range or explore all periods.')}<br><button id="expandWindow" style="margin-top:12px">${text('查看全部年代','Show all periods')}</button></div>`);
