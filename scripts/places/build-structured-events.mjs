@@ -5,7 +5,15 @@
 // scripts/places/fetch-entity-english-labels.mjs (an entity without an English label is
 // written as its QID, or the sentence is dropped); the Chinese summary uses the
 // simplified labels from the harvest. No transliteration and no machine translation.
-import {readFile,writeFile} from 'node:fs/promises';
+//
+// Two guards keep a rebuild from undoing editorial work:
+//   1. Entities already upgraded by an editorial batch (editorial/events-upgraded-*.json)
+//      are skipped, so regenerating the index batch cannot re-create an entry that was
+//      replaced by an authored one.
+//   2. Wikidata P585 values are ISO 8601 astronomical years; the shipped corpus uses the
+//      project civil-year convention without a year zero, so a year <= 0 is written as
+//      year - 1 (ISO -489, i.e. 490 BCE, ships as -490).
+import {readFile,readdir,writeFile} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -17,6 +25,14 @@ const outPath=resolve(root,process.argv.find(argument=>argument.endsWith('.json'
 const harvest=JSON.parse(await readFile(resolve(root,'editorial/battles-wikidata-source.json'),'utf8'));
 const english=JSON.parse(await readFile(resolve(root,'editorial/entity-labels-en.json'),'utf8')).labels;
 const existing=JSON.parse(await readFile(resolve(root,'public/data/events.json'),'utf8'));
+// Editorial upgrades that already replaced a structured entry: never regenerate them.
+const upgradedQids=new Set();
+for(const file of await readdir(resolve(root,'editorial'))){
+ if(!/^events-upgraded-.*\.json$/.test(file))continue;
+ const batch=JSON.parse(await readFile(resolve(root,'editorial',file),'utf8'));
+ for(const entry of batch.entries||[])if(entry.wikidataQid)upgradedQids.add(entry.wikidataQid);
+}
+for(const event of existing)if(!event.provenance&&/^v312wd-/.test(event.id))upgradedQids.add(event.wikidataQid);
 const existingKeys=new Set();
 // Only editorial entries participate in the name de-duplication: regenerating the
 // structured batch must reproduce the same entity set instead of shifting it.
@@ -43,10 +59,13 @@ for(const item of harvest.items){
  if(nameZh.length<4||nameEn.length<4)continue;
  const key=nameEn.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fff]/g,'');
  const keyZh=nameZh.replace(/[^a-z0-9\u4e00-\u9fff]/g,'');
- if(existingKeys.has(key)||existingKeys.has(keyZh)||seen.has(item.qid))continue;
+ if(existingKeys.has(key)||existingKeys.has(keyZh)||seen.has(item.qid)||upgradedQids.has(item.qid))continue;
  seen.add(item.qid);
- const year=item.year;
- if(!Number.isInteger(year)||year===0||year<-4000||year>2026)continue;
+ const isoYear=item.year;
+ if(!Number.isInteger(isoYear))continue;
+ // ISO 8601 astronomical year -> civil year without a year zero.
+ const year=isoYear<=0?isoYear-1:isoYear;
+ if(year===0||year<-4000||year>2026)continue;
  const coordinates=item.coordinates;
  if(!Array.isArray(coordinates)||coordinates.length!==2)continue;
  pick.push({...item,nameZh,nameEn,region:regionOf(coordinates),year});
@@ -106,7 +125,7 @@ const entries=selected.sort((a,b)=>a.year-b.year||a.qid.localeCompare(b.qid)).ma
 });
 for(const entry of entries)for(const field of ['summary','significance','editorialNotes'])if(CJK.test(entry[field].en))throw new Error('CJK in English field '+entry.id);
 const output={schemaVersion:1,generatedAt:new Date().toISOString(),
- note:'Structured event expansion generated from the Wikidata battle harvest for the 3.12 volume target. Each entry keeps its entity id and provenance marker so editorial review can filter or replace it later. English fields use English labels only; entities without an English label appear as their QID.',
+ note:'Structured event expansion generated from the Wikidata battle harvest for the 3.12 volume target. Each entry keeps its entity id and provenance marker so editorial review can filter or replace it later. English fields use English labels only; entities without an English label appear as their QID. Entities already upgraded by an editorial batch are skipped, and Wikidata ISO 8601 BCE years are converted to the civil-year convention (no year zero).',
  policy:{source:'Wikidata entity statements (P585 date, P625 coordinate, P710 participants, P361 conflict); statement reference URLs included when recorded.',
   language:'English text uses English labels only (QID fallback); Chinese text uses simplified labels; no transliteration or machine translation.',
   editorial:'No original synthesis: the bilingual text is a rendering of the source statements; entries are marked provenance=wikidata-structured.',
