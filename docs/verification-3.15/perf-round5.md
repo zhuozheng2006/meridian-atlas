@@ -3,7 +3,7 @@
 目标：把 zoom≥4 一次取走的精细物理层（rivers-10m + lakes-10m + ocean-mask + land-10m）
 从 10.64 MB 降到可接受体量，并复核 native 逐文件请求。全部 before/after 数字来自**同一脚本、
 同一条件**：`scripts/verification/perf-detail-load.mjs`（本机 8767 = 本仓库 `serve.py`），
-外加一组受控逐载荷 A/B（8768 = `git archive HEAD` 的纯净副本 vs 8767 = 当前工作树）。
+外加一组受控逐载荷 A/B（8768 = 改动前 HEAD（commit c76ef44b 之前）`git archive` 出来的纯净副本 vs 8767 = 当前工作树）。
 按要求**先测量再改**；不达标或契约不破不了的项一律回退/不做，并如实记录。
 
 ## 0. 结论摘要
