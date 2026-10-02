@@ -133,7 +133,7 @@ buffer 溢出**没有采到 body 完成时刻**，只有 header 时刻（land t+
   - zoom 16 威尼斯海岸（reference/terrain 关闭）：**逐像素完全相同**（1,260,000 像素 0 差异）
   - **zoom 18（应用最大缩放）两条海岸线**（威尼斯潟湖、瓦登海）：**逐像素完全相同**（0 差异）
   - zoom 5 阅读视图（默认参考层）：mean diff 0.0003/255，仅 1 个像素差 >8（≤32，抗锯齿/瓦片时机噪声）
-  截图 `/tmp/parity-*.png`（zoom 5 / 16 / 18 各 before、after）+ 仓库内 r5 场景截图。
+  截图 `docs/verification-3.15/shots/parity-*.png`（zoom 5 / 16 / 18 各 before、after）+ 仓库内 r5 场景截图。
 - `stamp-assets`：修订号 **3.10.0-4f89524ff74c**（按 Lead 授权只跑 `node scripts/stamp-assets.mjs`，
   未跑 `prepare:assets`）。
 
@@ -219,4 +219,4 @@ node scripts/verification/perf-detail-load.mjs --label r5-after  --url http://12
 - `perf-physical-payload-bench.json`（受控逐载荷 A/B：bytes / transfer / parse / build）
 - `physical-encoding.json`（逐文件 before/after 字节、原始 sha256、紧凑 JSON 尺寸）
 - 截图：`docs/verification-3.13/shots/detail-r5-{before,after}-*.png`（8 个场景）；
-  像素对照 `/tmp/parity-{reading-zoom5,coast-zoom16,coast-zoom18-venice,coast-zoom18-wadden}-{before,after}.png`
+  像素对照 `docs/verification-3.15/shots/parity-{zoom5,zoom16,zoom18-venice,zoom18-wadden}-{before,after}.png`
