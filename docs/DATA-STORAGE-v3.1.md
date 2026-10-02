@@ -11,4 +11,4 @@ The hosting service enforces a 256 MiB input-archive limit, including remote bui
 
 Validation: nine server behavior checks cover byte integrity, idempotent storage, conditional reads, failures, unknown paths, cross-origin imports and disabled/expired import windows. All existing front-end/data checks also pass after moving editable web assets from `dist/` to `public/`.
 
-Cloud binding availability, complete object inventory, and final read-only publication must still be confirmed before this migration is reported as successfully deployed.
+Cloud bindings were confirmed on the existing owner-private Site. On 2026-10-02, all 2,551 objects (243,358,114 bytes) were imported with server-side hash verification; the complete stored inventory matched the immutable manifest. Six downloaded objects, including the largest shard and the three Biwa shards, matched local bytes and SHA256. Evidence: `lake-storage-audit.json`. The final local build has `importUntil: 0`; its import routes return 404 while asset routing and lake reads remain available. Final publication status is recorded in the release metadata.

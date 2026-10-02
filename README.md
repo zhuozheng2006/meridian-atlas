@@ -56,11 +56,12 @@ The atlas retains 13,380 polity territory records, 1,450 entity dossiers and 23 
 
 ## 维护
 
-应用为静态项目，运行不需要安装前端依赖。
+前端保持静态 HTML、CSS 和 JavaScript，本地运行无需安装前端依赖。在线版使用轻量 Worker 与同一私有站点的对象存储分发精细湖岸；完整本地数据保留在 `public/`。
 
 ```sh
 npm run prepare:assets
 npm test
+npm run build
 ```
 
 - `public/`：可托管、可离线启动的应用。
@@ -73,8 +74,10 @@ npm test
 - `public/data/places/`：年代地名、人口、首都、城市篇章和来源。
 - `editorial/city-narratives.json`：可编辑的原创双语城市篇章。
 - `scripts/`：重建与验证脚本。
+- `worker/`：精细湖岸的在线读取与校验逻辑；默认构建关闭数据导入入口。
+- `dist/`：生成的在线发布包，包含页面资源与 Worker，不包含湖岸大数据分片。
 - `docs/`：来源研究、内容覆盖、转换记录与测试结果。
 
-数据更新与重建方法详见 `docs/MAINTENANCE.md`。
+数据更新与重建方法详见 `docs/MAINTENANCE.md`；在线数据分发与导入校验见 `docs/DATA-STORAGE-v3.1.md`。
 
 本次实际验证、仍需深化的范围与截图说明见 `docs/VALIDATION-v3.1.md`。竞品研究基线保留在 `docs/BENCHMARK-BASELINE-2.1.md`。

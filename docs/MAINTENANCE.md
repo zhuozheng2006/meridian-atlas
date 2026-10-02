@@ -1,6 +1,6 @@
 # 维护与复现 / Maintenance and reproduction
 
-应用使用静态 HTML、CSS、JavaScript 和 MapLibre GL JS，不需要账户、数据库、API 密钥或构建工具。所有运行资源均在 `dist` 中。在线版仍受托管服务的访问权限控制。
+前端使用静态 HTML、CSS、JavaScript 和 MapLibre GL JS，本地运行不需要账户、数据库、API 密钥或构建工具。完整本地资源位于 `public/`。在线版由轻量 Worker 和静态资源组成，湖岸大数据分片存入同一站点的 R2 对象存储，继续受托管服务的原有私有访问权限控制。
 
 ## 修改事件
 

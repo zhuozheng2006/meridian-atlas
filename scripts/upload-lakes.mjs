@@ -23,7 +23,8 @@ const have=new Map(previous.files.map(f=>[f.file,f]));
 const pending=manifest.files.filter(f=>have.get(f.file)?.sha256!==f.sha256||have.get(f.file)?.bytes!==f.bytes);
 let cursor=0,uploaded=0;
 console.log(`Verified cloud bindings. ${pending.length} of ${manifest.files.length} files need upload.`);
-const jobs=Array.from({length:6},async()=>{
+const concurrency=Number.isInteger(input.concurrency)?Math.max(1,Math.min(16,input.concurrency)):6;
+const jobs=Array.from({length:concurrency},async()=>{
  while(cursor<pending.length){
   const f=pending[cursor++],bytes=fs.readFileSync(path.join(base,f.file));if(bytes.length!==f.bytes||hash(bytes)!==f.sha256)throw Error('Local asset checksum failed: '+f.file);
   const result=await (await request('/__atlas-import/'+f.file,{method:'PUT',headers:{'Content-Type':'application/octet-stream','Content-Length':String(bytes.length)},body:bytes})).json();
