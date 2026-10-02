@@ -69,7 +69,7 @@ add('Active HALC is hidden atomically on a source error',async make=>{
 });
 
 add('Moving an active view into pending tiles does not advertise a complete ready frame',async make=>{
- const h=await make({...eligibleState});try{await tick(h);h.tilesReady();await tick(h);assert.equal(h.snapshot().active,true);h.beginViewportLoad();await tick(h);hidden(h);assert.equal(h.snapshot().reason,'loading');h.tilesReady();await tick(h);assert.equal(h.snapshot().active,true);}finally{h.destroy();}
+ const h=await make({...eligibleState});try{await tick(h);h.tilesReady();await tick(h);assert.equal(h.snapshot().active,true);const prior=h.halc.features;h.beginViewportLoad();await tick(h);assert.equal(h.snapshot().active,true);assert.equal(h.snapshot().visibleSource,'halc');assert.equal(h.snapshot().reason,'updating');assert.equal(h.halc.features,prior);assert(!/visible units|条可见/.test(h.halc.title()));h.tilesReady();await tick(h);assert.equal(h.snapshot().active,true);assert.equal(h.snapshot().reason,'ready');assert(/visible units/.test(h.halc.title()));}finally{h.destroy();}
 });
 
 add('Failed active source removes its own map labels before overview fallback',async make=>{

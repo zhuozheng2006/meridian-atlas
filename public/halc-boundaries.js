@@ -1,5 +1,5 @@
-import {readJSON} from './map-engine.js?v=3.9.1-d4a2f4088db1';
-import {HalcRegions} from './halc-regions.js?v=3.9.1-d4a2f4088db1';
+import {readJSON} from './map-engine.js?v=3.9.2-2ba2437fa3b9';
+import {HalcRegions} from './halc-regions.js?v=3.9.2-2ba2437fa3b9';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -41,17 +41,19 @@ export class HalcBoundaries{
   this.owner=owner;this.atlas=owner.atlas;this.map=owner.map;this.load=load;this.anchor=anchor;this.active=false;this.failed=false;this.reason='disabled';this.features=[];this.markers=[];this.seq=0;this.dead=false;this.listeners=[];this.sourceEpoch=0;this.featureEpoch=0;
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
   on('idle',()=>this.settle());
-  on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;if(!this.eligible||!this.active)return;this.reason='loading';this.features=[];this.setActive(false);this.notify();});
+  on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;if(!this.eligible||!this.active)return;this.beginUpdate();});
   on('error',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.failed=true;this.lastError=String(e.error?.message||'HALC source error');this.reason='error';this.features=[];this.clearSelection();this.setActive(false);this.visibility();this.notify();});
   this.regions=new HalcRegions(this,HALC_BOUNDS);
  }
  get lang(){return this.owner.lang;}
  get eligibility(){return halcEligibility({mode:this.owner.mode,year:this.owner.year,borders:this.atlas.showBorders,modern:this.owner.modern,zoom:this.map.getZoom(),bounds:this.map.getBounds?.(),destroyed:this.dead||this.atlas.destroyed});}
  get eligible(){return this.eligibility===null;}
- get loading(){return this.reason==='loading';}
+ get loading(){return this.reason==='loading'||this.reason==='updating';}
+ beginUpdate(){const next=this.active?'updating':'loading',changed=this.reason!==next;this.reason=next;this.scanKey=null;this.clearLabels();if(changed)this.notify();}
  notify(){if(!this.dead&&this.owner.mode==='halc')this.owner.setStatus(this.reason);}
  title(){
   const pairs={year:['全球疆域 · HALC 提供1500年','Global overview · HALC covers 1500'],zoom:['HALC · 放大查看地方区划','HALC · Zoom in for local divisions'],outside:['全球疆域 · HALC 覆盖低地国家','Global overview · HALC covers the Low Countries'],modern:['HALC · 现代参照开启','HALC · Modern reference is on'],hidden:['HALC · 疆域已收起','HALC · Borders are hidden'],loading:['HALC · 正在载入地方区划','HALC · Loading local divisions'],error:['全球疆域 · HALC 载入失败，可重试','Global overview · HALC unavailable; retry'],empty:['全球疆域 · 此处暂无HALC记录','Global overview · No HALC records here']};
+  if(this.reason==='updating')return t(this.lang,'HALC · 正在补齐视野…','HALC · Updating this view…');
   return this.active?t(this.lang,'HALC · 1500 · '+this.features.length+' 条可见区划','HALC · 1500 · '+this.features.length+' visible units'):t(this.lang,...(pairs[this.reason]||pairs.loading));
  }
  ensure(){
@@ -71,21 +73,21 @@ export class HalcBoundaries{
  visibility(){
   this.regions?.visibility();
   const visible=this.eligible&&!this.failed;
-  const regional=!!this.regions?.ready&&!this.regions?.failed,key=visible+':'+this.active+':'+regional;if(key===this.visibilityKey)return;this.visibilityKey=key;
+  const regional=!!this.regions?.hasFrame&&!this.regions?.failed,key=visible+':'+this.active+':'+regional;if(key===this.visibilityKey)return;this.visibilityKey=key;
   for(const id of HALC_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible&&(id===HALC_LAYERS[0]||this.active)?'visible':'none');
   if(this.map.getLayer(HALC_LAYERS[0])){this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity',this.active?['case',['==',['get','TYPE'],8],.05,.24]:0);}
   if(this.map.getLayer(HALC_LAYERS[1])){const independent=['in',';XX;',['concat',';',['coalesce',['get','ADM1'],''],';']];this.map.setPaintProperty(HALC_LAYERS[1],'line-opacity',regional?['interpolate',['linear'],['zoom'],6,['case',independent,.5,.015],8,['case',independent,.6,.1],11,.45,15,.65]:['interpolate',['linear'],['zoom'],6,.04,8,.16,11,.5,15,.65]);}
  }
  setActive(value){
-  if(!value)this.clearLabels();
+  if(!value){this.clearLabels();this.regions?.update();}
   if(this.active===value){this.visibility();return;}this.active=value;this.owner.atlas.boundaries?.applyVisibility(this.owner.detailedActive);this.visibility();this.atlas.refreshLabels();
  }
  update(){
   if(this.dead)return;const reason=this.eligibility;this.regions.update();
   if(reason){this.reason=reason;this.features=[];this.scanKey=null;this.clearSelection();this.setActive(false);this.clearLabels();this.visibility();this.notify();return;}
   if(this.failed){this.reason='error';this.setActive(false);this.visibility();this.notify();return;}
-  if(this.active&&!this.map.isSourceLoaded(HALC_SOURCE)){this.features=[];this.scanKey=null;this.setActive(false);}
-  this.reason=this.active?'ready':'loading';this.ensure();this.regions.ensure();this.visibility();this.notify();this.settle();
+  if(this.active&&!this.map.isSourceLoaded(HALC_SOURCE))this.beginUpdate();
+  if(!this.active)this.reason='loading';this.ensure();this.regions.ensure();this.visibility();this.notify();this.settle();
  }
  settle(){
   if(!this.eligible||this.failed||!this.labels||this.settling||this.map.isMoving()||!this.map.getSource(HALC_SOURCE)||!this.map.isSourceLoaded(HALC_SOURCE))return;
@@ -103,11 +105,11 @@ export class HalcBoundaries{
  viewportKey(){const b=this.map.getBounds(),c=this.map.getContainer();return [b.getWest(),b.getSouth(),b.getEast(),b.getNorth(),this.map.getZoom(),this.map.getBearing?.()||0,this.map.getPitch?.()||0,c.clientWidth,c.clientHeight].join(':');}
  groupName(code){return halcMembership(code,'ADM1',this.labels,this.lang);}
  openGroup(code){this.owner.openIndex({halcGroup:code});}
- openHit(feature,point){const p=feature.properties;if(this.map.getZoom()<8&&p.TYPE!==8&&p.ADM1&&!p.ADM1.split(';').includes('XX'))this.openGroup(p.ADM1);else this.openRecord(p.fid,point);}
+ openHit(feature,point){const p=feature.properties;if(!this.loading&&this.map.getZoom()<8&&p.TYPE!==8&&p.ADM1&&!p.ADM1.split(';').includes('XX'))this.openGroup(p.ADM1);else this.openRecord(p.fid,point);}
  indexFeatures(){return this.features.map(f=>({...f,properties:{...f.properties,archive:'halc',record_id:'HALC-'+f.properties.fid,name:halcName(f.properties,this.labels,this.lang),name_en:f.properties.NAME,start_date:'1500',end_date:'1500'}}));}
  clearLabels(){for(const marker of this.markers)marker.remove();this.markers=[];this.labelKey=null;this.labelBoxes=null;}
  refreshLabels(){
-  if(!this.active||!this.atlas.showLabels||!this.anchor){this.clearLabels();return;}
+  if(!this.active||this.loading||!this.atlas.showLabels||!this.anchor){this.clearLabels();return;}
   const bounds=this.map.getBounds(),box=[bounds.getWest(),bounds.getSouth(),bounds.getEast(),bounds.getNorth()],root=this.map.getContainer().getBoundingClientRect();
   const boxes=[...document.querySelectorAll('.map-heading,.map-tools,.compare-heading,.map-legend,.layer-panel,.event-marker,.regional-controls,.lake-label')].filter(el=>el.getClientRects().length).map(el=>el.getBoundingClientRect());
   const key=[this.featureEpoch,this.regions.revision,this.viewportKey(),this.lang,root.left,root.top,...boxes.flatMap(b=>[b.left,b.top,b.right,b.bottom])].join(':');

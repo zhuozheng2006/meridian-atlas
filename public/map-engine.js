@@ -1,10 +1,10 @@
-import {curvedBorders} from './border-curves.js?v=3.9.1-d4a2f4088db1';
-import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.9.1-d4a2f4088db1';
-import {BoundaryController} from './boundary-controller.js?v=3.9.1-d4a2f4088db1';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.9.1-d4a2f4088db1';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.9.1-d4a2f4088db1';
-import {Geography} from './geography.js?v=3.9.1-d4a2f4088db1';
-import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.9.1-d4a2f4088db1';
+import {curvedBorders} from './border-curves.js?v=3.9.2-2ba2437fa3b9';
+import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.9.2-2ba2437fa3b9';
+import {BoundaryController} from './boundary-controller.js?v=3.9.2-2ba2437fa3b9';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.9.2-2ba2437fa3b9';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.9.2-2ba2437fa3b9';
+import {Geography} from './geography.js?v=3.9.2-2ba2437fa3b9';
+import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.9.2-2ba2437fa3b9';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;

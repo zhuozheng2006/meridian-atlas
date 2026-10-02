@@ -3,10 +3,10 @@ export const HALC_REGION_SOURCE='halc-regions';
 export const HALC_REGION_LAYERS=['halc-region-query','halc-region-edges'];
 export class HalcRegions{
  constructor(parent,bounds){
-  this.parent=parent;this.map=parent.map;this.bounds=bounds;this.features=[];this.epoch=0;this.revision=0;this.ready=false;this.failed=false;this.listeners=[];
+  this.parent=parent;this.map=parent.map;this.bounds=bounds;this.features=[];this.epoch=0;this.revision=0;this.ready=false;this.hasFrame=false;this.failed=false;this.listeners=[];
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
-  on('sourcedataloading',e=>{if(e.sourceId!==HALC_REGION_SOURCE)return;this.epoch++;this.ready=false;this.features=[];this.revision++;this.visibility();parent.visibilityKey=null;parent.visibility();parent.clearLabels();});
-  on('error',e=>{if(e.sourceId!==HALC_REGION_SOURCE)return;this.failed=true;this.ready=false;this.features=[];this.revision++;this.visibility();parent.visibilityKey=null;parent.visibility();parent.refreshLabels();parent.notify();});
+  on('sourcedataloading',e=>{if(e.sourceId!==HALC_REGION_SOURCE)return;this.epoch++;this.ready=false;this.features=[];this.revision++;this.visibility();parent.visibility();parent.clearLabels();});
+  on('error',e=>{if(e.sourceId!==HALC_REGION_SOURCE)return;this.failed=true;this.ready=false;this.hasFrame=false;this.features=[];this.revision++;this.visibility();parent.visibility();parent.refreshLabels();parent.notify();});
  }
  ensure(){
   if(this.failed||!this.parent.eligible||this.map.getSource(HALC_REGION_SOURCE))return;
@@ -17,20 +17,20 @@ export class HalcRegions{
   this.visibilityKey=null;
  }
  visibility(){
-  const enabled=this.parent.eligible&&!this.parent.failed&&!this.failed,ink=enabled&&this.parent.active&&this.ready,key=enabled+':'+ink;
+  const enabled=this.parent.eligible&&!this.parent.failed&&!this.failed,ink=enabled&&this.parent.active&&this.hasFrame,key=enabled+':'+ink;
   if(key===this.visibilityKey)return;this.visibilityKey=key;
   for(const id of HALC_REGION_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',(id===HALC_REGION_LAYERS[0]?enabled:ink)?'visible':'none');
  }
  update(){
-  if(!this.parent.eligible){this.scanKey=null;this.features=[];this.ready=false;this.revision++;}this.visibility();
+  if(!this.parent.eligible||this.parent.failed){this.scanKey=null;this.features=[];this.ready=false;this.hasFrame=false;this.revision++;}this.visibility();
  }
  settle(){
   if(!this.parent.eligible||this.failed||!this.map.getSource(HALC_REGION_SOURCE)||this.map.isMoving())return;
   if(!this.map.isSourceLoaded(HALC_REGION_SOURCE)){this.scanKey=null;if(this.ready){this.ready=false;this.features=[];this.revision++;this.visibility();}return;}
   const key=this.parent.viewportKey()+':'+this.epoch;if(key===this.scanKey)return;
   const groups=new Map();for(const f of this.map.queryRenderedFeatures({layers:[HALC_REGION_LAYERS[0]]})){const id=f.properties.gid;if(!id)continue;if(!groups.has(id))groups.set(id,{...f,fragments:[]});groups.get(id).fragments.push(f.geometry);}
-  this.features=[...groups.values()];this.scanKey=key;this.ready=true;this.revision++;this.visibility();
+  this.features=[...groups.values()];this.scanKey=key;this.ready=true;this.hasFrame=true;this.revision++;this.visibility();
  }
- retry(){this.failed=false;this.ready=false;this.features=[];this.scanKey=null;this.visibilityKey=null;this.epoch++;this.revision++;for(const id of [...HALC_REGION_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_REGION_SOURCE))this.map.removeSource(HALC_REGION_SOURCE);}
+ retry(){this.failed=false;this.ready=false;this.hasFrame=false;this.features=[];this.scanKey=null;this.visibilityKey=null;this.epoch++;this.revision++;for(const id of [...HALC_REGION_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_REGION_SOURCE))this.map.removeSource(HALC_REGION_SOURCE);}
  destroy(){for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }

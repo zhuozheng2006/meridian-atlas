@@ -1,0 +1,128 @@
+{
+  "checkedAt": "2026-10-02T16:18:05.328Z",
+  "method": "Actual HalcBoundaries imported; MapLibre, parent owner, DOM and network boundaries are deterministic doubles. No browser or tile-byte validation.",
+  "source": {
+    "path": "public/halc-boundaries.js",
+    "sha256": "e55f90cfc70ffad6269a8f4b2f91f5b37f6d9f56a542af242ee6334786dbfa37"
+  },
+  "passed": 29,
+  "total": 29,
+  "results": [
+    {
+      "name": "Initial gate: borders hidden",
+      "passed": true
+    },
+    {
+      "name": "Initial gate: modern reference enabled",
+      "passed": true
+    },
+    {
+      "name": "Initial gate: earlier year",
+      "passed": true
+    },
+    {
+      "name": "Initial gate: later year",
+      "passed": true
+    },
+    {
+      "name": "Initial gate: just below minimum zoom",
+      "passed": true
+    },
+    {
+      "name": "Initial gate: entire viewport outside source region",
+      "passed": true
+    },
+    {
+      "name": "Initial gate: another requested source",
+      "passed": true
+    },
+    {
+      "name": "Exact year and minimum zoom permit activation only after source readiness",
+      "passed": true
+    },
+    {
+      "name": "Repeated pending updates do not recreate the HALC vector source",
+      "passed": true
+    },
+    {
+      "name": "Late source readiness cannot reactivate after year changes",
+      "passed": true
+    },
+    {
+      "name": "Late source readiness cannot reactivate after mode changes",
+      "passed": true
+    },
+    {
+      "name": "Late source readiness cannot reactivate after borders are hidden",
+      "passed": true
+    },
+    {
+      "name": "Late source readiness cannot reactivate after modern reference opens",
+      "passed": true
+    },
+    {
+      "name": "Late source readiness cannot reactivate after zoom leaves detail scale",
+      "passed": true
+    },
+    {
+      "name": "Late source readiness cannot reactivate after viewport leaves coverage",
+      "passed": true
+    },
+    {
+      "name": "Partial tile error falls back while preserving HALC selection and allows retry",
+      "passed": true
+    },
+    {
+      "name": "Active HALC is hidden atomically on a source error",
+      "passed": true
+    },
+    {
+      "name": "Moving an active view into pending tiles does not advertise a complete ready frame",
+      "passed": true
+    },
+    {
+      "name": "Failed active source removes its own map labels before overview fallback",
+      "passed": true
+    },
+    {
+      "name": "Late record detail cannot open a popup after year changes",
+      "passed": true
+    },
+    {
+      "name": "Late record detail cannot open a popup after mode changes",
+      "passed": true
+    },
+    {
+      "name": "Late record detail cannot open a popup after borders are hidden",
+      "passed": true
+    },
+    {
+      "name": "Late record detail cannot open a popup after modern reference opens",
+      "passed": true
+    },
+    {
+      "name": "A newer record click defeats an older deferred record response",
+      "passed": true
+    },
+    {
+      "name": "Destroy invalidates both tile readiness and an outstanding record detail",
+      "passed": true
+    },
+    {
+      "name": "A restored record waits for complete eligible geometry before opening",
+      "passed": true
+    },
+    {
+      "name": "A queued restored record is discarded if the selected year changes",
+      "passed": true
+    },
+    {
+      "name": "Native popup close invalidates an outstanding record response",
+      "passed": true
+    },
+    {
+      "name": "Two map instances retain independent requested sources and active state",
+      "passed": true
+    }
+  ]
+}
