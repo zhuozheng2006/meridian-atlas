@@ -1,4 +1,4 @@
-# 经纬纪 · Meridian Atlas 3.2
+# 经纬纪 · Meridian Atlas 3.3
 
 一部可交互的中英文世界历史图集：转动地球，沿时间轴观察疆域；打开国家档案，阅读制度、文化、经济与相关事件。
 
@@ -21,6 +21,8 @@
 本版收录343条双语事件（2.0版新增92条），并保留13,380条政体疆域时段记录，以及385条联盟、共主等关系记录，来源为Cliopatria。疆域年代覆盖公元前3400年至2024年。另收录1,450份Wikidata实体档案、23篇重要文明双语概览和47条历史侧记。330份实体档案包含带引证声明，共1,885项；各国可展示资料的密度不同。事件总数和分布见应用“资料”及 `docs/CONTENT-COVERAGE.json`。
 
 ## 打开与使用
+
+3.3 新增地区历史区划：放大到区域时读取 OpenHistoricalMap 的带年代轮廓，按年中切片显示，支持区划档案、来源直达、简体中文标注和原始疆域对照。空白覆盖与失败回退在图层中说明。
 
 在线版：[经纬纪](https://meridian-world-history.zhuozheng2006.chatgpt.site)。沿用原有私有访问范围。
 
@@ -82,4 +84,4 @@ npm run build
 
 数据更新与重建方法详见 `docs/MAINTENANCE.md`；在线数据分发与导入校验见 `docs/DATA-STORAGE-v3.1.md`。
 
-本次实际验证、仍需深化的范围与截图说明见 `docs/VALIDATION-v3.2.md`。竞品研究基线保留在 `docs/BENCHMARK-BASELINE-2.1.md`。
+本次实际验证、仍需深化的范围与截图说明见 `docs/VALIDATION-v3.3.md`。竞品研究基线保留在 `docs/BENCHMARK-BASELINE-2.1.md`。

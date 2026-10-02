@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>Regional filter verification</title><style>#map{width:600px;height:400px}pre{white-space:pre-wrap}</style><div id="map"></div><pre id="result">Checking regional date expressions…</pre><script src="assets/maplibre-gl.js"></script><script type="module">
+import {regionalFilter,regionalLayers,regionalVisible} from './regional-boundaries.js';
+const base={type:'administrative',admin_level:4},fixtures=[['old',{start_decdate:1480,end_decdate:1492.2}],['new',{start_decdate:1492.3,end_decdate:1500}],['later',{start_decdate:1492.8}],['missing',{}],['string',{start_decdate:'1480'}],['reverse',{start_decdate:1492.8,end_decdate:1492.1}],['unconverted',{start_decdate:1480,end_date:'?'}],['municipal',{start_decdate:1480,admin_level:8}],['bce',{start_decdate:0,end_decdate:.99}],['ce',{start_decdate:1,end_decdate:1.99}]];
+const errors=[],map=new maplibregl.Map({container:'map',center:[0,0],zoom:7,style:{version:8,sources:{},layers:[]}}),results=[];map.on('error',e=>errors.push(String(e.error)));
+map.once('load',async()=>{try{
+ map.addSource('regional-boundaries',{type:'geojson',data:{type:'FeatureCollection',features:fixtures.map(([id,p],i)=>({type:'Feature',properties:{...base,...p,osm_id:-i-1,fixture:id},geometry:{type:'Polygon',coordinates:[[[i*.01,0],[i*.01+.008,0],[i*.01+.008,.008],[i*.01,.008],[i*.01,0]]]}}))}});
+ for(const layer of regionalLayers(1492)){delete layer['source-layer'];map.addLayer(layer)}
+ for(const year of [-1,1,1492,1493,1501]){
+  map.setFilter('regional-wash',regionalFilter(year));await new Promise(r=>map.once('idle',r));
+  const actual=[...new Set(map.queryRenderedFeatures({layers:['regional-wash']}).map(f=>f.properties.fixture))].sort(),expected=fixtures.filter(([,p])=>regionalVisible({...base,...p},year)).map(([id])=>id).sort();results.push({year,actual,expected,passed:JSON.stringify(actual)===JSON.stringify(expected)});
+ }
+ document.querySelector('#result').textContent=JSON.stringify({status:results.every(x=>x.passed)&&!errors.length?'passed':'failed',results,errors,engine:maplibregl.getVersion()},null,2);
+}catch(e){document.querySelector('#result').textContent=JSON.stringify({status:'failed',error:String(e),errors})}});
+</script>

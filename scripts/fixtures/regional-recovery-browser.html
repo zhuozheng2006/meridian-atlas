@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><title>Regional recovery verification</title><link rel="stylesheet" href="assets/maplibre-gl.css"><style>#map{width:800px;height:500px}pre{white-space:pre-wrap}</style><div id="map"></div><pre id="result">Testing unavailable regional data and retry…</pre><script src="assets/maplibre-gl.js"></script><script type="module">
+import {AtlasMap,readJSON} from './map-engine.js';
+const errors=[],atlas=new AtlasMap('map',{year:1492,camera:{center:[8.2,47.7],zoom:7},onError:e=>errors.push(String(e))});
+let broken=true;const original=atlas.map.addSource.bind(atlas.map);atlas.map.addSource=(id,source)=>original(id,id==='regional-boundaries'&&broken?{...source,tiles:[location.origin+'/index.html?invalid-region={z}/{x}/{y}']}:source);
+const waitFor=fn=>new Promise((resolve,reject)=>{const start=Date.now(),tick=()=>{if(fn())resolve();else if(Date.now()-start>45000)reject(Error('State timeout: '+atlas.regional?.status));else setTimeout(tick,100)};tick()});
+try{
+ await atlas.ready;await atlas.setYear(await readJSON('data/fast/catalog.json.gz'),1492);await waitFor(()=>atlas.regional.status==='error');
+ const failed={status:atlas.regional.status,active:atlas.regional.active,rawRecords:atlas.active.length,overviewVisible:atlas.map.getPaintProperty('boundary','line-opacity')!==0,fatalErrors:errors.slice()};
+ broken=false;atlas.regional.retry();await waitFor(()=>atlas.regional.status==='ready');const recovered={status:atlas.regional.status,active:atlas.regional.active,records:atlas.regional.features.length};
+ await atlas.setYear(atlas.catalog,-70000);await waitFor(()=>atlas.regional.status==='empty');const empty={year:atlas.year,status:atlas.regional.status,active:atlas.regional.active,records:atlas.regional.features.length};
+ document.querySelector('#result').textContent=JSON.stringify({status:!failed.active&&failed.overviewVisible&&failed.rawRecords>0&&!errors.length&&recovered.active&&recovered.records>0&&!empty.active&&!empty.records?'passed':'failed',failed,recovered,empty,errors},null,2);
+}catch(e){document.querySelector('#result').textContent=JSON.stringify({status:'failed',error:String(e),errors},null,2)}
+</script>
