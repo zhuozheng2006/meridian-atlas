@@ -1,0 +1,93 @@
+{
+  "dateFilter": {
+    "url": "https://github.com/OpenHistoricalMap/maplibre-gl-dates",
+    "license": "CC0-1.0",
+    "localFile": "maplibre-gl-dates.js",
+    "notes": [
+      "Requires MapLibre >=3.0.",
+      "Annual date string includes features overlapping that year.",
+      "Decimal years use 0.0 for 1 BCE, -1.0 for 2 BCE; preserve the app civil-year distinction.",
+      "All date fields optional in upstream plugin. For a default historical detail layer, do not silently treat unbounded modern-looking features as ancient."
+    ],
+    "sha256": "2428d4bb4659d3eed14cd0db2fe20b1e3fb30aed9e538dca24e68dc17df811f3",
+    "pinnedCommit": "e76d0297dff9cbf88cb41307bb4b5f5bef1ce9c4"
+  },
+  "style": {
+    "url": "https://github.com/OpenHistoricalMap/map-styles",
+    "license": "CC0-1.0",
+    "localFile": "ohm-historical-style.json",
+    "tileTemplate": "https://vtiles.openhistoricalmap.org/maps/ohm/{z}/{x}/{y}.pbf",
+    "categories": [
+      "transport_lines",
+      "transport_areas",
+      "buildings",
+      "place_points_centroids",
+      "water_lines",
+      "water_areas"
+    ],
+    "notes": [
+      "Use existing Meridian terrain/coast styles, not the entire OHM basemap."
+    ],
+    "sha256": "913ce098e770eeaee333985a6d67ce5b111f6b509f1923859b7bd5147b2f9dfa",
+    "pinnedCommit": "dd9f378675689548c3ff8e6b5bea566eba3bf2c2"
+  },
+  "dataLicense": {
+    "url": "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Copyright",
+    "notes": [
+      "CC0 is the default dedication, with per-element license and attribution exceptions.",
+      "Preserve central and feature-level attribution; do not relabel the whole database as uniformly CC0.",
+      "Some coast/water imports from 2012 OSM are CC BY-SA 2.0; the planned historical transport/building layer should not import those water layers.",
+      "Preserve OHM central copyright/source links for imported data exceptions; the public vector API does not expose feature-level license/source tags."
+    ],
+    "additionalSources": [
+      "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/License",
+      "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Sources"
+    ]
+  },
+  "nextChecks": [
+    "Continue regional source enrichment and historical review; online coverage remains uneven."
+  ],
+  "pinnedFiles": {
+    "maplibre-gl-dates-pinned-README.md": "feec4dbbb888e923f715eb8716a9c39bf1952ed9734b31ba6216d149f2c90cc6",
+    "map-styles-pinned-historical_historical.json": "b6501f911e15dc44db1b5d77b2aca52f84326aa8ecb934d73acac3126261b77c",
+    "maplibre-gl-dates-pinned-LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "map-styles-pinned-dist_historical_historical.json": "913ce098e770eeaee333985a6d67ce5b111f6b509f1923859b7bd5147b2f9dfa",
+    "map-styles-pinned-README.md": "e3741e37b35152e21b93a5e6ea328fa3b32ffc4165b6365ec3445663c19ca928",
+    "maplibre-gl-dates-pinned-index.js": "2428d4bb4659d3eed14cd0db2fe20b1e3fb30aed9e538dca24e68dc17df811f3"
+  },
+  "tileSchemaAudit": {
+    "sampleDate": "2026-10-02",
+    "zoom": 14,
+    "samples": [
+      "https://vtiles.openhistoricalmap.org/maps/ohm/14/8760/6087.pbf",
+      "https://vtiles.openhistoricalmap.org/maps/ohm/14/13489/6208.pbf",
+      "https://vtiles.openhistoricalmap.org/maps/ohm/14/9510/6142.pbf",
+      "https://vtiles.openhistoricalmap.org/maps/ohm/14/8186/5448.pbf",
+      "https://vtiles.openhistoricalmap.org/maps/ohm/14/4823/6160.pbf"
+    ],
+    "notes": [
+      "Road features have osm_id, class/type, start_date/end_date, decimal date fields. Per-element sources are not in the sampled vector tile properties.",
+      "Building polygons carry decimal dates but no IDs or names in the sampled source layer. Never invent a per-building source link.",
+      "Settlement points support localized name_zh/name_en and other languages, but some names may need explicit Simplified Chinese normalization.",
+      "Default historical detail should require a valid numeric start_decdate, omitting end-only and undated records. Known but unparseable end dates must not be treated as ongoing."
+    ]
+  },
+  "dateConvention": {
+    "source": "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Tags/Key/start_date",
+    "rule": "OHM ISO -4000 corresponds to 4001 BCE. Convert Meridian civil year y<0 to astronomical y+1. Annual interval is [astronomicalYear, astronomicalYear+1). Features overlap when start_decdate < yearEnd and no end_decdate or end_decdate >= yearStart.",
+    "upstreamFixIssue": "https://github.com/OpenHistoricalMap/issues/issues/1411",
+    "notes": "Pinned current plugin returns UTC astronomical years directly; do not introduce the older negative-year adjustment."
+  },
+  "implementationVersion": "3.2.0",
+  "runtime": {
+    "sourceLayers": [
+      "transport_lines",
+      "buildings"
+    ],
+    "minimumZoom": 11,
+    "buildingsMinimumZoom": 14,
+    "maximumZoom": 18,
+    "datePolicy": "Known starts, annual overlap, valid ends, ordered intervals; civil-to-astronomical conversion; construction/proposed transport omitted.",
+    "bundledGlobalTileArchive": false
+  }
+}

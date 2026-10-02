@@ -1,0 +1,78 @@
+{
+  "version": "3.9.4",
+  "assetRevision": "3.9.4-e92afe04dc8c",
+  "checkedAt": "2026-10-02T18:09:59.501886+00:00",
+  "target": "http://127.0.0.1:8766/",
+  "browser": "Codex in-app browser",
+  "checks": [
+    {
+      "case": "1500 Almere historical sea replaces modern reclaimed land",
+      "result": "passed",
+      "point": [
+        5.2236,
+        52.3702
+      ],
+      "zoom": 9
+    },
+    {
+      "case": "1501 exits historical landscape and restores modern basemap",
+      "result": "passed",
+      "note": "Checked earlier in this batch before final legend wording refinement; eligibility code unchanged."
+    },
+    {
+      "case": "Historical land replaces modern water; center reader fid 2115",
+      "result": "passed",
+      "point": [
+        4.161472125912,
+        51.474854486827
+      ],
+      "zoom": 11
+    },
+    {
+      "case": "Hildernisse locality 14390 opens four-tab dossier over historical landscape",
+      "result": "passed"
+    },
+    {
+      "case": "Geography off removes historical landscape button",
+      "result": "passed"
+    },
+    {
+      "case": "Modern reference on removes historical landscape; turning off restores it",
+      "result": "passed"
+    },
+    {
+      "case": "Desktop final reload and landscape guide",
+      "result": "passed",
+      "viewport": [
+        1168,
+        787
+      ]
+    },
+    {
+      "case": "Mobile landscape guide at 390x844 fits with scrollable panel and visible year controls",
+      "result": "passed",
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "console": {
+    "newErrorsInFinalVersion": 0,
+    "retainedEarlierError": {
+      "revision": "3.9.4-74457be01bd6",
+      "message": "SyntaxError: Unexpected token ')'",
+      "timestamp": "2026-10-02T17:45:35.138Z",
+      "status": "Fixed before final e92afe04dc8c build; retained browser log is not a new final-version error."
+    }
+  },
+  "limits": [
+    "Not an exhaustive visual or device matrix.",
+    "City corrections were verified by actual module tests, not separate city browser scenarios.",
+    "Runtime lifecycle failures use deterministic real-class tests; not network-fault injection in this browser session."
+  ],
+  "screenshots": [
+    "Meridian-3.9.4-landscape-guide.png",
+    "Meridian-3.9.4-mobile.png"
+  ]
+}

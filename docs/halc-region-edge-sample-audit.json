@@ -1,0 +1,185 @@
+{
+  "checkedAt": "2026-10-02T15:37:08.481723+00:00",
+  "method": "Independent actual MVT decode; unique-length and canonical-segment duplication; all four buffered frame intersections; 128-grid-unit overlap and exact core seam comparisons across three adjacent pairs. No rebuild or checkout changes.",
+  "assetRoot": "work/halc-hierarchy/tiles-publish-edge",
+  "manifestSha256": "5e4f3f5837056829abeb1daa9779cb0cb4d7a02306cd0396d1ca5568b9c03692",
+  "sourceModuleSha256": "112d10fa821d4f48b59a50bc905ada0e9fd1a49a3dca0b3a252fb1f27031d029",
+  "samples": [
+    {
+      "tile": "tiles/8/131/86.pbf",
+      "sha256": "20f86e6c7199e4759a9f7f3e2f04be782d89320f7a318334c865c97bc2cb6633",
+      "regionFeatures": 30,
+      "edgeFeatures": 1,
+      "edgeProperties": {
+        "kind": "adm1-boundary",
+        "snapshotYear": 1500
+      },
+      "valid": true,
+      "edgeVertices": 27981,
+      "duplicateCanonicalSegments": 0,
+      "rawLengthMinusUniqueLengthTileGridUnits": 0.0,
+      "lineLengthOnBufferedTileFrame": 1.0,
+      "edgeBounds": [
+        -64.0,
+        -64.0,
+        8256.0,
+        8256.0
+      ]
+    },
+    {
+      "tile": "tiles/8/130/86.pbf",
+      "sha256": "d0495b0af2b9707bf32277a8c77ff3b7848f0cc1f3d5333367fbfaa54dd00bd2",
+      "regionFeatures": 28,
+      "edgeFeatures": 1,
+      "edgeProperties": {
+        "kind": "adm1-boundary",
+        "snapshotYear": 1500
+      },
+      "valid": true,
+      "edgeVertices": 27261,
+      "duplicateCanonicalSegments": 0,
+      "rawLengthMinusUniqueLengthTileGridUnits": 0.0,
+      "lineLengthOnBufferedTileFrame": 0.0,
+      "edgeBounds": [
+        -64.0,
+        -64.0,
+        8256.0,
+        8256.0
+      ]
+    },
+    {
+      "tile": "tiles/8/132/86.pbf",
+      "sha256": "1fd3245a66c8dd28dea2dfc281a2a09c46cb0c87feaf610c19f0671b8b93391c",
+      "regionFeatures": 22,
+      "edgeFeatures": 1,
+      "edgeProperties": {
+        "kind": "adm1-boundary",
+        "snapshotYear": 1500
+      },
+      "valid": true,
+      "edgeVertices": 14972,
+      "duplicateCanonicalSegments": 0,
+      "rawLengthMinusUniqueLengthTileGridUnits": 0.0,
+      "lineLengthOnBufferedTileFrame": 0.0,
+      "edgeBounds": [
+        -64.0,
+        -64.0,
+        7263.0,
+        8256.0
+      ]
+    },
+    {
+      "tile": "tiles/8/131/85.pbf",
+      "sha256": "009041621f51807a00cb304905df6e58abdc45ff136be0592ba605d62b942bca",
+      "regionFeatures": 12,
+      "edgeFeatures": 1,
+      "edgeProperties": {
+        "kind": "adm1-boundary",
+        "snapshotYear": 1500
+      },
+      "valid": true,
+      "edgeVertices": 9916,
+      "duplicateCanonicalSegments": 0,
+      "rawLengthMinusUniqueLengthTileGridUnits": 0.0,
+      "lineLengthOnBufferedTileFrame": 0.0,
+      "edgeBounds": [
+        -64.0,
+        -64.0,
+        8256.0,
+        8256.0
+      ]
+    }
+  ],
+  "seams": [
+    {
+      "a": [
+        8,
+        131,
+        86
+      ],
+      "b": [
+        8,
+        130,
+        86
+      ],
+      "overlapBoundsGlobalGrid": [
+        1073088.0,
+        704448.0,
+        1073216.0,
+        712768.0
+      ],
+      "overlapWidthGridUnits": 128.0,
+      "bufferLineSetsEqual": true,
+      "bufferSymmetricDifferenceLengthGridUnits": 0.0,
+      "bufferHausdorffDistanceGridUnits": 0.0,
+      "coreSeamIntersectionsEqual": true,
+      "aCoreSeamWkt": "MULTIPOINT (1073152 706561.6, 1073152 706441.75, 1073152 706424, 1073152 711622.6666666666, 1073152 705327.5, 1073152 706430.8, 1073152 708673.375, 1073152 704826.9677419355, 1073152 705923.7619047619, 1073152 705549.2, 1073152 704688.8571428572, 1073152 708334.3333333334)",
+      "bCoreSeamWkt": "MULTIPOINT (1073152 706561.6, 1073152 706424, 1073152 704688.8571428572, 1073152 708334.3333333334, 1073152 706441.75, 1073152 705923.7619047619, 1073152 705327.5, 1073152 706430.8, 1073152 705549.2, 1073152 711622.6666666666, 1073152 708673.375, 1073152 704826.9677419355)"
+    },
+    {
+      "a": [
+        8,
+        131,
+        86
+      ],
+      "b": [
+        8,
+        132,
+        86
+      ],
+      "overlapBoundsGlobalGrid": [
+        1081280.0,
+        704448.0,
+        1081408.0,
+        712768.0
+      ],
+      "overlapWidthGridUnits": 128.0,
+      "bufferLineSetsEqual": true,
+      "bufferSymmetricDifferenceLengthGridUnits": 0.0,
+      "bufferHausdorffDistanceGridUnits": 0.0,
+      "coreSeamIntersectionsEqual": true,
+      "aCoreSeamWkt": "MULTIPOINT (1081344 705680, 1081344 707055, 1081344 706200.8064516129, 1081344 706949.6, 1081344 706943.5, 1081344 707154, 1081344 706282.875, 1081344 706002.6923076923, 1081344 705676.7777777778, 1081344 707789.6071428572, 1081344 711938, 1081344 707024, 1081344 705295.8888888889, 1081344 706789, 1081344 704836.7272727273)",
+      "bCoreSeamWkt": "MULTIPOINT (1081344 711938, 1081344 706789, 1081344 707055, 1081344 706002.6923076923, 1081344 706200.8064516129, 1081344 706949.6, 1081344 706943.5, 1081344 707789.6071428572, 1081344 707154, 1081344 707024, 1081344 706282.875, 1081344 705676.7777777778, 1081344 705295.8888888889, 1081344 705680, 1081344 704836.7272727273)"
+    },
+    {
+      "a": [
+        8,
+        131,
+        86
+      ],
+      "b": [
+        8,
+        131,
+        85
+      ],
+      "overlapBoundsGlobalGrid": [
+        1073088.0,
+        704448.0,
+        1081408.0,
+        704576.0
+      ],
+      "overlapWidthGridUnits": 128.0,
+      "bufferLineSetsEqual": true,
+      "bufferSymmetricDifferenceLengthGridUnits": 0.0,
+      "bufferHausdorffDistanceGridUnits": 0.0,
+      "coreSeamIntersectionsEqual": true,
+      "aCoreSeamWkt": "MULTIPOINT (1074737.8 704512, 1080761.9677419355 704512, 1080695 704512, 1080398.8 704512, 1080430.4545454546 704512, 1080178.076923077 704512, 1077583 704512, 1078135.7272727273 704512, 1074863 704512, 1074760.7272727273 704512, 1077556 704512, 1074613.6666666667 704512, 1074765 704512, 1074008.1176470588 704512, 1074622.3333333333 704512, 1073869.3333333333 704512, 1073344.125 704512, 1074064.652173913 704512, 1074642.5 704512, 1074024.75 704512, 1074040.2 704512, 1078279.3333333333 704512, 1073922.6 704512, 1074602.4 704512, 1074595.6666666667 704512, 1074028.25 704512)",
+      "bCoreSeamWkt": "MULTIPOINT (1077583 704512, 1074760.7272727273 704512, 1074642.5 704512, 1074737.8 704512, 1074024.75 704512, 1080695 704512, 1073922.6 704512, 1080398.8 704512, 1077556 704512, 1080178.076923077 704512, 1074064.652173913 704512, 1074595.6666666667 704512, 1080761.9677419355 704512, 1073869.3333333333 704512, 1073344.125 704512, 1080430.4545454546 704512, 1078279.3333333333 704512, 1074028.25 704512, 1074863 704512, 1074613.6666666667 704512, 1074765 704512, 1074622.3333333333 704512, 1074602.4 704512, 1078135.7272727273 704512, 1074040.2 704512, 1074008.1176470588 704512)"
+    }
+  ],
+  "frameProof": {
+    "examinedTile": "tiles/8/131/86.pbf",
+    "frameAlignedLengthGridUnits": 1.0,
+    "frameAlignedLineWktGlobal": "LINESTRING (1076652 712768, 1076653 712768)",
+    "witnessTile": "tiles/8/131/87.pbf",
+    "witnessTileSha256": "7e617c86adc5ef254625f809cbe551b07cca52defc9484997a9b745ad33f6109",
+    "sameLineFullyPresentInsideWitnessCore": true,
+    "conclusion": "The sole frame-aligned sample segment is a real quantized network segment also present in a neighbor core, not a rectangular frame edge introduced by clipping."
+  },
+  "passed": true,
+  "limits": [
+    "Sampled four z8 tiles, not all 814 assets or all zooms.",
+    "Three samples have zero frame-aligned line length. The central sample has one real 1-grid segment, independently witnessed inside the south neighbor core. Construction order is separately verified in the source module; this check does not reconstruct all source linework.",
+    "Grid units describe encoded display geometry, not historical accuracy or physical kilometres."
+  ]
+}

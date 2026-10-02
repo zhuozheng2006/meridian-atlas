@@ -1,0 +1,409 @@
+
+> meridian-world-history-atlas@3.1.0 test
+> node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-places.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-lakes.mjs && node scripts/validate-release.mjs && node scripts/validate-worker.mjs
+
+PASS linked asset revision 3.1.0-e7a6263b51ba
+PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
+PASS Time windows use civil years without year zero
+PASS Historical coverage never extrapolates before or after source coverage
+PASS All source record IDs and geometry references are consistent
+PASS Every civil-year coverage count matches the active-record selector
+PASS Boundary archive sizes and hashes match final manifest
+PASS Every shipped geometry can be parsed and all referenced shapes exist
+PASS Every event has bilingual text, valid dates, location semantics and traceable references
+PASS Wikipedia links preserve source language and full URLs
+PASS Required offline assets and launchers are present
+{"result":"passed","checks":10,"events":343,"boundaryRecords":13765,"polityRecords":13380,"coverageYears":5424}
+PASS Lean catalog preserves every ID, interval, type and geometry association
+PASS Bootstrap maps exactly match active geometries for every precompiled year
+PASS Lazy full-record shards resolve all archive records
+PASS Unreferenced, deprecated and unknown statements stay out of sourced fact panels
+PASS Year-matched claims require adequate precision and bounded dates or a point date
+PASS Known source identity/period conflicts cannot load factual dossiers
+PASS Curated narratives match identity, exact record IDs and the selected period
+PASS Compressed event archive equals editable full event JSON
+PASS Enrichment profile paths, fact references and narrative bindings are internally consistent
+PASS Initial atlas payload is substantially smaller than v1
+{
+  "result": "passed",
+  "checks": 10,
+  "events": 343,
+  "performance": {
+    "catalogBefore": 1252656,
+    "catalogAfter": 602739,
+    "eventGzip": 190412,
+    "years": [
+      {
+        "year": -221,
+        "previousGeometryBytes": 342104,
+        "bootstrapGeometryBytes": 20053
+      },
+      {
+        "year": 1,
+        "previousGeometryBytes": 780016,
+        "bootstrapGeometryBytes": 26150
+      },
+      {
+        "year": 1000,
+        "previousGeometryBytes": 2597177,
+        "bootstrapGeometryBytes": 51341
+      },
+      {
+        "year": 1492,
+        "previousGeometryBytes": 3005248,
+        "bootstrapGeometryBytes": 79710
+      },
+      {
+        "year": 1750,
+        "previousGeometryBytes": 4405911,
+        "bootstrapGeometryBytes": 141081
+      },
+      {
+        "year": 1914,
+        "previousGeometryBytes": 5130307,
+        "bootstrapGeometryBytes": 213209
+      },
+      {
+        "year": 2024,
+        "previousGeometryBytes": 11345334,
+        "bootstrapGeometryBytes": 208283
+      }
+    ]
+  }
+}
+PASS pending polity after toggleCompare
+PASS pending polity after closeDetail
+PASS pending polity after eventSwitch
+PASS closing an event during map loading
+PASS out-of-order event responses
+PASS prehistoric events in the comparison map
+PASS failed year keeps the displayed map and year consistent
+PASS removed comparison cannot commit a late year
+PASS a stale native upgrade cannot overwrite a newer year or lock future upgrades
+PASS Timeline keys use civil-year steps regardless of nonlinear slider scale
+PASS Map arrows change years once; Alt pans; native controls and modified keys stay isolated
+PASS Year fields cross BCE correctly, reject empty/zero, and commit Enter only once
+PASS All eleven bootstrap maps exactly retain canonical 0.02-degree display geometry
+PASS Finer overview introduces no extra invalid shapes and detailed coastlines are packaged
+{"result":"passed","checks":5}
+PASS collision_all {"collisionGroups":59,"records":149,"networkRequests":121}
+PASS boot_no_index {"records":136,"requests":1,"bytes":150207}
+PASS arbitrary_files_concurrency {"records":122,"geometries":120,"requests":121,"geometryBytes":269168,"maxConcurrent":6}
+PASS mixed_cache_render {"records":3,"partialFallbackRetained":true,"completeCachePreventsRedundantSetData":true}
+PASS failed_boot_fallback_retry {"fallbackRendered":true,"retryNativeRendered":true}
+PASS canceled_upgrade_next_sequence {"staleUpgradeRenderCount":0,"currentUpgradeRenderCount":1}
+PASS destroyed_upgrade {"destroyedRenderCount":0,"inFlightCachePreserved":true}
+PASS zero_year {"zeroYearShowsNoTerritories":true,"requests":0,"note":"Engine empties the map; UI is responsible for rejecting a user-selected year zero."}
+PASS shared_file_cache {"recordAliases":2,"sharedIndexRequests":1,"sharedGeometryRequests":1}
+PASS missing_geometry_recovery {"malformedPayloadRejected":true,"retrySucceeded":true}
+{"passed":10,"failed":0}
+PASS Imports real places.js without DOM
+PASS Capital labels are readable and use pinned entity names
+PASS Dated city names follow the observation, preserve raw names and clear on later records
+PASS One unavailable archive preserves other sources and is retryable
+PASS Modern reference is opt-in and never contaminates default loads
+PASS Historical index stays light and all details shards exist
+PASS A failed detail request retries, hydrates, and preserves unknown accuracy
+PASS Detail selects the matching period, not another location sharing its coordinates
+PASS Selected period belongs to the displayed point evidence
+PASS BCE/CE nearest year and observation selection use one consistent calendar
+PASS Dates outside population windows do not become city lifespans
+PASS Real historical attestation gaps remain empty
+PASS Capitals use explicit tenure bounds and do not project forward
+PASS Known internally contradictory name dates are quarantined
+PASS Known geographic feature conflicts are excluded without deleting mountain settlements
+PASS Source URLs exist before lazy Pleiades hydration
+PASS Search uses lazy-record aliases without fetching full records
+PASS Major city search preserves modern isolation and known Chinese names
+PASS Exact city-name relevance precedes incidental substring matches
+{
+  "passed": 19,
+  "total": 19,
+  "failures": []
+}
+PASS Imports the real matching module without DOM
+PASS Twelve dossiers and thirty-nine institutional source registrations resolve
+PASS All forty bound records preserve actual names, coordinates, periods and observations
+PASS Every binding accepts its evidence endpoints and rejects years outside its range
+PASS Exact source IDs are required; names, coordinates and modern source kinds do not substitute
+PASS Invalid civil years cannot attach an editorial dossier
+PASS Every observation binding requires the selected source observation and respects both years
+PASS Real and synthetic disjoint source periods never acquire an interpolated history
+PASS All fifty-five reviewed Asia and world regression cases pass against the actual module
+PASS The asynchronous local-fetch API retries after failure, deduplicates and returns only cited sources
+{"passed":10,"total":10,"entries":12,"sources":39,"sourceRecords":40,"positiveBoundaries":130,"negativeBoundaries":160,"actualPeriodGaps":0,"originalRegressionCases":55}
+{
+  "snapshot": {
+    "path": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/public/geography.js",
+    "sha256": "188c3e916613c764700873b06d45d8685f56fb9aba449cdd7db4dc23a6dbfcf6",
+    "mapEngineSha256": "f895ffedfea3b0e90334a6d3896d3166eb6919f844050ea38751a19d0ddbe4c2",
+    "capturedAt": "2026-10-02T08:17:29.969Z"
+  },
+  "counts": {
+    "pass": 30,
+    "findings": 0
+  },
+  "results": [
+    {
+      "name": "Fine local data is never replaced by a late coarse success",
+      "status": "pass",
+      "details": [
+        "fine-land",
+        "fine-rivers",
+        "fine-lakes",
+        "fine-ocean"
+      ]
+    },
+    {
+      "name": "Coarse water supplements a failed fine layer without downgrading another fine layer",
+      "status": "pass",
+      "details": {
+        "retriedOnlyMissingFine": true,
+        "loaded": [
+          "land",
+          "rivers",
+          "ocean",
+          "land-overview",
+          "water-overview",
+          "ocean-overview",
+          "lakes"
+        ]
+      }
+    },
+    {
+      "name": "Successful later local retry clears partial status",
+      "status": "pass"
+    },
+    {
+      "name": "Late unused overview failure does not mark complete fine geography partial",
+      "status": "pass"
+    },
+    {
+      "name": "Delayed successful local fetch performs no setData after destroy",
+      "status": "pass",
+      "details": {
+        "writes": 0,
+        "reports": 0
+      }
+    },
+    {
+      "name": "Delayed failed local fetch reports nothing after destroy",
+      "status": "pass"
+    },
+    {
+      "name": "Terrain failure restores local relief without hiding modern reference",
+      "status": "pass",
+      "details": {
+        "fallbackOpacity": 0.82,
+        "referenceStillVisible": true,
+        "terrainRecreated": true
+      }
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables fine DEM",
+      "status": "pass"
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables vector reference",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference failure restores local mask without hiding terrain",
+      "status": "pass",
+      "details": {
+        "maskRestored": true,
+        "terrainUnaffected": true
+      }
+    },
+    {
+      "name": "Modern reference failure invalidates readiness used by territory hit testing",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference off stays off while the default fine coast survives late remote success",
+      "status": "pass",
+      "details": "modern layers hidden; default fine coast remains"
+    },
+    {
+      "name": "Coast alignment off remains off through reference toggles/failure/retry",
+      "status": "pass",
+      "details": "local mask remains hidden"
+    },
+    {
+      "name": "A metadata-only loaded signal cannot substitute for usable modern vector tiles",
+      "status": "pass"
+    },
+    {
+      "name": "Previously ready reference retains local fallback while new viewport tiles load",
+      "status": "pass"
+    },
+    {
+      "name": "Turning terrain off before DEM metadata arrives does not certify usable DEM tiles",
+      "status": "pass"
+    },
+    {
+      "name": "terrain-dem: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/modern: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/default-coast: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "Default coast starts the shared vector source only at zoom 8",
+      "status": "pass",
+      "details": "ocean only; no modern urban or inland-water layers"
+    },
+    {
+      "name": "Pending fine ocean requests tiles while keeping local fallback visible",
+      "status": "pass",
+      "details": "layout visible, opacity zero, local mask opaque"
+    },
+    {
+      "name": "Ready default coast preserves physical rivers and lakes",
+      "status": "pass",
+      "details": "fine coastline with local natural waterways retained"
+    },
+    {
+      "name": "Terrain disabled does not block automatic fine coastline",
+      "status": "pass",
+      "details": "independent coast and terrain controls"
+    },
+    {
+      "name": "Fine coast and modern reference reuse one source through all toggles",
+      "status": "pass",
+      "details": "one vector source; independent modes"
+    },
+    {
+      "name": "Default coast failure/retry restores and reloads only the shared remote coast",
+      "status": "pass",
+      "details": "default coast retry works with modern reference off"
+    },
+    {
+      "name": "Pending transparent fine-ocean geometry cannot block visible fallback land clicks",
+      "status": "pass"
+    },
+    {
+      "name": "Ready default fine ocean rejects water clicks but ignores obsolete coarse ocean hits",
+      "status": "pass",
+      "details": "clicks use the same fine coastline as the visible map"
+    },
+    {
+      "name": "Failed fine coast rejects fallback-water clicks; raw coast mode allows original geometry",
+      "status": "pass",
+      "details": "fallback and raw coast hit tests match visible state"
+    },
+    {
+      "name": "Fine natural waterways replace coarse rivers while modern infrastructure stays hidden",
+      "status": "pass"
+    },
+    {
+      "name": "Fine waterways failure restores the local river and retry removes dependent layers",
+      "status": "pass"
+    }
+  ]
+}
+PASS city to polity navigation opens the left dossier
+PASS city to polity navigation opens the right dossier
+PASS event share restores left year with a saved camera
+PASS event share restores left year without a saved camera
+PASS event share restores right year with a saved camera
+PASS event share restores right year without a saved camera
+PASS polity language switch keeps left camera and reader tab
+PASS polity language switch keeps right camera and reader tab
+PASS left draft 1700 ArrowUp yields 1701
+PASS left draft 1700 ArrowDown yields 1699
+PASS left draft -1 ArrowUp yields 1
+PASS left draft 1 ArrowDown yields -1
+PASS left draft 2026 ArrowUp yields 2026
+PASS left draft -70000 ArrowDown yields -70000
+PASS right draft 1700 ArrowUp yields 1701
+PASS right draft 1700 ArrowDown yields 1699
+PASS right draft -1 ArrowUp yields 1
+PASS right draft 1 ArrowDown yields -1
+PASS right draft 2026 ArrowUp yields 2026
+PASS right draft -70000 ArrowDown yields -70000
+PASS decode accepts camera boundary 0,0,0.2,0,0
+PASS decode accepts camera boundary 180,85.051129,14,180,60
+PASS decode accepts camera boundary -180,-85.051129,0.2,-180,0
+PASS decode accepts camera boundary 25.12345,-30.98765,6.125,-47.5,42
+PASS decode rejects invalid camera null
+PASS decode rejects invalid camera undefined
+PASS decode rejects invalid camera 
+PASS decode rejects invalid camera 0,0,1,0
+PASS decode rejects invalid camera 0,0,1,0,0,1
+PASS decode rejects invalid camera 0,,1,0,0
+PASS decode rejects invalid camera 0,0,NaN,0,0
+PASS decode rejects invalid camera Infinity,0,1,0,0
+PASS decode rejects invalid camera 181,0,1,0,0
+PASS decode rejects invalid camera 0,85.1,1,0,0
+PASS decode rejects invalid camera 0,0,.199,0,0
+PASS decode rejects invalid camera 0,0,14.001,0,0
+PASS decode rejects invalid camera 0,0,1,180.001,0
+PASS decode rejects invalid camera 0,0,1,0,60.001
+PASS decode rejects invalid camera 0,0,1,0,-.001
+PASS encode wraps longitude and bearing without changing position
+PASS encode round-trip retains valid extreme latitude -85.051129
+PASS encode round-trip retains valid extreme latitude 85.051129
+PASS encode rejects nonfinite latitude NaN
+PASS encode rejects nonfinite latitude Infinity
+PASS URL initial loading labels use the requested BCE year before data arrives
+PASS invalid or extreme URL inputs restore safely #year=1800&camera=bad
+PASS invalid or extreme URL inputs restore safely #year=0&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=-999999&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0
+PASS city URL retains left selection, year and camera
+PASS city URL retains right selection, year and camera
+51/51 view-state checks passed
+PASS Fixed binary fixture decodes area, identity and every unchanged coordinate delta
+PASS Corrupt, truncated and oversized binary lake data fail without a partial result
+PASS Area tiers change only at declared zoom thresholds
+PASS Spatial selection includes date-line crossings and repeated world copies
+PASS Delta decoding preserves closed rings and polygon holes
+PASS Concurrent comparison maps share one request
+PASS Failed and malformed shards leave the cache retryable
+PASS Completed LRU entries stay within the vertex budget
+PASS The overview survives decoding and worker loading until the current tiles are ready
+PASS Moving invalidates readiness and prevents a stale response from drawing
+PASS A late earlier viewport cannot replace a newer one
+PASS Small pans within the loaded margin retain fine shores without another fetch
+PASS A failed shard retains the overview and retry succeeds
+PASS Modern reference and disabled geography do not request natural lake detail
+PASS Late work after map destruction never mutates the removed map
+PASS Invisible globe-side event markers do not suppress lake names; visible markers keep priority
+PASS All archive shards have valid hashes, counts, class exclusions and coordinate encoding
+{"status":"passed","checks":17}
+PASS Static asset budgets: 15902 files, no file over 25 MiB
+PASS All 357 physical assets match the current release inventory
+PASS All 11306 native archive pieces retain compressed and decoded hashes
+PASS 53 derived place assets match their provenance manifest
+{"result":"passed","checks":4,"staticFiles":15902,"physicalFiles":357,"nativePieces":11306,"cityFiles":53}
+PASS Existing pages delegate to the asset binding
+PASS Missing lake objects fail recoverably without a false empty map
+PASS Unknown objects and non-binary imports are rejected
+PASS Wrong sizes and same-sized corrupt data cannot be stored
+PASS Audited bytes upload idempotently under a versioned key
+PASS Read, HEAD and conditional requests preserve the exact encoded bytes
+PASS Final builds disable every import route while keeping lake reads
+PASS Cross-origin browser imports and expired import windows are rejected
+PASS Missing storage and missing public assets return a recoverable unavailable state
+{"status":"passed","checks":9}

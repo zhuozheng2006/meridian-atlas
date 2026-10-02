@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "scope": "Only expected values in isolated review rules are deliberately changed; raw inputs remain unchanged.",
+  "cases": [
+    {
+      "case": "kilwa-coordinate",
+      "recordId": "chandler:715",
+      "exitCode": 1,
+      "error": "ValueError: Urban quarantine binding drift: chandler:715",
+      "urbanAssetsNotEmitted": true,
+      "passed": true
+    },
+    {
+      "case": "cahokia-population",
+      "recordId": "chandler:245",
+      "exitCode": 1,
+      "error": "ValueError: Urban quarantine binding drift: chandler:245",
+      "urbanAssetsNotEmitted": true,
+      "passed": true
+    },
+    {
+      "case": "tsinkiang-alias",
+      "recordId": "chandler:1457",
+      "exitCode": 1,
+      "error": "ValueError: Dated name binding drift: chandler:1457",
+      "urbanAssetsNotEmitted": true,
+      "passed": true
+    }
+  ]
+}

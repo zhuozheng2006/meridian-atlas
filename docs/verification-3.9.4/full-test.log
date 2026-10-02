@@ -1,0 +1,1057 @@
+
+> meridian-world-history-atlas@3.9.4 test
+> node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-boundary-mesh.mjs && node scripts/validate-border-envelopes.mjs && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-place-corrections.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-halc-landscape-reader.mjs && node scripts/validate-halc-landscape.mjs && python3 scripts/validate-halc-landscape.py && node scripts/validate-halc-cache.mjs && node scripts/validate-halc-regions.mjs && node scripts/validate-halc-continuity.mjs && node scripts/validate-regional-continuity.mjs && node scripts/validate-boundary-comparison.mjs && node scripts/validate-boundary-app-races.mjs && node scripts/validate-lakes.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && python3 scripts/verify-halc-regions-data.py --data-dir public/data/halc-regions --integrity scripts/data-integrity/halc-regions.integrity.json --audit scripts/data-integrity/halc-regions.geometry-audit.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-place-return.cjs
+
+PASS linked asset revision 3.9.4-e92afe04dc8c
+PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
+PASS Time windows use civil years without year zero
+PASS Historical coverage never extrapolates before or after source coverage
+PASS All source record IDs and geometry references are consistent
+PASS Every civil-year coverage count matches the active-record selector
+PASS Boundary archive sizes and hashes match final manifest
+PASS Every shipped geometry can be parsed and all referenced shapes exist
+PASS Every event has bilingual text, valid dates, location semantics and traceable references
+PASS Wikipedia links preserve source language and full URLs
+PASS Required offline assets and launchers are present
+{"result":"passed","checks":10,"events":343,"boundaryRecords":13765,"polityRecords":13380,"coverageYears":5424}
+PASS Lean catalog preserves every ID, interval, type and geometry association
+PASS Bootstrap maps exactly match active geometries for every precompiled year
+PASS Lazy full-record shards resolve all archive records
+PASS Unreferenced, deprecated and unknown statements stay out of sourced fact panels
+PASS Year-matched claims require adequate precision and bounded dates or a point date
+PASS Known source identity/period conflicts cannot load factual dossiers
+PASS Curated narratives match identity, exact record IDs and the selected period
+PASS Compressed event archive equals editable full event JSON
+PASS Enrichment profile paths, fact references and narrative bindings are internally consistent
+PASS Initial atlas payload is substantially smaller than v1
+{
+  "result": "passed",
+  "checks": 10,
+  "events": 343,
+  "performance": {
+    "catalogBefore": 1252656,
+    "catalogAfter": 602739,
+    "eventGzip": 190412,
+    "years": [
+      {
+        "year": -221,
+        "previousGeometryBytes": 342104,
+        "bootstrapGeometryBytes": 20053
+      },
+      {
+        "year": 1,
+        "previousGeometryBytes": 780016,
+        "bootstrapGeometryBytes": 26150
+      },
+      {
+        "year": 1000,
+        "previousGeometryBytes": 2597177,
+        "bootstrapGeometryBytes": 51341
+      },
+      {
+        "year": 1492,
+        "previousGeometryBytes": 3005248,
+        "bootstrapGeometryBytes": 79710
+      },
+      {
+        "year": 1750,
+        "previousGeometryBytes": 4405911,
+        "bootstrapGeometryBytes": 141081
+      },
+      {
+        "year": 1914,
+        "previousGeometryBytes": 5130307,
+        "bootstrapGeometryBytes": 213209
+      },
+      {
+        "year": 2024,
+        "previousGeometryBytes": 11345334,
+        "bootstrapGeometryBytes": 208283
+      }
+    ]
+  }
+}
+PASS 60/60 independent date-evidence cases
+PASS 30/30 real polity dossier regressions
+PASS pending polity after toggleCompare
+PASS pending polity after closeDetail
+PASS pending polity after eventSwitch
+PASS closing an event during map loading
+PASS out-of-order event responses
+PASS prehistoric events in the comparison map
+PASS failed year keeps the displayed map and year consistent
+PASS removed comparison cannot commit a late year
+PASS a stale native upgrade cannot overwrite a newer year or lock future upgrades
+PASS Timeline keys use civil-year steps regardless of nonlinear slider scale
+PASS Map arrows change years once; Alt pans; native controls and modified keys stay isolated
+PASS Year fields cross BCE correctly, reject empty/zero, and commit Enter only once
+PASS All eleven bootstrap maps exactly retain canonical 0.02-degree display geometry
+PASS Finer overview introduces no extra invalid shapes and detailed coastlines are packaged
+{"result":"passed","checks":5}
+PASS collision_all {"collisionGroups":59,"records":149,"networkRequests":121}
+PASS boot_no_index {"records":136,"requests":1,"bytes":150207}
+PASS alps_1500_boot_no_index {"records":137,"requests":1,"bytes":151086,"exactIndividualGeometriesCompared":137}
+PASS arbitrary_files_concurrency {"records":122,"geometries":120,"requests":121,"geometryBytes":269168,"maxConcurrent":6}
+PASS mixed_cache_render {"records":3,"partialFallbackRetained":true,"completeCachePreventsRedundantSetData":true}
+PASS failed_boot_fallback_retry {"fallbackRendered":true,"retryNativeRendered":true}
+PASS canceled_upgrade_next_sequence {"staleUpgradeRenderCount":0,"currentUpgradeRenderCount":1}
+PASS destroyed_upgrade {"destroyedRenderCount":0,"inFlightCachePreserved":true}
+PASS zero_year {"zeroYearShowsNoTerritories":true,"requests":0,"note":"Engine empties the map; UI is responsible for rejecting a user-selected year zero."}
+PASS shared_file_cache {"recordAliases":2,"sharedIndexRequests":1,"sharedGeometryRequests":1}
+PASS missing_geometry_recovery {"malformedPayloadRejected":true,"retrySucceeded":true}
+{"passed":11,"failed":0}
+PASS Source remains immutable; results are cached and metadata retained
+PASS Shared stepped boundary gets exactly the same curve in reverse
+PASS All rings stay closed and fine outlines are not moved wholesale
+PASS Small components retain source shapes
+PASS An unsplit T-junction stays pinned on the other polygon’s long edge
+PASS Dateline and malformed open rings remain exactly as archived
+PASS Polygons with holes retain all components and ring directions
+PASS Area protection shortens a curve instead of restoring a whole rectangular staircase
+PASS Narrow spaces and nonincident edge contacts remain protected
+PASS Switch restores exact source; fill and selection keep the same displayed polygons
+10/10 border portrayal checks passed
+PASS One polygon remains one exactly closed cycle
+PASS Reversed coincident polygons draw each edge only once
+PASS Adjacent polygons join degree-two runs and stop at degree-three junctions
+PASS T-junction does not gain a connecting chord
+PASS Different subdivisions are not snapped, split or inferred equivalent
+PASS Almost equal coordinates remain separate
+PASS Open source rings are not silently closed
+PASS Holes and disconnected MultiPolygon islands are retained
+PASS Antimeridian input segments retain exact endpoints and longitude values
+PASS Degenerate segments remain once without interrupting real runs
+PASS Coordinate dimensions are retained and participate in exact identity
+PASS Empty/nonpolygon geometry produces an empty network
+PASS Invalid numerical positions fail explicitly rather than inventing a boundary
+PASS Output positions do not alias mutable original positions
+PASS Actual displayTerritories commits polygon fill and deduplicated boundary mesh in one source frame
+PASS Actual softened fill and mesh use exactly the same derived segment set
+PASS Actual raw/soft toggle always rebuilds from raw polygons without accumulating synthetic features
+PASS Actual CShapes path keeps original polygon rings and stroke multiplicity
+PASS Actual 1500 native: exact segment set, once-only mesh, source immutability and order independence
+PASS Actual 1500 curved: exact segment set, once-only mesh, source immutability and order independence
+20/20
+{
+  "sourceModuleSha256": "f26baea5f62967af4945cf54b088b38e9450aab2afe7e2620574f562236ffcc4",
+  "passed": 26,
+  "total": 26,
+  "results": [
+    {
+      "name": "Triangle containment is symmetric",
+      "passed": true
+    },
+    {
+      "name": "Disjoint triangles with overlapping bounding boxes remain disjoint",
+      "passed": true
+    },
+    {
+      "name": "Envelope vertex touching is rejected",
+      "passed": true
+    },
+    {
+      "name": "Envelope collinear edge touching is rejected",
+      "passed": true
+    },
+    {
+      "name": "An entire tiny source edge inside a corner envelope is detected",
+      "passed": true
+    },
+    {
+      "name": "An outside segment crossing the envelope is detected",
+      "passed": true
+    },
+    {
+      "name": "A nearby noncrossing edge does not impose an artificial distance cutoff",
+      "passed": true
+    },
+    {
+      "name": "unsplit-t: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "unsplit-t: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "Unsplit T-junction genuinely exercises clearance on a four-vertex ring",
+      "passed": true
+    },
+    {
+      "name": "hole-in-corner: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "hole-in-corner: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "small-hole-area: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "small-hole-area: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "Area fallback reduces curves instead of freezing this viable hole",
+      "passed": true
+    },
+    {
+      "name": "thin-neck: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "thin-neck: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "close-islands: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "close-islands: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "shared-stair: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "shared-stair: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "subdivided-boundary: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "subdivided-boundary: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "tiny-island: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "tiny-island: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "Sub-minimum tiny island remains exact",
+      "passed": true
+    }
+  ]
+}
+PASS Imports real places.js without DOM
+PASS Capital labels are readable and use pinned entity names
+PASS Dated city names follow the observation and preserve raw names across transitions
+PASS One unavailable archive preserves other sources and is retryable
+PASS Modern reference is opt-in and never contaminates default loads
+PASS Historical index stays light and all details shards exist
+PASS A failed detail request retries, hydrates, and preserves unknown accuracy
+PASS Detail selects the matching period, not another location sharing its coordinates
+PASS Selected period belongs to the displayed point evidence
+PASS BCE/CE nearest year and observation selection use one consistent calendar
+PASS Dates outside population windows do not become city lifespans
+PASS Real historical attestation gaps remain empty
+PASS Capitals use explicit tenure bounds and do not project forward
+PASS Known internally contradictory name dates are quarantined
+PASS Known geographic feature conflicts are excluded without deleting mountain settlements
+PASS Source URLs exist before lazy Pleiades hydration
+PASS Search uses lazy-record aliases without fetching full records
+PASS Major city search preserves modern isolation and known Chinese names
+PASS Exact city-name relevance precedes incidental substring matches
+{
+  "passed": 19,
+  "total": 19,
+  "failures": []
+}
+{
+  "passed": 22,
+  "total": 22,
+  "syntheticChecks": 18,
+  "realDataChecks": 4,
+  "dataDir": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/public/data/places",
+  "results": [
+    {
+      "name": "URL population window accepts only supported values and preserves exact-year zero",
+      "passed": true
+    },
+    {
+      "name": "Population window limits are inclusive and exact-year mode rejects borrowed observations",
+      "passed": true
+    },
+    {
+      "name": "BCE/CE population window does not insert a fictitious year zero",
+      "passed": true
+    },
+    {
+      "name": "Same-name-period filtering happens before choosing the nearest population record",
+      "passed": true
+    },
+    {
+      "name": "Cross-name-period observations are withheld rather than renamed to the map year",
+      "passed": true
+    },
+    {
+      "name": "Documented overlapping boundary year accepts observations on either side",
+      "passed": true
+    },
+    {
+      "name": "A missing selected-year name period does not manufacture an exclusion or lifespan",
+      "passed": true
+    },
+    {
+      "name": "A missing observation-year name period preserves its original source label",
+      "passed": true
+    },
+    {
+      "name": "An uncovered gap in a name timeline stays unknown rather than becoming a name period",
+      "passed": true
+    },
+    {
+      "name": "Reviewed observation-name ranges are not treated as inferred rename boundaries",
+      "passed": true
+    },
+    {
+      "name": "Population values, source labels, coordinates and dated rules are never rewritten",
+      "passed": true
+    },
+    {
+      "name": "Population window does not change independently attested settlement or capital periods",
+      "passed": true
+    },
+    {
+      "name": "Country city filtering uses the same population window and name-period policy",
+      "passed": true
+    },
+    {
+      "name": "Country city cache differentiates 0, 25 and 50 years without mutating source records",
+      "passed": true
+    },
+    {
+      "name": "An observation in an overlapping renaming year retains both historical names",
+      "passed": true
+    },
+    {
+      "name": "New historical timeline aliases remain searchable in both global and country lists",
+      "passed": true
+    },
+    {
+      "name": "Open name-period bounds constrain names without asserting city existence",
+      "passed": true
+    },
+    {
+      "name": "Display and JSON export retain the observation year and original source record",
+      "passed": true
+    },
+    {
+      "name": "Real Tokyo records: 1867 uses Edo 1854, 1869 uses Tokyo 1875",
+      "passed": true
+    },
+    {
+      "name": "Real Samara: 1971 borrows 1975 Kuybyshev, not the later Samara observation",
+      "passed": true
+    },
+    {
+      "name": "Exact source-row quarantine preserves original geography/population without reassignment",
+      "passed": true
+    },
+    {
+      "name": "Every real name timeline is sourced; all displayed values remain source observations",
+      "passed": true
+    }
+  ]
+}
+PASS Shipped archives and reviewed rules load without an old checkout or raw-source cache
+PASS Active and archived rows conserve all reviewed source values and observation totals
+PASS All three corrected source rows match their exact rule bindings
+PASS All quarantine entries preserve original records, reviewed reasons, uncertainty and source license
+PASS Source metadata reports the corrected active/archive counts consistently
+PASS Imports and loads the real places and polity-places modules offline
+PASS Quarantined source IDs never reappear in real map-loader search results
+PASS All 27 source observations display Quanzhou without mutating date, population or coordinates
+PASS Display evidence remains tied to observation years and does not invent a continuous city lifespan
+PASS Chinese, English and historical aliases find the same corrected source row
+PASS The real polity reader uses the corrected display while retaining the source alias and spatial/date limits
+PASS: 11/11 place-correction checks
+PASS Imports the real matching module without DOM
+PASS Twelve dossiers and thirty-nine institutional source registrations resolve
+PASS All forty bound records preserve actual names, coordinates, periods and observations
+PASS Every binding accepts its evidence endpoints and rejects years outside its range
+PASS Exact source IDs are required; names, coordinates and modern source kinds do not substitute
+PASS Invalid civil years cannot attach an editorial dossier
+PASS Every observation binding requires the selected source observation and respects both years
+PASS Real and synthetic disjoint source periods never acquire an interpolated history
+PASS All fifty-five reviewed Asia and world regression cases pass against the actual module
+PASS The asynchronous local-fetch API retries after failure, deduplicates and returns only cited sources
+{"passed":10,"total":10,"entries":12,"sources":39,"sourceRecords":40,"positiveBoundaries":130,"negativeBoundaries":160,"actualPeriodGaps":0,"originalRegressionCases":55}
+{
+  "snapshot": {
+    "path": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/public/geography.js",
+    "sha256": "e9321b1b2057690f03bead4265748b85ac99192159beec53eca06fc9c651a3de",
+    "mapEngineSha256": "029bda3eb7b5d66ffefc3ab163e0050714361cf610fc8521e4c28e8276fce4c5",
+    "capturedAt": "2026-10-02T17:57:22.477Z"
+  },
+  "counts": {
+    "pass": 30,
+    "findings": 0
+  },
+  "results": [
+    {
+      "name": "Fine local data is never replaced by a late coarse success",
+      "status": "pass",
+      "details": [
+        "fine-land",
+        "fine-rivers",
+        "fine-lakes",
+        "fine-ocean"
+      ]
+    },
+    {
+      "name": "Coarse water supplements a failed fine layer without downgrading another fine layer",
+      "status": "pass",
+      "details": {
+        "retriedOnlyMissingFine": true,
+        "loaded": [
+          "land",
+          "rivers",
+          "ocean",
+          "land-overview",
+          "water-overview",
+          "ocean-overview",
+          "lakes"
+        ]
+      }
+    },
+    {
+      "name": "Successful later local retry clears partial status",
+      "status": "pass"
+    },
+    {
+      "name": "Late unused overview failure does not mark complete fine geography partial",
+      "status": "pass"
+    },
+    {
+      "name": "Delayed successful local fetch performs no setData after destroy",
+      "status": "pass",
+      "details": {
+        "writes": 0,
+        "reports": 0
+      }
+    },
+    {
+      "name": "Delayed failed local fetch reports nothing after destroy",
+      "status": "pass"
+    },
+    {
+      "name": "Terrain failure restores local relief without hiding modern reference",
+      "status": "pass",
+      "details": {
+        "fallbackOpacity": 0.82,
+        "referenceStillVisible": true,
+        "terrainRecreated": true
+      }
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables fine DEM",
+      "status": "pass"
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables vector reference",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference failure restores local mask without hiding terrain",
+      "status": "pass",
+      "details": {
+        "maskRestored": true,
+        "terrainUnaffected": true
+      }
+    },
+    {
+      "name": "Modern reference failure invalidates readiness used by territory hit testing",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference off stays off while the default fine coast survives late remote success",
+      "status": "pass",
+      "details": "modern layers hidden; default fine coast remains"
+    },
+    {
+      "name": "Coast alignment off remains off through reference toggles/failure/retry",
+      "status": "pass",
+      "details": "local mask remains hidden"
+    },
+    {
+      "name": "A metadata-only loaded signal cannot substitute for usable modern vector tiles",
+      "status": "pass"
+    },
+    {
+      "name": "Previously ready reference retains local fallback while new viewport tiles load",
+      "status": "pass"
+    },
+    {
+      "name": "Turning terrain off before DEM metadata arrives does not certify usable DEM tiles",
+      "status": "pass"
+    },
+    {
+      "name": "terrain-dem: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/modern: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/default-coast: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "Default coast starts the shared vector source only at zoom 8",
+      "status": "pass",
+      "details": "ocean only; no modern urban or inland-water layers"
+    },
+    {
+      "name": "Pending fine ocean requests tiles while keeping local fallback visible",
+      "status": "pass",
+      "details": "layout visible, opacity zero, local mask opaque"
+    },
+    {
+      "name": "Ready default coast preserves physical rivers and lakes",
+      "status": "pass",
+      "details": "fine coastline with local natural waterways retained"
+    },
+    {
+      "name": "Terrain disabled does not block automatic fine coastline",
+      "status": "pass",
+      "details": "independent coast and terrain controls"
+    },
+    {
+      "name": "Fine coast and modern reference reuse one source through all toggles",
+      "status": "pass",
+      "details": "one vector source; independent modes"
+    },
+    {
+      "name": "Default coast failure/retry restores and reloads only the shared remote coast",
+      "status": "pass",
+      "details": "default coast retry works with modern reference off"
+    },
+    {
+      "name": "Pending transparent fine-ocean geometry cannot block visible fallback land clicks",
+      "status": "pass"
+    },
+    {
+      "name": "Ready default fine ocean rejects water clicks but ignores obsolete coarse ocean hits",
+      "status": "pass",
+      "details": "clicks use the same fine coastline as the visible map"
+    },
+    {
+      "name": "Failed fine coast rejects fallback-water clicks; raw coast mode allows original geometry",
+      "status": "pass",
+      "details": "fallback and raw coast hit tests match visible state"
+    },
+    {
+      "name": "Fine natural waterways replace coarse rivers while modern infrastructure stays hidden",
+      "status": "pass"
+    },
+    {
+      "name": "Fine waterways failure restores the local river and retry removes dependent layers",
+      "status": "pass"
+    }
+  ]
+}
+PASS city to polity navigation opens the left dossier
+PASS city to polity navigation opens the right dossier
+PASS event share restores left year with a saved camera
+PASS event share restores left year without a saved camera
+PASS event share restores right year with a saved camera
+PASS event share restores right year without a saved camera
+PASS polity language switch keeps left camera and reader tab
+PASS polity language switch keeps right camera and reader tab
+PASS left draft 1700 ArrowUp yields 1701
+PASS left draft 1700 ArrowDown yields 1699
+PASS left draft -1 ArrowUp yields 1
+PASS left draft 1 ArrowDown yields -1
+PASS left draft 2026 ArrowUp yields 2026
+PASS left draft -70000 ArrowDown yields -70000
+PASS right draft 1700 ArrowUp yields 1701
+PASS right draft 1700 ArrowDown yields 1699
+PASS right draft -1 ArrowUp yields 1
+PASS right draft 1 ArrowDown yields -1
+PASS right draft 2026 ArrowUp yields 2026
+PASS right draft -70000 ArrowDown yields -70000
+PASS comparison input waits for initial map readiness before accepting year edits
+PASS decode accepts camera boundary 0,0,0.2,0,0
+PASS decode accepts camera boundary 180,85.051129,18,180,60
+PASS decode accepts camera boundary -180,-85.051129,0.2,-180,0
+PASS decode accepts camera boundary 25.12345,-30.98765,6.125,-47.5,42
+PASS decode rejects invalid camera null
+PASS decode rejects invalid camera undefined
+PASS decode rejects invalid camera
+PASS decode rejects invalid camera 0,0,1,0
+PASS decode rejects invalid camera 0,0,1,0,0,1
+PASS decode rejects invalid camera 0,,1,0,0
+PASS decode rejects invalid camera 0,0,NaN,0,0
+PASS decode rejects invalid camera Infinity,0,1,0,0
+PASS decode rejects invalid camera 181,0,1,0,0
+PASS decode rejects invalid camera 0,85.1,1,0,0
+PASS decode rejects invalid camera 0,0,.199,0,0
+PASS decode rejects invalid camera 0,0,18.001,0,0
+PASS decode rejects invalid camera 0,0,1,180.001,0
+PASS decode rejects invalid camera 0,0,1,0,60.001
+PASS decode rejects invalid camera 0,0,1,0,-.001
+PASS encode wraps longitude and bearing without changing position
+PASS encode round-trip retains valid extreme latitude -85.051129
+PASS encode round-trip retains valid extreme latitude 85.051129
+PASS encode rejects nonfinite latitude NaN
+PASS encode rejects nonfinite latitude Infinity
+PASS URL initial loading labels use the requested BCE year before data arrives
+PASS invalid or extreme URL inputs restore safely #year=1800&camera=bad
+PASS invalid or extreme URL inputs restore safely #year=0&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=-999999&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0
+PASS city URL retains left selection, year and camera
+PASS city URL retains right selection, year and camera
+PASS Boundary archive choices restore and share independently #boundaries=halc&boundaries2=overview
+PASS Boundary archive choices restore and share independently #boundaries=overview&boundaries2=halc
+PASS Boundary archive choices restore and share independently #boundaries=halc
+PASS Boundary archive choices restore and share independently #year=1492&boundaries=halc
+PASS Boundary archive choices restore and share independently #boundaries=regional&boundaries2=overview
+PASS Boundary archive choices restore and share independently #boundaries=overview
+PASS Boundary archive choices restore and share independently #regional=0
+PASS Boundary archive choices restore and share independently #boundaries=bad&boundaries2=bad
+PASS Border portrayal restores and shares #borderCurves=0
+PASS Border portrayal restores and shares #borderCurves=1
+PASS Border portrayal restores and shares #year=1500
+PASS HALC Explore left: normal preserves the newest source intent
+PASS HALC Explore left: overview preserves the newest source intent
+PASS HALC Explore left: away-and-back preserves the newest source intent
+PASS HALC Explore right: normal preserves the newest source intent
+PASS HALC Explore right: overview preserves the newest source intent
+PASS HALC Explore right: away-and-back preserves the newest source intent
+69/69 view-state checks passed
+PASS Initial gate: borders hidden
+PASS Initial gate: modern reference enabled
+PASS Initial gate: earlier year
+PASS Initial gate: later year
+PASS Initial gate: just below minimum zoom
+PASS Initial gate: entire viewport outside source region
+PASS Initial gate: another requested source
+PASS Exact year and minimum zoom permit activation only after source readiness
+PASS Repeated pending updates do not recreate the HALC vector source
+PASS Late source readiness cannot reactivate after year changes
+PASS Late source readiness cannot reactivate after mode changes
+PASS Late source readiness cannot reactivate after borders are hidden
+PASS Late source readiness cannot reactivate after modern reference opens
+PASS Late source readiness cannot reactivate after zoom leaves detail scale
+PASS Late source readiness cannot reactivate after viewport leaves coverage
+PASS Partial tile error falls back while preserving HALC selection and allows retry
+PASS Active HALC is hidden atomically on a source error
+PASS Moving an active view into pending tiles does not advertise a complete ready frame
+PASS Failed active source removes its own map labels before overview fallback
+PASS Late record detail cannot open a popup after year changes
+PASS Late record detail cannot open a popup after mode changes
+PASS Late record detail cannot open a popup after borders are hidden
+PASS Late record detail cannot open a popup after modern reference opens
+PASS A newer record click defeats an older deferred record response
+PASS Destroy invalidates both tile readiness and an outstanding record detail
+PASS A restored record waits for complete eligible geometry before opening
+PASS A queued restored record is discarded if the selected year changes
+PASS Native popup close invalidates an outstanding record response
+PASS Two map instances retain independent requested sources and active state
+29/29 HALC lifecycle checks passed
+PASS Exactly eight source classes and seven urban-status codes are defined
+PASS Proportions use classified total, not the separate polygon area
+PASS Recorded zero, absent and null areas remain distinguishable
+PASS A zero total never produces NaN, infinity or a fabricated percentage
+PASS No recorded classification is not treated as eight zero areas
+PASS Negative, nonfinite and textual source values are not silently coerced
+PASS Overflowing finite fields produce no percentages or false zero-total statement
+PASS Every urban code keeps privilege and demarcation as separate meanings
+PASS Chinese, English and bilingual rendering all retain eight rows and source explanation
+PASS Tiny positive classes keep a positive bar and an honest less-than display
+PASS Missing rows have no percentage while recorded zero rows display zero
+PASS Source strings are text nodes and cannot inject HTML
+PASS The pure model and renderer do not modify the source record
+PASS A null record is handled as absent data rather than an exception
+PASS All 14,863 published records have eight valid nonnegative areas and a known URBAN code
+PASS The seven real source discrepancies stay separate and do not change denominators
+PASS Every published record renders safely in Chinese, English and bilingual form
+17/17 checks; audited 14863 records across 59 shards
+PASS Every ineligible date/mode/modern/terrain/borders/zoom/view/destroyed context does zero network or source writes
+PASS Source readiness gates first visibility and settled features
+PASS Same context retains the rendered frame while a new viewport loads and renders
+PASS Closing/changing date during late shard data prevents all late source/style writes
+PASS An old viewport request cannot replace a newer settled frame
+PASS A network-rejected shard is evicted and explicit retry can load it
+PASS A semantically invalid cached shard is evicted for explicit retry
+PASS A semantically invalid cached index is evicted for explicit retry
+PASS Separate maps may share immutable requests while rendering readiness remains independent
+PASS A failure in one map/source does not poison another map with the same loader
+PASS A GPU/source error is recoverable by recreating the source on explicit retry
+PASS Semantic retry also evicts the actual readJSON parsed-response cache
+PASS Different loaders never share cached content
+PASS Coverage tests the actual rendered point and does not assume the archive bbox is filled
+PASS Turning terrain/borders/modern/mode/date off immediately hides and restores original layer order
+PASS Late reference insertion reconciles once, is idempotent, and remains ordered after exit
+PASS Repeated unchanged updates and idle produce no network or map style writes
+PASS Destroy removes listeners and late data/retry/idle cannot write to the map
+PASS Destroy after a rendered frame makes later retry and reconciliation strict no-ops
+19/19
+{
+  "result": "pass",
+  "records": 2980,
+  "vertices": 514392,
+  "shards": 49,
+  "compressedBytes": 7723381,
+  "indexSHA256": "daa358558042e294ba385ed770eb8e8d04f9fe11520a2b0a6c3e3a6d84ff16a5",
+  "officialSourceSHA1": "ad5923b98e627eed5c8663790b9b3f71ff45f98b",
+  "fixedOfficialRecordSetSHA256": "c86b23dad9a505da2f3206ed5d20a96a5c1c089aa84296b387042e79450f1593",
+  "allShardBytesAndHashesMatch": true,
+  "allPerRecordHashesMatch": true,
+  "allRecordCoordinatesAndAttributesMatchOfficialBaseline": true,
+  "nullDateIds": [
+    106,
+    2477,
+    2478
+  ],
+  "classCounts": {
+    "0": 813,
+    "1": 87,
+    "2": 368,
+    "3": 384,
+    "4": 10,
+    "7": 1278,
+    "8": 33,
+    "9": 7
+  },
+  "qualityCounts": {
+    "null": 2881,
+    "1": 99
+  }
+}
+PASS Repeated unchanged idle does zero queries, anchor computations and style writes
+PASS Atlas label refresh restores cached collision boxes without recreating markers
+PASS Changed viewport rescans once then returns to idle cache
+PASS Resize invalidates viewport and collision caches
+PASS Bearing and pitch participate in the view cache key
+PASS Language updates labels without a geometry query
+PASS Changed overlay blockers invalidate cached marker placement
+PASS Label hide and show cannot reuse an empty marker cache
+PASS New source load invalidates same-fid geometry and cached labels
+PASS Returning from mode reactivates the unchanged viewport
+PASS Returning from year reactivates the unchanged viewport
+PASS Returning from modern reference reactivates the unchanged viewport
+PASS Returning from border visibility reactivates the unchanged viewport
+PASS Source readiness fallback without a loading event cannot strand the scan cache
+PASS Retry recreates visible source layers instead of reusing old visibility state
+15/15 HALC cache checks passed
+PASS Main readiness activates local data without waiting for region source
+PASS Region readiness alone cannot draw ahead of the main source
+PASS Layer queries keep local fids separate from region gids
+PASS Both sources use idle caches with zero unchanged query or style writes
+PASS Region-only errors preserve local map and open local record
+PASS Region failure removes stale territory labels immediately
+PASS Region loading removes stale territory labels before the next idle
+PASS Region-only retry keeps the healthy main source and local frame
+PASS Unrelated source events do not dirty either cache
+PASS Main viewport loading retains prior detail ink without claiming a ready frame
+PASS A group-only data epoch rescans groups without querying local geometry again
+PASS Main source error hides all region ink and query layers
+PASS Leaving and returning mode invalidates both cached frames
+PASS Leaving and returning year invalidates both cached frames
+PASS Leaving and returning borders invalidates both cached frames
+PASS Leaving and returning modern invalidates both cached frames
+PASS Leaving and returning zoom invalidates both cached frames
+PASS Leaving and returning view invalidates both cached frames
+PASS Missing region loading event still clears stale scan and recovers
+PASS Low zoom region label opens a grouped index without selecting a local record
+PASS High zoom keeps local record clicks when group outlines are ready
+PASS Low zoom XX locality is not routed into a synthetic territory group
+PASS Destroy removes region listeners and suppresses all late source writes
+PASS Two independent maps do not share region readiness or failure
+30/30 HALC two-source checks passed
+PASS Initial loading cannot display or claim a completed historical frame
+PASS Pan/zoom loading retains committed frame, detail ink, selection and local dossier
+PASS Pending idles do zero source queries, style writes and anchor calculations
+PASS Explicit label refresh while main loading cannot recreate stale labels
+PASS A missing loading event still preserves frame but invalidates completion and labels
+PASS Group loading retains committed group ink and stable local-opacity hierarchy
+PASS Repeated group-loading events retain ink without style or geometry work
+PASS Group readiness cannot complete a still-pending main frame
+PASS Main readiness with a pending group retains old group ink until group refresh
+PASS Low-zoom hit during main update opens its local record, never an incomplete group
+PASS Ready low-zoom hit still opens the source-attribution directory
+PASS Actual open directory keeps its row nodes, search and scroll during updating
+PASS A deferred dossier response may fill the same still-eligible updating popup
+PASS Leaving year clears continuous frames and rejects late data/dossiers
+PASS Leaving mode clears continuous frames and rejects late data/dossiers
+PASS Leaving borders clears continuous frames and rejects late data/dossiers
+PASS Leaving modern reference clears continuous frames and rejects late data/dossiers
+PASS Leaving zoom clears continuous frames and rejects late data/dossiers
+PASS Leaving coverage clears continuous frames and rejects late data/dossiers
+PASS Main source error clears all continuous frame state and rejects late readiness
+PASS Group error discards only group ink, preserves pending local dossier, and retries separately
+PASS A completed empty main viewport legitimately falls back instead of holding a stale frame
+PASS Pending destroy removes listeners and rejects both source and dossier callbacks
+PASS Two maps keep independent committed frames during loading and failure
+24/24 HALC continuity checks passed
+PASS Default auto initial pending source stays inactive until its first complete frame
+PASS Existing OHM dossier and its selected id survive crossing zoom8 in both directions
+PASS Reading a county remains possible when its zoom layer becomes filtered out
+PASS Actual CShapes dossier and selection survive crossing zoom8
+PASS CShapes directory also survives a regional level threshold
+PASS Active OHM loading event retains geometry and dossier but declares updating
+PASS Moveend detects pending OHM tiles even without a loading event
+PASS Repeated pending idle does not query or regenerate old complete-view labels
+PASS Actual OHM directory preserves rows, search and scroll while labelling the prior snapshot
+PASS Auto coverage reevaluates only after completion and may then return to overview
+PASS Explicit regional mode retains source selection after a loaded sparse view
+PASS A completed empty viewport releases the previously committed detailed frame
+PASS OHM source errors close its dossier, hide partial frames and keep the requested mode for retry
+PASS Late OHM error cannot close or deselect a newer CShapes dossier
+PASS Changing year discards the prior dossier and does not reuse its dated record
+PASS Leaving source clears active OHM and rejects late readiness
+PASS Leaving hidden borders clears active OHM and rejects late readiness
+PASS Leaving modern reference clears active OHM and rejects late readiness
+PASS Leaving detail zoom clears active OHM and rejects late readiness
+PASS Unrelated source events cannot alter the open OHM record
+PASS Native popup close clears its outline and does not resurrect on zoom
+PASS Resize keeps the open dossier and scroll, fits height to its own map, and is removed on destroy
+PASS Destroy removes source and interaction listeners and ignores late load/error callbacks
+PASS Two regional map instances keep independent load and popup state
+24/24 regional continuity checks passed
+PASS New comparison creates once, loads the target year through actual AtlasMap.setYear, then changes sources
+PASS Existing comparison is reused rather than toggled closed
+PASS Opening from the right adopts the right map year and camera
+PASS Already matching years need no year reload
+PASS Repeated clicks share one in-flight operation
+PASS Closing while creation is pending prevents a late map creation and source write
+PASS Closing during the real map year request prevents its commit and late source writes
+PASS A rejected real year load retains the last year and never switches sources
+PASS A false year result cannot count as successful alignment
+PASS Failed comparison creation does not align dates or change sources
+PASS Origin year changes during creation invalidate the old request even without cancel
+PASS Manual source changes cancel pending source coordination
+PASS A later manual year request wins the real AtlasMap generation race
+PASS Replacing a comparison while pending cannot write to the new pair
+PASS Camera is captured by value before layout changes
+PASS Missing right-side origin and year zero are rejected without mutation
+16/16
+PASS Right-origin alignment cannot alter the left map after the user closes comparison
+PASS Source/reference/layer cancellation prevents an outstanding secondary date commit
+PASS A manual year request started after cancellation wins both map and app commits
+PASS The old alignment finally cannot clear the sentinel for a new operation
+PASS Successful right-origin comparison still adopts the right year and reuses the pair
+{
+  "checkedAt": "2026-10-02T17:57:31.872Z",
+  "negativeControl": false,
+  "appSha256": "06b54fc279398399404295de0f9d7c01fc2ea9e43c71ce93ed65acb49371a338",
+  "actualFunctions": [
+    "setYear",
+    "setCompareYear",
+    "closeComparison",
+    "boundaryComparisonController",
+    "openBoundaryComparison",
+    "cancelBoundaryComparison"
+  ],
+  "realMapMethod": "AtlasMap.prototype.setYear",
+  "passed": 5,
+  "total": 5,
+  "tests": [
+    {
+      "name": "Right-origin alignment cannot alter the left map after the user closes comparison",
+      "passed": true
+    },
+    {
+      "name": "Source/reference/layer cancellation prevents an outstanding secondary date commit",
+      "passed": true
+    },
+    {
+      "name": "A manual year request started after cancellation wins both map and app commits",
+      "passed": true
+    },
+    {
+      "name": "The old alignment finally cannot clear the sentinel for a new operation",
+      "passed": true
+    },
+    {
+      "name": "Successful right-origin comparison still adopts the right year and reuses the pair",
+      "passed": true
+    }
+  ]
+}
+PASS Fixed binary fixture decodes area, identity and every unchanged coordinate delta
+PASS Corrupt, truncated and oversized binary lake data fail without a partial result
+PASS Area tiers change only at declared zoom thresholds
+PASS Spatial selection includes date-line crossings and repeated world copies
+PASS Delta decoding preserves closed rings and polygon holes
+PASS Concurrent comparison maps share one request
+PASS Failed and malformed shards leave the cache retryable
+PASS Completed LRU entries stay within the vertex budget
+PASS The overview survives decoding and worker loading until the current tiles are ready
+PASS Moving invalidates readiness and prevents a stale response from drawing
+PASS A late earlier viewport cannot replace a newer one
+PASS Small pans within the loaded margin retain fine shores without another fetch
+PASS A failed shard retains the overview and retry succeeds
+PASS Modern reference and disabled geography do not request natural lake detail
+PASS Late work after map destruction never mutates the removed map
+PASS Invisible globe-side event markers do not suppress lake names; visible markers keep priority
+PASS All archive shards have valid hashes, counts, class exclusions and coordinate encoding
+{"status":"passed","checks":17}
+{
+  "passed": true,
+  "datasetId": "halc-v15-1500",
+  "snapshotYear": 1500,
+  "hashVerifiedAssetFiles": 881,
+  "assetBytes": 27788109,
+  "tiles": 814,
+  "emptyTiles": 400,
+  "detailShards": 59,
+  "records": 14863,
+  "sharedAdm1Records": 1123,
+  "xxMembershipRecords": 638,
+  "allowedExtraFiles": [
+    "labels.json"
+  ],
+  "postAuditTextChanges": [
+    {
+      "path": "NOTICE.txt",
+      "beforeSha256": "9f4acad518475adbf24bc8327773adec365a79f3723677b68746f0b7ea2eb999",
+      "beforeBytes": 5402,
+      "afterSha256": "fa40f0d5b3321da9c5ddeb447e593f7039cd5eeb98f1de9d5bc14e3fc07f0573",
+      "afterBytes": 4501,
+      "reason": "Replace staging paths/status with formal bilingual source, license, geometry conversion and coverage notice. All 880 other assets remain byte-identical; prior full MVT/source-attribute audit is unchanged."
+    }
+  ],
+  "mvtAudit": "Reused prior complete geometry/attribute audit after exact SHA256 matching; no MVT decoding in this run.",
+  "zoom6MissingFids": [
+    1970,
+    7010,
+    10002,
+    11961,
+    14141,
+    14160
+  ],
+  "sourceTimeMeaning": "Source reconstruction for 1500, not exact historical locality lifetimes.",
+  "publicBudget": {
+    "files": 17694,
+    "bytes": 455884103,
+    "maxFiles": null
+  }
+}
+{
+  "passed": true,
+  "files": 817,
+  "totalBytes": 6786176,
+  "groups": 152,
+  "sourceMemberships": 14145,
+  "tiles": 814,
+  "allAssetHashesVerified": true,
+  "frozenGeometryAuditMatched": true,
+  "integritySha256": "baafc7d26e333b40168e4c169702b422835a9f1ade90122572f60d5270a99323",
+  "geometryAuditSha256": "46d3aa6cd3573c09ebe6cdc73d2a43db556042c7b3bd5d4344f353399b6cd7a8",
+  "TYPECounts": {
+    "0": 8759,
+    "2": 5386
+  },
+  "QUALITYCounts": {
+    "1": 9050,
+    "2": 2793,
+    "3": 374,
+    "4": 1256,
+    "0": 643,
+    "8": 2,
+    "9": 27
+  }
+}
+PASS Static asset budgets: 17694 files, no file over 25 MiB
+PASS All 357 physical assets match the current release inventory
+PASS All 11307 native archive pieces retain compressed and decoded hashes
+PASS 53 derived place assets match their provenance manifest
+{"result":"passed","checks":4,"staticFiles":17694,"physicalFiles":357,"nativePieces":11307,"cityFiles":53}
+PASS Existing pages delegate to the asset binding
+PASS Missing lake objects fail recoverably without a false empty map
+PASS Unknown objects and non-binary imports are rejected
+PASS Wrong sizes and same-sized corrupt data cannot be stored
+PASS Audited bytes upload idempotently under a versioned key
+PASS Read, HEAD and conditional requests preserve the exact encoded bytes
+PASS Final builds disable every import route while keeping lake reads
+PASS Cross-origin browser imports and expired import windows are rejected
+PASS Missing storage and missing public assets return a recoverable unavailable state
+{"status":"passed","checks":9}
+PASS Civil BCE/CE years convert to the OHM astronomical convention without zero
+PASS Annual overlap includes changes within a year and excludes future or ended records
+PASS Missing, malformed, reversed and unconverted date evidence is omitted
+PASS Real audited source records retain Battery Tunnel and Roman end-only date behavior
+PASS All rendered geometry layers carry the selected-year filter
+PASS Missing source names stay unnamed and explicit Simplified Chinese has priority
+PASS World views and disabled or modern-only views make no historical source requests
+PASS Zooming loads one source; toggles and reference changes hide its layers
+PASS Failures remain retryable after toggling; retry recreates the source and destroy removes listeners
+{"status":"passed","checks":9}
+PASS A dated midyear snapshot excludes sequential boundary phases and unknown dates
+PASS Every paint and selection layer uses the dated regional filter
+PASS Traditional labels convert to Simplified Chinese and bilingual names keep the original English
+PASS Source links preserve relation versus way identity and reject invalid IDs
+PASS Interior label anchor stays outside a polygon hole
+PASS World, disabled, hidden borders and modern reference do not fetch regional tiles
+PASS Actual regional records switch both fill and stroke, empty views restore original data
+PASS Year changes reject stale features and preserve the raw source geometry
+PASS Failed source restores overview, hides partial tiles, retries and removes listeners
+PASS Turning off detail or entering modern reference restores the territory overview
+PASS A small detailed area no longer hides the whole overview; a manual choice remains available
+PASS Auto coverage uses land samples, hysteresis, quadrants and the map center
+PASS Visible tile fragments stay attached to their exact record; national labels have priority
+PASS County-level detail appears at z8 and clears when zooming back out
+PASS Errors preserve the requested mode and a successful retry clears the error
+{"status":"passed","checks":15}
+PASS Polygon holes, edges, invalid points and separate islands
+PASS Dateline-crossing shells and holes handle both longitude conventions
+PASS Date gaps, invalid civil years and inactive polity periods are excluded
+PASS Dated locations follow their own period rather than the representative point
+PASS Capital matches require verified identity, active tenure and unambiguous binding
+PASS Population stays a dated observation, including across BCE/CE and the 50-year boundary
+PASS Name, alias and kind filters preserve source rows
+PASS 1,250 real geometry samples agree with an independent Shapely oracle
+PASS Real archived polities load dated place records without modern references
+PASS A superseded navigation cannot return or cache results
+PASS Partial source failures are visible and recover without caching incomplete results
+PASS Normal left-map return restores camera, query, filter, limit, scroll and focus
+PASS Normal right-map return restores camera, query, filter, limit, scroll and focus
+PASS A changed selected tab prevents delayed scroll/focus restoration
+PASS A changed reader sequence prevents delayed scroll/focus restoration
+PASS A changed user interaction prevents delayed scroll/focus restoration
+PASS A changed map year prevents delayed scroll/focus restoration
+PASS A changed query prevents delayed scroll/focus restoration
+PASS A changed kind prevents delayed scroll/focus restoration
+PASS A changed page limit prevents delayed scroll/focus restoration
+PASS A changed detail navigation prevents delayed scroll/focus restoration
+PASS Return waits for its captured city load, not a later resolved citiesReady
+PASS A later pending citiesReady cannot hold the original return open
+PASS An already changed year closes the obsolete return before reopening
+PASS A removed comparison map does not reopen or restore focus
+PASS Chinese composition defers input and asynchronous reader re-render until committed
+PASS A real population record is discoverable by its source otherNames alias
+{
+  "suite": "polity place return and review regressions",
+  "passed": 16,
+  "total": 16
+}

@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-10-02T16:18:06.013Z",
+  "method": "Actual RegionalBoundaries constructor/events/popup/index and actual BoundaryController.openRecord. Deterministic DOM/MapLibre/network boundaries; no source network or browser pixels.",
+  "sourceSha256": "0c2ae77b22938ab211a2ab241cf624fb3471708ca244668da81096093e2e3f4e",
+  "pass": 24,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Default auto initial pending source stays inactive until its first complete frame",
+      "pass": true
+    },
+    {
+      "name": "Existing OHM dossier and its selected id survive crossing zoom8 in both directions",
+      "pass": true
+    },
+    {
+      "name": "Reading a county remains possible when its zoom layer becomes filtered out",
+      "pass": true
+    },
+    {
+      "name": "Actual CShapes dossier and selection survive crossing zoom8",
+      "pass": true
+    },
+    {
+      "name": "CShapes directory also survives a regional level threshold",
+      "pass": true
+    },
+    {
+      "name": "Active OHM loading event retains geometry and dossier but declares updating",
+      "pass": true
+    },
+    {
+      "name": "Moveend detects pending OHM tiles even without a loading event",
+      "pass": true
+    },
+    {
+      "name": "Repeated pending idle does not query or regenerate old complete-view labels",
+      "pass": true
+    },
+    {
+      "name": "Actual OHM directory preserves rows, search and scroll while labelling the prior snapshot",
+      "pass": true
+    },
+    {
+      "name": "Auto coverage reevaluates only after completion and may then return to overview",
+      "pass": true
+    },
+    {
+      "name": "Explicit regional mode retains source selection after a loaded sparse view",
+      "pass": true
+    },
+    {
+      "name": "A completed empty viewport releases the previously committed detailed frame",
+      "pass": true
+    },
+    {
+      "name": "OHM source errors close its dossier, hide partial frames and keep the requested mode for retry",
+      "pass": true
+    },
+    {
+      "name": "Late OHM error cannot close or deselect a newer CShapes dossier",
+      "pass": true
+    },
+    {
+      "name": "Changing year discards the prior dossier and does not reuse its dated record",
+      "pass": true
+    },
+    {
+      "name": "Leaving source clears active OHM and rejects late readiness",
+      "pass": true
+    },
+    {
+      "name": "Leaving hidden borders clears active OHM and rejects late readiness",
+      "pass": true
+    },
+    {
+      "name": "Leaving modern reference clears active OHM and rejects late readiness",
+      "pass": true
+    },
+    {
+      "name": "Leaving detail zoom clears active OHM and rejects late readiness",
+      "pass": true
+    },
+    {
+      "name": "Unrelated source events cannot alter the open OHM record",
+      "pass": true
+    },
+    {
+      "name": "Native popup close clears its outline and does not resurrect on zoom",
+      "pass": true
+    },
+    {
+      "name": "Resize keeps the open dossier and scroll, fits height to its own map, and is removed on destroy",
+      "pass": true
+    },
+    {
+      "name": "Destroy removes source and interaction listeners and ignores late load/error callbacks",
+      "pass": true
+    },
+    {
+      "name": "Two regional map instances keep independent load and popup state",
+      "pass": true
+    }
+  ]
+}

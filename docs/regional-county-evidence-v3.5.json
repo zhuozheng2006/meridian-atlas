@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "checked_date_utc": "2026-10-02",
+  "scope": "Availability and source/licence audit for Newberry historical county boundaries in OHM. This evidence does not establish that an application feature was implemented or published.",
+  "finding": "The existing OHM ohm_admin vector source, boundaries layer, contains dated admin_level=6 polygons in four inspected North American scenes. A different source or a new bulk import is not required to render these inspected county boundaries.",
+  "tile_checks": {
+    "source_layer": "boundaries",
+    "method": "Downloaded four official z8 vector tiles and decoded them with mapbox-vector-tile. Selected type=administrative, numeric start_decdate <= July 1 noon decimal year, and either numeric end_decdate >= the snapshot or absence of both end_date and end_decdate. Both inspected years are non-leap years. Counts are tile-intersecting features, not point coverage or viewport counts.",
+    "scenes": [
+      {
+        "scene": "virginia",
+        "snapshot_date": "1850-07-01",
+        "tile_url": "https://vtiles.openhistoricalmap.org/maps/ohm_admin/8/72/99",
+        "bytes": 161207,
+        "sha256": "fb27af8115f769a0533ad3939d1b94a7c20134179d92a41bc75918c42aec7ed3",
+        "all_period_feature_count": 322,
+        "active_administrative_feature_count": 27,
+        "active_count_by_admin_level": {
+          "4": 1,
+          "6": 24,
+          "2": 1,
+          "8": 1
+        },
+        "inspected_level6_examples": [
+          {
+            "osm_id": -2789214,
+            "name": "Charlotte County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1845-05-01",
+            "start_decdate": 1845.33014,
+            "geometry_type": "Polygon",
+            "tile_vertex_count": 150
+          },
+          {
+            "osm_id": -2788960,
+            "name": "Lunenburg County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1777-10-01",
+            "start_decdate": 1777.74932,
+            "geometry_type": "Polygon",
+            "tile_vertex_count": 238
+          },
+          {
+            "osm_id": -2789158,
+            "name": "Dinwiddie County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1776-07-04",
+            "end_date": "1902-07-09",
+            "start_decdate": 1776.50683,
+            "end_decdate": 1902.51918,
+            "geometry_type": "Polygon",
+            "tile_vertex_count": 175
+          },
+          {
+            "osm_id": -2788706,
+            "name": "Southampton County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1786-03-01",
+            "end_date": "1961-12-21",
+            "start_decdate": 1786.16301,
+            "end_decdate": 1961.97123,
+            "geometry_type": "Polygon",
+            "tile_vertex_count": 137
+          },
+          {
+            "osm_id": -2789063,
+            "name": "Greensville County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1802-01-04",
+            "end_date": "1968-02-27",
+            "start_decdate": 1802.00959,
+            "end_decdate": 1968.1571,
+            "geometry_type": "Polygon",
+            "tile_vertex_count": 193
+          }
+        ]
+      },
+      {
+        "scene": "new-york",
+        "snapshot_date": "1850-07-01",
+        "tile_url": "https://vtiles.openhistoricalmap.org/maps/ohm_admin/8/75/95",
+        "bytes": 205922,
+        "sha256": "653093434c943f776851d8c8f1392759c1279cd9e7074b33e80dbc2641b98131",
+        "all_period_feature_count": 595,
+        "active_administrative_feature_count": 37,
+        "active_count_by_admin_level": {
+          "6": 18,
+          "8": 14,
+          "4": 4,
+          "2": 1
+        },
+        "inspected_level6_examples": [
+          {
+            "osm_id": -2777972,
+            "name": "Fairfield County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1788-05-08",
+            "end_date": "2022-05-31",
+            "start_decdate": 1788.35109,
+            "end_decdate": 2022.41233
+          },
+          {
+            "osm_id": -2780340,
+            "name": "Putnam County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1812-06-12",
+            "start_decdate": 1812.44672
+          },
+          {
+            "osm_id": -2780253,
+            "name": "Westchester County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1776-07-04",
+            "end_date": "1873-12-31",
+            "start_decdate": 1776.50683,
+            "end_decdate": 1873.99863
+          }
+        ]
+      },
+      {
+        "scene": "mississippi",
+        "snapshot_date": "1850-07-01",
+        "tile_url": "https://vtiles.openhistoricalmap.org/maps/ohm_admin/8/64/103",
+        "bytes": 122853,
+        "sha256": "e7b9423db97b4980a3bf40d23198c67396414e6f408962fce5268b0e3fed228c",
+        "all_period_feature_count": 242,
+        "active_administrative_feature_count": 19,
+        "active_count_by_admin_level": {
+          "6": 17,
+          "4": 1,
+          "2": 1
+        },
+        "inspected_level6_examples": [
+          {
+            "osm_id": -2782858,
+            "name": "Jasper County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1833-12-23",
+            "start_decdate": 1833.97671
+          },
+          {
+            "osm_id": -2782963,
+            "name": "Clarke County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1833-12-23",
+            "end_date": "1871-05-12",
+            "start_decdate": 1833.97671,
+            "end_decdate": 1871.36027
+          },
+          {
+            "osm_id": -2783001,
+            "name": "Attala County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1833-12-23",
+            "start_decdate": 1833.97671
+          }
+        ]
+      },
+      {
+        "scene": "pennsylvania",
+        "snapshot_date": "1750-07-01",
+        "tile_url": "https://vtiles.openhistoricalmap.org/maps/ohm_admin/8/73/95",
+        "bytes": 108609,
+        "sha256": "4871311720a9b9e4976269bf2b2611c39702904f0daa50d93105fcc94d60618a",
+        "all_period_feature_count": 270,
+        "active_administrative_feature_count": 5,
+        "active_count_by_admin_level": {
+          "1": 1,
+          "2": 2,
+          "6": 2
+        },
+        "inspected_level6_examples": [
+          {
+            "osm_id": -2786586,
+            "name": "Cumberland County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1750-01-27",
+            "end_date": "1751-02-08",
+            "start_decdate": 1750.0726,
+            "end_decdate": 1751.10548
+          },
+          {
+            "osm_id": -2786626,
+            "name": "Bucks County",
+            "type": "administrative",
+            "admin_level": 6,
+            "start_date": "1685-04-01",
+            "end_date": "1752-03-10",
+            "start_decdate": 1685.24795,
+            "end_decdate": 1752.18989
+          }
+        ]
+      }
+    ]
+  },
+  "relation_checks": {
+    "endpoint": "https://overpass-api.openhistoricalmap.org/api/interpreter",
+    "query": "[out:json][timeout:20];relation(id:2789214,2788960);out tags;",
+    "request_url": "https://overpass-api.openhistoricalmap.org/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A20%5D%3Brelation%28id%3A2789214%2C2788960%29%3Bout+tags%3B",
+    "response_base_timestamp": "2026-10-02T09:13:08Z",
+    "response_sha256": "40d40bfb7a468c1403fd1cc29a1b328f2cb1dc693b41c453d96f45df87d7751e",
+    "verified_relations": [
+      {
+        "type": "relation",
+        "id": 2788960,
+        "tags": {
+          "admin_level": "6",
+          "boundary": "administrative",
+          "import:county_type": "county",
+          "license": "CC0-1.0",
+          "name": "Lunenburg County",
+          "nl_ahcb:id": "16194",
+          "nl_ahcb:id_text": "vas_lunenburg",
+          "nl_ahcb:source": "Hening, 9:327",
+          "nl_ahcb:version": "7",
+          "place": "county",
+          "source": "https://publications.newberry.org/nl_ahcbp/downloads/united_states.html",
+          "source:name": "Newberry Library Atlas of Historical County Boundaries",
+          "start_date": "1777-10-01",
+          "start_event": "LUNENBURG gained from CHARLOTTE.",
+          "type": "boundary",
+          "wikidata": "Q508192",
+          "wikipedia": "en:Lunenburg County, Virginia"
+        }
+      },
+      {
+        "type": "relation",
+        "id": 2789214,
+        "tags": {
+          "admin_level": "6",
+          "boundary": "administrative",
+          "import:county_type": "county",
+          "license": "CC0-1.0",
+          "name": "Charlotte County",
+          "nl_ahcb:id": "15940",
+          "nl_ahcb:id_text": "vas_charlotte",
+          "nl_ahcb:source": "Va. Acts 1844-1845, ch. 41, secs. 1, 16/pp. 38-42",
+          "nl_ahcb:version": "4",
+          "place": "county",
+          "source": "https://publications.newberry.org/nl_ahcbp/downloads/united_states.html",
+          "source:name": "Newberry Library Atlas of Historical County Boundaries",
+          "start_date": "1845-05-01",
+          "start_event": "CHARLOTTE lost to creation of APPOMATTOX.",
+          "type": "boundary",
+          "wikidata": "Q427732",
+          "wikipedia": "en:Charlotte County, Virginia"
+        }
+      }
+    ],
+    "field_note": "Tile type=administrative corresponds to original relation type=boundary with boundary=administrative. Negative tile osm_id values identify relations by their positive absolute IDs. The source tag URL is preserved exactly as returned and is not asserted to be a working current download URL."
+  },
+  "licence": {
+    "identifier": "CC0-1.0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "publisher_evidence_url": "https://publications.newberry.org/ahcb/about/",
+    "publisher_evidence": "The current Newberry About page explicitly releases Atlas data under CC0 1.0 Universal (Public Domain Dedication).",
+    "download_terms_url": "https://publications.newberry.org/ahcb/downloads/united_states.html",
+    "download_terms_evidence": "The current publisher download page permits commercial and non-commercial reuse and expressly says older copyright licence files contained in archives are out of date and can be ignored.",
+    "verified_record_scope": "CC0-1.0 is independently present in the two queried OHM relations: 2789214 and 2788960. Their source:name tags both identify the Newberry Atlas.",
+    "limits": "The record-level licence check covers these two relations only. It is not a claim that every feature in OHM has the same source or licence. Other observed county examples were checked in the vector tile, not individually queried for provenance tags. A missing end date means the OHM record has no supplied end date; this audit does not infer perpetual historical validity."
+  },
+  "original_source": {
+    "title": "Newberry Library Atlas of Historical County Boundaries",
+    "publisher_about_url": "https://publications.newberry.org/ahcb/about/",
+    "downloads_url": "https://publications.newberry.org/ahcb/downloads/united_states.html",
+    "published_coverage": {
+      "historical_counties": "1629–2000",
+      "historical_states_and_territories": "1783–2000"
+    },
+    "coverage_note": "These are the date ranges explicitly stated for the national downloadable datasets. Publication/completion dates such as 2012 are not used as evidence that boundaries were updated through 2012.",
+    "head_checks": [
+      {
+        "url": "https://publications.newberry.org/ahcb/downloads/gis/US_AtlasHCB_Counties.zip",
+        "status": 200,
+        "content_type": "application/zip",
+        "content_length": 515518205
+      },
+      {
+        "url": "https://publications.newberry.org/ahcb/downloads/gis/US_AtlasHCB_StateTerr.zip",
+        "status": 200,
+        "content_type": "application/zip",
+        "content_length": 112838505
+      }
+    ],
+    "bulk_download_performed": false
+  },
+  "interpretation_limits": [
+    "Tile vertex counts refer to clipped, zoom-dependent vector-tile geometry, not original full polygon vertex counts or measured historical accuracy.",
+    "Four samples establish availability for these places and dates only; they do not prove global or nationwide completeness.",
+    "This audit reads geometry and source metadata; it does not independently corroborate the cited historical laws or adjudicate boundary claims.",
+    "The audit does not import any other historical boundary dataset or confer its licence on the application."
+  ],
+  "related_documentation": [
+    {
+      "title": "OHM Newberry Atlas import documentation",
+      "url": "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Projects/Newberry_Atlas_of_Historical_County_Boundaries_Import"
+    },
+    {
+      "title": "OHM Overpass endpoint documentation",
+      "url": "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Overpass"
+    }
+  ],
+  "local_raw_evidence": [
+    "ohm-virginia-audit.json",
+    "ohm-level6-audit.json",
+    "overpass-relation-tags.json",
+    "virginia.pbf",
+    "new-york.pbf",
+    "mississippi.pbf",
+    "pennsylvania.pbf"
+  ]
+}

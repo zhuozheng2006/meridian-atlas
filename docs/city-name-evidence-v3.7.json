@@ -1,0 +1,1455 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-10-02",
+  "scope": "Evidence for seven exact city identities and naming chronologies; no checkout files edited.",
+  "inputFiles": [
+    "scripts/places/rules/dated-place-names.json",
+    "public/data/places/urban-observations.json.gz",
+    "public/data/places/historical-capitals.json.gz",
+    "public/data/places/modern-cities.json.gz"
+  ],
+  "semantics": [
+    "Name periods are Gregorian civil-date evidence, with inclusive endpoints. A null initial start records an unresearched beginning of the first name, not evidence of existence before a city was founded. Implementation must additionally require valid source observations/tenure.",
+    "For a population record, the historical display name must correspond to its actual observation date/year. A selected map year may be different; no source observation may be presented as an observation in that selected year.",
+    "If only an annual observation is known and a name changes within that same year, do not silently assign a precise civil date to the observation. Use a documented annual display convention or show both names; these current population rows have no transition-year ambiguity.",
+    "Modern-reference cities stay modern. They are identity-check references here, not evidence that modern names belong to historical years.",
+    "Chinese names are editorial Simplified Chinese display translations. They do not add identity equivalence, political sovereignty, population scope or founding dates.",
+    "nameTimelineProposal intentionally overlaps adjacent names in the transition YEAR. It must not inherit the map's July 1 convention for year-only population observations. Name selection may show both labels or withhold adjudication in that year."
+  ],
+  "cities": [
+    {
+      "id": "yekaterinburg",
+      "identity": {
+        "existingQid": "Q887",
+        "localReference": {
+          "id": "ne:1159150701",
+          "qid": "Q887",
+          "name": "Yekaterinburg",
+          "nameZh": "叶卡捷琳堡",
+          "coordinates": [
+            60.598014,
+            56.851976
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:1565",
+            "qid": "Q887",
+            "name": "Yekaterinburg",
+            "nameZh": "叶卡捷琳堡",
+            "coordinates": [
+              60.6,
+              56.833333
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Ekaterinburg",
+            "observations": [
+              [
+                1900,
+                54000
+              ]
+            ]
+          },
+          {
+            "id": "modelski-modern:283",
+            "qid": "Q887",
+            "name": "Yekaterinburg",
+            "nameZh": "叶卡捷琳堡",
+            "coordinates": [
+              60.6,
+              56.833333
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Ekaterinburg",
+            "observations": [
+              [
+                2000,
+                1267000
+              ]
+            ]
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [
+        {
+          "startDate": null,
+          "endDate": "1924-10-13",
+          "name": "Yekaterinburg",
+          "nameZh": "叶卡捷琳堡",
+          "sourceKeys": [
+            "yek-museum"
+          ],
+          "openStartNotFoundation": true
+        },
+        {
+          "startDate": "1924-10-14",
+          "endDate": "1991-09-22",
+          "name": "Sverdlovsk",
+          "nameZh": "斯维尔德洛夫斯克",
+          "sourceKeys": [
+            "yek-museum",
+            "yek-archive"
+          ]
+        },
+        {
+          "startDate": "1991-09-23",
+          "endDate": null,
+          "name": "Yekaterinburg",
+          "nameZh": "叶卡捷琳堡",
+          "sourceKeys": [
+            "yek-archive"
+          ]
+        }
+      ],
+      "notes": [
+        "Existing observations are 1900 and 2000; neither is a Soviet-period observation. Never attach chandler:1356 to Q887 from the name Sverdlovsk alone."
+      ],
+      "nameTimelineProposal": [
+        {
+          "name": "Yekaterinburg",
+          "nameZh": "叶卡捷琳堡",
+          "startYear": null,
+          "endYear": 1924,
+          "sourceKeys": [
+            "yek-museum"
+          ]
+        },
+        {
+          "name": "Sverdlovsk",
+          "nameZh": "斯维尔德洛夫斯克",
+          "startYear": 1924,
+          "endYear": 1991,
+          "sourceKeys": [
+            "yek-museum",
+            "yek-archive"
+          ]
+        },
+        {
+          "name": "Yekaterinburg",
+          "nameZh": "叶卡捷琳堡",
+          "startYear": 1991,
+          "endYear": null,
+          "sourceKeys": [
+            "yek-archive"
+          ]
+        }
+      ],
+      "transitionYears": [
+        1924,
+        1991
+      ],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    },
+    {
+      "id": "samara",
+      "identity": {
+        "existingQid": "Q894",
+        "localReference": {
+          "id": "ne:1159150703",
+          "qid": "Q894",
+          "name": "Samara",
+          "nameZh": "萨马拉",
+          "coordinates": [
+            50.149349,
+            53.196953
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:1232",
+            "qid": "Q894",
+            "name": "Samara",
+            "nameZh": "萨马拉",
+            "coordinates": [
+              50.1408,
+              53.2028
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Kuibyshev",
+            "observations": [
+              [
+                1950,
+                650000
+              ],
+              [
+                1975,
+                1375000
+              ]
+            ]
+          },
+          {
+            "id": "modelski-modern:228",
+            "qid": "Q894",
+            "name": "Samara",
+            "nameZh": "萨马拉",
+            "coordinates": [
+              50.1408,
+              53.2028
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Kuibyshev",
+            "observations": [
+              [
+                2000,
+                1165000
+              ]
+            ]
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [
+        {
+          "startDate": null,
+          "endDate": "1935-01-26",
+          "name": "Samara",
+          "nameZh": "萨马拉",
+          "sourceKeys": [
+            "samara-1935"
+          ],
+          "openStartNotFoundation": true
+        },
+        {
+          "startDate": "1935-01-27",
+          "endDate": "1991-01-24",
+          "name": "Kuybyshev",
+          "nameZh": "古比雪夫",
+          "sourceKeys": [
+            "samara-1935",
+            "samara-1991"
+          ]
+        },
+        {
+          "startDate": "1991-01-25",
+          "endDate": null,
+          "name": "Samara",
+          "nameZh": "萨马拉",
+          "sourceKeys": [
+            "samara-1991",
+            "samara-decree"
+          ]
+        }
+      ],
+      "notes": [
+        "Keep source transliteration Kuibyshev as search alias. Both 1950 and 1975 Chandler observations should use Kuybyshev."
+      ],
+      "nameTimelineProposal": [
+        {
+          "name": "Samara",
+          "nameZh": "萨马拉",
+          "startYear": null,
+          "endYear": 1935,
+          "sourceKeys": [
+            "samara-1935"
+          ]
+        },
+        {
+          "name": "Kuybyshev",
+          "nameZh": "古比雪夫",
+          "startYear": 1935,
+          "endYear": 1991,
+          "sourceKeys": [
+            "samara-1935",
+            "samara-1991"
+          ]
+        },
+        {
+          "name": "Samara",
+          "nameZh": "萨马拉",
+          "startYear": 1991,
+          "endYear": null,
+          "sourceKeys": [
+            "samara-1991",
+            "samara-decree"
+          ]
+        }
+      ],
+      "transitionYears": [
+        1935,
+        1991
+      ],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    },
+    {
+      "id": "volgograd",
+      "identity": {
+        "existingQid": "Q914",
+        "localReference": {
+          "id": "ne:1159150697",
+          "qid": "Q914",
+          "name": "Volgograd",
+          "nameZh": "伏尔加格勒",
+          "coordinates": [
+            44.498015,
+            48.711956
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:1520",
+            "qid": "Q914",
+            "name": "Volgograd",
+            "nameZh": "伏尔加格勒",
+            "coordinates": [
+              44.50184,
+              48.71939
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Stalingrad, Tsaritsyn",
+            "observations": [
+              [
+                1900,
+                67000
+              ],
+              [
+                1950,
+                415000
+              ],
+              [
+                1975,
+                1175000
+              ]
+            ]
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [
+        {
+          "startDate": null,
+          "endDate": "1925-04-09",
+          "name": "Tsaritsyn",
+          "nameZh": "察里津",
+          "sourceKeys": [
+            "volgograd"
+          ],
+          "openStartNotFoundation": true
+        },
+        {
+          "startDate": "1925-04-10",
+          "endDate": "1961-11-09",
+          "name": "Stalingrad",
+          "nameZh": "斯大林格勒",
+          "sourceKeys": [
+            "volgograd"
+          ]
+        },
+        {
+          "startDate": "1961-11-10",
+          "endDate": null,
+          "name": "Volgograd",
+          "nameZh": "伏尔加格勒",
+          "sourceKeys": [
+            "volgograd"
+          ]
+        }
+      ],
+      "notes": [
+        "Exact observed labels: 1900 Tsaritsyn, 1950 Stalingrad, 1975 Volgograd."
+      ],
+      "nameTimelineProposal": [
+        {
+          "name": "Tsaritsyn",
+          "nameZh": "察里津",
+          "startYear": null,
+          "endYear": 1925,
+          "sourceKeys": [
+            "volgograd"
+          ]
+        },
+        {
+          "name": "Stalingrad",
+          "nameZh": "斯大林格勒",
+          "startYear": 1925,
+          "endYear": 1961,
+          "sourceKeys": [
+            "volgograd"
+          ]
+        },
+        {
+          "name": "Volgograd",
+          "nameZh": "伏尔加格勒",
+          "startYear": 1961,
+          "endYear": null,
+          "sourceKeys": [
+            "volgograd"
+          ]
+        }
+      ],
+      "transitionYears": [
+        1925,
+        1961
+      ],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    },
+    {
+      "id": "konigsberg-kaliningrad",
+      "identity": {
+        "existingQid": null,
+        "localReference": {
+          "id": "ne:1159149527",
+          "qid": "Q1829",
+          "name": "Kaliningrad",
+          "nameZh": "加里宁格勒",
+          "coordinates": [
+            20.497343,
+            54.700006
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:734",
+            "qid": null,
+            "name": "Konigsberg",
+            "nameZh": "",
+            "coordinates": [
+              20.516667,
+              54.716667
+            ],
+            "countryReference": "Germany",
+            "otherNames": "Kaliningrad, Königsberg ",
+            "observations": [
+              [
+                1455,
+                8000
+              ],
+              [
+                1550,
+                14000
+              ],
+              [
+                1600,
+                25000
+              ],
+              [
+                1635,
+                33000
+              ],
+              [
+                1641,
+                33000
+              ],
+              [
+                1700,
+                37000
+              ],
+              [
+                1723,
+                39475
+              ],
+              [
+                1750,
+                52000
+              ],
+              [
+                1755,
+                55000
+              ],
+              [
+                1798,
+                49900
+              ],
+              [
+                1800,
+                53000
+              ],
+              [
+                1802,
+                56140
+              ],
+              [
+                1850,
+                76122
+              ],
+              [
+                1900,
+                189000
+              ],
+              [
+                1925,
+                279000
+              ]
+            ]
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [
+        {
+          "startDate": null,
+          "endDate": "1946-07-03",
+          "name": "Königsberg",
+          "nameZh": "柯尼斯堡",
+          "sourceKeys": [
+            "kaliningrad-rosstat",
+            "kaliningrad"
+          ],
+          "openStartNotFoundation": true
+        },
+        {
+          "startDate": "1946-07-04",
+          "endDate": null,
+          "name": "Kaliningrad",
+          "nameZh": "加里宁格勒",
+          "sourceKeys": [
+            "kaliningrad-rosstat",
+            "kaliningrad"
+          ]
+        }
+      ],
+      "notes": [
+        "The historical Chandler row has no QID; approve exact chandler:734 plus its [20.516667,54.716667] point only, without silently writing Q1829 into the archive. All existing observations are 1455–1925, hence Königsberg. July 1 of 1946 precedes the renaming."
+      ],
+      "nameTimelineProposal": [
+        {
+          "name": "Königsberg",
+          "nameZh": "柯尼斯堡",
+          "startYear": null,
+          "endYear": 1946,
+          "sourceKeys": [
+            "kaliningrad-rosstat",
+            "kaliningrad"
+          ]
+        },
+        {
+          "name": "Kaliningrad",
+          "nameZh": "加里宁格勒",
+          "startYear": 1946,
+          "endYear": null,
+          "sourceKeys": [
+            "kaliningrad-rosstat",
+            "kaliningrad"
+          ]
+        }
+      ],
+      "transitionYears": [
+        1946
+      ],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    },
+    {
+      "id": "saint-petersburg",
+      "identity": {
+        "existingQid": "Q656",
+        "localReference": {
+          "id": "ne:1159151291",
+          "qid": "Q656",
+          "name": "Saint Petersburg",
+          "nameZh": "圣彼得堡",
+          "coordinates": [
+            30.314074,
+            59.94096
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:1219",
+            "qid": "Q656",
+            "name": "Saint Petersburg",
+            "nameZh": "圣彼得堡",
+            "coordinates": [
+              30.26417,
+              59.89444
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Leningrad",
+            "observations": [
+              [
+                1750,
+                74200
+              ],
+              [
+                1800,
+                220200
+              ],
+              [
+                1825,
+                438000
+              ],
+              [
+                1848,
+                473437
+              ],
+              [
+                1850,
+                502000
+              ],
+              [
+                1852,
+                532241
+              ],
+              [
+                1875,
+                764000
+              ],
+              [
+                1900,
+                1439000
+              ],
+              [
+                1925,
+                1430000
+              ],
+              [
+                1950,
+                2700000
+              ],
+              [
+                1970,
+                4350000
+              ],
+              [
+                1975,
+                4200000
+              ]
+            ]
+          },
+          {
+            "id": "modelski-modern:226",
+            "qid": "Q656",
+            "name": "Saint Petersburg",
+            "nameZh": "圣彼得堡",
+            "coordinates": [
+              30.26417,
+              59.89444
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Leningrad",
+            "observations": [
+              [
+                2000,
+                4678000
+              ]
+            ]
+          },
+          {
+            "id": "capital:q34266$BDDBE739-A467-4D52-8C66-64D6F2F84AE5",
+            "qid": "Q656",
+            "name": "Saint Petersburg",
+            "nameZh": "圣彼得堡",
+            "coordinates": [
+              30.314074,
+              59.94096
+            ],
+            "periods": [
+              [
+                1721,
+                1728
+              ]
+            ],
+            "polityQid": "Q34266"
+          },
+          {
+            "id": "capital:q186096$84F0F6C5-7BB7-46B5-8121-F96C1892953C",
+            "qid": "Q656",
+            "name": "Saint Petersburg",
+            "nameZh": "圣彼得堡",
+            "coordinates": [
+              30.314074,
+              59.94096
+            ],
+            "periods": [
+              [
+                1712,
+                1721
+              ]
+            ],
+            "polityQid": "Q186096"
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [
+        {
+          "startDate": null,
+          "endDate": "1914-08-30",
+          "name": "Saint Petersburg",
+          "nameZh": "圣彼得堡",
+          "sourceKeys": [
+            "petersburg-municipal",
+            "petersburg-library"
+          ],
+          "openStartNotFoundation": true
+        },
+        {
+          "startDate": "1914-08-31",
+          "endDate": "1924-01-25",
+          "name": "Petrograd",
+          "nameZh": "彼得格勒",
+          "sourceKeys": [
+            "petersburg-library",
+            "petersburg-archive"
+          ]
+        },
+        {
+          "startDate": "1924-01-26",
+          "endDate": "1991-09-05",
+          "name": "Leningrad",
+          "nameZh": "列宁格勒",
+          "sourceKeys": [
+            "petersburg-archive",
+            "petersburg-library"
+          ]
+        },
+        {
+          "startDate": "1991-09-06",
+          "endDate": null,
+          "name": "Saint Petersburg",
+          "nameZh": "圣彼得堡",
+          "sourceKeys": [
+            "petersburg-municipal",
+            "petersburg-archive"
+          ]
+        }
+      ],
+      "notes": [
+        "1914 dates use Gregorian August 31; August 18 in Russian archival documents is Julian. Local 23 January 1924 proposal is not the national naming date.",
+        "Current exact capital claims Q656 cover 1712–1721 and 1721–1728; they remain Saint Petersburg. This review does not manufacture a missing 1914–1918 capital tenure."
+      ],
+      "nameTimelineProposal": [
+        {
+          "name": "Saint Petersburg",
+          "nameZh": "圣彼得堡",
+          "startYear": null,
+          "endYear": 1914,
+          "sourceKeys": [
+            "petersburg-municipal",
+            "petersburg-library"
+          ]
+        },
+        {
+          "name": "Petrograd",
+          "nameZh": "彼得格勒",
+          "startYear": 1914,
+          "endYear": 1924,
+          "sourceKeys": [
+            "petersburg-library",
+            "petersburg-archive"
+          ]
+        },
+        {
+          "name": "Leningrad",
+          "nameZh": "列宁格勒",
+          "startYear": 1924,
+          "endYear": 1991,
+          "sourceKeys": [
+            "petersburg-archive",
+            "petersburg-library"
+          ]
+        },
+        {
+          "name": "Saint Petersburg",
+          "nameZh": "圣彼得堡",
+          "startYear": 1991,
+          "endYear": null,
+          "sourceKeys": [
+            "petersburg-municipal",
+            "petersburg-archive"
+          ]
+        }
+      ],
+      "transitionYears": [
+        1914,
+        1924,
+        1991
+      ],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    },
+    {
+      "id": "nizhny-novgorod",
+      "identity": {
+        "existingQid": null,
+        "localReference": {
+          "id": "ne:1159150695",
+          "qid": "Q891",
+          "name": "Nizhny Novgorod",
+          "nameZh": "下诺夫哥罗德",
+          "coordinates": [
+            43.998148,
+            56.334953
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:1014",
+            "qid": null,
+            "name": "Nizhniy Novgorod",
+            "nameZh": "下诺夫哥罗德",
+            "coordinates": [
+              44.0075,
+              56.3269
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Nishny Novgorod, Gorkiy",
+            "observations": [
+              [
+                1350,
+                40000
+              ],
+              [
+                1400,
+                45000
+              ],
+              [
+                1450,
+                55000
+              ],
+              [
+                1619,
+                5000
+              ],
+              [
+                1649,
+                14000
+              ],
+              [
+                1745,
+                15000
+              ],
+              [
+                1782,
+                9000
+              ],
+              [
+                1834,
+                21687
+              ],
+              [
+                1849,
+                30710
+              ],
+              [
+                1850,
+                31000
+              ],
+              [
+                1858,
+                36354
+              ],
+              [
+                1900,
+                91000
+              ],
+              [
+                1950,
+                775000
+              ],
+              [
+                1975,
+                1700000
+              ]
+            ]
+          },
+          {
+            "id": "modelski-modern:187",
+            "qid": null,
+            "name": "Nizhniy Novgorod",
+            "nameZh": "下诺夫哥罗德",
+            "coordinates": [
+              44.0075,
+              56.3269
+            ],
+            "countryReference": "Russian Federation",
+            "otherNames": "Nishny Novgorod, Gorkiy",
+            "observations": [
+              [
+                2000,
+                1357000
+              ]
+            ]
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [
+        {
+          "startDate": null,
+          "endDate": "1932-10-06",
+          "name": "Nizhny Novgorod",
+          "nameZh": "下诺夫哥罗德",
+          "sourceKeys": [
+            "nizhny-municipal"
+          ],
+          "openStartNotFoundation": true
+        },
+        {
+          "startDate": "1932-10-07",
+          "endDate": "1990-10-21",
+          "name": "Gorky",
+          "nameZh": "高尔基",
+          "sourceKeys": [
+            "nizhny-municipal"
+          ]
+        },
+        {
+          "startDate": "1990-10-22",
+          "endDate": null,
+          "name": "Nizhny Novgorod",
+          "nameZh": "下诺夫哥罗德",
+          "sourceKeys": [
+            "nizhny-municipal"
+          ]
+        }
+      ],
+      "notes": [
+        "Historical rows have QID null; nearby Natural Earth Q891 validates city-region identity, not automatic archive mutation. Nizhniy Novgorod and Gorkiy remain original/search spellings. Chandler 1950 and 1975 use Gorky; Modelski 2000 uses Nizhny Novgorod."
+      ],
+      "nameTimelineProposal": [
+        {
+          "name": "Nizhny Novgorod",
+          "nameZh": "下诺夫哥罗德",
+          "startYear": null,
+          "endYear": 1932,
+          "sourceKeys": [
+            "nizhny-municipal"
+          ]
+        },
+        {
+          "name": "Gorky",
+          "nameZh": "高尔基",
+          "startYear": 1932,
+          "endYear": 1990,
+          "sourceKeys": [
+            "nizhny-municipal"
+          ]
+        },
+        {
+          "name": "Nizhny Novgorod",
+          "nameZh": "下诺夫哥罗德",
+          "startYear": 1990,
+          "endYear": null,
+          "sourceKeys": [
+            "nizhny-municipal"
+          ]
+        }
+      ],
+      "transitionYears": [
+        1932,
+        1990
+      ],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    },
+    {
+      "id": "constantinople-istanbul",
+      "identity": {
+        "existingQid": "Q406 / historical Q16869",
+        "localReference": {
+          "id": "ne:1159151579",
+          "qid": "Q406",
+          "name": "Istanbul",
+          "nameZh": "伊斯坦布尔",
+          "coordinates": [
+            28.974277,
+            41.017602
+          ]
+        },
+        "approvedExactRecords": [
+          {
+            "id": "chandler:623",
+            "qid": "Q406",
+            "name": "Istanbul",
+            "nameZh": "伊斯坦布尔",
+            "coordinates": [
+              28.976944,
+              41.005275
+            ],
+            "countryReference": "Turkey",
+            "otherNames": "Constantinople, Byzantium",
+            "observations": [
+              [
+                -100,
+                36000
+              ],
+              [
+                500,
+                400000
+              ],
+              [
+                622,
+                400000
+              ],
+              [
+                800,
+                250000
+              ],
+              [
+                900,
+                300000
+              ],
+              [
+                944,
+                330000
+              ],
+              [
+                1000,
+                300000
+              ],
+              [
+                1100,
+                200000
+              ],
+              [
+                1200,
+                150000
+              ],
+              [
+                1250,
+                100000
+              ],
+              [
+                1261,
+                100000
+              ],
+              [
+                1300,
+                100000
+              ],
+              [
+                1340,
+                80000
+              ],
+              [
+                1350,
+                80000
+              ],
+              [
+                1400,
+                75000
+              ],
+              [
+                1425,
+                70000
+              ],
+              [
+                1450,
+                45000
+              ],
+              [
+                1453,
+                45000
+              ],
+              [
+                1477,
+                98000
+              ],
+              [
+                1500,
+                200000
+              ],
+              [
+                1510,
+                250000
+              ],
+              [
+                1515,
+                300000
+              ],
+              [
+                1528,
+                400000
+              ],
+              [
+                1550,
+                660000
+              ],
+              [
+                1552,
+                660000
+              ],
+              [
+                1575,
+                680000
+              ],
+              [
+                1600,
+                700000
+              ],
+              [
+                1650,
+                700000
+              ],
+              [
+                1690,
+                750000
+              ],
+              [
+                1700,
+                700000
+              ],
+              [
+                1750,
+                625000
+              ],
+              [
+                1794,
+                560000
+              ],
+              [
+                1800,
+                570000
+              ],
+              [
+                1815,
+                597600
+              ],
+              [
+                1825,
+                675000
+              ],
+              [
+                1830,
+                700000
+              ],
+              [
+                1848,
+                778000
+              ],
+              [
+                1850,
+                785000
+              ],
+              [
+                1875,
+                873000
+              ],
+              [
+                1885,
+                873565
+              ],
+              [
+                1900,
+                900000
+              ],
+              [
+                1914,
+                1125000
+              ],
+              [
+                1925,
+                817000
+              ],
+              [
+                1950,
+                1035000
+              ],
+              [
+                1970,
+                2825000
+              ],
+              [
+                1975,
+                3200000
+              ]
+            ]
+          },
+          {
+            "id": "modelski-ancient:56",
+            "qid": "Q406",
+            "name": "Istanbul",
+            "nameZh": "伊斯坦布尔",
+            "coordinates": [
+              28.976944,
+              41.005275
+            ],
+            "countryReference": "Turkey",
+            "otherNames": "Constantinople",
+            "observations": [
+              [
+                400,
+                400000
+              ],
+              [
+                500,
+                500000
+              ],
+              [
+                600,
+                600000
+              ],
+              [
+                700,
+                400000
+              ],
+              [
+                800,
+                400000
+              ],
+              [
+                900,
+                500000
+              ],
+              [
+                1000,
+                600000
+              ]
+            ]
+          },
+          {
+            "id": "modelski-modern:113",
+            "qid": "Q406",
+            "name": "Istanbul",
+            "nameZh": "伊斯坦布尔",
+            "coordinates": [
+              28.976944,
+              41.005275
+            ],
+            "countryReference": "Turkey",
+            "otherNames": "Constantinople",
+            "observations": [
+              [
+                2000,
+                8260000
+              ]
+            ]
+          },
+          {
+            "id": "capital:Q12544$10910027-1103-4057-BCC4-49CEAB7944D8",
+            "qid": "Q16869",
+            "name": "Constantinople",
+            "nameZh": "君士坦丁堡",
+            "coordinates": [
+              28.976018,
+              41.01224
+            ],
+            "periods": [
+              [
+                330,
+                1453
+              ]
+            ],
+            "polityQid": "Q12544"
+          },
+          {
+            "id": "capital:Q2277$7f52473c-43fc-8c1b-c5a1-158389d33e0b",
+            "qid": "Q16869",
+            "name": "Constantinople",
+            "nameZh": "君士坦丁堡",
+            "coordinates": [
+              28.976018,
+              41.01224
+            ],
+            "periods": [
+              [
+                476,
+                1453
+              ]
+            ],
+            "polityQid": "Q2277"
+          },
+          {
+            "id": "capital:Q12560$6c41d504-4649-647e-16c3-5ce527ab5552",
+            "qid": "Q16869",
+            "name": "Constantinople",
+            "nameZh": "君士坦丁堡",
+            "coordinates": [
+              28.976018,
+              41.01224
+            ],
+            "periods": [
+              [
+                1453,
+                1922
+              ]
+            ],
+            "polityQid": "Q12560"
+          }
+        ],
+        "identityPolicy": "Only these exact row bindings and existing verified capital QIDs; reference coordinates are identity checks, never replacement coordinates."
+      },
+      "namePeriods": [],
+      "notes": [
+        "Preserve the existing exact 330–1453/400–1000 population bindings; Ottoman capital Q16869 already carries Constantinople as its source label through 1922.",
+        "Do not implement an exclusive 1930-03-28 name switch from this evidence. Ottoman Turkish, local usage and English exonyms coexist. The municipal account lists Istanbul among Ottoman names; FRUS prints Istanbul on 18 March 1930, before the commonly repeated March 28 date.",
+        "Optional source-specific dated display may use Constantinople for directly attested English documents, but this is not a universal legal naming interval. For 1454–1929, retain the original study label or show a non-exclusive historical alias with source context.",
+        "The -100 Chandler observation must not inherit Constantinople from the Q406 modern entity; Byzantium requires separately reviewed evidence and is left out here."
+      ],
+      "nameTimelineProposal": [],
+      "transitionYears": [],
+      "timelineGate": "Exact existing record identity only. Name timeline is separate from observations/tenure and cannot establish settlement existence; apply after the existing source-availability gate. Annual transition years allow both adjacent names (overlapping intervals), because observation dates lack months/days."
+    }
+  ],
+  "sources": {
+    "yek-museum": {
+      "title": "History of Russia in Photographs / Multimedia Art Museum exhibition",
+      "url": "https://m.russiainphoto.ru/exhibitions/2171/",
+      "type": "institutional history",
+      "evidenceSummary": "Exhibition states Yekaterinburg was renamed Sverdlovsk on 14 October 1924 and the historic name returned on 23 September 1991.",
+      "access": "page retrieved"
+    },
+    "yek-archive": {
+      "title": "State Archive of Social and Political History of Sverdlovsk Oblast",
+      "url": "https://gaspi-so.ru/news/1218-osnovyvayas-na-pozhelaniyakh-desyatkov-tysyach-nashikh-zemlyakov",
+      "type": "state archive history using archival holdings",
+      "evidenceSummary": "Distinguishes local decision on 4 September 1991 from Presidium approval on 23 September. The latter is the display transition.",
+      "access": "page retrieved"
+    },
+    "samara-1935": {
+      "title": "USSR Central Executive Committee decree, 27 January 1935",
+      "url": "https://docs.historyrussia.org/ru/nodes/353522-postanovlenie-tsentralnogo-ispolnitelnogo-komiteta-o-pereimenovanii-goroda-samary-v-gorod-kuybyshev-i-sredne-volzhskogo-kraya-v-kuybyshevskiy-kray-27-yanvarya-1935-g",
+      "type": "primary decree catalogue",
+      "evidenceSummary": "Catalogue describes decree renaming Samara to Kuybyshev dated 27 January 1935, published in Izvestiia No. 23 on 28 January.",
+      "access": "catalogue retrieved"
+    },
+    "samara-1991": {
+      "title": "Samara Regional Library for the Blind — restoration of city name",
+      "url": "https://samaraobs.ru/info/events/35-let-nazad-stolitse-samarskoy-oblasti-vernuli-istoricheskoe-nazvanie/",
+      "type": "institutional history",
+      "evidenceSummary": "Records restoration to Samara by decree dated 25 January 1991. The paragraph explicitly differentiates the two renamings.",
+      "access": "page retrieved"
+    },
+    "samara-decree": {
+      "title": "RSFSR Presidium decree, 25 January 1991, reproduced by Garant",
+      "url": "https://base.garant.ru/6146183/",
+      "type": "primary decree transcription",
+      "evidenceSummary": "Decree text renames Kuybyshev to Samara; identifies Vedomosti 1991 No. 5, article 59.",
+      "access": "indexed full decree text retrieved; direct open 403"
+    },
+    "volgograd": {
+      "title": "Volgograd State University — History of the City",
+      "url": "https://volgaland.volsu.ru/ru/object/4",
+      "type": "institutional history",
+      "evidenceSummary": "Explicit dates: Tsaritsyn to Stalingrad on 10 April 1925; Stalingrad to Volgograd on 10 November 1961.",
+      "access": "page retrieved"
+    },
+    "kaliningrad": {
+      "title": "Kaliningrad City Council — regional history",
+      "url": "https://gorsovetklgd.ru/novosti/78-let-s-daty-obrazovaniya-i-vklyucheniya-kenigsbergskoy-oblasti-v-sostav-rossiyskoy-sfsr",
+      "type": "institutional history",
+      "evidenceSummary": "Explicitly dates both Königsberg city and region renaming to Kaliningrad to 4 July 1946. Use only this naming claim; no territorial-status conclusion is imported.",
+      "access": "page retrieved"
+    },
+    "petersburg-library": {
+      "title": "Presidential Library — Saint Petersburg renamed Petrograd",
+      "url": "https://www.prlib.ru/history/1983280",
+      "type": "institutional history",
+      "evidenceSummary": "Gives 18 August Julian / 31 August Gregorian 1914 for Petrograd; 26 January 1924 for Leningrad; 6 September 1991 for restored Saint Petersburg.",
+      "access": "full indexed page retrieved"
+    },
+    "petersburg-archive": {
+      "title": "Saint Petersburg Archives — City name exhibition",
+      "url": "https://spbarchives.ru/toponimika2023-1",
+      "type": "state archive documentary exhibition",
+      "evidenceSummary": "Primary documentary sequence: 18 August 1914 old style; 26 January 1924 congress resolution; 6 September 1991 decree. Explains local January 23 proposal versus national January 26 approval.",
+      "access": "detailed indexed text retrieved; direct page timed out"
+    },
+    "petersburg-municipal": {
+      "title": "Saint Petersburg City Administration — cultural statistics",
+      "url": "https://www.gov.spb.ru/gov/otrasl/c_culture/culture_statistics/",
+      "type": "institutional history",
+      "evidenceSummary": "Confirms Saint Petersburg 1703–1914, Petrograd 1914–1924, Leningrad 1924–1991 and restoration 6 September 1991.",
+      "access": "indexed page retrieved"
+    },
+    "nizhny-municipal": {
+      "title": "Nizhny Novgorod City Administration — general information",
+      "url": "https://admgor.nnov.ru/Dlya-razbora-struktury-/Obshchie-svedeniya",
+      "type": "institutional history",
+      "evidenceSummary": "Explicit dates: renamed for Gorky from 7 October 1932; historical name returned on 22 October 1990.",
+      "access": "indexed page retrieved; related municipal document direct open failed"
+    },
+    "istanbul-municipal": {
+      "title": "Istanbul Metropolitan Municipality — history of the city’s names",
+      "url": "https://istanbulseninhaber.ibb.istanbul/haber-detay/istanbulun-isim-seruveni",
+      "type": "institutional history",
+      "evidenceSummary": "Lists Constantinople as Byzantine official name and multiple coexisting Ottoman names, including Istanbul. Supports coexistence, not a universal exclusive 1930 renaming date.",
+      "access": "full indexed page retrieved"
+    },
+    "istanbul-frus": {
+      "title": "US Office of the Historian — FRUS 1930 Volume III, Turkish negotiations",
+      "url": "https://history.state.gov/historicaldocuments/frus1930v03/ch74",
+      "type": "primary diplomatic documents",
+      "evidenceSummary": "Contemporaneous diplomatic document headings use Constantinople on 2 October 1929 and Istanbul on 18 March 1930. This is dated English usage evidence, not a legal city-renaming decree.",
+      "access": "page retrieved"
+    },
+    "istanbul-unesco": {
+      "title": "UNESCO — Historic Areas of Istanbul",
+      "url": "https://whc.unesco.org/en/list/356/",
+      "type": "institutional history",
+      "evidenceSummary": "Existing project rule cites UNESCO for Byzantine Constantinople. Existing exact observation bindings are preserved; this review does not extend their end date or impose a 1930 legal date.",
+      "access": "existing project citation; not newly fetched this pass"
+    },
+    "sverdlovsk-ukraine-institution": {
+      "title": "Canadian Institute of Ukrainian Studies — Encyclopedia of Ukraine, Sverdlovsk",
+      "url": "https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CS%5CV%5CSverdlovsk.htm",
+      "type": "institutional encyclopedia",
+      "evidenceSummary": "Identifies Sverdlovs’k as a Luhansk-oblast city, formed by amalgamation of mining settlements in 1938; gives 2013 population 65,276. This is a different city from Yekaterinburg.",
+      "access": "indexed page retrieved"
+    },
+    "dovzhansk-map": {
+      "title": "Visicom — Dovzhansk (Sverdlovsk)",
+      "url": "https://maps.visicom.ua/c/39.62666%2C48.06454%2C12/f/STL1O3HTT?lang=en",
+      "type": "first-party map provider geodata",
+      "evidenceSummary": "Map provider gives Luhanska oblast location center [39.66152260073741,48.064899508796344], bbox [39.58659861446542,48.00941500982516,39.73561923863272,48.10800581495756]. The Chandler point lies inside this city bbox.",
+      "access": "indexed map metadata retrieved"
+    },
+    "dovzhansk-statistics": {
+      "title": "State Statistics Service of Ukraine — Population on 1 January 2019",
+      "url": "https://ukrstat.gov.ua/druk/publicat/kat_u/2019/zb/06/zb_chnn2019.pdf",
+      "type": "official statistics",
+      "evidenceSummary": "Indexed table distinguishes Dovzhansk city population 63,576 present / 63,358 permanent from city-council aggregate 95,990 / 95,712. These modern values are contextual evidence only, not substitutes for 1950 or 1975.",
+      "access": "indexed table retrieved; direct PDF timed out"
+    },
+    "population-input": {
+      "title": "Reba, Reitsma & Seto digitization of Chandler urban population",
+      "url": "https://doi.org/10.6084/m9.figshare.2059494",
+      "type": "primary data archive reference",
+      "evidenceSummary": "Exact original row is retained locally as chandler:1356: name Sverdlovs'k, coordinates [39.651631,48.08455], countryReference Ukraine, observations 1950=610000 and 1975=1345000. Original Chandler printed pages not located in this pass.",
+      "access": "local frozen source-derived row inspected"
+    },
+    "kaliningrad-rosstat": {
+      "title": "Kaliningrad regional office of Rosstat — History of regional statistics",
+      "url": "https://39.rosstat.gov.ru/esse",
+      "type": "official institutional history",
+      "evidenceSummary": "Confirms by USSR Presidium decrees that Königsberg city became Kaliningrad on 4 July 1946.",
+      "access": "official indexed text retrieved"
+    }
+  },
+  "quarantineCandidates": [
+    {
+      "recordId": "chandler:1356",
+      "action": "Exclude this exact row from historical map population display and country-dossier spatial association pending identity review; preserve the source row and values in downloadable data. Do not migrate its coordinates or attach Q887.",
+      "originalRecord": {
+        "id": "chandler:1356",
+        "qid": null,
+        "name": "Sverdlovs'k",
+        "nameZh": "斯维尔德洛夫斯克",
+        "coordinates": [
+          39.651631,
+          48.08455
+        ],
+        "countryReference": "Ukraine",
+        "otherNames": "Sverdlovsk",
+        "observations": [
+          [
+            1950,
+            610000
+          ],
+          [
+            1975,
+            1345000
+          ]
+        ]
+      },
+      "facts": [
+        "Source-derived coordinates and Ukraine countryReference point to the Luhansk Sverdlovsk/Dovzhansk, not the Urals city.",
+        "The record point lies inside the first-party Visicom Dovzhansk city bbox.",
+        "Its distance to the separate Yekaterinburg source point is 1709.7 km.",
+        "An institutional Ukrainian encyclopedia identifies this city as formed in 1938 and having 65,276 inhabitants in 2013; this is distinct from the Yekaterinburg identity."
+      ],
+      "sourceKeys": [
+        "population-input",
+        "dovzhansk-map",
+        "sverdlovsk-ukraine-institution",
+        "dovzhansk-statistics"
+      ],
+      "inference": "The 610000/1345000 values suggest a same-name geocoding mismatch, potentially with Soviet Sverdlovsk/Yekaterinburg. That intended population-city identity is NOT proven without the original Chandler pages or an upstream correction. Population magnitude alone cannot establish it.",
+      "unresolved": "Original printed Chandler population entries and exact intended metropolitan extent not inspected; quarantine is supported, reassignment is not."
+    }
+  ],
+  "remainingUncertainty": [
+    "Istanbul naming is multilingual and overlapping; no universal exact renaming boundary approved.",
+    "Nizhny Novgorod exact-day source was available via indexed official text; direct access failed on one municipal URL.",
+    "One common Saint Petersburg city-administration article incorrectly calls 6 September 1991 the referendum date; the archive differentiates June 12 referendum and September 6 decree. That erroneous statement is not used.",
+    "Sverdlovsk population ownership remains unresolved; source record must stay intact and unassigned."
+  ]
+}

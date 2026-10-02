@@ -1,0 +1,4230 @@
+{
+  "schemaVersion": 1,
+  "title": {
+    "zh": "城市篇章",
+    "en": "City chapters"
+  },
+  "license": "CC BY 4.0",
+  "createdAt": "2026-10-02",
+  "bindingContract": {
+    "match": "Match an exact sourceRecordId and an inclusive year range; never match by nearby coordinate or modern name alone.",
+    "observations": "For records with observations, require the selected observation year to lie within the binding start/end. Where observationYears is present, require membership in that list. Also require the atlas year to lie within dossier scope.",
+    "scope": "scope bounds the historical identity of the reading dossier; it does not attest settlement at every intervening year.",
+    "coordinates": "No new city coordinates or historical city polygons are asserted by these narratives."
+  },
+  "sources": [
+    {
+      "id": "rome-unesco",
+      "title": "Historic Centre of Rome, the Properties of the Holy See in that City Enjoying Extraterritorial Rights and San Paolo Fuori le Mura",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/91/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Tiber setting; ancient monuments and infrastructure",
+        "Christian transformation and later artistic layers",
+        "World Heritage inscription in 1980"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "rome-met",
+      "title": "Augustan Rule (27 B.C.–14 A.D.)",
+      "publisher": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/essays/augustan-rule-27-b-c-14-a-d",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Augustan reign and rebuilding in marble",
+        "Literature and public art under Augustus"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "rome-colosseum",
+      "title": "Blood and the Arena",
+      "publisher": "Parco archeologico del Colosseo",
+      "url": "https://colosseo.it/en/event/blood-and-the-arena/",
+      "accessedAt": "2026-10-02",
+      "access": "read-search-indexed-page-text; direct-open-unavailable",
+      "supports": [
+        "Titus inaugurated the Colosseum in 80 CE"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "constantinople-unesco",
+      "title": "Historic Areas of Istanbul",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/356/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Historic peninsula and surrounding waters",
+        "Theodosian walls; Hagia Sophia construction in 532–537",
+        "Influence of architecture and mosaics"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "constantinople-met",
+      "title": "Byzantium (ca. 330–1453)",
+      "publisher": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/essays/byzantium-ca-330-1453",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Capital established in 330; Roman identity and later Greek language",
+        "1204 conquest, 1261 restoration and 1453 Ottoman conquest",
+        "Manuscripts, portable arts and cultural exchange"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cairo-ministry",
+      "title": "Historical Cairo",
+      "publisher": "Egyptian Ministry of Tourism and Antiquities",
+      "url": "https://egymonuments.gov.eg/collections/historical-cairo/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Foundation of al-Qahira in 969; preceding Islamic cities",
+        "Al-Azhar commissioned in 970",
+        "Mamluk expansion, charitable and commercial buildings"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cairo-unesco",
+      "title": "Historic Cairo",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/89/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Medieval city fabric and successive urban development",
+        "Trade connections across Europe, Asia and Africa",
+        "Scholars, pilgrims, workshops and craft streets"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cairo-citadel",
+      "title": "Cairo Citadel",
+      "publisher": "Egyptian Ministry of Tourism and Antiquities",
+      "url": "https://egymonuments.gov.eg/archaeological-sites/cairo-citadel/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Saladin ordered the citadel on Muqattam in 1176; construction continued afterward"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "timbuktu-unesco",
+      "title": "Timbuktu",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/119/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Fifteenth- and sixteenth-century intellectual and spiritual centre",
+        "Djingareyber, Sankore and Sidi Yahia mosques; earthen architecture",
+        "World Heritage inscription in 1988"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "timbuktu-loc-overview",
+      "title": "Ancient Manuscripts from the Desert Libraries of Timbuktu — Overview",
+      "publisher": "Library of Congress",
+      "url": "https://www.loc.gov/exhibits/mali/mali-overview.html",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Saharan trading city and long-distance scholarly networks",
+        "Books written and copied from at least the fourteenth century",
+        "Manuscript libraries"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "timbuktu-loc-items",
+      "title": "Ancient Manuscripts from the Desert Libraries of Timbuktu — Exhibition",
+      "publisher": "Library of Congress",
+      "url": "https://www.loc.gov/exhibits/mali/mali-exhibit.html",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Astronomical manuscript copied in 1733 (item 1)",
+        "Inheritance, commercial law, arithmetic and related teaching",
+        "Commercial agreements documenting slavery and a certificate of emancipation"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "tenochtitlan-inah",
+      "title": "Centro histórico de la Ciudad de México",
+      "publisher": "Instituto Nacional de Antropología e Historia",
+      "url": "https://lugares.inah.gob.mx/es/node/4833",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "1325 island foundation tradition; temple dedications",
+        "Triple Alliance, tribute, 1521 Spanish and Indigenous conquest",
+        "Colonial city built on Mexica structures and street pattern"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "tenochtitlan-met",
+      "title": "Tenochtitlan",
+      "publisher": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/essays/tenochtitlan",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Island reclamation, canals, causeways and aqueducts",
+        "Major building campaigns beginning in the 1470s",
+        "Sacred Precinct, neighbourhoods, crafts and markets"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "tenochtitlan-unesco",
+      "title": "Historic Centre of Mexico City and Xochimilco",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/412/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Tenochtitlan in Lake Texcoco; colonial reconstruction",
+        "Modern urban extent differs from ancient island",
+        "Xochimilco is a separate property component"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cusco-unesco",
+      "title": "City of Cuzco",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/273/",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Andean valley at about 3,400 metres",
+        "Fifteenth-century replanning and later colonial construction",
+        "Inca and colonial artistic layers; World Heritage inscription in 1983"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cusco-nmai-city",
+      "title": "Cusco — Introduction",
+      "publisher": "Smithsonian National Museum of the American Indian",
+      "url": "https://americanindian.si.edu/inkaroad/inkauniverse/cusco/introduction.html",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Sacred capital and residence of the Sapa Inka",
+        "Roads from the main plaza to four imperial regions"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cusco-nmai-origins",
+      "title": "Inka — Creation Stories",
+      "publisher": "Smithsonian National Museum of the American Indian",
+      "url": "https://americanindian.si.edu/inkaroad/ancestors/creationstories/inka.html",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Small kingdom in Cusco from the early 1200s",
+        "Expansion under Inka rulers from 1438"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "cusco-nmai-1533",
+      "title": "Engineering the Inka Empire: A Symposium on Sustainability and Ancient Technologies — Program",
+      "publisher": "Smithsonian National Museum of the American Indian",
+      "url": "https://americanindian.si.edu/sites/1/files/pdf/seminars-symposia/program-agenda-for-engineering-the-inka-empire.pdf",
+      "accessedAt": "2026-10-02",
+      "access": "read-full-page",
+      "supports": [
+        "Spanish arrival in Cusco in 1533"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "changan-corridor",
+      "title": "Silk Roads: the Routes Network of Chang’an–Tianshan Corridor",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/1442/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "汉唐长安与中亚交通网络",
+        "前2世纪远距离交换扩大",
+        "贸易、宗教与知识传播"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "changan-sites",
+      "title": "Chinese Section of the Silk Road — Tentative List 5335",
+      "publisher": "State Administration of Cultural Heritage, China; hosted by UNESCO",
+      "url": "https://whc.unesco.org/en/tentativelists/5335/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "汉长安与唐长安分别列出的地理位置",
+        "755—763年安史之乱后交通格局变化"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "Description: sites in Shaanxi; paragraph beginning “After the Rebellion of An Shi”"
+    },
+    {
+      "id": "changan-plan",
+      "title": "Hit TV series arouses great interest in Xi’an",
+      "publisher": "Xi’an Municipal Government; Xi’an Museum collections",
+      "url": "https://en.xa.gov.cn/MediaCenter/News/1691691320429105154.html",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "隋大兴城与唐长安布局联系",
+        "街坊、东西市场",
+        "出土人物俑与文化活动"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "2019-07-10; passages on city layout and museum objects"
+    },
+    {
+      "id": "changan-daming",
+      "title": "Ancient city celebrates new national 5A-level scenic spot",
+      "publisher": "Xi’an Municipal Government",
+      "url": "https://en.xa.gov.cn/MediaCenter/News/1691691385017192449.html",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "大明宫634年始建",
+        "宫殿的中轴布局"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "2020-12-18; Daming Palace history"
+    },
+    {
+      "id": "kyoto-whc",
+      "title": "Historic Monuments of Ancient Kyoto",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/688/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "794年平安京",
+        "京都、宇治、大津17处遗产组成",
+        "木构建筑和庭园传统"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "kyoto-bunka",
+      "title": "Historic Monuments of Ancient Kyoto: Identification, History",
+      "publisher": "Agency for Cultural Affairs, Japan",
+      "url": "https://online.bunka.go.jp/suisensyo/kyoto/MAINTEXT/3a1.html",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "盆地地理与平安京布局",
+        "唐长安规划影响",
+        "西部低湿地与向东发展",
+        "寺院和宫廷文化"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "kyoto-nijo",
+      "title": "Nijo-jo Castle: Chronology",
+      "publisher": "City of Kyoto / Nijo-jo Castle",
+      "url": "https://nijo-jocastle.city.kyoto.lg.jp/introduction/highlights/nenpyo/?lang=en",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "1603年二条城完成",
+        "1867年德川庆喜宣布大政奉还意向"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "delhi-qutb",
+      "title": "Qutb Minar and its Monuments, Delhi",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/233/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "德里南部早期苏丹国建筑群",
+        "1311年阿莱达尔瓦扎门",
+        "印度与西亚建筑形式相遇"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "delhi-humayun",
+      "title": "Humayun’s Tomb, Delhi",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/232/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "1560年代建造与1570年概要日期",
+        "波斯和印度工匠",
+        "四分花园、水渠及后续莫卧儿建筑影响"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "delhi-redfort",
+      "title": "Red Fort Complex",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/231/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "沙贾汗纳巴德宫堡",
+        "亭阁与水渠",
+        "波斯、帖木儿与印度建筑传统"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "delhi-ministry",
+      "title": "Red Fort, Delhi — Backgrounder",
+      "publisher": "Ministry of Culture, Government of India / Press Information Bureau",
+      "url": "https://www.pib.gov.in/newsite/erelcontent.aspx?lang=2&reg=48&relid=33154",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "红堡1639—1648年建造",
+        "雅穆纳河西岸位置",
+        "宫堡与城墙布局"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "26 November 2007"
+    },
+    {
+      "id": "angkor-whc",
+      "title": "Angkor",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/668/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "9—15世纪多个高棉都城",
+        "寺庙、水利和村落的地域关系",
+        "印度来源与高棉艺术发展"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "angkor-wat",
+      "title": "Angkor Wat",
+      "publisher": "APSARA National Authority, Cambodia",
+      "url": "https://apsaraauthority.gov.kh/2021/06/14/angkor-wat/",
+      "accessedAt": "2026-10-02",
+      "access": "indexed-institution-page; direct open returned internal error",
+      "supports": [
+        "1113—1150年吴哥寺建设",
+        "最初供奉毗湿奴",
+        "16世纪佛教朝圣"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "History and Site; full institution text retrieved in search result"
+    },
+    {
+      "id": "angkor-preahkhan",
+      "title": "Preah Khan: Great Architecture and a Symbol of Victory",
+      "publisher": "APSARA National Authority, Cambodia",
+      "url": "https://apsaraauthority.gov.kh/2026/05/07/great-architecture-and-a-symbol-of-victory/",
+      "accessedAt": "2026-10-02",
+      "access": "indexed-institution-page",
+      "supports": [
+        "铭文记载1191年圣剑寺建设、奉献于阇耶跋摩七世之父",
+        "宗教与社会活动"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "7 May 2026; inscription summary"
+    },
+    {
+      "id": "angkor-research",
+      "title": "New research casts doubt on cause of Angkor’s collapse",
+      "publisher": "University of Sydney",
+      "url": "https://www.sydney.edu.au/news-opinion/news/2019/02/26/new-research-casts-doubt-on-cause-of-angkor-s-collapse.html",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "吴哥通核心地区14世纪较长期土地利用减少",
+        "不能将1431年设为全城突然无人居住的终点"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "26 February 2019; Angkor Thom moat-core study"
+    },
+    {
+      "id": "samarkand-whc",
+      "title": "Samarkand – Crossroad of Cultures",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/603/",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "泽拉夫尚河谷绿洲",
+        "东北阿弗拉西阿卜、南侧帖木儿城区的不同位置",
+        "建筑与城市文化遗产"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "samarkand-dossier",
+      "title": "Samarkand: Nomination and ICOMOS Evaluation",
+      "publisher": "Uzbekistan nomination; ICOMOS evaluation, hosted by UNESCO",
+      "url": "https://whc.unesco.org/uploads/nominations/603rev.pdf",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "1220年蒙古入侵及城市空间重组",
+        "阿弗拉西阿卜7世纪壁画与使团",
+        "1420年兀鲁伯经学院"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "PDF pages 5, 64–65 (zero-based); printed evaluation pp.25–27"
+    },
+    {
+      "id": "samarkand-met",
+      "title": "The Art of the Timurid Period (ca. 1370–1507)",
+      "publisher": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/essays/the-art-of-the-timurid-period-ca-1370-1507",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "1370年帖木儿定都撒马尔罕",
+        "征服与工匠迁移",
+        "波斯文化和帖木儿宫廷艺术"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "silkroad-astronomy",
+      "title": "Evolution of Astronomy along the Silk Roads",
+      "publisher": "UNESCO Silk Roads Programme",
+      "url": "https://www.unesco.org/en/articles/evolution-astronomy-along-silk-roads",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "8世纪巴格达与印度天文学翻译",
+        "15世纪撒马尔罕、兀鲁伯与星表"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "21 December 2018, updated 20 April 2023"
+    },
+    {
+      "id": "baghdad-met",
+      "title": "The Art of the Abbasid Period (750–1258)",
+      "publisher": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/essays/the-art-of-the-abbasid-period-750-1258",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "762年圆城建都",
+        "836—892年萨迈拉作为首都",
+        "1258年蒙古攻占",
+        "13世纪书籍艺术与穆斯坦绥里亚经学院"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "baghdad-unesco-history",
+      "title": "History of Civilizations of Central Asia, IV/1",
+      "publisher": "UNESCO",
+      "url": "https://unesdoc.unesco.org/ark:/48223/pf0000111664",
+      "accessedAt": "2026-10-02",
+      "access": "opened-page",
+      "supports": [
+        "曼苏尔选址于底格里斯河西岸",
+        "762年新都奠基",
+        "来自不同地区的军人、工匠与居民"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced.",
+      "locator": "1998; chapter 1, printed p.40 / PDF page 39",
+      "consultedUrl": "https://unesdoc.unesco.org/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_ee5bd446-a11d-4a1a-b6ac-64b945c80037?_=111664engo.pdf"
+    }
+  ],
+  "entries": [
+    {
+      "id": "city-rome",
+      "nameZh": "罗马",
+      "nameEn": "Rome",
+      "aliases": [
+        "Roma"
+      ],
+      "scope": {
+        "start": -750,
+        "end": 2024,
+        "zh": "台伯河畔的罗马历史城区；聚焦古代都城及其后续城市遗产。",
+        "en": "The historic city of Rome on the Tiber, with a focus on the ancient capital and its later urban legacy.",
+        "spatial": {
+          "zh": "台伯河畔的罗马历史城区。",
+          "en": "The historic urban area of Rome beside the Tiber."
+        },
+        "temporal": {
+          "zh": "台伯河畔的罗马历史城区；聚焦古代都城及其后续城市遗产。",
+          "en": "The historic city of Rome on the Tiber, with a focus on the ancient capital and its later urban legacy."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "pleiades:423025",
+          "start": -750,
+          "end": 640,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              -750,
+              -550,
+              "archaic"
+            ],
+            [
+              -550,
+              -330,
+              "classical"
+            ],
+            [
+              -330,
+              -30,
+              "hellenistic-republican"
+            ],
+            [
+              -30,
+              300,
+              "roman"
+            ],
+            [
+              300,
+              640,
+              "late-antique"
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:q2277$7188A5B8-5682-4561-B024-26D33391EFB8",
+          "start": -27,
+          "end": 395,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              -27,
+              395
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q172579$60e20660-4ca1-020b-47e0-1d251ab94505",
+          "start": 1871,
+          "end": 1946,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              1871,
+              1946
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:1202",
+          "start": -430,
+          "end": 1975,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            -430,
+            100,
+            361,
+            500,
+            600,
+            622,
+            700,
+            800,
+            900,
+            970,
+            1000,
+            1198,
+            1200,
+            1300,
+            1377,
+            1400,
+            1458,
+            1500,
+            1513,
+            1550,
+            1575,
+            1600,
+            1650,
+            1700,
+            1750,
+            1800,
+            1809,
+            1825,
+            1850,
+            1875,
+            1900,
+            1914,
+            1925,
+            1950,
+            1970,
+            1975
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:109",
+          "start": -500,
+          "end": 500,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            -500,
+            -400,
+            -300,
+            -200,
+            -100,
+            1,
+            100,
+            200,
+            300,
+            400,
+            500
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-modern:223",
+          "start": 2000,
+          "end": 2000,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            2000
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "罗马沿台伯河展开，古代公共广场、竞技场、城墙和输水道共同勾勒出都城的尺度。今天的历史城区仍能读出这些空间之间的联系：广场曾汇聚政治生活，宏大的公共建筑组织着人群，而跨越城区的供水设施支撑着都市日常。河流与层层叠建的街区，让这里的历史具有鲜明的空间感。",
+          "en": "Rome grew beside the Tiber, where forums, amphitheatres, walls and aqueducts reveal the scale of an ancient capital. Its surviving monuments can be read together as an urban system: public spaces concentrated political life, large buildings gathered crowds, and water infrastructure sustained the city. Later streets and buildings developed around this inherited framework.",
+          "sourceIds": [
+            "rome-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "共和国时期积累的权力与财富，在奥古斯都统治下获得新的城市表达。公元前27年开启的元首时代，以大理石建筑和公共艺术塑造帝都形象；公元80年，提图斯主持斗兽场落成庆典。此后的基督教化又改变了城市重心，古代建筑、教堂和后世广场逐渐交织成今天可见的历史层次。",
+          "en": "Augustus, whose reign began in 27 BCE, reshaped the capital through marble architecture and public art. The Colosseum was inaugurated under Titus in 80 CE, giving imperial spectacle a monumental setting. Christianity subsequently altered Rome’s sacred landscape. Churches, reused ancient structures and later squares accumulated across the city, preserving a history of both transformation and survival.",
+          "sourceIds": [
+            "rome-met",
+            "rome-colosseum",
+            "rome-unesco"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "罗马的影响也通过文字和图像传播。奥古斯都时代的史书与诗歌参与讲述罗马的过去，祭坛和雕刻则将统治秩序带入公共视野。文艺复兴与巴洛克时期继续重塑街景，使不同年代的艺术相邻而居。沿街阅读这些作品，可以看到一座城市如何不断解释和改写自己的记忆。",
+          "en": "Writers and artists helped give that history its language. Augustan literature recast Rome’s past, while sculpture and state monuments presented ideals of imperial authority. Renaissance and Baroque interventions added further artistic layers. The city rewards attention to these changing relationships: its cultural importance lies in the continuing reinterpretation of inherited buildings, images and memories.",
+          "sourceIds": [
+            "rome-met",
+            "rome-unesco"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": -27,
+          "endYear": -27,
+          "precision": "year",
+          "date": {
+            "zh": "公元前27年",
+            "en": "27 BCE"
+          },
+          "labelZh": "公元前27年",
+          "labelEn": "27 BCE",
+          "zh": "奥古斯都统治开始，帝都建设进入新的阶段。",
+          "en": "Augustus begins his reign, opening a new phase of imperial building.",
+          "sourceIds": [
+            "rome-met"
+          ]
+        },
+        {
+          "year": 80,
+          "endYear": 80,
+          "precision": "year",
+          "date": {
+            "zh": "80年",
+            "en": "80 CE"
+          },
+          "labelZh": "80年",
+          "labelEn": "80 CE",
+          "zh": "提图斯主持斗兽场落成庆典。",
+          "en": "Titus inaugurates the Colosseum.",
+          "sourceIds": [
+            "rome-colosseum"
+          ]
+        },
+        {
+          "year": 1980,
+          "endYear": 1980,
+          "precision": "year",
+          "date": {
+            "zh": "1980年",
+            "en": "1980 CE"
+          },
+          "labelZh": "1980年",
+          "labelEn": "1980 CE",
+          "zh": "罗马历史中心列入世界遗产名录；遗产范围后来于1990年扩展。",
+          "en": "Rome’s historic centre is inscribed on the World Heritage List; the property is extended in 1990.",
+          "sourceIds": [
+            "rome-unesco"
+          ]
+        }
+      ],
+      "sourceRecordIds": [
+        "pleiades:423025",
+        "capital:q2277$7188A5B8-5682-4561-B024-26D33391EFB8",
+        "capital:Q172579$60e20660-4ca1-020b-47e0-1d251ab94505",
+        "chandler:1202",
+        "modelski-ancient:109",
+        "modelski-modern:223"
+      ],
+      "sourceIds": [
+        "rome-unesco",
+        "rome-met",
+        "rome-colosseum"
+      ],
+      "sourceRecords": [
+        {
+          "id": "pleiades:423025",
+          "name": "Roma",
+          "nameZh": "罗马",
+          "coordinates": [
+            12.491258174554883,
+            41.8899769864849
+          ],
+          "periods": [
+            [
+              -750,
+              -550,
+              "archaic"
+            ],
+            [
+              -550,
+              -330,
+              "classical"
+            ],
+            [
+              -330,
+              -30,
+              "hellenistic-republican"
+            ],
+            [
+              -30,
+              300,
+              "roman"
+            ],
+            [
+              300,
+              640,
+              "late-antique"
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://pleiades.stoa.org/places/423025",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "capital:q2277$7188A5B8-5682-4561-B024-26D33391EFB8",
+          "name": "Rome",
+          "nameZh": "罗马",
+          "coordinates": [
+            12.481313,
+            41.897902
+          ],
+          "periods": [
+            [
+              -27,
+              395
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q2277#P36",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "capital:Q172579$60e20660-4ca1-020b-47e0-1d251ab94505",
+          "name": "Rome",
+          "nameZh": "罗马",
+          "coordinates": [
+            12.481313,
+            41.897902
+          ],
+          "periods": [
+            [
+              1871,
+              1946
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q172579#P36",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "chandler:1202",
+          "name": "Rome",
+          "nameZh": "罗马",
+          "coordinates": [
+            12.4839,
+            41.89474
+          ],
+          "periods": null,
+          "observationYears": [
+            -430,
+            100,
+            361,
+            500,
+            600,
+            622,
+            700,
+            800,
+            900,
+            970,
+            1000,
+            1198,
+            1200,
+            1300,
+            1377,
+            1400,
+            1458,
+            1500,
+            1513,
+            1550,
+            1575,
+            1600,
+            1650,
+            1700,
+            1750,
+            1800,
+            1809,
+            1825,
+            1850,
+            1875,
+            1900,
+            1914,
+            1925,
+            1950,
+            1970,
+            1975
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "modelski-ancient:109",
+          "name": "Rome",
+          "nameZh": "罗马",
+          "coordinates": [
+            12.4839,
+            41.89474
+          ],
+          "periods": null,
+          "observationYears": [
+            -500,
+            -400,
+            -300,
+            -200,
+            -100,
+            1,
+            100,
+            200,
+            300,
+            400,
+            500
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "modelski-modern:223",
+          "name": "Rome",
+          "nameZh": "罗马",
+          "coordinates": [
+            12.4839,
+            41.89474
+          ],
+          "periods": null,
+          "observationYears": [
+            2000
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059500",
+          "coordinateUse": "preserve-source-urban-reference"
+        }
+      ]
+    },
+    {
+      "id": "city-constantinople",
+      "nameZh": "君士坦丁堡",
+      "nameEn": "Constantinople",
+      "aliases": [
+        "Constantinopolis"
+      ],
+      "scope": {
+        "start": 330,
+        "end": 1453,
+        "zh": "历史半岛上的君士坦丁堡，聚焦330—1453年；包括1204—1261年拉丁统治阶段。",
+        "en": "Constantinople on the historic peninsula, 330–1453, including Latin rule in 1204–1261.",
+        "spatial": {
+          "zh": "博斯普鲁斯海峡西岸的历史半岛，北临金角湾、南临马尔马拉海。",
+          "en": "The historic peninsula west of the Bosporus, between the Golden Horn and the Sea of Marmara."
+        },
+        "temporal": {
+          "zh": "历史半岛上的君士坦丁堡，聚焦330—1453年；包括1204—1261年拉丁统治阶段。",
+          "en": "Constantinople on the historic peninsula, 330–1453, including Latin rule in 1204–1261."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "pleiades:520998",
+          "start": 330,
+          "end": 1453,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              284,
+              337,
+              "transition-roman-early-empire-late-antique"
+            ],
+            [
+              300,
+              640,
+              "late-antique"
+            ],
+            [
+              300,
+              1450,
+              "late-antique-late-byzantine"
+            ],
+            [
+              500,
+              650,
+              "proto-byzantine"
+            ],
+            [
+              632,
+              750,
+              "caliphate-umayyad-middle-east"
+            ],
+            [
+              650,
+              850,
+              "early-byzantine"
+            ],
+            [
+              750,
+              940,
+              "abassid-middle-east"
+            ],
+            [
+              850,
+              1200,
+              "middle-byzantine"
+            ],
+            [
+              1077,
+              1307,
+              "rum-crusader-anatolia"
+            ],
+            [
+              1081,
+              1204,
+              "crusader-byzantine-seljuq-middle-east"
+            ],
+            [
+              1200,
+              1450,
+              "late-byzantine"
+            ],
+            [
+              1258,
+              1335,
+              "ilkhanate-middle-east"
+            ],
+            [
+              1300,
+              1453,
+              "ottoman-rise"
+            ],
+            [
+              1300,
+              1923,
+              "ottoman-empire-2"
+            ],
+            [
+              1453,
+              1683,
+              "early-ottoman-empire"
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q12544$10910027-1103-4057-BCC4-49CEAB7944D8",
+          "start": 330,
+          "end": 1453,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              330,
+              1453
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q2277$7f52473c-43fc-8c1b-c5a1-158389d33e0b",
+          "start": 476,
+          "end": 1453,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              476,
+              1453
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:623",
+          "start": 330,
+          "end": 1453,
+          "requiresObservation": true,
+          "noteZh": "源标签为Istanbul；仅关联330—1453年内的历史观测。",
+          "noteEn": "The source label is Istanbul; associate only observations within 330–1453.",
+          "observationYears": [
+            500,
+            622,
+            800,
+            900,
+            944,
+            1000,
+            1100,
+            1200,
+            1250,
+            1261,
+            1300,
+            1340,
+            1350,
+            1400,
+            1425,
+            1450,
+            1453
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:56",
+          "start": 400,
+          "end": 1000,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            400,
+            500,
+            600,
+            700,
+            800,
+            900,
+            1000
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "君士坦丁堡坐落在博斯普鲁斯海峡西侧的半岛上，北临金角湾，南向马尔马拉海。天然港湾与横贯欧亚的交通位置，使它兼具海港和帝都的条件。五世纪兴建的陆上城墙与宫殿、教堂、蓄水设施共同组织城市空间，也为理解这座长期承受围攻的都城提供了地理线索。",
+          "en": "Constantinople occupied a peninsula west of the Bosporus, with the Golden Horn to the north and the Sea of Marmara to the south. Its harbour and position between Europe and Asia supported an imperial port city. Fifth-century land walls, palaces, churches and waterworks structured a capital whose geography shaped both movement and defence.",
+          "sourceIds": [
+            "constantinople-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "330年，君士坦丁将古老的拜占庭城建为新的帝国首都。查士丁尼时代的圣索菲亚大教堂于537年建成，成为城市天际线的核心。1204年的十字军征服打断了拜占庭统治，1261年得以恢复；1453年奥斯曼军队攻占城市，开启另一段帝都历史。",
+          "en": "Constantine established the imperial capital here in 330. Hagia Sophia, completed in 537 under Justinian, became a defining monument. Crusader conquest in 1204 interrupted Byzantine rule, which returned in 1261. The Ottoman conquest of 1453 began another imperial chapter. Across these changes, the city’s institutions and buildings were repeatedly damaged, adapted and renewed.",
+          "sourceIds": [
+            "constantinople-met",
+            "constantinople-unesco"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "城中的居民承继罗马身份，希腊语文化与基督教传统日益占据重要位置。宫廷、教会与富裕赞助者支持抄本、珐琅、象牙雕刻和马赛克创作。圣索菲亚的穹顶及教堂的图像影响远及东欧和近东；与拉丁世界、伊斯兰世界的往来，也使这座都城持续吸收和传播艺术经验。",
+          "en": "Its people understood themselves as Romans, while Greek language and Christian traditions became central to public culture. Courts, churches and wealthy patrons supported manuscripts, enamels, ivory carving and mosaics. Monumental architecture influenced builders far beyond the city, and contacts with Latin and Islamic societies shaped artistic exchange. Constantinople’s cultural reach often outlasted the changing extent of imperial territory.",
+          "sourceIds": [
+            "constantinople-met",
+            "constantinople-unesco"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 330,
+          "endYear": 330,
+          "precision": "year",
+          "date": {
+            "zh": "330年",
+            "en": "330 CE"
+          },
+          "labelZh": "330年",
+          "labelEn": "330 CE",
+          "zh": "君士坦丁建立新的帝国首都。",
+          "en": "Constantine establishes the new imperial capital.",
+          "sourceIds": [
+            "constantinople-met"
+          ]
+        },
+        {
+          "year": 537,
+          "endYear": 537,
+          "precision": "year",
+          "date": {
+            "zh": "537年",
+            "en": "537 CE"
+          },
+          "labelZh": "537年",
+          "labelEn": "537 CE",
+          "zh": "圣索菲亚大教堂完成532—537年的建造工程。",
+          "en": "Hagia Sophia is completed after construction in 532–537.",
+          "sourceIds": [
+            "constantinople-unesco"
+          ]
+        },
+        {
+          "year": 1453,
+          "endYear": 1453,
+          "precision": "year",
+          "date": {
+            "zh": "1453年",
+            "en": "1453 CE"
+          },
+          "labelZh": "1453年",
+          "labelEn": "1453 CE",
+          "zh": "奥斯曼军队攻占君士坦丁堡。",
+          "en": "Ottoman forces capture Constantinople.",
+          "sourceIds": [
+            "constantinople-met"
+          ]
+        }
+      ],
+      "sourceRecordIds": [
+        "pleiades:520998",
+        "capital:Q12544$10910027-1103-4057-BCC4-49CEAB7944D8",
+        "capital:Q2277$7f52473c-43fc-8c1b-c5a1-158389d33e0b",
+        "chandler:623",
+        "modelski-ancient:56"
+      ],
+      "sourceIds": [
+        "constantinople-unesco",
+        "constantinople-met"
+      ],
+      "sourceRecords": [
+        {
+          "id": "pleiades:520998",
+          "name": "Constantinopolis",
+          "nameZh": "君士坦丁堡",
+          "coordinates": [
+            28.965635140087546,
+            41.00659262530202
+          ],
+          "periods": [
+            [
+              284,
+              337,
+              "transition-roman-early-empire-late-antique"
+            ],
+            [
+              300,
+              640,
+              "late-antique"
+            ],
+            [
+              300,
+              1450,
+              "late-antique-late-byzantine"
+            ],
+            [
+              500,
+              650,
+              "proto-byzantine"
+            ],
+            [
+              632,
+              750,
+              "caliphate-umayyad-middle-east"
+            ],
+            [
+              650,
+              850,
+              "early-byzantine"
+            ],
+            [
+              750,
+              940,
+              "abassid-middle-east"
+            ],
+            [
+              850,
+              1200,
+              "middle-byzantine"
+            ],
+            [
+              1077,
+              1307,
+              "rum-crusader-anatolia"
+            ],
+            [
+              1081,
+              1204,
+              "crusader-byzantine-seljuq-middle-east"
+            ],
+            [
+              1200,
+              1450,
+              "late-byzantine"
+            ],
+            [
+              1258,
+              1335,
+              "ilkhanate-middle-east"
+            ],
+            [
+              1300,
+              1453,
+              "ottoman-rise"
+            ],
+            [
+              1300,
+              1923,
+              "ottoman-empire-2"
+            ],
+            [
+              1453,
+              1683,
+              "early-ottoman-empire"
+            ],
+            [
+              1683,
+              1918,
+              "late-ottoman-empire"
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://pleiades.stoa.org/places/520998",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "capital:Q12544$10910027-1103-4057-BCC4-49CEAB7944D8",
+          "name": "Constantinople",
+          "nameZh": "君士坦丁堡",
+          "coordinates": [
+            28.976018,
+            41.01224
+          ],
+          "periods": [
+            [
+              330,
+              1453
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q12544#P36",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "capital:Q2277$7f52473c-43fc-8c1b-c5a1-158389d33e0b",
+          "name": "Constantinople",
+          "nameZh": "君士坦丁堡",
+          "coordinates": [
+            28.976018,
+            41.01224
+          ],
+          "periods": [
+            [
+              476,
+              1453
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q2277#P36",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "chandler:623",
+          "name": "Istanbul",
+          "nameZh": "伊斯坦布尔",
+          "coordinates": [
+            28.976944,
+            41.005275
+          ],
+          "periods": null,
+          "observationYears": [
+            -100,
+            500,
+            622,
+            800,
+            900,
+            944,
+            1000,
+            1100,
+            1200,
+            1250,
+            1261,
+            1300,
+            1340,
+            1350,
+            1400,
+            1425,
+            1450,
+            1453,
+            1477,
+            1500,
+            1510,
+            1515,
+            1528,
+            1550,
+            1552,
+            1575,
+            1600,
+            1650,
+            1690,
+            1700,
+            1750,
+            1794,
+            1800,
+            1815,
+            1825,
+            1830,
+            1848,
+            1850,
+            1875,
+            1885,
+            1900,
+            1914,
+            1925,
+            1950,
+            1970,
+            1975
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "modelski-ancient:56",
+          "name": "Istanbul",
+          "nameZh": "伊斯坦布尔",
+          "coordinates": [
+            28.976944,
+            41.005275
+          ],
+          "periods": null,
+          "observationYears": [
+            400,
+            500,
+            600,
+            700,
+            800,
+            900,
+            1000
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "coordinateUse": "preserve-source-urban-reference"
+        }
+      ]
+    },
+    {
+      "id": "city-cairo",
+      "nameZh": "开罗",
+      "nameEn": "Cairo",
+      "aliases": [
+        "al-Qahira",
+        "Al-Qāhira"
+      ],
+      "scope": {
+        "start": 969,
+        "end": 2024,
+        "zh": "以969年建立的法蒂玛开罗及后来相连的历史城区为中心。",
+        "en": "Fatimid al-Qahira, founded in 969, and the historic urban fabric later joined to it.",
+        "spatial": {
+          "zh": "法蒂玛开罗及后来与其相连的历史街区；保留数据源的城市参照点。",
+          "en": "Fatimid Cairo and the historic districts later connected to it; retain the dataset’s urban reference point."
+        },
+        "temporal": {
+          "zh": "以969年建立的法蒂玛开罗及后来相连的历史城区为中心。",
+          "en": "Fatimid al-Qahira, founded in 969, and the historic urban fabric later joined to it."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "capital:Q12536$917b9239-49e9-95f0-b657-203f8fc87a7a",
+          "start": 1261,
+          "end": 1517,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              1261,
+              1517
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q160307$ee667c89-45be-2ac7-2428-0e4e2aeb87f5",
+          "start": 973,
+          "end": 1171,
+          "requiresObservation": false,
+          "noteZh": "",
+          "noteEn": "",
+          "sourcePeriods": [
+            [
+              973,
+              1171
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:246",
+          "start": 969,
+          "end": 1975,
+          "requiresObservation": true,
+          "noteZh": "源中800、884年观测不在本档案范围内。",
+          "noteEn": "The source observations for 800 and 884 are outside this dossier.",
+          "observationYears": [
+            969,
+            1000,
+            1046,
+            1100,
+            1150,
+            1200,
+            1250,
+            1300,
+            1348,
+            1350,
+            1400,
+            1450,
+            1500,
+            1550,
+            1575,
+            1600,
+            1650,
+            1700,
+            1750,
+            1775,
+            1798,
+            1800,
+            1825,
+            1848,
+            1850,
+            1872,
+            1875,
+            1900,
+            1914,
+            1925,
+            1950,
+            1970,
+            1975
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:25",
+          "start": 969,
+          "end": 1000,
+          "requiresObservation": true,
+          "noteZh": "仅采用1000年观测；排除700、800、900年。",
+          "noteEn": "Bind the year 1000 observation only; exclude 700, 800 and 900.",
+          "observationYears": [
+            1000
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-modern:39",
+          "start": 2000,
+          "end": 2000,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            2000
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "开罗的历史城区由多个时代的聚落逐渐连缀而成。法蒂玛王朝建立的卡希拉城位于更早的伊斯兰城市附近，以城门、宫殿和南北街道组织空间。后来城垣内外的街区不断扩展，穆卡塔姆山上的城堡又形成新的统治中心，清真寺、商栈和住宅使城市呈现密集而丰富的层次。",
+          "en": "Historic Cairo grew through the joining of successive urban centres. Fatimid al-Qahira stood near earlier Islamic settlements, with gates, palaces and a principal north–south street shaping its plan. Later neighbourhoods expanded beyond its walls. The citadel on Muqattam introduced another centre of power, while mosques, trading buildings and housing gave the city its dense texture.",
+          "sourceIds": [
+            "cairo-ministry",
+            "cairo-unesco",
+            "cairo-citadel"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "969年，焦哈尔为法蒂玛王朝创建新都城，次年下令营建爱资哈尔清真寺。1176年，萨拉丁启动城堡工程，将防御与统治重心引向高地。马穆鲁克时期，宗教学校、清真寺、供水设施与商业建筑持续兴建，旧城的街巷也随着这些机构的生长而改变。",
+          "en": "Jawhar founded the new Fatimid city in 969, and al-Azhar was commissioned the following year. In 1176 Saladin ordered work on the citadel, redirecting defence and government towards the heights. Mamluk patrons subsequently added mosques, madrasas, public water facilities and commercial buildings. These institutions helped reshape the streets and neighbourhoods around them.",
+          "sourceIds": [
+            "cairo-ministry",
+            "cairo-citadel"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "连接非洲、亚洲与欧洲的贸易，为开罗带来货物、旅行者和知识。学者与朝觐者在这里停留，手工业和市场活动深入街区日常，部分街名至今保存着行业记忆。阅读开罗的方式，因此可以从一座清真寺延伸到商栈与作坊，再回到居住其间的人们，理解学习、信仰与生计如何共享城市空间。",
+          "en": "Trade across Africa, Asia and Europe brought goods and travellers into Cairo. Scholars and pilgrims joined those movements, while crafts and markets sustained everyday urban life. Streets associated with particular trades preserve traces of this working city. Reading a mosque alongside a caravanserai, workshop or house reveals how learning, worship and livelihoods occupied closely connected spaces.",
+          "sourceIds": [
+            "cairo-unesco",
+            "cairo-ministry"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 969,
+          "endYear": 969,
+          "precision": "year",
+          "date": {
+            "zh": "969年",
+            "en": "969 CE"
+          },
+          "labelZh": "969年",
+          "labelEn": "969 CE",
+          "zh": "焦哈尔创建法蒂玛王朝的新都城卡希拉。",
+          "en": "Jawhar founds al-Qahira as the new Fatimid capital.",
+          "sourceIds": [
+            "cairo-ministry"
+          ]
+        },
+        {
+          "year": 970,
+          "endYear": 970,
+          "precision": "year",
+          "date": {
+            "zh": "970年",
+            "en": "970 CE"
+          },
+          "labelZh": "970年",
+          "labelEn": "970 CE",
+          "zh": "爱资哈尔清真寺受命兴建。",
+          "en": "Construction of al-Azhar Mosque is commissioned.",
+          "sourceIds": [
+            "cairo-ministry"
+          ]
+        },
+        {
+          "year": 1176,
+          "endYear": 1176,
+          "precision": "year",
+          "date": {
+            "zh": "1176年",
+            "en": "1176 CE"
+          },
+          "labelZh": "1176年",
+          "labelEn": "1176 CE",
+          "zh": "萨拉丁下令修建城堡，工程由后继统治者继续完成。",
+          "en": "Saladin orders construction of the citadel; later rulers continue the work.",
+          "sourceIds": [
+            "cairo-citadel"
+          ]
+        }
+      ],
+      "sourceRecordIds": [
+        "capital:Q12536$917b9239-49e9-95f0-b657-203f8fc87a7a",
+        "capital:Q160307$ee667c89-45be-2ac7-2428-0e4e2aeb87f5",
+        "chandler:246",
+        "modelski-ancient:25",
+        "modelski-modern:39"
+      ],
+      "sourceIds": [
+        "cairo-ministry",
+        "cairo-unesco",
+        "cairo-citadel"
+      ],
+      "sourceRecords": [
+        {
+          "id": "capital:Q12536$917b9239-49e9-95f0-b657-203f8fc87a7a",
+          "name": "Cairo",
+          "nameZh": "开罗",
+          "coordinates": [
+            31.248022,
+            30.051906
+          ],
+          "periods": [
+            [
+              1261,
+              1517
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q12536#P36",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "capital:Q160307$ee667c89-45be-2ac7-2428-0e4e2aeb87f5",
+          "name": "Cairo",
+          "nameZh": "开罗",
+          "coordinates": [
+            31.248022,
+            30.051906
+          ],
+          "periods": [
+            [
+              973,
+              1171
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q160307#P36",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "chandler:246",
+          "name": "Cairo",
+          "nameZh": "开罗",
+          "coordinates": [
+            31.24967,
+            30.06263
+          ],
+          "periods": null,
+          "observationYears": [
+            800,
+            884,
+            969,
+            1000,
+            1046,
+            1100,
+            1150,
+            1200,
+            1250,
+            1300,
+            1348,
+            1350,
+            1400,
+            1450,
+            1500,
+            1550,
+            1575,
+            1600,
+            1650,
+            1700,
+            1750,
+            1775,
+            1798,
+            1800,
+            1825,
+            1848,
+            1850,
+            1872,
+            1875,
+            1900,
+            1914,
+            1925,
+            1950,
+            1970,
+            1975
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "modelski-ancient:25",
+          "name": "Cairo",
+          "nameZh": "开罗",
+          "coordinates": [
+            31.24967,
+            30.06263
+          ],
+          "periods": null,
+          "observationYears": [
+            700,
+            800,
+            900,
+            1000
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "coordinateUse": "preserve-source-urban-reference"
+        },
+        {
+          "id": "modelski-modern:39",
+          "name": "Cairo",
+          "nameZh": "开罗",
+          "coordinates": [
+            31.24967,
+            30.06263
+          ],
+          "periods": null,
+          "observationYears": [
+            2000
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059500",
+          "coordinateUse": "preserve-source-urban-reference"
+        }
+      ]
+    },
+    {
+      "id": "city-timbuktu",
+      "nameZh": "廷巴克图",
+      "nameEn": "Timbuktu",
+      "aliases": [
+        "Tombouctou",
+        "Timbuctoo"
+      ],
+      "scope": {
+        "start": 1300,
+        "end": 2024,
+        "zh": "廷巴克图城及其手稿与清真寺传统，重点为十四至十八世纪。",
+        "en": "Timbuktu and its manuscript and mosque traditions, with a focus on the fourteenth to eighteenth centuries.",
+        "spatial": {
+          "zh": "廷巴克图历史城区；源点用于城市尺度阅读。",
+          "en": "The historic city of Timbuktu; the source point serves city-scale reading."
+        },
+        "temporal": {
+          "zh": "廷巴克图城及其手稿与清真寺传统，重点为十四至十八世纪。",
+          "en": "Timbuktu and its manuscript and mosque traditions, with a focus on the fourteenth to eighteenth centuries."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:1433",
+          "start": 1300,
+          "end": 1850,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            1300,
+            1400,
+            1500,
+            1600,
+            1828,
+            1850
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "廷巴克图位于撒哈拉沙漠南缘，是商旅与学者相遇的城市。穿越沙漠的交通使它参与广阔的贸易网络，也让书籍和思想随人群流动。津加里贝尔、桑科雷和西迪·叶海亚三座清真寺构成醒目的城市地标，土质建筑依靠持续维护保存下来，呈现适应当地环境的营造传统。",
+          "en": "Timbuktu developed at the southern edge of the Sahara as a meeting place for merchants and scholars. Overland connections carried books and ideas as well as commercial traffic. The mosques of Djingareyber, Sankore and Sidi Yahia remain prominent landmarks. Their earthen architecture also records a building tradition sustained through continuing maintenance and renewal.",
+          "sourceIds": [
+            "timbuktu-loc-overview",
+            "timbuktu-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "至少从十四世纪起，当地已有书籍写作与抄写活动；十五至十六世纪，廷巴克图成为重要的伊斯兰学术中心。城市的知识生活延续到更晚时期，一部1733年抄成的天文学著作仍保存在手稿收藏中。清真寺、教师和藏书者共同延续了学习传统，使城市历史得以在纸页之间传承。",
+          "en": "Books were being written and copied here by at least the fourteenth century. During the fifteenth and sixteenth centuries, Timbuktu became an important centre of Islamic scholarship. A surviving astronomical manuscript copied in 1733 illustrates the later continuation of learned activity. Teachers, religious institutions and manuscript collections helped carry this intellectual history across generations.",
+          "sourceIds": [
+            "timbuktu-loc-overview",
+            "timbuktu-unesco",
+            "timbuktu-loc-items"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "手稿中的世界既有信仰，也有具体的日常问题：天体运行、四则运算、继承与商业契约，都进入教学与讨论。另一些契约记录奴隶贸易和获释过程，留下社会关系的复杂面貌。把这些文献与清真寺建筑一同阅读，便能看到西非城市如何参与远距离交流，并以文字保存自身经验。",
+          "en": "The manuscripts address practical questions alongside belief: celestial movements, arithmetic, inheritance and commercial contracts all appear in teaching texts. Other documents record slavery and emancipation, preserving difficult aspects of social life. Read alongside the mosques, these collections show a West African city participating in wider scholarly networks while recording the details and tensions of its own society.",
+          "sourceIds": [
+            "timbuktu-loc-items",
+            "timbuktu-unesco"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1300,
+          "endYear": 1399,
+          "precision": "century",
+          "date": {
+            "zh": "14世纪",
+            "en": "14th century"
+          },
+          "labelZh": "14世纪",
+          "labelEn": "14th century",
+          "zh": "至迟在十四世纪，廷巴克图已有书籍写作与抄写活动。",
+          "en": "By at least the fourteenth century, books are being written and copied in Timbuktu.",
+          "sourceIds": [
+            "timbuktu-loc-overview"
+          ]
+        },
+        {
+          "year": 1733,
+          "endYear": 1733,
+          "precision": "year",
+          "date": {
+            "zh": "1733年",
+            "en": "1733 CE"
+          },
+          "labelZh": "1733年",
+          "labelEn": "1733 CE",
+          "zh": "现存一部天文学手稿于这一年抄成，涉及星象与季节计算。",
+          "en": "A surviving astronomical manuscript is copied, addressing stars and seasonal calculations.",
+          "sourceIds": [
+            "timbuktu-loc-items"
+          ]
+        },
+        {
+          "year": 1988,
+          "endYear": 1988,
+          "precision": "year",
+          "date": {
+            "zh": "1988年",
+            "en": "1988 CE"
+          },
+          "labelZh": "1988年",
+          "labelEn": "1988 CE",
+          "zh": "廷巴克图列入世界遗产名录。",
+          "en": "Timbuktu is inscribed on the World Heritage List.",
+          "sourceIds": [
+            "timbuktu-unesco"
+          ]
+        }
+      ],
+      "sourceRecordIds": [
+        "chandler:1433"
+      ],
+      "sourceIds": [
+        "timbuktu-loc-overview",
+        "timbuktu-unesco",
+        "timbuktu-loc-items"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:1433",
+          "name": "Tombouctou",
+          "nameZh": "",
+          "coordinates": [
+            -3.00742,
+            16.77348
+          ],
+          "periods": null,
+          "observationYears": [
+            1300,
+            1400,
+            1500,
+            1600,
+            1828,
+            1850
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "coordinateUse": "preserve-source-urban-reference"
+        }
+      ]
+    },
+    {
+      "id": "city-tenochtitlan",
+      "nameZh": "特诺奇蒂特兰",
+      "nameEn": "Tenochtitlan",
+      "aliases": [
+        "México-Tenochtitlan",
+        "Mexico-Tenochtitlan"
+      ],
+      "scope": {
+        "start": 1325,
+        "end": 1521,
+        "zh": "特斯科科湖中的墨西加古都及其岛城，1325年传统建城纪年到1521年征服。",
+        "en": "The Mexica capital and island city in Lake Texcoco, from the traditional foundation date of 1325 to the conquest in 1521.",
+        "spatial": {
+          "zh": "特斯科科湖中的古代岛城；绑定源中的征服前观测，不扩大到现代墨西哥城都市区或索奇米尔科。",
+          "en": "The ancient island city in Lake Texcoco, bound to pre-conquest observations rather than the modern Mexico City metropolitan area or Xochimilco."
+        },
+        "temporal": {
+          "zh": "特斯科科湖中的墨西加古都及其岛城，1325年传统建城纪年到1521年征服。",
+          "en": "The Mexica capital and island city in Lake Texcoco, from the traditional foundation date of 1325 to the conquest in 1521."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:921",
+          "start": 1325,
+          "end": 1521,
+          "requiresObservation": true,
+          "noteZh": "数据源名称为Mexico City；仅将1500、1520两次观测解释为征服前的特诺奇蒂特兰。原坐标作为古城附近的城市参照点，未改成大神庙位置。",
+          "noteEn": "The dataset name is Mexico City. Only the 1500 and 1520 observations are associated with pre-conquest Tenochtitlan. Preserve the source point as an urban reference near the old city; do not relabel it as the Templo Mayor location.",
+          "observationYears": [
+            1500,
+            1520
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "特诺奇蒂特兰兴起于特斯科科湖中的岛屿，街道与运河交织，独木舟把居民、货物和湖岸城镇连接起来。堤道通向陆地，输水设施供应淡水，填筑土地扩大了城市。水上交通与人工营建共同塑造了这座都城，使市场、住宅和仪式空间置于同一个湖泊环境之中。",
+          "en": "Tenochtitlan developed on an island in Lake Texcoco. Streets and canals carried people and goods through the city, while causeways connected it to the mainland and aqueducts supplied fresh water. Reclaimed land enlarged the settlement. Waterborne movement and engineering gave this capital a distinctive urban form, linking neighbourhoods and markets with lakeside communities.",
+          "sourceIds": [
+            "tenochtitlan-met",
+            "tenochtitlan-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "传统建城纪年为1325年。此后，特诺奇蒂特兰与特斯科科、特拉科潘组成三方联盟，通过战争和贡赋扩大权力。十五世纪后期的大规模建设提升了都城的体量。1521年，西班牙人与原住民盟军攻陷城市；殖民时期的墨西哥城继而在其废墟与原有街道格局上发展。",
+          "en": "The traditional foundation date is 1325. Tenochtitlan later joined Texcoco and Tlacopan in the Triple Alliance, extending power through warfare and tribute. Major building campaigns from the 1470s transformed the capital. Spanish and Indigenous forces captured it in 1521. Colonial Mexico City then developed over the damaged city, reusing structures and parts of its layout.",
+          "sourceIds": [
+            "tenochtitlan-inah",
+            "tenochtitlan-met",
+            "tenochtitlan-unesco"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "大神庙所在的仪式中心供奉维齐洛波奇特利与特拉洛克，周围分布宫殿、学校和礼仪建筑。更外侧的街区聚集农民、陶工、织工、石雕工匠与羽毛艺匠，市场汇合生活物资和远方珍品。贡赋体系与手工业共同支撑城市繁荣，也将都城的日常生活紧密连接到被其控制的地区。",
+          "en": "The ceremonial centre honoured Huitzilopochtli and Tlaloc, surrounded by palaces, schools and ritual buildings. Beyond it, neighbourhoods housed farmers and specialists in pottery, weaving, stonework and featherwork. Markets offered necessities and prized goods. Tribute and skilled labour supported urban wealth, binding life in the capital to communities across the territories under its control.",
+          "sourceIds": [
+            "tenochtitlan-inah",
+            "tenochtitlan-met"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1325,
+          "endYear": 1325,
+          "precision": "traditional-year",
+          "date": {
+            "zh": "1325年",
+            "en": "1325 CE"
+          },
+          "labelZh": "1325年",
+          "labelEn": "1325 CE",
+          "zh": "墨西加传统将岛城的建立系于这一年。",
+          "en": "Mexica historical tradition places the island city’s foundation in this year.",
+          "sourceIds": [
+            "tenochtitlan-inah"
+          ]
+        },
+        {
+          "year": 1470,
+          "endYear": 1479,
+          "precision": "decade",
+          "date": {
+            "zh": "1470年代起",
+            "en": "From the 1470s"
+          },
+          "labelZh": "1470年代起",
+          "labelEn": "From the 1470s",
+          "zh": "从1470年代起，多位统治者推动大规模城市建设。",
+          "en": "Major urban building campaigns begin in the 1470s and continue under successive rulers.",
+          "sourceIds": [
+            "tenochtitlan-met"
+          ]
+        },
+        {
+          "year": 1521,
+          "endYear": 1521,
+          "precision": "year",
+          "date": {
+            "zh": "1521年",
+            "en": "1521 CE"
+          },
+          "labelZh": "1521年",
+          "labelEn": "1521 CE",
+          "zh": "西班牙与原住民军队攻陷城市，随后展开殖民城市重建。",
+          "en": "Spanish and Indigenous forces capture the city; colonial rebuilding follows.",
+          "sourceIds": [
+            "tenochtitlan-inah"
+          ]
+        }
+      ],
+      "sourceRecordIds": [
+        "chandler:921"
+      ],
+      "sourceIds": [
+        "tenochtitlan-met",
+        "tenochtitlan-unesco",
+        "tenochtitlan-inah"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:921",
+          "name": "Mexico City",
+          "nameZh": "墨西哥城",
+          "coordinates": [
+            -99.12766,
+            19.42847
+          ],
+          "periods": null,
+          "observationYears": [
+            1500,
+            1520,
+            1524,
+            1550,
+            1575,
+            1600,
+            1625,
+            1634,
+            1681,
+            1700,
+            1742,
+            1750,
+            1772,
+            1790,
+            1800,
+            1803,
+            1825,
+            1828,
+            1850,
+            1856,
+            1875,
+            1900,
+            1914,
+            1925,
+            1950,
+            1970,
+            1975
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "coordinateUse": "preserve-source-urban-reference"
+        }
+      ]
+    },
+    {
+      "id": "city-cusco",
+      "nameZh": "库斯科",
+      "nameEn": "Cusco",
+      "aliases": [
+        "Cuzco",
+        "Qosqo",
+        "Qusqu"
+      ],
+      "scope": {
+        "start": 1200,
+        "end": 2024,
+        "zh": "安第斯山谷中的库斯科历史城区，聚焦印加都城及殖民时期的城市叠建。",
+        "en": "Historic Cusco in its Andean valley, focusing on the Inka capital and the later colonial urban fabric.",
+        "spatial": {
+          "zh": "库斯科安第斯河谷中的历史城区；源点作为城市参照点。",
+          "en": "Historic Cusco in its Andean valley; the source point is an urban reference."
+        },
+        "temporal": {
+          "zh": "安第斯山谷中的库斯科历史城区，聚焦印加都城及殖民时期的城市叠建。",
+          "en": "Historic Cusco in its Andean valley, focusing on the Inka capital and the later colonial urban fabric."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:346",
+          "start": 1438,
+          "end": 1850,
+          "requiresObservation": true,
+          "noteZh": "",
+          "noteEn": "",
+          "observationYears": [
+            1438,
+            1500,
+            1533,
+            1555,
+            1600,
+            1615,
+            1700,
+            1750,
+            1785,
+            1794,
+            1800,
+            1826,
+            1850
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "库斯科坐落在秘鲁安第斯山脉约3400米高的河谷中，周围肥沃的谷地与多条河流构成聚落环境。印加统治者把这里营建为政治和宗教中心，石砌建筑、广场与街道紧密相连。通向帝国四大区域的道路从都城延伸出去，使山地交通与王权组织在这里交汇。",
+          "en": "Cusco lies in an Andean valley at about 3,400 metres, surrounded by fertile ground and several rivers. Inka rulers developed it as a political and religious centre, bringing stone buildings, plazas and streets into a closely organized setting. Roads towards the empire’s four regions extended from the capital, connecting its sacred centre with distant territories.",
+          "sourceIds": [
+            "cusco-unesco",
+            "cusco-nmai-city"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "十三世纪初，印加人在库斯科形成规模尚小的王国；1438年以后，统治者的扩张推动它成为庞大帝国的中心。帕查库特克在十五世纪重整城市。1533年西班牙人到来后，教堂、修道院和宅邸逐渐叠建在印加建筑之上，旧有街道和精密石墙仍深刻影响着后来的城市。",
+          "en": "The Inka formed a small kingdom here in the early thirteenth century; expansion from 1438 made Cusco the centre of a much larger empire. Pachakuti reorganized the city during the fifteenth century. After Spanish arrival in 1533, churches, convents and houses were built over Inka structures. Older streets and carefully fitted masonry continued to shape the colonial city.",
+          "sourceIds": [
+            "cusco-nmai-origins",
+            "cusco-unesco",
+            "cusco-nmai-1533"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "作为统治者的居所和重要祭祀中心，库斯科把宫廷生活、宗教仪式与道路网络联系起来。太阳神庙科里坎查及其后来附建的宗教建筑，展示出城市空间用途的转变。原住民与欧洲的艺术传统在殖民时期交织，留下独特的建筑和装饰语言；行走于街巷，可以在同一面墙上读到相隔数百年的历史。",
+          "en": "As the ruler’s residence and a centre of worship, Cusco connected court life, ceremony and regional routes. Qorikancha and the later religious buildings associated with it make the transformation of sacred space particularly visible. Indigenous and European artistic traditions intertwined under colonial rule, creating distinctive architecture and decoration. In the streets, successive historical layers remain physically close, sometimes within a single wall.",
+          "sourceIds": [
+            "cusco-nmai-city",
+            "cusco-unesco"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1438,
+          "endYear": 1438,
+          "precision": "year",
+          "date": {
+            "zh": "1438年",
+            "en": "1438 CE"
+          },
+          "labelZh": "1438年",
+          "labelEn": "1438 CE",
+          "zh": "印加统治者开始扩大征服，库斯科的帝都地位随之发展。",
+          "en": "Inka rulers begin territorial expansion, strengthening Cusco’s role as an imperial capital.",
+          "sourceIds": [
+            "cusco-nmai-origins"
+          ]
+        },
+        {
+          "year": 1533,
+          "endYear": 1533,
+          "precision": "year",
+          "date": {
+            "zh": "1533年",
+            "en": "1533 CE"
+          },
+          "labelZh": "1533年",
+          "labelEn": "1533 CE",
+          "zh": "西班牙人抵达库斯科，城市随后经历殖民重建。",
+          "en": "Spaniards arrive in Cusco; colonial transformation of the city follows.",
+          "sourceIds": [
+            "cusco-nmai-1533",
+            "cusco-unesco"
+          ]
+        },
+        {
+          "year": 1983,
+          "endYear": 1983,
+          "precision": "year",
+          "date": {
+            "zh": "1983年",
+            "en": "1983 CE"
+          },
+          "labelZh": "1983年",
+          "labelEn": "1983 CE",
+          "zh": "库斯科城列入世界遗产名录。",
+          "en": "The City of Cuzco is inscribed on the World Heritage List.",
+          "sourceIds": [
+            "cusco-unesco"
+          ]
+        }
+      ],
+      "sourceRecordIds": [
+        "chandler:346"
+      ],
+      "sourceIds": [
+        "cusco-unesco",
+        "cusco-nmai-city",
+        "cusco-nmai-origins",
+        "cusco-nmai-1533"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:346",
+          "name": "Cuzco",
+          "nameZh": "库斯科",
+          "coordinates": [
+            -71.972222,
+            -13.525
+          ],
+          "periods": null,
+          "observationYears": [
+            1438,
+            1500,
+            1533,
+            1555,
+            1600,
+            1615,
+            1700,
+            1750,
+            1785,
+            1794,
+            1800,
+            1826,
+            1850
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "coordinateUse": "preserve-source-urban-reference"
+        }
+      ]
+    },
+    {
+      "id": "city-changan",
+      "nameZh": "长安",
+      "nameEn": "Chang’an",
+      "sourceRecordIds": [
+        "capital:Q7209$ee2368d4-4b09-0e37-d514-68db08531429",
+        "capital:Q7209$5268fab9-4f3a-23b0-2e8d-92dae34ad875",
+        "chandler:1552",
+        "modelski-ancient:149",
+        "capital:Q9683$D8C16E7E-D384-41D2-BC20-E890C0EEC77A"
+      ],
+      "scope": {
+        "start": -202,
+        "end": 907,
+        "zh": "汉唐长安及其交通网络",
+        "en": "Han and Tang Chang’an and its route networks",
+        "spatial": {
+          "zh": "汉长安、隋唐长安和大明宫分处不同位置；这份阅读以今西安一带的都城区域为尺度。",
+          "en": "Han Chang’an, Sui–Tang Chang’an and Daming Palace occupy different locations. This reading covers the wider Xi’an capital region."
+        },
+        "temporal": {
+          "zh": "阅读聚焦汉唐时期的都城区域；前202年至907年为叙述范围。首都任期与人口观测分别沿用原始年份。",
+          "en": "The reading covers the Han–Tang capital region, from 202 BCE to 907 CE. Capital tenures and population observations retain their distinct source dates."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "capital:Q7209$ee2368d4-4b09-0e37-d514-68db08531429",
+          "start": -202,
+          "end": 9,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              -202,
+              9
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              -202,
+              9
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q7209$5268fab9-4f3a-23b0-2e8d-92dae34ad875",
+          "start": 190,
+          "end": 195,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              190,
+              195
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              190,
+              195
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:1552",
+          "start": -200,
+          "end": 900,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            -200,
+            361,
+            622,
+            800,
+            805,
+            900
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:149",
+          "start": -200,
+          "end": 900,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            -200,
+            -100,
+            1,
+            100,
+            400,
+            500,
+            600,
+            700,
+            800,
+            900
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q9683$D8C16E7E-D384-41D2-BC20-E890C0EEC77A",
+          "start": 618,
+          "end": 904,
+          "requiresObservation": false,
+          "noteZh": "唐长安城的首都时段记录；保留来源点位。",
+          "noteEn": "Capital-tenure record for Tang Chang’an; retain the source point.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              618,
+              904
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              618,
+              904
+            ]
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "长安的历史铺展在今天西安一带。汉代都城遗址在西北，隋唐城市另有布局；宫殿、街坊与市场构成层层展开的都城空间。向西的道路经河西走廊连向中亚，长安因此既是帝国的政治中心，也是远距离交通网络的重要起点。",
+          "en": "Chang’an occupied successive sites in the region of present-day Xi’an. The Han capital lay to the northwest of the later Sui–Tang city, whose palaces, residential wards and markets created a different urban arrangement. Routes leading west through the Hexi Corridor connected this capital region with Central Asia, joining imperial government to a much wider geography of travel.",
+          "sourceIds": [
+            "changan-sites",
+            "changan-plan",
+            "changan-corridor"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical course",
+          "zh": "从汉到唐，都城的延续伴随着空间的重组。唐长安承接隋代大兴城的基础，以南北轴线和纵横街道组织生活。634年始建的大明宫，又为都城增添了宏大的宫廷建筑群。安史之乱之后，政治局势与对外交通发生变化，都城的命运也随之转折。",
+          "en": "Continuity across the Han and Tang periods involved rebuilding as well as inheritance. Tang Chang’an developed from the Sui capital of Daxing, with an ordered street grid and distinct markets. Construction of Daming Palace began in 634. The An Lushan rebellion of 755–763 subsequently changed political conditions and the routes through which the Tang world communicated with regions farther west.",
+          "sourceIds": [
+            "changan-plan",
+            "changan-daming",
+            "changan-sites"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "长安的开放，具体可见于市场、寺院和出土器物。商旅带来货物，也传递服饰、技艺与审美；僧侣的旅行推动佛教文本和建筑观念传播。人物俑与塔寺留下的线索，使丝绸之路成为可以触摸的城市生活史，宫廷秩序与多种文化在这里共同塑造了汉唐都城的面貌。",
+          "en": "Exchange took tangible form in markets, religious buildings and objects recovered by archaeology. Travellers carried goods, but also tastes, skills and beliefs; Buddhist journeys helped circulate texts and architectural ideas. Together, museum objects and the monuments of the Silk Roads illuminate a city shaped by both courtly order and encounters among people from different cultural traditions.",
+          "sourceIds": [
+            "changan-plan",
+            "changan-corridor"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": -200,
+          "endYear": -101,
+          "precision": "century",
+          "date": {
+            "zh": "公元前2世纪",
+            "en": "2nd century BCE"
+          },
+          "labelZh": "公元前2世纪",
+          "labelEn": "2nd century BCE",
+          "zh": "丝路沿线的远距离交换显著扩大，长安逐渐成为连接中亚的重要都城节点。",
+          "en": "Long-distance exchange expanded along the routes linking the Chinese capitals with Central Asia.",
+          "sourceIds": [
+            "changan-corridor"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 634,
+          "endYear": 634,
+          "precision": "year",
+          "date": {
+            "zh": "634年",
+            "en": "634"
+          },
+          "labelZh": "634年",
+          "labelEn": "634",
+          "zh": "大明宫开始营建，形成唐代长安重要的宫廷建筑群。",
+          "en": "Construction began on Daming Palace, a major palace complex of Tang Chang’an.",
+          "sourceIds": [
+            "changan-daming"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 755,
+          "endYear": 763,
+          "precision": "range",
+          "date": {
+            "zh": "755—763年",
+            "en": "755–763"
+          },
+          "labelZh": "755—763年",
+          "labelEn": "755–763",
+          "zh": "安史之乱及其后果改变唐朝政治与陆路交通格局。",
+          "en": "The An Lushan rebellion and its aftermath altered Tang politics and overland communications.",
+          "sourceIds": [
+            "changan-sites"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "changan-corridor",
+        "changan-daming",
+        "changan-plan",
+        "changan-sites"
+      ],
+      "sourceRecords": [
+        {
+          "id": "capital:Q7209$ee2368d4-4b09-0e37-d514-68db08531429",
+          "name": "Chang'an",
+          "nameZh": "长安",
+          "coordinates": [
+            108.85833333333333,
+            34.30833333333333
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q7209#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              -202,
+              9
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q7209$5268fab9-4f3a-23b0-2e8d-92dae34ad875",
+          "name": "Chang'an",
+          "nameZh": "长安",
+          "coordinates": [
+            108.85833333333333,
+            34.30833333333333
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q7209#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              190,
+              195
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "chandler:1552",
+          "name": "Xian",
+          "nameZh": "西安",
+          "coordinates": [
+            108.940404,
+            34.341485
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            -200,
+            361,
+            622,
+            800,
+            805,
+            900,
+            1077,
+            1100,
+            1250,
+            1300,
+            1312,
+            1350,
+            1370,
+            1400,
+            1450,
+            1500,
+            1550,
+            1575,
+            1600,
+            1650,
+            1665,
+            1700,
+            1750,
+            1800,
+            1812,
+            1823,
+            1825,
+            1850,
+            1875,
+            1900,
+            1925,
+            1930,
+            1948,
+            1950,
+            1975
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:149",
+          "name": "Xian",
+          "nameZh": "西安",
+          "coordinates": [
+            108.940404,
+            34.341485
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            -200,
+            -100,
+            1,
+            100,
+            400,
+            500,
+            600,
+            700,
+            800,
+            900
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q9683$D8C16E7E-D384-41D2-BC20-E890C0EEC77A",
+          "name": "Chang'an, Tang Empire",
+          "nameZh": "唐长安城",
+          "coordinates": [
+            108.9,
+            34.266666666666666
+          ],
+          "periods": [
+            [
+              618,
+              904
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://www.wikidata.org/wiki/Q9683#P36",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-kyoto",
+      "nameZh": "京都",
+      "nameEn": "Kyoto",
+      "sourceRecordIds": [
+        "chandler:764",
+        "modelski-ancient:68"
+      ],
+      "scope": {
+        "start": 794,
+        "end": 1867,
+        "zh": "平安京至幕末的京都",
+        "en": "Kyoto from Heian-kyō to the late Tokugawa period",
+        "spatial": {
+          "zh": "地图记录提供京都的城市参照；平安宫、二条城和周边寺社各有独立位置，宇治与大津的遗产也属于更广的文化景观。",
+          "en": "The records locate Kyoto at city scale. The Heian palace, Nijō Castle and surrounding temples have separate sites; Uji and Ōtsu belong to the wider heritage landscape."
+        },
+        "temporal": {
+          "zh": "阅读范围从794年平安京定都到1867年大政奉还；人口资料按各次观测的年份关联。",
+          "en": "The reading spans the establishment of Heian-kyō in 794 to the 1867 transfer of governing authority. Population rows are linked through their individual observation years."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:764",
+          "start": 800,
+          "end": 1852,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            800,
+            1000,
+            1150,
+            1200,
+            1250,
+            1300,
+            1400,
+            1467,
+            1500,
+            1550,
+            1571,
+            1600,
+            1624,
+            1632,
+            1696,
+            1700,
+            1716,
+            1750,
+            1798,
+            1800,
+            1825,
+            1846,
+            1850,
+            1852
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:68",
+          "start": 800,
+          "end": 1000,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            800,
+            900,
+            1000
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "京都位于东、北、西三面环山的盆地。794年营建的平安京落在盆地北部，街道规划吸收了唐长安等中国都城的经验。城市后来逐渐向东发展，低湿的西部区域变化较大；山麓寺社与市区街巷，因而保存着不同年代留下的空间层次。",
+          "en": "Kyoto lies in a basin enclosed by hills on three sides. Heian-kyō, established in its northern part in 794, drew on Chinese capital planning, including the example of Tang Chang’an. Development later shifted eastward as the wetter western districts changed. Temples around the foothills and monuments within the city preserve different layers of this evolving urban landscape.",
+          "sourceIds": [
+            "kyoto-bunka"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical course",
+          "zh": "京都长期容纳皇室与贵族生活，城市也在战乱、火灾和重建中不断改变。1603年完成的二条城，将德川将军的权威带入皇城；1867年，德川庆喜在这里宣布大政奉还的意向。宫廷、武家与城市社会的交错，使京都的历史延伸出多条并行的线索。",
+          "en": "The imperial court remained central to Kyoto’s identity while warfare, fires and reconstruction repeatedly reshaped its fabric. Nijō Castle, completed in 1603, gave the Tokugawa shoguns a prominent presence in the imperial city. In 1867, Yoshinobu announced there his intention to return governing authority to the emperor, making the castle a setting for a decisive political transition.",
+          "sourceIds": [
+            "kyoto-bunka",
+            "kyoto-nijo"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "木构殿堂、庭园与宗教空间体现了京都细致的造物传统。来自大陆的规划与佛教文化在此经历选择和转化，形成独具特色的宫廷审美与园林艺术。今天把京都、宇治和大津的遗产联系起来观看，更能理解这种文化如何在不同场所生长，又借修缮工艺与代代传承延续至今。",
+          "en": "Wooden buildings and carefully composed gardens reveal traditions sustained through skilled repair and transmission. Ideas arriving from the continent were adapted within courtly and religious life. Reading the heritage of Kyoto together with that of Uji and Ōtsu reveals a connected cultural landscape, in which architecture and garden design developed across many sites rather than within a single surviving palace.",
+          "sourceIds": [
+            "kyoto-bunka",
+            "kyoto-whc"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 794,
+          "endYear": 794,
+          "precision": "year",
+          "date": {
+            "zh": "794年",
+            "en": "794"
+          },
+          "labelZh": "794年",
+          "labelEn": "794",
+          "zh": "平安京成为日本都城，形成京都历史的重要起点。",
+          "en": "Heian-kyō became Japan’s capital.",
+          "sourceIds": [
+            "kyoto-bunka",
+            "kyoto-whc"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1603,
+          "endYear": 1603,
+          "precision": "year",
+          "date": {
+            "zh": "1603年",
+            "en": "1603"
+          },
+          "labelZh": "1603年",
+          "labelEn": "1603",
+          "zh": "二条城完成，德川家康首次入城。",
+          "en": "Nijō Castle was completed and Tokugawa Ieyasu entered it for the first time.",
+          "sourceIds": [
+            "kyoto-nijo"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1867,
+          "endYear": 1867,
+          "precision": "year",
+          "date": {
+            "zh": "1867年",
+            "en": "1867"
+          },
+          "labelZh": "1867年",
+          "labelEn": "1867",
+          "zh": "德川庆喜在二条城宣布将政权归还天皇的意向。",
+          "en": "Tokugawa Yoshinobu announced at Nijō Castle his intention to restore governing authority to the emperor.",
+          "sourceIds": [
+            "kyoto-nijo"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "kyoto-bunka",
+        "kyoto-nijo",
+        "kyoto-whc"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:764",
+          "name": "Kyoto",
+          "nameZh": "京都",
+          "coordinates": [
+            135.75385,
+            35.02107
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            800,
+            1000,
+            1150,
+            1200,
+            1250,
+            1300,
+            1400,
+            1467,
+            1500,
+            1550,
+            1571,
+            1600,
+            1624,
+            1632,
+            1696,
+            1700,
+            1716,
+            1750,
+            1798,
+            1800,
+            1825,
+            1846,
+            1850,
+            1852,
+            1914
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:68",
+          "name": "Kyoto",
+          "nameZh": "京都",
+          "coordinates": [
+            135.75385,
+            35.02107
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            800,
+            900,
+            1000
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-delhi",
+      "nameZh": "德里",
+      "nameEn": "Delhi",
+      "sourceRecordIds": [
+        "chandler:368",
+        "capital:Q33296$aaca60be-480f-4adc-c8f3-de0aaead129d",
+        "capital:Q229411$57131981-909D-4B81-8153-1571F863FC0E"
+      ],
+      "scope": {
+        "start": 1199,
+        "end": 1857,
+        "zh": "苏丹国与莫卧儿时期的德里地区",
+        "en": "The Delhi region under the sultanates and Mughals",
+        "spatial": {
+          "zh": "这份阅读横跨德里地区的多个历史中心：顾特卜建筑群在南部，胡马雍陵与沙贾汗纳巴德另有其址。",
+          "en": "This reading spans several historical centres: the southern Qutb complex, Humayun’s Tomb and Shahjahanabad occupy distinct locations within the Delhi region."
+        },
+        "temporal": {
+          "zh": "阅读聚焦1199至1857年的苏丹国与莫卧儿城市景观，关联各处历史中心；资料中的首都任期与人口观测保持独立。",
+          "en": "The reading focuses on the sultanate and Mughal urban landscape from 1199 to 1857. The different centres retain their individual capital tenures and population observations."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:368",
+          "start": 1200,
+          "end": 1853,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            1200,
+            1250,
+            1300,
+            1327,
+            1350,
+            1354,
+            1375,
+            1398,
+            1450,
+            1500,
+            1526,
+            1530,
+            1596,
+            1666,
+            1681,
+            1707,
+            1739,
+            1750,
+            1781,
+            1800,
+            1820,
+            1825,
+            1836,
+            1846,
+            1850,
+            1853
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q33296$aaca60be-480f-4adc-c8f3-de0aaead129d",
+          "start": 1648,
+          "end": 1857,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              1648,
+              1857
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              1648,
+              1857
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q229411$57131981-909D-4B81-8153-1571F863FC0E",
+          "start": 1214,
+          "end": 1327,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              1214,
+              1327
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              1214,
+              1327
+            ]
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "德里的城市史沿多个历史中心展开。南部的顾特卜建筑群保存早期苏丹国的纪念性建筑；胡马雍陵以园林和陵墓塑造另一处重要空间；靠近雅穆纳河的红堡，则成为沙贾汗纳巴德的宫廷核心。把这些地点联系起来，才能看见德里随王朝更替而移动、扩展的城市格局。",
+          "en": "Delhi’s history is distributed among several urban centres. The Qutb complex in the south preserves monuments associated with the early sultanates. Humayun’s Tomb created a different setting of gardens and dynastic memory, while the Red Fort beside the Yamuna anchored Shahjahanabad. Together, these places reveal a city region repeatedly reorganized around new centres of authority.",
+          "sourceIds": [
+            "delhi-qutb",
+            "delhi-humayun",
+            "delhi-ministry"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical course",
+          "zh": "苏丹国时期，清真寺、宣礼塔与王陵把新的政治和宗教秩序刻入城市。莫卧儿统治者又以花园陵墓和宫堡表达王朝理想：胡马雍陵将水渠、对称园圃与高台穹顶结合，17世纪的红堡则以层层院落和亭阁组织宫廷生活。建筑由此成为阅读权力变迁的一条清晰路径。",
+          "en": "Sultanate mosques, minarets and tombs made political and religious change visible in stone. Mughal patrons later developed monumental garden-tombs and palace-forts. At Humayun’s Tomb, channels divide a formal garden around an elevated mausoleum. In the seventeenth-century Red Fort, courtyards and pavilions structured courtly life. These architectural settings offer a way to follow changes in authority across the region.",
+          "sourceIds": [
+            "delhi-qutb",
+            "delhi-humayun",
+            "delhi-redfort"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "德里的建筑语言来自工匠与观念的持续交流。波斯、帖木儿和印度传统在石材雕刻、穹顶、园林与水景中相遇。胡马雍陵汇集波斯和印度工匠，红堡的设计又影响更广地区的宫殿与花园。细看一扇门、一条水渠，便能把宏大的帝国史还原为具体的技艺与人的工作。",
+          "en": "Persian, Timurid and Indian traditions met through the work of builders and craftspeople. Humayun’s Tomb brought Persian and Indian artisans together, while the Red Fort’s planning influenced later buildings and gardens elsewhere. Doorways, stone surfaces, domes and water channels make these exchanges legible at a human scale, connecting imperial ambition with the skills required to give it material form.",
+          "sourceIds": [
+            "delhi-humayun",
+            "delhi-redfort"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1311,
+          "endYear": 1311,
+          "precision": "year",
+          "date": {
+            "zh": "1311年",
+            "en": "1311"
+          },
+          "labelZh": "1311年",
+          "labelEn": "1311",
+          "zh": "顾特卜建筑群中的阿莱达尔瓦扎门建成。",
+          "en": "The Alai Darwaza gateway was built at the Qutb complex.",
+          "sourceIds": [
+            "delhi-qutb"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1570,
+          "endYear": 1570,
+          "precision": "circa-year",
+          "date": {
+            "zh": "约1570年",
+            "en": "c. 1570"
+          },
+          "labelZh": "约1570年",
+          "labelEn": "c. 1570",
+          "zh": "胡马雍陵的花园陵墓格局成形，成为莫卧儿纪念性建筑的重要范例。",
+          "en": "Humayun’s garden-tomb took its monumental form, becoming a major model for Mughal architecture.",
+          "sourceIds": [
+            "delhi-humayun"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1648,
+          "endYear": 1648,
+          "precision": "year",
+          "date": {
+            "zh": "1648年",
+            "en": "1648"
+          },
+          "labelZh": "1648年",
+          "labelEn": "1648",
+          "zh": "红堡建设完成，为沙贾汗纳巴德提供宫堡核心。",
+          "en": "The Red Fort was completed as the palace-fort of Shahjahanabad.",
+          "sourceIds": [
+            "delhi-ministry"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "delhi-humayun",
+        "delhi-ministry",
+        "delhi-qutb",
+        "delhi-redfort"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:368",
+          "name": "Delhi",
+          "nameZh": "德里",
+          "coordinates": [
+            77.22897,
+            28.65381
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            1052,
+            1193,
+            1200,
+            1250,
+            1300,
+            1327,
+            1350,
+            1354,
+            1375,
+            1398,
+            1450,
+            1500,
+            1526,
+            1530,
+            1596,
+            1666,
+            1681,
+            1707,
+            1739,
+            1750,
+            1781,
+            1800,
+            1820,
+            1825,
+            1836,
+            1846,
+            1850,
+            1853,
+            1900,
+            1925,
+            1950,
+            1970,
+            1975
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q33296$aaca60be-480f-4adc-c8f3-de0aaead129d",
+          "name": "Old Delhi",
+          "nameZh": "德里旧城",
+          "coordinates": [
+            77.23,
+            28.66
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q33296#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              1648,
+              1857
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q229411$57131981-909D-4B81-8153-1571F863FC0E",
+          "name": "Delhi",
+          "nameZh": "德里",
+          "coordinates": [
+            77.228058,
+            28.671939
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q229411#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              1214,
+              1327
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-angkor",
+      "nameZh": "吴哥",
+      "nameEn": "Angkor",
+      "sourceRecordIds": [
+        "pleiades:531398484",
+        "chandler:64",
+        "modelski-ancient:8"
+      ],
+      "scope": {
+        "start": 801,
+        "end": 1600,
+        "zh": "9—16世纪的吴哥城市与宗教景观",
+        "en": "Angkor’s urban and religious landscape, ninth–sixteenth centuries",
+        "spatial": {
+          "zh": "吴哥是一片包含多处都城、寺庙、水利设施和村落的城市景观；地图上的吴哥记录和吴哥寺附近研究点分别提供区域入口。",
+          "en": "Angkor is a landscape of successive capitals, temples, waterworks and settlements. Its gazetteer point and the research point near Angkor Wat serve as regional entry points."
+        },
+        "temporal": {
+          "zh": "阅读覆盖9至16世纪的区域历史与后来朝圣活动。Pleiades地点时段截止1499年；16世纪阅读内容仅提供后续历史背景。",
+          "en": "The reading covers the ninth–sixteenth centuries, including later pilgrimage. Pleiades attestation ends in 1499; the sixteenth-century passage supplies subsequent context."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "pleiades:531398484",
+          "start": 801,
+          "end": 1499,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              801,
+              899
+            ],
+            [
+              900,
+              999
+            ],
+            [
+              1000,
+              1099
+            ],
+            [
+              1100,
+              1199
+            ],
+            [
+              1200,
+              1299
+            ],
+            [
+              1300,
+              1399
+            ],
+            [
+              1400,
+              1499
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              800,
+              899,
+              "ninth-ce"
+            ],
+            [
+              900,
+              999,
+              "tenth-ce"
+            ],
+            [
+              1000,
+              1099,
+              "eleventh-ce"
+            ],
+            [
+              1100,
+              1199,
+              "twelfth-ce"
+            ],
+            [
+              1200,
+              1299,
+              "thirteenth-ce"
+            ],
+            [
+              1300,
+              1399,
+              "fourteenth-ce"
+            ],
+            [
+              1400,
+              1499,
+              "fifteenth-ce"
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:64",
+          "start": 889,
+          "end": 1404,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            889,
+            900,
+            1000,
+            1100,
+            1150,
+            1200,
+            1250,
+            1300,
+            1350,
+            1357,
+            1400,
+            1404
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:8",
+          "start": 900,
+          "end": 1000,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            900,
+            1000
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "吴哥的尺度，需要把寺庙放回水利和聚落之间理解。水库、堤坝、沟渠与道路连接不同都城和居民活动区，石造神庙只是这片广阔景观中最醒目的部分。吴哥寺、吴哥通与圣剑寺各有位置和布局，共同呈现高棉王权如何组织土地、劳力与宗教空间。",
+          "en": "Angkor becomes clearer when its temples are read alongside reservoirs, embankments, canals and routes. The stone monuments form the most visible elements of a much wider settlement landscape. Angkor Wat, Angkor Thom and Preah Khan occupy distinct settings, together revealing how Khmer rulers organized land, labour and sacred space across successive urban centres.",
+          "sourceIds": [
+            "angkor-whc",
+            "angkor-preahkhan"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical course",
+          "zh": "9至15世纪，多代高棉统治者在这里营造都城与寺院。12世纪的吴哥寺以毗湿奴信仰为中心；阇耶跋摩七世时期，佛教建筑又显著改变了城市面貌。对吴哥通沉积物的研究显示，核心地区的土地利用曾经历较长期的减少，让城市转型呈现出比单一年份更细致的节奏。",
+          "en": "Khmer capitals flourished here between the ninth and fifteenth centuries. Angkor Wat, built in the twelfth century, was dedicated to Vishnu; Buddhist foundations became prominent under Jayavarman VII. Research on sediment from Angkor Thom’s moat indicates a prolonged reduction in activity within the administrative core, adding a gradual process of change to the history of political conflict.",
+          "sourceIds": [
+            "angkor-whc",
+            "angkor-wat",
+            "angkor-preahkhan",
+            "angkor-research"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "来自印度的宗教故事与建筑观念，在吴哥形成鲜明的高棉表达。浮雕把神话、王室仪式和社会生活刻进长廊，寺院的铭文也留下供养与社会活动的记录。16世纪，吴哥寺继续吸引来自本地和更远地区的佛教朝圣者。王都格局改变之后，信仰与居住仍为这片景观带来新的生命。",
+          "en": "Religious narratives and architectural ideas from India acquired distinctive Khmer forms. Reliefs, inscriptions and temple layouts joined royal ceremonies to wider social and devotional activity. In the sixteenth century, Angkor Wat attracted Buddhist pilgrims from Cambodia and farther afield. The changing importance of royal centres therefore coexisted with the continuing religious life of particular monuments and communities.",
+          "sourceIds": [
+            "angkor-whc",
+            "angkor-wat",
+            "angkor-preahkhan"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1113,
+          "endYear": 1150,
+          "precision": "range",
+          "date": {
+            "zh": "1113—1150年",
+            "en": "1113–1150"
+          },
+          "labelZh": "1113—1150年",
+          "labelEn": "1113–1150",
+          "zh": "苏利耶跋摩二世时期营建吴哥寺，最初奉祀毗湿奴。",
+          "en": "Angkor Wat was constructed under Suryavarman II and originally dedicated to Vishnu.",
+          "sourceIds": [
+            "angkor-wat"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1191,
+          "endYear": 1191,
+          "precision": "year",
+          "date": {
+            "zh": "1191年",
+            "en": "1191"
+          },
+          "labelZh": "1191年",
+          "labelEn": "1191",
+          "zh": "阇耶跋摩七世营建圣剑寺，奉献给其父。",
+          "en": "Jayavarman VII established Preah Khan in honour of his father.",
+          "sourceIds": [
+            "angkor-preahkhan"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1501,
+          "endYear": 1600,
+          "precision": "century",
+          "date": {
+            "zh": "16世纪",
+            "en": "16th century"
+          },
+          "labelZh": "16世纪",
+          "labelEn": "16th century",
+          "zh": "吴哥寺成为吸引本地与域外信众的重要佛教朝圣地。",
+          "en": "Angkor Wat became an important destination for local and international Buddhist pilgrims.",
+          "sourceIds": [
+            "angkor-wat"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "angkor-preahkhan",
+        "angkor-research",
+        "angkor-wat",
+        "angkor-whc"
+      ],
+      "sourceRecords": [
+        {
+          "id": "pleiades:531398484",
+          "name": "Angkor",
+          "nameZh": "吴哥",
+          "coordinates": [
+            103.8333,
+            13.43333
+          ],
+          "dataFile": "historical-settlements.json",
+          "sourceUrl": "https://pleiades.stoa.org/places/531398484",
+          "timeBasis": "period-attestation",
+          "periods": [
+            [
+              800,
+              899,
+              "ninth-ce"
+            ],
+            [
+              900,
+              999,
+              "tenth-ce"
+            ],
+            [
+              1000,
+              1099,
+              "eleventh-ce"
+            ],
+            [
+              1100,
+              1199,
+              "twelfth-ce"
+            ],
+            [
+              1200,
+              1299,
+              "thirteenth-ce"
+            ],
+            [
+              1300,
+              1399,
+              "fourteenth-ce"
+            ],
+            [
+              1400,
+              1499,
+              "fifteenth-ce"
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "chandler:64",
+          "name": "Angkor",
+          "nameZh": "吴哥",
+          "coordinates": [
+            103.86705,
+            13.412417
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            889,
+            900,
+            1000,
+            1100,
+            1150,
+            1200,
+            1250,
+            1300,
+            1350,
+            1357,
+            1400,
+            1404
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:8",
+          "name": "Angkor",
+          "nameZh": "吴哥",
+          "coordinates": [
+            103.86705,
+            13.412417
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            900,
+            1000
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-samarkand",
+      "nameZh": "撒马尔罕",
+      "nameEn": "Samarkand",
+      "sourceRecordIds": [
+        "pleiades:59915",
+        "chandler:1234",
+        "modelski-ancient:110",
+        "capital:Q12150341$9565D4B1-A737-41FB-970E-44E0CBB849C9"
+      ],
+      "scope": {
+        "start": -700,
+        "end": 1500,
+        "zh": "古代粟特至15世纪的撒马尔罕地区",
+        "en": "The Samarkand region from ancient Sogdiana to the fifteenth century",
+        "spatial": {
+          "zh": "阿弗拉西阿卜古城在东北，帖木儿时期城市在其南侧；当前 Marakanda 与人口资料坐标采用城市区域参照，阅读内容按区域关联。",
+          "en": "Ancient Afrosiab lies northeast of the later Timurid city. The existing Marakanda and population-study coordinates are used as city-region references, with this reading attached at that scale."
+        },
+        "temporal": {
+          "zh": "阅读涵盖约公元前700年至1500年的城市区域，分别叙述阿弗拉西阿卜与后来的城区；范围端点用于组织内容。",
+          "en": "The reading covers the city region approximately from 700 BCE to 1500 CE, distinguishing Afrosiab from the later city. These endpoints organize the dossier rather than date a foundation."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "pleiades:59915",
+          "start": -330,
+          "end": 300,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              -330,
+              -30
+            ],
+            [
+              -30,
+              300
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              -330,
+              -30,
+              "hellenistic-republican"
+            ],
+            [
+              -30,
+              300,
+              "roman"
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:1234",
+          "start": 622,
+          "end": 1500,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            622,
+            800,
+            900,
+            980,
+            1000,
+            1050,
+            1100,
+            1150,
+            1200,
+            1220,
+            1221,
+            1400,
+            1405,
+            1450,
+            1497,
+            1500
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:110",
+          "start": -400,
+          "end": 1000,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            -400,
+            -300,
+            900,
+            1000
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q12150341$9565D4B1-A737-41FB-970E-44E0CBB849C9",
+          "start": 892,
+          "end": 999,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              892,
+              999
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              892,
+              999
+            ]
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "撒马尔罕坐落在泽拉夫尚河谷的绿洲中，水土与交通共同支撑城市生活。东北的阿弗拉西阿卜保存古城遗迹，南侧则展开后来的帖木儿城市。沿着这些相邻而各具年代的空间阅读，可以看见城市中心的移动，以及贸易、手工业和统治者工程留下的不同层次。",
+          "en": "Samarkand occupies an oasis in the Zerafshan valley, where water, cultivation and intersecting routes supported urban life. Ancient Afrosiab lies to the northeast of the later Timurid city. Reading these neighbouring areas together reveals shifts in the urban centre, with archaeological remains, craft districts and monumental ensembles belonging to different phases of the city’s history.",
+          "sourceIds": [
+            "samarkand-whc",
+            "samarkand-dossier"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical course",
+          "zh": "古代阿弗拉西阿卜曾是粟特的重要中心，其宫殿壁画留下使团往来的图像。1220年蒙古入侵造成严重破坏；1370年，帖木儿以撒马尔罕为都，宏大的建筑工程随后重塑城市。到15世纪，兀鲁伯主持的经学院与天文学活动，又为这座都城增添了学术声望。",
+          "en": "Afrosiab was an important centre of Sogdiana, and its palace paintings preserve images of visiting delegations. The Mongol invasion of 1220 brought severe destruction. In 1370, Timur established Samarkand as his capital, initiating an ambitious phase of building. Fifteenth-century patronage under Ulugh Beg added a major madrasa and an astronomical tradition to the city’s reputation.",
+          "sourceIds": [
+            "samarkand-dossier",
+            "samarkand-met",
+            "silkroad-astronomy"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "撒马尔罕的艺术凝结着跨地区的交流，也承载征服带来的迁徙。帖木儿把不同地区的工匠集中于都城，波斯文化与本地传统在建筑装饰和宫廷艺术中相遇。兀鲁伯与学者们编制的星表，则显示城市的联结还通向知识领域；商路、权力与学术在这里留下了彼此交织的痕迹。",
+          "en": "Cultural exchange here included the movement of people under conquest. Timur brought craftspeople from subjugated regions to his capital, where Persian courtly culture interacted with local traditions. Under Ulugh Beg, scholars compiled astronomical tables that later attracted attention beyond Central Asia. Architecture and scientific work thus disclose overlapping histories of patronage, forced mobility, trade and learning.",
+          "sourceIds": [
+            "samarkand-met",
+            "silkroad-astronomy"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1220,
+          "endYear": 1220,
+          "precision": "year",
+          "date": {
+            "zh": "1220年",
+            "en": "1220"
+          },
+          "labelZh": "1220年",
+          "labelEn": "1220",
+          "zh": "蒙古入侵严重破坏阿弗拉西阿卜，后来的城市发展重心转移。",
+          "en": "The Mongol invasion devastated Afrosiab, preceding the development of a later urban centre.",
+          "sourceIds": [
+            "samarkand-dossier"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1370,
+          "endYear": 1370,
+          "precision": "year",
+          "date": {
+            "zh": "1370年",
+            "en": "1370"
+          },
+          "labelZh": "1370年",
+          "labelEn": "1370",
+          "zh": "帖木儿确立统治，以撒马尔罕为都。",
+          "en": "Timur established his rule and made Samarkand his capital.",
+          "sourceIds": [
+            "samarkand-met"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1420,
+          "endYear": 1420,
+          "precision": "year",
+          "date": {
+            "zh": "1420年",
+            "en": "1420"
+          },
+          "labelZh": "1420年",
+          "labelEn": "1420",
+          "zh": "列吉斯坦广场的兀鲁伯经学院建成，是广场现存三座经学院中年代最早的一座。",
+          "en": "Ulugh Beg’s madrasa dates to 1420, the earliest of the three surviving madrasas at the Registan.",
+          "sourceIds": [
+            "samarkand-dossier"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "samarkand-dossier",
+        "samarkand-met",
+        "samarkand-whc",
+        "silkroad-astronomy"
+      ],
+      "sourceRecords": [
+        {
+          "id": "pleiades:59915",
+          "name": "Marakanda",
+          "nameZh": "",
+          "coordinates": [
+            66.947223,
+            39.656498
+          ],
+          "dataFile": "historical-settlements.json",
+          "sourceUrl": "https://pleiades.stoa.org/places/59915",
+          "timeBasis": "period-attestation",
+          "periods": [
+            [
+              -330,
+              -30,
+              "hellenistic-republican"
+            ],
+            [
+              -30,
+              300,
+              "roman"
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "chandler:1234",
+          "name": "Samarkand",
+          "nameZh": "撒马尔罕",
+          "coordinates": [
+            66.947561,
+            39.6576
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            -712,
+            622,
+            800,
+            900,
+            980,
+            1000,
+            1050,
+            1100,
+            1150,
+            1200,
+            1220,
+            1221,
+            1400,
+            1405,
+            1450,
+            1497,
+            1500,
+            1510,
+            1550,
+            1575,
+            1834,
+            1870,
+            1900
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:110",
+          "name": "Samarkand",
+          "nameZh": "撒马尔罕",
+          "coordinates": [
+            66.947561,
+            39.6576
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            -400,
+            -300,
+            900,
+            1000
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q12150341$9565D4B1-A737-41FB-970E-44E0CBB849C9",
+          "name": "Samarkand",
+          "nameZh": "撒马尔罕",
+          "coordinates": [
+            66.944999,
+            39.670019
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q12150341#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              892,
+              999
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-baghdad",
+      "nameZh": "巴格达",
+      "nameEn": "Baghdad",
+      "sourceRecordIds": [
+        "chandler:111",
+        "modelski-ancient:21",
+        "capital:Q12536$EBF2D1C0-F69F-4736-96E9-E8A1F0B2771D",
+        "capital:Q12536$F85A7661-954F-47D8-A010-93EE75274EBF"
+      ],
+      "scope": {
+        "start": 762,
+        "end": 1258,
+        "zh": "阿拔斯时期的巴格达，762—1258年",
+        "en": "Baghdad in the Abbasid period, 762–1258",
+        "spatial": {
+          "zh": "早期圆城建于底格里斯河西岸。现有首都与人口记录使用巴格达城市参照点，档案中的圆城、经学院与城市区域分别理解。",
+          "en": "The early Round City was built west of the Tigris. Existing capital and population records use general Baghdad coordinates; the Round City and later monuments retain their distinct locations."
+        },
+        "temporal": {
+          "zh": "阅读聚焦762至1258年的阿拔斯巴格达。762年为新都奠基，资料中的首都任期从763年开始，两种日期分别保留。",
+          "en": "The reading focuses on Abbasid Baghdad from 762 to 1258. The new capital dates to 762, while the source capital-tenure record begins in 763; these different claims are preserved."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:111",
+          "start": 763,
+          "end": 1250,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            763,
+            800,
+            833,
+            900,
+            932,
+            1000,
+            1100,
+            1150,
+            1200,
+            1250
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:21",
+          "start": 800,
+          "end": 1000,
+          "requiresObservation": true,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "observationYears": [
+            800,
+            900,
+            1000
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q12536$EBF2D1C0-F69F-4736-96E9-E8A1F0B2771D",
+          "start": 763,
+          "end": 836,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              763,
+              836
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              763,
+              836
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "capital:Q12536$F85A7661-954F-47D8-A010-93EE75274EBF",
+          "start": 892,
+          "end": 1258,
+          "requiresObservation": false,
+          "noteZh": "按城市区域关联，沿用原始点位及年代。",
+          "noteEn": "City-region context; preserve the original point and dates.",
+          "bindingMode": "city-region-context",
+          "periods": [
+            [
+              892,
+              1258
+            ]
+          ],
+          "sourcePeriods": [
+            [
+              892,
+              1258
+            ]
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "底格里斯河畔的巴格达，因阿拔斯王朝的新都工程获得了鲜明的历史形象。曼苏尔选择河西岸的地点，于762年奠建“和平之城”。圆形规划体现宫廷秩序，来自伊拉克、伊朗及更远地区的人群又使新都迅速具有多样的城市生活。今天追索它的空间，需要结合文字记载与后世城市变迁。",
+          "en": "Baghdad acquired a distinctive imperial identity when al-Mansur established a new Abbasid capital on the western bank of the Tigris in 762. The planned Round City expressed an ordered courtly centre, while arrivals from Iraq, Iran and other regions gave it a varied population. Its early layout must now be understood largely through historical accounts and the city’s subsequent transformations.",
+          "sourceIds": [
+            "baghdad-unesco-history",
+            "baghdad-met"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical course",
+          "zh": "巴格达的政治地位也曾起伏。836年至892年，阿拔斯宫廷以北方的萨迈拉为都；此后巴格达重回权力中心，但哈里发的实际统治力逐渐受到其他王朝制约。13世纪，书籍艺术和经学院建设仍显活力。1258年的蒙古攻占为阿拔斯巴格达带来重大断裂，城市随后进入新的历史阶段。",
+          "en": "Baghdad’s political position changed repeatedly. Samarra served as the Abbasid capital from 836 to 892, after which Baghdad regained that role even as other dynasties increasingly constrained caliphal power. Book arts and educational patronage remained active in the thirteenth century. The Mongol sack of 1258 marked a major rupture in Abbasid Baghdad’s history and opened a different political era.",
+          "sourceIds": [
+            "baghdad-met"
+          ]
+        },
+        {
+          "id": "exchange",
+          "titleZh": "文化与交流",
+          "titleEn": "Culture and exchange",
+          "zh": "巴格达的吸引力还来自知识的汇聚。8世纪已有印度学者前来，天文学著作被译成阿拉伯语，与更广的学术传统发生联系。书籍的翻译、制作与传播，把城市连接到跨地区的思想世界。工匠、文人和赞助者共同参与其中，使都城的文化影响超出了宫殿、城墙和王朝疆界。",
+          "en": "Knowledge was another source of the city’s influence. Scholars from the Indian subcontinent came to Baghdad in the eighth century, and astronomical works were translated into Arabic. Translation and the production of books connected the city to intellectual traditions extending beyond the caliphate. Craftspeople, writers and patrons all participated in cultural networks whose reach exceeded the limits of court and territory.",
+          "sourceIds": [
+            "silkroad-astronomy",
+            "baghdad-met"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 762,
+          "endYear": 762,
+          "precision": "year",
+          "date": {
+            "zh": "762年",
+            "en": "762"
+          },
+          "labelZh": "762年",
+          "labelEn": "762",
+          "zh": "曼苏尔奠建阿拔斯新都巴格达，即“和平之城”。",
+          "en": "Al-Mansur founded the new Abbasid capital of Baghdad, the City of Peace.",
+          "sourceIds": [
+            "baghdad-unesco-history",
+            "baghdad-met"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 836,
+          "endYear": 892,
+          "precision": "range",
+          "date": {
+            "zh": "836—892年",
+            "en": "836–892"
+          },
+          "labelZh": "836—892年",
+          "labelEn": "836–892",
+          "zh": "萨迈拉取代巴格达成为阿拔斯首都，之后宫廷返回。",
+          "en": "Samarra served as the Abbasid capital before the court returned to Baghdad.",
+          "sourceIds": [
+            "baghdad-met"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1258,
+          "endYear": 1258,
+          "precision": "year",
+          "date": {
+            "zh": "1258年",
+            "en": "1258"
+          },
+          "labelZh": "1258年",
+          "labelEn": "1258",
+          "zh": "蒙古军攻占巴格达，终结当地阿拔斯哈里发政权。",
+          "en": "Mongol forces sacked Baghdad, ending the Abbasid caliphate based there.",
+          "sourceIds": [
+            "baghdad-met"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "baghdad-met",
+        "baghdad-unesco-history",
+        "silkroad-astronomy"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:111",
+          "name": "Baghdad",
+          "nameZh": "巴格达",
+          "coordinates": [
+            44.40088,
+            33.34058
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            763,
+            800,
+            833,
+            900,
+            932,
+            1000,
+            1100,
+            1150,
+            1200,
+            1250,
+            1300,
+            1350,
+            1400,
+            1401,
+            1638,
+            1652,
+            1663,
+            1700,
+            1750,
+            1800,
+            1804,
+            1825,
+            1848,
+            1850,
+            1852,
+            1900,
+            1925,
+            1950,
+            1970,
+            1975
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:21",
+          "name": "Baghdad",
+          "nameZh": "巴格达",
+          "coordinates": [
+            44.40088,
+            33.34058
+          ],
+          "dataFile": "urban-observations.json",
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "timeBasis": "discrete-observations",
+          "periods": null,
+          "observationYears": [
+            800,
+            900,
+            1000
+          ],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q12536$EBF2D1C0-F69F-4736-96E9-E8A1F0B2771D",
+          "name": "Baghdad",
+          "nameZh": "巴格达",
+          "coordinates": [
+            44.391923,
+            33.340594
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q12536#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              763,
+              836
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "capital:Q12536$F85A7661-954F-47D8-A010-93EE75274EBF",
+          "name": "Baghdad",
+          "nameZh": "巴格达",
+          "coordinates": [
+            44.391923,
+            33.340594
+          ],
+          "dataFile": "historical-capitals.json",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q12536#P36",
+          "timeBasis": "capital-tenure",
+          "periods": [
+            [
+              892,
+              1258
+            ]
+          ],
+          "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    }
+  ]
+}

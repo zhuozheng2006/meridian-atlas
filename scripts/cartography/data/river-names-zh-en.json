@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-02",
+  "count": 30,
+  "scope": "30 major rivers; exact Natural Earth name and scoped feature ID matches. No inferred historical names, no historical river-course reconstruction.",
+  "translationPolicy": "Common established Simplified Chinese names checked against official/institutional use. IAEA pairs have exact pages; other source verification depth is recorded.",
+  "sources": {
+    "iaea": {
+      "title": "IAEA INIS Thesaurus, Chinese–English, May 2019",
+      "publisher": "International Atomic Energy Agency",
+      "url": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf",
+      "verification": "Downloaded official PDF; exact bilingual entries checked in extracted text; per-entry PDF page retained",
+      "sha256": "a00d7d3fab57ceeab3f7e21fd8afbf895796475dc3914060d00b46b5cb60413d"
+    },
+    "un-water": {
+      "title": "2021年全球水资源状况",
+      "publisher": "World Meteorological Organization / UN Digital Library",
+      "url": "https://digitallibrary.un.org/record/4001014/files/1393662_ZH.pdf",
+      "verification": "Official indexed text names North/South American and Asian river basins; direct full PDF fetch returned 403"
+    },
+    "un-basins": {
+      "title": "国际法委员会报告 A/35/10 中文本，国际河流流域",
+      "publisher": "United Nations",
+      "url": "https://digitallibrary.un.org/record/15210/files/A_35_10-ZH.pdf",
+      "verification": "Official indexed text explicitly names Congo, Niger, Nile, Zambezi, Mekong and Indus"
+    },
+    "unesco-zambezi": {
+      "title": "莫西奥图尼亚瀑布（维多利亚瀑布）",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/zh/list/509",
+      "verification": "Official page contains paired English Zambezi River and Chinese 赞比西河"
+    },
+    "un-parana": {
+      "title": "环境研究：阿根廷大学监测火灾对湿地的影响",
+      "publisher": "United Nations Academic Impact",
+      "url": "https://www.un.org/pt/node/166243",
+      "verification": "Official page explicitly pairs 巴拉那河 and Paraná River"
+    },
+    "cbd-orinoco": {
+      "title": "生物多样性公约 COP11 决定汇编 中文本",
+      "publisher": "Convention on Biological Diversity",
+      "url": "https://www.cbd.int/doc/decisions/cop-11/full/cop-11-dec-zh.pdf",
+      "verification": "Official indexed text names 奥里诺科河 and its Venezuela/Colombia basin"
+    },
+    "unesco-seine": {
+      "title": "巴黎塞纳河畔 / Paris, Banks of the Seine",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/zh/list/600",
+      "verification": "Official UNESCO World Heritage Chinese listing names 巴黎塞纳河畔; English site identity retained"
+    },
+    "cas-murray-darling": {
+      "title": "2017年度优秀成果报告会（水文学与社会系统）",
+      "publisher": "中国科学院兰州文献情报中心",
+      "url": "https://www.llas.cas.cn/xwzx/ywdt/201711/t20171107_302520.html",
+      "verification": "Institutional page identifies Australian 墨累—达令河流域; conventional individual river names separated for labeling"
+    },
+    "geog-arctic": {
+      "title": "北极地区大河径流相关研究，DOI 10.11821/dlxb202311005",
+      "publisher": "地理学报 / 中国地理学会、中国科学院地理科学与资源研究所",
+      "url": "https://www.geog.com.cn/CN/PDF/10.11821/dlxb202311005",
+      "verification": "Primary research indexed text explicitly lists 鄂毕河、叶尼塞河、勒拿河; no measurements copied"
+    },
+    "geodoi-lena": {
+      "title": "勒拿河流域—全球变化科学研究数据出版系统",
+      "publisher": "中国科学院地理科学与资源研究所 / 全球变化科学研究数据出版系统",
+      "url": "https://geodoi.ac.cn/webcn/doi.aspx?Id=526",
+      "verification": "Institutional dataset page identifies Lena and discusses 叶尼塞河/黑龙江 adjacent basins"
+    }
+  },
+  "rivers": [
+    {
+      "neName": "Nile",
+      "nameZh": "尼罗河",
+      "nameEn": "Nile River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-731",
+        "ne-rivers_lake_centerlines-732"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 320,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=320"
+    },
+    {
+      "neName": "Niger",
+      "nameZh": "尼日尔河",
+      "nameEn": "Niger River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-842",
+        "ne-rivers_lake_centerlines-843"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 320,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=320"
+    },
+    {
+      "neName": "Congo",
+      "nameZh": "刚果河",
+      "nameEn": "Congo River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-630",
+        "ne-rivers_lake_centerlines-663",
+        "ne-rivers_lake_centerlines-685"
+      ],
+      "sources": [
+        "un-basins"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://digitallibrary.un.org/record/15210/files/A_35_10-ZH.pdf"
+    },
+    {
+      "neName": "Zambezi",
+      "nameZh": "赞比西河",
+      "nameEn": "Zambezi River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-1039",
+        "ne-rivers_lake_centerlines-1040"
+      ],
+      "sources": [
+        "unesco-zambezi"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://whc.unesco.org/zh/list/509"
+    },
+    {
+      "neName": "Amazonas",
+      "nameZh": "亚马逊河",
+      "nameEn": "Amazon River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-454",
+        "ne-rivers_lake_centerlines-455"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 461,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=461",
+      "aliasesZh": [
+        "亚马孙河"
+      ]
+    },
+    {
+      "neName": "Paraná",
+      "nameZh": "巴拉那河",
+      "nameEn": "Paraná River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-534",
+        "ne-rivers_lake_centerlines-1382",
+        "ne-rivers_lake_centerlines-1383"
+      ],
+      "sources": [
+        "un-parana"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://www.un.org/pt/node/166243"
+    },
+    {
+      "neName": "Orinoco",
+      "nameZh": "奥里诺科河",
+      "nameEn": "Orinoco River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-1098"
+      ],
+      "sources": [
+        "cbd-orinoco"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://www.cbd.int/doc/decisions/cop-11/full/cop-11-dec-zh.pdf"
+    },
+    {
+      "neName": "Mississippi",
+      "nameZh": "密西西比河",
+      "nameEn": "Mississippi River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-233",
+        "ne-rivers_lake_centerlines-234",
+        "ne-rivers_lake_centerlines-588"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 309,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=309"
+    },
+    {
+      "neName": "Missouri",
+      "nameZh": "密苏里河",
+      "nameEn": "Missouri River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-1258",
+        "ne-rivers_lake_centerlines-1259"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 309,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=309"
+    },
+    {
+      "neName": "St. Lawrence",
+      "nameZh": "圣劳伦斯河",
+      "nameEn": "St. Lawrence River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-353"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 382,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=382"
+    },
+    {
+      "neName": "Colorado",
+      "nameZh": "科罗拉多河",
+      "nameEn": "Colorado River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-247",
+        "ne-rivers_lake_centerlines-248"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 251,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=251"
+    },
+    {
+      "neName": "Rhine",
+      "nameZh": "莱茵河",
+      "nameEn": "Rhine River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-227"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 260,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=260"
+    },
+    {
+      "neName": "Danube",
+      "nameZh": "多瑙河",
+      "nameEn": "Danube River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-389",
+        "ne-rivers_lake_centerlines-566"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 131,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=131"
+    },
+    {
+      "neName": "Seine",
+      "nameZh": "塞纳河",
+      "nameEn": "Seine River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-202"
+      ],
+      "sources": [
+        "unesco-seine"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://whc.unesco.org/zh/list/600"
+    },
+    {
+      "neName": "Volga",
+      "nameZh": "伏尔加河",
+      "nameEn": "Volga River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-997",
+        "ne-rivers_lake_centerlines-998"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 155,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=155"
+    },
+    {
+      "neName": "Thames",
+      "nameZh": "泰晤士河",
+      "nameEn": "River Thames",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-458"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 406,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=406"
+    },
+    {
+      "neName": "Ganges",
+      "nameZh": "恒河",
+      "nameEn": "Ganges River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-799"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 210,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=210"
+    },
+    {
+      "neName": "Brahmaputra",
+      "nameZh": "布拉马普特拉河",
+      "nameEn": "Brahmaputra River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-651",
+        "ne-rivers_lake_centerlines-754"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 80,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=80",
+      "upstreamNameZh": "雅鲁藏布江",
+      "note": "Whole watercourse reference name; Chinese upper course has its own name."
+    },
+    {
+      "neName": "Indus",
+      "nameZh": "印度河",
+      "nameEn": "Indus River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-810",
+        "ne-rivers_lake_centerlines-811"
+      ],
+      "sources": [
+        "un-basins"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://digitallibrary.un.org/record/15210/files/A_35_10-ZH.pdf"
+    },
+    {
+      "neName": "Mekong",
+      "nameZh": "湄公河",
+      "nameEn": "Mekong River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-609",
+        "ne-rivers_lake_centerlines-696"
+      ],
+      "sources": [
+        "un-basins"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://digitallibrary.un.org/record/15210/files/A_35_10-ZH.pdf",
+      "upstreamNameZh": "澜沧江",
+      "note": "Whole watercourse reference name; Chinese upper course has its own name."
+    },
+    {
+      "neName": "Yangtze",
+      "nameZh": "长江",
+      "nameEn": "Yangtze River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-241",
+        "ne-rivers_lake_centerlines-289",
+        "ne-rivers_lake_centerlines-301"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 85,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=85"
+    },
+    {
+      "neName": "Huang",
+      "nameZh": "黄河",
+      "nameEn": "Yellow River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-953",
+        "ne-rivers_lake_centerlines-954"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 215,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=215"
+    },
+    {
+      "neName": "Amur",
+      "nameZh": "黑龙江",
+      "nameEn": "Amur River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-1062",
+        "ne-rivers_lake_centerlines-1063",
+        "ne-rivers_lake_centerlines-1305"
+      ],
+      "sources": [
+        "geodoi-lena",
+        "un-water"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://geodoi.ac.cn/webcn/doi.aspx?Id=526",
+      "aliasesZh": [
+        "阿穆尔河"
+      ]
+    },
+    {
+      "neName": "Yenisey",
+      "nameZh": "叶尼塞河",
+      "nameEn": "Yenisey River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-174"
+      ],
+      "sources": [
+        "geog-arctic"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://www.geog.com.cn/CN/PDF/10.11821/dlxb202311005"
+    },
+    {
+      "neName": "Lena",
+      "nameZh": "勒拿河",
+      "nameEn": "Lena River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-203"
+      ],
+      "sources": [
+        "geodoi-lena"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://geodoi.ac.cn/webcn/doi.aspx?Id=526"
+    },
+    {
+      "neName": "Ob",
+      "nameZh": "鄂毕河",
+      "nameEn": "Ob River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-183",
+        "ne-rivers_lake_centerlines-184",
+        "ne-rivers_lake_centerlines-369"
+      ],
+      "sources": [
+        "geog-arctic"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://www.geog.com.cn/CN/PDF/10.11821/dlxb202311005"
+    },
+    {
+      "neName": "Tigris",
+      "nameZh": "底格里斯河",
+      "nameEn": "Tigris River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-209"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 109,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=109"
+    },
+    {
+      "neName": "Euphrates",
+      "nameZh": "幼发拉底河",
+      "nameEn": "Euphrates River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-880"
+      ],
+      "sources": [
+        "iaea"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourcePage": 485,
+      "sourceUrl": "https://www.iaea.org/sites/default/files/19/05/inis_thes_zh-en_05_2019.pdf#page=485"
+    },
+    {
+      "neName": "Murray",
+      "nameZh": "墨累河",
+      "nameEn": "Murray River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-788",
+        "ne-rivers_lake_centerlines-1347",
+        "ne-rivers_lake_centerlines-1348"
+      ],
+      "sources": [
+        "cas-murray-darling"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://www.llas.cas.cn/xwzx/ywdt/201711/t20171107_302520.html"
+    },
+    {
+      "neName": "Darling",
+      "nameZh": "达令河",
+      "nameEn": "Darling River",
+      "featureIds": [
+        "ne-rivers_lake_centerlines-1224"
+      ],
+      "sources": [
+        "cas-murray-darling"
+      ],
+      "nameBasis": "modern-standard-name-not-historical-attestation",
+      "sourceUrl": "https://www.llas.cas.cn/xwzx/ywdt/201711/t20171107_302520.html"
+    }
+  ]
+}

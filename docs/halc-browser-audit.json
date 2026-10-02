@@ -1,0 +1,73 @@
+{
+  "version": "3.9.0",
+  "method": "Browser UI and WebMCP checks on the local preview, using real MapLibre rendering and static HALC assets.",
+  "checks": [
+    {
+      "name": "Desktop restored dossier",
+      "result": "passed",
+      "details": "HALC fid 9088 restores from URL at year 1500; original Antwerpen/BR5000A, Holy Roman Empire, Brabant, TYPE 0 and 2.6123 km² match source attributes."
+    },
+    {
+      "name": "Dossier tabs isolate arrow keys",
+      "result": "passed",
+      "details": "Sources to original fields and back through left/right arrow keys; year 1500 and camera [4.4,51.22,10.2,0,0] unchanged."
+    },
+    {
+      "name": "Desktop panel inside map",
+      "result": "passed",
+      "viewport": [
+        1440,
+        900
+      ],
+      "details": "Side-positioned panel is wholly visible; heading, close control, all overview rows remain within map."
+    },
+    {
+      "name": "Mobile source reading",
+      "result": "passed",
+      "viewport": [
+        390,
+        844
+      ],
+      "details": "Panel bounds x20–370,y90.5–610.5. Width and scrollWidth both 350px; source text wraps, internal vertical scrolling available."
+    },
+    {
+      "name": "English record",
+      "result": "passed",
+      "details": "Record, Sources and Original fields tabs; translated attributed polity/region/type; source place name retained."
+    },
+    {
+      "name": "Year fallback and exploration",
+      "result": "passed",
+      "details": "Moving from 1500 to 1501 clears HALC record and labels, retains mode, shows global overview. Explore button returns to 1500, center [4.8,51.3], zoom7 and active HALC."
+    },
+    {
+      "name": "Unsupported year request gate",
+      "result": "passed",
+      "details": "Observed Network.requestWillBeSent from initial navigation to settled year1501; zero /data/halc/ requests."
+    },
+    {
+      "name": "Hidden boundary request gate",
+      "result": "passed",
+      "details": "Observed initial URL year1500,borders=0,boundaries=halc; zero /data/halc/ requests."
+    },
+    {
+      "name": "Comparison selected record restoration",
+      "result": "passed",
+      "details": "Left overview/right HALC, both year1500. boundary=halc:9088&side=right restores to dialog parent map2; source preferences remain independent."
+    },
+    {
+      "name": "Browser console",
+      "result": "passed",
+      "details": "No captured warning/error entries during final comparison inspection."
+    }
+  ],
+  "evidence": [
+    "Meridian-HALC-detailed-boundaries.png",
+    "Meridian-HALC-mobile.png"
+  ],
+  "limits": [
+    "The source data reconstruct the Low Countries in 1500; no Alpine precision claim is made.",
+    "These checks establish observed UI behavior, not a historical accuracy guarantee.",
+    "Request gates are separate from the mocked lifecycle suite; no global performance benchmark is claimed."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "file": "ne_10m_land.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+      "sha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/"
+    },
+    {
+      "file": "ne_10m_lakes.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_lakes.geojson",
+      "sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/"
+    },
+    {
+      "file": "ne_10m_rivers_lake_centerlines.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
+      "sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/"
+    },
+    {
+      "file": "SR_HR.zip",
+      "url": "https://naciscdn.org/naturalearth/10m/raster/SR_HR.zip",
+      "sha256": "b2619fff2fc73c17152983c066adfaa25c4b626916b822bad2fae8bcd9be41a5",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "extract": [
+        "SR_HR.tif",
+        "SR_HR.tfw",
+        "SR_HR.prj",
+        "SR_HR.README.html",
+        "SR_HR.VERSION.txt"
+      ]
+    }
+  ],
+  "coordinate_scope": "Modern geography; 10m means 1:10 million scale, not 10-metre resolution."
+}

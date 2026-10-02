@@ -1,0 +1,307 @@
+{
+  "checkedAt": "2026-10-02T14:49:49.536Z",
+  "method": "Actual repository functions executed in Node VM; DOM, renderer and network boundaries stubbed; no browser visual verification.",
+  "snapshots": {
+    "view-state.js": {
+      "sha256": "1b57cdfe210a73227345694623902a3555e94b24b0f07fb0f7fc142a23e18a7a"
+    },
+    "map-engine.js": {
+      "sha256": "91bf739ca9f5d42b84a66117a2287c28cc3c37eeda9dff68c21f4455a92c98bf"
+    },
+    "places.js": {
+      "sha256": "88d7eecbbc0935d516b72b0bef02b593b966ea736dc3fbe161c66db440bcfd20"
+    },
+    "timeline-controls.js": {
+      "sha256": "b3954150517b0a12883f08db32331c3a33fe7a1038a864f26c2936ae85b89a6f"
+    },
+    "polity-reader.js": {
+      "sha256": "14d6815840350963ace35dcd4d85b07ada131be388ba61de0ec3792147d06d57"
+    },
+    "regional-boundaries.js": {
+      "sha256": "590573144a4201849d039444ca7be98c012c7a89aa58594bdd0d5bdc036ffa4c"
+    },
+    "app.js": {
+      "sha256": "3d7d618a1f6b667a63f7f6eada9b637f02ee9ff57dc23319fdf83f36180e2c66"
+    }
+  },
+  "pass": 69,
+  "fail": 0,
+  "results": [
+    {
+      "name": "city to polity navigation opens the left dossier",
+      "pass": true
+    },
+    {
+      "name": "city to polity navigation opens the right dossier",
+      "pass": true
+    },
+    {
+      "name": "event share restores left year with a saved camera",
+      "pass": true
+    },
+    {
+      "name": "event share restores left year without a saved camera",
+      "pass": true
+    },
+    {
+      "name": "event share restores right year with a saved camera",
+      "pass": true
+    },
+    {
+      "name": "event share restores right year without a saved camera",
+      "pass": true
+    },
+    {
+      "name": "polity language switch keeps left camera and reader tab",
+      "pass": true
+    },
+    {
+      "name": "polity language switch keeps right camera and reader tab",
+      "pass": true
+    },
+    {
+      "name": "left draft 1700 ArrowUp yields 1701",
+      "pass": true
+    },
+    {
+      "name": "left draft 1700 ArrowDown yields 1699",
+      "pass": true
+    },
+    {
+      "name": "left draft -1 ArrowUp yields 1",
+      "pass": true
+    },
+    {
+      "name": "left draft 1 ArrowDown yields -1",
+      "pass": true
+    },
+    {
+      "name": "left draft 2026 ArrowUp yields 2026",
+      "pass": true
+    },
+    {
+      "name": "left draft -70000 ArrowDown yields -70000",
+      "pass": true
+    },
+    {
+      "name": "right draft 1700 ArrowUp yields 1701",
+      "pass": true
+    },
+    {
+      "name": "right draft 1700 ArrowDown yields 1699",
+      "pass": true
+    },
+    {
+      "name": "right draft -1 ArrowUp yields 1",
+      "pass": true
+    },
+    {
+      "name": "right draft 1 ArrowDown yields -1",
+      "pass": true
+    },
+    {
+      "name": "right draft 2026 ArrowUp yields 2026",
+      "pass": true
+    },
+    {
+      "name": "right draft -70000 ArrowDown yields -70000",
+      "pass": true
+    },
+    {
+      "name": "comparison input waits for initial map readiness before accepting year edits",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary 0,0,0.2,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary 180,85.051129,18,180,60",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary -180,-85.051129,0.2,-180,0",
+      "pass": true
+    },
+    {
+      "name": "decode accepts camera boundary 25.12345,-30.98765,6.125,-47.5,42",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera null",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera undefined",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera ",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0,0,1",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,NaN,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera Infinity,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 181,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,85.1,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,.199,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,18.001,0,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,180.001,0",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0,60.001",
+      "pass": true
+    },
+    {
+      "name": "decode rejects invalid camera 0,0,1,0,-.001",
+      "pass": true
+    },
+    {
+      "name": "encode wraps longitude and bearing without changing position",
+      "pass": true
+    },
+    {
+      "name": "encode round-trip retains valid extreme latitude -85.051129",
+      "pass": true
+    },
+    {
+      "name": "encode round-trip retains valid extreme latitude 85.051129",
+      "pass": true
+    },
+    {
+      "name": "encode rejects nonfinite latitude NaN",
+      "pass": true
+    },
+    {
+      "name": "encode rejects nonfinite latitude Infinity",
+      "pass": true
+    },
+    {
+      "name": "URL initial loading labels use the requested BCE year before data arrives",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=1800&camera=bad",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=0&camera=0,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=-999999&camera=0,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0",
+      "pass": true
+    },
+    {
+      "name": "city URL retains left selection, year and camera",
+      "pass": true
+    },
+    {
+      "name": "city URL retains right selection, year and camera",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=halc&boundaries2=overview",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=overview&boundaries2=halc",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=halc",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #year=1492&boundaries=halc",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=regional&boundaries2=overview",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=overview",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #regional=0",
+      "pass": true
+    },
+    {
+      "name": "Boundary archive choices restore and share independently #boundaries=bad&boundaries2=bad",
+      "pass": true
+    },
+    {
+      "name": "Border portrayal restores and shares #borderCurves=0",
+      "pass": true
+    },
+    {
+      "name": "Border portrayal restores and shares #borderCurves=1",
+      "pass": true
+    },
+    {
+      "name": "Border portrayal restores and shares #year=1500",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore left: normal preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore left: overview preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore left: away-and-back preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore right: normal preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore right: overview preserves the newest source intent",
+      "pass": true
+    },
+    {
+      "name": "HALC Explore right: away-and-back preserves the newest source intent",
+      "pass": true
+    }
+  ]
+}

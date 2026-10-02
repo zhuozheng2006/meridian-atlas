@@ -1,0 +1,58 @@
+{
+  "lifecycle": {
+    "passed": 29,
+    "total": 29,
+    "source": {
+      "path": "public/halc-boundaries.js",
+      "sha256": "ba02785554eb2bef426f55cd1df4a813416320484059c81d3a4547373e628599"
+    }
+  },
+  "viewState": {
+    "passed": 69,
+    "total": 69,
+    "snapshots": {
+      "view-state.js": {
+        "sha256": "1b57cdfe210a73227345694623902a3555e94b24b0f07fb0f7fc142a23e18a7a"
+      },
+      "map-engine.js": {
+        "sha256": "91bf739ca9f5d42b84a66117a2287c28cc3c37eeda9dff68c21f4455a92c98bf"
+      },
+      "places.js": {
+        "sha256": "88d7eecbbc0935d516b72b0bef02b593b966ea736dc3fbe161c66db440bcfd20"
+      },
+      "timeline-controls.js": {
+        "sha256": "b3954150517b0a12883f08db32331c3a33fe7a1038a864f26c2936ae85b89a6f"
+      },
+      "polity-reader.js": {
+        "sha256": "14d6815840350963ace35dcd4d85b07ada131be388ba61de0ec3792147d06d57"
+      },
+      "regional-boundaries.js": {
+        "sha256": "590573144a4201849d039444ca7be98c012c7a89aa58594bdd0d5bdc036ffa4c"
+      },
+      "app.js": {
+        "sha256": "3d7d618a1f6b667a63f7f6eada9b637f02ee9ff57dc23319fdf83f36180e2c66"
+      }
+    }
+  },
+  "exploreNegativeControl": {
+    "mutation": "Removed modeRevision comparison from the in-memory app.js snapshot only",
+    "expectedFailures": 2,
+    "actualFailures": [
+      "HALC Explore left: away-and-back preserves the newest source intent",
+      "HALC Explore right: away-and-back preserves the newest source intent"
+    ],
+    "expectedExit": 1
+  },
+  "rootResolution": [
+    "checkout current working directory",
+    "explicit checkout-root argument",
+    "script-relative parent from an unrelated current directory"
+  ],
+  "checkoutEdited": false,
+  "testFiles": {
+    "validate-halc-lifecycle.mjs": "a0c9330d57158a9707ac84492c86b1a5a30384d9e02860c9fb66335e12dbf449",
+    "halc-test-adapter.mjs": "65922130b40c28d166a5dd18f949b121bef909554146834d3fdbe8c8f97d98f7",
+    "halc-test-map.mjs": "d679c10dd7ec30ce64a40aa10108fe81184db2bb03daece78936715c5ca62263",
+    "validate-view-state.cjs": "051e45f4a57626d4f2840f1cf51192a2c5b8f33255449c6f323c0711dfafa3a4"
+  }
+}

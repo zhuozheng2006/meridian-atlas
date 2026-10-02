@@ -1,0 +1,474 @@
+{
+  "checkedAt": "2026-10-02T17:25:43.488Z",
+  "method": "Pure-model and DOM-boundary fixtures plus all59published shards/all14,863records/all3languages. No map, browser, network, or new geometry.",
+  "moduleSha256": "91f373140ccb4d83fde9e7c618134adfa27b4eb904097b16e205b9c4c47a811c",
+  "pass": 17,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Exactly eight source classes and seven urban-status codes are defined",
+      "pass": true
+    },
+    {
+      "name": "Proportions use classified total, not the separate polygon area",
+      "pass": true
+    },
+    {
+      "name": "Recorded zero, absent and null areas remain distinguishable",
+      "pass": true
+    },
+    {
+      "name": "A zero total never produces NaN, infinity or a fabricated percentage",
+      "pass": true
+    },
+    {
+      "name": "No recorded classification is not treated as eight zero areas",
+      "pass": true
+    },
+    {
+      "name": "Negative, nonfinite and textual source values are not silently coerced",
+      "pass": true
+    },
+    {
+      "name": "Overflowing finite fields produce no percentages or false zero-total statement",
+      "pass": true
+    },
+    {
+      "name": "Every urban code keeps privilege and demarcation as separate meanings",
+      "pass": true
+    },
+    {
+      "name": "Chinese, English and bilingual rendering all retain eight rows and source explanation",
+      "pass": true
+    },
+    {
+      "name": "Tiny positive classes keep a positive bar and an honest less-than display",
+      "pass": true
+    },
+    {
+      "name": "Missing rows have no percentage while recorded zero rows display zero",
+      "pass": true
+    },
+    {
+      "name": "Source strings are text nodes and cannot inject HTML",
+      "pass": true
+    },
+    {
+      "name": "The pure model and renderer do not modify the source record",
+      "pass": true
+    },
+    {
+      "name": "A null record is handled as absent data rather than an exception",
+      "pass": true
+    },
+    {
+      "name": "All 14,863 published records have eight valid nonnegative areas and a known URBAN code",
+      "pass": true
+    },
+    {
+      "name": "The seven real source discrepancies stay separate and do not change denominators",
+      "pass": true
+    },
+    {
+      "name": "Every published record renders safely in Chinese, English and bilingual form",
+      "pass": true
+    }
+  ],
+  "audit": {
+    "recordCount": 14863,
+    "shardCount": 59,
+    "sourceShards": [
+      {
+        "name": "shard-000.json.gz",
+        "bytes": 19975,
+        "sha256": "28fc6e8b9c8b830171f76abf583991fc982d005c3d1cde302746fa1810b12e1e"
+      },
+      {
+        "name": "shard-001.json.gz",
+        "bytes": 19504,
+        "sha256": "d74fd4c5b8a2441166eaa77ee99137b38b574caa8e607a180d2e4436caad4c85"
+      },
+      {
+        "name": "shard-002.json.gz",
+        "bytes": 19947,
+        "sha256": "dfeae913696d7e76514842b9f38c50798f1d33ce240d944494143d03b85cbe1a"
+      },
+      {
+        "name": "shard-003.json.gz",
+        "bytes": 19206,
+        "sha256": "89463f6ae4c5169fc1129019d51802dba1f8487ac1d20d9256d9349ae8bcc9af"
+      },
+      {
+        "name": "shard-004.json.gz",
+        "bytes": 21023,
+        "sha256": "df03af4b54232125023de2ba2a6275f4d1ab1743be0d09c763d275b6bde860ce"
+      },
+      {
+        "name": "shard-005.json.gz",
+        "bytes": 19791,
+        "sha256": "c7e805686a0bb2e398427cb3d28df3db1a25dcdbcc95a026a615d288290d88d0"
+      },
+      {
+        "name": "shard-006.json.gz",
+        "bytes": 19741,
+        "sha256": "1682863f86f1c46cf4ba047e3f95640a17dc165c704955330067cfbc4da1fb3c"
+      },
+      {
+        "name": "shard-007.json.gz",
+        "bytes": 20133,
+        "sha256": "a78675275036c5c4100fb778c2516d90b4c1a45205d1c9c35744ada174955790"
+      },
+      {
+        "name": "shard-008.json.gz",
+        "bytes": 19586,
+        "sha256": "81fae1c19d28b29591117d8d5b6ec58ff4fdb41e07c8a8c2c4106bd8a3f9e7ee"
+      },
+      {
+        "name": "shard-009.json.gz",
+        "bytes": 19942,
+        "sha256": "1e32e5d0eee81dc9821db28d8bb1a69836c9a8483ab46eaf76a2926d01cd2a64"
+      },
+      {
+        "name": "shard-010.json.gz",
+        "bytes": 20095,
+        "sha256": "aedaf21218b2eb8a6eb5c5685342e03d708ad120b2993aa0e68c3ecf9cf54be9"
+      },
+      {
+        "name": "shard-011.json.gz",
+        "bytes": 19504,
+        "sha256": "adb17e927fd7d8ac0389d0cbfb8ed2d85b58bc3d5fc4917893e730ae68e9e416"
+      },
+      {
+        "name": "shard-012.json.gz",
+        "bytes": 18336,
+        "sha256": "5a22a31de970c5d782a1a817ff5c11a8e27d3d22cd1e4cdcc60e4170ffdc2920"
+      },
+      {
+        "name": "shard-013.json.gz",
+        "bytes": 18939,
+        "sha256": "889a21c555a3dfd36874ebe5e541f5f122e5d9d4a188e9610f80ac01196bfcb8"
+      },
+      {
+        "name": "shard-014.json.gz",
+        "bytes": 19996,
+        "sha256": "d602ea067469bb150ae4d29bc6f12060c7e00e24cc23e7472262f5e6513f9d39"
+      },
+      {
+        "name": "shard-015.json.gz",
+        "bytes": 18679,
+        "sha256": "e78dfe980a4fe9c40e3f467badb1a0504c2f9ff796606ee4fcdb5ec6c08c752c"
+      },
+      {
+        "name": "shard-016.json.gz",
+        "bytes": 20546,
+        "sha256": "b4ec229332f092dc0a98d55f237e5fe8948e58cc5e4a9199e2017a4954e83d5b"
+      },
+      {
+        "name": "shard-017.json.gz",
+        "bytes": 18764,
+        "sha256": "2e12f0a688af176afa52e3cc835bf7451e758ae65d70c0fa64eb51b9b4b1d00c"
+      },
+      {
+        "name": "shard-018.json.gz",
+        "bytes": 18932,
+        "sha256": "ac60d9878de5bcb1c5d389aafbcd4fba361ff0357c5f1869e33e151c329f95a1"
+      },
+      {
+        "name": "shard-019.json.gz",
+        "bytes": 20397,
+        "sha256": "732155f594106f5ced0c55464a604281773a88d3579d676ba40cbadfde5d5d77"
+      },
+      {
+        "name": "shard-020.json.gz",
+        "bytes": 19643,
+        "sha256": "19c700524358aefd1d2de5b1e1e9f1355227eabee0b9f3834fecba4034f53022"
+      },
+      {
+        "name": "shard-021.json.gz",
+        "bytes": 20105,
+        "sha256": "f7a7059e4c5f20a626d56fcf9ecfb6a4344e01d98a80ff4e4e7dfd5a2dd3542e"
+      },
+      {
+        "name": "shard-022.json.gz",
+        "bytes": 20079,
+        "sha256": "038abe50c85d60a2fdcd78cf906670072950dcb3e3fa48c96e7e2ae1a202418f"
+      },
+      {
+        "name": "shard-023.json.gz",
+        "bytes": 19149,
+        "sha256": "db81efd8751c0bb6b54d04efb8c17c450f017c45b004b17e356a7131b80b1e20"
+      },
+      {
+        "name": "shard-024.json.gz",
+        "bytes": 19864,
+        "sha256": "95f8997b5455cdef1ac3264476a1ca9f64fc653701ecdfb53ba35354eb9db648"
+      },
+      {
+        "name": "shard-025.json.gz",
+        "bytes": 20006,
+        "sha256": "2d6fad0e58c0fb4d8eecdc6add3fb0400c00d1ef25c81e5a7622d2bea64d3a45"
+      },
+      {
+        "name": "shard-026.json.gz",
+        "bytes": 19669,
+        "sha256": "179884be7e9a5c92e8f2a83a5c5b81c00add79d264bca22827b946f12679acee"
+      },
+      {
+        "name": "shard-027.json.gz",
+        "bytes": 21428,
+        "sha256": "523ba1f8aa0064e672681a99e511affc2fa976a502929b93c11870e73652fa1d"
+      },
+      {
+        "name": "shard-028.json.gz",
+        "bytes": 19501,
+        "sha256": "29b02b55fc15cc81ce82a2b0163de07c0d64083ffbb2836ddf33d62d9ec322c9"
+      },
+      {
+        "name": "shard-029.json.gz",
+        "bytes": 21274,
+        "sha256": "8a7e0df02ef9189d2faefadcc5f45e62c5e40a93d6763146115f23121171a451"
+      },
+      {
+        "name": "shard-030.json.gz",
+        "bytes": 19483,
+        "sha256": "afe7a88263ffd03f333c31120b30f7b9e8c3bae721fac2ac88acb63e8d79357f"
+      },
+      {
+        "name": "shard-031.json.gz",
+        "bytes": 20976,
+        "sha256": "1e73e6be6e9679e509fc5b9b713c48607e31a08839ed0627d1ab549eadb12202"
+      },
+      {
+        "name": "shard-032.json.gz",
+        "bytes": 19942,
+        "sha256": "2ddb09e611e2010fead9e2e96623d3723e395a1b1d2085120106127fec24c9a6"
+      },
+      {
+        "name": "shard-033.json.gz",
+        "bytes": 19895,
+        "sha256": "f9b85f68bc2c6d1263e30ce5ae74187d40e2cc7528d54f70ec11445be06a2604"
+      },
+      {
+        "name": "shard-034.json.gz",
+        "bytes": 20441,
+        "sha256": "e528048a33c6f1439d6612d70b7218f2d88c1888f175c2b1ec8a2fc05ffabeb5"
+      },
+      {
+        "name": "shard-035.json.gz",
+        "bytes": 19523,
+        "sha256": "a28bd8ae8d9c355f0c789f05b9208c924ab504349a8dc704e382dd2161532ace"
+      },
+      {
+        "name": "shard-036.json.gz",
+        "bytes": 19661,
+        "sha256": "90c1ea7986980cd6b23410e2ac7aff527cf3147371acfea6b3f65d7efacb7940"
+      },
+      {
+        "name": "shard-037.json.gz",
+        "bytes": 19266,
+        "sha256": "3e81c738509892c442d358a2730aa1aa22099f23e649ea8a550837c854922e9c"
+      },
+      {
+        "name": "shard-038.json.gz",
+        "bytes": 20399,
+        "sha256": "23f790b9d3a580d8eb9eef37f5f5e5c898b4a1382176d978ea58599ef53eba56"
+      },
+      {
+        "name": "shard-039.json.gz",
+        "bytes": 19917,
+        "sha256": "2ddce987336d2014fad6962fefe6966af41e317defaea58e96b940e3b712694d"
+      },
+      {
+        "name": "shard-040.json.gz",
+        "bytes": 20834,
+        "sha256": "a5225e05298c62bb373637bdf9e73507377634cdab1a66823302dbadd8243194"
+      },
+      {
+        "name": "shard-041.json.gz",
+        "bytes": 18321,
+        "sha256": "ad89d1dda46a95efbbcb3f54c5e4c176b525c386fb5e9434c42e1a0ead8cb508"
+      },
+      {
+        "name": "shard-042.json.gz",
+        "bytes": 18710,
+        "sha256": "c4dccf18a2eb45b6145f2c7f95d481b69bbb9656431c90c698f45db19c4b1ebd"
+      },
+      {
+        "name": "shard-043.json.gz",
+        "bytes": 20245,
+        "sha256": "3658b685f565608250030de9ee4cdc30e3093bd1f3ba33339c47d0185b975576"
+      },
+      {
+        "name": "shard-044.json.gz",
+        "bytes": 19840,
+        "sha256": "50ee14b9559e07c3b881ed2d055b5b5534ba29f32582193f0cace69dbd80a5d1"
+      },
+      {
+        "name": "shard-045.json.gz",
+        "bytes": 19563,
+        "sha256": "9a6034a690a271ded6e92d4dd7082838a09bce4138e8e934b8e35f85199bf0cc"
+      },
+      {
+        "name": "shard-046.json.gz",
+        "bytes": 20785,
+        "sha256": "17c59ce32496990e149a4c118e87488350e4c137be6511a09884d410048dc80e"
+      },
+      {
+        "name": "shard-047.json.gz",
+        "bytes": 19686,
+        "sha256": "599e5e25cd8dcaa636b3d93908a93db15a6d5abaef218811b7016c7ee9f1378c"
+      },
+      {
+        "name": "shard-048.json.gz",
+        "bytes": 19293,
+        "sha256": "c75b5130e7adced62b0d6afe287484713d3395861b54b850f97fcf9852d5fbe6"
+      },
+      {
+        "name": "shard-049.json.gz",
+        "bytes": 19458,
+        "sha256": "4844d45ca2029177b59b8a780d9aba11f999dbc8f15d5bf32983549d07a97463"
+      },
+      {
+        "name": "shard-050.json.gz",
+        "bytes": 21064,
+        "sha256": "8215faea59e181cda5db6ea197cd74fe42efdbbf3b360b7d8d578cbd8889813e"
+      },
+      {
+        "name": "shard-051.json.gz",
+        "bytes": 19453,
+        "sha256": "a6a63d17319052c7ff4bf818182259074d456f7c8493724c281a3a8d85069e68"
+      },
+      {
+        "name": "shard-052.json.gz",
+        "bytes": 20315,
+        "sha256": "2f8c029998f159eb6373e354207a36e76deee20eccadf0c86bc39a912039b7b7"
+      },
+      {
+        "name": "shard-053.json.gz",
+        "bytes": 19505,
+        "sha256": "2ad6c2e0709a339c6f2013ff412af4efbe33c1f22c70f9969dbb466551cc9704"
+      },
+      {
+        "name": "shard-054.json.gz",
+        "bytes": 20538,
+        "sha256": "a985caf45fe381eaafd96232964fab3949967fee068e01e0fb2ee2ffeb6c3416"
+      },
+      {
+        "name": "shard-055.json.gz",
+        "bytes": 20053,
+        "sha256": "d88216038674aeb68d942afa233c0565cab5119b064d0bb202c2a10847e94dbe"
+      },
+      {
+        "name": "shard-056.json.gz",
+        "bytes": 19712,
+        "sha256": "362baafaa6af6aeb4be64b0c6f43e5e21e5cb10f9e43da43f6b52633684a0121"
+      },
+      {
+        "name": "shard-057.json.gz",
+        "bytes": 18574,
+        "sha256": "b78b5c1b34af10a8012ecb1c49c808d3bab3714b67849102d982219408b24279"
+      },
+      {
+        "name": "shard-058.json.gz",
+        "bytes": 2146,
+        "sha256": "8bc77c87edb32888058fd0d649c9190b5743013d30ea43f1270a40c7ea6d3cd7"
+      }
+    ],
+    "areaStatuses": {
+      "recorded": 118904,
+      "missing": 0,
+      "invalid": 0
+    },
+    "urbanCounts": {
+      "0": 12955,
+      "1": 806,
+      "2": 67,
+      "3": 3,
+      "4": 6,
+      "5": 112,
+      "9": 914
+    },
+    "zeroClassifiedTotals": [],
+    "polygonZeroAreas": [],
+    "differencesOver001": [
+      {
+        "fid": 3411,
+        "NAME": "Ballum",
+        "SHORT_ID": "FS0210",
+        "classifiedTotal": 137.6018,
+        "polygonArea": 137.6503,
+        "difference": -0.048499999999989996
+      },
+      {
+        "fid": 3542,
+        "NAME": "Nes",
+        "SHORT_ID": "FS0220A;FS0220B",
+        "classifiedTotal": 538.7312999999999,
+        "polygonArea": 538.683,
+        "difference": 0.04829999999992651
+      },
+      {
+        "fid": 3828,
+        "NAME": "Grafelijkheid",
+        "SHORT_ID": "ZE9950",
+        "classifiedTotal": 924.7663,
+        "polygonArea": 924.9191,
+        "difference": -0.15279999999995653
+      },
+      {
+        "fid": 7883,
+        "NAME": "Grafelijkheid",
+        "SHORT_ID": "HO9999E",
+        "classifiedTotal": 5450.9257,
+        "polygonArea": 5450.7683,
+        "difference": 0.1574000000000524
+      },
+      {
+        "fid": 9053,
+        "NAME": "Bosch",
+        "SHORT_ID": "GR9100",
+        "classifiedTotal": 171.3637,
+        "polygonArea": 171.6216,
+        "difference": -0.25790000000000646
+      },
+      {
+        "fid": 10134,
+        "NAME": "Rottumeroog",
+        "SHORT_ID": "GR9000",
+        "classifiedTotal": 236.8851,
+        "polygonArea": 236.6356,
+        "difference": 0.2494999999999834
+      },
+      {
+        "fid": 11083,
+        "NAME": "Northsea",
+        "SHORT_ID": "FR9999",
+        "classifiedTotal": 178.4783,
+        "polygonArea": 178.8008,
+        "difference": -0.3225000000000193
+      }
+    ],
+    "maxAbsoluteDifference": 0.3225000000000193,
+    "classTotals": {
+      "0": 97123.3054999996,
+      "1": 955.7505999999998,
+      "2": 640.4544,
+      "3": 1606.2542999999996,
+      "4": 138.6411,
+      "7": 3679.6785000000004,
+      "8": 391.35110000000003,
+      "9": 25032.901099999992
+    },
+    "recordsWithPositiveClass": {
+      "0": 14398,
+      "1": 183,
+      "2": 341,
+      "3": 276,
+      "4": 46,
+      "7": 2210,
+      "8": 1022,
+      "9": 525
+    },
+    "sourceAttributesPreserved": true
+  }
+}

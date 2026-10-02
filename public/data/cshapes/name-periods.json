@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "scope": "CShapes 2.1 beta COW; date-aware editorial display aliases only",
+  "dateRule": "Inclusive ISO civil-date intervals. Look up the selected-year July 1 date, not the source record start year. Apply only after the record itself passes its native startDate/endDate validity test.",
+  "preservation": "Keep native r.name, source properties, sourceIndex, code, geometry and archive date ranges unchanged. Preserve and show the original umbrella source name in the record/source details. Do not use these aliases as entity bindings.",
+  "rules": [
+    {
+      "sourceName": "Russia (Soviet Union)",
+      "startDate": "1886-01-01",
+      "endDate": "1917-03-14",
+      "zh": "俄罗斯帝国",
+      "en": "Russian Empire",
+      "sourceURLs": [
+        "https://www.loc.gov/exhibits/churchill/interactive/_html/1_00_00.html"
+      ]
+    },
+    {
+      "sourceName": "Russia (Soviet Union)",
+      "startDate": "1917-03-15",
+      "endDate": "1922-12-29",
+      "zh": "俄罗斯",
+      "en": "Russia",
+      "sourceURLs": [
+        "https://www.loc.gov/exhibits/churchill/interactive/_html/1_00_00.html",
+        "https://blogs.loc.gov/law/2013/01/treaty-on-the-creation-of-the-soviet-union-signed-sealed-and-delivered/"
+      ],
+      "note": "Country-level display label across the revolutionary and civil-war transition; does not assign one constitutional regime to all source territory."
+    },
+    {
+      "sourceName": "Russia (Soviet Union)",
+      "startDate": "1922-12-30",
+      "endDate": "1991-12-25",
+      "zh": "苏联",
+      "en": "Soviet Union",
+      "sourceURLs": [
+        "https://blogs.loc.gov/law/2013/01/treaty-on-the-creation-of-the-soviet-union-signed-sealed-and-delivered/",
+        "https://1997-2001.state.gov/background_notes/russia_0898_bgn.html"
+      ]
+    },
+    {
+      "sourceName": "Russia (Soviet Union)",
+      "startDate": "1991-12-26",
+      "endDate": "2023-12-31",
+      "zh": "俄罗斯",
+      "en": "Russia",
+      "sourceURLs": [
+        "https://1997-2001.state.gov/background_notes/russia_0898_bgn.html"
+      ],
+      "note": "Change day follows the dataset's own boundary interval beginning 1991-12-26 and the official dissolution date; July 1 snapshots are unaffected by intraday interpretation."
+    },
+    {
+      "sourceName": "Turkey (Ottoman Empire)",
+      "startDate": "1886-01-01",
+      "endDate": "1922-10-31",
+      "zh": "奥斯曼帝国",
+      "en": "Ottoman Empire",
+      "sourceURLs": [
+        "https://www.mfa.gov.tr/data/Kutuphane/Yayinlar/bern.pdf"
+      ]
+    },
+    {
+      "sourceName": "Turkey (Ottoman Empire)",
+      "startDate": "1922-11-01",
+      "endDate": "2023-12-31",
+      "zh": "土耳其",
+      "en": "Turkey",
+      "sourceURLs": [
+        "https://www.mfa.gov.tr/data/Kutuphane/Yayinlar/bern.pdf"
+      ],
+      "note": "Use country-level Turkey through the 1922–1923 transition; do not label the July 1923 snapshot Republic of Turkey before its proclamation."
+    },
+    {
+      "sourceName": "Italy/Sardinia",
+      "startDate": "1886-01-01",
+      "endDate": "2023-12-31",
+      "zh": "意大利",
+      "en": "Italy",
+      "sourceURLs": [
+        "https://vive.cultura.gov.it/en/unification-day-president-republic-lays-laurel-wreath-tomb-unknown-soldier"
+      ],
+      "note": "Country-level label spans kingdom and republic. Sardinia is retained only in the original umbrella source name."
+    },
+    {
+      "sourceName": "Germany (Prussia)",
+      "startDate": "1886-01-01",
+      "endDate": "1945-05-07",
+      "zh": "德国",
+      "en": "Germany",
+      "sourceURLs": [
+        "https://history.state.gov/countries/germany/1000"
+      ],
+      "note": "Country-level label spans the imperial, Weimar and Nazi periods. Applies only to this exact source name, not to German Federal Republic or German Democratic Republic."
+    },
+    {
+      "sourceName": "Yugoslavia/Serbia",
+      "startDate": "1918-12-01",
+      "endDate": "1929-10-02",
+      "zh": "塞尔维亚人、克罗地亚人和斯洛文尼亚人王国",
+      "en": "Kingdom of Serbs, Croats and Slovenes",
+      "sourceURLs": [
+        "https://muzej-jugoslavije.org/istrazi/"
+      ]
+    },
+    {
+      "sourceName": "Yugoslavia/Serbia",
+      "startDate": "1929-10-03",
+      "endDate": "2003-02-03",
+      "zh": "南斯拉夫",
+      "en": "Yugoslavia",
+      "sourceURLs": [
+        "https://muzej-jugoslavije.org/istrazi/",
+        "https://digitallibrary.un.org/record/1129731?ln=en"
+      ],
+      "note": "Common country name across constitutional changes; does not relabel the occupied source classification or infer a government."
+    },
+    {
+      "sourceName": "Yugoslavia/Serbia",
+      "startDate": "2003-02-04",
+      "endDate": "2006-06-02",
+      "zh": "塞尔维亚和黑山",
+      "en": "Serbia and Montenegro",
+      "sourceURLs": [
+        "https://digitallibrary.un.org/record/1129731?ln=en"
+      ]
+    },
+    {
+      "sourceName": "Yugoslavia/Serbia",
+      "startDate": "2006-06-03",
+      "endDate": "2006-06-04",
+      "zh": "塞尔维亚",
+      "en": "Serbia",
+      "sourceURLs": [
+        "https://www.un.org/depts/los/LEGISLATIONANDTREATIES/STATEFILES/SRB.htm"
+      ],
+      "note": "Only the final two days of this source-name group. On 2006-06-05 the native archive uses a separate Serbia record. No July 1 snapshot uses this two-day alias."
+    }
+  ],
+  "sources": {
+    "russianAbdication": {
+      "url": "https://www.loc.gov/exhibits/churchill/interactive/_html/1_00_00.html",
+      "title": "Library of Congress — Churchill and the Great Republic timeline",
+      "supports": "Nicholas II abdicated on 15 March 1917 (Gregorian date)."
+    },
+    "ussrFormation": {
+      "url": "https://blogs.loc.gov/law/2013/01/treaty-on-the-creation-of-the-soviet-union-signed-sealed-and-delivered/",
+      "title": "Law Library of Congress — Treaty on the Creation of the Soviet Union",
+      "supports": "Union treaty adopted on 30 December 1922; the USSR did not immediately succeed the imperial regime."
+    },
+    "ussrDissolution": {
+      "url": "https://1997-2001.state.gov/background_notes/russia_0898_bgn.html",
+      "title": "U.S. Department of State — Russia Background Notes, August 1998",
+      "supports": "Formal dissolution of the USSR on 26 December 1991."
+    },
+    "ottomanEnd": {
+      "url": "https://www.mfa.gov.tr/data/Kutuphane/Yayinlar/bern.pdf",
+      "title": "Turkish Ministry of Foreign Affairs — diplomatic history of the Bern legation",
+      "page": 36,
+      "supports": "Sultanate abolished on 1 November 1922; transition to the Republic proclaimed 29 October 1923. PDF zero-based page 35."
+    },
+    "italianUnification": {
+      "url": "https://vive.cultura.gov.it/en/unification-day-president-republic-lays-laurel-wreath-tomb-unknown-soldier",
+      "title": "Italian Ministry of Culture — Unification Day",
+      "supports": "Victor Emmanuel II became King of Italy on 17 March 1861, before the archive begins in 1886."
+    },
+    "germanUnification": {
+      "url": "https://history.state.gov/countries/germany/1000",
+      "title": "U.S. Office of the Historian — Germany",
+      "supports": "German Empire established 18 January 1871; accreditation changed from Prussia to the German Empire before the archive begins."
+    },
+    "yugoslav1929": {
+      "url": "https://muzej-jugoslavije.org/istrazi/",
+      "title": "Museum of Yugoslavia — historical timeline",
+      "supports": "Kingdom of Serbs, Croats and Slovenes renamed Kingdom of Yugoslavia on 3 October 1929."
+    },
+    "serbiaMontenegro": {
+      "url": "https://digitallibrary.un.org/record/1129731?ln=en",
+      "title": "United Nations Digital Library — Serbia and Montenegro authority record",
+      "supports": "Name period 4 February 2003–2 June 2006; Yugoslavia renamed on 4 February 2003."
+    },
+    "serbiaContinuation": {
+      "url": "https://www.un.org/depts/los/LEGISLATIONANDTREATIES/STATEFILES/SRB.htm",
+      "title": "United Nations — Serbia state file",
+      "supports": "Serbia continued State Union membership on the basis of the declaration of independence of Montenegro on 3 June 2006."
+    }
+  },
+  "expectedJuly1": {
+    "Russia (Soviet Union)": {
+      "1914": "Russian Empire",
+      "1917": "Russia",
+      "1922": "Russia",
+      "1923": "Soviet Union",
+      "1991": "Soviet Union",
+      "1992": "Russia"
+    },
+    "Turkey (Ottoman Empire)": {
+      "1914": "Ottoman Empire",
+      "1922": "Ottoman Empire",
+      "1923": "Turkey",
+      "1971": "Turkey"
+    },
+    "Italy/Sardinia": {
+      "1886": "Italy",
+      "1971": "Italy"
+    },
+    "Germany (Prussia)": {
+      "1914": "Germany",
+      "1940": "Germany"
+    },
+    "Yugoslavia/Serbia": {
+      "1919": "Kingdom of Serbs, Croats and Slovenes",
+      "1929": "Kingdom of Serbs, Croats and Slovenes",
+      "1930": "Yugoslavia",
+      "2002": "Yugoslavia",
+      "2003": "Serbia and Montenegro",
+      "2005": "Serbia and Montenegro"
+    }
+  },
+  "nonGoals": [
+    "No generic parenthesis stripping: labels such as Guinea-Bissau or German colonial possessions keep their qualifiers.",
+    "No purported day-level historical boundary reconstruction; these rules correct display names while preserving the selected source geometry.",
+    "No record extension past its native end date. The July 2006 map uses the native Serbia source record."
+  ]
+}

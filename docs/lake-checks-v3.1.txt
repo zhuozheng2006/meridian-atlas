@@ -1,0 +1,18 @@
+PASS Fixed binary fixture decodes area, identity and every unchanged coordinate delta
+PASS Corrupt, truncated and oversized binary lake data fail without a partial result
+PASS Area tiers change only at declared zoom thresholds
+PASS Spatial selection includes date-line crossings and repeated world copies
+PASS Delta decoding preserves closed rings and polygon holes
+PASS Concurrent comparison maps share one request
+PASS Failed and malformed shards leave the cache retryable
+PASS Completed LRU entries stay within the vertex budget
+PASS The overview survives decoding and worker loading until the current tiles are ready
+PASS Moving invalidates readiness and prevents a stale response from drawing
+PASS A late earlier viewport cannot replace a newer one
+PASS Small pans within the loaded margin retain fine shores without another fetch
+PASS A failed shard retains the overview and retry succeeds
+PASS Modern reference and disabled geography do not request natural lake detail
+PASS Late work after map destruction never mutates the removed map
+PASS Invisible globe-side event markers do not suppress lake names; visible markers keep priority
+PASS All archive shards have valid hashes, counts, class exclusions and coordinate encoding
+{"status":"passed","checks":17}

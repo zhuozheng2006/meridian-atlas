@@ -1,0 +1,54 @@
+{
+  "release": "3.8.0",
+  "assetRevision": "3.8.0-c363908f5aad",
+  "preview": "http://127.0.0.1:8766/",
+  "checkedOn": "2026-10-02",
+  "checks": [
+    {
+      "scene": "Swiss Confederation 1500 bilingual",
+      "result": "passed",
+      "observations": [
+        "Header shows reviewed period name, selected year and active 1497–1501 source interval.",
+        "Modern Bern capital is hidden from primary facts and retained in Other dates with its 1848 source start.",
+        "Generic entity description is closed by default.",
+        "Full record ranges and actual 1799–1814 archive gap are available."
+      ]
+    },
+    {
+      "scene": "Bavaria 1500 English and year change to 1501",
+      "result": "passed",
+      "observations": [
+        "Munich and Landshut branches have separately named rulers.",
+        "Changing to 1501 preserves selected tab and hides the 1500-only editorial."
+      ]
+    },
+    {
+      "scene": "Desktop 1440×900",
+      "result": "passed",
+      "observations": [
+        "No document overflow; full panel and map render after resize.",
+        "Screenshot Meridian-1500-dossier.png."
+      ]
+    },
+    {
+      "scene": "Narrow viewport 390×844",
+      "result": "passed",
+      "observations": [
+        "No document overflow.",
+        "Year/source tags wrap; tabs remain navigable and body scrolls.",
+        "Screenshot Meridian-1500-mobile.png."
+      ]
+    },
+    {
+      "scene": "Lorraine 1500 Simplified Chinese and regional detail",
+      "result": "passed",
+      "observations": [
+        "René II and the dated Nancy charter appear in the polity dossier.",
+        "OpenHistoricalMap relation 2815329 shows source-note disclosure with 1480 editorial date, historical-map provenance and review date.",
+        "No browser errors in final navigation logs."
+      ]
+    }
+  ],
+  "consoleErrorsAfterFinalReload": [],
+  "scope": "Observed browser scenes plus automated regressions; not exhaustive all years/sources."
+}

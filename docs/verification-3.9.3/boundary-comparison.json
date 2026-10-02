@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-02T17:25:06.461Z",
+  "actualYearMethod": "AtlasMap.prototype.setYear",
+  "mapEngineSha256": "a00f5806522c3654661c703f724e4991513cbec274040a776565a99652b6ea6a",
+  "passed": 16,
+  "total": 16,
+  "results": [
+    {
+      "name": "New comparison creates once, loads the target year through actual AtlasMap.setYear, then changes sources",
+      "pass": true
+    },
+    {
+      "name": "Existing comparison is reused rather than toggled closed",
+      "pass": true
+    },
+    {
+      "name": "Opening from the right adopts the right map year and camera",
+      "pass": true
+    },
+    {
+      "name": "Already matching years need no year reload",
+      "pass": true
+    },
+    {
+      "name": "Repeated clicks share one in-flight operation",
+      "pass": true
+    },
+    {
+      "name": "Closing while creation is pending prevents a late map creation and source write",
+      "pass": true
+    },
+    {
+      "name": "Closing during the real map year request prevents its commit and late source writes",
+      "pass": true
+    },
+    {
+      "name": "A rejected real year load retains the last year and never switches sources",
+      "pass": true
+    },
+    {
+      "name": "A false year result cannot count as successful alignment",
+      "pass": true
+    },
+    {
+      "name": "Failed comparison creation does not align dates or change sources",
+      "pass": true
+    },
+    {
+      "name": "Origin year changes during creation invalidate the old request even without cancel",
+      "pass": true
+    },
+    {
+      "name": "Manual source changes cancel pending source coordination",
+      "pass": true
+    },
+    {
+      "name": "A later manual year request wins the real AtlasMap generation race",
+      "pass": true
+    },
+    {
+      "name": "Replacing a comparison while pending cannot write to the new pair",
+      "pass": true
+    },
+    {
+      "name": "Camera is captured by value before layout changes",
+      "pass": true
+    },
+    {
+      "name": "Missing right-side origin and year zero are rejected without mutation",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "checkedAt": "2026-10-02T16:18:05.938Z",
+  "method": "Actual HalcBoundaries, HalcRegions and RegionalBoundaries.openIndex with deterministic MapLibre/DOM/network interfaces. Tests state and event ordering; does not establish real retained-tile pixels or network failure semantics.",
+  "sources": {
+    "halc-boundaries.js": "e55f90cfc70ffad6269a8f4b2f91f5b37f6d9f56a542af242ee6334786dbfa37",
+    "halc-regions.js": "312fea4ada3d1c53aa305a66f5f5b953507e58baafc4a8f077ee87a4b713cbba",
+    "regional-boundaries.js": "0c2ae77b22938ab211a2ab241cf624fb3471708ca244668da81096093e2e3f4e"
+  },
+  "pass": 24,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Initial loading cannot display or claim a completed historical frame",
+      "pass": true
+    },
+    {
+      "name": "Pan/zoom loading retains committed frame, detail ink, selection and local dossier",
+      "pass": true
+    },
+    {
+      "name": "Pending idles do zero source queries, style writes and anchor calculations",
+      "pass": true
+    },
+    {
+      "name": "Explicit label refresh while main loading cannot recreate stale labels",
+      "pass": true
+    },
+    {
+      "name": "A missing loading event still preserves frame but invalidates completion and labels",
+      "pass": true
+    },
+    {
+      "name": "Group loading retains committed group ink and stable local-opacity hierarchy",
+      "pass": true
+    },
+    {
+      "name": "Repeated group-loading events retain ink without style or geometry work",
+      "pass": true
+    },
+    {
+      "name": "Group readiness cannot complete a still-pending main frame",
+      "pass": true
+    },
+    {
+      "name": "Main readiness with a pending group retains old group ink until group refresh",
+      "pass": true
+    },
+    {
+      "name": "Low-zoom hit during main update opens its local record, never an incomplete group",
+      "pass": true
+    },
+    {
+      "name": "Ready low-zoom hit still opens the source-attribution directory",
+      "pass": true
+    },
+    {
+      "name": "Actual open directory keeps its row nodes, search and scroll during updating",
+      "pass": true
+    },
+    {
+      "name": "A deferred dossier response may fill the same still-eligible updating popup",
+      "pass": true
+    },
+    {
+      "name": "Leaving year clears continuous frames and rejects late data/dossiers",
+      "pass": true
+    },
+    {
+      "name": "Leaving mode clears continuous frames and rejects late data/dossiers",
+      "pass": true
+    },
+    {
+      "name": "Leaving borders clears continuous frames and rejects late data/dossiers",
+      "pass": true
+    },
+    {
+      "name": "Leaving modern reference clears continuous frames and rejects late data/dossiers",
+      "pass": true
+    },
+    {
+      "name": "Leaving zoom clears continuous frames and rejects late data/dossiers",
+      "pass": true
+    },
+    {
+      "name": "Leaving coverage clears continuous frames and rejects late data/dossiers",
+      "pass": true
+    },
+    {
+      "name": "Main source error clears all continuous frame state and rejects late readiness",
+      "pass": true
+    },
+    {
+      "name": "Group error discards only group ink, preserves pending local dossier, and retries separately",
+      "pass": true
+    },
+    {
+      "name": "A completed empty main viewport legitimately falls back instead of holding a stale frame",
+      "pass": true
+    },
+    {
+      "name": "Pending destroy removes listeners and rejects both source and dossier callbacks",
+      "pass": true
+    },
+    {
+      "name": "Two maps keep independent committed frames during loading and failure",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+HALC v15 — Landscape 1500 / 1500年历史地貌
+
+Rombert Stapel, Historical Atlas of the Low Countries (1350–1800), version 15.0.
+DataverseNL dataset: https://doi.org/10.34894/BTKFHV
+Official source: https://dataverse.nl/api/access/datafile/639024
+Codebook: https://dataverse.nl/api/access/datafile/639016
+Source SHA1: ad5923b98e627eed5c8663790b9b3f71ff45f98b
+Source SHA256: 7fc499517b9a71737fd932716e3faa1ed13334ec51f020358f7bc6bc1e9041a2
+
+License: Creative Commons Attribution-ShareAlike 4.0 International.
+https://creativecommons.org/licenses/by-sa/4.0/
+Retain this attribution, source version and license when sharing the data.
+The data license is separate from the application code and other datasets.
+
+Changes: GeoPackage WGS84 polygons were exported to GeoJSON and grouped into
+49 spatial download shards, without clipping, simplification, coordinate
+rounding, reprojection, union, overlap repair or attribute editing. Each of
+2,980 complete source records appears exactly once. All 514,392 coordinates
+and seven attributes are preserved. Index bounding boxes select downloads;
+they are never used as map coverage. Geometry and source-attribute equality
+were checked against an independent whole-dataset export.
+
+The collection is the 1500 cross-section. Three records (106,2477,2478) have
+null TIME_START/TIME_END and retain these nulls. QUALITY is unfilled in 2,881
+records; this is absence of a stated basis, not proof of high accuracy. Three
+source overlap pairs exceed 1 square metre and remain unchanged. Display is
+stable in ascending fid order; this order does not resolve conflicting claims.
+The map shows all hit records in its centre-point landscape reader.
+
+Source class codes are 0,1,2,3,4,7,8,9. Class 0 includes cultivatable,
+residential and agricultural land. Class 7 includes fresh OR coastal water.
+Navigability categories preserve source descriptions and are not depth or
+vessel-route measurements. Modern terrain remains geographic context; these
+polygons contain no historical elevation measurements. Landscape fid and
+locality fid are independent identifiers and are not joined by equality.
+
+本层保留1500年横截面的完整原始图形、分类、空值和重叠记录。仅按空间分组
+以便按视野下载；未补画或推断缺失边界。索引包围框仅供检索，实际覆盖以
+原始面为准。图例中文为编辑翻译。地貌与地方区划分别保留独立来源。

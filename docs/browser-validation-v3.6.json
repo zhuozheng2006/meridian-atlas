@@ -1,0 +1,67 @@
+{
+  "release": "3.6.0",
+  "checks": [
+    {
+      "name": "1500 overview and independent regional detail at Alps z7",
+      "passed": true,
+      "screenshots": [
+        "meridian-3.6-alps-overview.png",
+        "meridian-3.6-alps-detail.png"
+      ]
+    },
+    {
+      "name": "CShapes 1914 state archive and Switzerland record deep link",
+      "passed": true
+    },
+    {
+      "name": "Language change retains selected CShapes record and camera",
+      "passed": true
+    },
+    {
+      "name": "Unsupported CShapes year 1500 falls back to 1500 Cliopatria",
+      "passed": true
+    },
+    {
+      "name": "Blocked CShapes resources fall back to 1971 Cliopatria while requested mode stays cshapes",
+      "passed": true
+    },
+    {
+      "name": "Unblock and retry restores CShapes 1971 with 160 records",
+      "passed": true
+    },
+    {
+      "name": "390 by 844 mobile record panel fits within map and content scrolls",
+      "passed": true,
+      "popup": {
+        "x": 20,
+        "y": 130.5,
+        "width": 350,
+        "height": 440
+      },
+      "map": {
+        "x": 0,
+        "y": 65,
+        "width": 390,
+        "height": 571
+      },
+      "horizontalOverflow": false,
+      "screenshot": "meridian-3.6-mobile-record.png"
+    },
+    {
+      "name": "1914 Russian Empire display and source-name dossier; year 1971 switches to Soviet Union, Turkey, Italy and Yugoslavia",
+      "passed": true
+    },
+    {
+      "name": "Source umbrella name Russia (Soviet Union) finds the 1971 Soviet Union dossier",
+      "passed": true
+    },
+    {
+      "name": "1971 country index contains all 160 active records; Italy/Sardinia finds the Italy dossier",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Source geometry checks do not certify historical boundary accuracy.",
+    "External terrain and historical detail remain dependent on upstream availability."
+  ]
+}

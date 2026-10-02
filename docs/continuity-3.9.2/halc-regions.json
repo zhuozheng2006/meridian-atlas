@@ -1,0 +1,131 @@
+{
+  "method": "Actual two-source classes; independent fake layer queries, per-source readiness and source request counts. No GPU or MVT byte validation.",
+  "sources": {
+    "halc-boundaries.js": "e55f90cfc70ffad6269a8f4b2f91f5b37f6d9f56a542af242ee6334786dbfa37",
+    "halc-regions.js": "312fea4ada3d1c53aa305a66f5f5b953507e58baafc4a8f077ee87a4b713cbba"
+  },
+  "pass": 30,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Neither source starts for hidden borders",
+      "pass": true
+    },
+    {
+      "name": "Neither source starts for modern reference",
+      "pass": true
+    },
+    {
+      "name": "Neither source starts for wrong year",
+      "pass": true
+    },
+    {
+      "name": "Neither source starts for low zoom",
+      "pass": true
+    },
+    {
+      "name": "Neither source starts for outside region",
+      "pass": true
+    },
+    {
+      "name": "Neither source starts for another mode",
+      "pass": true
+    },
+    {
+      "name": "Main readiness activates local data without waiting for region source",
+      "pass": true
+    },
+    {
+      "name": "Region readiness alone cannot draw ahead of the main source",
+      "pass": true
+    },
+    {
+      "name": "Layer queries keep local fids separate from region gids",
+      "pass": true
+    },
+    {
+      "name": "Both sources use idle caches with zero unchanged query or style writes",
+      "pass": true
+    },
+    {
+      "name": "Region-only errors preserve local map and open local record",
+      "pass": true
+    },
+    {
+      "name": "Region failure removes stale territory labels immediately",
+      "pass": true
+    },
+    {
+      "name": "Region loading removes stale territory labels before the next idle",
+      "pass": true
+    },
+    {
+      "name": "Region-only retry keeps the healthy main source and local frame",
+      "pass": true
+    },
+    {
+      "name": "Unrelated source events do not dirty either cache",
+      "pass": true
+    },
+    {
+      "name": "Main viewport loading retains prior detail ink without claiming a ready frame",
+      "pass": true
+    },
+    {
+      "name": "A group-only data epoch rescans groups without querying local geometry again",
+      "pass": true
+    },
+    {
+      "name": "Main source error hides all region ink and query layers",
+      "pass": true
+    },
+    {
+      "name": "Leaving and returning mode invalidates both cached frames",
+      "pass": true
+    },
+    {
+      "name": "Leaving and returning year invalidates both cached frames",
+      "pass": true
+    },
+    {
+      "name": "Leaving and returning borders invalidates both cached frames",
+      "pass": true
+    },
+    {
+      "name": "Leaving and returning modern invalidates both cached frames",
+      "pass": true
+    },
+    {
+      "name": "Leaving and returning zoom invalidates both cached frames",
+      "pass": true
+    },
+    {
+      "name": "Leaving and returning view invalidates both cached frames",
+      "pass": true
+    },
+    {
+      "name": "Missing region loading event still clears stale scan and recovers",
+      "pass": true
+    },
+    {
+      "name": "Low zoom region label opens a grouped index without selecting a local record",
+      "pass": true
+    },
+    {
+      "name": "High zoom keeps local record clicks when group outlines are ready",
+      "pass": true
+    },
+    {
+      "name": "Low zoom XX locality is not routed into a synthetic territory group",
+      "pass": true
+    },
+    {
+      "name": "Destroy removes region listeners and suppresses all late source writes",
+      "pass": true
+    },
+    {
+      "name": "Two independent maps do not share region readiness or failure",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8"><title>Historical filter verification</title><style>#map{width:500px;height:400px}pre{white-space:pre-wrap}</style><div id="map"></div><pre id="result">Running real MapLibre filter checks…</pre><script src="assets/maplibre-gl.js"></script><script type="module">
+import {historicalDateFilter} from './historical-dates.js';
+const fixtures=[
+ ['ancient',{start_decdate:-1,end_decdate:-.01},[-2]],
+ ['one-bce',{start_decdate:0,end_decdate:.99},[-1]],
+ ['one-ce',{start_decdate:1,end_decdate:1.99},[1]],
+ ['tunnel',{start_decdate:1950.39589},[1950,1951]],
+ ['ended',{start_decdate:1900,end_decdate:1950},[1949,1950]],
+ ['year-end',{start_decdate:1950.9999},[1950,1951]],
+ ['missing',{},[]],['end-only',{end_decdate:2000},[]],
+ ['unconverted-end',{start_decdate:1800,end_date:'unknown'},[]],
+ ['string-start',{start_decdate:'1800'},[]],['null-end',{start_decdate:1800,end_decdate:null},[]],
+ ['reverse',{start_decdate:1950.8,end_decdate:1950.2},[]],
+ ['known-end',{start_decdate:1800,end_date:'1950',end_decdate:1950.99863},[1949,1950]]
+];
+const errors=[],map=new maplibregl.Map({container:'map',center:[0,0],zoom:4,style:{version:8,sources:{},layers:[{id:'background',type:'background',paint:{'background-color':'#ddd'}}]}});map.on('error',e=>errors.push(String(e.error)));
+const results=[];map.once('load',async()=>{try{
+ map.addSource('fixtures',{type:'geojson',data:{type:'FeatureCollection',features:fixtures.map(([id,p],i)=>({type:'Feature',properties:{...p,fixture:id},geometry:{type:'Point',coordinates:[(i-6)*.08,0]}}))}});
+ map.addLayer({id:'dated',source:'fixtures',type:'circle',paint:{'circle-radius':5}});
+ for(const year of [-2,-1,1,1949,1950,1951]){
+  map.setFilter('dated',historicalDateFilter(year));await new Promise(r=>map.once('idle',r));
+  const actual=[...new Set(map.queryRenderedFeatures({layers:['dated']}).map(f=>f.properties.fixture))].sort(),expected=fixtures.filter(f=>f[2].includes(year)).map(f=>f[0]).sort();
+  results.push({year,actual,expected,pass:JSON.stringify(actual)===JSON.stringify(expected)});
+ }
+ const report={status:results.every(r=>r.pass)&&!errors.length?'passed':'failed',engine:maplibregl.getVersion(),results,errors};document.querySelector('#result').textContent=JSON.stringify(report,null,2);
+}catch(e){document.querySelector('#result').textContent=JSON.stringify({status:'failed',error:String(e)});}});
+</script>

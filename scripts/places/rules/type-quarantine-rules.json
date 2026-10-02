@@ -1,0 +1,130 @@
+[
+  {
+    "placeId": "pleiades:727138",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Kanobikos (river)",
+    "originalPlaceTypes": [
+      "settlement",
+      "river"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/727138",
+    "sourceDescription": "The western-most ancient branch of the Nile river in the Delta, terminating in the Mediterranean via the \"Canopic mouth\" (Kanobikon Stoma).",
+    "identifiedFeatureType": "river",
+    "reason": "Source title identifies a river and the description identifies an ancient Nile branch, not a settlement point.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:727158",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Mendesios (river)",
+    "originalPlaceTypes": [
+      "settlement",
+      "river"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/727158",
+    "sourceDescription": "An ancient place, cited: BAtlas 74 F2 Mendesios fl.",
+    "identifiedFeatureType": "river",
+    "reason": "Source title explicitly identifies Mendesios as a river and placeTypes also includes river. A settlement type tag does not establish a city identity for this feature.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:727225",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Sebennytikos (river)",
+    "originalPlaceTypes": [
+      "settlement",
+      "river"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/727225",
+    "sourceDescription": "An ancient place, cited: BAtlas 74 E3 Sebennytikos fl.",
+    "identifiedFeatureType": "river",
+    "reason": "Source title explicitly identifies Sebennytikos as a river and placeTypes also includes river.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:727238",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Tanitike Limne",
+    "originalPlaceTypes": [
+      "settlement",
+      "lake",
+      "lagoon"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/727238",
+    "sourceDescription": "During the period of Greek and Roman engagement with Egypt, the Tanitike Limne (one of the Nile Delta's many lake/lagoons) was bounded by the Phatnitikon (modern Damietta branch) and Mendesion (now disappeared) mouths of the Nile. The lake's ancient extent corresponds roughly to the western half of the modern Lake Menzala.",
+    "identifiedFeatureType": "lake-lagoon",
+    "reason": "Source description identifies this feature as a Nile Delta lake/lagoon and placeTypes contains lake and lagoon.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:857148",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Halys (river)",
+    "originalPlaceTypes": [
+      "settlement",
+      "river"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/857148",
+    "sourceDescription": "The Kızılırmak river, the ancient Halys River, is a major river of Asia Minor that flows into the Black Sea.",
+    "identifiedFeatureType": "river",
+    "reason": "Source title and description explicitly identify the Halys/Kızılırmak river. It is not a settlement record despite a settlement type tag.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:619096567",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Nile Delta",
+    "originalPlaceTypes": [
+      "settlement",
+      "river"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/619096567",
+    "sourceDescription": "The delta of the Nile River in Lower Egypt.",
+    "identifiedFeatureType": "river-delta",
+    "reason": "Source title and description identify the Nile Delta geographic feature, not a settlement.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:434655354",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Damietta Branch",
+    "originalPlaceTypes": [
+      "settlement",
+      "river"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/434655354",
+    "sourceDescription": "The Damietta branch is an eastern distributary of the Nile Delta and gives its name to an associated settlement.",
+    "identifiedFeatureType": "river-distributary",
+    "reason": "Source identifies the feature as the Damietta distributary. An associated settlement is mentioned, but its association does not turn the river feature and river-name attestations into a city.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  },
+  {
+    "placeId": "pleiades:423029",
+    "issueType": "feature-type-conflict",
+    "scope": "entire-city-layer-record",
+    "originalTitle": "Sacer Mons",
+    "originalPlaceTypes": [
+      "settlement"
+    ],
+    "sourceUrl": "https://pleiades.stoa.org/places/423029",
+    "sourceDescription": "Sacer Mons is a hill on the banks of the Anio River and is connected, traditionally, with the episode of the secession of the Roman plebs of 494 BC.",
+    "identifiedFeatureType": "hill",
+    "reason": "Source description identifies Sacer Mons as a hill associated with the secession of the plebs, without a settlement identity. Preserve it outside the city/settlement layer.",
+    "action": "Exclude from historical settlement index and detail shards; keep raw source record intact.",
+    "status": "withheld-from-city-layer"
+  }
+]

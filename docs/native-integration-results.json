@@ -1,0 +1,98 @@
+{
+  "testedUtc": "2026-10-02T06:37:06.846Z",
+  "dist": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/dist",
+  "sourceSha256": {
+    "native-geometry.js": "d17745ab6c02718068472d2651d5f5eb926635c3f1b8e9164477f8752a425e20",
+    "map-engine.js": "cc0294ef879e4e213afe17b625f99cbe10914d2181698f55a8e8a2271adaf36c"
+  },
+  "results": [
+    {
+      "name": "collision_all",
+      "passed": true,
+      "detail": {
+        "collisionGroups": 59,
+        "records": 149,
+        "networkRequests": 121
+      }
+    },
+    {
+      "name": "boot_no_index",
+      "passed": true,
+      "detail": {
+        "records": 136,
+        "requests": 1,
+        "bytes": 150207
+      }
+    },
+    {
+      "name": "arbitrary_files_concurrency",
+      "passed": true,
+      "detail": {
+        "records": 122,
+        "geometries": 120,
+        "requests": 121,
+        "geometryBytes": 269168,
+        "maxConcurrent": 6
+      }
+    },
+    {
+      "name": "mixed_cache_render",
+      "passed": true,
+      "detail": {
+        "records": 3,
+        "partialFallbackRetained": true,
+        "completeCachePreventsRedundantSetData": true
+      }
+    },
+    {
+      "name": "failed_boot_fallback_retry",
+      "passed": true,
+      "detail": {
+        "fallbackRendered": true,
+        "retryNativeRendered": true
+      }
+    },
+    {
+      "name": "canceled_upgrade_next_sequence",
+      "passed": true,
+      "detail": {
+        "staleUpgradeRenderCount": 0,
+        "currentUpgradeRenderCount": 1
+      }
+    },
+    {
+      "name": "destroyed_upgrade",
+      "passed": true,
+      "detail": {
+        "destroyedRenderCount": 0,
+        "inFlightCachePreserved": true
+      }
+    },
+    {
+      "name": "zero_year",
+      "passed": true,
+      "detail": {
+        "zeroYearShowsNoTerritories": true,
+        "requests": 0,
+        "note": "Engine empties the map; UI is responsible for rejecting a user-selected year zero."
+      }
+    },
+    {
+      "name": "shared_file_cache",
+      "passed": true,
+      "detail": {
+        "recordAliases": 2,
+        "sharedIndexRequests": 1,
+        "sharedGeometryRequests": 1
+      }
+    },
+    {
+      "name": "missing_geometry_recovery",
+      "passed": true,
+      "detail": {
+        "malformedPayloadRejected": true,
+        "retrySucceeded": true
+      }
+    }
+  ]
+}

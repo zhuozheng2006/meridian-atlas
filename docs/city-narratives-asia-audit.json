@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-02T01:48:29.122149+00:00",
+  "asset": "city-narratives-asia.json",
+  "entryChecks": [
+    {
+      "id": "city-changan",
+      "chineseHanCharacters": 290,
+      "englishWords": 174,
+      "sourceCount": 4,
+      "recordCount": 4,
+      "recordIdsVerified": true,
+      "sourceDatesPreserved": true,
+      "sourceCoordinatesPreserved": true,
+      "simplifiedChinese": "OpenCC t2s invariant",
+      "dateNodesSourceLinked": 3,
+      "bindingRulesRestrictObservationYears": true
+    },
+    {
+      "id": "city-kyoto",
+      "chineseHanCharacters": 295,
+      "englishWords": 174,
+      "sourceCount": 3,
+      "recordCount": 2,
+      "recordIdsVerified": true,
+      "sourceDatesPreserved": true,
+      "sourceCoordinatesPreserved": true,
+      "simplifiedChinese": "OpenCC t2s invariant",
+      "dateNodesSourceLinked": 3,
+      "bindingRulesRestrictObservationYears": true
+    },
+    {
+      "id": "city-delhi",
+      "chineseHanCharacters": 321,
+      "englishWords": 172,
+      "sourceCount": 4,
+      "recordCount": 3,
+      "recordIdsVerified": true,
+      "sourceDatesPreserved": true,
+      "sourceCoordinatesPreserved": true,
+      "simplifiedChinese": "OpenCC t2s invariant",
+      "dateNodesSourceLinked": 3,
+      "bindingRulesRestrictObservationYears": true
+    },
+    {
+      "id": "city-angkor",
+      "chineseHanCharacters": 316,
+      "englishWords": 167,
+      "sourceCount": 4,
+      "recordCount": 3,
+      "recordIdsVerified": true,
+      "sourceDatesPreserved": true,
+      "sourceCoordinatesPreserved": true,
+      "simplifiedChinese": "OpenCC t2s invariant",
+      "dateNodesSourceLinked": 3,
+      "bindingRulesRestrictObservationYears": true
+    },
+    {
+      "id": "city-samarkand",
+      "chineseHanCharacters": 313,
+      "englishWords": 166,
+      "sourceCount": 4,
+      "recordCount": 4,
+      "recordIdsVerified": true,
+      "sourceDatesPreserved": true,
+      "sourceCoordinatesPreserved": true,
+      "simplifiedChinese": "OpenCC t2s invariant",
+      "dateNodesSourceLinked": 3,
+      "bindingRulesRestrictObservationYears": true
+    },
+    {
+      "id": "city-baghdad",
+      "chineseHanCharacters": 327,
+      "englishWords": 180,
+      "sourceCount": 3,
+      "recordCount": 4,
+      "recordIdsVerified": true,
+      "sourceDatesPreserved": true,
+      "sourceCoordinatesPreserved": true,
+      "simplifiedChinese": "OpenCC t2s invariant",
+      "dateNodesSourceLinked": 3,
+      "bindingRulesRestrictObservationYears": true
+    }
+  ],
+  "rawCitySourceFilesModified": false,
+  "siteModified": false,
+  "newMapCoordinatesCreated": false,
+  "counts": {
+    "entries": 6,
+    "bilingualSections": 18,
+    "milestones": 18,
+    "institutionalSources": 21,
+    "boundSourceRecords": 20
+  },
+  "excludedBindings": [
+    {
+      "cityId": "city-changan",
+      "sourceRecordId": "modelski-modern:276",
+      "reason": "No source period or observation year intersects this historical reading scope.",
+      "sourceObservationYears": [
+        1990
+      ],
+      "sourcePeriods": []
+    },
+    {
+      "cityId": "city-kyoto",
+      "sourceRecordId": "modelski-modern:136",
+      "reason": "No source period or observation year intersects this historical reading scope.",
+      "sourceObservationYears": [
+        2000
+      ],
+      "sourcePeriods": []
+    },
+    {
+      "cityId": "city-delhi",
+      "sourceRecordId": "modelski-modern:69",
+      "reason": "No source period or observation year intersects this historical reading scope.",
+      "sourceObservationYears": [
+        2000
+      ],
+      "sourcePeriods": []
+    },
+    {
+      "cityId": "city-baghdad",
+      "sourceRecordId": "modelski-modern:13",
+      "reason": "No source period or observation year intersects this historical reading scope.",
+      "sourceObservationYears": [
+        2000
+      ],
+      "sourcePeriods": []
+    }
+  ],
+  "bindingRegressionCases": 29,
+  "bindingRegressionFailures": 0,
+  "semanticDecisions": [
+    "Han Chang’an capital coordinates match the separately identified Han city area. Xian population rows are city-region references; they do not supply Tang palace or city boundaries.",
+    "Kyoto population records do not locate every Heian palace, temple or Nijō monument; the prose and context note distinguish the wider landscape.",
+    "Delhi Sultanate, Humayun’s Tomb and Shahjahanabad lie in different parts of the region. New Delhi 1911–1947 capital record is deliberately not bound to this medieval narrative.",
+    "Angkor record points are regional entry points; the population study point near Angkor Wat does not represent every successive Khmer capital.",
+    "Marakanda and Samarkand coordinates are not promoted to precise Afrosiab archaeological pins. UNESCO describes ancient Afrosiab and the later Timurid city as separate areas.",
+    "Baghdad source capital qualifiers begin in 763 while the new capital foundation is institutionally dated 762. These represent different claim types; neither source record is silently changed.",
+    "Humayun’s Tomb source contains 1560s in its detailed description and 1570 in its summary. The node uses circa 1570, not an asserted exact completion day.",
+    "Red Fort sources differ between 1638 and 1639 for construction start. The narrative node uses the consistently reported completion year 1648.",
+    "Pleiades Angkor description simplifies a 1431 abandonment. The narrative instead reflects the bounded Angkor Thom sediment research on gradual reduction of core activity; no date is used to erase all settlement.",
+    "APSARA currently has an inaccessible direct-page response for some pages, but complete institutional text was actually retrieved through indexed search results. That access mode is recorded; the guessed 2021/07/03/angkor-wat path is not cited.",
+    "A former UNESCO Silk Roads chapter link now redirects to the programme home page. The consulted UNESCO digital-library PDF and stable catalogue ARK are used instead."
+  ],
+  "sourceFileSha256": {
+    "historical-settlements.json": "c1b019c66df44ed4c12bd0d99f4b201117ebbdf45e278a63e4ba640e0ebb210b",
+    "urban-observations.json": "3c917ebe478cc0102d9ff384b496771afe0b1f74ee2b4c0485e28808a211248a",
+    "historical-capitals.json": "757ab6b030d01854fb9fa16b62ada7ad817c4a0f07844618e4ca95886e61b729"
+  },
+  "reviewStatus": "Complete: prose lengths, Simplified Chinese, exact record IDs, per-source temporal bindings, source registry and milestone chronology validated.",
+  "rebuildCommand": "work/boundaries/.venv/bin/python work/v4/cities/build_narratives_asia.py",
+  "currentSiteDataValidation": {
+    "matchedRecords": 20,
+    "coordinatesAndDatesEqual": true,
+    "siteDataPath": "outputs/world-history-atlas/dist/data/places"
+  },
+  "assetSha256": "66a165b65857ed74e0c0e6f15fe0f8d957076b2cb985c2649c229126bbab5c4c"
+}

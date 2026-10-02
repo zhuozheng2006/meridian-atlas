@@ -1,0 +1,57 @@
+{
+  "checkedAtUtc": "2026-10-02T13:28:01.378175+00:00",
+  "dataset": "Historical Atlas of the Low Countries (1350–1800)",
+  "author": "Rombert Stapel",
+  "newDoi": "10.34894/BTKFHV",
+  "legacyHandle": "10622/PGFYTM",
+  "version": "15.0",
+  "metadataUrl": "https://dataverse.nl/api/datasets/:persistentId/?persistentId=doi:10.34894/BTKFHV",
+  "license": {
+    "name": "CC-BY-SA-4.0",
+    "uri": "http://creativecommons.org/licenses/by-sa/4.0",
+    "iconUri": "https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+  },
+  "checksums": [
+    {
+      "localFile": "HALC-1500.gpkg",
+      "sourceFileId": 639014,
+      "bytes": 58929152,
+      "sha1": "33da3c0222f9a94f3539ad0f780c6b899ab09a97",
+      "officialSha1": "33da3c0222f9a94f3539ad0f780c6b899ab09a97",
+      "matches": true
+    },
+    {
+      "localFile": "HALC-Codebook.xlsx",
+      "sourceFileId": 639016,
+      "bytes": 73669,
+      "sha1": "3ff58e73740970b2af8e54767c1ccb9c7c239aa7",
+      "officialSha1": "3ff58e73740970b2af8e54767c1ccb9c7c239aa7",
+      "matches": true
+    }
+  ],
+  "geometryAudit": "geometry-audit.json",
+  "aggregationAudit": "aggregation-audit.json",
+  "integrationNotes": "integration-notes.txt",
+  "readiness": "Research verified. Not yet integrated into the atlas. Suitable for a separately labelled 1500 regional reconstruction with viewport loading; not a complete-country replacement.",
+  "criticalSemantics": [
+    "Preserve TYPE, QUALITY, SOURCE and REMARKS.",
+    "Keep whole semicolon ADM1 memberships, preserving disputed/shared labels.",
+    "NAME_EXT can include later statistical comparison subdivisions.",
+    "XX is small sovereign regions, not unknown and not one country.",
+    "TIME fields are snapshot disambiguation, not precise historical existence dates.",
+    "No all-at-once browser download of the 14,863 local units."
+  ],
+  "geometrySummary": {
+    "records": 14863,
+    "vertices": 2753747,
+    "invalid": 0,
+    "empty": 0,
+    "bounds": [
+      0.539429,
+      48.540203,
+      8.351988,
+      54.024331
+    ],
+    "includesAlpineScene": false
+  }
+}

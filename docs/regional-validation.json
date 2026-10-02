@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "checks": 15,
+  "results": [
+    {
+      "name": "A dated midyear snapshot excludes sequential boundary phases and unknown dates",
+      "passed": true
+    },
+    {
+      "name": "Every paint and selection layer uses the dated regional filter",
+      "passed": true
+    },
+    {
+      "name": "Traditional labels convert to Simplified Chinese and bilingual names keep the original English",
+      "passed": true
+    },
+    {
+      "name": "Source links preserve relation versus way identity and reject invalid IDs",
+      "passed": true
+    },
+    {
+      "name": "Interior label anchor stays outside a polygon hole",
+      "passed": true
+    },
+    {
+      "name": "World, disabled, hidden borders and modern reference do not fetch regional tiles",
+      "passed": true
+    },
+    {
+      "name": "Actual regional records switch both fill and stroke, empty views restore original data",
+      "passed": true
+    },
+    {
+      "name": "Year changes reject stale features and preserve the raw source geometry",
+      "passed": true
+    },
+    {
+      "name": "Failed source restores overview, hides partial tiles, retries and removes listeners",
+      "passed": true
+    },
+    {
+      "name": "Turning off detail or entering modern reference restores the territory overview",
+      "passed": true
+    },
+    {
+      "name": "A small detailed area no longer hides the whole overview; a manual choice remains available",
+      "passed": true
+    },
+    {
+      "name": "Auto coverage uses land samples, hysteresis, quadrants and the map center",
+      "passed": true
+    },
+    {
+      "name": "Visible tile fragments stay attached to their exact record; national labels have priority",
+      "passed": true
+    },
+    {
+      "name": "County-level detail appears at z8 and clears when zooming back out",
+      "passed": true
+    },
+    {
+      "name": "Errors preserve the requested mode and a successful retry clears the error",
+      "passed": true
+    }
+  ]
+}

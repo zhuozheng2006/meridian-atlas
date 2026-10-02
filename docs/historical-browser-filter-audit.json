@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "engine": "5.6.2",
+  "results": [
+    {
+      "year": -2,
+      "actual": [
+        "ancient"
+      ],
+      "expected": [
+        "ancient"
+      ],
+      "pass": true
+    },
+    {
+      "year": -1,
+      "actual": [
+        "one-bce"
+      ],
+      "expected": [
+        "one-bce"
+      ],
+      "pass": true
+    },
+    {
+      "year": 1,
+      "actual": [
+        "one-ce"
+      ],
+      "expected": [
+        "one-ce"
+      ],
+      "pass": true
+    },
+    {
+      "year": 1949,
+      "actual": [
+        "ended",
+        "known-end"
+      ],
+      "expected": [
+        "ended",
+        "known-end"
+      ],
+      "pass": true
+    },
+    {
+      "year": 1950,
+      "actual": [
+        "ended",
+        "known-end",
+        "tunnel",
+        "year-end"
+      ],
+      "expected": [
+        "ended",
+        "known-end",
+        "tunnel",
+        "year-end"
+      ],
+      "pass": true
+    },
+    {
+      "year": 1951,
+      "actual": [
+        "tunnel",
+        "year-end"
+      ],
+      "expected": [
+        "tunnel",
+        "year-end"
+      ],
+      "pass": true
+    }
+  ],
+  "errors": []
+}

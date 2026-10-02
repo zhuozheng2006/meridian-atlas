@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {createAtlasWorker} from '../worker/atlas-worker.mjs';
+const bytes=Buffer.from('verified compressed lake bytes');const hash=createHash('sha256').update(bytes).digest('hex');
+const manifest={revision:'fixture',bytes:bytes.length,files:[{file:'0000.bin.gz',bytes:bytes.length,sha256:hash}]};
+let puts=0;const objects=new Map();
+const env={ASSETS:{fetch:async()=>new Response('Atlas HTML')},BUCKET:{head:async k=>objects.get(k),get:async k=>{const o=objects.get(k);return o&&{...o,body:o.bytes};},put:async(k,b,opts)=>{puts++;objects.set(k,{key:k,size:b.length,bytes:b.slice(),customMetadata:opts.customMetadata});},list:async()=>({objects:[...objects.values()],truncated:false})}};
+const worker=createAtlasWorker(manifest,{importUntil:Date.now()+60000}),readOnly=createAtlasWorker(manifest);
+const req=(path,opts)=>new Request('https://atlas.example'+path,opts),upload=data=>worker.fetch(req('/__atlas-import/0000.bin.gz',{method:'PUT',headers:{'content-type':'application/octet-stream'},body:data}),env);
+const checks=[];async function test(name,fn){await fn();checks.push(name);console.log('PASS '+name);}
+await test('Existing pages delegate to the asset binding',async()=>assert.equal(await (await worker.fetch(req('/'),env)).text(),'Atlas HTML'));
+await test('Missing lake objects fail recoverably without a false empty map',async()=>assert.equal((await worker.fetch(req('/data/lakes/0000.bin.gz'),env)).status,503));
+await test('Unknown objects and non-binary imports are rejected',async()=>{assert.equal((await worker.fetch(req('/__atlas-import/other',{method:'PUT',body:bytes}),env)).status,404);assert.equal((await worker.fetch(req('/__atlas-import/0000.bin.gz',{method:'PUT',body:bytes}),env)).status,415);});
+await test('Wrong sizes and same-sized corrupt data cannot be stored',async()=>{assert.equal((await upload(bytes.subarray(1))).status,400);assert.equal((await upload(Buffer.alloc(bytes.length))).status,422);assert.equal(puts,0);});
+await test('Audited bytes upload idempotently under a versioned key',async()=>{assert.equal((await upload(bytes)).status,200);assert.equal((await upload(bytes)).status,200);assert.equal(puts,1);assert(objects.has('hydrolakes/fixture/0000.bin.gz'));});
+await test('Read, HEAD and conditional requests preserve the exact encoded bytes',async()=>{const r=await worker.fetch(req('/data/lakes/0000.bin.gz'),env);assert.deepEqual(Buffer.from(await r.arrayBuffer()),bytes);assert.equal(r.headers.get('etag'),`"${hash}"`);const h=await worker.fetch(req('/data/lakes/0000.bin.gz',{method:'HEAD'}),env);assert.equal((await h.arrayBuffer()).byteLength,0);assert.equal(h.headers.get('content-length'),String(bytes.length));assert.equal((await worker.fetch(req('/data/lakes/0000.bin.gz',{headers:{'If-None-Match':`"${hash}"`}}),env)).status,304);});
+await test('Final builds disable every import route while keeping lake reads',async()=>{assert.equal((await readOnly.fetch(req('/__atlas-import/status'),env)).status,404);assert.equal((await readOnly.fetch(req('/__atlas-import/0000.bin.gz',{method:'PUT',body:bytes}),env)).status,404);assert.equal((await readOnly.fetch(req('/data/lakes/0000.bin.gz'),env)).status,200);});
+await test('Cross-origin browser imports and expired import windows are rejected',async()=>{assert.equal((await worker.fetch(req('/__atlas-import/status',{headers:{Origin:'https://other.example'}}),env)).status,403);const expired=createAtlasWorker(manifest,{importUntil:Date.now()-1});assert.equal((await expired.fetch(req('/__atlas-import/status'),env)).status,404);});
+await test('Missing storage and missing public assets return a recoverable unavailable state',async()=>{assert.equal((await worker.fetch(req('/data/lakes/0000.bin.gz'),{})).status,503);assert.equal((await worker.fetch(req('/'),{})).status,503);});
+console.log(JSON.stringify({status:'passed',checks:checks.length}));

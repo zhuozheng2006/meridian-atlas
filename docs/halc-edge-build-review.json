@@ -1,0 +1,59 @@
+{
+  "conclusion": "No blocking implementation defect found in the reviewed unique-edge build path. The mesh is derived from quantized source-member unions before tile clipping; real sampled tile edges are deduplicated and matching at the sampled seams.",
+  "reviewedFiles": {
+    "build_halc_region_tiles.py": "e47adc85367e71389472962074ebb95244da5dfdd0521ce409c7eac1a293541f",
+    "halc_region_edges.py": "112d10fa821d4f48b59a50bc905ada0e9fd1a49a3dca0b3a252fb1f27031d029",
+    "halc_geometry.py": "9ebd46413375ab09140182e4961b4fc14ce580f17fa182433208c85c7fc512cb",
+    "verify_halc_region_tiles.py": "f7f31b131cfa7b50c9eb370cf512cef24ed61e124f7cd1f23aaeae7bfc6c4804"
+  },
+  "constructionOrder": [
+    "Validate original GPKG hash and 1500 source dates",
+    "Project original locality geometry onto the same global MVT grid for each zoom",
+    "Filter TYPE 8 and any XX membership; union by complete literal ADM1 strings",
+    "Take boundaries of globally uncut group polygons, including interior rings",
+    "Union linework on grid_size=1 and line-merge to remove coincident segments",
+    "Intersect the line network with each buffered tile rectangle; deduplicate snap-coincident clipped lines again",
+    "Encode and decode MVT and compare its line set to clipped input"
+  ],
+  "tileFrameFinding": "No polygon boundary is taken after tile clipping. The helper synthetic crossing test gives 20 units of genuine linework instead of the 40 units from clip-then-boundary. The 1-grid line coincident with one sampled buffer frame exists inside the neighboring tile, confirming its source continuity.",
+  "sampleEvidence": "region-edge-sample-audit.json",
+  "syntheticEvidence": "edge-conversion-review.json",
+  "fullAuditStatus": {
+    "providedByBuildAgent": true,
+    "report": "work/halc-hierarchy/tiles-edge-verification-report.json",
+    "passed": true,
+    "tiles": 814,
+    "edgeFeatures": 360,
+    "duplicateSegments": 0,
+    "maxLengthMinusUnique": 0.0,
+    "geometryRebuildCompared": true
+  },
+  "quantizationLimitations": {
+    "gridCellGroundMetresApprox": {
+      "6": [
+        44.902294156972275,
+        50.60852547373658
+      ],
+      "7": [
+        22.451147078486137,
+        25.30426273686829
+      ],
+      "8": [
+        11.225573539243069,
+        12.652131368434144
+      ],
+      "9": [
+        5.612786769621534,
+        6.326065684217072
+      ],
+      "10": [
+        2.806393384810767,
+        3.163032842108536
+      ]
+    },
+    "coordinateRoundingNote": "One initial axis-rounding step is <=0.5 cell per axis, but this is not an end-to-end Hausdorff bound: valid_output can remove collapsed holes/parts; union noding and clipping also snap.",
+    "renderScale": "One grid cell is 1/16 CSS px at a tile native zoom with 512px tiles. Overzoom amplifies this; at map z15 with z10 source it is 2px.",
+    "seamNote": "Common global input grid avoids independently shifted data origins, but integer-grid clipping can slightly change diagonal slopes between adjacent buffers. Exact seam equality is not guaranteed; inspect sample magnitudes."
+  },
+  "scope": "Independent code reading, four small actual-helper experiments, four z8 tile samples and three adjacent seams; no duplicate full build or full-tile audit was run by this reviewer. The earlier verifier layer-schema omission has been corrected by the build agent."
+}

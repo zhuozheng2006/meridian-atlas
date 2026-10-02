@@ -1,0 +1,76 @@
+{
+  "version": "3.9.3",
+  "assetRevision": "3.9.3-76012876eda1",
+  "checkedAt": "2026-10-02T17:27:57.269166+00:00",
+  "fullTest": {
+    "command": "npm test",
+    "exitCode": 0,
+    "log": "full-test.log"
+  },
+  "browser": {
+    "engine": "Codex in-app browser",
+    "desktopViewport": [
+      1168,
+      787
+    ],
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "checks": [
+      {
+        "name": "1500 Alpine overview, final boundary paint",
+        "passed": true,
+        "screenshot": "Meridian-3.9.3-border-after.png"
+      },
+      {
+        "name": "Click overview polygon opens Duchy of Bavaria archive clio-07350",
+        "passed": true
+      },
+      {
+        "name": "Partial-detail button creates same-year overview/regional pair at the captured camera",
+        "passed": true,
+        "screenshot": "Meridian-3.9.3-boundary-comparison.png"
+      },
+      {
+        "name": "Partial detailed coverage visibly labelled; no global outline remains on detailed map",
+        "passed": true
+      },
+      {
+        "name": "Mobile comparison uses vertically stacked full-width maps",
+        "passed": true,
+        "screenshot": "Meridian-3.9.3-mobile-comparison.png"
+      },
+      {
+        "name": "HALC Lent environment tab retains source areas and compact four-tab layout",
+        "passed": true,
+        "screenshot": "Meridian-3.9.3-landscape-reader.png"
+      },
+      {
+        "name": "Environment ArrowRight selects source tab and leaves year 1500 unchanged",
+        "passed": true
+      },
+      {
+        "name": "Mobile environment reader stays within viewport",
+        "passed": true,
+        "screenshot": "Meridian-3.9.3-mobile-reader.png"
+      }
+    ],
+    "consoleWarningsAndErrors": []
+  },
+  "sourceSha256": {
+    "public/app.js": "957be66052cba39ee2839ce91a8cd4d85281f16cd63ad991a0872034cd8828ad",
+    "public/map-engine.js": "a00f5806522c3654661c703f724e4991513cbec274040a776565a99652b6ea6a",
+    "public/boundary-mesh.js": "df9e5a9351f05dc9b80a476918b6f09edca7eca5e68e5db4e61d7c80431af502",
+    "public/boundary-comparison.js": "a5dfe70df303bc4cd5944cd2c894d7c7ee6d5232b7535eaf0eef12caa6341889",
+    "public/boundary-style.js": "57fdc3ecbb0ff0debd203cb345df0dc40e70bb6bae0d10d9e4eec32775fd3aba",
+    "public/cartography.css": "a6f2c6518bb1edd9146e0afcec588a8f8b86980d47af22bc6fa81995580682b6",
+    "public/halc-landscape-reader.js": "91f373140ccb4d83fde9e7c618134adfa27b4eb904097b16e205b9c4c47a811c"
+  },
+  "limits": [
+    "Exact shared-segment removal changes rendering, not historical source precision.",
+    "OpenHistoricalMap detailed coverage remains partial and is shown separately.",
+    "CShapes geometry and stroke multiplicity are retained.",
+    "No unverified replacement geometry or incomplete research download included."
+  ]
+}

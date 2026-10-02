@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-02T16:18:05.073680+00:00",
+  "assetRevision": "3.9.2-2ba2437fa3b9",
+  "method": "Actual local browser observations, MapLibre rendering, temporary Fetch request interception and viewport resizing. All interception and viewport overrides cleared after checks.",
+  "checks": [
+    {
+      "name": "HALC pending z10 keeps prior geometry and Tilburg record",
+      "pausedRequests": 12,
+      "pendingBadge": "HALC · 正在补齐视野…",
+      "completedVisibleRecords": 100,
+      "pass": true
+    },
+    {
+      "name": "OHM Lorraine record survives z7 to z8",
+      "pass": true
+    },
+    {
+      "name": "Desktop record remains fully inside its map",
+      "mapBounds": {
+        "top": 74,
+        "bottom": 633,
+        "left": 0,
+        "right": 1168
+      },
+      "recordBounds": {
+        "top": 139.58203125,
+        "bottom": 567.41796875,
+        "left": 754,
+        "right": 1104
+      },
+      "pass": true
+    },
+    {
+      "name": "Mobile resize retains record and prevents page overflow",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mapBounds": {
+        "top": 65,
+        "bottom": 636
+      },
+      "recordBounds": {
+        "top": 141.58203125,
+        "bottom": 559.41796875,
+        "width": 350
+      },
+      "scrollWidth": 390,
+      "pass": true
+    }
+  ],
+  "consoleErrorsAfterTileRestore": 0,
+  "scope": "Continuity and reading-panel behavior only. This does not validate the historical accuracy of boundaries.",
+  "proofs": [
+    "Meridian-3.9.2-continuous-detail.png",
+    "Meridian-3.9.2-regional-record.png",
+    "Meridian-3.9.2-mobile-record.png"
+  ]
+}

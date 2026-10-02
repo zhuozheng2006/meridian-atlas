@@ -1,0 +1,68 @@
+疆域资产最终核验说明（2026-10-02）
+
+范围：本审计覆盖疆域数据、名称补充、证据提示与复现脚本；不含主站代码或事件编写。本次未编辑 Site 项目。
+
+一、固定来源与许可
+项目：Cliopatria / Seshat Global History Databank
+仓库：https://github.com/Seshat-Global-History-Databank/cliopatria
+Commit：ad28a691b7c07c1fca89d0e0636d324667d2a258
+原始下载：https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/ad28a691b7c07c1fca89d0e0636d324667d2a258/cliopatria.geojson.zip
+ZIP：44,231,317 bytes
+ZIP SHA-256：d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370
+许可：CC BY 4.0，https://creativecommons.org/licenses/by/4.0/
+压缩包内文件名为 cliopatria_polities_only.geojson，但内容仍包含 RELATION。
+Wikidata 补充标签为 CC0。源资料、元数据、许可与显示改动均保留记录。
+
+二、数据规模与时间语义
+源记录 13,765 条全部保留：POLITY 13,380 条，RELATION 385 条；源名称 1,633 个。
+范围为公元前3400年至2024年，连续可选民用年份共5,424个；不提供2025年及之后疆域。
+FromYear 与 ToYear 均含端点。6条源记录的终点为0，原值保留并警示；界面禁止选择0年，前1年下一年为公元1年。
+POLITY 默认显示；RELATION 表示联盟、效忠或共主关系，常与成员范围重叠，不宜叠涂成独立国家。
+相同记录区间内沿用相同几何，并非每年有独立测绘。空白表示该位置在该年缺少数据，不表示无人居住、无文明或无政治组织；没有补画缺失时代。
+示例当年POLITY数：前3400年1、前3000年4、前1000年12、前221年40、公元23年41、1000年132、1492年136、2024年195。
+
+三、几何与传输
+简化后去重几何11,232个，按37个分片保存（geometries-000 至 geometries-036）。
+简化容差0.02度，preserve_topology=True，通常保留5位小数；13次舍入会破坏有效性时保留未舍入简化坐标。未主动丢弃小岛，未擅自修复源几何。
+13条源记录的几何无效问题保留并提示；输出无效几何13个。独立简化可能使相邻边缘有细小缝隙，仅供概览。
+面积保持源Area（平方公里）；中心用源几何 representative_point，非易落海的质心；bbox取自源几何。
+分片未压缩合计65,133,048 bytes，gzip合计19,693,872 bytes；最大gzip分片587,703 bytes。
+catalog.json：11,893,188 bytes；catalog.json.gz：1,252,656 bytes。
+部署清单列45个载荷文件，共21,414,212 bytes；加清单本身为46个文件，共21,421,600 bytes。
+geometryIndex内为.json文件名，加载时追加.gz；遇服务端已按Content-Encoding解压时不得再次解压，应检查gzip头。
+
+四、名称与身份核验
+已抓取1,416个Wikidata实体，1,322个有中文标签；核对1,469个源Wikipedia标题。
+源Wikidata与Wikipedia文章关联相符12,595条；不一致1,158条；7条无法核验。关联相符仅证明交叉链接一致，不是历史正确性的证明。
+已核对的文章关联另存 verifiedWikidata；原name、wikidata、wikipedia、年份、面积、组成/隶属信息均保留。
+人工按完整源名称译名183个（第一批100 + 补充83），适用3,276条记录；有中文补充名的记录13,074条。
+POLITY未译306条／73个不同名称；RELATION385条保留原文；合计未译691条。保留秦国/秦朝、韩/汉朝、晋国/王朝等区别。
+显著歧义7条保留原名：5条公元前Later Zhou却指向951—960年后周；2条1415—1439年的Hashemite Arab Federation与名称/词条年代对应未核实。
+另外 Xia、Thuringian states、(Carolingian Empire) 等缺乏可靠对应者不强行译名。
+1,158条不一致与7条待核验须区别展示；verifiedWikidata为空不等于确认错配。
+evidenceWarnings / evidenceWarningsEn 为对应双语逐条提示，translationNote / translationNoteEn 为译名方法说明，应在政体详情展示。
+2条Sultanate of Sambaliung的原Wikipedia字段为 id.wikipedia.org/wiki/Kesultanan_Sambaliung，属无协议完整URL；主站应补https://，不能再拼到英文Wikipedia标题路径。
+
+五、复现与验证顺序
+进入本目录：scripts/boundaries（交付包中）
+环境：Python 3，Shapely 2.0.7，NumPy 2.0.2；原工作环境使用.venv；交付包需自行创建。
+标准重建使用保留的源ZIP/cliopatria.geojson、wikidata-labels.json、wikipedia-identities.json和183项manual-translations.json缓存：
+  .venv/bin/python build_assets.py
+  .venv/bin/python refresh_catalog_labels.py
+  .venv/bin/python validate_assets.py
+  .venv/bin/python validate_labels.py
+  .venv/bin/python verify_manifest.py
+注意：build_assets.py的临时标签未经关联审计，不可直接发布；必须随后执行refresh_catalog_labels.py。
+若需重新抓取缺失标签缓存，在build前依次执行fetch_labels.py、fetch_wikipedia_identity.py；联网返回可能随时间变化，原缓存用于本次结果复现。
+若需由脚本重新建立人工译名字典，在build后依次执行make_manual_translations.py、refresh_catalog_labels.py、extend_manual_translations.py、refresh_catalog_labels.py，再进行三项验证。extend脚本仅在100项初始译名状态追加83项，不能对183项最终字典重复运行。
+build会重写builtUtc，因此重新构建的目录和压缩字节哈希可能变化；最终哈希应在构建、标签刷新和验证全部完成后生成。
+validate_labels.py会生成部署清单；可单独运行verify_manifest.py --rebuild重新生成清单，再运行verify_manifest.py核对。生产清单不收录自己，避免自哈希循环。
+验证只覆盖源属性保留、几何完整性、时间/名称处理与文件一致性，不是逐条历史学家审稿。
+
+六、最终核验与复制
+最新完整几何验证、名称验证及45文件逐项大小/SHA-256核验均通过。
+最终catalog.json.gz SHA-256：590bc933520245f8bae8256ec1e8f9c04e89f94e60d416a2abd98472e97b50a0
+最终production-manifest.json SHA-256：694b99d25a89177515e33c5838735e38d3906d3221982365418920a02ff99d47
+复制范围：assets中 deployment-files.txt逐行列出的46个文件。核心为catalog.json.gz、37个geometries-*.json.gz、metadata.json、coverage.json、LICENSE.md；同时复制identity-audit.json、manual-translations.json、validation-report.json、translation-validation.json及production-manifest.json。
+原始catalog.json、未压缩几何、源ZIP/GeoJSON与抓取缓存仅留本地复现，不必重复部署。
+详情见manifest-verification.json；不要从旧dist清单推断最新work资产的大小。
