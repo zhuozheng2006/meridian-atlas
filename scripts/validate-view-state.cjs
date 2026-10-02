@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),zlib=require('zlib'),crypto=require('crypto'),assert=require('node:assert/strict');
-const candidates=[process.env.ATLAS_DIST,path.resolve(__dirname,'../dist'),path.resolve(__dirname,'../../../outputs/world-history-atlas/dist')].filter(Boolean);
+const candidates=[process.env.ATLAS_DIST,path.resolve(__dirname,'../public'),path.resolve(__dirname,'../../../outputs/world-history-atlas/public')].filter(Boolean);
 const ROOT=candidates.find(p=>fs.existsSync(path.join(p,'app.js')));
 if(!ROOT)throw Error('Set ATLAS_DIST to the atlas dist directory');
 const files=['view-state.js','map-engine.js','places.js','timeline-controls.js','polity-reader.js','app.js'];

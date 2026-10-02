@@ -1,6 +1,6 @@
 
 > meridian-world-history-atlas@3.1.0 test
-> node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-places.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-lakes.mjs && node scripts/validate-release.mjs
+> node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-places.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-lakes.mjs && node scripts/validate-release.mjs && node scripts/validate-worker.mjs
 
 PASS linked asset revision 3.1.0-e7a6263b51ba
 PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
@@ -134,10 +134,10 @@ PASS The asynchronous local-fetch API retries after failure, deduplicates and re
 {"passed":10,"total":10,"entries":12,"sources":39,"sourceRecords":40,"positiveBoundaries":130,"negativeBoundaries":160,"actualPeriodGaps":0,"originalRegressionCases":55}
 {
   "snapshot": {
-    "path": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/dist/geography.js",
+    "path": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/public/geography.js",
     "sha256": "188c3e916613c764700873b06d45d8685f56fb9aba449cdd7db4dc23a6dbfcf6",
     "mapEngineSha256": "f895ffedfea3b0e90334a6d3896d3166eb6919f844050ea38751a19d0ddbe4c2",
-    "capturedAt": "2026-10-02T07:57:29.087Z"
+    "capturedAt": "2026-10-02T08:17:29.969Z"
   },
   "counts": {
     "pass": 30,
@@ -397,3 +397,13 @@ PASS All 357 physical assets match the current release inventory
 PASS All 11306 native archive pieces retain compressed and decoded hashes
 PASS 53 derived place assets match their provenance manifest
 {"result":"passed","checks":4,"staticFiles":15902,"physicalFiles":357,"nativePieces":11306,"cityFiles":53}
+PASS Existing pages delegate to the asset binding
+PASS Missing lake objects fail recoverably without a false empty map
+PASS Unknown objects and non-binary imports are rejected
+PASS Wrong sizes and same-sized corrupt data cannot be stored
+PASS Audited bytes upload idempotently under a versioned key
+PASS Read, HEAD and conditional requests preserve the exact encoded bytes
+PASS Final builds disable every import route while keeping lake reads
+PASS Cross-origin browser imports and expired import windows are rejected
+PASS Missing storage and missing public assets return a recoverable unavailable state
+{"status":"passed","checks":9}

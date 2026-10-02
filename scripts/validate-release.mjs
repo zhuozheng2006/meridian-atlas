@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 
-const root=fileURLToPath(new URL('../dist/',import.meta.url));
+const root=fileURLToPath(new URL('../public/',import.meta.url));
 const digest=b=>crypto.createHash('sha256').update(b).digest('hex');
 const read=p=>fs.readFileSync(path.join(root,p));
 const json=p=>JSON.parse(p.endsWith('.gz')?zlib.gunzipSync(read(p)):read(p));

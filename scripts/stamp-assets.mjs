@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 
-const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist');
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'public');
 const clean=s=>s.replace(/\?v=[a-zA-Z0-9.-]+(?=["'])/g,'');
 const files=fs.readdirSync(dist).filter(f=>/\.(?:js|css)$/.test(f)).sort();
 const sources=new Map(files.map(f=>[f,clean(fs.readFileSync(path.join(dist,f),'utf8'))]));

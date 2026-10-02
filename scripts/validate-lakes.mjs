@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
-import {decodeLakeArchive} from '../dist/lake-codec.js';
-import {LakeCache,LakeLayer,lakeTier,containsLakeBounds,intersectsLakeBounds,selectLakeShards,decodeLakeFeature} from '../dist/lakes.js';
+import {decodeLakeArchive} from '../public/lake-codec.js';
+import {LakeCache,LakeLayer,lakeTier,containsLakeBounds,intersectsLakeBounds,selectLakeShards,decodeLakeFeature} from '../public/lakes.js';
 const results=[];const test=async(name,fn)=>{await fn();results.push(name);console.log('PASS '+name);};
 const bbox=[134,34,137,37],feature={type:'Feature',id:1,bbox,properties:{id:1,type:3,area:673.48,name:'Biwa'},geometry:{type:'Polygon',deltas:[[[135000000,35000000,1000000,0,0,1000000,-1000000,0,0,-1000000]]]}};
 const shard={file:'one.json.gz',minZoom:4,bbox,count:1,vertices:5};const data={encoding:'delta-1e6',features:[feature]},index={schemaVersion:1,shards:[shard]};
@@ -62,7 +62,7 @@ await test('Invisible globe-side event markers do not suppress lake names; visib
  }finally{delete globalThis.document;delete globalThis.getComputedStyle;delete globalThis.maplibregl;}
 });
 await test('All archive shards have valid hashes, counts, class exclusions and coordinate encoding',()=>{
- const root=new URL('../dist/data/lakes/',import.meta.url),m=JSON.parse(fs.readFileSync(new URL('manifest.json',root)));let records=0,vertices=0;const ids=new Set();
+ const root=new URL('../public/data/lakes/',import.meta.url),m=JSON.parse(fs.readFileSync(new URL('manifest.json',root)));let records=0,vertices=0;const ids=new Set();
  for(const meta of m.shards){const packed=fs.readFileSync(new URL(meta.file,root));assert.equal(packed.length,meta.gzipBytes);assert.equal(crypto.createHash('sha256').update(packed).digest('hex'),meta.sha256);const raw=zlib.gunzipSync(packed);assert.equal(raw.length,meta.bytes);const s=meta.file.endsWith('.bin.gz')?decodeLakeArchive(raw):JSON.parse(raw);assert.equal(s.encoding,'delta-1e6');assert.equal(s.features.length,meta.count);let count=0;
   for(const f of s.features){assert(!ids.has(f.id));ids.add(f.id);assert([1,3].includes(f.properties.type));assert(f.bbox[0]>=-180&&f.bbox[2]<=180&&f.bbox[1]>=-90&&f.bbox[3]<=90);const g=decodeLakeFeature(f);const ps=g.geometry.type==='Polygon'?[g.geometry.coordinates]:g.geometry.coordinates;for(const p of ps)for(const r of p){assert(r.length>=4);assert.deepEqual(r[0],r.at(-1));count+=r.length;}records++;}
   assert.equal(count,meta.vertices);vertices+=count;

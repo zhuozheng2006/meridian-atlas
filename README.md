@@ -63,14 +63,14 @@ npm run prepare:assets
 npm test
 ```
 
-- `dist/`：可托管、可离线启动的应用。
-- `dist/data/events.json`：可编辑事件；浏览器读取其压缩副本。
-- `dist/data/fast/`：首屏目录、概览几何、常用年代和完整记录分片。
-- `dist/data/enrichment/`：实体档案索引、分片与双语文明概览。
-- `dist/data/native/`：按原始几何独立分片的精细疆域与保真清单。
-- `dist/data/physical/`：本地晕渲、海岸、水系与逐文件来源清单。
-- `dist/data/lakes/`：精细湖岸空间分片、具名湖泊索引与完整转换清单。
-- `dist/data/places/`：年代地名、人口、首都、城市篇章和来源。
+- `public/`：可托管、可离线启动的应用。
+- `public/data/events.json`：可编辑事件；浏览器读取其压缩副本。
+- `public/data/fast/`：首屏目录、概览几何、常用年代和完整记录分片。
+- `public/data/enrichment/`：实体档案索引、分片与双语文明概览。
+- `public/data/native/`：按原始几何独立分片的精细疆域与保真清单。
+- `public/data/physical/`：本地晕渲、海岸、水系与逐文件来源清单。
+- `public/data/lakes/`：精细湖岸空间分片、具名湖泊索引与完整转换清单。
+- `public/data/places/`：年代地名、人口、首都、城市篇章和来源。
 - `editorial/city-narratives.json`：可编辑的原创双语城市篇章。
 - `scripts/`：重建与验证脚本。
 - `docs/`：来源研究、内容覆盖、转换记录与测试结果。

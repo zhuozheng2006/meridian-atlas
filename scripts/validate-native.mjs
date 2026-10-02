@@ -9,7 +9,7 @@ import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
-const dist=path.resolve(here,'../dist');
+const dist=path.resolve(here,'../public');
 const read=relative=>JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(dist,relative))));
 const catalog=read('data/fast/catalog.json.gz');
 const index=read('data/native/index.json.gz');

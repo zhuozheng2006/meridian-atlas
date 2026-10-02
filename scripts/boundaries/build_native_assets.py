@@ -131,7 +131,7 @@ def main():
     parser.add_argument("--source-archive", type=pathlib.Path, required=True)
     parser.add_argument("--catalog", type=pathlib.Path, required=True)
     parser.add_argument("--display-data", type=pathlib.Path, required=True,
-                        help="Existing dist/data directory containing 0.02-degree geometry shards")
+                        help="Existing public/data directory containing 0.02-degree geometry shards")
     parser.add_argument("--output", type=pathlib.Path,
                         default=pathlib.Path(__file__).resolve().parent / "assets")
     args = parser.parse_args()

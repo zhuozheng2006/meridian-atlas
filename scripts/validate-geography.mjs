@@ -3,7 +3,7 @@ import vm from 'node:vm';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 
-const sourcePath=new URL('../dist/geography.js',import.meta.url);
+const sourcePath=new URL('../public/geography.js',import.meta.url);
 const source=fs.readFileSync(sourcePath,'utf8');
 const transformed=source.replace(/^import[^\n]*\n/gm,'').replace('export class Geography','globalThis.Geography = class Geography');
 const EMPTY={type:'FeatureCollection',features:[]};
@@ -155,7 +155,7 @@ await test('Turning terrain off before DEM metadata arrives does not certify usa
 
 // This regression uses the actual vendored cache methods, including its silent
 // cache reactivation branch, rather than inventing a source event sequence.
-const vendor=fs.readFileSync(new URL('../dist/assets/maplibre-gl.js',import.meta.url),'utf8');
+const vendor=fs.readFileSync(new URL('../public/assets/maplibre-gl.js',import.meta.url),'utf8');
 const cacheStart=vendor.indexOf('class xe extends');
 function cacheMethod(start,next){const a=vendor.indexOf(start,cacheStart),b=vendor.indexOf(next,a+start.length);assert(a>=0&&b>a);return vendor.slice(a,b);}
 const cacheMethods={
@@ -234,7 +234,7 @@ await test('Default coast failure/retry restores and reloads only the shared rem
 });
 
 // Execute the actual AtlasMap territory click callback, not a duplicated policy.
-const mapEnginePath=new URL('../dist/map-engine.js',import.meta.url);
+const mapEnginePath=new URL('../public/map-engine.js',import.meta.url);
 const mapEngineSource=fs.readFileSync(mapEnginePath,'utf8');
 const clickLine=mapEngineSource.split('\n').find(line=>line.includes("this.map.on('click','territories',"));
 assert(clickLine,'Missing territory click callback');

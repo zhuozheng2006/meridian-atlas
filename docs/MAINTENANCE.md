@@ -4,7 +4,7 @@
 
 ## 修改事件
 
-编辑 `dist/data/events.json`。每条记录必须有唯一 `id`，双语 `title`、`summary`、`significance`，`start`、`end`，经纬度 `lon`、`lat`，`region`、`category`、`precision`、`locationType` 以及 `sources`。
+编辑 `public/data/events.json`。每条记录必须有唯一 `id`，双语 `title`、`summary`、`significance`，`start`、`end`，经纬度 `lon`、`lat`，`region`、`category`、`precision`、`locationType` 以及 `sources`。
 
 - 年份负数为 BCE、正数为 CE；禁止 0。区间包含两个端点。
 - `precision`: `year`（年级节点）、`circa`（约略年代）、`range`（历史过程）。
@@ -35,7 +35,7 @@ python3 -m venv .venv
 
 默认使用包内冻结的名称、文章关联与人工译名缓存。`fetch_labels.py`、`fetch_wikipedia_identity.py` 可刷新缓存，但在线结果可能变化，必须重新审核。`build_assets.py` 的初始标签未经过身份核对，**必须**紧接 `refresh_catalog_labels.py` 才可发布。
 
-检查 `assets/production-manifest.json` 后，把清单里的文件和清单本身复制到项目 `dist/data`，不要覆盖事件库或现代海岸线。重新运行 `npm test`。构建时间会变化，所以重新构建不保证 gzip 字节完全相同；每次发布均保留对应的新清单。
+检查 `assets/production-manifest.json` 后，把清单里的文件和清单本身复制到项目 `public/data`，不要覆盖事件库或现代海岸线。重新运行 `npm test`。构建时间会变化，所以重新构建不保证 gzip 字节完全相同；每次发布均保留对应的新清单。
 
 ## 精度与争议
 
@@ -50,7 +50,7 @@ python3 -m venv .venv
 
 ## 2.0 数据层与重建
 
-`dist/data/catalog.json.gz`保持源档案的完整版本；日常首屏使用`fast/catalog.json.gz`，完整记录按256条分片读取。`scripts/build_fast_assets.py`读取既有边界数据，生成0.04°概览、11个常用年份的0.02°启动几何及简体名称；放大后继续使用既有0.02°边界分片。构建依赖Shapely与OpenCC Python Reimplemented，已验证版本分别为2.0.7与0.1.7。转换前后记录ID、有效区间、类型与几何关联必须一致。概览简化导致无效形状时回退到可用输入，原有13条问题记录保留。
+`public/data/catalog.json.gz`保持源档案的完整版本；日常首屏使用`fast/catalog.json.gz`，完整记录按256条分片读取。`scripts/build_fast_assets.py`读取既有边界数据，生成0.04°概览、11个常用年份的0.02°启动几何及简体名称；放大后继续使用既有0.02°边界分片。构建依赖Shapely与OpenCC Python Reimplemented，已验证版本分别为2.0.7与0.1.7。转换前后记录ID、有效区间、类型与几何关联必须一致。概览简化导致无效形状时回退到可用输入，原有13条问题记录保留。
 
 事件编辑完成后同时更新`events.json.gz`，推荐`gzip.compress(bytes,mtime=0,compresslevel=9)`。保持原事件ID稳定，重复主题需人工核对，新增标题、摘要与意义应成对提供中英文。对中文显示文本运行OpenCC t2s检查并人工处理术语。
 
@@ -76,22 +76,22 @@ scripts/boundaries/.venv/bin/python scripts/boundaries/build_native_assets.py \
   --source scripts/boundaries/cliopatria.geojson \
   --source-metadata scripts/boundaries/source.json \
   --source-archive scripts/boundaries/cliopatria.geojson.zip \
-  --catalog dist/data/fast/catalog.json.gz \
-  --display-data dist/data \
+  --catalog public/data/fast/catalog.json.gz \
+  --display-data public/data \
   --output build/native-shards
 python3 scripts/boundaries/build_small_native_assets.py \
   --input build/native-shards \
-  --catalog dist/data/fast/catalog.json.gz \
+  --catalog public/data/fast/catalog.json.gz \
   --output build/native-release
 ```
 
-对照`manifest.json`后再替换`dist/data/native`；不要把旧大分片残留在新目录。原始13条无效几何继续保留和注明，构建器不静默修补历史形状。几何精度是显示保真，不能当作历史边界证据精度。
+对照`manifest.json`后再替换`public/data/native`；不要把旧大分片残留在新目录。原始13条无效几何继续保留和注明，构建器不静默修补历史形状。几何精度是显示保真，不能当作历史边界证据精度。
 
 自然底图重建见`../scripts/cartography/README.md`，城市资料重建见`../scripts/places/README.md`。构建器固定来源哈希、实体版本和过滤规则。可变的上游latest地址将来可能无法恢复旧字节，应另外保留经验证的原始下载缓存。现有城市构建重跑的53个压缩文件已与发布资产逐字节比对；地理矢量/海罩重建已逐字节比对，地形瓦片完整解码检查已完成，未重复执行全部地形重投影。
 
 `geography.js`使用三层加载：全球本地概览、区域Natural Earth细图、在线近距离海岸/河流与高程。在线源的metadata不代表瓦片可用；只有真实loaded tile才能首次确认ready。缓存视口往返用已见有效瓦片和`isSourceLoaded`收敛。错误恢复本地层，重试只重新创建失败的源；海岸、地形、现代参照独立控制。`queryRenderedFeatures`会包含透明要素，点击过滤必须与实际可见图层使用同一ready状态。
 
-城市的文化时期、人口观测和首都关系分别保留各自意义。`places.js`按所选年选择确有依据的地点，人口观测采用±50年并显示真实记录年；`city-narratives.js`仅按明确sourceRecordId、时期和观测年份绑定原创篇章。编写新篇章时编辑`editorial/city-narratives.json`，补齐双语段落、机构来源、日期节点、空间/年代说明和绑定反例；再以确定性gzip写入`dist/data/places/city-narratives.json.gz`。
+城市的文化时期、人口观测和首都关系分别保留各自意义。`places.js`按所选年选择确有依据的地点，人口观测采用±50年并显示真实记录年；`city-narratives.js`仅按明确sourceRecordId、时期和观测年份绑定原创篇章。编写新篇章时编辑`editorial/city-narratives.json`，补齐双语段落、机构来源、日期节点、空间/年代说明和绑定反例；再以确定性gzip写入`public/data/places/city-narratives.json.gz`。
 
 `view-state.js`保存经纬度、缩放、方位与俯仰；URL恢复必须保留左右年份与阅读对象。语言切换不能重新缩放已在阅读的地图。`startup.js`在地图引擎下载前恢复可见年份。
 
@@ -104,7 +104,7 @@ python3 scripts/boundaries/build_small_native_assets.py \
 
 ### 资源更新与城市名称
 
-修改 `dist/` 下的应用脚本或样式后，运行 `npm run prepare:assets`。它以规范化后的全部应用脚本、样式内容计算共享版本号，再更新 HTML 与模块导入链接；`npm test` 首项检查版本是否匹配。版本号跨模块一致，避免循环依赖模块出现两份缓存。JSON 请求重新验证服务器缓存，当前页面内仍合并重复请求。
+修改 `public/` 下的应用脚本或样式后，运行 `npm run prepare:assets`。它以规范化后的全部应用脚本、样式内容计算共享版本号，再更新 HTML 与模块导入链接；`npm test` 首项检查版本是否匹配。版本号跨模块一致，避免循环依赖模块出现两份缓存。JSON 请求重新验证服务器缓存，当前页面内仍合并重复请求。
 
 首都条目缺少可读名称时，构建器会从已锁定版本的同一 Wikidata 坐标实体补齐英文、通用语言和简体中文名称。资料库编号不会充当地名；审核结果见 `capital-label-audit.json`。
 
@@ -115,7 +115,7 @@ python3 scripts/boundaries/build_small_native_assets.py \
 
 ## 精细湖岸 / Fine lake shores
 
-`dist/data/lakes/` 是HydroLAKES v1.0的CC BY 4.0派生数据。仅在放大至4级后读取131,739字节索引，再按当前视野选取空间分片。4级显示面积至少100 km²的湖体，6级加入5 km²以上湖体，9级显示来源内全部保留湖体。源码中的`LakeCache`合并并发请求并限制已解码存储；当前画面的地图引擎另保留所需几何。
+`public/data/lakes/` 是HydroLAKES v1.0的CC BY 4.0派生数据。仅在放大至4级后读取131,739字节索引，再按当前视野选取空间分片。4级显示面积至少100 km²的湖体，6级加入5 km²以上湖体，9级显示来源内全部保留湖体。源码中的`LakeCache`合并并发请求并限制已解码存储；当前画面的地图引擎另保留所需几何。
 
 重建环境使用PyShp 2.3.1、Shapely 2.0.7；浏览器运行无需这些依赖。下载链接和ZIP/SHP/SHX/DBF/PRJ哈希见`scripts/lakes/source-lock.json`。原始ZIP只放在工作缓存，不发布原始格式镜像。
 
@@ -123,6 +123,6 @@ python3 scripts/boundaries/build_small_native_assets.py \
 python scripts/lakes/build_lakes.py --source /path/to/cache/HydroLAKES_polys_v10 --output /path/to/cache/derived-lakes
 ```
 
-构建器逐一验证源文件哈希。确认输出后整体替换`dist/data/lakes/`，运行`node scripts/validate-lakes.mjs`。派生分片使用`MLK1`二进制格式，并不是未经解码即可使用的GeoJSON。`lake-codec.js`以LEB128与ZigZag解码元数据和坐标增量，得到`encoding: delta-1e6`中间对象；逐点增量与旧格式完全相同。要素包围盒向外扩展不足0.000002度，仅用于视野筛选；空间索引保留原始包围盒。具名湖泊信息只在共享索引存一份。每个Polygon存为一个多边形列表，每个环是`[dx,dy,dx,dy,...]`，累加后除以1,000,000；MultiPolygon保留多个多边形。`geometry.coordinates`字段出现时表示审计后保留的原始浮点坐标。`decodeLakeFeature`返回标准GeoJSON。
+构建器逐一验证源文件哈希。确认输出后整体替换`public/data/lakes/`，运行`node scripts/validate-lakes.mjs`。派生分片使用`MLK1`二进制格式，并不是未经解码即可使用的GeoJSON。`lake-codec.js`以LEB128与ZigZag解码元数据和坐标增量，得到`encoding: delta-1e6`中间对象；逐点增量与旧格式完全相同。要素包围盒向外扩展不足0.000002度，仅用于视野筛选；空间索引保留原始包围盒。具名湖泊信息只在共享索引存一份。每个Polygon存为一个多边形列表，每个环是`[dx,dy,dx,dy,...]`，累加后除以1,000,000；MultiPolygon保留多个多边形。`geometry.coordinates`字段出现时表示审计后保留的原始浮点坐标。`decodeLakeFeature`返回标准GeoJSON。
 
 湖名中文映射按稳定Hylak_id绑定，编辑`scripts/lakes/name-translations.json`。湖名代表点从原始多边形内部计算，不是城市坐标或湖泊入口。新增映射时核对源名称和位置。重建不自动补造译名、历史湖岸或成湖日期。

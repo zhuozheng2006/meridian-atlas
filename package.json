@@ -6,8 +6,9 @@
   "description": "Source-linked bilingual world history atlas",
   "scripts": {
     "start": "python3 serve.py",
-    "test": "node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-places.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-lakes.mjs && node scripts/validate-release.mjs",
-    "prepare:assets": "node scripts/stamp-assets.mjs"
+    "test": "node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-places.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-lakes.mjs && node scripts/validate-release.mjs && node scripts/validate-worker.mjs",
+    "prepare:assets": "node scripts/stamp-assets.mjs",
+    "build": "node scripts/build-worker.mjs"
   },
   "license": "MIT"
 }

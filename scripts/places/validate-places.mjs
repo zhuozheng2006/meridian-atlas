@@ -9,7 +9,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {gunzipSync,gzipSync} from 'node:zlib';
 
 const root=resolve(process.argv[2]||resolve(dirname(fileURLToPath(import.meta.url)),'..'));
-const dist=resolve(root,'dist'),requests=[],failOnce=new Set(),overrides=new Map();
+const dist=resolve(root,'public'),requests=[],failOnce=new Set(),overrides=new Map();
 const diskJSON=async file=>JSON.parse(gunzipSync(await readFile(resolve(dist,'data/places',file+'.json.gz'))));
 const originals={fetch:globalThis.fetch};
 globalThis.fetch=async input=>{

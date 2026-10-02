@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
-import {yearKeyIntent,bindTimeline} from '../dist/timeline-controls.js';
-import {stepYear} from '../dist/map-engine.js';
+import {yearKeyIntent,bindTimeline} from '../public/timeline-controls.js';
+import {stepYear} from '../public/map-engine.js';
 let checks=0;const pass=name=>{checks++;console.log('PASS '+name)};
 for(const year of [-70000,-1,1,1492,1800,1900,2000]){
  assert.equal(yearKeyIntent('ArrowRight',{slider:true}).delta,1);
@@ -31,7 +31,7 @@ input.value='';fire('Enter',input);assert.equal(year,-1);assert.equal(input.valu
 input.value='0';fire('Enter',input);assert.equal(year,-1);
 const before=commits;input.value='1914';fire('Enter',input);input.onchange();assert.equal(commits,before+1);
 pass('Year fields cross BCE correctly, reject empty/zero, and commit Enter only once');
-const root=new URL('../dist/',import.meta.url);const jsonGzip=path=>JSON.parse(zlib.gunzipSync(fs.readFileSync(new URL(path,root))));
+const root=new URL('../public/',import.meta.url);const jsonGzip=path=>JSON.parse(zlib.gunzipSync(fs.readFileSync(new URL(path,root))));
 const catalog=jsonGzip('data/fast/catalog.json.gz');const shards=new Map();
 for(const year of [-3400,-221,1,500,1000,1492,1750,1914,1945,1991,2024]){
  const boot=jsonGzip(`data/fast/year-${year}.json.gz`);

@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
-const ROOT=require('node:path').resolve(__dirname,'../dist')+'/';
+const ROOT=require('node:path').resolve(__dirname,'../public')+'/';
 function context(){
  const nodes=new Map();const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},focus(){},replaceChildren(){},append(){},closest(){return null},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(){},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
  const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(){}};

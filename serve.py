@@ -7,7 +7,7 @@ parser=argparse.ArgumentParser(description='Meridian Atlas local server')
 parser.add_argument('--port',type=int,default=8766)
 parser.add_argument('--open',action='store_true')
 args=parser.parse_args()
-root=Path(__file__).resolve().parent/'dist'
+root=Path(__file__).resolve().parent/'public'
 handler=functools.partial(SimpleHTTPRequestHandler,directory=str(root))
 try:
     server=ThreadingHTTPServer(('127.0.0.1',args.port),handler)

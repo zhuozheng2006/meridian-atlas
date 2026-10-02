@@ -9,7 +9,7 @@ import {gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
 
 const root=resolve(process.argv[2]||resolve(dirname(fileURLToPath(import.meta.url)),'..'));
-const dist=resolve(root,'dist'),requests=[],results=[];
+const dist=resolve(root,'public'),requests=[],results=[];
 const diskJSON=async name=>JSON.parse(gunzipSync(await readFile(resolve(dist,'data/places',`${name}.json.gz`))));
 const data=await diskJSON('city-narratives');
 const datasets=await Promise.all([['historical-settlements','places'],['historical-capitals','claims'],['urban-observations','cities'],['modern-cities','cities']].map(async ([name,key])=>(await diskJSON(name))[key]));
@@ -558,7 +558,7 @@ await check('The asynchronous local-fetch API retries after failure, deduplicate
 });
 
 globalThis.fetch=originalFetch;
-const report={testedAt:new Date().toISOString(),module:'dist/city-narratives.js',data:'dist/data/places/city-narratives.json.gz',dataSha256:createHash('sha256').update(await readFile(resolve(dist,'data/places/city-narratives.json.gz'))).digest('hex'),counts:counters,checks:results,passed:results.every(r=>r.passed)};
+const report={testedAt:new Date().toISOString(),module:'dist/city-narratives.js',data:'public/data/places/city-narratives.json.gz',dataSha256:createHash('sha256').update(await readFile(resolve(dist,'data/places/city-narratives.json.gz'))).digest('hex'),counts:counters,checks:results,passed:results.every(r=>r.passed)};
 if(process.argv[3])await writeFile(resolve(process.argv[3]),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({passed:results.filter(r=>r.passed).length,total:results.length,...counters}));
 if(!report.passed)process.exitCode=1;

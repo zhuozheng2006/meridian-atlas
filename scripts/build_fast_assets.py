@@ -3,7 +3,7 @@ from pathlib import Path
 import json,gzip,hashlib,collections
 from shapely.geometry import shape,mapping
 from opencc import OpenCC
-root=Path(__file__).resolve().parents[1];data=root/'dist/data';out=data/'fast';out.mkdir(exist_ok=True)
+root=Path(__file__).resolve().parents[1];data=root/'public/data';out=data/'fast';out.mkdir(exist_ok=True)
 cc=OpenCC('t2s');cat=json.loads(gzip.decompress((data/'catalog.json.gz').read_bytes()))
 def encode(v):return json.dumps(v,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()
 def write(name,obj):
