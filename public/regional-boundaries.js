@@ -1,10 +1,10 @@
-import {boundaryNote} from './boundary-notes.js?v=3.10.0-dcc51a2107d6';
-import {readJSON} from './map-engine.js?v=3.10.0-dcc51a2107d6';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.10.0-dcc51a2107d6';
-import {boundaryMode} from './view-state.js?v=3.10.0-dcc51a2107d6';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.10.0-dcc51a2107d6';
-import {historicalYearRange} from './historical-dates.js?v=3.10.0-dcc51a2107d6';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.10.0-dcc51a2107d6';
+import {boundaryNote} from './boundary-notes.js?v=3.10.0-08b6dc34d17c';
+import {readJSON} from './map-engine.js?v=3.10.0-08b6dc34d17c';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.10.0-08b6dc34d17c';
+import {boundaryMode} from './view-state.js?v=3.10.0-08b6dc34d17c';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.10.0-08b6dc34d17c';
+import {historicalYearRange} from './historical-dates.js?v=3.10.0-08b6dc34d17c';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.10.0-08b6dc34d17c';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;

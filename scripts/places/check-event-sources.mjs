@@ -78,7 +78,7 @@ const EXPECT={
  'resources.metmuseum.org':[],
  'www.britishmuseum.org':[]
 };
-const batchFiles=(await readdir(resolve(root,'editorial'))).filter(name=>/^events-3\.\d+\.json$/.test(name)).sort();
+const batchFiles=(await readdir(resolve(root,'editorial'))).filter(name=>/^events-.*\.json$/.test(name)).sort();
 const batches=await Promise.all(batchFiles.map(async name=>JSON.parse(await readFile(resolve(root,'editorial',name),'utf8'))));
 const batch={files:batchFiles,entries:batches.flatMap(batch=>batch.entries)};
 const urls=[...new Set(batch.entries.flatMap(entry=>entry.sources.map(source=>source.url)))].sort();

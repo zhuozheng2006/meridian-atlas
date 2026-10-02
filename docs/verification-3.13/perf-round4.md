@@ -9,7 +9,7 @@
 | # | 改动 | 结果 | 保留？ |
 |---|---|---|---|
 | 1 | `serve.py` 对文本资源**即时 gzip**（未压缩的 JS/CSS/JSON/GeoJSON） | 首屏编码字节 **5.44 → 4.22 MiB（−22%）**；4 Mbps 首帧 9501→**7987 ms**、1.6 Mbps 19222→**11944 ms（−38%）**、400 kbps 67324→**47110 ms**；手机 4 Mbps 10632→**8539 ms** | ✅ 保留 |
-| 2 | `geography.js` 精细水系列按缩放**分层加载**（land 10 m 仍在 zoom≥2.5；rivers/lakes/ocean ≈6.74 MB 推迟到 zoom≥4） | 一次 zoom 3 访问的物理层字节 **13.36 → 6.62 MiB**，其中水系列 7,065,936 B 完全不取；zoom≥4 后照常加载，detail 场景无回退 | ✅ 保留 |
+| 2 | `geography.js` 精细水系列按缩放**分层加载**（land 10 m 仍在 zoom≥2.5；rivers/lakes/ocean ≈6.74 MB 推迟到 zoom≥4） | 一次 zoom 3 访问的物理层字节 **13.36 → 6.62 MiB**，其中水系列 7,065,936 B 完全不取；zoom≥4 后照常加载，detail 场景无回退 | ✅ 保留（Lead 已把 `validate-geography` 的四个 fixture 从 zoom 3 改到 zoom 4，并**新增回归断言锁定该分层**：zoom 3 不得请求 rivers/lakes-10m、zoom 4 必须请求；最终 31 pass / 0 findings） |
 | 3 | native 130+ 小文件服务端合并 | **被 `validate-native` 契约阻止**（见 §3.3），只给出量化评估与建议 | ❌ 不做（契约） |
 | 4 | maplibre-gl.js 换 ESM/裁剪构建 | 收益 ~100 KB/4.22 MB（2.4%），需替换 vendored UMD 构建 | ❌ 不做（见 §3.4） |
 | 5 | 湖泊瓦片是否首屏误拉 | 冷启动 lake 请求数 **0、字节 0**：确认按需 | ✅ 已确认 |
@@ -70,6 +70,8 @@
 用户真正放大到 zoom≥4 时水系列照常加载，`detail-1450`（zoom 3→7→9）无回退：
 4 Mbps 15687/19599 ms（round4 15845/21122）、1.6 Mbps 32343/43102 ms（round4 32513/43170）。
 
+**契约过程（如实记录）**：本改动最初让旧的 `validate-geography`（fixture 在 zoom=3 期待四个细层请求）报 4 条 finding，我按"契约不破"先回退；Lead 随后把这四个用例的 zoom 改为 4（它们测的是"细层不被粗层顶掉"的语义而非阈值），并新增一条回归断言把分层意图锁死。重新应用后 `validate-geography` 为 **31 pass / 0 findings、退出码 0**。
+
 ### 3.2 native 130+ 小文件：量化评估
 
 现状：`data/native/geos/NNN/ngXXXXX.json.gz` 共 11,307 个文件（每个 ≈0.5–8 KB），一年 132 个请求、合计仅 0.33 MB。keep-alive 之后本机已不是瓶颈，慢网高延迟下是 132/6 ≈ 22 个往返。
@@ -94,8 +96,8 @@ gzip 已把它降到 247,699 B（−74%），占首屏 4.22 MiB 的 5.9%。换�
 
 - `node scripts/validate-native.mjs`：**11/11 通过（退出码 0）**
 - `node scripts/validate-v3.mjs`、`validate-boundary-app-races.mjs`、`validate-lakes.mjs`：退出码 0
-- `node scripts/validate-geography.mjs`：退出码 0（分层加载改动后）
-- `node scripts/stamp-assets.mjs --check`：PASS（版本号未被弄脏）
+- `node scripts/validate-geography.mjs`：**31 pass / 0 findings，退出码 0**（分层加载改动 + Lead 更新 fixture/新增回归断言之后）
+- `node scripts/stamp-assets.mjs --check`：**需要在收尾时重新盖章**——本轮最后一次修改 `public/geography.js` 发生在 Lead 上次 stamp 之后，因此当前 revision 是旧的（按约定我不跑 `prepare:assets`，由 Lead 统一执行）。
 - 桌面 1400×900 与手机 390×844 冷启动各一轮：见上表与 `perf-detail-load-round4-mobile.json`
 
 ## 5. 仍未解决 / 下一步
