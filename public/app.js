@@ -1,12 +1,12 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-08b6dc34d17c';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-08b6dc34d17c';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-08b6dc34d17c';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-08b6dc34d17c';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-08b6dc34d17c';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-08b6dc34d17c';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-08b6dc34d17c';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-08b6dc34d17c';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-08b6dc34d17c';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-50293716d76d';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-50293716d76d';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-50293716d76d';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-50293716d76d';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-50293716d76d';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-50293716d76d';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-50293716d76d';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-50293716d76d';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-50293716d76d';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -59,7 +59,7 @@ function renderYear(){const era=currentEra();$('#bigYear').textContent=yr(state.
  renderRegionalStatus();
  let notice='';if(state.year< -3400)notice=text('史前世界 · 从事件中探索人类早期的足迹。疆域档案始于公元前3400年。','Prehistoric worlds · Explore the earliest human stories through events. Territory records begin in 3400 BCE.');if(state.year>2024)notice=text('疆域档案更新至2024年。选择2024年可查看最近一期地图。','The territory archive extends to 2024. Select 2024 to view the latest map.');$('#mapNotice').hidden=!notice;$('#mapNotice').textContent=notice;saveURL();}
 function renderEvents(){renderPlaceSearch();const list=filteredEvents().sort((a,b)=>state.allTime?a.start-b.start:Math.abs(a.start-state.year)-Math.abs(b.start-state.year)||a.start-b.start);$('#resultCount').textContent=`${list.length} ${text('项','events')}`;let polityHTML='';if(state.search.trim().length>1&&catalog){const q=state.search.toLowerCase();const seen=new Set();const matches=catalog.records.filter(r=>{const n=[r.name,r.enName,r.zhName].join(' ').toLowerCase();if(r.type!=='POLITY'||!n.includes(q)||seen.has(r.name))return false;seen.add(r.name);return true;}).slice(0,12);if(matches.length)polityHTML=`<div class="polity-results"><div class="result-heading">${text('政体检索 · 点击跳转','Polities · Click to explore')}</div>${matches.map(r=>`<button class="polity-result" data-polity="${r.id}">${escape(polityName(r,state.lang))}<small class="secondary">${escape(r.name)}</small></button>`).join('')}</div>`;}
- $('#eventList').innerHTML=polityHTML+(list.length?list.map(e=>`<button class="event-card ${state.selected?.id===e.id?'selected':''}" data-event="${e.id}" style="--cat:${COLORS[e.category]}"><div class="event-meta"><b>${escape(eventDate(e))}</b><span>${text(...CATS[e.category])}</span></div><h3>${bilingual(e.title)}</h3><p>${escape(text(e.summary.zh,e.summary.en))}</p></button>`).join(''):`<div class="empty">${text('这一小段时间里，暂时没有匹配的事件。试着扩大年份范围，或者沿全部年代寻找。','No matching events in this time window. Widen the range or explore all periods.')}<br><button id="expandWindow" style="margin-top:12px">${text('查看全部年代','Show all periods')}</button></div>`);
+ $('#eventList').innerHTML=polityHTML+(list.length?list.map(e=>`<button class="event-card ${state.selected?.id===e.id?'selected':''}${e.provenance?' structured-index':''}" data-event="${e.id}" title="${e.provenance?escape(text('结构化索引条目：取自维基数据声明，未经本项目独立史料考订','Structured index entry: taken from Wikidata statements, not independently reviewed here')):''}" style="--cat:${COLORS[e.category]}"><div class="event-meta"><b>${escape(eventDate(e))}</b><span>${text(...CATS[e.category])}</span></div><h3>${bilingual(e.title)}</h3><p>${escape(text(e.summary.zh,e.summary.en))}</p></button>`).join(''):`<div class="empty">${text('这一小段时间里，暂时没有匹配的事件。试着扩大年份范围，或者沿全部年代寻找。','No matching events in this time window. Widen the range or explore all periods.')}<br><button id="expandWindow" style="margin-top:12px">${text('查看全部年代','Show all periods')}</button></div>`);
  $$('#eventList [data-event]').forEach(b=>b.onclick=()=>openEvent(events.find(e=>e.id===b.dataset.event)));$$('#eventList [data-polity]').forEach(b=>b.onclick=()=>jumpPolity(representativePolity(catalog.records.find(r=>r.id===b.dataset.polity))));$('#expandWindow')?.addEventListener('click',()=>{state.allTime=true;renderYear();renderEvents();});const markers=list.map(e=>({...e,color:COLORS[e.category]}));atlas?.setEvents(markers,state.lang,openEvent,state.selected?.id);compareMap?.setEvents(filteredEvents(true).filter(e=>state.allTime||inWindow(e,state.compareYear,state.span)).map(e=>({...e,color:COLORS[e.category]})),state.lang,e=>openEvent(e,{whichMap:compareMap}),state.selected?.id);}
 function mapError(message,retry){const box=$('#mapError');box.hidden=false;box.replaceChildren();const label=document.createElement('span');label.textContent=message;const button=document.createElement('button');button.textContent=text('重试','Retry');button.onclick=retry;box.append(label,button);}
 async function setYear(value,{coordinating=false}={}){

@@ -17,6 +17,9 @@
 /* Fallback placement: the label could not be fitted anywhere, so the record stays
    on the map as a clickable dot rather than disappearing. */
 .place-marker.dot-only{padding:0;min-height:0}.place-marker.dot-only>span{display:none}
+/* Structured index entries come from dataset statements rather than editorial review.
+   They are useful to find, but must not read like curated entries. */
+.event-card.structured-index{border-left-style:dashed}
 .place-marker small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .place-marker .place-date{font-size:9px;color:#596158}
 .place-marker:hover span,.place-marker:focus-visible span{color:#312510;text-decoration:underline;text-underline-offset:3px}.place-marker:focus-visible{outline:2px solid #b77736;outline-offset:3px;border-radius:5px}

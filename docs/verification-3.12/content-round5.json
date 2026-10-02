@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "round": "3.12-task-12",
+  "generatedAt": "2026-10-02T22:19:53.091Z",
+  "events": {
+    "before": 418,
+    "after": 709,
+    "addedStructured": 291,
+    "deltaVsBaseline": 366,
+    "structuredShare": "41%"
+  },
+  "battles": {
+    "shipped": 486,
+    "harvested": 3057,
+    "candidatesWithChineseName": 1539,
+    "byRegion": {
+      "europe": 199,
+      "africa": 75,
+      "east-asia": 71,
+      "americas": 33,
+      "south-asia": 22,
+      "southeast-asia": 16,
+      "oceania": 6,
+      "global": 4
+    },
+    "withBelligerents": 374,
+    "withConflict": 447,
+    "withReferences": 13,
+    "outcomePolicy": "left empty; not asserted"
+  },
+  "windowCoverage": {
+    "deficientBefore": 96,
+    "deficientAfter": 65
+  },
+  "balance": {
+    "thinCellsBefore": 18,
+    "thinCellsAfter": 17,
+    "zeroEraCells": [
+      "oceania × classical"
+    ]
+  },
+  "sources": {
+    "checked": 386,
+    "passed": 386,
+    "liveContentVerified": 50,
+    "entityUrlSampled": 272
+  },
+  "validators": {
+    "validate.mjs": "PASS",
+    "validate-v2.mjs": "PASS",
+    "validate-places.mjs": "PASS",
+    "validate-city-time.mjs": "PASS",
+    "validate-city-narratives.mjs": "PASS 10/10",
+    "validate-polity-period.mjs": "PASS",
+    "validate-release.mjs": "PASS",
+    "validate-battles.mjs": "PASS 7/7"
+  },
+  "newScripts": [
+    "fetch-wikidata-battles.mjs",
+    "build-battles.mjs",
+    "validate-battles.mjs",
+    "fetch-wikidata-events.mjs",
+    "build-structured-events.mjs",
+    "window-coverage.mjs"
+  ],
+  "risks": [
+    "41% of events are structured index entries",
+    "battle layer is Europe-heavy (199 of 486)",
+    "outcome left empty by policy",
+    "only 13 battle statements carry reference links",
+    "coordinate-box regions are heuristic",
+    "oceania classical era cell still empty"
+  ]
+}
