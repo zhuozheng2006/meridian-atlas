@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "checks": 10,
+  "checks": 15,
   "results": [
     {
       "name": "A dated midyear snapshot excludes sequential boundary phases and unknown dates",
@@ -40,6 +40,26 @@
     },
     {
       "name": "Turning off detail or entering modern reference restores the territory overview",
+      "passed": true
+    },
+    {
+      "name": "A small detailed area no longer hides the whole overview; a manual choice remains available",
+      "passed": true
+    },
+    {
+      "name": "Auto coverage uses land samples, hysteresis, quadrants and the map center",
+      "passed": true
+    },
+    {
+      "name": "Visible tile fragments stay attached to their exact record; national labels have priority",
+      "passed": true
+    },
+    {
+      "name": "County-level detail appears at z8 and clears when zooming back out",
+      "passed": true
+    },
+    {
+      "name": "Errors preserve the requested mode and a successful retry clears the error",
       "passed": true
     }
   ]

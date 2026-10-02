@@ -1,4 +1,4 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.4.0-87749ce3b390';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.5.0-1b93c46bd25d';
 const native=new Map();
 const bootYears=new Set([-3400,-221,1,500,1000,1492,1750,1914,1945,1991,2024]);
 export const nativeGeometry=id=>native.get(id);
