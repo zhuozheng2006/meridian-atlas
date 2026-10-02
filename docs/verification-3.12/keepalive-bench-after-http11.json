@@ -1,0 +1,60 @@
+{
+  "label": "after-http11",
+  "url": "http://127.0.0.1:8769",
+  "generatedAt": "2026-10-02T21:25:31.061Z",
+  "provenance": {
+    "gitHead": "6125d0ebe3108bbdda7d688ae43e2158a13ede82",
+    "dirtyPaths": [
+      "M docs/verification-3.12/perf-detail-load-baseline.json",
+      " M public/index.html",
+      " M public/map-engine.js",
+      " M scripts/verification/perf-detail-load.mjs",
+      "?? docs/verification-3.10/shots/detail-smoke-cold-unthrottled.png",
+      "?? docs/verification-3.12/perf-detail-load-round3.json",
+      "?? docs/verification-3.12/perf-detail-load-smoke.json",
+      "?? docs/verification-3.12/shots/detail-round3-cold-unthrottled.png",
+      "?? docs/verification-3.12/shots/detail-round3-cold-wifi-4mbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-detail-unthrottled.png",
+      "?? docs/verification-3.12/shots/detail-round3-detail-wifi-4mbps.png",
+      "?? docs/verification-3.12/shots/detail-round3-regional-unthrottled.png",
+      "?? docs/verification-3.12/shots/detail-round3-regional-wifi-4mbps.png"
+    ],
+    "assetVersion": "3.10.0-efa001839176",
+    "files": {
+      "public/index.html": "800de36c3f0d2033",
+      "public/app.js": "c6346f7e4a8f8adc",
+      "public/map-engine.js": "127752edf64eec32",
+      "public/timeline-controls.js": "b3954150517b0a12",
+      "public/view-state.js": "1b57cdfe210a7322",
+      "public/style.css": "95f5e8ac64efeda8",
+      "public/product.css": "2631908c806f7e1e",
+      "public/cartography.css": "a7977d34d3e62c2b",
+      "public/boundary-controller.js": "905122e9775c9e07",
+      "public/regional-boundaries.js": "359d27c12dc15e53",
+      "public/geography.js": "e0e863e58fb5796d"
+    },
+    "node": "v26.7.0",
+    "platform": "darwin",
+    "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+  },
+  "results": [
+    {
+      "files": 133,
+      "concurrency": 1,
+      "ms": 32,
+      "newSockets": 1,
+      "bytes": 141610,
+      "errors": 0,
+      "msPerFile": 0.24
+    },
+    {
+      "files": 133,
+      "concurrency": 6,
+      "ms": 14,
+      "newSockets": 6,
+      "bytes": 141610,
+      "errors": 0,
+      "msPerFile": 0.11
+    }
+  ]
+}

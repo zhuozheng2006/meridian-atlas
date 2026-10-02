@@ -1,7 +1,7 @@
 {
   "report": "perf-detail-load.mjs",
-  "generatedAt": "2026-10-02T20:45:10.421Z",
-  "command": "node scripts/verification/perf-detail-load.mjs --label baseline --profiles=unthrottled --append",
+  "generatedAt": "2026-10-02T21:08:43.591Z",
+  "command": "node scripts/verification/perf-detail-load.mjs --label baseline --profiles=slow-3g-400kbps --kinds=cold,detail --append",
   "target": {
     "url": "http://127.0.0.1:8767",
     "viewport": {
@@ -11,32 +11,21 @@
   },
   "meta": {
     "provenance": {
-      "gitHead": "b985f99132c642e190a5a49820b15cdb82f805d8",
-      "dirtyPaths": [
-        "M docs/verification-3.10/shots/detail-baseline-cold-unthrottled.png",
-        " M docs/verification-3.10/shots/detail-baseline-cold-wifi-4mbps.png",
-        " M docs/verification-3.10/shots/detail-baseline-regional-unthrottled.png",
-        " M editorial/enrichment-narratives-3.12.json",
-        " M scripts/verification/perf-detail-load.mjs",
-        "?? docs/verification-3.12/benchmark-matrix.json",
-        "?? docs/verification-3.12/keepalive-bench-before-http10.json",
-        "?? docs/verification-3.12/shots/place-reachability-attested-ayutthaya-1559-z6.png",
-        "?? docs/verification-3.12/shots/place-reachability-attested-dholavira--1875-z10.png",
-        "?? docs/verification-3.12/shots/place-reachability-attested-quanzhou-1266-z10.png"
-      ],
-      "assetVersion": "3.10.0-7d7a4a30133a",
+      "gitHead": "6125d0ebe3108bbdda7d688ae43e2158a13ede82",
+      "dirtyPaths": [],
+      "assetVersion": "3.10.0-efa001839176",
       "files": {
-        "public/index.html": "cc940cbfa91462e2",
-        "public/app.js": "13d340893ad18ef6",
-        "public/map-engine.js": "d87e5aa86a657496",
+        "public/index.html": "db67dc5355ac2ce0",
+        "public/app.js": "c6346f7e4a8f8adc",
+        "public/map-engine.js": "9ad8f464a47c0856",
         "public/timeline-controls.js": "b3954150517b0a12",
         "public/view-state.js": "1b57cdfe210a7322",
         "public/style.css": "95f5e8ac64efeda8",
         "public/product.css": "2631908c806f7e1e",
-        "public/cartography.css": "d37451d4bf213714",
-        "public/boundary-controller.js": "787db7b7dc3f6be9",
-        "public/regional-boundaries.js": "53b361b174a8f596",
-        "public/geography.js": "be7779ef4f3e9de1"
+        "public/cartography.css": "a7977d34d3e62c2b",
+        "public/boundary-controller.js": "905122e9775c9e07",
+        "public/regional-boundaries.js": "359d27c12dc15e53",
+        "public/geography.js": "e0e863e58fb5796d"
       },
       "node": "v26.7.0",
       "platform": "darwin",
@@ -50,11 +39,11 @@
   "device": "desktop",
   "systemAtStart": {
     "loadavg": [
-      9.63,
-      10.73,
-      10.31
+      1.83,
+      5.56,
+      7.97
     ],
-    "chromeProcesses": 36,
+    "chromeProcesses": 25,
     "cpus": 18
   },
   "runs": [
@@ -8499,18 +8488,2645 @@
       },
       "connections": 87,
       "requests": 117
+    },
+    {
+      "profile": "slow-3g-400kbps",
+      "scenario": "cold-1500",
+      "firstFrameMs": 66934,
+      "afterFirstFrame": {
+        "zoom": 1.65,
+        "year": 1500,
+        "geometryKeyTail": "nn",
+        "nativeComplete": true,
+        "geographyStatus": "local",
+        "localLoaded": [
+          "water-overview"
+        ],
+        "terrainReady": false,
+        "lakesStatus": "overview",
+        "lakesCount": 0,
+        "regionalStatus": "zoom",
+        "ohmState": "idle",
+        "regionalFeatures": 0,
+        "places": 0,
+        "sources": {
+          "polities": false,
+          "land": true,
+          "physicalLakes": false,
+          "physicalRivers": false,
+          "lakeDetail": true,
+          "reference": null,
+          "terrain": null
+        },
+        "features": {
+          "land": 282,
+          "physicalLakes": 157,
+          "lakeDetail": 0,
+          "ohm": null
+        }
+      },
+      "collected": {
+        "wallMs": 67556,
+        "nav": {
+          "responseStart": 1,
+          "responseEnd": 587,
+          "domContentLoaded": 31557,
+          "loadEvent": 31558,
+          "paints": [
+            [
+              "first-paint",
+              7252
+            ],
+            [
+              "first-contentful-paint",
+              7252
+            ]
+          ]
+        },
+        "fetches": [
+          {
+            "url": "fast/catalog.json.gz",
+            "full": "data/fast/catalog.json.gz",
+            "start": 31555,
+            "end": 31995,
+            "status": 200,
+            "bytes": 602739
+          },
+          {
+            "url": "data/events.json.gz",
+            "full": "data/events.json.gz",
+            "start": 31556,
+            "end": 32022,
+            "status": 200,
+            "bytes": 244567
+          },
+          {
+            "url": "data/coverage.json",
+            "full": "data/coverage.json",
+            "start": 48575,
+            "end": 48982,
+            "status": 200,
+            "bytes": 227984
+          },
+          {
+            "url": "data/land-50m.json.gz",
+            "full": "data/land-50m.json.gz",
+            "start": 49099,
+            "end": 49542,
+            "status": 200,
+            "bytes": 527552
+          },
+          {
+            "url": "physical/physical-overview.json.gz",
+            "full": "data/physical/physical-overview.json.gz",
+            "start": 49100,
+            "end": 49571,
+            "status": 200,
+            "bytes": 137909
+          },
+          {
+            "url": "physical/modern-ocean-mask-overview.json.gz",
+            "full": "data/physical/modern-ocean-mask-overview.json.gz",
+            "start": 49100,
+            "end": 49601,
+            "status": 200,
+            "bytes": 736287
+          },
+          {
+            "url": "native/year-1500.json.gz",
+            "full": "data/native/year-1500.json.gz",
+            "start": 49102,
+            "end": 49629,
+            "status": 200,
+            "bytes": 151086
+          },
+          {
+            "url": "2/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/2/1.webp",
+            "start": 49104,
+            "end": 49659,
+            "status": 200,
+            "bytes": 182770
+          },
+          {
+            "url": "2/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/2/2.webp",
+            "start": 49104,
+            "end": 66300,
+            "status": 200,
+            "bytes": 27522
+          }
+        ],
+        "geometry": [
+          {
+            "t": 67396,
+            "fine": false
+          }
+        ],
+        "resources": {
+          "count": 40,
+          "encodedBytes": 2637513,
+          "byType": {
+            "link": {
+              "count": 4,
+              "bytes": 136453
+            },
+            "script": {
+              "count": 32,
+              "bytes": 1364759
+            },
+            "fetch": {
+              "count": 4,
+              "bytes": 1136301
+            }
+          },
+          "byHost": {
+            "local": {
+              "count": 40,
+              "bytes": 2637513
+            }
+          },
+          "lastEndMs": 67122,
+          "slowest": [
+            {
+              "u": "http://127.0.0.1:8767/assets/maplibre-gl.js?v=3.10.0-efa001839176",
+              "n": "assets/maplibre-gl.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 589,
+              "end": 23699,
+              "ms": 23111,
+              "bytes": 937395,
+              "transfer": 937695
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/native/year-1500.json.gz",
+              "n": "native/year-1500.json.gz",
+              "type": "fetch",
+              "start": 49102,
+              "end": 67122,
+              "ms": 18020,
+              "bytes": 151086,
+              "transfer": 151386
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/catalog.json.gz",
+              "n": "fast/catalog.json.gz",
+              "type": "fetch",
+              "start": 31556,
+              "end": 48548,
+              "ms": 16991,
+              "bytes": 602739,
+              "transfer": 603039
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/physical-overview.json.gz",
+              "n": "physical/physical-overview.json.gz",
+              "type": "fetch",
+              "start": 49100,
+              "end": 65742,
+              "ms": 16643,
+              "bytes": 137909,
+              "transfer": 138209
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/events.json.gz",
+              "n": "data/events.json.gz",
+              "type": "fetch",
+              "start": 31556,
+              "end": 41576,
+              "ms": 10019,
+              "bytes": 244567,
+              "transfer": 244867
+            },
+            {
+              "u": "http://127.0.0.1:8767/app.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/app.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 589,
+              "end": 7208,
+              "ms": 6619,
+              "bytes": 89481,
+              "transfer": 89781
+            },
+            {
+              "u": "http://127.0.0.1:8767/assets/maplibre-gl.css?v=3.10.0-efa001839176",
+              "n": "assets/maplibre-gl.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 6097,
+              "ms": 5658,
+              "bytes": 69430,
+              "transfer": 69730
+            },
+            {
+              "u": "http://127.0.0.1:8767/style.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/style.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 3577,
+              "ms": 3138,
+              "bytes": 25728,
+              "transfer": 26028
+            },
+            {
+              "u": "http://127.0.0.1:8767/cartography.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/cartography.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 3490,
+              "ms": 3052,
+              "bytes": 24408,
+              "transfer": 24708
+            },
+            {
+              "u": "http://127.0.0.1:8767/regional-boundaries.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/regional-boundaries.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 28858,
+              "ms": 2900,
+              "bytes": 43655,
+              "transfer": 43955
+            }
+          ],
+          "all": [
+            {
+              "u": "http://127.0.0.1:8767/assets/maplibre-gl.css?v=3.10.0-efa001839176",
+              "n": "assets/maplibre-gl.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 6097,
+              "ms": 5658,
+              "bytes": 69430,
+              "transfer": 69730
+            },
+            {
+              "u": "http://127.0.0.1:8767/product.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/product.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 2668,
+              "ms": 2229,
+              "bytes": 16887,
+              "transfer": 17187
+            },
+            {
+              "u": "http://127.0.0.1:8767/cartography.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/cartography.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 3490,
+              "ms": 3052,
+              "bytes": 24408,
+              "transfer": 24708
+            },
+            {
+              "u": "http://127.0.0.1:8767/style.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/style.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 438,
+              "end": 3577,
+              "ms": 3138,
+              "bytes": 25728,
+              "transfer": 26028
+            },
+            {
+              "u": "http://127.0.0.1:8767/startup.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/startup.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 589,
+              "end": 1112,
+              "ms": 523,
+              "bytes": 787,
+              "transfer": 1087
+            },
+            {
+              "u": "http://127.0.0.1:8767/app.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/app.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 589,
+              "end": 7208,
+              "ms": 6619,
+              "bytes": 89481,
+              "transfer": 89781
+            },
+            {
+              "u": "http://127.0.0.1:8767/assets/maplibre-gl.js?v=3.10.0-efa001839176",
+              "n": "assets/maplibre-gl.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 589,
+              "end": 23699,
+              "ms": 23111,
+              "bytes": 937395,
+              "transfer": 937695
+            },
+            {
+              "u": "http://127.0.0.1:8767/view-state.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/view-state.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 24142,
+              "ms": 429,
+              "bytes": 1185,
+              "transfer": 1485
+            },
+            {
+              "u": "http://127.0.0.1:8767/city-narratives.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/city-narratives.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 24318,
+              "ms": 605,
+              "bytes": 2526,
+              "transfer": 2826
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-comparison.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-comparison.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 24466,
+              "ms": 753,
+              "bytes": 3130,
+              "transfer": 3430
+            },
+            {
+              "u": "http://127.0.0.1:8767/timeline-controls.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/timeline-controls.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 24550,
+              "ms": 837,
+              "bytes": 3339,
+              "transfer": 3639
+            },
+            {
+              "u": "http://127.0.0.1:8767/places.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/places.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 25136,
+              "ms": 1423,
+              "bytes": 12246,
+              "transfer": 12546
+            },
+            {
+              "u": "http://127.0.0.1:8767/source-reader.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/source-reader.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 26132,
+              "ms": 2419,
+              "bytes": 31153,
+              "transfer": 31453
+            },
+            {
+              "u": "http://127.0.0.1:8767/polity-reader.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/polity-reader.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 26340,
+              "ms": 2627,
+              "bytes": 34613,
+              "transfer": 34913
+            },
+            {
+              "u": "http://127.0.0.1:8767/map-engine.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/map-engine.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23713,
+              "end": 25957,
+              "ms": 2244,
+              "bytes": 18775,
+              "transfer": 19075
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-style.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-style.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 26427,
+              "ms": 469,
+              "bytes": 1118,
+              "transfer": 1418
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-mesh.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-mesh.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 26601,
+              "ms": 643,
+              "bytes": 3038,
+              "transfer": 3338
+            },
+            {
+              "u": "http://127.0.0.1:8767/border-curves.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/border-curves.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 26780,
+              "ms": 822,
+              "bytes": 7110,
+              "transfer": 7410
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-controller.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-controller.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 27100,
+              "ms": 1142,
+              "bytes": 8812,
+              "transfer": 9112
+            },
+            {
+              "u": "http://127.0.0.1:8767/historical-detail.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/historical-detail.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 28008,
+              "ms": 2050,
+              "bytes": 13610,
+              "transfer": 13910
+            },
+            {
+              "u": "http://127.0.0.1:8767/geography.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/geography.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 28097,
+              "ms": 2139,
+              "bytes": 13651,
+              "transfer": 13951
+            },
+            {
+              "u": "http://127.0.0.1:8767/regional-boundaries.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/regional-boundaries.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 28858,
+              "ms": 2900,
+              "bytes": 43655,
+              "transfer": 43955
+            },
+            {
+              "u": "http://127.0.0.1:8767/native-geometry.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/native-geometry.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25958,
+              "end": 27248,
+              "ms": 1290,
+              "bytes": 2102,
+              "transfer": 2402
+            },
+            {
+              "u": "http://127.0.0.1:8767/polity-places.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/polity-places.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 26341,
+              "end": 27684,
+              "ms": 1343,
+              "bytes": 5210,
+              "transfer": 5510
+            },
+            {
+              "u": "http://127.0.0.1:8767/fact-period.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/fact-period.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 26341,
+              "end": 27772,
+              "ms": 1431,
+              "bytes": 2051,
+              "transfer": 2351
+            },
+            {
+              "u": "http://127.0.0.1:8767/country-archive.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/country-archive.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 27101,
+              "end": 28038,
+              "ms": 938,
+              "bytes": 3051,
+              "transfer": 3351
+            },
+            {
+              "u": "http://127.0.0.1:8767/historical-dates.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/historical-dates.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28009,
+              "end": 28538,
+              "ms": 529,
+              "bytes": 1498,
+              "transfer": 1798
+            },
+            {
+              "u": "http://127.0.0.1:8767/country-names.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/country-names.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28039,
+              "end": 28713,
+              "ms": 674,
+              "bytes": 3033,
+              "transfer": 3333
+            },
+            {
+              "u": "http://127.0.0.1:8767/lakes.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/lakes.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28097,
+              "end": 28947,
+              "ms": 850,
+              "bytes": 9854,
+              "transfer": 10154
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-notes.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-notes.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28859,
+              "end": 29266,
+              "ms": 408,
+              "bytes": 1025,
+              "transfer": 1325
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-boundaries.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-boundaries.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28859,
+              "end": 30233,
+              "ms": 1374,
+              "bytes": 22378,
+              "transfer": 22678
+            },
+            {
+              "u": "http://127.0.0.1:8767/simplified-chinese.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/simplified-chinese.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28859,
+              "end": 31551,
+              "ms": 2693,
+              "bytes": 57568,
+              "transfer": 57868
+            },
+            {
+              "u": "http://127.0.0.1:8767/lake-codec.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/lake-codec.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28948,
+              "end": 29504,
+              "ms": 556,
+              "bytes": 2435,
+              "transfer": 2735
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-landscape-reader.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-landscape-reader.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 30233,
+              "end": 31464,
+              "ms": 1231,
+              "bytes": 12082,
+              "transfer": 12382
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-regions.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-regions.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 30233,
+              "end": 30967,
+              "ms": 734,
+              "bytes": 3589,
+              "transfer": 3889
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-landscape.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-landscape.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 30233,
+              "end": 31496,
+              "ms": 1263,
+              "bytes": 13259,
+              "transfer": 13559
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/catalog.json.gz",
+              "n": "fast/catalog.json.gz",
+              "type": "fetch",
+              "start": 31556,
+              "end": 48548,
+              "ms": 16991,
+              "bytes": 602739,
+              "transfer": 603039
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/events.json.gz",
+              "n": "data/events.json.gz",
+              "type": "fetch",
+              "start": 31556,
+              "end": 41576,
+              "ms": 10019,
+              "bytes": 244567,
+              "transfer": 244867
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/physical-overview.json.gz",
+              "n": "physical/physical-overview.json.gz",
+              "type": "fetch",
+              "start": 49100,
+              "end": 65742,
+              "ms": 16643,
+              "bytes": 137909,
+              "transfer": 138209
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/native/year-1500.json.gz",
+              "n": "native/year-1500.json.gz",
+              "type": "fetch",
+              "start": 49102,
+              "end": 67122,
+              "ms": 18020,
+              "bytes": 151086,
+              "transfer": 151386
+            }
+          ]
+        },
+        "phases": {
+          "htmlMs": 587,
+          "cssDoneMs": 6097,
+          "jsDoneMs": 23699,
+          "firstGeometryMs": 41576,
+          "allDataMs": 67122,
+          "jsBytes": 1364759,
+          "cssBytes": 136453,
+          "dataBytes": 1136301,
+          "externalRequests": 0
+        },
+        "groups": {
+          "fast": {
+            "count": 1,
+            "bytes": 602739,
+            "lastEndMs": 31995
+          },
+          "native": {
+            "count": 1,
+            "bytes": 151086,
+            "lastEndMs": 49629
+          },
+          "physical": {
+            "count": 4,
+            "bytes": 1084488,
+            "lastEndMs": 66300
+          },
+          "lakes": {
+            "count": 0,
+            "bytes": 0,
+            "lastEndMs": null
+          },
+          "places": {
+            "count": 0,
+            "bytes": 0,
+            "lastEndMs": null
+          },
+          "app": {
+            "count": 7,
+            "bytes": 2628124,
+            "lastEndMs": 49629
+          }
+        },
+        "nativeTimeline": [
+          {
+            "file": "native/year-1500.json.gz",
+            "start": 49102,
+            "end": 49629
+          }
+        ]
+      },
+      "connections": 47,
+      "requests": 63
+    },
+    {
+      "profile": "slow-3g-400kbps",
+      "scenario": "detail-1450",
+      "firstFrameMs": 69177,
+      "afterFirstFrame": {
+        "zoom": 1.65,
+        "year": 1450,
+        "geometryKeyTail": "",
+        "nativeComplete": false,
+        "geographyStatus": "partial",
+        "localLoaded": [
+          "water-overview"
+        ],
+        "terrainReady": false,
+        "lakesStatus": "overview",
+        "lakesCount": 0,
+        "regionalStatus": "zoom",
+        "ohmState": "idle",
+        "regionalFeatures": 0,
+        "places": 0,
+        "sources": {
+          "polities": true,
+          "land": true,
+          "physicalLakes": true,
+          "physicalRivers": true,
+          "lakeDetail": true,
+          "reference": null,
+          "terrain": null
+        },
+        "features": {
+          "land": 282,
+          "physicalLakes": 157,
+          "lakeDetail": 0,
+          "ohm": null
+        }
+      },
+      "nativeCompleteMs": null,
+      "nativeWaitMs": null,
+      "afterNative": {
+        "zoom": 1.65,
+        "year": 1450,
+        "geometryKeyTail": "",
+        "nativeComplete": false,
+        "geographyStatus": "partial",
+        "localLoaded": [
+          "water-overview"
+        ],
+        "terrainReady": false,
+        "lakesStatus": "overview",
+        "lakesCount": 0,
+        "regionalStatus": "zoom",
+        "ohmState": "idle",
+        "regionalFeatures": 0,
+        "places": 0,
+        "sources": {
+          "polities": true,
+          "land": true,
+          "physicalLakes": true,
+          "physicalRivers": true,
+          "lakeDetail": true,
+          "reference": null,
+          "terrain": null
+        },
+        "features": {
+          "land": 282,
+          "physicalLakes": 157,
+          "lakeDetail": 0,
+          "ohm": null
+        }
+      },
+      "zoom": [
+        {
+          "zoom": 3,
+          "elapsedMs": 3688,
+          "samples": 13,
+          "markers": {
+            "physicalLoadedMs": 277,
+            "lakesDetailMs": null,
+            "lakesOverviewMs": 26,
+            "terrainMs": null,
+            "referenceMs": null,
+            "regionalReadyMs": null,
+            "ohmFeaturesMs": null,
+            "nativeMs": 26
+          },
+          "settleMs": 3688,
+          "lastState": {
+            "ms": 3688,
+            "zoom": 3,
+            "year": 1450,
+            "geometryKeyTail": "n",
+            "nativeComplete": true,
+            "geographyStatus": "local",
+            "localLoaded": [
+              "water-overview"
+            ],
+            "terrainReady": false,
+            "lakesStatus": "overview",
+            "lakesCount": 0,
+            "regionalStatus": "zoom",
+            "ohmState": "idle",
+            "regionalFeatures": 0,
+            "places": 0,
+            "sources": {
+              "polities": true,
+              "land": true,
+              "physicalLakes": true,
+              "physicalRivers": true,
+              "lakeDetail": true,
+              "reference": null,
+              "terrain": null
+            },
+            "features": {
+              "land": 124,
+              "physicalLakes": 143,
+              "lakeDetail": 0,
+              "ohm": null
+            }
+          }
+        },
+        {
+          "zoom": 7,
+          "elapsedMs": 3174,
+          "samples": 13,
+          "markers": {
+            "physicalLoadedMs": 14,
+            "lakesDetailMs": null,
+            "lakesOverviewMs": null,
+            "terrainMs": null,
+            "referenceMs": null,
+            "regionalReadyMs": null,
+            "ohmFeaturesMs": null,
+            "nativeMs": 14
+          },
+          "settleMs": 3174,
+          "lastState": {
+            "ms": 3174,
+            "zoom": 7,
+            "year": 1450,
+            "geometryKeyTail": "n",
+            "nativeComplete": true,
+            "geographyStatus": "partial",
+            "localLoaded": [
+              "water-overview"
+            ],
+            "terrainReady": false,
+            "lakesStatus": "error",
+            "lakesCount": 0,
+            "regionalStatus": "loading",
+            "ohmState": "idle",
+            "regionalFeatures": 0,
+            "places": 0,
+            "sources": {
+              "polities": true,
+              "land": true,
+              "physicalLakes": true,
+              "physicalRivers": true,
+              "lakeDetail": true,
+              "reference": null,
+              "terrain": false
+            },
+            "features": {
+              "land": 7,
+              "physicalLakes": 0,
+              "lakeDetail": 0,
+              "ohm": null
+            }
+          }
+        },
+        {
+          "zoom": 9,
+          "elapsedMs": 21515,
+          "samples": 86,
+          "markers": {
+            "physicalLoadedMs": 6,
+            "lakesDetailMs": null,
+            "lakesOverviewMs": null,
+            "terrainMs": null,
+            "referenceMs": 1835,
+            "regionalReadyMs": null,
+            "ohmFeaturesMs": null,
+            "nativeMs": 6
+          },
+          "settleMs": 21515,
+          "lastState": {
+            "ms": 21515,
+            "zoom": 9,
+            "year": 1450,
+            "geometryKeyTail": "n",
+            "nativeComplete": true,
+            "geographyStatus": "partial",
+            "localLoaded": [
+              "water-overview"
+            ],
+            "terrainReady": false,
+            "referenceReady": true,
+            "lakesStatus": "error",
+            "lakesCount": 0,
+            "regionalStatus": "loading",
+            "ohmState": "idle",
+            "regionalFeatures": 0,
+            "places": 0,
+            "sources": {
+              "polities": true,
+              "land": true,
+              "physicalLakes": true,
+              "physicalRivers": true,
+              "lakeDetail": true,
+              "reference": true,
+              "terrain": false
+            },
+            "features": {
+              "land": 6,
+              "physicalLakes": 0,
+              "lakeDetail": 0,
+              "ohm": null
+            }
+          }
+        }
+      ],
+      "collected": {
+        "wallMs": 398202,
+        "nav": {
+          "responseStart": 1,
+          "responseEnd": 588,
+          "domContentLoaded": 31706,
+          "loadEvent": 31708,
+          "paints": [
+            [
+              "first-paint",
+              7284
+            ],
+            [
+              "first-contentful-paint",
+              7284
+            ]
+          ]
+        },
+        "fetches": [
+          {
+            "url": "data/events.json.gz",
+            "full": "data/events.json.gz",
+            "start": 31706,
+            "end": 32141,
+            "status": 200,
+            "bytes": 244567
+          },
+          {
+            "url": "fast/catalog.json.gz",
+            "full": "data/fast/catalog.json.gz",
+            "start": 31704,
+            "end": 32170,
+            "status": 200,
+            "bytes": 602739
+          },
+          {
+            "url": "data/coverage.json",
+            "full": "data/coverage.json",
+            "start": 48721,
+            "end": 49225,
+            "status": 200,
+            "bytes": 227984
+          },
+          {
+            "url": "data/land-50m.json.gz",
+            "full": "data/land-50m.json.gz",
+            "start": 49503,
+            "end": 49949,
+            "status": 200,
+            "bytes": 527552
+          },
+          {
+            "url": "physical/physical-overview.json.gz",
+            "full": "data/physical/physical-overview.json.gz",
+            "start": 49503,
+            "end": 49980,
+            "status": 200,
+            "bytes": 137909
+          },
+          {
+            "url": "physical/modern-ocean-mask-overview.json.gz",
+            "full": "data/physical/modern-ocean-mask-overview.json.gz",
+            "start": 49504,
+            "end": 50010,
+            "status": 200,
+            "bytes": 736287
+          },
+          {
+            "url": "fast/overview-009.json.gz",
+            "full": "data/fast/overview-009.json.gz",
+            "start": 49505,
+            "end": 50040,
+            "status": 200,
+            "bytes": 465723
+          },
+          {
+            "url": "fast/overview-010.json.gz",
+            "full": "data/fast/overview-010.json.gz",
+            "start": 49505,
+            "end": 50067,
+            "status": 200,
+            "bytes": 425460
+          },
+          {
+            "url": "fast/overview-008.json.gz",
+            "full": "data/fast/overview-008.json.gz",
+            "start": 49505,
+            "end": 66711,
+            "status": 200,
+            "bytes": 431588
+          },
+          {
+            "url": "fast/overview-007.json.gz",
+            "full": "data/fast/overview-007.json.gz",
+            "start": 49505,
+            "end": 69290,
+            "status": 200,
+            "bytes": 424778
+          },
+          {
+            "url": "fast/overview-004.json.gz",
+            "full": "data/fast/overview-004.json.gz",
+            "start": 49505,
+            "end": 69515,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "fast/overview-002.json.gz",
+            "full": "data/fast/overview-002.json.gz",
+            "start": 49505,
+            "end": 69515,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "fast/overview-006.json.gz",
+            "full": "data/fast/overview-006.json.gz",
+            "start": 49505,
+            "end": 69515,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "2/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/2/1.webp",
+            "start": 49508,
+            "end": 69928,
+            "status": 200,
+            "bytes": 182770
+          },
+          {
+            "url": "2/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/2/2.webp",
+            "start": 49509,
+            "end": 69963,
+            "status": 200,
+            "bytes": 27522
+          },
+          {
+            "url": "1/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/1/1.webp",
+            "start": 49509,
+            "end": 71591,
+            "status": 200,
+            "bytes": 69126
+          },
+          {
+            "url": "1/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/1/2.webp",
+            "start": 49509,
+            "end": 71591,
+            "status": 200,
+            "bytes": 43610
+          },
+          {
+            "url": "3/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/3/1.webp",
+            "start": 49509,
+            "end": 71591,
+            "status": 200,
+            "bytes": 132890
+          },
+          {
+            "url": "2/0.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/2/0.webp",
+            "start": 49509,
+            "end": 71591,
+            "status": 200,
+            "bytes": 39132
+          },
+          {
+            "url": "3/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/3/2.webp",
+            "start": 49509,
+            "end": 73683,
+            "status": 200,
+            "bytes": 36570
+          },
+          {
+            "url": "1/0.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/1/0.webp",
+            "start": 49509,
+            "end": 75114,
+            "status": 200,
+            "bytes": 99382
+          },
+          {
+            "url": "3/0.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/3/0.webp",
+            "start": 49509,
+            "end": 75525,
+            "status": 200,
+            "bytes": 58558
+          },
+          {
+            "url": "0/0.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/2/0/0.webp",
+            "start": 49509,
+            "end": 78279,
+            "status": 200,
+            "bytes": 44014
+          },
+          {
+            "url": "data/land-50m.json.gz",
+            "full": "data/land-50m.json.gz",
+            "start": 69509,
+            "end": 78397,
+            "status": 200,
+            "bytes": 527552
+          },
+          {
+            "url": "physical/modern-ocean-mask-overview.json.gz",
+            "full": "data/physical/modern-ocean-mask-overview.json.gz",
+            "start": 69510,
+            "end": 82765,
+            "status": 200,
+            "bytes": 736287
+          },
+          {
+            "url": "places/historical-settlements-index.json.gz",
+            "full": "data/places/historical-settlements-index.json.gz",
+            "start": 69511,
+            "end": 84289,
+            "status": 200,
+            "bytes": 629588
+          },
+          {
+            "url": "places/historical-capitals.json.gz",
+            "full": "data/places/historical-capitals.json.gz",
+            "start": 69511,
+            "end": 85518,
+            "status": 200,
+            "bytes": 55637
+          },
+          {
+            "url": "places/urban-observations.json.gz",
+            "full": "data/places/urban-observations.json.gz",
+            "start": 69511,
+            "end": 86748,
+            "status": 200,
+            "bytes": 132325
+          },
+          {
+            "url": "places/attested-places.json.gz",
+            "full": "data/places/attested-places.json.gz",
+            "start": 69511,
+            "end": 89511,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "physical/land-10m.json.gz",
+            "full": "data/physical/land-10m.json.gz",
+            "start": 369822,
+            "end": 370244,
+            "status": 200,
+            "bytes": 3569584
+          },
+          {
+            "url": "physical/rivers-10m.json.gz",
+            "full": "data/physical/rivers-10m.json.gz",
+            "start": 369822,
+            "end": 370276,
+            "status": 200,
+            "bytes": 2182931
+          },
+          {
+            "url": "physical/lakes-10m.json.gz",
+            "full": "data/physical/lakes-10m.json.gz",
+            "start": 369822,
+            "end": 370305,
+            "status": 200,
+            "bytes": 1346801
+          },
+          {
+            "url": "physical/modern-ocean-mask.json.gz",
+            "full": "data/physical/modern-ocean-mask.json.gz",
+            "start": 369822,
+            "end": 370334,
+            "status": 200,
+            "bytes": 3536204
+          },
+          {
+            "url": "3/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/3/2.webp",
+            "start": 369831,
+            "end": 370364,
+            "status": 200,
+            "bytes": 34424
+          },
+          {
+            "url": "4/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/4/2.webp",
+            "start": 369831,
+            "end": 370392,
+            "status": 200,
+            "bytes": 176622
+          },
+          {
+            "url": "5/4.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/5/4.webp",
+            "start": 369832,
+            "end": 373534,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "4/3.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/4/3.webp",
+            "start": 369831,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "3/3.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/3/3.webp",
+            "start": 369831,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "4/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/4/1.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "5/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/5/2.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "3/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/3/1.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "5/3.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/5/3.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "2/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/2/2.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "2/3.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/2/3.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "3/4.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/3/4.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "5/1.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/5/1.webp",
+            "start": 369832,
+            "end": 373535,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "6/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/6/2.webp",
+            "start": 369832,
+            "end": 373536,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "6/3.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/6/3.webp",
+            "start": 369833,
+            "end": 373536,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "1/2.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/3/1/2.webp",
+            "start": 369833,
+            "end": 373536,
+            "status": 0,
+            "error": "signal is aborted without reason"
+          },
+          {
+            "url": "lakes/index.json.gz",
+            "full": "data/lakes/index.json.gz",
+            "start": 373510,
+            "end": 373541,
+            "status": 0,
+            "error": "Failed to fetch"
+          },
+          {
+            "url": "8/5.webp",
+            "full": "http://127.0.0.1:8767/data/physical/relief/4/8/5.webp",
+            "start": 373536,
+            "end": 374084,
+            "status": 200,
+            "bytes": 191842
+          },
+          {
+            "url": "66/45.webp",
+            "full": "https://tiles.mapterhorn.com/7/66/45.webp",
+            "start": 373545,
+            "end": 374260,
+            "status": 200,
+            "bytes": 271518
+          },
+          {
+            "url": "65/44.webp",
+            "full": "https://tiles.mapterhorn.com/7/65/44.webp",
+            "start": 373546,
+            "end": 374289,
+            "status": 200,
+            "bytes": 174054
+          },
+          {
+            "url": "67/45.webp",
+            "full": "https://tiles.mapterhorn.com/7/67/45.webp",
+            "start": 373546,
+            "end": 374320,
+            "status": 200,
+            "bytes": 248348
+          },
+          {
+            "url": "67/44.webp",
+            "full": "https://tiles.mapterhorn.com/7/67/44.webp",
+            "start": 373546,
+            "end": 374348,
+            "status": 200,
+            "bytes": 216360
+          },
+          {
+            "url": "65/45.webp",
+            "full": "https://tiles.mapterhorn.com/7/65/45.webp",
+            "start": 373546,
+            "end": 374378,
+            "status": 200,
+            "bytes": 204214
+          },
+          {
+            "url": "68/44.webp",
+            "full": "https://tiles.mapterhorn.com/7/68/44.webp",
+            "start": 373546,
+            "end": 374407,
+            "status": 200,
+            "bytes": 227842
+          },
+          {
+            "url": "66/44.webp",
+            "full": "https://tiles.mapterhorn.com/7/66/44.webp",
+            "start": 373546,
+            "end": 374436,
+            "status": 200,
+            "bytes": 211100
+          },
+          {
+            "url": "lakes/index.json.gz",
+            "full": "data/lakes/index.json.gz",
+            "start": 376679,
+            "end": 377247,
+            "status": 200,
+            "bytes": 131739
+          },
+          {
+            "url": "268/180.webp",
+            "full": "https://tiles.mapterhorn.com/9/268/180.webp",
+            "start": 376697,
+            "end": 377278,
+            "status": 200,
+            "bytes": 236172
+          },
+          {
+            "url": "268/179.webp",
+            "full": "https://tiles.mapterhorn.com/9/268/179.webp",
+            "start": 376697,
+            "end": 377306,
+            "status": 200,
+            "bytes": 167154
+          },
+          {
+            "url": "267/179.webp",
+            "full": "https://tiles.mapterhorn.com/9/267/179.webp",
+            "start": 376697,
+            "end": 377335,
+            "status": 200,
+            "bytes": 158562
+          },
+          {
+            "url": "266/180.webp",
+            "full": "https://tiles.mapterhorn.com/9/266/180.webp",
+            "start": 376697,
+            "end": 377365,
+            "status": 200,
+            "bytes": 177230
+          },
+          {
+            "url": "267/180.webp",
+            "full": "https://tiles.mapterhorn.com/9/267/180.webp",
+            "start": 376697,
+            "end": 377395,
+            "status": 200,
+            "bytes": 222594
+          },
+          {
+            "url": "266/179.webp",
+            "full": "https://tiles.mapterhorn.com/9/266/179.webp",
+            "start": 376697,
+            "end": 377426,
+            "status": 200,
+            "bytes": 164582
+          },
+          {
+            "url": "planet/latest",
+            "full": "https://tiles.openfreemap.org/planet/latest",
+            "start": 376679,
+            "end": 377569,
+            "status": 200,
+            "bytes": 0
+          }
+        ],
+        "geometry": [
+          {
+            "t": 369824,
+            "fine": true
+          }
+        ],
+        "resources": {
+          "count": 95,
+          "encodedBytes": 3220001,
+          "byType": {
+            "link": {
+              "count": 4,
+              "bytes": 136453
+            },
+            "script": {
+              "count": 32,
+              "bytes": 1364759
+            },
+            "fetch": {
+              "count": 59,
+              "bytes": 1718789
+            }
+          },
+          "byHost": {
+            "local": {
+              "count": 87,
+              "bytes": 3220001
+            },
+            "tiles.mapterhorn.com": {
+              "count": 7,
+              "bytes": 0
+            },
+            "tiles.openfreemap.org": {
+              "count": 1,
+              "bytes": 0
+            }
+          },
+          "lastEndMs": 396680,
+          "slowest": [
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/2/1.webp",
+              "n": "2/1.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 89676,
+              "ms": 40168,
+              "bytes": 182770,
+              "transfer": 183070
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/1/0.webp",
+              "n": "1/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 86192,
+              "ms": 36683,
+              "bytes": 99382,
+              "transfer": 99682
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/3/1.webp",
+              "n": "3/1.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 84962,
+              "ms": 35453,
+              "bytes": 132890,
+              "transfer": 133190
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/0/0.webp",
+              "n": "0/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 83321,
+              "ms": 33811,
+              "bytes": 44014,
+              "transfer": 44314
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/3/0.webp",
+              "n": "3/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 82210,
+              "ms": 32701,
+              "bytes": 58558,
+              "transfer": 58858
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/1/1.webp",
+              "n": "1/1.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 77842,
+              "ms": 28334,
+              "bytes": 69126,
+              "transfer": 69426
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/3/2.webp",
+              "n": "3/2.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 77755,
+              "ms": 28246,
+              "bytes": 36570,
+              "transfer": 36870
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/1/2.webp",
+              "n": "1/2.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 74970,
+              "ms": 25461,
+              "bytes": 43610,
+              "transfer": 43910
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/2/0.webp",
+              "n": "2/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 74590,
+              "ms": 25081,
+              "bytes": 39132,
+              "transfer": 39432
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/2/2.webp",
+              "n": "2/2.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 73127,
+              "ms": 23618,
+              "bytes": 27522,
+              "transfer": 27822
+            }
+          ],
+          "all": [
+            {
+              "u": "http://127.0.0.1:8767/assets/maplibre-gl.css?v=3.10.0-efa001839176",
+              "n": "assets/maplibre-gl.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 442,
+              "end": 6096,
+              "ms": 5653,
+              "bytes": 69430,
+              "transfer": 69730
+            },
+            {
+              "u": "http://127.0.0.1:8767/product.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/product.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 443,
+              "end": 2670,
+              "ms": 2227,
+              "bytes": 16887,
+              "transfer": 17187
+            },
+            {
+              "u": "http://127.0.0.1:8767/style.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/style.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 443,
+              "end": 3578,
+              "ms": 3136,
+              "bytes": 25728,
+              "transfer": 26028
+            },
+            {
+              "u": "http://127.0.0.1:8767/cartography.css?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/cartography.css?v=3.10.0-efa001839176",
+              "type": "link",
+              "start": 443,
+              "end": 3491,
+              "ms": 3048,
+              "bytes": 24408,
+              "transfer": 24708
+            },
+            {
+              "u": "http://127.0.0.1:8767/startup.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/startup.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 590,
+              "end": 1116,
+              "ms": 525,
+              "bytes": 787,
+              "transfer": 1087
+            },
+            {
+              "u": "http://127.0.0.1:8767/app.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/app.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 591,
+              "end": 7210,
+              "ms": 6620,
+              "bytes": 89481,
+              "transfer": 89781
+            },
+            {
+              "u": "http://127.0.0.1:8767/assets/maplibre-gl.js?v=3.10.0-efa001839176",
+              "n": "assets/maplibre-gl.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 591,
+              "end": 23703,
+              "ms": 23112,
+              "bytes": 937395,
+              "transfer": 937695
+            },
+            {
+              "u": "http://127.0.0.1:8767/view-state.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/view-state.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 24172,
+              "ms": 455,
+              "bytes": 1185,
+              "transfer": 1485
+            },
+            {
+              "u": "http://127.0.0.1:8767/city-narratives.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/city-narratives.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 24349,
+              "ms": 632,
+              "bytes": 2526,
+              "transfer": 2826
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-comparison.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-comparison.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 24465,
+              "ms": 748,
+              "bytes": 3130,
+              "transfer": 3430
+            },
+            {
+              "u": "http://127.0.0.1:8767/timeline-controls.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/timeline-controls.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 24553,
+              "ms": 836,
+              "bytes": 3339,
+              "transfer": 3639
+            },
+            {
+              "u": "http://127.0.0.1:8767/places.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/places.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 25138,
+              "ms": 1421,
+              "bytes": 12246,
+              "transfer": 12546
+            },
+            {
+              "u": "http://127.0.0.1:8767/source-reader.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/source-reader.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 26137,
+              "ms": 2419,
+              "bytes": 31153,
+              "transfer": 31453
+            },
+            {
+              "u": "http://127.0.0.1:8767/map-engine.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/map-engine.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 25988,
+              "ms": 2271,
+              "bytes": 18775,
+              "transfer": 19075
+            },
+            {
+              "u": "http://127.0.0.1:8767/polity-reader.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/polity-reader.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 23717,
+              "end": 26341,
+              "ms": 2624,
+              "bytes": 34613,
+              "transfer": 34913
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-mesh.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-mesh.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 26692,
+              "ms": 703,
+              "bytes": 3038,
+              "transfer": 3338
+            },
+            {
+              "u": "http://127.0.0.1:8767/border-curves.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/border-curves.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 26895,
+              "ms": 906,
+              "bytes": 7110,
+              "transfer": 7410
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-style.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-style.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 26517,
+              "ms": 528,
+              "bytes": 1118,
+              "transfer": 1418
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-controller.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-controller.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 27161,
+              "ms": 1172,
+              "bytes": 8812,
+              "transfer": 9112
+            },
+            {
+              "u": "http://127.0.0.1:8767/regional-boundaries.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/regional-boundaries.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 28978,
+              "ms": 2989,
+              "bytes": 43655,
+              "transfer": 43955
+            },
+            {
+              "u": "http://127.0.0.1:8767/native-geometry.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/native-geometry.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 27337,
+              "ms": 1347,
+              "bytes": 2102,
+              "transfer": 2402
+            },
+            {
+              "u": "http://127.0.0.1:8767/historical-detail.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/historical-detail.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 27980,
+              "ms": 1991,
+              "bytes": 13610,
+              "transfer": 13910
+            },
+            {
+              "u": "http://127.0.0.1:8767/geography.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/geography.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 25989,
+              "end": 28157,
+              "ms": 2168,
+              "bytes": 13651,
+              "transfer": 13951
+            },
+            {
+              "u": "http://127.0.0.1:8767/polity-places.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/polity-places.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 26342,
+              "end": 27805,
+              "ms": 1462,
+              "bytes": 5210,
+              "transfer": 5510
+            },
+            {
+              "u": "http://127.0.0.1:8767/fact-period.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/fact-period.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 26342,
+              "end": 27834,
+              "ms": 1492,
+              "bytes": 2051,
+              "transfer": 2351
+            },
+            {
+              "u": "http://127.0.0.1:8767/country-archive.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/country-archive.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 27162,
+              "end": 28099,
+              "ms": 937,
+              "bytes": 3051,
+              "transfer": 3351
+            },
+            {
+              "u": "http://127.0.0.1:8767/historical-dates.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/historical-dates.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 27981,
+              "end": 28479,
+              "ms": 498,
+              "bytes": 1498,
+              "transfer": 1798
+            },
+            {
+              "u": "http://127.0.0.1:8767/country-names.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/country-names.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28099,
+              "end": 28684,
+              "ms": 584,
+              "bytes": 3033,
+              "transfer": 3333
+            },
+            {
+              "u": "http://127.0.0.1:8767/lakes.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/lakes.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28158,
+              "end": 29006,
+              "ms": 848,
+              "bytes": 9854,
+              "transfer": 10154
+            },
+            {
+              "u": "http://127.0.0.1:8767/boundary-notes.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/boundary-notes.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28980,
+              "end": 29412,
+              "ms": 433,
+              "bytes": 1025,
+              "transfer": 1325
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-boundaries.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-boundaries.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28980,
+              "end": 30382,
+              "ms": 1403,
+              "bytes": 22378,
+              "transfer": 22678
+            },
+            {
+              "u": "http://127.0.0.1:8767/simplified-chinese.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/simplified-chinese.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 28980,
+              "end": 31700,
+              "ms": 2720,
+              "bytes": 57568,
+              "transfer": 57868
+            },
+            {
+              "u": "http://127.0.0.1:8767/lake-codec.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/lake-codec.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 29007,
+              "end": 29592,
+              "ms": 585,
+              "bytes": 2435,
+              "transfer": 2735
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-landscape.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-landscape.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 30383,
+              "end": 31612,
+              "ms": 1229,
+              "bytes": 13259,
+              "transfer": 13559
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-landscape-reader.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-landscape-reader.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 30383,
+              "end": 31643,
+              "ms": 1260,
+              "bytes": 12082,
+              "transfer": 12382
+            },
+            {
+              "u": "http://127.0.0.1:8767/halc-regions.js?v=3.10.0-efa001839176",
+              "n": "127.0.0.1:8767/halc-regions.js?v=3.10.0-efa001839176",
+              "type": "script",
+              "start": 30383,
+              "end": 31116,
+              "ms": 733,
+              "bytes": 3589,
+              "transfer": 3889
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/events.json.gz",
+              "n": "data/events.json.gz",
+              "type": "fetch",
+              "start": 31706,
+              "end": 41692,
+              "ms": 9987,
+              "bytes": 244567,
+              "transfer": 244867
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/catalog.json.gz",
+              "n": "fast/catalog.json.gz",
+              "type": "fetch",
+              "start": 31706,
+              "end": 48692,
+              "ms": 16987,
+              "bytes": 602739,
+              "transfer": 603039
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/coverage.json",
+              "n": "data/coverage.json",
+              "type": "fetch",
+              "start": 48721,
+              "end": 68722,
+              "ms": 20001,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/land-50m.json.gz",
+              "n": "data/land-50m.json.gz",
+              "type": "fetch",
+              "start": 49503,
+              "end": 69506,
+              "ms": 20002,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/physical-overview.json.gz",
+              "n": "physical/physical-overview.json.gz",
+              "type": "fetch",
+              "start": 49504,
+              "end": 66153,
+              "ms": 16649,
+              "bytes": 137909,
+              "transfer": 138209
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/modern-ocean-mask-overview.json.gz",
+              "n": "physical/modern-ocean-mask-overview.json.gz",
+              "type": "fetch",
+              "start": 49504,
+              "end": 69506,
+              "ms": 20002,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-010.json.gz",
+              "n": "fast/overview-010.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69515,
+              "ms": 20010,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-009.json.gz",
+              "n": "fast/overview-009.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69524,
+              "ms": 20019,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-008.json.gz",
+              "n": "fast/overview-008.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69524,
+              "ms": 20019,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-007.json.gz",
+              "n": "fast/overview-007.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69524,
+              "ms": 20019,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-004.json.gz",
+              "n": "fast/overview-004.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69524,
+              "ms": 20019,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-002.json.gz",
+              "n": "fast/overview-002.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69524,
+              "ms": 20019,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/fast/overview-006.json.gz",
+              "n": "fast/overview-006.json.gz",
+              "type": "fetch",
+              "start": 49505,
+              "end": 69524,
+              "ms": 20019,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/2/1.webp",
+              "n": "2/1.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 89676,
+              "ms": 40168,
+              "bytes": 182770,
+              "transfer": 183070
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/2/2.webp",
+              "n": "2/2.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 73127,
+              "ms": 23618,
+              "bytes": 27522,
+              "transfer": 27822
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/1/2.webp",
+              "n": "1/2.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 74970,
+              "ms": 25461,
+              "bytes": 43610,
+              "transfer": 43910
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/1/1.webp",
+              "n": "1/1.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 77842,
+              "ms": 28334,
+              "bytes": 69126,
+              "transfer": 69426
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/3/1.webp",
+              "n": "3/1.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 84962,
+              "ms": 35453,
+              "bytes": 132890,
+              "transfer": 133190
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/2/0.webp",
+              "n": "2/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 74590,
+              "ms": 25081,
+              "bytes": 39132,
+              "transfer": 39432
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/3/2.webp",
+              "n": "3/2.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 77755,
+              "ms": 28246,
+              "bytes": 36570,
+              "transfer": 36870
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/3/0.webp",
+              "n": "3/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 82210,
+              "ms": 32701,
+              "bytes": 58558,
+              "transfer": 58858
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/1/0.webp",
+              "n": "1/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 86192,
+              "ms": 36683,
+              "bytes": 99382,
+              "transfer": 99682
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/2/0/0.webp",
+              "n": "0/0.webp",
+              "type": "fetch",
+              "start": 49509,
+              "end": 83321,
+              "ms": 33811,
+              "bytes": 44014,
+              "transfer": 44314
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/land-50m.json.gz",
+              "n": "data/land-50m.json.gz",
+              "type": "fetch",
+              "start": 69510,
+              "end": 89511,
+              "ms": 20001,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/modern-ocean-mask-overview.json.gz",
+              "n": "physical/modern-ocean-mask-overview.json.gz",
+              "type": "fetch",
+              "start": 69510,
+              "end": 89511,
+              "ms": 20001,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/places/historical-settlements-index.json.gz",
+              "n": "places/historical-settlements-index.json.gz",
+              "type": "fetch",
+              "start": 69511,
+              "end": 89511,
+              "ms": 20000,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/places/historical-capitals.json.gz",
+              "n": "places/historical-capitals.json.gz",
+              "type": "fetch",
+              "start": 69511,
+              "end": 89511,
+              "ms": 20000,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/places/urban-observations.json.gz",
+              "n": "places/urban-observations.json.gz",
+              "type": "fetch",
+              "start": 69511,
+              "end": 89511,
+              "ms": 20000,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/places/attested-places.json.gz",
+              "n": "places/attested-places.json.gz",
+              "type": "fetch",
+              "start": 69511,
+              "end": 89511,
+              "ms": 20000,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/land-10m.json.gz",
+              "n": "physical/land-10m.json.gz",
+              "type": "fetch",
+              "start": 369822,
+              "end": 389825,
+              "ms": 20003,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/rivers-10m.json.gz",
+              "n": "physical/rivers-10m.json.gz",
+              "type": "fetch",
+              "start": 369822,
+              "end": 389825,
+              "ms": 20003,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/lakes-10m.json.gz",
+              "n": "physical/lakes-10m.json.gz",
+              "type": "fetch",
+              "start": 369822,
+              "end": 389825,
+              "ms": 20003,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/modern-ocean-mask.json.gz",
+              "n": "physical/modern-ocean-mask.json.gz",
+              "type": "fetch",
+              "start": 369823,
+              "end": 389825,
+              "ms": 20003,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/4/2.webp",
+              "n": "4/2.webp",
+              "type": "fetch",
+              "start": 369831,
+              "end": 373538,
+              "ms": 3707,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/3/2.webp",
+              "n": "3/2.webp",
+              "type": "fetch",
+              "start": 369831,
+              "end": 373538,
+              "ms": 3707,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/4/3.webp",
+              "n": "4/3.webp",
+              "type": "fetch",
+              "start": 369831,
+              "end": 373538,
+              "ms": 3707,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/3/3.webp",
+              "n": "3/3.webp",
+              "type": "fetch",
+              "start": 369831,
+              "end": 373538,
+              "ms": 3707,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/4/1.webp",
+              "n": "4/1.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/5/2.webp",
+              "n": "5/2.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/3/1.webp",
+              "n": "3/1.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/5/3.webp",
+              "n": "5/3.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/2/2.webp",
+              "n": "2/2.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/2/3.webp",
+              "n": "2/3.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/3/4.webp",
+              "n": "3/4.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/5/1.webp",
+              "n": "5/1.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/5/4.webp",
+              "n": "5/4.webp",
+              "type": "fetch",
+              "start": 369832,
+              "end": 373538,
+              "ms": 3705,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/6/2.webp",
+              "n": "6/2.webp",
+              "type": "fetch",
+              "start": 369833,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/6/3.webp",
+              "n": "6/3.webp",
+              "type": "fetch",
+              "start": 369833,
+              "end": 373538,
+              "ms": 3705,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/physical/relief/3/1/2.webp",
+              "n": "1/2.webp",
+              "type": "fetch",
+              "start": 369833,
+              "end": 373538,
+              "ms": 3706,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/lakes/index.json.gz",
+              "n": "lakes/index.json.gz",
+              "type": "fetch",
+              "start": 373510,
+              "end": 373540,
+              "ms": 30,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/66/45.webp",
+              "n": "66/45.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3154,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/66/44.webp",
+              "n": "66/44.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3153,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/67/45.webp",
+              "n": "67/45.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3153,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/67/44.webp",
+              "n": "67/44.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3153,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/65/45.webp",
+              "n": "65/45.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3153,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/65/44.webp",
+              "n": "65/44.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3153,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "https://tiles.mapterhorn.com/7/68/44.webp",
+              "n": "68/44.webp",
+              "type": "fetch",
+              "start": 373546,
+              "end": 376699,
+              "ms": 3153,
+              "bytes": 0,
+              "transfer": 0
+            },
+            {
+              "u": "http://127.0.0.1:8767/data/lakes/index.json.gz",
+              "n": "lakes/index.json.gz",
+              "type": "fetch",
+              "start": 376679,
+              "end": 396680,
+              "ms": 20001,
+              "bytes": 0,
+              "transfer": 300
+            },
+            {
+              "u": "https://tiles.openfreemap.org/planet/latest",
+              "n": "planet/latest",
+              "type": "fetch",
+              "start": 376680,
+              "end": 377951,
+              "ms": 1272,
+              "bytes": 0,
+              "transfer": 0
+            }
+          ]
+        },
+        "phases": {
+          "htmlMs": 588,
+          "cssDoneMs": 6096,
+          "jsDoneMs": 23703,
+          "firstGeometryMs": 41692,
+          "allDataMs": 396680,
+          "jsBytes": 1364759,
+          "cssBytes": 136453,
+          "dataBytes": 1718789,
+          "externalRequests": 8
+        },
+        "groups": {
+          "fast": {
+            "count": 8,
+            "bytes": 2350288,
+            "lastEndMs": 69515
+          },
+          "native": {
+            "count": 0,
+            "bytes": 0,
+            "lastEndMs": null
+          },
+          "physical": {
+            "count": 34,
+            "bytes": 13382465,
+            "lastEndMs": 374084
+          },
+          "lakes": {
+            "count": 2,
+            "bytes": 131739,
+            "lastEndMs": 377247
+          },
+          "places": {
+            "count": 4,
+            "bytes": 817550,
+            "lastEndMs": 89511
+          },
+          "app": {
+            "count": 25,
+            "bytes": 17073235,
+            "lastEndMs": 377247
+          }
+        },
+        "nativeTimeline": []
+      },
+      "connections": 73,
+      "requests": 108
     }
   ],
+  "appendRuns": 1,
   "systemAtEnd": {
     "loadavg": [
-      7.62,
-      7.82,
-      9.38
+      3.22,
+      3.51,
+      5.86
     ],
-    "chromeProcesses": 36,
+    "chromeProcesses": 26,
     "cpus": 18
   },
-  "wallClockMs": 696807,
+  "wallClockMs": 473445,
   "summary": [
     {
       "id": "cold-1500/unthrottled",
@@ -8625,6 +11241,36 @@
         3501,
         17429,
         13617
+      ],
+      "fatal": null
+    },
+    {
+      "id": "cold-1500/slow-3g-400kbps",
+      "firstFrameMs": 66934,
+      "nativeCompleteMs": null,
+      "ohmReadyTotalMs": null,
+      "requests": 63,
+      "connections": 47,
+      "encodedMiB": 2.52,
+      "nativeReq": 1,
+      "physicalMiB": 1.03,
+      "zoomSettleMs": null,
+      "fatal": null
+    },
+    {
+      "id": "detail-1450/slow-3g-400kbps",
+      "firstFrameMs": 69177,
+      "nativeCompleteMs": null,
+      "ohmReadyTotalMs": null,
+      "requests": 108,
+      "connections": 73,
+      "encodedMiB": 3.07,
+      "nativeReq": 0,
+      "physicalMiB": 12.76,
+      "zoomSettleMs": [
+        3688,
+        3174,
+        21515
       ],
       "fatal": null
     }

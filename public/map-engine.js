@@ -16,14 +16,29 @@ export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
 const resources=new Map();
 export const forgetJSON=url=>resources.delete(url);
+// Queue-aware load timeouts. A fixed 20 s abort used to fire while a request was
+// still queued behind the multi-megabyte detail layers on a slow link, which killed
+// the native-geometry upgrade and left "some fine layers unavailable". Two phases:
+// CONNECT_TIMEOUT covers waiting for a connection plus the first byte, STALL_TIMEOUT
+// only fires when a download that already started stops making progress.
+const CONNECT_TIMEOUT=45000,STALL_TIMEOUT=20000;
 export async function readJSON(url){
  if(resources.has(url))return resources.get(url);
  const pending=(async()=>{
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
+  const controller=new AbortController();let timer=setTimeout(()=>controller.abort(),CONNECT_TIMEOUT);
+  const arm=ms=>{clearTimeout(timer);timer=setTimeout(()=>controller.abort(),ms);};
   try{
-   const response=await fetch(url,{signal:controller.signal,cache:'no-cache'});if(!response.ok)throw Error(`${response.status} ${url}`);
+   // Fetch Priority: first-frame data (data/fast) and the small native geometry
+   // (data/native) must not sit behind the multi-megabyte detail layers, which can
+   // hold all six connections for minutes on a slow link.
+   const priority=/\/data\/(?:fast|native)\//.test(url)?'high':'auto';
+   const response=await fetch(url,{signal:controller.signal,cache:'no-cache',priority});if(!response.ok)throw Error(`${response.status} ${url}`);
    if(!url.endsWith('.gz'))return await response.json();
-   const bytes=new Uint8Array(await response.arrayBuffer());
+   // Stream the body so the timeout measures progress instead of total duration:
+   // a 3.5 MB detail file needs ~70 s at 400 kbit/s but never stalls.
+   const reader=response.body.getReader(),chunks=[];let total=0;
+   for(;;){const{done,value}=await reader.read();if(done)break;chunks.push(value);total+=value.length;arm(STALL_TIMEOUT);}
+   const bytes=new Uint8Array(total);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
    return bytes[0]===31&&bytes[1]===139?await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).json():JSON.parse(new TextDecoder().decode(bytes));
   }finally{clearTimeout(timer);}
  })();

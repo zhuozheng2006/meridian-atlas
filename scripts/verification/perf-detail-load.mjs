@@ -1,8 +1,14 @@
 // Perf measurement for the 3.12 round: first screen and the overview -> detail path.
-// Reproduce:
-//   node scripts/verification/perf-detail-load.mjs --label baseline
-//   node scripts/verification/perf-detail-load.mjs --label round3 --quick
-// Report: docs/verification-3.12/perf-detail-load-<label>.json
+// Reproduce (any static server works; the 3.12 comparison used the repo serve.py):
+//   node scripts/verification/perf-detail-load.mjs --label baseline --url http://127.0.0.1:8767
+//   node scripts/verification/perf-detail-load.mjs --label round3 --url http://127.0.0.1:8769 --append
+//   node scripts/verification/perf-detail-load.mjs --label round3 --profiles=slow-3g-400kbps --kinds=cold,detail --append
+//   node scripts/verification/perf-detail-load.mjs --device mobile --label round3-mobile --kinds=cold --append
+//   node scripts/verification/perf-detail-load.mjs --compare baseline,round3
+//   node scripts/verification/perf-detail-load.mjs --keepalive-bench --label before-http10 --url http://127.0.0.1:8767
+// Reports: docs/verification-3.12/perf-detail-load-<label>.json, keepalive-bench-<label>.json,
+//          perf-detail-compare-<a>-<b>.json and shots/.
+// Flags: --profiles=a,b --kinds=cold,detail,regional --append --force --quick --url --device mobile
 //
 // Scenarios per throttle profile: cold first screen at 1500 (boot year) and the
 // detail path at 1450 (non-boot: overview first frame -> native geometry -> zoom 3/7/9).
@@ -116,6 +122,8 @@ const sumBytes = (list, pred) => list.filter(pred).reduce((a, x) => a + (x.bytes
 const groupBy = (list, key) => list.reduce((acc, x) => { const k = key(x) || 'other'; acc[k] = acc[k] || { count: 0, bytes: 0 }; acc[k].count++; acc[k].bytes += x.bytes || 0; return acc; }, {});
 const sumGroup = (list, re) => { const hit = list.filter(f => re.test(f.full || '')); return { count: hit.length, bytes: hit.reduce((a, f) => a + (f.bytes || 0), 0), lastEndMs: hit.length ? Math.max(...hit.map(f => f.end)) : null }; };
 
+// Task-7 screenshots belong to docs/verification-3.12/, not the 3.10 shot folder.
+const shotPath = name => { const dir = path.join(C.ROOT, 'docs', 'verification-3.12', 'shots'); fs.mkdirSync(dir, { recursive: true }); return path.join(dir, name); };
 async function newSession(name, mobile) {
   const s = guardSession(await launch({ port: await C.pickPort(PORT + (mobile ? 40 : 0)), width: mobile ? 390 : 1400, height: mobile ? 844 : 900, mobile: !!mobile, profile: '/tmp/atlas-detail-' + name + '-' + Date.now() }));
   await s.send('Page.addScriptToEvaluateOnNewDocument', { source: PERF_SETUP });
@@ -146,7 +154,7 @@ async function scenarioCold(profile, mobile) {
     out.collected = await collect(s, t0);
     out.connections = conns.size;
     out.requests = netReq.length;
-    await screenshot(s, C.screenshotPath('detail-' + LABEL + '-cold-' + profile.name + (mobile ? '-mobile' : '') + '.png'));
+    await screenshot(s, shotPath('detail-' + LABEL + '-cold-' + profile.name + (mobile ? '-mobile' : '') + '.png'));
   } catch (e) { out.fatal = String((e && e.stack) || e).slice(0, 400); }
   finally { await s.close(); }
   return out;
@@ -223,7 +231,7 @@ async function scenarioDetail(profile, { withZoom = true } = {}) {
     out.collected = await collect(s, t0);
     out.connections = conns.size;
     out.requests = netReq.length;
-    await screenshot(s, C.screenshotPath('detail-' + LABEL + '-detail-' + profile.name + '.png'));
+    await screenshot(s, shotPath('detail-' + LABEL + '-detail-' + profile.name + '.png'));
   } catch (e) { out.fatal = String((e && e.stack) || e).slice(0, 400); }
   finally { await s.close(); }
   return out;
@@ -243,7 +251,7 @@ async function scenarioRegional(profile) {
     out.regionalSettledMs = await waitFor(s, '(() => { const el = document.querySelector("#regionalStatus"); return !!el && el.textContent.indexOf("正在") < 0; })()', 180000, 500);
     out.state = await evaluate(s, STATE);
     out.collected = await collect(s, t0);
-    await screenshot(s, C.screenshotPath('detail-' + LABEL + '-regional-' + profile.name + '.png'));
+    await screenshot(s, shotPath('detail-' + LABEL + '-regional-' + profile.name + '.png'));
   } catch (e) { out.fatal = String((e && e.stack) || e).slice(0, 400); }
   finally { await s.close(); }
   return out;
@@ -371,3 +379,5 @@ for (const p of PROFILES) {
 const file = save();
 C.log('wrote', file, 'in', report.wallClockMs, 'ms with', report.runs.length, 'runs');
 for (const r of report.summary) C.log(JSON.stringify(r));
+// Node's fetch/undici keep-alive sockets can hold the event loop open; exit explicitly.
+process.exit(report.runs.some(r => r.fatal) ? 1 : 0);

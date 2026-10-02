@@ -1,0 +1,469 @@
+{
+  "compare": "baseline -> round3",
+  "generatedAt": "2026-10-02T21:26:09.918Z",
+  "before": {
+    "gitHead": "6125d0ebe3108bbdda7d688ae43e2158a13ede82",
+    "dirtyPaths": [],
+    "assetVersion": "3.10.0-efa001839176",
+    "files": {
+      "public/index.html": "db67dc5355ac2ce0",
+      "public/app.js": "c6346f7e4a8f8adc",
+      "public/map-engine.js": "9ad8f464a47c0856",
+      "public/timeline-controls.js": "b3954150517b0a12",
+      "public/view-state.js": "1b57cdfe210a7322",
+      "public/style.css": "95f5e8ac64efeda8",
+      "public/product.css": "2631908c806f7e1e",
+      "public/cartography.css": "a7977d34d3e62c2b",
+      "public/boundary-controller.js": "905122e9775c9e07",
+      "public/regional-boundaries.js": "359d27c12dc15e53",
+      "public/geography.js": "e0e863e58fb5796d"
+    },
+    "node": "v26.7.0",
+    "platform": "darwin",
+    "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+  },
+  "after": {
+    "gitHead": "6125d0ebe3108bbdda7d688ae43e2158a13ede82",
+    "dirtyPaths": [
+      "M docs/verification-3.12/perf-detail-load-baseline.json",
+      " M public/index.html",
+      " M public/map-engine.js",
+      " M scripts/verification/perf-detail-load.mjs",
+      "?? docs/verification-3.10/shots/detail-smoke-cold-unthrottled.png",
+      "?? docs/verification-3.12/perf-detail-load-smoke.json"
+    ],
+    "assetVersion": "3.10.0-efa001839176",
+    "files": {
+      "public/index.html": "800de36c3f0d2033",
+      "public/app.js": "c6346f7e4a8f8adc",
+      "public/map-engine.js": "127752edf64eec32",
+      "public/timeline-controls.js": "b3954150517b0a12",
+      "public/view-state.js": "1b57cdfe210a7322",
+      "public/style.css": "95f5e8ac64efeda8",
+      "public/product.css": "2631908c806f7e1e",
+      "public/cartography.css": "a7977d34d3e62c2b",
+      "public/boundary-controller.js": "905122e9775c9e07",
+      "public/regional-boundaries.js": "359d27c12dc15e53",
+      "public/geography.js": "e0e863e58fb5796d"
+    },
+    "node": "v26.7.0",
+    "platform": "darwin",
+    "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+  },
+  "rows": [
+    {
+      "run": "cold-1500/slow-3g-400kbps",
+      "firstFrameMs": {
+        "before": 66934,
+        "after": null
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 63,
+        "after": null
+      },
+      "connections": {
+        "before": 47,
+        "after": null
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "run": "cold-1500/slow-4g-1.6mbps",
+      "firstFrameMs": {
+        "before": 18587,
+        "after": null
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 63,
+        "after": null
+      },
+      "connections": {
+        "before": 50,
+        "after": null
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "run": "cold-1500/unthrottled",
+      "firstFrameMs": {
+        "before": 5425,
+        "after": 3600
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 63,
+        "after": 63
+      },
+      "connections": {
+        "before": 59,
+        "after": 14
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "run": "cold-1500/wifi-4mbps",
+      "firstFrameMs": {
+        "before": 9517,
+        "after": 9501
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 63,
+        "after": 63
+      },
+      "connections": {
+        "before": 59,
+        "after": 16
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "run": "detail-1450/slow-3g-400kbps",
+      "firstFrameMs": {
+        "before": 69177,
+        "after": null
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 108,
+        "after": null
+      },
+      "connections": {
+        "before": 73,
+        "after": null
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [
+          3688,
+          3174,
+          21515
+        ],
+        "after": []
+      }
+    },
+    {
+      "run": "detail-1450/slow-4g-1.6mbps",
+      "firstFrameMs": {
+        "before": 34236,
+        "after": null
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 117,
+        "after": null
+      },
+      "connections": {
+        "before": 87,
+        "after": null
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [
+          3501,
+          17429,
+          13617
+        ],
+        "after": []
+      }
+    },
+    {
+      "run": "detail-1450/unthrottled",
+      "firstFrameMs": {
+        "before": 5678,
+        "after": 4990
+      },
+      "nativeCompleteMs": {
+        "before": 6656,
+        "after": 5502
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 243,
+        "after": 243
+      },
+      "connections": {
+        "before": 227,
+        "after": 15
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [
+          11652,
+          8066,
+          3631
+        ],
+        "after": [
+          8996,
+          5181,
+          4959
+        ]
+      }
+    },
+    {
+      "run": "detail-1450/wifi-4mbps",
+      "firstFrameMs": {
+        "before": 17287,
+        "after": 16774
+      },
+      "nativeCompleteMs": {
+        "before": 22141,
+        "after": 21811
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": null
+      },
+      "requests": {
+        "before": 243,
+        "after": 243
+      },
+      "connections": {
+        "before": 227,
+        "after": 20
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [
+          8825,
+          9519,
+          5152
+        ],
+        "after": [
+          8286,
+          8904,
+          6069
+        ]
+      }
+    },
+    {
+      "run": "regional-ohm-1500/unthrottled",
+      "firstFrameMs": {
+        "before": 5264,
+        "after": 4333
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": 5315,
+        "after": 4413
+      },
+      "requests": {
+        "before": null,
+        "after": null
+      },
+      "connections": {
+        "before": null,
+        "after": null
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "run": "regional-ohm-1500/wifi-4mbps",
+      "firstFrameMs": {
+        "before": 8387,
+        "after": 7738
+      },
+      "nativeCompleteMs": {
+        "before": null,
+        "after": null
+      },
+      "ohmReadyTotalMs": {
+        "before": null,
+        "after": 28117
+      },
+      "requests": {
+        "before": null,
+        "after": null
+      },
+      "connections": {
+        "before": null,
+        "after": null
+      },
+      "nativeReq": {
+        "before": null,
+        "after": null
+      },
+      "encodedMiB": {
+        "before": null,
+        "after": null
+      },
+      "physicalMiB": {
+        "before": null,
+        "after": null
+      },
+      "zoomSettleMs": {
+        "before": [],
+        "after": []
+      }
+    }
+  ]
+}
