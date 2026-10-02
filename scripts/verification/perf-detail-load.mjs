@@ -55,14 +55,31 @@ report.device = DEVICE;
 // --- in-page instrumentation: fetch timeline, geometry-status, loading transitions ---
 function perfPayload() {
   window.__perf = { fetches: [], geometry: [], notes: [] };
+  // The default resource-timing buffer (250) overflows on the detail path (130+ native
+  // files), which silently drops the fine physical layers from performance entries.
+  // The body timings below are additionally measured directly on clones of the fine
+  // physical responses: fetch() resolves on headers, so 'end' alone is TTFB, not arrival.
+  try { performance.setResourceTimingBufferSize(4096); } catch (e) {}
   const of = window.fetch;
   window.fetch = function () {
     const args = Array.prototype.slice.call(arguments);
     const url = typeof args[0] === 'string' ? args[0] : (args[0] && args[0].url) || '?';
     const t0 = performance.now();
     const p = of.apply(this, args);
+    const fine = /data\/physical\//.test(url) && !/relief\//.test(url);
     p.then(
-      r => window.__perf.fetches.push({ url: url.split('/').slice(-2).join('/'), full: url, start: Math.round(t0), end: Math.round(performance.now()), status: r.status, bytes: Number(r.headers.get('content-length') || 0) }),
+      r => {
+        const headersAt = Math.round(performance.now());
+        const entry = { url: url.split('/').slice(-2).join('/'), full: url, start: Math.round(t0), headersMs: headersAt - Math.round(t0), end: headersAt, status: r.status, bytes: Number(r.headers.get('content-length') || 0) };
+        window.__perf.fetches.push(entry);
+        if (fine && typeof r.clone === 'function') {
+          const bodyStart = performance.now();
+          r.clone().arrayBuffer().then(
+            () => { entry.bodyMs = Math.round(performance.now() - bodyStart); entry.bodyEnd = Math.round(performance.now()); },
+            () => {}
+          );
+        }
+      },
       e => window.__perf.fetches.push({ url: url.split('/').slice(-2).join('/'), full: url, start: Math.round(t0), end: Math.round(performance.now()), status: 0, error: String(e && e.message || e) })
     );
     return p;
@@ -113,7 +130,12 @@ async function collect(s, t0) {
       fast: sumGroup(fetches, /data\/fast\//), native: sumGroup(fetches, /data\/native\//), physical: sumGroup(fetches, /data\/physical\//),
       lakes: sumGroup(fetches, /data\/lakes\//), places: sumGroup(fetches, /data\/places\//), app: sumGroup(fetches, /[.]js|[.]css|^\/$/)
     },
-    nativeTimeline: fetches.filter(f => /data\/native\//.test(f.full || '')).map(f => ({ file: (f.full || '').split('/').slice(-2).join('/'), start: f.start, end: f.end })).sort((a, b) => a.start - b.start)
+    nativeTimeline: fetches.filter(f => /data\/native\//.test(f.full || '')).map(f => ({ file: (f.full || '').split('/').slice(-2).join('/'), start: f.start, end: f.end })).sort((a, b) => a.start - b.start),
+    // Fine physical payloads only (relief raster tiles excluded): when each one was
+    // requested, when its headers arrived and when its body finished downloading.
+    physicalDetail: fetches.filter(f => /data\/physical\//.test(f.full || '') && !/relief\//.test(f.full || ''))
+      .map(f => ({ file: (f.full || '').split('/').pop(), bytes: f.bytes, start: f.start, headersMs: f.headersMs ?? null, bodyMs: f.bodyMs ?? null, bodyEnd: f.bodyEnd ?? null, status: f.status }))
+      .sort((a, b) => (a.bodyEnd || a.end || 0) - (b.bodyEnd || b.end || 0))
   };
 }
 const maxEnd = (list, pred) => { const hit = list.filter(x => pred(x) && Number.isFinite(x.end)); return hit.length ? Math.max(...hit.map(x => x.end)) : null; };
@@ -398,6 +420,7 @@ const save = () => {
     zoomSettleMs: r.zoom ? r.zoom.map(z => z.settleMs) : null,
     physicalBytesForZoom3: r.physicalBytesForZoom3 === undefined ? null : r.physicalBytesForZoom3,
     zoom3SettleMs: r.zoom3SettleMs === undefined ? null : r.zoom3SettleMs,
+    physicalDetail: r.collected ? r.collected.physicalDetail : null,
     fatal: r.fatal || null
   }));
   return C.writeJSON(OUT, report);

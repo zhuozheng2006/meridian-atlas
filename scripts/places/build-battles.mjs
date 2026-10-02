@@ -6,7 +6,7 @@
 // Language rule: English fields contain Latin script only (entities without an English
 // label appear as their QID); Chinese fields stay simplified. Nothing is transliterated
 // or machine-translated. Coordinates, dates and participants come from source statements.
-import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {readFile,readdir,writeFile,mkdir} from 'node:fs/promises';
 import {gzipSync,gunzipSync} from 'node:zlib';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -20,10 +20,13 @@ const english=JSON.parse(await readFile(resolve(root,'editorial/entity-labels-en
 // It is optional so the base build still runs without it; on a duplicate QID the base
 // harvest record wins, so the supplement can only add entities.
 const optional=async path=>{try{return JSON.parse(await readFile(resolve(root,path),'utf8'))}catch{return null}};
-const supplement=await optional('editorial/battles-thin-regions-3.14.json');
+const supplementFiles=(await readdir(resolve(root,'editorial'))).filter(name=>/^battles-thin-regions-.*\.json$/.test(name)).sort();
+const supplements=[];
+for(const file of supplementFiles){const document=await optional('editorial/'+file);if(document)supplements.push({file,items:document.items||[]})}
+const supplementItems=supplements.flatMap(entry=>entry.items);
 const seenQid=new Set();
 const harvestItems=[];
-for(const item of [...source.items,...(supplement?.items||[])]){
+for(const item of [...source.items,...supplementItems]){
  if(!item||!item.qid||seenQid.has(item.qid))continue;
  seenQid.add(item.qid);harvestItems.push(item);
 }
@@ -49,6 +52,16 @@ const slug=qid=>qid.toLowerCase().replace(/[^a-z0-9]/g,'');
 const candidates=[];
 const dropped={noChineseLabel:0,badCoordinates:0,badYear:0,duplicate:0};
 const seen=new Set();
+// Two thin-region records carry a Wikidata P585 that contradicts both Wikipedia articles read
+// in this session: Q111383245 (Avdiivka) and Q112206624 (Kreminna) are stored as 2020 while the
+// English and Chinese articles date the fighting from 2022. The layer keeps the source value and
+// discloses the conflict in its notes instead of silently shipping a year the sources contradict;
+// the event layer keeps both entities at index level for the same reason.
+const DATE_CONFLICTS={
+ 'Q111383245':{zh:'维基数据 P585 记为 2020 年，而中英文维基百科记该战役自 2022 年起（2022 至 2024 年）；本条保留来源原值 2020 年，矛盾已在 3.15 报告中记录。',
+  en:'Wikidata P585 records 2020 for this battle while the English and Chinese Wikipedia articles date the fighting from 2022; this record keeps the source value 2020 and the conflict is documented in the 3.15 report.'},
+ 'Q112206624':{zh:'维基数据 P585 记为 2020 年，而中英文维基百科记该战役发生于 2022 年；本条保留来源原值 2020 年，矛盾已在 3.15 报告中记录。',
+  en:'Wikidata P585 records 2020 for this battle while the English and Chinese Wikipedia articles date it to 2022; this record keeps the source value 2020 and the conflict is documented in the 3.15 report.'}};
 for(const item of harvestItems){
  const nameZh=(item.labelZh||'').trim();
  const nameEn=(item.enLabel||(item.labelLang==='en'?item.label:'')||'').trim();
@@ -73,8 +86,8 @@ for(const item of harvestItems){
   conflict:englishList(item.qid,'conflict'),conflictZh:(item.parts||[]).slice(0,3),
   countries:englishList(item.qid,'countries'),countriesZh:(item.countries||[]).slice(0,3),
   sources,
-  notes:hasReference?'坐标与年代取自维基数据实体声明，并附该声明中的参考链接。':'维基数据实体声明未附参考链接；坐标与年代以实体声明为准，发布前建议补一次文献核对。',
-  notesEn:hasReference?'Coordinates and dates come from the Wikidata entity statements and their recorded reference links.':'The Wikidata entity statements carry no reference link; coordinates and dates follow the entity statements and should be checked against literature before release.',
+  notes:(hasReference?'坐标与年代取自维基数据实体声明，并附该声明中的参考链接。':'维基数据实体声明未附参考链接；坐标与年代以实体声明为准，发布前建议补一次文献核对。')+(DATE_CONFLICTS[item.qid]?' '+DATE_CONFLICTS[item.qid].zh:''),
+  notesEn:(hasReference?'Coordinates and dates come from the Wikidata entity statements and their recorded reference links.':'The Wikidata entity statements carry no reference link; coordinates and dates follow the entity statements and should be checked against literature before release.')+(DATE_CONFLICTS[item.qid]?' '+DATE_CONFLICTS[item.qid].en:''),
   nameSource,supplementSource:item.box?('thin-region-sweep:'+item.box):'global-sweep',
   regionBasis:'coordinate-box'});
 }
@@ -119,13 +132,13 @@ const document={schemaVersion:1,builtAt:'2026-10-03T00:00:00+00:00',layer:'battl
   language:'English fields (nameEn, belligerents, conflict, countries, notesEn) contain Latin script only; an entity without an English label appears as its QID. Chinese fields (nameZh, belligerentsZh, conflictZh, countriesZh, notes) stay simplified. No transliteration or machine translation is used.',
   coordinates:'Points come from the Wikidata P625 statement of the battle entity; no coordinate is estimated or moved.',
   participants:'Belligerents come from P710 statements of the same entity; empty arrays mean the source does not state them and no value was invented.',
-  dates:'Years come from the P585 statement; single-year precision is retained and no month or day is inferred. Wikidata stores ISO 8601 astronomical years, so BCE values are converted to the project civil-year convention, which has no year zero (ISO -489, i.e. 490 BCE, ships as -490).',
+  dates:'Years come from the P585 statement; single-year precision is retained and no month or day is inferred. Wikidata stores ISO 8601 astronomical years, so BCE values are converted to the project civil-year convention, which has no year zero (ISO -489, i.e. 490 BCE, ships as -490). Where P585 contradicts the English and Chinese Wikipedia articles the record keeps the source value and states the conflict in its notes instead of silently changing it.',
   names:'Chinese names come from Wikidata zh labels; when an entity has no Chinese label but has a zh.wikipedia article, the article title is used and the record keeps labelSource=zhwiki-sitelink. An entity with no Chinese name in either place is not shipped.',
-  coverage:'The 3.14 supplement sweeps the Oceania, South Asia and Southeast Asia coordinate boxes (scripts/places/fetch-thin-region-battles.mjs) and guarantees that every qualifying entity in those three regions ships, so a global quota cannot empty them.',
+  coverage:'The thin-region supplements (editorial/battles-thin-regions-*.json, harvested by scripts/places/fetch-thin-region-battles.mjs in the 3.14 and 3.15 passes) sweep the Oceania, South Asia and Southeast Asia coordinate boxes and guarantee that every qualifying entity in those three regions ships, so a global quota cannot empty them.',
   outcome:'The outcome field is intentionally absent: Wikidata has no stable, sourced property for battle results, and this project does not infer victors. It can be added later where a verifiable source states the result.',
   provenance:'Every entry links its Wikidata entity; statement-level reference URLs are included when Wikidata records them.',
   region:'Regions are assigned by a documented coordinate box rule (regionBasis=coordinate-box), not by political judgement.'},
- counts:{items:harvestItems.length,baseHarvest:source.items.length,supplement:supplement?.items?.length||0,candidates:candidates.length,shipped:battles.length,dropped,byRegion,byCentury:byCenturyOut,
+ counts:{items:harvestItems.length,baseHarvest:source.items.length,supplement:supplementItems.length,supplements:supplements.map(entry=>({file:entry.file,items:entry.items.length})),candidates:candidates.length,shipped:battles.length,dropped,byRegion,byCentury:byCenturyOut,
   byNameSource:battles.reduce((all,item)=>{all[item.nameSource]=(all[item.nameSource]||0)+1;return all},{}),
   thinRegionGuarantee:guaranteed.length},
  battles};

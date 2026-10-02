@@ -43,25 +43,71 @@ const BOXES=[
  {id:'southeast-asia',lon:[92,141],lat:[-11,25]}];
 const traditional=/[與臺灣國學會東車馬鳥魚點線個時間問題則無為說話語實質軍戰勝歐亞羅馬蘇聯義紀興漢滿蒙藏臺爾佔]/;
 
+// The subclass path and the coordinate join together are what WDQS answers with 504:
+// evaluating ?class wdt:P279* ?root over a bounding box timed out for Oceania and South Asia
+// in the 3.14 pass and again on the first 3.15 attempt. The tree is therefore enumerated once
+// per root in a query with no geo join, and the concrete classes are then applied per box in
+// VALUES chunks. If the enumeration itself fails, the original single box query is still tried.
 const rows=new Map();
-for(const box of BOXES){
- const query='SELECT DISTINCT ?item ?date ?lat ?lon ?class WHERE {'
-  +' VALUES ?root { '+CLASSES.map(qid=>'wd:'+qid).join(' ')+' }'
-  +' ?class wdt:P279* ?root .'
-  +' ?item wdt:P31 ?class ; wdt:P585 ?date ; p:P625/psv:P625 ?node .'
-  +' ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon .'
-  +' FILTER(?lon >= '+box.lon[0]+' && ?lon <= '+box.lon[1]+' && ?lat >= '+box.lat[0]+' && ?lat <= '+box.lat[1]+')'
-  +' FILTER(YEAR(?date) >= -4000 && YEAR(?date) <= 2026) }';
- const result=await sparql(query,'box:'+box.id);
- if(!result){console.log('box',box.id,'FAILED (WDQS timeout); keeping the partial harvest');continue}
+const boxesHarvested=[];
+const classLists=[];
+let classEnumerationOk=true;
+for(const root of CLASSES){
+ const query='SELECT DISTINCT ?class WHERE { ?class wdt:P279* wd:'+root+' }';
+ const result=await sparql(query,'classes:'+root);
+ if(!result){classEnumerationOk=false;console.log('class enumeration FAILED for',root);continue}
+ for(const row of result.results.bindings)classLists.push(row.class.value.split('/').pop());
+ console.log('class root',root,'classes so far',new Set(classLists).size);
+ await sleep(5000);
+}
+const classes=[...new Set(classLists)];
+const chunksOf=(list,size)=>{const out=[];for(let i=0;i<list.length;i+=size)out.push(list.slice(i,i+size));return out};
+const collect=result=>{
  let added=0;
  for(const row of result.results.bindings){
   const qid=row.item.value.split('/').pop();
   if(rows.has(qid))continue;
   rows.set(qid,{qid,year:Number(/^(-?\d{1,6})-/.exec(row.date.value)[1]),coordinates:[Number(row.lon.value),Number(row.lat.value)],
-   classQid:(row.class?.value||'').split('/').pop()||null,box:box.id});
+   classQid:(row.class?.value||'').split('/').pop()||null,box:null});
   added++;
  }
+ return added;
+};
+for(const box of BOXES){
+ let added=0,failedChunks=0,usedFallback=false;
+ const boxOf=qid=>{if(rows.has(qid)&&!rows.get(qid).box)rows.get(qid).box=box.id};
+ if(classes.length){
+  const chunks=chunksOf(classes,120);
+  for(let index=0;index<chunks.length;index++){
+   const query='SELECT DISTINCT ?item ?date ?lat ?lon ?class WHERE {'
+    +' VALUES ?class { '+chunks[index].map(qid=>'wd:'+qid).join(' ')+' }'
+    +' ?item wdt:P31 ?class ; wdt:P585 ?date ; p:P625/psv:P625 ?node .'
+    +' ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon .'
+    +' FILTER(?lon >= '+box.lon[0]+' && ?lon <= '+box.lon[1]+' && ?lat >= '+box.lat[0]+' && ?lat <= '+box.lat[1]+')'
+    +' FILTER(YEAR(?date) >= -4000 && YEAR(?date) <= 2026) }';
+   const result=await sparql(query,'classes-box:'+box.id+':'+index);
+   if(!result){failedChunks++;console.log('chunk',box.id,index,'FAILED');await sleep(5000);continue}
+   const before=rows.size;
+   added+=collect(result);
+   for(const row of result.results.bindings)boxOf(row.item.value.split('/').pop());
+   if(rows.size!==before)added=added; // rows already counted by collect
+   await sleep(5000);
+  }
+ }
+ if(added===0){
+  usedFallback=true;
+  const query='SELECT DISTINCT ?item ?date ?lat ?lon ?class WHERE {'
+   +' VALUES ?root { '+CLASSES.map(qid=>'wd:'+qid).join(' ')+' }'
+   +' ?class wdt:P279* ?root .'
+   +' ?item wdt:P31 ?class ; wdt:P585 ?date ; p:P625/psv:P625 ?node .'
+   +' ?node wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon .'
+   +' FILTER(?lon >= '+box.lon[0]+' && ?lon <= '+box.lon[1]+' && ?lat >= '+box.lat[0]+' && ?lat <= '+box.lat[1]+')'
+   +' FILTER(YEAR(?date) >= -4000 && YEAR(?date) <= 2026) }';
+  const result=await sparql(query,'box:'+box.id);
+  if(result){added+=collect(result);for(const row of result.results.bindings)boxOf(row.item.value.split('/').pop())}
+  else console.log('box',box.id,'FAILED (WDQS timeout); keeping the partial harvest');
+ }
+ boxesHarvested.push({box:box.id,added,failedChunks,usedFallback,total:rows.size});
  console.log('box',box.id,'new items',added,'total',rows.size);
  await sleep(5000);
 }
@@ -147,7 +193,8 @@ const byBox=items.reduce((all,item)=>(all[item.box]=(all[item.box]||0)+1,all),{}
 const byBoxNamed=items.reduce((all,item)=>{if(item.labelZh)all[item.box]=(all[item.box]||0)+1;return all},{});
 const output={schemaVersion:1,fetchedAt:new Date().toISOString(),
  source:'Wikidata Query Service sweep of the Oceania, South Asia and Southeast Asia coordinate boxes, with the class roots battle (Q178561), naval battle (Q1261499), siege (Q188055), military operation (Q645883) and massacre (Q3199915) expanded through their subclass paths; every item keeps a P625 coordinate and a P585 date. Labels and sitelinks come from the Wikidata Action API.',
- endpoint:ENDPOINT,boxes:BOXES.reduce((all,box)=>(all[box.id]=box,all),{}),classQids:CLASSES,requests,count:items.length,items};
+ endpoint:ENDPOINT,boxes:BOXES.reduce((all,box)=>(all[box.id]=box,all),{}),classQids:CLASSES,
+ classEnumeration:{roots:CLASSES,concreteClasses:classes.length,ok:classEnumerationOk},boxesHarvested,requests,count:items.length,items};
 await writeFile(outPath,JSON.stringify(output,null,2)+'\n');
 const byClass=items.reduce((all,item)=>(all[item.classQid]=(all[item.classQid]||0)+1,all),{});
 console.log(JSON.stringify({out:outPath,items:items.length,byBox,byBoxNamed,byClass,withZh:items.filter(i=>i.labelZh).length,fromZhwikiSitelink:items.filter(i=>i.labelSource==='zhwiki-sitelink').length},null,2));

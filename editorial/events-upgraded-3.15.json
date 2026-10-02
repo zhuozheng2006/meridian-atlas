@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T00:00:00+00:00",
+  "note": "Meridian Atlas 3.15 editorial upgrade of the structured-index events ranked 41 to 100. Each entry keeps the shipped id (v312wd-<qid>) and its Wikidata entity id, drops provenance=wikidata-structured, and replaces the index-style rendering with an authored bilingual summary, a significance line and dating notes cited to English and Chinese Wikipedia articles read in this session. Dates follow the project civil-year convention (no year zero), so Wikidata ISO 8601 BCE years are converted (for example -489 becomes -490). Two candidates of the window stay index-level because Wikidata records them with a year that contradicts both Wikipedia articles; see docs/verification-3.15/content-round6.md.",
+  "policy": {
+    "selection": "Ranks 41-100 of docs/verification-3.14/content-upgrade-ranking.json, minus the two entities whose Wikidata P585 contradicts the cited articles.",
+    "language": "Chinese fields stay simplified; English fields contain Latin script only and are authored, not machine translated.",
+    "sources": "Every entry cites the English and Chinese Wikipedia article read in this session (CC BY-SA 4.0) with the access date recorded; coordinates, region and location type are inherited unchanged from the sourced structured record.",
+    "dating": "Where sources disagree on a date the entry keeps year precision and states the disagreement in editorialNotes; BCE years are written in the civil convention without a year zero."
+  },
+  "count": 58,
+  "entries": [
+    {
+      "id": "v312wd-q28169617",
+      "title": {
+        "zh": "巴比伦陷落",
+        "en": "Fall of Babylon"
+      },
+      "start": -539,
+      "end": -539,
+      "lat": 32.5425,
+      "lon": 44.421111111,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前539年，波斯国王居鲁士二世东征新巴比伦帝国，先于底格里斯河畔的奥皮斯击败巴比伦军队，随后西帕尔不战而降，巴比伦城开门迎降。末代国王那波尼德被俘，新巴比伦帝国灭亡，两河流域并入阿契美尼德帝国，居鲁士随后以巴比伦王的名义统治该地。",
+        "en": "In 539 BC Cyrus the Great of Persia campaigned against the Neo-Babylonian Empire, defeated its army at Opis on the Tigris and took Sippar, after which Babylon opened its gates to him. The last king, Nabonidus, was captured and Babylonia was absorbed into the Achaemenid Empire."
+      },
+      "significance": {
+        "zh": "巴比伦陷落终结了新巴比伦帝国，也确立了阿契美尼德帝国对整个新月沃地的统治。",
+        "en": "The fall of Babylon ended the Neo-Babylonian Empire and gave the Achaemenids control of the whole Fertile Crescent."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Fall of Babylon（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Fall_of_Babylon",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 巴比倫陷落（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%B7%B4%E6%AF%94%E5%80%AB%E9%99%B7%E8%90%BD",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "巴比伦编年史记该城几乎未战而降，希罗多德等希腊作家则说波斯人引河水入城破城，细节互相矛盾；本条只保留年份精度。",
+        "en": "The Babylonian Chronicle says the city surrendered almost without fighting while Greek writers such as Herodotus describe a diversion of the river; this entry keeps year precision."
+      },
+      "wikidataQid": "Q28169617",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q112016",
+      "title": {
+        "zh": "波斯门战役",
+        "en": "Battle of the Persian Gate"
+      },
+      "start": -330,
+      "end": -330,
+      "lat": 30.708333333,
+      "lon": 51.598611111,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前330年冬，波斯总督阿里奥巴尔赞率军在波斯门隘口阻击亚历山大大帝的远征军。波斯军据险坚守约一个月，马其顿军正面难以突破，后由俘虏或当地牧人引路，绕至波斯军阵地后方夹击，隘口失守。此战后亚历山大得以深入波斯腹地并焚毁波斯波利斯。",
+        "en": "In the winter of 330 BC Ariobarzanes, satrap of Persis, held the Persian Gate against Alexander the Great's invading army for about a month. Guided by prisoners or a local shepherd, the Macedonians found a path around the position and attacked from the rear. The victory opened the Persian heartland; Persepolis was burned soon afterwards."
+      },
+      "significance": {
+        "zh": "波斯门是阿契美尼德帝国最后的正面抵抗之一，隘口失守后波斯本土再无屏障。",
+        "en": "The Persian Gate was one of the last stand-up defences of the Achaemenid Empire, and its fall left the Persian heartland open."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of the Persian Gate（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_the_Persian_Gate",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 波斯門戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%B3%A2%E6%96%AF%E9%96%80%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "古代史料的交战日期与兵力数字互相矛盾，战场确切位置也有争议；本条采用中文维基的公元前330年并只保留年份精度。",
+        "en": "Ancient sources disagree on the date and numbers and the exact site is debated; this entry follows 330 BC and keeps year precision."
+      },
+      "wikidataQid": "Q112016",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q630781",
+      "title": {
+        "zh": "拉菲亚战役",
+        "en": "Battle of Raphia"
+      },
+      "start": -217,
+      "end": -217,
+      "lat": 31.288611111,
+      "lon": 34.251944444,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前217年6月22日，托勒密四世与塞琉古国王安条克三世在加沙附近的拉菲亚决战，这是第四次叙利亚战争的决定性一役。托勒密军以新征召的埃及本土兵加强方阵，击退塞琉古一侧并迫使安条克退兵，科艾莱叙利亚重归托勒密治下，埃及本土兵的地位也随之上升。",
+        "en": "On 22 June 217 BC Ptolemy IV Philopator and Antiochus III of the Seleucid Empire fought at Raphia near Gaza in the decisive battle of the Fourth Syrian War. Ptolemy's phalanx, reinforced by newly recruited Egyptian troops, broke the Seleucid line and forced Antiochus to withdraw, returning Coele-Syria to Ptolemaic rule."
+      },
+      "significance": {
+        "zh": "拉菲亚是希腊化世界规模最大的会战之一，托勒密首次大规模武装埃及本土兵，也改变了埃及内部的力量格局。",
+        "en": "Raphia was among the largest battles of the Hellenistic world, and Ptolemy's mass recruitment of native Egyptians shifted the balance inside Egypt."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Raphia（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Raphia",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 拉菲亞戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%8B%89%E8%8F%B2%E4%BA%9E%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力数字出自古代作家且互相矛盾，战果统计也不可靠；本条只保留年份精度。",
+        "en": "The army sizes come from ancient authors and conflict with one another, as do the casualty figures; this entry keeps year precision."
+      },
+      "wikidataQid": "Q630781",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1349891",
+      "title": {
+        "zh": "垓下之战",
+        "en": "Battle of Gaixia"
+      },
+      "start": -202,
+      "end": -202,
+      "lat": 33.327778,
+      "lon": 117.551111,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前202年，刘邦与韩信等诸侯联军在垓下（今安徽境内）包围项羽的楚军。汉军夜唱楚歌动摇楚军士气，项羽率八百骑突围南走，最终在乌江边自刎。此战是中国古代著名的围歼战例，汉军以绝对优势完成合围。楚汉战争至此结束，刘邦称帝建立汉朝。",
+        "en": "In 202 BC the allied forces of Liu Bang and Han Xin surrounded Xiang Yu's Chu army at Gaixia in Anhui. Songs from Chu sung at night broke the besieged army's morale; Xiang Yu escaped south with 800 riders and finally took his own life by the Wu River. The Chu-Han contention ended and Liu Bang founded the Han dynasty."
+      },
+      "significance": {
+        "zh": "垓下之战终结了楚汉相争，直接决定了汉朝四百年统治的开端。",
+        "en": "Gaixia ended the Chu-Han war and opened four centuries of Han rule."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Gaixia（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Gaixia",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 垓下之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9E%93%E4%B8%8B%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基记为公元前202年，英文维基记为公元前203年12月，两说并存；本条采用中文维基的公元前202年并只保留年份精度。",
+        "en": "Chinese Wikipedia dates the battle to 202 BC while English Wikipedia gives December 203 BC; this entry follows 202 BC and keeps year precision."
+      },
+      "wikidataQid": "Q1349891",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q776215",
+      "title": {
+        "zh": "阿劳西奥战役",
+        "en": "Battle of Arausio"
+      },
+      "start": -105,
+      "end": -105,
+      "lat": 44.1375,
+      "lon": 4.80889,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前105年10月6日，罗马两支军队在阿劳西奥（今法国奥朗日）与罗讷河之间迎战辛布里人与条顿人。执政官马克西姆斯与前执政官卡埃皮奥互不信任、各自为战，被对方先后击破，罗马损失据称达八万人以上，是共和国史上最惨重的败仗之一。",
+        "en": "On 6 October 105 BC two Roman armies faced the migrating Cimbri and Teutones between Arausio, modern Orange, and the Rhone. Consul Gnaeus Mallius Maximus and proconsul Quintus Servilius Caepio refused to cooperate and were destroyed one after the other; losses are put at 80,000 or more, among Rome's worst defeats."
+      },
+      "significance": {
+        "zh": "阿劳西奥的惨败直接促成马略的军事改革与连续执政，改变了罗马共和国的兵制与政治。",
+        "en": "The disaster at Arausio led directly to the Marian military reforms and to Marius holding consecutive consulships."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Arausio（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Arausio",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿勞西奧戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%8B%9E%E8%A5%BF%E5%A5%A7%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "罗马阵亡数字在不同著述中为六万至十二万，后世研究普遍认为有夸大成分；本条只保留年份精度。",
+        "en": "Roman casualty figures range from 60,000 to 120,000 in different accounts and are widely thought inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q776215",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q762458",
+      "title": {
+        "zh": "鲁斯皮纳战役",
+        "en": "Battle of Ruspina"
+      },
+      "start": -46,
+      "end": -46,
+      "lat": 35.7667,
+      "lon": 10.8167,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元前46年1月4日，凯撒率军在阿非利加行省的鲁斯皮纳（今突尼斯境内）附近遭拉比埃努斯指挥的贵族派军队突袭。对方以努米底亚骑兵与轻步兵包围凯撒的阵列，凯撒军伤亡严重但未崩溃，最终退回鲁斯皮纳。此后凯撒在塔普苏斯才取得决定性胜利。",
+        "en": "On 4 January 46 BC Caesar's army was surprised near Ruspina in the province of Africa by the Republican force of Titus Labienus, his former lieutenant. Numidian cavalry and light infantry enveloped the Caesarian line, which suffered heavily but held together and withdrew to Ruspina. Caesar won decisively only later at Thapsus."
+      },
+      "significance": {
+        "zh": "鲁斯皮纳显示贵族派在阿非利加仍有强大骑兵优势，是凯撒北非战役中最危险的一战。",
+        "en": "Ruspina showed the Republicans' continuing cavalry superiority in Africa and was the closest Caesar came to defeat there."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Ruspina（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Ruspina",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 魯斯皮納戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%AD%AF%E6%96%AF%E7%9A%AE%E7%B4%8D%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "凯撒《内战记》对伤亡的记述带有自辩色彩，双方损失数字难以核实；本条只保留年份精度。",
+        "en": "Caesar's own account of the casualties is self-justifying and the losses on both sides cannot be verified; this entry keeps year precision."
+      },
+      "wikidataQid": "Q762458",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q63146684",
+      "title": {
+        "zh": "贝德里亚库姆战役",
+        "en": "Battle of Bedriacum"
+      },
+      "start": 69,
+      "end": 69,
+      "lat": 45.09,
+      "lon": 10.14,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元69年四帝之年，贝德里亚库姆（今意大利卡尔瓦托内附近）先后发生两场会战。4月，维提里乌斯的莱茵军团击败皇帝奥托的军队，奥托自杀；10月，拥护维斯帕先的东方军团在同一地区击败维提里乌斯派，维提里乌斯被杀，弗拉维王朝由此建立。",
+        "en": "In AD 69, the Year of the Four Emperors, two battles were fought near Bedriacum in northern Italy. In April Vitellius's Rhine legions defeated the army of the emperor Otho, who killed himself; in October the eastern legions supporting Vespasian beat the Vitellian forces and Vitellius was killed, beginning the Flavian dynasty."
+      },
+      "significance": {
+        "zh": "贝德里亚库姆的两场会战决定了四帝之年的结局，也确立了军团推举皇帝的权力格局。",
+        "en": "The two battles at Bedriacum decided the Year of the Four Emperors and confirmed the legions' power to make emperors."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Bedriacum（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Bedriacum",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 貝德里亞庫姆戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%B2%9D%E5%BE%B7%E9%87%8C%E4%BA%9E%E5%BA%AB%E5%A7%86%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "两场会战实际发生在贝德里亚库姆与克雷莫纳之间，故又称第一次与第二次克雷莫纳之战，年份同为69年；本条只保留年份精度。",
+        "en": "Both battles were fought between Bedriacum and Cremona and are also called the first and second battles of Cremona, both in AD 69; this entry keeps year precision."
+      },
+      "wikidataQid": "Q63146684",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1057910",
+      "title": {
+        "zh": "官渡之战",
+        "en": "Battle of Guandu"
+      },
+      "start": 200,
+      "end": 200,
+      "lat": 34.907222222,
+      "lon": 114.620277777,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元200年，袁绍率大军南下进攻曹操，两军在官渡相持数月。曹操先以轻兵袭取白马、延津，后亲率精兵奇袭袁军在乌巢的粮屯，袁军军心崩溃，主力被歼。此战奠定了曹操统一中国北方的基础，曹操随后收编袁绍余部，逐一平定河北诸州，北方大局底定。",
+        "en": "In 200 AD Yuan Shao marched south against Cao Cao and the two armies faced each other at Guandu for months. Cao Cao raided Baimal and Yanjin, then led a picked force to burn Yuan's grain depot at Wuchao; Yuan's army lost heart and was destroyed. The victory made Cao Cao the dominant power in northern China."
+      },
+      "significance": {
+        "zh": "官渡之战是中国古代以少胜多的经典战例，直接决定了汉末北方的归属。",
+        "en": "Guandu is the classic Chinese case of a smaller army defeating a larger one and decided who would rule the north at the end of the Han."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Guandu（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Guandu",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 官渡之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%AE%98%E6%B8%A1%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "袁绍兵力（号称十万以上）与曹军数目出自后世史书，多被认为夸大；本条只保留年份精度。",
+        "en": "Yuan Shao's army is given in later histories as over 100,000 and Cao Cao's numbers are uncertain, both widely thought inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1057910",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2588587",
+      "title": {
+        "zh": "尼西比斯之战 (217年)",
+        "en": "Battle of Nisibis (217)"
+      },
+      "start": 217,
+      "end": 217,
+      "lat": 37.0667,
+      "lon": 41.2167,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元217年夏，罗马皇帝马克里努斯在尼西比斯附近与帕提亚国王阿尔达班四世会战。帕提亚骑兵与骆驼甲兵冲击罗马阵线，双方死伤惨重，罗马一方逐渐不支。战后马克里努斯以巨额赔款换取和平，双方边界大体回到战前状态，此后数年未再大规模交战。",
+        "en": "In the summer of 217 the Roman emperor Macrinus fought Artabanus IV of Parthia near Nisibis in northern Mesopotamia. Parthian cavalry and armoured camels pressed the Roman line and both sides suffered heavily before Macrinus bought peace with a large indemnity. The frontier returned roughly to its previous state."
+      },
+      "significance": {
+        "zh": "尼西比斯之战结束了卡拉卡拉对帕提亚的冒险，也以赔款暴露了罗马在东方战线的疲惫。",
+        "en": "Nisibis ended Caracalla's Parthian adventure and the indemnity exposed how strained Rome's eastern front had become."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Nisibis (217)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Nisibis_(217)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 尼西比斯之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%B0%BC%E8%A5%BF%E6%AF%94%E6%96%AF%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "战役结局在不同史料中或被写成帕提亚胜利、或被写成两败俱伤，战场确切位置与兵力亦不明；本条只保留年份精度。",
+        "en": "Sources describe the outcome either as a Parthian victory or as mutual exhaustion, and the site and army sizes are unclear; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2588587",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2887977",
+      "title": {
+        "zh": "霍尔木兹甘战役",
+        "en": "Battle of Hormozdgan"
+      },
+      "start": 224,
+      "end": 224,
+      "lat": 32.05,
+      "lon": 48.85,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元224年4月28日，波西斯国王阿尔达希尔一世与其子沙普尔在霍尔木兹甘地区击败安息帝国末代君主阿尔达班四世，阿尔达班阵亡。此役终结了安息王朝近五个世纪的统治，阿尔达希尔随后在泰西封加冕，萨珊王朝由此建立，此后与罗马帝国长期对峙。",
+        "en": "On 28 April 224 Ardashir I of Persis and his son Shapur defeated and killed Artabanus IV, the last Arsacid ruler, at Hormozdgan. The battle ended nearly five centuries of Parthian rule; Ardashir was crowned at Ctesiphon and founded the Sasanian Empire. It reshaped Rome's eastern rival for four centuries."
+      },
+      "significance": {
+        "zh": "霍尔木兹甘之战是伊朗由安息转入萨珊时代的决定性战役，也重塑了罗马东方的对手。",
+        "en": "Hormozdgan ended the Parthian era and began the Sasanian one, reshaping Rome's eastern rival."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Hormozdgan（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Hormozdgan",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 荷姆茲甘戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%8D%B7%E5%A7%86%E8%8C%B2%E7%94%98%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "战场位置古今记述不一（今伊朗胡齐斯坦一带），安息与萨珊双方兵力数字亦无可靠记载；本条只保留年份精度。",
+        "en": "The site is placed variously in what is now Khuzestan and no reliable figures exist for either army; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2887977",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1421082",
+      "title": {
+        "zh": "阿伯里图斯战役",
+        "en": "Battle of Abritus"
+      },
+      "start": 251,
+      "end": 251,
+      "lat": 43.51,
+      "lon": 26.54,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元251年夏，罗马皇帝德西乌斯率军在默西亚的阿伯里图斯（今保加利亚拉兹格勒）附近与哥特国王尼瓦的联军交战。罗马军被诱入沼泽地带后遭到围歼，德西乌斯与其子赫伦尼乌斯双双阵亡，德西乌斯成为首位在与外敌作战中阵亡的罗马皇帝。",
+        "en": "In the summer of 251 the Roman emperor Decius fought a Gothic and Scythian coalition under King Cniva near Abritus, modern Razgrad in Bulgaria. The Romans were drawn into marshy ground and destroyed, and Decius and his son Herennius Etruscus were both killed. Decius was the first emperor to die fighting a foreign enemy."
+      },
+      "significance": {
+        "zh": "阿伯里图斯是罗马帝国对哥特人最惨重的败仗之一，也是三世纪危机中皇权动荡的标志性事件。",
+        "en": "Abritus was one of Rome's worst defeats at Gothic hands and a landmark of imperial instability during the third-century crisis."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Abritus（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Abritus",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿伯里圖斯戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E4%BC%AF%E9%87%8C%E5%9C%96%E6%96%AF%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "战役的具体日期、地点与双方兵力在史料中均有争议，阿伯里图斯只是最常被接受的战场；本条只保留年份精度。",
+        "en": "The exact date, site and army sizes are all debated, with Abritus merely the most widely accepted location; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1421082",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1267656",
+      "title": {
+        "zh": "贝纳库斯湖战役",
+        "en": "Battle of Lake Benacus"
+      },
+      "start": 268,
+      "end": 268,
+      "lat": 45.5806,
+      "lon": 10.62053,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元268年末或269年初，阿勒曼尼人与朱通吉人越过阿尔卑斯山进入意大利北部，罗马皇帝克劳狄二世率军在加尔达湖（古称贝纳库斯湖）沿岸将其击败。此役与纳伊苏斯之战同年，共同构成克劳狄二世阻击蛮族入侵的军事成果，意大利本土得以保全。",
+        "en": "In late 268 or early 269 the Alamanni and Juthungi crossed the Alps into northern Italy and were defeated by the army of the emperor Claudius II along Lake Garda, known to the Romans as Benacus. Together with Naissus in the same period, the victory checked the invasions and kept Italy proper intact."
+      },
+      "significance": {
+        "zh": "贝纳库斯湖战役阻止了蛮族深入意大利本土，是三世纪危机中罗马少数本土防御成功的战例。",
+        "en": "Lake Benacus stopped the invaders from penetrating Italy and was one of the few successful homeland defences of the third-century crisis."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Lake Benacus（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Benacus",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 貝納庫斯湖戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%B2%9D%E7%B4%8D%E5%BA%AB%E6%96%AF%E6%B9%96%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "年份在268年末与269年初之间两说，阿勒曼尼人兵力亦无可靠数字；本条采用268年并只保留年份精度。",
+        "en": "The date is given as late 268 or early 269 and Alamannic numbers are unknown; this entry uses 268 with year precision."
+      },
+      "wikidataQid": "Q1267656",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q929265",
+      "title": {
+        "zh": "纳伊苏斯战役",
+        "en": "Battle of Naissus"
+      },
+      "start": 268,
+      "end": 268,
+      "lat": 43.3,
+      "lon": 21.9,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元268年（一说269年），罗马军队在默西亚的纳伊苏斯（今塞尔维亚尼什）附近大败入侵巴尔干的哥特人联盟。指挥者通常记为皇帝加里恩努斯或克劳狄二世，此役后哥特人损失惨重，克劳狄二世因此获得哥特征服者称号，奥勒良继续清剿残部。",
+        "en": "In 268, or possibly 269, Roman forces defeated a Gothic coalition near Naissus, modern Nis in Serbia, after its raids across the Balkans. Command is usually assigned to the emperor Gallienus or to Claudius II, who took the title Gothicus; Aurelian then cleared the remaining invaders."
+      },
+      "significance": {
+        "zh": "此役是三世纪危机中罗马对哥特人最重要的胜利之一，稳住了多瑙河与巴尔干前线。",
+        "en": "It was one of Rome's most important victories over the Goths during the third-century crisis and steadied the Danube frontier."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Naissus（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Naissus",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 纳伊苏斯战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%BA%B3%E4%BC%8A%E8%8B%8F%E6%96%AF%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "年份在268年与269年之间两说，指挥官是加里恩努斯还是克劳狄二世也有争议；本条采用268年并只保留年份精度。",
+        "en": "The year is given as 268 or 269 and command is disputed between Gallienus and Claudius II; this entry uses 268 with year precision."
+      },
+      "wikidataQid": "Q929265",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1424076",
+      "title": {
+        "zh": "穆尔萨战役",
+        "en": "Battle of Mursa Major"
+      },
+      "start": 351,
+      "end": 351,
+      "lat": 45.560277777,
+      "lon": 18.670277777,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元351年9月28日，东部皇帝君士坦提乌斯二世与西部篡位者马格嫩提乌斯在潘诺尼亚的穆尔萨（今克罗地亚奥西耶克）附近决战。双方投入大量蛮族部队，战斗极其惨烈，马格嫩提乌斯战败退往意大利。此役虽保住君士坦提乌斯的皇位，却严重消耗了帝国的兵力。",
+        "en": "On 28 September 351 the eastern emperor Constantius II and the western usurper Magnentius fought at Mursa in Pannonia, modern Osijek in Croatia. Both sides fielded large barbarian contingents in one of the bloodiest battles of Roman history, and Magnentius withdrew towards Italy. Constantius kept the throne but the empire's manpower was badly drained."
+      },
+      "significance": {
+        "zh": "穆尔萨是罗马内战中最血腥的战役之一，其消耗加速了高卢与巴尔干防线的空虚。",
+        "en": "Mursa was among the bloodiest of Roman civil-war battles and its cost accelerated the weakening of the Rhine and Balkan frontiers."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Mursa Major（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Mursa_Major",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 穆尔萨战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%A9%86%E5%B0%94%E8%90%A8%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "伤亡数字（常引五万余人）出自后世作家且被普遍认为夸大；本条只保留年份精度。",
+        "en": "The casualty figure often given, above 50,000, comes from later writers and is widely thought inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1424076",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1333898",
+      "title": {
+        "zh": "淝水之战",
+        "en": "Battle of Fei River"
+      },
+      "start": 383,
+      "end": 383,
+      "lat": 31.736111111,
+      "lon": 116.52,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元383年秋，前秦君主苻坚率号称八十余万的大军南征东晋，两军在淝水（今安徽寿县一带）对峙。晋军要求秦军后撤以便渡河决战，秦军后撤时阵脚大乱，晋军趁势猛攻并大败秦军。前秦由此瓦解，北方重新分裂，境内各族势力纷纷自立，北方再度陷入分裂。",
+        "en": "In the autumn of 383 the Former Qin ruler Fu Jian invaded the Eastern Jin with a vastly larger army and the two forces faced each other at the Fei River in Anhui. When Qin troops stepped back to let the Jin cross, their line collapsed and the Jin counter-attacked, routing them. Former Qin broke apart and the north fragmented."
+      },
+      "significance": {
+        "zh": "淝水之战保住了东晋政权，并确立了此后近两百年南北分立的格局。",
+        "en": "Fei River preserved the Eastern Jin state and fixed the north-south division of China for nearly two centuries."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Fei River（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Fei_River",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 淝水之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%B7%9D%E6%B0%B4%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "前秦兵力号称八十余万，现代研究普遍认为有夸大，实际参战人数难以确定；本条只保留年份精度。",
+        "en": "The claimed Qin army of over 800,000 is widely considered inflated and the real numbers cannot be established; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1333898",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q385604",
+      "title": {
+        "zh": "达拉战役",
+        "en": "Battle of Dara"
+      },
+      "start": 530,
+      "end": 530,
+      "lat": 37.18,
+      "lon": 40.955,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元530年6月，萨珊波斯军队进攻美索不达米亚边境要塞达拉，贝利撒留率兵力较少的东罗马军队应战。他在城外挖壕沟限制波斯骑兵的机动，让对方反复冲击中央，再以两翼骑兵反击取胜。普罗科匹厄斯的记述使此役成为晚期罗马战术最详细的战例之一。",
+        "en": "In June 530 a Sasanian army advanced on the fortress of Dara in Mesopotamia and met a smaller Byzantine force under Belisarius. Trenches outside the walls restricted Persian cavalry movement; the Byzantines absorbed repeated assaults on their centre and counter-attacked from the wings. Procopius left one of the fullest accounts of late Roman tactics."
+      },
+      "significance": {
+        "zh": "达拉之战确立了贝利撒留的声望，也展示了东罗马以工事与预备队抵消波斯骑兵优势的战法。",
+        "en": "Dara made Belisarius's reputation and showed how fortifications and reserves could offset Persian cavalry superiority."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Dara（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Dara",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 達拉戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%81%94%E6%8B%89%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "古代史料对交战月份与双方兵力记载不一，普罗科匹厄斯的数字被认为有夸大；本条只保留年份精度。",
+        "en": "Sources differ on the month and on the size of both armies, and Procopius's figures are thought inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q385604",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1127353",
+      "title": {
+        "zh": "阿德底斯姆战役",
+        "en": "Battle of Ad Decimum"
+      },
+      "start": 533,
+      "end": 533,
+      "lat": 36.765,
+      "lon": 10.225,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元533年9月13日，贝利撒留率东罗马远征军在迦太基附近的阿德底斯姆击败汪达尔国王格列摩尔。汪达尔军在分进合击中指挥失序，格列摩尔见其弟阵亡后脱离战场，贝利撒留趁势夺取迦太基。汪达尔王国由此迅速瓦解，北非重回罗马治下。",
+        "en": "On 13 September 533 a Byzantine expedition under Belisarius defeated the Vandal king Gelimer at Ad Decimum near Carthage. The Vandal counter-attack lost coordination and Gelimer left the field after his brother was killed, allowing Belisarius to take Carthage. The Vandal kingdom collapsed and North Africa returned to Roman rule."
+      },
+      "significance": {
+        "zh": "阿德底斯姆之战是查士丁尼西部再征服的第一场决战，汪达尔王国的覆亡由此开始。",
+        "en": "Ad Decimum was the first decisive battle of Justinian's reconquest in the west and began the collapse of the Vandal kingdom."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Ad Decimum（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Ad_Decimum",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿德底斯姆战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%BE%B7%E5%BA%95%E6%96%AF%E5%A7%86%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "交战地点阿德底斯姆（意为第十里程碑）的确切位置与汪达尔军兵力仍有争议；本条只保留年份精度。",
+        "en": "The exact site of Ad Decimum, the tenth milestone, and the size of the Vandal army remain disputed; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1127353",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q888904",
+      "title": {
+        "zh": "阿杰纳达因战役",
+        "en": "Battle of Ajnadayn"
+      },
+      "start": 634,
+      "end": 634,
+      "lat": 31.68333333,
+      "lon": 34.95,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元634年7月或8月，正统哈里发国的阿拉伯军队与拜占庭帝国军队在今以色列贝特古夫林附近交战，这是双方第一次大规模会战。穆斯林军队在哈立德等将领指挥下击败拜占庭军队，打开了巴勒斯坦的门户。战役细节主要来自九世纪阿拉伯史家瓦基迪的记载。",
+        "en": "In July or August 634 the army of the Rashidun Caliphate fought the Byzantine Empire near Bayt Jibrin, the first major pitched battle between the two. The Muslims, led by commanders including Khalid ibn al-Walid, defeated the Byzantine force and opened Palestine to conquest. Details come mainly from later Muslim writers such as al-Waqidi."
+      },
+      "significance": {
+        "zh": "此役打破了拜占庭在叙利亚与巴勒斯坦的野战威慑，为雅尔穆克战役和黎凡特征服铺平道路。",
+        "en": "It broke Byzantine field power in Syria and Palestine and paved the way for Yarmouk and the conquest of the Levant."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Ajnadayn（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Ajnadayn",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿季奈迪恩战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%AD%A3%E5%A5%88%E8%BF%AA%E6%81%A9%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "具体月日与战场位置均无定论，兵力数字出自后世阿拉伯史家；本条只保留年份精度。",
+        "en": "The exact date and site are unsettled and the numbers come from later Arab historians; this entry keeps year precision."
+      },
+      "wikidataQid": "Q888904",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q602880",
+      "title": {
+        "zh": "安基阿卢斯战役 (708年)",
+        "en": "Battle of Anchialus (708)"
+      },
+      "start": 708,
+      "end": 708,
+      "lat": 42.55,
+      "lon": 27.65,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元708年，拜占庭皇帝查士丁尼二世率军进攻保加利亚，在安基阿卢斯（今保加利亚波摩莱附近）被特尔维尔可汗的军队伏击并击败。查士丁尼二世逃回君士坦丁堡，保加利亚巩固了对扎戈拉地区的控制。这是三次安基阿卢斯战役中的第一次，此后双方在巴尔干维持了数十年的相对和平。",
+        "en": "In 708 the Byzantine emperor Justinian II invaded Bulgaria and was ambushed and defeated at Anchialus, near modern Pomorie, by the forces of Khan Tervel. Justinian escaped to Constantinople while Bulgaria consolidated control of the Zagora region. It was the first of three battles fought there."
+      },
+      "significance": {
+        "zh": "安基阿卢斯之战稳固了保加利亚对巴尔干东部山地的控制，也削弱了查士丁尼二世的威望。",
+        "en": "Anchialus secured Bulgarian control of the eastern Balkan mountains and weakened Justinian II's standing."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Anchialus (708)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Anchialus_(708)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 安基阿盧斯戰役 (708年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%AE%89%E5%9F%BA%E9%98%BF%E7%9B%A7%E6%96%AF%E6%88%B0%E5%BD%B9_(708%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "安基阿卢斯一名对应708年、763年与917年三次战事，本条专指708年之战，只保留年份精度。",
+        "en": "Three battles are called Anchialus, in 708, 763 and 917; this entry is the 708 battle and keeps year precision."
+      },
+      "wikidataQid": "Q602880",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q128996",
+      "title": {
+        "zh": "阿克洛伊农战役",
+        "en": "Battle of Akroinon"
+      },
+      "start": 740,
+      "end": 740,
+      "lat": 38.75,
+      "lon": 30.533333,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元740年，倭马亚王朝分三路入侵拜占庭小亚细亚，其中两万人在阿卜杜拉·巴塔尔率领下于弗里吉亚的阿克洛伊农（今阿菲永附近）被利奥三世与其子君士坦丁五世击败，巴塔尔阵亡。此役后倭马亚对安纳托利亚的大规模攻势基本停止，拜占庭转入反攻。",
+        "en": "In 740 an Umayyad invasion of Byzantine Asia Minor in three columns was met at Akroinon in Phrygia, near modern Afyon. The column of about 20,000 under Abdallah al-Battal was defeated by Leo III and his son Constantine V, and al-Battal was killed. Large-scale Umayyad offensives into Anatolia largely ended thereafter."
+      },
+      "significance": {
+        "zh": "阿克洛伊农是拜占庭由守转攻的转折点，此后倭马亚再未能对安纳托利亚发动同等规模的进攻。",
+        "en": "Akroinon marked Byzantium's turn from defence to counter-attack and ended comparable Umayyad offensives into Anatolia."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Akroinon（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Akroinon",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿克洛伊农战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%85%8B%E6%B4%9B%E4%BC%8A%E5%86%9C%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "阿拉伯一方兵力两万出自拜占庭与阿拉伯史料的常见记载，具体日期与战场位置仍有争议；本条只保留年份精度。",
+        "en": "The figure of 20,000 comes from the usual Byzantine and Arab accounts, while the exact date and site remain disputed; this entry keeps year precision."
+      },
+      "wikidataQid": "Q128996",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q289492",
+      "title": {
+        "zh": "扎卜河战役",
+        "en": "Battle of the Zab"
+      },
+      "start": 750,
+      "end": 750,
+      "lat": 35.991111111,
+      "lon": 43.343611111,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元750年1月25日，阿拔斯家族的军队在伊拉克北部大扎卜河畔击败伍麦叶王朝末代哈里发马尔万的军队。伍麦叶军数量占优，但阵线被阿拔斯骑兵突破后溃散，马尔万逃往埃及后被杀。此役终结了统治近九十年的伍麦叶王朝，阿拔斯王朝由此建立。",
+        "en": "On 25 January 750 Abbasid forces defeated the army of Marwan II, the last Umayyad caliph, on the Great Zab in northern Iraq. The larger Umayyad line broke before the Abbasid cavalry and Marwan fled to Egypt, where he was killed. The battle ended nearly ninety years of Umayyad rule and brought the Abbasids to power."
+      },
+      "significance": {
+        "zh": "扎卜河之战是伊斯兰世界权力中心由大马士革转向巴格达的转折点。",
+        "en": "The Zab marked the shift of the Islamic world's centre of power from Damascus to Baghdad."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of the Zab（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_the_Zab",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 扎卜河战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%89%8E%E5%8D%9C%E6%B2%B3%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力数字（伍麦叶十二万、阿拔斯两万等）出自后世编年史，普遍被认为夸大；本条只保留年份精度。",
+        "en": "The troop numbers given by later chronicles are widely considered inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q289492",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2237567",
+      "title": {
+        "zh": "科皮德纳顿战役",
+        "en": "Battle of Kopidnadon"
+      },
+      "start": 788,
+      "end": 788,
+      "lat": 37.4278,
+      "lon": 34.8711,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "公元788年9月，阿拔斯王朝军队入侵拜占庭小亚细亚，在科皮德纳顿与拜占庭军队交战并将其击败。拜占庭方面损失了一名名为第欧根尼的官员，一些学者认为他就是史诗英雄狄吉尼斯·阿克里特的原型。此役后阿拉伯方面继续对安纳托利亚发动袭扰。",
+        "en": "In September 788 an Abbasid army invaded Byzantine Asia Minor and defeated a Byzantine force at Kopidnadon. Among the Byzantine dead was an officer named Diogenes, whom some scholars identify as the probable origin of the epic hero Digenes Akritas. Arab raids into Anatolia continued afterwards."
+      },
+      "significance": {
+        "zh": "科皮德纳顿之战是八世纪末阿拔斯袭扰战的典型一役，也为拜占庭史诗传统留下了可能的史源。",
+        "en": "Kopidnadon typifies the late eighth-century Abbasid raids and may preserve the historical seed of a Byzantine epic hero."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Kopidnadon（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Kopidnadon",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 科皮德纳顿战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%A7%91%E7%9A%AE%E5%BE%B7%E7%BA%B3%E9%A1%BF%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "战役具体日期（9月）与双方兵力在古代史料中记载简略，战场位置今地不明；本条只保留年份精度。",
+        "en": "Ancient sources give only September for the date and little on numbers, and the site is unidentified; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2237567",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q61100",
+      "title": {
+        "zh": "奇维塔特战役",
+        "en": "Battle of Civitate"
+      },
+      "start": 1053,
+      "end": 1053,
+      "lat": 41.733333,
+      "lon": 15.266667,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1053年6月18日，欧特维尔的亨佛瑞率诺曼骑兵在意大利南部的奇维塔特击败教宗良九世组织的施瓦本、伦巴第与意大利联军。诺曼人先以一部牵制联军主力，再以重骑兵冲击并击溃对方，教宗随后被俘。此役迫使教廷承认诺曼人在南意大利的地位。",
+        "en": "On 18 June 1053 Humphrey of Hauteville's Norman cavalry defeated a Swabian, Lombard and Italian army raised by Pope Leo IX at Civitate in southern Italy. The Normans fixed the allied centre, broke it with a heavy cavalry charge and then took the pope prisoner. The defeat forced the papacy to accept the Norman presence in the south."
+      },
+      "significance": {
+        "zh": "奇维塔特之战使诺曼征服南意大利获得教廷默许，为西西里王国的建立铺路。",
+        "en": "Civitate won tacit papal acceptance for the Norman conquest of southern Italy and prepared the way for the kingdom of Sicily."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Civitate（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Civitate",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 奇維塔特戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%A5%87%E7%B6%AD%E5%A1%94%E7%89%B9%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力与战场确切位置均有争议，诺曼骑兵人数常被估为三千；本条只保留年份精度。",
+        "en": "The size of both armies and the exact battlefield are disputed, with Norman horse commonly estimated at about 3,000; this entry keeps year precision."
+      },
+      "wikidataQid": "Q61100",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2394344",
+      "title": {
+        "zh": "萨明之战",
+        "en": "Battle of Sarmin"
+      },
+      "start": 1115,
+      "end": 1115,
+      "lat": 35.9,
+      "lon": 36.72,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1115年9月14日，安条克公国摄政撒勒诺的罗杰率十字军与塞尔柱将领布尔苏克·伊本·布尔苏克在萨明附近会战。罗杰以一部正面牵制、主力迂回侧后突袭，塞尔柱军队阵形崩溃被迫撤退。此役保住了安条克公国在叙利亚北部的地位，罗杰因此战声望大增。",
+        "en": "On 14 September 1115 Roger of Salerno, regent of Antioch, met the Seljuk commander Bursuq ibn Bursuq near Sarmin. Roger fixed the Seljuks in front and attacked their flank and rear with his main body, breaking their formation and forcing a retreat. The victory preserved the principality of Antioch in northern Syria."
+      },
+      "significance": {
+        "zh": "萨明之战击退了塞尔柱对安条克的最后一次大规模进攻，巩固了十字军诸国的北部边界。",
+        "en": "Sarmin repulsed the last major Seljuk offensive against Antioch and secured the northern frontier of the crusader states."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Sarmin（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Sarmin",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 萨明之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%90%A8%E6%98%8E%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "此役又称第一次特勒达尼特之战，与1119年的哈布之战（第二次特勒达尼特）区分；双方兵力数字出自不同编年史；本条只保留年份精度。",
+        "en": "The battle is also called the first Battle of Tell Danith, distinct from the Battle of Hab of 1119, and the army sizes come from differing chronicles; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2394344",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1192616",
+      "title": {
+        "zh": "迪德格里战役",
+        "en": "Battle of Didgori"
+      },
+      "start": 1121,
+      "end": 1121,
+      "lat": 41.683333,
+      "lon": 44.516667,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1121年8月，格鲁吉亚国王大卫四世在第比利斯以西的迪德格里迎战伊尔加齐率领的塞尔柱军队。格鲁吉亚军以地形限制对方机动，先以少量部队诱敌深入，再用主力夹击，取得决定性胜利。战后格鲁吉亚收复第比利斯并将其恢复为首都，开启所谓黄金时代。",
+        "en": "In August 1121 King David IV of Georgia met the Seljuk army of Ilghazi at Didgori, west of Tbilisi. The Georgians used the narrow ground to limit enemy manoeuvre, drew the Seljuks in with a small force and then struck with their main body. The victory let Georgia retake Tbilisi and restore it as the capital."
+      },
+      "significance": {
+        "zh": "迪德格里之战结束了塞尔柱对格鲁吉亚的宗主权，被视为格鲁吉亚黄金时代的开端。",
+        "en": "Didgori ended Seljuk overlordship over Georgia and is treated as the beginning of the Georgian Golden Age."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Didgori（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Didgori",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 迪德格里战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%BF%AA%E5%BE%B7%E6%A0%BC%E9%87%8C%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "英文维基与多数英文著述记为8月12日，中文维基记为8月21日；本条只保留1121年的年份精度。",
+        "en": "English Wikipedia and most accounts give 12 August, Chinese Wikipedia gives 21 August; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1192616",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1887494",
+      "title": {
+        "zh": "以仁王举兵",
+        "en": "Battle of Uji (1180)"
+      },
+      "start": 1180,
+      "end": 1180,
+      "lat": 34.880833333,
+      "lon": 135.779444444,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1180年，后白河法皇之子以仁王发布令旨，号召各国源氏与寺社讨伐平氏，并与源赖政一同起兵。事泄后二人退往宇治，在平等院一带与平家军队交战，源赖政战死，以仁王在逃亡途中被杀。举兵虽迅速失败，却引发各地反平氏起兵，源赖政之子源仲纲等也在战斗中阵亡。",
+        "en": "In 1180 Prince Mochihito, son of the cloistered emperor Go-Shirakawa, called on the Minamoto and the temples to rise against the Taira and took up arms with Minamoto no Yorimasa. Their plan was discovered; they withdrew to Uji, fought the Taira near Byodo-in, and Yorimasa was killed while the prince was caught in flight. The rising failed but sparked revolt."
+      },
+      "significance": {
+        "zh": "以仁王的令旨使反平氏起兵获得名义，直接开启了治承寿永之乱与源平合战。",
+        "en": "Mochihito's call gave the anti-Taira rising legitimacy and opened the Genpei War."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Uji (1180)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Uji_(1180)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 以仁王舉兵（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E4%BB%A5%E4%BB%81%E7%8E%8B%E8%88%89%E5%85%B5",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "以仁王举兵与第一次宇治之战在日文与中文史料中常被合记，也有分记的处理；本条只保留年份精度。",
+        "en": "Japanese and Chinese accounts often treat Mochihito's rising and the first battle of Uji as one event and sometimes separately; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1887494",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q939358",
+      "title": {
+        "zh": "第一次霍姆斯战役",
+        "en": "First Battle of Homs"
+      },
+      "start": 1260,
+      "end": 1260,
+      "lat": 34.723185,
+      "lon": 36.714462,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1260年12月10日，伊儿汗国将领拜答儿率军进攻叙利亚，与霍姆斯与哈马的阿尤布王室军队及马木留克援军在霍姆斯附近会战。蒙古军被击败并被迫撤退，阿勒颇等地随后被马木留克方面收回。这是阿音札鲁特之后蒙古军在叙利亚的又一次失败。",
+        "en": "On 10 December 1260 an Ilkhanate force under Baidar advanced into Syria and was defeated near Homs by the Ayyubid princes of Homs and Hama with Mamluk reinforcements. The Mongols withdrew and Aleppo and other towns returned to Mamluk control. It was a second Mongol failure in Syria after Ain Jalut."
+      },
+      "significance": {
+        "zh": "第一次霍姆斯之战证明阿音札鲁特并非偶然，伊儿汗国短期内难以在叙利亚立足。",
+        "en": "First Homs showed that Ain Jalut was no accident and that the Ilkhanate could not hold Syria at that point."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — First Battle of Homs（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/First_Battle_of_Homs",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 第一次霍姆斯戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9C%8D%E5%A7%86%E6%96%AF%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "蒙古军兵力（数千至万余）与叙方联军规模在不同史料中差异较大；本条只保留年份精度。",
+        "en": "Mongol strength, given as a few thousand to over ten thousand, and the size of the Syrian coalition differ between sources; this entry keeps year precision."
+      },
+      "wikidataQid": "Q939358",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2237622",
+      "title": {
+        "zh": "弘安之役",
+        "en": "Battle of Kōan"
+      },
+      "start": 1281,
+      "end": 1281,
+      "lat": 33.6251,
+      "lon": 130.3328,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1281年夏，元朝与高丽再度出兵征日，东路军与江南军分两路进攻九州，在博多湾一带与日军激战。日军依托石垒抵御，元军未能取得登陆突破，两路舰队会合后遭台风重创，残部撤回。日本称这次台风为神风，第二次元日战争以失败告终，元朝此后未再组织跨海征日。",
+        "en": "In the summer of 1281 Yuan China and Goryeo again invaded Japan with two fleets that attacked Kyushu and fought the Japanese around Hakata Bay. The defenders held behind stone walls and the invaders failed to break through; after the fleets joined, a typhoon destroyed much of them and the survivors withdrew. Japan called the storm kamikaze."
+      },
+      "significance": {
+        "zh": "弘安之役的失败使元朝放弃征服日本，也强化了日本镰仓幕府的防御体制与神国观念。",
+        "en": "The failure of the second invasion ended Yuan attempts to conquer Japan and strengthened the Kamakura shogunate's defensive system."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Kōan（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_K%C5%8Dan",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 元日战争（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%BC%98%E5%AE%89%E4%B9%8B%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "元军规模与船只数量在后世记载中从数千艘到十万余艘不等，普遍认为夸大；本条只保留年份精度。",
+        "en": "Later accounts give Yuan fleets of anything from several thousand to over 100,000 ships and are widely considered inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2237622",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2726734",
+      "title": {
+        "zh": "第二次霍姆斯战役",
+        "en": "Second Battle of Homs"
+      },
+      "start": 1281,
+      "end": 1281,
+      "lat": 34.723185,
+      "lon": 36.714462,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1281年10月29日，伊儿汗国军队在阿八哈汗之弟蒙哥帖木儿率领下进攻叙利亚，与嘉拉温苏丹的马木留克军队在霍姆斯附近会战。蒙古军一度击破马木留克左翼，但其右翼被击溃、主将受伤后撤，全军退兵。伊儿汗国夺取叙利亚的企图再次失败。",
+        "en": "On 29 October 1281 an Ilkhanate army under Möngke Temür, brother of Abaqa Khan, invaded Syria and met the Mamluks of Sultan Qalawun near Homs. The Mongols broke the Mamluk left but their own right collapsed and their commander withdrew wounded, ending the campaign. The Ilkhanate again failed to take Syria."
+      },
+      "significance": {
+        "zh": "第二次霍姆斯之战使马木留克王朝保住叙利亚，伊儿汗国的西进至此长期停滞。",
+        "en": "The second battle of Homs kept Syria in Mamluk hands and checked the Ilkhanate's westward expansion for a generation."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Second Battle of Homs（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Second_Battle_of_Homs",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 第二次霍姆斯戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9C%8D%E5%A7%86%E6%96%AF%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力（伊儿汗国约五万、马木留克数目不详）出自不同史料，亚美尼亚与格鲁吉亚盟军数字亦不一致；本条只保留年份精度。",
+        "en": "The Mongol force is usually put at about 50,000 while Mamluk numbers are unrecorded, and figures for the Armenian and Georgian contingents also differ; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2726734",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1137980",
+      "title": {
+        "zh": "拉文纳战役 (1512年)",
+        "en": "Battle of Ravenna (1512)"
+      },
+      "start": 1512,
+      "end": 1512,
+      "lat": 44.41666667,
+      "lon": 12.2,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1512年4月11日，法国与费拉拉联军在拉文纳城外与西班牙、教宗联军会战。法军以火炮集中轰击并投入敕令骑士冲击，击溃对方步兵方阵，取得胜利。但法军统帅讷穆尔公爵加斯东·德·富瓦在追击中阵亡，法军随后被迫撤出意大利，此役也预示了步兵方阵在火炮面前的脆弱。",
+        "en": "On 11 April 1512 a French and Ferrarese army fought a Spanish and papal force outside Ravenna. Concentrated artillery fire and a charge of gendarmes broke the opposing infantry and won the field, but the French commander Gaston de Foix, Duke of Nemours, was killed in the pursuit and the French soon had to withdraw from Italy."
+      },
+      "significance": {
+        "zh": "拉文纳之战是意大利战争中火炮决定野战的首批战例之一，双方的惨重伤亡也预示了战术变革。",
+        "en": "Ravenna was one of the first Italian Wars battles decided by field artillery and its heavy casualties pointed to a tactical turning point."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Ravenna (1512)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Ravenna_(1512)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 拉文納戰役 (1512年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%8B%89%E6%96%87%E7%B4%8D%E6%88%B0%E5%BD%B9_(1512%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方伤亡数字各来源从数千到两万余不等，普遍被认为夸大；本条只保留年份精度。",
+        "en": "Casualty figures range from a few thousand to over twenty thousand and are widely considered inflated; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1137980",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1300742",
+      "title": {
+        "zh": "弗洛登战役",
+        "en": "Battle of Flodden"
+      },
+      "start": 1513,
+      "end": 1513,
+      "lat": 55.62693,
+      "lon": -2.1753,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1513年9月9日，苏格兰国王詹姆斯四世为履行与法国的同盟，率军越过边境进入英格兰北部，在诺森伯兰的弗洛登原野与萨里伯爵的英军交战。苏格兰军以长矛方阵进攻不利地形，被英军长弓与火炮击溃，詹姆斯四世与大批贵族阵亡，苏格兰此后长期无力再发动大规模入侵。",
+        "en": "On 9 September 1513 James IV of Scotland invaded northern England to honour his alliance with France and met the Earl of Surrey's army at Flodden Field in Northumberland. Scottish pike formations attacked over difficult ground and were broken by English archery and artillery; James IV and much of the Scottish nobility were killed."
+      },
+      "significance": {
+        "zh": "弗洛登是英格兰与苏格兰之间规模最大的会战，苏格兰精锐与贵族阶层在此战中损失殆尽。",
+        "en": "Flodden was the largest battle ever fought between England and Scotland and destroyed much of the Scottish military elite."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Flodden（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Flodden",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 弗洛登战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%BC%97%E6%B4%9B%E7%99%BB%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力（苏格兰约三万、英格兰约两万六千）为现代估算，史料数字更大；本条只保留年份精度。",
+        "en": "Modern estimates of about 30,000 Scots and 26,000 English are lower than the figures in contemporary accounts; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1300742",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1425362",
+      "title": {
+        "zh": "卡哈马卡战役",
+        "en": "Battle of Cajamarca"
+      },
+      "start": 1532,
+      "end": 1532,
+      "lat": -7.156944444,
+      "lon": -78.5175,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1532年11月16日，皮萨罗率不足两百名西班牙人在印加帝国北部城市卡哈马卡设伏，俘虏皇帝阿塔瓦尔帕并屠杀其随从。印加军队因皇帝被擒而失去指挥，西班牙人以赎金换取黄金白银后仍处死阿塔瓦尔帕。此役开启了西班牙征服秘鲁的进程。",
+        "en": "On 16 November 1532 Francisco Pizarro ambushed the Inca emperor Atahualpa at Cajamarca with fewer than two hundred Spaniards, seizing him and killing thousands of his attendants. The Inca army, leaderless, withdrew; after taking a room full of gold and silver as ransom the Spaniards executed Atahualpa. The conquest of Peru had begun."
+      },
+      "significance": {
+        "zh": "卡哈马卡以极少兵力擒获印加皇帝，是美洲征服中最具决定性的伏击战之一。",
+        "en": "Cajamarca captured the Inca emperor with a tiny force and ranks among the most decisive ambushes of the conquest of the Americas."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Cajamarca（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Cajamarca",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 卡哈马卡战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8D%A1%E5%93%88%E9%A9%AC%E5%8D%A1%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "广场上被杀的随从人数在不同史料中从两千到八千不等，另有学者主张称为卡哈马卡屠杀；本条只保留年份精度。",
+        "en": "Death tolls in the plaza range from 2,000 to 8,000 in different accounts and some scholars prefer to call the event a massacre; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1425362",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q233414",
+      "title": {
+        "zh": "第二次帕尼帕特战役",
+        "en": "Second Battle of Panipat"
+      },
+      "start": 1556,
+      "end": 1556,
+      "lat": 29.39,
+      "lon": 76.97,
+      "region": "south-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1556年11月5日，莫卧儿皇帝阿克巴的摄政白拉姆汗率军在德里以北的帕尼帕特迎战苏尔王朝将领赫穆。赫穆军数量占优并拥有火炮，莫卧儿军以侧翼突击打乱其阵形，赫穆受伤被俘后处死。莫卧儿军随后重占德里与阿格拉，巩固了阿克巴的统治。",
+        "en": "On 5 November 1556 the Mughal regent Bairam Khan met the army of Hemu, a general of the Sur dynasty, at Panipat north of Delhi. Hemu's larger force had artillery, but a Mughal flank attack broke his line; Hemu was wounded, captured and killed. The Mughals then retook Delhi and Agra and secured Akbar's throne."
+      },
+      "significance": {
+        "zh": "帕尼帕特一战使莫卧儿王朝在胡马雍死后免于覆亡，重新确立了对北印度的统治。",
+        "en": "Panipat saved the young Mughal dynasty after Humayun's death and re-established its rule over northern India."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Second Battle of Panipat（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Second_Battle_of_Panipat",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 第二次帕尼帕特之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B8%95%E5%B0%BC%E5%B8%95%E7%89%B9%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "赫穆的兵力在不同著述中从数万到十万不等，火炮数量亦无定论；本条只保留年份精度。",
+        "en": "Estimates of Hemu's army range from tens of thousands to 100,000 and the number of guns is disputed; this entry keeps year precision."
+      },
+      "wikidataQid": "Q233414",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q349422",
+      "title": {
+        "zh": "桶狭间之战",
+        "en": "Battle of Okehazama"
+      },
+      "start": 1560,
+      "end": 1560,
+      "lat": 35.059972222,
+      "lon": 136.980777777,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1560年6月，东海道大名今川义元率大军进入尾张国，织田信长在暴雨中率少数亲兵突袭今川军本阵，今川义元阵亡。战后今川氏迅速衰落，织田信长转而扩张势力，逐步控制京都周边，为其日后主导日本政局奠定基础，此战也成为战国史上以寡击众的著名战例。",
+        "en": "In June 1560 the Imagawa warlord Yoshimoto marched into Owari province with a far larger army. Oda Nobunaga attacked his headquarters in a rainstorm with a small force and killed him. The Imagawa clan declined rapidly while Nobunaga expanded towards Kyoto, laying the base for his later dominance of central Japan."
+      },
+      "significance": {
+        "zh": "桶狭间之战是日本战国以寡击众的著名战例，也是织田信长崛起的起点。",
+        "en": "Okehazama is the classic case of a smaller force defeating a larger one in the Sengoku period and the starting point of Nobunaga's rise."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Okehazama（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Okehazama",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 桶狹間之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%A1%B6%E7%8B%B9%E9%96%93%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "交战日按公历记为6月12日，按旧历记为永禄三年五月十九日，今川军兵力估算从两万五千到四万五千不等；本条只保留年份精度。",
+        "en": "The date is 12 June in the Gregorian calendar and the nineteenth day of the fifth month in the lunar calendar, and Imagawa's army is estimated at 25,000 to 45,000; this entry keeps year precision."
+      },
+      "wikidataQid": "Q349422",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2346041",
+      "title": {
+        "zh": "博塞茹尔堡战役",
+        "en": "Battle of Fort Beauséjour"
+      },
+      "start": 1755,
+      "end": 1755,
+      "lat": 45.86550833,
+      "lon": -64.29079167,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1755年6月3日至16日，蒙克顿中校率英军从劳伦斯堡出发围攻希格内克托地峡的博塞茹尔堡，法军小规模驻军在炮击后投降。英军由此控制地峡，切断魁北克与路易斯堡之间的联系，并随即开始驱逐阿卡迪亚居民，阿卡迪亚人被大批迁往英属北美各地。",
+        "en": "From 3 to 16 June 1755 a British force under Lieutenant-Colonel Robert Monckton besieged Fort Beausejour on the Isthmus of Chignecto and its small French garrison surrendered after bombardment. Britain thereby controlled the isthmus, cut the link between Quebec and Louisbourg and began the deportation of the Acadians."
+      },
+      "significance": {
+        "zh": "博塞茹尔堡之战结束了勒卢特尔神父之战，并直接引出对阿卡迪亚人的大规模驱逐。",
+        "en": "Fort Beausejour ended Father Le Loutre's War and led directly to the mass deportation of the Acadians."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Fort Beauséjour（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Fort_Beaus%C3%A9jour",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 博塞茹爾堡之戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%8D%9A%E5%A1%9E%E8%8C%B9%E7%88%BE%E5%A0%A1%E4%B9%8B%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "围攻起止日期与法军投降时间各来源略有差异，守军人数约一百五十至二百人；本条只保留年份精度。",
+        "en": "Sources differ slightly on the siege dates and the surrender, and the garrison numbered about 150 to 200; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2346041",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q524828",
+      "title": {
+        "zh": "莫农加希拉河战役",
+        "en": "Battle of the Monongahela"
+      },
+      "start": 1755,
+      "end": 1755,
+      "lat": 40.442,
+      "lon": -80.011,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1755年7月9日，布拉多克少将率英军向杜肯堡进军，在莫农加希拉河畔遭法国与加拿大部队及原住民联军伏击。英军以线式队形在林地中陷入混乱，布拉多克重伤身亡，远征失败。此役使俄亥俄河谷的战事进一步升级，英军此后改以更谨慎的方式推进。",
+        "en": "On 9 July 1755 General Edward Braddock's British force marching on Fort Duquesne was ambushed on the Monongahela by French and Canadian troops with Native American allies. Linear formations broke down in the woods, Braddock was mortally wounded and the expedition collapsed. The defeat escalated the contest for the Ohio valley."
+      },
+      "significance": {
+        "zh": "莫农加希拉之战使英军在北美开局受挫，并暴露了欧洲线式战术在北美林地的局限。",
+        "en": "The Monongahela checked the British opening campaign in North America and exposed the limits of European linear tactics in woodland."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of the Monongahela（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_the_Monongahela",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 莫農加希拉戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%8E%AB%E8%BE%B2%E5%8A%A0%E5%B8%8C%E6%8B%89%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "法方兵力约九百人且多为原住民战士，英军约一千三百人，双方伤亡数字各来源不一；本条只保留年份精度。",
+        "en": "The French force of about 900 was mostly Native American warriors and the British numbered about 1,300, with casualty figures varying by source; this entry keeps year precision."
+      },
+      "wikidataQid": "Q524828",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q379346",
+      "title": {
+        "zh": "蒂珀卡努战役",
+        "en": "Battle of Tippecanoe"
+      },
+      "start": 1811,
+      "end": 1811,
+      "lat": 40.505092,
+      "lon": -86.845467,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1811年11月7日，印第安纳领地总督威廉·亨利·哈里森率美军在蒂珀卡努河附近遭滕斯克瓦塔瓦领导的部落联盟夜袭，双方激战后部落武装撤退。美军随后焚毁先知镇，特库姆塞的联盟受到重创，但土地冲突反而加速，最终导向1812年战争。",
+        "en": "On 7 November 1811 US forces under Indiana governor William Henry Harrison were attacked at dawn near the Tippecanoe river by Tenskwatawa's tribal confederacy. After heavy fighting the warriors withdrew and the Americans burned Prophetstown. Tecumseh's confederacy was weakened, but the land conflict deepened and led towards the War of 1812."
+      },
+      "significance": {
+        "zh": "蒂珀卡努之战摧毁了先知镇，也把美国与西北部原住民部落的冲突推向1812年战争。",
+        "en": "Tippecanoe destroyed Prophetstown and pushed the conflict between the United States and the northwestern tribes towards the War of 1812."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Tippecanoe（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Tippecanoe",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 蒂珀卡努战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%92%82%E7%8F%80%E5%8D%A1%E5%8A%AA%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "谁先开火与双方伤亡数字均有争议，哈里森一方的伤亡约为六十余人；本条只保留年份精度。",
+        "en": "Who fired first and the casualty totals are both disputed, with American losses at about sixty; this entry keeps year precision."
+      },
+      "wikidataQid": "Q379346",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q200682",
+      "title": {
+        "zh": "昆士顿高地战役",
+        "en": "Battle of Queenston Heights"
+      },
+      "start": 1812,
+      "end": 1812,
+      "lat": 43.161944444,
+      "lon": -79.050555555,
+      "region": "americas",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1812年10月13日，美军少将范伦塞拉尔率正规军与纽约民兵从刘易斯顿渡过尼亚加拉河，进攻上加拿大的昆士顿高地。英军少将布洛克在反击中阵亡，谢弗接任指挥后击退美军，对岸民兵拒绝渡河支援，美军残部投降。这是1812年战争首场主要会战。",
+        "en": "On 13 October 1812 General Stephen Van Rensselaer crossed the Niagara from Lewiston with US regulars and New York militia to attack Queenston Heights in Upper Canada. British Major General Isaac Brock was killed counter-attacking, Roger Hale Sheaffe took command and broke the Americans, and the militia across the river refused to cross. It was the war's first major battle."
+      },
+      "significance": {
+        "zh": "昆士顿高地之战以英军决定性胜利告终，也因布洛克阵亡成为加拿大方面纪念的战役。",
+        "en": "Queenston Heights was a decisive British victory and is remembered in Canada for the death of Isaac Brock."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Queenston Heights（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Queenston_Heights",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 昆士顿高地战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%98%86%E5%A3%AB%E9%A1%BF%E9%AB%98%E5%9C%B0%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "美军投入与伤亡数字各来源不一致，莫霍克战士参战人数亦无定论；本条只保留年份精度。",
+        "en": "Sources disagree on US troop and casualty figures and on the number of Mohawk warriors engaged; this entry keeps year precision."
+      },
+      "wikidataQid": "Q200682",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1193959",
+      "title": {
+        "zh": "鸟羽伏见之战",
+        "en": "Battle of Toba–Fushimi"
+      },
+      "start": 1868,
+      "end": 1868,
+      "lat": 35.011666666,
+      "lon": 135.768055555,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1868年1月27日至30日，支持明治天皇的新政府军与德川幕府军在京都南郊的鸟羽、伏见一带交战。政府军以萨摩、长州、土佐等藩兵为主，击退幕府军并迫使其退往大阪。此役是戊辰战争的开端，也是幕府权威迅速崩解的标志，德川庆喜随后从大阪撤回江户。",
+        "en": "From 27 to 30 January 1868 the forces of the new Meiji government and the Tokugawa shogunate fought at Toba and Fushimi south of Kyoto. Satsuma, Choshu and Tosa troops repulsed the shogunate army and drove it back towards Osaka. The battle opened the Boshin War and marked the rapid collapse of shogunate authority."
+      },
+      "significance": {
+        "zh": "鸟羽伏见之战使新政府掌握军事主动，随后以官军名义推进，戊辰战争由此展开。",
+        "en": "Toba-Fushimi gave the new government the initiative as the imperial army and began the Boshin War."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Toba–Fushimi（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Toba%E2%80%93Fushimi",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 鸟羽伏见之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%B8%9F%E7%BE%BD%E4%BC%8F%E8%A7%81%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "公历日期为1月27日至30日，旧历为庆应三年十二月，部分日文著述按旧历记年；本条只保留年份精度。",
+        "en": "The fighting is dated 27 to 30 January 1868 in the Gregorian calendar and falls in the twelfth month of Keio 3 in the lunar calendar; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1193959",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1788393",
+      "title": {
+        "zh": "城山之战",
+        "en": "Battle of Shiroyama"
+      },
+      "start": 1877,
+      "end": 1877,
+      "lat": 31.597222222,
+      "lon": 130.549722222,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1877年9月24日，日本西南战争的最后一战在鹿儿岛城山展开。西乡隆盛率残余萨摩藩士据守城山，遭山县有朋指挥的政府军包围。政府军以炮击与优势兵力发起总攻，萨军抵抗数小时后被歼灭，西乡隆盛阵亡。武士阶级主导的叛乱至此终结。",
+        "en": "On 24 September 1877 the last battle of the Satsuma Rebellion was fought at Shiroyama in Kagoshima. Saigo Takamori's remaining samurai, besieged by government troops under Yamagata Aritomo, were attacked with artillery and overwhelming numbers and destroyed within hours; Saigo died. Armed resistance by the samurai class ended."
+      },
+      "significance": {
+        "zh": "城山之战终结了西南战争，也标志着明治政府完成对武士阶层武装反抗的镇压。",
+        "en": "Shiroyama ended the Satsuma Rebellion and completed the Meiji government's suppression of samurai armed resistance."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Shiroyama（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Shiroyama",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 城山之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9F%8E%E5%B1%B1%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "西乡隆盛的死因有战死、自尽与介错诸说，萨军参战人数亦无确切记载；本条只保留年份精度。",
+        "en": "Saigo's death is variously described as killed in action or ritual suicide, and the number of defenders is not securely recorded; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1788393",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q383067",
+      "title": {
+        "zh": "萨拉加希之战",
+        "en": "Battle of Saragarhi"
+      },
+      "start": 1897,
+      "end": 1897,
+      "lat": 33.55474665,
+      "lon": 70.886904138,
+      "region": "south-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1897年9月12日，英属印度锡克团第36团21名士兵驻守的萨拉加希哨所被奥拉克扎伊与阿夫里迪部落武装包围。守军在伊沙尔·辛格带领下拒绝投降，全部阵亡，哨所随后被部落武装占领。两天后英印军队夺回该地，21人获追授勋章，该哨所是当时英印军边境通信链的一环。",
+        "en": "On 12 September 1897 the Saragarhi outpost held by twenty-one Sikh soldiers of the 36th Sikhs of British India was surrounded by Orakzai and Afridi tribesmen. Led by Havildar Ishar Singh the garrison refused to surrender and was killed to the last man. British Indian troops retook the post two days later and all twenty-one were decorated."
+      },
+      "significance": {
+        "zh": "萨拉加希成为英属印度军队与今日印度陆军的标志性战例，用于纪念军人的坚守与牺牲。",
+        "en": "Saragarhi became an emblematic action for the British Indian Army and for the present Indian Army, commemorated for holding to the last."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Saragarhi（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Saragarhi",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 萨拉加希之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%90%A8%E6%8B%89%E5%8A%A0%E5%B8%8C%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "进攻方人数（约一万至一万四千）为后世估算，守军全部阵亡前坚持的时长各说不同；本条只保留年份精度。",
+        "en": "Attacker numbers of about 10,000 to 14,000 are later estimates and the duration of the defence varies by account; this entry keeps year precision."
+      },
+      "wikidataQid": "Q383067",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1137302",
+      "title": {
+        "zh": "恩图曼战役",
+        "en": "Battle of Omdurman"
+      },
+      "start": 1898,
+      "end": 1898,
+      "lat": 15.751945,
+      "lon": 32.520132,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1898年9月2日，基奇纳统率的英埃远征军在苏丹恩图曼以北的凯雷里击败马赫迪国军队，哈里发阿卜杜拉希的部队在马克沁机枪与炮火下损失惨重。英埃军队随后占领恩图曼，马赫迪国崩溃，英国与埃及得以重新控制苏丹，英军阵亡不足五十人。",
+        "en": "On 2 September 1898 a British and Egyptian expeditionary force under Kitchener defeated the army of the Mahdist state at Kerreri, north of Omdurman in Sudan. The Khalifa Abdallahi's troops suffered heavily under Maxim guns and artillery, and the fall of Omdurman ended Mahdist power and returned Sudan to Anglo-Egyptian control."
+      },
+      "significance": {
+        "zh": "恩图曼之战终结了马赫迪国，也展示了机枪时代对传统冲击战术的压倒性优势。",
+        "en": "Omdurman destroyed the Mahdist state and showed the overwhelming effect of machine guns on massed charges."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Omdurman（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Omdurman",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 恩圖曼戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%81%A9%E5%9C%96%E6%9B%BC%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "马赫迪军阵亡数字（约一万至三万）出自不同来源，差异较大；本条只保留年份精度。",
+        "en": "Mahdist casualty estimates range from about 10,000 to 30,000 depending on the source; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1137302",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2661859",
+      "title": {
+        "zh": "槟城海战",
+        "en": "Battle of Penang"
+      },
+      "start": 1914,
+      "end": 1914,
+      "lat": 5.43333333,
+      "lon": 100.33333333,
+      "region": "southeast-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1914年10月28日，德国东亚舰队的埃姆登号轻巡洋舰突袭槟威海峡，击沉俄国防护巡洋舰珍珠号与法国驱逐舰火枪号，造成一百三十余名法俄水兵丧生，随后安全撤离。埃姆登号此前的印度洋破交作战已牵制大量协约国军舰，此次袭击进一步打击了协约国航运信心。",
+        "en": "On 28 October 1914 the German light cruiser SMS Emden raided Penang harbour in the Straits of Malacca, sinking the Russian protected cruiser Zhemchug and the French destroyer Mousquet and killing more than 130 Allied sailors before escaping. The attack followed months of commerce raiding in the Indian Ocean that had tied down many Allied warships."
+      },
+      "significance": {
+        "zh": "槟城海战是第一次世界大战远东战区最著名的海战之一，暴露了协约国港口防御的疏漏。",
+        "en": "Penang was one of the best-known naval actions in the Far East during the First World War and exposed gaps in Allied port defence."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Penang（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Penang",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 檳城海戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%AA%B3%E5%9F%8E%E6%B5%B7%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "死亡人数各来源为一百三十至一百四十余人，珍珠号弹药库爆炸的原因亦无定论；本条只保留年份精度。",
+        "en": "Death tolls range from about 130 to the mid-140s and the cause of the Zhemchug's magazine explosion is disputed; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2661859",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q2665626",
+      "title": {
+        "zh": "贝尔谢巴战役",
+        "en": "Battle of Beersheba (1917)"
+      },
+      "start": 1917,
+      "end": 1917,
+      "lat": 31.249772222,
+      "lon": 34.799708333,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1917年10月31日，英帝国埃及远征军进攻奥斯曼帝国据守的内盖夫重镇贝尔谢巴。澳新骑兵在炮击与步兵配合下发起冲锋，夺取城内水井，奥斯曼守军退却。此役打开了南巴勒斯坦攻势的通道，为随后占领加沙与耶路撒冷铺路，骑兵冲锋也成为一战史上的著名战例。",
+        "en": "On 31 October 1917 the British Empire's Egyptian Expeditionary Force attacked Beersheba, a key Ottoman-held town in the Negev. Australian light horse charged the defences with artillery and infantry support and seized the town's wells, and the Ottoman garrison withdrew. The victory opened the southern Palestine offensive towards Gaza and Jerusalem."
+      },
+      "significance": {
+        "zh": "贝尔谢巴之战为英军突破加沙—贝尔谢巴防线取得水源与侧翼，改变了巴勒斯坦战局。",
+        "en": "Beersheba gave the British water and a flank beyond the Gaza line and changed the course of the Palestine campaign."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Beersheba (1917)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Beersheba_(1917)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 貝爾謝巴戰役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%B2%9D%E7%88%BE%E8%AC%9D%E5%B7%B4%E6%88%B0%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "骑兵冲锋的具体兵力与奥斯曼守军人数各来源略有差异，水井未被破坏是战役结果的关键；本条只保留年份精度。",
+        "en": "Sources differ slightly on the size of the mounted charge and the Ottoman garrison, and the intact wells decided the outcome; this entry keeps year precision."
+      },
+      "wikidataQid": "Q2665626",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q199371",
+      "title": {
+        "zh": "米吉多战役 (1918年)",
+        "en": "Battle of Megiddo (1918)"
+      },
+      "start": 1918,
+      "end": 1918,
+      "lat": 32.4,
+      "lon": 34.883,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1918年9月19日至25日，艾伦比指挥的埃及远征军在巴勒斯坦沙龙平原突破奥斯曼军队防线，随后以骑兵向纵深追击。奥斯曼第七、第八集团军迅速瓦解，数万人被俘，英军先后攻占德拉、大马士革与阿勒颇。此役结束了奥斯曼在叙利亚与巴勒斯坦的统治。",
+        "en": "From 19 to 25 September 1918 Allenby's Egyptian Expeditionary Force broke the Ottoman lines on the Sharon plain in Palestine and pursued with cavalry into the interior. The Ottoman Seventh and Eighth Armies collapsed and tens of thousands were taken prisoner, after which the British took Deraa, Damascus and Aleppo. Ottoman rule in Syria and Palestine ended."
+      },
+      "significance": {
+        "zh": "米吉多战役是西奈与巴勒斯坦战役的收官之战，直接导致奥斯曼帝国在中东战区的崩溃。",
+        "en": "Megiddo closed the Sinai and Palestine campaign and caused the collapse of Ottoman power in the Middle East theatre."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Megiddo (1918)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Megiddo_(1918)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 米吉多戰役 (1918年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%B1%B3%E5%90%89%E5%A4%9A%E6%88%B0%E5%BD%B9_(1918%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "战役以米吉多命名，但米吉多附近实际交战不多，被俘人数各来源为两万五千至七万五千不等；本条只保留年份精度。",
+        "en": "The battle is named after Megiddo although little fighting occurred there, and prisoner figures range from 25,000 to 75,000; this entry keeps year precision."
+      },
+      "wikidataQid": "Q199371",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q791185",
+      "title": {
+        "zh": "阿帕兰战役",
+        "en": "Battle of Abaran"
+      },
+      "start": 1918,
+      "end": 1918,
+      "lat": 40.589114,
+      "lon": 44.357214,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1918年5月，奥斯曼军队在占领亚历山德罗波尔后向埃里温推进，亚美尼亚国民议会部队在阿帕兰一带阻击。亚美尼亚方面以约六千人在山口设防，经数日激战迫使奥斯曼军队停止前进。此役与萨达拉巴德、卡拉基利萨的胜利一道，为亚美尼亚第一共和国赢得空间。",
+        "en": "In May 1918 Ottoman forces advancing on Yerevan after taking Alexandropol were checked by Armenian national forces at Bash Abaran. About six thousand Armenians held the defiles in several days of fighting and stopped the advance. Together with Sardarabad and Karakilisa the victory gave the First Republic of Armenia room to be founded."
+      },
+      "significance": {
+        "zh": "阿帕兰是1918年高加索战役中阻止奥斯曼军队深入东亚美尼亚的三次胜利之一。",
+        "en": "Abaran was one of the three 1918 victories in the Caucasus that stopped the Ottoman advance into eastern Armenia."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Abaran（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Abaran",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 阿帕兰战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B8%95%E5%85%B0%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "奥斯曼兵力（约一万三千，含库尔德与土耳其非正规武装）与亚美尼亚兵力均为战时估算；本条只保留年份精度。",
+        "en": "Ottoman strength of about 13,000, including Kurdish and Turkish irregulars, and the Armenian numbers are wartime estimates; this entry keeps year precision."
+      },
+      "wikidataQid": "Q791185",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q994316",
+      "title": {
+        "zh": "麦塞隆战役",
+        "en": "Battle of Maysalun"
+      },
+      "start": 1920,
+      "end": 1920,
+      "lat": 33.59555556,
+      "lon": 36.06472222,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1920年7月24日，法国黎凡特军队在反黎巴嫩山脉的麦塞隆山口击败阿拉伯叙利亚王国的军队，战斗仅数小时。叙方指挥官优素福·阿兹马战死，法军随后占领大马士革，费萨尔一世被逐。这次失败终结了阿拉伯人自起义以来建立的独立政权。",
+        "en": "On 24 July 1920 French forces of the Army of the Levant defeated the army of the Arab Kingdom of Syria at the Maysalun pass in the Anti-Lebanon mountains in a battle lasting only hours. The Syrian commander Yusuf al-Azma was killed, the French occupied Damascus and Faisal I was expelled, ending the short-lived Arab kingdom."
+      },
+      "significance": {
+        "zh": "麦塞隆之战终结了阿拉伯叙利亚王国，也确立了法国对叙利亚与黎巴嫩的委任统治。",
+        "en": "Maysalun ended the Arab Kingdom of Syria and confirmed the French mandate over Syria and Lebanon."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Maysalun（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Maysalun",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 麦塞隆战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%BA%A6%E5%A1%9E%E9%9A%86%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方兵力数字（叙方数千、法方数万）出自不同记述，战斗时长一般记为四小时；本条只保留年份精度。",
+        "en": "Accounts differ on the size of both forces and the fighting is generally given as four hours; this entry keeps year precision."
+      },
+      "wikidataQid": "Q994316",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q709333",
+      "title": {
+        "zh": "第一次长沙战役",
+        "en": "Battle of Changsha (1939)"
+      },
+      "start": 1939,
+      "end": 1939,
+      "lat": 28.2,
+      "lon": 112.967,
+      "region": "east-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1939年9月至10月，日军第11军从赣北、鄂南、湘北三个方向进攻长沙，中国第九战区部队逐次抵抗并侧击其补给线。日军在未能围歼中国军队的情况下撤回原阵地，长沙未被占领。这是欧战爆发后日军在中国战场发动的第一次大规模攻势。",
+        "en": "From September to October 1939 the Japanese Eleventh Army advanced on Changsha from three directions. Chinese Ninth War Area troops resisted in depth and struck at Japanese supply lines, and the Japanese withdrew without taking the city. It was Japan's first large offensive in China after the war began in Europe."
+      },
+      "significance": {
+        "zh": "第一次长沙战役挫败了日军以攻迫降的企图，是抗战相持阶段中国军队少有的守住城市的战役。",
+        "en": "The first battle of Changsha frustrated Japan's attempt to force a settlement by attack and was a rare successful defence of a city in the stalemate phase."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Changsha (1939)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Changsha_(1939)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 第一次长沙战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%95%BF%E6%B2%99%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "日方战报与中方记载的伤亡数字相差很大，参战兵力统计亦不一致；本条只保留年份精度。",
+        "en": "Japanese and Chinese casualty and troop figures differ widely; this entry keeps year precision."
+      },
+      "wikidataQid": "Q709333",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1414998",
+      "title": {
+        "zh": "泰纳鲁河战役",
+        "en": "Battle of the Tenaru"
+      },
+      "start": 1942,
+      "end": 1942,
+      "lat": -9.422168,
+      "lon": 160.066803,
+      "region": "oceania",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1942年8月21日凌晨，日军一木支队在瓜达尔卡纳尔岛泰纳鲁河口向美军陆战队阵地发起冲锋。美军以机枪、火炮与坦克封锁渡口与沙洲，日军反复冲击后几近全灭。这是日军在瓜岛战役中第一次大规模陆上攻势，也确立了美军在该岛的防御态势。",
+        "en": "In the early hours of 21 August 1942 the Japanese Ichiki detachment charged US Marine positions at the mouth of the Tenaru on Guadalcanal. Machine guns, artillery and tanks swept the crossing and sandbar, and the attacking force was almost annihilated. It was Japan's first major land offensive of the Guadalcanal campaign."
+      },
+      "significance": {
+        "zh": "泰纳鲁河之战击退了日军第一次夺岛反攻，为美军守住亨德森机场赢得时间。",
+        "en": "The Tenaru repulsed Japan's first counter-attack on Guadalcanal and bought time for the defence of Henderson Field."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of the Tenaru（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_the_Tenaru",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 泰纳鲁河战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%B3%B0%E7%BA%B3%E9%B2%81%E6%B2%B3%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "该河在美军地图上曾标为伊鲁河，故又称伊鲁河战役或鳄鱼溪战役；日军阵亡数字各来源为七百余至九百余；本条只保留年份精度。",
+        "en": "The stream was marked as the Ilu on US maps and is also called Alligator Creek, and Japanese dead are given as 700 to over 900; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1414998",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q14303815",
+      "title": {
+        "zh": "伊特尔堡之战",
+        "en": "Battle of Castle Itter"
+      },
+      "start": 1945,
+      "end": 1945,
+      "lat": 47.470555555,
+      "lon": 12.139722222,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1945年5月5日，二战欧洲战场尾声，美军第12装甲师第23装甲营一支分队与倒戈的德国国防军少校甘格尔所部，以及刚获释的法国战俘在奥地利蒂罗尔的伊特尔堡并肩防守，击退了来袭的武装党卫军。次日美军主力赶到解围。这是战争中罕见的美德两军共同作战的战例。",
+        "en": "On 5 May 1945, in the last days of the war in Europe, a detachment of the US 12th Armored Division, Wehrmacht troops under Major Josef Gangl and recently freed French prisoners defended Castle Itter in the Austrian Tyrol against an attacking Waffen-SS force. American reinforcements relieved the castle the next day."
+      },
+      "significance": {
+        "zh": "此役是二战中极少数美军与德国国防军并肩作战的案例，堡内被囚的法国政要也使这场小规模战斗具有政治分量。",
+        "en": "It is one of the few battles in which US and Wehrmacht troops fought on the same side, and the French VIPs held in the castle gave the small action political weight."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Castle Itter（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Castle_Itter",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 伊特尔堡之战（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E4%BC%8A%E7%89%B9%E5%B0%94%E5%A0%A1%E4%B9%8B%E6%88%98",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "中文维基把开战日写作5月4日，英文维基与多数英文著述写作5月5日；本条采用5月5日，只保留年份精度。",
+        "en": "Chinese Wikipedia dates the fighting to 4 May 1945 while English Wikipedia and most accounts give 5 May; this entry follows 5 May and keeps year precision."
+      },
+      "wikidataQid": "Q14303815",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q696931",
+      "title": {
+        "zh": "马尼拉战役 (1945年)",
+        "en": "Battle of Manila (1945)"
+      },
+      "start": 1945,
+      "end": 1945,
+      "lat": 14.58333333,
+      "lon": 120.96666667,
+      "region": "southeast-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1945年2月3日至3月3日，美军与菲律宾联军在首都马尼拉同日军展开巷战。日军拒绝撤城并大规模屠杀平民，美军炮火也将城市夷平，至少十万平民死亡。马尼拉成为太平洋战争中破坏最惨重的城市战场，日军指挥官岩渊三次在城破前自杀。",
+        "en": "From 3 February to 3 March 1945 US and Filipino troops fought Japanese forces street by street in Manila. The garrison refused to withdraw, massacred civilians and fought to destruction while American artillery levelled the city; at least 100,000 civilians died. Manila became the Pacific war's most devastated urban battlefield."
+      },
+      "significance": {
+        "zh": "马尼拉之战是太平洋战争中破坏最惨重的城市战，其平民伤亡规模成为日军战争暴行的标志性事件。",
+        "en": "It was the deadliest urban battle of the Pacific war and a defining case of mass violence against civilians."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Manila (1945)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Manila_(1945)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 馬尼拉戰役 (1945年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%A6%AC%E5%B0%BC%E6%8B%89%E6%88%B0%E5%BD%B9_(1945%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "马尼拉在1898年、1899年与1945年都有同名战事，本条专指1945年2月至3月之战，只保留年份精度。",
+        "en": "Several actions are called the Battle of Manila, in 1898, 1899 and 1945; this entry is the February to March 1945 battle and keeps year precision."
+      },
+      "wikidataQid": "Q696931",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q699093",
+      "title": {
+        "zh": "鲁尔包围战",
+        "en": "Ruhr pocket"
+      },
+      "start": 1945,
+      "end": 1945,
+      "lat": 51.466666666,
+      "lon": 7.55,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "1945年4月1日至18日，美军第1集团军与第9集团军在德国鲁尔区完成合围，围歼莫德尔元帅的B集团军群。被围德军约三十二万人投降，含二十余名将军，莫德尔在投降前自杀。此役使西线德军主力瓦解，盟军得以向东推进至易北河，被围德军大部被俘。",
+        "en": "From 1 to 18 April 1945 the US First and Ninth Armies closed a pocket around Army Group B in the Ruhr and destroyed it. About 317,000 German troops, including more than twenty generals, surrendered; Field Marshal Model killed himself rather than surrender. The battle broke the main German force in the west."
+      },
+      "significance": {
+        "zh": "鲁尔包围战是西线最大规模的围歼战，此后德军再无力组织成建制的西线防御。",
+        "en": "The Ruhr pocket was the largest encirclement in the west and left Germany unable to mount an organised defence there."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Ruhr pocket（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Ruhr_pocket",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 魯爾包圍戰（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%AD%AF%E7%88%BE%E5%8C%85%E5%9C%8D%E6%88%B0",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "被俘人数各来源在三十万至三十二万五千之间，本条采用三十二万的约数；只保留年份精度。",
+        "en": "Prisoner figures range from 300,000 to 325,000 across sources and this entry uses the approximate 317,000; it keeps year precision."
+      },
+      "wikidataQid": "Q699093",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1476042",
+      "title": {
+        "zh": "森蚺行动",
+        "en": "Operation Anaconda"
+      },
+      "start": 2002,
+      "end": 2002,
+      "lat": 33.366666666,
+      "lon": 69.183333333,
+      "region": "south-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2002年3月2日至16日，美军、中央情报局准军事人员与阿富汗盟军在帕克蒂亚省沙赫科特山谷发起森蚺行动，围歼基地组织与塔利班武装。美军首次在阿富汗投入大规模常规地面部队，但武装人员大部突围，行动效果与指挥协同受到质疑，暴露出山地协同与情报准备的不足。",
+        "en": "From 2 to 16 March 2002 US forces, CIA paramilitary officers and Afghan allies mounted Operation Anaconda against al-Qaeda and Taliban fighters in the Shah-i-Kot valley of Paktia province. It was the first large-scale use of conventional US ground troops in Afghanistan, but most of the enemy escaped and the plan and coordination were widely criticised."
+      },
+      "significance": {
+        "zh": "森蚺行动是阿富汗战争常规地面作战的开端，也成为联军情报与协同失误的典型案例。",
+        "en": "Anaconda opened conventional ground combat in Afghanistan and became a case study in intelligence and coordination failures."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Operation Anaconda（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Operation_Anaconda",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 森蚺行動（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E6%A3%AE%E8%9A%BA%E8%A1%8C%E5%8B%95",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "武装人员阵亡估计从数十到数百不等，行动日期亦有3月1日至18日的不同记法；本条只保留年份精度。",
+        "en": "Enemy dead are estimated at anywhere from a few dozen to several hundred and the operation is variously dated 1 to 18 March; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1476042",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1804983",
+      "title": {
+        "zh": "巴格达之战 (2003年)",
+        "en": "Battle of Baghdad (2003)"
+      },
+      "start": 2003,
+      "end": 2003,
+      "lat": 33.314722222,
+      "lon": 44.420833333,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2003年4月3日至9日，美军第3步兵师等部队从南面攻入巴格达，以装甲突击直插市中心，伊方正规军抵抗迅速瓦解。4月9日美军宣布控制巴格达，萨达姆雕像被拉倒。随后城市陷入抢掠，民用设施与文化遗产遭受严重破坏，联军转入占领与维稳阶段。",
+        "en": "From 3 to 9 April 2003 US forces including the 3rd Infantry Division attacked Baghdad from the south with armoured thrusts into the city centre, and organised Iraqi resistance collapsed. The city was declared under control on 9 April and Saddam's statue was pulled down. Looting then caused heavy damage to infrastructure and cultural property."
+      },
+      "significance": {
+        "zh": "巴格达之战标志着萨达姆政权的垮台，也开启了伊拉克战后长期动荡与占领阶段。",
+        "en": "Baghdad marked the fall of Saddam's government and opened the long occupation and instability that followed."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Baghdad (2003)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Baghdad_(2003)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 巴格达之战 (2003年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%B7%B4%E6%A0%BC%E8%BE%BE%E4%B9%8B%E6%88%98_(2003%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "4月3日、4月5日与4月9日分别被不同来源记作战役开始或结束，伊拉克方面伤亡无可靠统计；本条只保留年份精度。",
+        "en": "Different sources date the start or end to 3, 5 or 9 April and Iraqi casualties have no reliable count; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1804983",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q1330136",
+      "title": {
+        "zh": "第二次费卢杰战役",
+        "en": "Second Battle of Fallujah"
+      },
+      "start": 2004,
+      "end": 2004,
+      "lat": 33.35,
+      "lon": 43.78333333,
+      "region": "africa",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2004年11月7日至12月23日，美军、英军与伊拉克政府军发起代号幽灵怒火的攻势，攻入反美武装控制的费卢杰。美军以逐屋清剿推进，巷战激烈程度被比作顺化战役，武装人员大部被歼或溃散。城市在战斗中严重损毁，此后长期处于重建与动荡之中。",
+        "en": "From 7 November to 23 December 2004 US, British and Iraqi government forces launched Operation Phantom Fury against insurgent-held Fallujah. Troops cleared the city house by house in fighting compared to Hue, and most fighters were killed or dispersed. The city was severely damaged and remained unstable long afterwards."
+      },
+      "significance": {
+        "zh": "费卢杰是伊拉克战争中规模最大的城市战，也暴露了占领时期政治与军事手段的深层矛盾。",
+        "en": "Fallujah was the largest urban operation of the Iraq War and exposed the political and military contradictions of the occupation."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Second Battle of Fallujah（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Second_Battle_of_Fallujah",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 第二次费卢杰战役（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%B4%B9%E5%8D%A2%E6%9D%B0%E6%88%98%E5%BD%B9",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "反美武装死亡人数（一千余至数千）没有可靠统计，平民伤亡亦无定论；本条只保留年份精度。",
+        "en": "Insurgent deaths, variously given as about a thousand or several thousand, have no reliable count, and civilian casualties are unsettled; this entry keeps year precision."
+      },
+      "wikidataQid": "Q1330136",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q16394378",
+      "title": {
+        "zh": "围攻斯拉维扬斯克",
+        "en": "Siege of Sloviansk"
+      },
+      "start": 2014,
+      "end": 2014,
+      "lat": 48.87,
+      "lon": 37.625,
+      "region": "europe",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2014年4月12日，亲俄武装在吉尔金率领下占据顿涅茨克州的斯拉维扬斯克，乌克兰政府军随后展开围攻。经过三个月炮击与巷战，武装人员于7月5日撤离，乌军收复该市与克拉马托尔斯克。这是乌克兰危机中双方第一次大规模军事交锋，此后冲突转入顿涅茨克与卢甘斯克的长期对峙。",
+        "en": "On 12 April 2014 pro-Russian militants led by Igor Girkin seized Sloviansk in Donetsk oblast and Ukrainian forces laid siege to the city. After three months of shelling and street fighting the militants withdrew on 5 July and Ukraine retook Sloviansk and Kramatorsk. It was the first large-scale military engagement of the conflict."
+      },
+      "significance": {
+        "zh": "斯拉维扬斯克之战是顿巴斯战争的第一场大规模交锋，此后的阵地战格局由此展开。",
+        "en": "Sloviansk was the first large-scale engagement of the war in Donbas and set the pattern of the fighting that followed."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Siege of Sloviansk（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Siege_of_Sloviansk",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 圍攻斯拉維揚斯克（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E5%9C%8D%E6%94%BB%E6%96%AF%E6%8B%89%E7%B6%AD%E6%8F%9A%E6%96%AF%E5%85%8B",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "双方伤亡数字出自各自公布且差异很大，平民死亡统计亦不完整；本条只保留年份精度。",
+        "en": "Casualty figures released by both sides differ widely and civilian deaths are incompletely recorded; this entry keeps year precision."
+      },
+      "wikidataQid": "Q16394378",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q30041564",
+      "title": {
+        "zh": "马拉维危机",
+        "en": "Siege of Marawi"
+      },
+      "start": 2017,
+      "end": 2017,
+      "lat": 8,
+      "lon": 124.29,
+      "region": "southeast-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2017年5月23日，毛特组织与阿布沙耶夫武装在菲律宾棉兰老岛马拉维市发动攻击并升起伊斯兰国旗帜，政府军随即反攻。巷战持续五个月，城市大部被毁，数十万人流离失所，武装头目哈皮隆与奥马尔·毛特先后被击毙，10月23日政府宣布战斗结束。",
+        "en": "On 23 May 2017 Maute and Abu Sayyaf militants seized parts of Marawi on Mindanao in the Philippines and raised Islamic State flags, and government forces counter-attacked. The urban fighting lasted five months and destroyed much of the city; leaders Isnilon Hapilon and Omar Maute were killed and the battle was declared over on 23 October."
+      },
+      "significance": {
+        "zh": "马拉维危机是伊斯兰国在东南亚最具规模的攻势，也是菲律宾现代史上最长的城市战。",
+        "en": "Marawi was Islamic State's largest offensive in Southeast Asia and the longest urban battle in modern Philippine history."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Siege of Marawi（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Siege_of_Marawi",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 马拉维危机（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E9%A9%AC%E6%8B%89%E7%BB%B4%E5%8D%B1%E6%9C%BA",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "各方公布的武装分子与平民死亡数字差异很大，且被困平民的伤亡仍无定论；本条只保留年份精度。",
+        "en": "Official casualty figures for militants and civilians differ widely and civilian deaths remain unsettled; this entry keeps year precision."
+      },
+      "wikidataQid": "Q30041564",
+      "regionBasis": "coordinate-box"
+    },
+    {
+      "id": "v312wd-q101305942",
+      "title": {
+        "zh": "舒沙战役 (2020年)",
+        "en": "Battle of Shusha (2020)"
+      },
+      "start": 2020,
+      "end": 2020,
+      "lat": 39.76,
+      "lon": 46.7475,
+      "region": "west-central-asia",
+      "category": "war",
+      "precision": "year",
+      "locationType": "site",
+      "summary": {
+        "zh": "2020年11月，纳戈尔诺-卡拉巴赫战争中，阿塞拜疆军队向舒沙发起进攻，与亚美尼亚及阿尔察赫部队在城区和周边山地激战数日。11月8日阿塞拜疆宣布控制舒沙，随后三方签署停火协议，亚美尼亚方面交出一批周边地区。舒沙的易手被视为这场战争的决定性转折。",
+        "en": "In November 2020, during the Second Nagorno-Karabakh War, Azerbaijani forces attacked Shusha and fought Armenian and Artsakh troops in the town and surrounding hills for several days. Azerbaijan declared control of Shusha on 8 November, a ceasefire agreement followed, and Armenia handed over several surrounding districts. The fall of Shusha decided the war."
+      },
+      "significance": {
+        "zh": "舒沙俯瞰斯捷潘纳克特，其易手直接促成停火协议，是第二次纳卡战争的转折点。",
+        "en": "Shusha overlooks Stepanakert, and its capture led directly to the ceasefire and decided the Second Nagorno-Karabakh War."
+      },
+      "sources": [
+        {
+          "title": "Wikipedia — Battle of Shusha (2020)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Shusha_(2020)",
+          "accessedAt": "2026-10-03"
+        },
+        {
+          "title": "维基百科 — 舒沙戰役 (2020年)（CC BY-SA 4.0，2026-10-03 本会话读取）",
+          "url": "https://zh.wikipedia.org/wiki/%E8%88%92%E6%B2%99%E6%88%B0%E5%BD%B9_(2020%E5%B9%B4)",
+          "accessedAt": "2026-10-03"
+        }
+      ],
+      "editorialNotes": {
+        "zh": "交战起止日期与双方伤亡在不同来源中差异较大，11月8日为阿塞拜疆宣布控制该城之日；本条只保留年份精度。",
+        "en": "Sources differ on the start and end of the fighting and on casualties, and 8 November is the date Azerbaijan declared control; this entry keeps year precision."
+      },
+      "wikidataQid": "Q101305942",
+      "regionBasis": "coordinate-box"
+    }
+  ]
+}
