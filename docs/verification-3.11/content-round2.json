@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "round": "3.11-task-4",
+  "generatedAt": "2026-10-02T20:09:20.863Z",
+  "cityNarratives": {
+    "before": {
+      "entries": 12,
+      "sources": 39,
+      "boundRecords": 40
+    },
+    "after": {
+      "entries": 15,
+      "sources": 48,
+      "boundRecords": 46
+    },
+    "added": [
+      "city-anuradhapura",
+      "city-teotihuacan",
+      "city-hampi"
+    ],
+    "excluded": [
+      {
+        "candidate": "kilwa",
+        "reason": "no record in any shipped place dataset; chandler:715 from the research file does not exist in this snapshot"
+      }
+    ]
+  },
+  "events": {
+    "before": 378,
+    "after": 392,
+    "added": 14,
+    "ids": [
+      "v311-skara-brae",
+      "v311-ban-chiang",
+      "v311-carnac",
+      "v311-catalhoyuk",
+      "v311-newgrange",
+      "v311-dong-son",
+      "v311-pgw",
+      "v311-nabta-playa",
+      "v311-meadowcroft",
+      "v311-hoabinhian",
+      "v311-iron-age-spread",
+      "v311-polynesian-voyaging",
+      "v311-agriculture-origins",
+      "v311-bronze-age-networks"
+    ]
+  },
+  "balance": {
+    "thinCellsBefore": 27,
+    "thinCellsAfter": 25,
+    "zeroCellsBefore": 10,
+    "zeroCellsAfter": 1,
+    "remainingZeroCells": [
+      "oceania × classical"
+    ]
+  },
+  "sources": {
+    "checked": 54,
+    "passed": 54,
+    "modes": {
+      "live-content-verified": 25,
+      "live-fetch-200": 2,
+      "live-fetch-200-content-unparsed": 1,
+      "host-blocked": 25,
+      "unreachable": 1
+    }
+  },
+  "validatorChanges": [
+    "entries/sources counts now derived from the data with minimum-coverage assertions",
+    "bound-record total now summed from the dossiers and tied to the binding-rule count",
+    "55 regression cases untouched"
+  ],
+  "validators": {
+    "validate.mjs": "PASS",
+    "validate-v2.mjs": "PASS",
+    "validate-places.mjs": "PASS",
+    "validate-city-time.mjs": "PASS",
+    "validate-city-narratives.mjs": "PASS 10/10",
+    "validate-place-corrections.mjs": "PASS",
+    "validate-polity-period.mjs": "PASS",
+    "validate-release.mjs": "PASS"
+  },
+  "browserChecks": [
+    "chandler:73@622",
+    "modelski-ancient:12@200",
+    "chandler:1404@500",
+    "chandler:1510@1500"
+  ]
+}

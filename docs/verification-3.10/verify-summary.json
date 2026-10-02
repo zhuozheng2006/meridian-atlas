@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-10-02T20:24:12.823Z",
+  "command": "node scripts/verification/run-all.mjs --summary-only",
+  "mode": "summary-only (reports read from disk, scripts not re-run)",
+  "meta": {
+    "provenance": {
+      "gitHead": "8cd713112794d0821ae6749574c591e597f6f654",
+      "dirtyPaths": [
+        "M docs/verification-3.10/geometry-fidelity.md",
+        " M docs/verification-3.10/mobile-check.json",
+        " M docs/verification-3.10/network-resilience.json",
+        " M docs/verification-3.10/ohm-1500.md",
+        " M docs/verification-3.10/perf-baseline.json",
+        " M docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-layers.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
+        " M docs/verification-3.10/shots/network-404-error.png",
+        " M docs/verification-3.10/shots/network-offline-error.png",
+        " M docs/verification-3.10/shots/network-recovered.png",
+        " M docs/verification-3.10/shots/network-slow-3g-400kbps.png",
+        " M docs/verification-3.10/shots/network-slow-4g-1.6mbps.png",
+        " M docs/verification-3.10/shots/network-wifi-4mbps.png",
+        " M docs/verification-3.10/shots/perf-after-drag.png",
+        " M docs/verification-3.10/shots/perf-compare-open.png",
+        " M docs/verification-3.10/shots/perf-desktop-1500.png",
+        " M docs/verification-3.10/shots/perf-year-1510.png",
+        " M docs/verification-3.10/shots/review-ohm-1500-alps.png",
+        " M docs/verification-3.10/verify-boundary-review.json",
+        " M docs/verification-3.11/content-balance.json",
+        " M scripts/verification/build-report-md.mjs",
+        " M scripts/verification/independent-review.mjs",
+        " M scripts/verification/mobile-check.mjs",
+        " M scripts/verification/perf-baseline.mjs",
+        " M scripts/verification/run-all.mjs",
+        "?? docs/verification-3.10/shots/review-native-1503.png",
+        "?? docs/verification-3.10/verify-baseline.md",
+        "?? docs/verification-3.10/verify-notes.md",
+        "?? docs/verification-3.10/verify-summary.json",
+        "?? docs/verification-3.11/content-round2.json",
+        "?? docs/verification-3.11/content-round2.md",
+        "?? docs/verification-3.11/shots/verify-lead-baseline-overview-1500.jpg",
+        "?? docs/verification-3.11/shots/verify-lead-mobile-360x740.jpg",
+        "?? docs/verification-3.11/shots/verify-lead-mobile-390x844.jpg",
+        "?? docs/verification-3.11/shots/verify-lead-reader-nan-madol.jpg",
+        "?? docs/verification-3.11/shots/verify-lead-workspace-overview-1500.jpg",
+        "?? docs/verification-3.11/shots/verify-lead-workspace-overview-1900.jpg",
+        "?? editorial/enrichment-narratives-3.12.json"
+      ],
+      "assetVersion": "3.10.0-6af5167ed72f",
+      "files": {
+        "public/index.html": "af77ead8f3d2a76a",
+        "public/app.js": "ebee22bb57d11a4f",
+        "public/map-engine.js": "2e9a7f59658193b0",
+        "public/timeline-controls.js": "b3954150517b0a12",
+        "public/view-state.js": "1b57cdfe210a7322",
+        "public/style.css": "95f5e8ac64efeda8",
+        "public/product.css": "2631908c806f7e1e",
+        "public/cartography.css": "0d6529a4e2e5463b",
+        "public/boundary-controller.js": "a3177e6595106833",
+        "public/regional-boundaries.js": "3bf76038fc306ce1",
+        "public/geography.js": "27c12a277aa10035"
+      },
+      "node": "v26.7.0",
+      "platform": "darwin",
+      "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+    },
+    "systemAtEnd": {
+      "loadavg": [
+        16.74,
+        12.88,
+        11.46
+      ],
+      "chromeProcesses": 31,
+      "cpus": 18
+    }
+  },
+  "results": [
+    {
+      "script": "perf-baseline.mjs",
+      "exitCode": null,
+      "wallMs": null,
+      "reportPath": "docs/verification-3.10/perf-baseline.json",
+      "checks": {
+        "total": 7,
+        "passed": 7,
+        "failed": 0,
+        "notMeasured": 0
+      },
+      "fatal": null,
+      "generatedAt": "2026-10-02T20:07:37.502Z",
+      "provenance": {
+        "gitHead": "8cd713112794d0821ae6749574c591e597f6f654",
+        "assetVersion": "3.10.0-6af5167ed72f"
+      }
+    },
+    {
+      "script": "keyboard-focus.mjs",
+      "exitCode": null,
+      "wallMs": null,
+      "reportPath": "docs/verification-3.10/keyboard-focus.json",
+      "checks": {
+        "total": 25,
+        "passed": 25,
+        "failed": 0,
+        "notMeasured": 0
+      },
+      "fatal": null,
+      "generatedAt": "2026-10-02T20:01:15.186Z",
+      "provenance": {
+        "gitHead": "963275b1ea2b992421aa27928a1ac04b1e16bd7e",
+        "assetVersion": "3.10.0-6af5167ed72f"
+      }
+    },
+    {
+      "script": "mobile-check.mjs",
+      "exitCode": null,
+      "wallMs": null,
+      "reportPath": "docs/verification-3.10/mobile-check.json",
+      "checks": {
+        "total": 20,
+        "passed": 20,
+        "failed": 0,
+        "notMeasured": 0
+      },
+      "fatal": null,
+      "generatedAt": "2026-10-02T20:22:08.740Z",
+      "provenance": {
+        "gitHead": "8cd713112794d0821ae6749574c591e597f6f654",
+        "assetVersion": "3.10.0-6af5167ed72f"
+      }
+    },
+    {
+      "script": "offline-weaknet.mjs",
+      "exitCode": null,
+      "wallMs": null,
+      "reportPath": "docs/verification-3.10/network-resilience.json",
+      "checks": {
+        "total": 10,
+        "passed": 10,
+        "failed": 0,
+        "notMeasured": 0
+      },
+      "fatal": null,
+      "generatedAt": "2026-10-02T20:09:46.425Z",
+      "provenance": {
+        "gitHead": "8cd713112794d0821ae6749574c591e597f6f654",
+        "assetVersion": "3.10.0-6af5167ed72f"
+      }
+    },
+    {
+      "script": "independent-review.mjs",
+      "exitCode": null,
+      "wallMs": null,
+      "reportPath": "docs/verification-3.10/verify-boundary-review.json",
+      "checks": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0,
+        "notMeasured": 0
+      },
+      "fatal": null,
+      "generatedAt": "2026-10-02T20:16:56.021Z",
+      "provenance": {
+        "gitHead": "8cd713112794d0821ae6749574c591e597f6f654",
+        "assetVersion": "3.10.0-6af5167ed72f"
+      }
+    }
+  ],
+  "failedScripts": [],
+  "reportsWithFailingChecks": [],
+  "conclusion": "All verification scripts completed with every measured assertion passing."
+}

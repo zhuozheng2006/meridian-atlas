@@ -139,19 +139,35 @@ try {
   const opacityValues = Array.isArray(opacitySpec) && opacitySpec[0] === 'interpolate' ? opacitySpec.slice(3).filter((x, i) => i % 2 === 1 && typeof x === 'number') : [];
   check('review.territory-opacity-calibrated', 'In overview mode the territory fill is a zoom interpolation whose stops stay between 0.15 and 0.6', Array.isArray(opacitySpec) && opacitySpec[0] === 'interpolate' && opacityValues.length > 0 && Math.min(...opacityValues) >= 0.15 && Math.max(...opacityValues) <= 0.6, { overviewExpression: opacitySpec, numericStops: opacityValues, regionalModeValue: st.territoryOpacity, docSays: '0.53 to 0.30' });
   const ov = report.ohmView || {};
-  check('review.ohm-frozen-served-to-page', 'The page fetched the shipped frozen OHM file and built its layers', report.ohmRequests.length > 0 && (ov.layers || []).length > 0 && ov.hasSource === true, { requests: report.ohmRequests, layers: ov.layers, ohmLayerReadyMs });
+  check('review.ohm-frozen-served-to-page', 'The page fetched the shipped frozen OHM file and built its layers', report.ohmRequests.length > 0 && (ov.layers || []).length > 0 && ov.hasSource === true, { requests: report.ohmRequests, layers: ov.layers, ohmLayerReadyMs: ohmReadyMs });
   check('review.ohm-positive-control', 'Positive control: the frozen extract renders polygons over the Low Countries (the layer is not globally empty)', typeof ov.atLowCountries === 'number' ? ov.atLowCountries > 0 : null, { atLowCountries: ov.atLowCountries, renderedInViewport: ov.rendered, sourceFeatures: ov.sourceFeatures });
   check('review.ohm-alps-coverage-measured', 'Measured coverage at Bern (Alps): recorded against the fidelity doc claim of a blank detail view', true, { atBern: ov.atBern, renderedInViewport: ov.rendered, sourceFeatures: ov.sourceFeatures, badge: ov.badge, regionalStatus: ov.regionalStatus });
-  check('review.gap-notice-visible', 'The UI exposes the missing-polity notice and lists the gaps', !!(ov.gapNotice && ov.gapNotice.visible && (ov.gapNotice.items || []).length > 0), ov.gapNotice || null);
+  // The "missing polities" list is rendered inside the regional archive index, which
+  // opens from the badge; the map view itself only carries the "空白处未收录" badge text.
+  let gapIndex = null;
+  try {
+    await click(s, '.regional-badge');
+    await sleep(2500);
+    gapIndex = await evaluate(s, "(() => { const note = document.querySelector('.boundary-source-note'); const popup = document.querySelector('.regional-popup, .regional-index, .maplibregl-popup'); return { found: !!note, visible: note ? note.getClientRects().length > 0 : false, summary: note ? ((note.querySelector('summary') || {}).textContent || null) : null, items: note ? [...note.querySelectorAll('dt')].map(e => e.textContent) : [], popupText: popup ? popup.textContent.replace(/\\s+/g, ' ').slice(0, 240) : null }; })()");
+    await click(s, '.regional-badge');
+    await sleep(600);
+  } catch (e) { gapIndex = { error: String(e.message || e) }; }
+  report.gapIndex = gapIndex;
+  check('review.gap-notice-visible', 'The archive index lists the missing polities with the source snapshot note', !!(gapIndex && gapIndex.found && (gapIndex.items || []).length > 0), gapIndex);
 
   // 2b. Border toggle must hide/show the new halo layer too.
+  await click(s, '#layersBtn'); // #bordersBtn lives inside the layer panel
+  await sleep(500);
+  const panelOpen = await evaluate(s, 'document.querySelector("#layerPanel").hidden === false');
   await click(s, '#bordersBtn');
-  await sleep(600);
+  await sleep(800);
   const off = await evaluate(s, STYLE_EXPR);
   await click(s, '#bordersBtn');
-  await sleep(600);
+  await sleep(800);
   const on = await evaluate(s, STYLE_EXPR);
-  report.borderToggle = { off: { territories: off.territoriesVis, boundary: off.boundaryVis, halo: off.haloVis }, on: { territories: on.territoriesVis, boundary: on.boundaryVis, halo: on.haloVis } };
+  await click(s, '#layerClose');
+  await sleep(300);
+  report.borderToggle = { panelOpen, off: { territories: off.territoriesVis, boundary: off.boundaryVis, halo: off.haloVis }, on: { territories: on.territoriesVis, boundary: on.boundaryVis, halo: on.haloVis } };
   check('review.borders-toggle-syncs-halo', 'Turning borders off hides the halo as well, turning them on restores every boundary layer', off.territoriesVis === 'none' && off.boundaryVis === 'none' && off.haloVis === 'none' && on.territoriesVis === 'visible' && on.boundaryVis === 'visible' && on.haloVis === 'visible', report.borderToggle);
 
   // 2c. 1503 native-geometry claim (non-bootstrap year, same camera).
@@ -188,7 +204,7 @@ report.conclusions = [
   'Rendered OHM polygons at Bern = ' + ((report.ohmView || {}).atBern) + '; Low Countries positive control = ' + ((report.ohmView || {}).atLowCountries) + '; badge = ' + JSON.stringify((report.ohmView || {}).badge),
   'Layer stack: relief index ' + ((report.style || {}).reliefIndex) + ' < territories ' + ((report.style || {}).territoriesIndex) + '; boundary-halo ' + ((report.style || {}).haloIndex) + ' < boundary ' + ((report.style || {}).boundaryIndex) + '.',
   'Territory fill opacity expression: ' + JSON.stringify((report.style || {}).territoryOpacityExpression) + ' (the fidelity doc says "0.53 to 0.30"; source constant territoryOpacity is 0.5/0.42/0.3/0.2 and regional mode sets 0.53/0.4/0.2).',
-  '1503 native steady state: reported after ' + ((report.native1503 || {}).ms) + ' ms with ' + ((report.native1503 || {}).nativeRequests) + ' native geometry requests out of ' + ((report.native1503 || {}).totalRequests) + ' total (doc claims 208 responses / ~12 s).'
+  '1503 native steady state (second load in the same renderer, so subresources come from the in-memory cache; the doc figure of ~12 s refers to a cold load): reported after ' + ((report.native1503 || {}).ms) + ' ms with ' + ((report.native1503 || {}).nativeRequests) + ' native geometry requests out of ' + ((report.native1503 || {}).totalRequests) + ' total (doc claims 208 responses / ~12 s).'
 ];
 const file = C.writeJSON(OUT, report);
 const failed = report.checks.filter(c => c.pass === false);

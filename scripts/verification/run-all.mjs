@@ -10,13 +10,14 @@ import { spawnSync } from 'node:child_process';
 import * as C from './lib/common.mjs';
 
 const args = C.parseArgs();
-const ALL = ['perf-baseline.mjs', 'keyboard-focus.mjs', 'mobile-check.mjs', 'offline-weaknet.mjs'];
+const ALL = ['perf-baseline.mjs', 'keyboard-focus.mjs', 'mobile-check.mjs', 'offline-weaknet.mjs', 'independent-review.mjs'];
 const scripts = args.only ? String(args.only).split(',').map(s => s.endsWith('.mjs') ? s : s + '.mjs') : ALL;
 const reports = {
   'perf-baseline.mjs': 'docs/verification-3.10/perf-baseline.json',
   'keyboard-focus.mjs': 'docs/verification-3.10/keyboard-focus.json',
   'mobile-check.mjs': 'docs/verification-3.10/mobile-check.json',
-  'offline-weaknet.mjs': 'docs/verification-3.10/network-resilience.json'
+  'offline-weaknet.mjs': 'docs/verification-3.10/network-resilience.json',
+  'independent-review.mjs': 'docs/verification-3.10/verify-boundary-review.json'
 };
 const results = [];
 for (const script of scripts) {
@@ -43,7 +44,7 @@ for (const script of scripts) {
     } catch (e) { entry.checks = { error: String(e.message || e) }; }
   }
   results.push(entry);
-  C.log(script, 'exit', r.status, entry.checks ? JSON.stringify(entry.checks) : '');
+  C.log(script, args['summary-only'] ? 'summary' : 'exit ' + entry.exitCode, entry.checks ? JSON.stringify(entry.checks) : '');
 }
 const summary = {
   generatedAt: C.nowIso(),

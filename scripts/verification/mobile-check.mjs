@@ -176,8 +176,9 @@ async function profileRun(p, port) {
       const withInset = await evaluate(s, EXPR.safeArea);
       const timelineBox = await evaluate(s, EXPR.box('#timeline'));
       safeAreaOverride = 'applied(bottom:34px)';
-      out.states.safeAreaWithInset = { computed: withInset, timelineBox };
-      checks.push(C.checkFn('mobile.' + p.name + '.safe-area', 'With an emulated 34 px home-indicator inset the bottom UI is not covered', v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1, { supportsEnv: withInset.supportsEnv, timelinePaddingBottom: withInset.timeline.paddingBottom, timelineBottom: withInset.timeline.bottom, innerHeight: p.height, insetBottom: 34, timelineBottomVsInset: withInset.timeline ? withInset.timeline.bottom - (p.height - 34) : null, note: 'no env(safe-area-inset-*) rule exists in public/*.css and the viewport meta has no viewport-fit=cover; the layout box shrinks instead of the app drawing into the safe area' }));
+      const safeBefore = out.safeArea;
+      out.states.safeAreaWithInset = { computed: withInset, timelineBox, before: safeBefore };
+      checks.push(C.checkFn('mobile.' + p.name + '.safe-area', 'With an emulated 34 px home-indicator inset the bottom UI is not covered and its padding grows by the inset', v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1 && v.paddingBefore !== v.paddingAfter, { supportsEnv: withInset.supportsEnv, paddingBefore: safeBefore ? safeBefore.timeline.paddingBottom : null, paddingAfter: withInset.timeline.paddingBottom, timelineBottom: withInset.timeline.bottom, innerHeight: p.height, insetBottom: 34, timelineBottomVsInset: withInset.timeline ? withInset.timeline.bottom - (p.height - 34) : null, viewportMeta: out.layout.viewportMeta }));
       await s.send('Emulation.setSafeAreaInsetsOverride', { insets: { top: 0, left: 0, bottom: 0, right: 0 } });
     } catch (e) {
       safeAreaOverride = 'unsupported: ' + String(e.message || e);
@@ -197,11 +198,15 @@ for (let i = 0; i < PROFILES.length; i++) {
   report.profiles[PROFILES[i].name] = out;
   report.checks.push(...checks);
 }
+// Findings are derived from this run's measurements, never hard-coded.
+const p0 = report.profiles[PROFILES[0].name] || {};
+const inset = p0.states && p0.states.safeAreaWithInset;
+const tap = p0.states && p0.states.timelineTap;
 report.findings = (report.findings || []).concat([
-  'safe-area: index.html declares <meta name="viewport" content="width=device-width,initial-scale=1"> without viewport-fit=cover, and no public/*.css rule references env(safe-area-inset-*) (grep count 0). With a 34 px bottom inset emulated through CDP, #timeline still ends above the inset (measured -17 px overlap), but the app cannot use the safe-area space and relies on the browser to inset the layout viewport.',
-  'Timeline step default: a URL without a step parameter shows a step selector of 1 year, so #nextYear advances one year on a fresh mobile load.'
+  'safe-area (measured, not hard-coded): viewport meta = ' + JSON.stringify((p0.layout || {}).viewportMeta) + '; #timeline padding-bottom ' + ((p0.safeArea || {}).timeline ? p0.safeArea.timeline.paddingBottom : '?') + ' with no inset -> ' + (inset ? inset.computed.timeline.paddingBottom : 'not measured') + ' with a 34 px emulated bottom inset; timeline bottom ' + (inset && inset.timelineBox ? inset.timelineBox.bottom : '?') + ' vs inset edge ' + (PROFILES[0].height - 34) + '.',
+  'Timeline step: on a fresh mobile URL without a step parameter the selector reads ' + (tap ? tap.step : '?') + ' and tapping #nextYear moved ' + (tap ? tap.before : '?') + ' -> ' + (tap ? tap.after : '?') + '.'
 ]);
-report.notes.push('Viewport meta tag: ' + JSON.stringify((report.profiles[PROFILES[0].name] || {}).layout && report.profiles[PROFILES[0].name].layout.viewportMeta) + ' - it does not declare viewport-fit=cover and public/*.css contains no env(safe-area-inset-*) rule (grep count 0).');
+report.notes.push('Viewport meta measured in the page: ' + JSON.stringify(((report.profiles[PROFILES[0].name] || {}).layout || {}).viewportMeta) + '.');
 report.limitations.push('No physical device: Chrome device emulation reproduces viewport, DPR and touch events, not iOS Safari behaviour (rubber-band scrolling, dynamic toolbar, real safe-area insets).');
 report.limitations.push('Pinch-zoom, double-tap zoom and virtual-keyboard resizing were not measured.');
 

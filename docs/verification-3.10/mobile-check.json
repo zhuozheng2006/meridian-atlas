@@ -1,6 +1,6 @@
 {
   "report": "mobile-check.mjs",
-  "generatedAt": "2026-10-02T19:25:31.419Z",
+  "generatedAt": "2026-10-02T20:22:08.740Z",
   "command": "node scripts/verification/mobile-check.mjs",
   "target": {
     "url": "http://127.0.0.1:8767",
@@ -11,41 +11,55 @@
   },
   "meta": {
     "provenance": {
-      "gitHead": "963275b1ea2b992421aa27928a1ac04b1e16bd7e",
+      "gitHead": "8cd713112794d0821ae6749574c591e597f6f654",
       "dirtyPaths": [
-        "M docs/verification-3.10/content-balance.json",
-        " M docs/verification-3.10/keyboard-focus.json",
+        "M docs/verification-3.10/geometry-fidelity.md",
+        " M docs/verification-3.10/mobile-check.json",
         " M docs/verification-3.10/network-resilience.json",
-        " M scripts/ohm/browser-check-ohm-1500.mjs",
-        " M scripts/ohm/build-ohm-1500.mjs",
+        " M docs/verification-3.10/ohm-1500.md",
+        " M docs/verification-3.10/perf-baseline.json",
+        " M docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-layers.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
+        " M docs/verification-3.10/shots/network-404-error.png",
+        " M docs/verification-3.10/shots/network-offline-error.png",
+        " M docs/verification-3.10/shots/network-recovered.png",
+        " M docs/verification-3.10/shots/network-slow-3g-400kbps.png",
+        " M docs/verification-3.10/shots/network-slow-4g-1.6mbps.png",
+        " M docs/verification-3.10/shots/network-wifi-4mbps.png",
+        " M docs/verification-3.10/shots/perf-after-drag.png",
+        " M docs/verification-3.10/shots/perf-compare-open.png",
+        " M docs/verification-3.10/shots/perf-desktop-1500.png",
+        " M docs/verification-3.10/shots/perf-year-1510.png",
+        " M docs/verification-3.10/shots/review-ohm-1500-alps.png",
+        " M docs/verification-3.10/verify-boundary-review.json",
+        " M docs/verification-3.11/content-balance.json",
+        " M scripts/verification/build-report-md.mjs",
         " M scripts/verification/independent-review.mjs",
-        " M scripts/verification/keyboard-focus.mjs",
-        " M scripts/verification/lib/common.mjs",
         " M scripts/verification/mobile-check.mjs",
-        " M scripts/verification/offline-weaknet.mjs",
-        "?? docs/VALIDATION-3.10.md",
-        "?? docs/verification-3.10/shots/keyboard-reader-focus.png",
-        "?? docs/verification-3.10/shots/network-404-error.png",
-        "?? docs/verification-3.10/shots/network-offline-error.png",
-        "?? docs/verification-3.10/shots/network-recovered.png",
-        "?? docs/verification-3.10/shots/network-slow-3g-400kbps.png",
-        "?? docs/verification-3.10/shots/network-slow-4g-1.6mbps.png",
-        "?? scripts/ohm/coverage.mjs",
-        "?? scripts/verification/build-report-md.mjs"
+        " M scripts/verification/perf-baseline.mjs",
+        " M scripts/verification/run-all.mjs",
+        "?? docs/verification-3.10/shots/review-native-1503.png",
+        "?? docs/verification-3.10/verify-baseline.md",
+        "?? docs/verification-3.10/verify-notes.md",
+        "?? docs/verification-3.10/verify-summary.json",
+        "?? docs/verification-3.11/content-round2.json",
+        "?? docs/verification-3.11/content-round2.md"
       ],
-      "assetVersion": "3.10.0-c015c93dc10c",
+      "assetVersion": "3.10.0-6af5167ed72f",
       "files": {
-        "public/index.html": "4198f7c9baac7330",
-        "public/app.js": "101cbf7a5e5d23ab",
-        "public/map-engine.js": "e85aaf36896323bb",
+        "public/index.html": "af77ead8f3d2a76a",
+        "public/app.js": "ebee22bb57d11a4f",
+        "public/map-engine.js": "2e9a7f59658193b0",
         "public/timeline-controls.js": "b3954150517b0a12",
         "public/view-state.js": "1b57cdfe210a7322",
         "public/style.css": "95f5e8ac64efeda8",
         "public/product.css": "2631908c806f7e1e",
         "public/cartography.css": "0d6529a4e2e5463b",
-        "public/boundary-controller.js": "af791777b79ac924",
-        "public/regional-boundaries.js": "cf8aab8d71a25a71",
-        "public/geography.js": "c2689fd5de8e35fb"
+        "public/boundary-controller.js": "a3177e6595106833",
+        "public/regional-boundaries.js": "3bf76038fc306ce1",
+        "public/geography.js": "27c12a277aa10035"
       },
       "node": "v26.7.0",
       "platform": "darwin",
@@ -236,16 +250,17 @@
     },
     {
       "id": "mobile.iphone-14-390x844.safe-area",
-      "description": "With an emulated 34 px home-indicator inset the bottom UI is not covered",
-      "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1",
+      "description": "With an emulated 34 px home-indicator inset the bottom UI is not covered and its padding grows by the inset",
+      "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1 && v.paddingBefore !== v.paddingAfter",
       "observed": {
         "supportsEnv": true,
-        "timelinePaddingBottom": "38px",
+        "paddingBefore": "4px",
+        "paddingAfter": "38px",
         "timelineBottom": 793,
         "innerHeight": 844,
         "insetBottom": 34,
         "timelineBottomVsInset": -17,
-        "note": "no env(safe-area-inset-*) rule exists in public/*.css and the viewport meta has no viewport-fit=cover; the layout box shrinks instead of the app drawing into the safe area"
+        "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
       },
       "pass": true
     },
@@ -428,16 +443,17 @@
     },
     {
       "id": "mobile.android-360x740.safe-area",
-      "description": "With an emulated 34 px home-indicator inset the bottom UI is not covered",
-      "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1",
+      "description": "With an emulated 34 px home-indicator inset the bottom UI is not covered and its padding grows by the inset",
+      "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1 && v.paddingBefore !== v.paddingAfter",
       "observed": {
         "supportsEnv": true,
-        "timelinePaddingBottom": "38px",
+        "paddingBefore": "4px",
+        "paddingAfter": "38px",
         "timelineBottom": 689,
         "innerHeight": 740,
         "insetBottom": 34,
         "timelineBottomVsInset": -17,
-        "note": "no env(safe-area-inset-*) rule exists in public/*.css and the viewport meta has no viewport-fit=cover; the layout box shrinks instead of the app drawing into the safe area"
+        "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
       },
       "pass": true
     }
@@ -447,7 +463,7 @@
     "Pinch-zoom, double-tap zoom and virtual-keyboard resizing were not measured."
   ],
   "notes": [
-    "Viewport meta tag: \"width=device-width,initial-scale=1,viewport-fit=cover\" - it does not declare viewport-fit=cover and public/*.css contains no env(safe-area-inset-*) rule (grep count 0)."
+    "Viewport meta measured in the page: \"width=device-width,initial-scale=1,viewport-fit=cover\"."
   ],
   "profiles": {
     "iphone-14-390x844": {
@@ -605,7 +621,7 @@
           "step": 10,
           "settled": {
             "settled": true,
-            "elapsed": 29,
+            "elapsed": 17,
             "pollMs": 300
           },
           "nextYearBox": {
@@ -734,10 +750,27 @@
             "hidden": false,
             "scrollHeight": 156,
             "clientHeight": 156
+          },
+          "before": {
+            "supportsEnv": true,
+            "timeline": {
+              "paddingBottom": "4px",
+              "paddingTop": "10px",
+              "bottom": 793,
+              "height": 157
+            },
+            "layerPanel": {
+              "paddingBottom": "19px",
+              "paddingTop": "19px",
+              "bottom": 0,
+              "height": 0
+            },
+            "bodyPaddingBottom": "0px",
+            "htmlPaddingBottom": "0px"
           }
         }
       },
-      "readyMs": 5772,
+      "readyMs": 5198,
       "ready": {
         "ok": true,
         "afterQuietRecheck": false,
@@ -968,7 +1001,7 @@
           "step": 10,
           "settled": {
             "settled": true,
-            "elapsed": 15,
+            "elapsed": 4,
             "pollMs": 300
           },
           "nextYearBox": {
@@ -1097,10 +1130,27 @@
             "hidden": false,
             "scrollHeight": 156,
             "clientHeight": 156
+          },
+          "before": {
+            "supportsEnv": true,
+            "timeline": {
+              "paddingBottom": "4px",
+              "paddingTop": "10px",
+              "bottom": 689,
+              "height": 157
+            },
+            "layerPanel": {
+              "paddingBottom": "19px",
+              "paddingTop": "19px",
+              "bottom": 0,
+              "height": 0
+            },
+            "bodyPaddingBottom": "0px",
+            "htmlPaddingBottom": "0px"
           }
         }
       },
-      "readyMs": 5829,
+      "readyMs": 5620,
       "ready": {
         "ok": true,
         "afterQuietRecheck": false,
@@ -1178,7 +1228,7 @@
     }
   },
   "findings": [
-    "safe-area: index.html declares <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> without viewport-fit=cover, and no public/*.css rule references env(safe-area-inset-*) (grep count 0). With a 34 px bottom inset emulated through CDP, #timeline still ends above the inset (measured -17 px overlap), but the app cannot use the safe-area space and relies on the browser to inset the layout viewport.",
-    "Timeline step default: a URL without a step parameter shows a step selector of 1 year, so #nextYear advances one year on a fresh mobile load."
+    "safe-area (measured, not hard-coded): viewport meta = \"width=device-width,initial-scale=1,viewport-fit=cover\"; #timeline padding-bottom 4px with no inset -> 38px with a 34 px emulated bottom inset; timeline bottom 793 vs inset edge 810.",
+    "Timeline step: on a fresh mobile URL without a step parameter the selector reads 10 and tapping #nextYear moved 1500 -> 1510."
   ]
 }

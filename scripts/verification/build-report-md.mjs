@@ -30,6 +30,8 @@ L.push('# 3.10 验证基线 · 独立实测报告');
 L.push('');
 L.push('生成时间：' + new Date().toISOString() + '。本文件由 ' + TICK + 'node scripts/verification/build-report-md.mjs' + TICK + ' 从各 JSON 报告生成，请勿手工编辑。');
 L.push('');
+L.push('结论口径、发现优先级、与现有文档不一致之处，见 [verify-notes.md](verify-notes.md)。');
+L.push('');
 L.push('- git HEAD：' + (prov.gitHead || '?') + (prov.dirtyPaths ? '（工作区另有 ' + prov.dirtyPaths.length + ' 个未提交路径）' : ''));
 L.push('- 资源版本号：' + (prov.assetVersion || '?') + '；Node ' + (prov.node || '?') + '；平台 ' + (prov.platform || '?'));
 L.push('- 驱动说明：' + (prov.driverNote || '?'));
@@ -99,6 +101,7 @@ L.push('## 需要 Lead 决策的问题');
 L.push('');
 for (const r of loaded) { for (const f of ((r.data || {}).findings || [])) L.push('- （' + r.file + '）' + f); }
 for (const r of loaded) { for (const c of (((r.data || {}).checks) || []).filter(c => c.pass === false)) L.push('- （' + r.file + '）失败断言 ' + TICK + c.id + TICK + '：' + short(c.observed, 300)); }
+for (const r of loaded) { for (const b of ((r.data || {}).bottlenecks || [])) L.push('- （' + r.file + '）瓶颈：' + b.item + ' — ' + JSON.stringify(b.detail) + ' = ' + JSON.stringify(b.value !== undefined ? b.value : (b.valueMB !== undefined ? b.valueMB : Object.fromEntries(Object.entries(b).filter(([k]) => k !== 'item' && k !== 'detail'))))); }
 L.push('');
 const file = path.isAbsolute(OUT) ? OUT : path.join(C.ROOT, OUT);
 C.ensureDirs(path.dirname(file));
