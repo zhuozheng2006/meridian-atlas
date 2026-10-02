@@ -1,7 +1,9 @@
 {
   "status": "passed",
-  "checks": 15,
+  "checks": 17,
   "results": [
+    "Fixed binary fixture decodes area, identity and every unchanged coordinate delta",
+    "Corrupt, truncated and oversized binary lake data fail without a partial result",
     "Area tiers change only at declared zoom thresholds",
     "Spatial selection includes date-line crossings and repeated world copies",
     "Delta decoding preserves closed rings and polygon holes",

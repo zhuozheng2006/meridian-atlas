@@ -9,7 +9,7 @@ The 3.1 update adds a worldwide lake-shore layer to the existing bilingual histo
 - All retained records were compared against original source coordinates, ring structure and vertex order. Quantized positions differ by no more than 0.078716 metres at the equator. This is encoding fidelity, **not source positional accuracy**.
 - 122 geometries retain exact floating-point coordinates because grid quantization would degrade validity. 649 remaining invalid outputs also have invalid source geometry and are listed in the manifest. No synthetic shoreline smoothing or speculative geometry repair is applied.
 - 1,115 named lake labels; 24 ID-bound Simplified Chinese translations. Interior representative points are computed from the source polygons. Unknown translations retain their source name.
-- Archive geometry shrank from 785,470,302 bytes (original-coordinate GeoJSON gzip) to 324,502,424 bytes (delta-coordinate gzip). The geographic index is 131,887 bytes.
+- Archive geometry shrank from 785,470,302 bytes (original-coordinate GeoJSON gzip) to 243,358,114 bytes (MLK1 binary gzip), with unchanged millionth-degree coordinate integers and exact floating-point exceptions. Compared with the intermediate JSON delta encoding (324,502,424 bytes), the binary transport saves 81,144,310 bytes. The geographic index is 131,739 bytes. Python and browser JavaScript decoders each compared all 1,421,001 records to the audited delta archive (`lake-binary-audit.json`, `lake-js-codec-audit.json`).
 
 ## Runtime and interaction
 
@@ -22,9 +22,9 @@ The 3.1 update adds a worldwide lake-shore layer to the existing bilingual histo
 
 ## Browser checks completed
 
-Desktop scenes at 1280×720: Lake Biwa (1600, zoom 9.1), Titicaca (1500, zoom 7.7), Victoria (1500, zoom 6.3), and Geneva (1500, zoom 8.5). Fine shores and labels were visible. The Geneva label exposed and then verified the invisible-marker collision fix. The city of Geneva retained its separate historical population observation label.
+Desktop scenes at 1280×720: Lake Biwa (1600, zoom 9.1), Titicaca (1500, zoom 7.7), Victoria (1500, zoom 6.3), Geneva (1500, zoom 8.5), and the Great Lakes (1600, zoom 5.7). Fine shores and labels were visible. The Geneva label exposed and then verified the invisible-marker collision fix. The city of Geneva retained its separate historical population observation label.
 
-On the Biwa scene, recorded lake requests were a 131,887-byte index plus 5,068-, 7,817- and 31,539-byte geometry shards: **176,311 bytes for this lake layer**, not the whole page. Local serving times are not used as claims about production network speed. After a small keyboard pan, the request count stayed at four.
+On the final binary Biwa scene, recorded lake requests were a 131,739-byte index plus 4,921-, 5,883- and 19,603-byte geometry shards: **162,146 bytes for this lake layer**, not the whole page. The final browser check showed ready status, the lake label and the same detailed shores. Local serving times are not used as claims about production network speed. After a small keyboard pan, the request count stayed at four.
 
 Right Arrow advanced 1600 to 1601 while preserving camera position. Alt+Right moved the camera from longitude 136.05 to 136.15251 while preserving 1601 and the fine lake layer. English/bilingual switching updated lake labels. Turning labels off hid them; modern reference hid the fine natural-lake labels, and switching back restored them.
 
@@ -32,8 +32,10 @@ At a 390×844 emulated viewport, DOM measurements confirmed no horizontal overfl
 
 ## Automated checks and limits
 
-`npm test` combines the existing geometry, geography, places, city chapters, keyboard and view-state suites with 15 new lake checks. It verifies every lake shard hash, feature count, encoding, ring closure, ID uniqueness and reservoir exclusion, plus the index inventory. Separate full source-coordinate comparison is saved in `lake-coordinate-audit.json`. The packaged builder was executed from the pinned raw input, and all 2,553 output files matched the published-data directory byte for byte (`lake-rebuild-audit.json`).
+`npm test` combines the existing geometry, geography, places, city chapters, keyboard and view-state suites with 17 new lake checks. It verifies every lake shard hash, feature count, encoding, ring closure, ID uniqueness and reservoir exclusion, plus the index inventory. Separate full source-coordinate comparison is saved in `lake-coordinate-audit.json`. The packaged binary builder was executed from the pinned raw input, and all 2,553 output files matched the packaged-data directory byte for byte (`lake-rebuild-audit.json`). The unchanged source-coordinate audit remains applicable because both decoders preserve the complete previously audited geometry.
 
-The static site contains 15,901 files; all remain under the 25 MiB individual file limit. There are no new browser dependencies. Build-only tools are PyShp 2.3.1 and Shapely 2.0.7.
+The first publication attempt exceeded the 256 MiB upload limit; a source-build fallback then exceeded a server string-size limit. This prompted the lossless transport optimization above. Publication status is recorded separately in the release metadata.
+
+The static site contains 15,902 files; all remain under the 25 MiB individual file limit. There are no new browser dependencies. Build-only tools are PyShp 2.3.1 and Shapely 2.0.7.
 
 This update improves contemporary geographic context. It does not reconstruct historical lake levels, seasonal inundation, or ancient shorelines. HydroLAKES uses varying regional data dates and approximate mapping scales from 1:100,000 to 1:1,000,000. Trade-route geometry, additional conflict narratives, broader historical city coverage, and independent scholarly review remain ongoing work. No claim of complete world-history coverage or comprehensive superiority over specialist projects is made.

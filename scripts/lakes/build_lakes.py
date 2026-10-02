@@ -2,6 +2,7 @@
 Requires PyShp 2.3.1. Source ZIP must be kept outside the published directory.
 """
 import argparse,collections,gzip,hashlib,json,math,pathlib,struct,sys,time
+from lake_codec import encode
 p=argparse.ArgumentParser();p.add_argument('--source',type=pathlib.Path,required=True);p.add_argument('--output',type=pathlib.Path,required=True);a=p.parse_args()
 import shapefile
 from shapely.geometry import shape
@@ -75,14 +76,15 @@ for key in sorted(buckets):
    props={'id':hid,'type':kind,'area':area}
    if name:props['name']=name
    features.append({'type':'Feature','id':hid,'properties':props,'bbox':list(bb),'geometry':encode_geometry(g,hid)})
-  raw=json.dumps({'encoding':'delta-1e6','features':features},ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()
-  packed=gzip.compress(raw,compresslevel=6,mtime=0);name='%04d.json.gz'%len(manifest['shards']);(out/name).write_bytes(packed)
+  raw=encode(features)
+  packed=gzip.compress(raw,compresslevel=9,mtime=0);name='%04d.bin.gz'%len(manifest['shards']);(out/name).write_bytes(packed)
   bb=[min(x[5][0] for x in part),min(x[5][1] for x in part),max(x[5][2] for x in part),max(x[5][3] for x in part)]
   manifest['shards'].append({'file':name,'minZoom':key[0],'bbox':bb,'count':len(part),'vertices':sum(x[6] for x in part),'bytes':len(raw),'gzipBytes':len(packed),'sha256':hashlib.sha256(packed).hexdigest()})
   if len(manifest['shards'])%100==0:print('Shards',len(manifest['shards']),'elapsed',round(time.time()-start),flush=True)
-manifest['encoding']='delta-1e6';manifest['quantization']=quantization
+manifest['encoding']='mlk1-delta-1e6';manifest['quantization']=quantization
 manifest['compressedBytes']=sum(x['gzipBytes'] for x in manifest['shards'])
-manifest['jsonBytes']=sum(x['bytes'] for x in manifest['shards'])
+manifest['binaryBytes']=sum(x['bytes'] for x in manifest['shards'])
+manifest['transport']='MLK1 binary: unsigned LEB128 counts, ZigZag integer deltas, outward-rounded feature bounding boxes, exact floating-point fallback JSON. Names reside once in the shared index. Coordinate integers and ring order are unchanged.'
 (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
 index={k:manifest[k] for k in ['schemaVersion','includedRecords','vertices']};index['shards']=[{k:s[k] for k in ['file','minZoom','bbox','count','vertices']} for s in manifest['shards']]
 index['names']={k:names[k] for k in sorted(names,key=int)}

@@ -2,7 +2,7 @@
 > meridian-world-history-atlas@3.1.0 test
 > node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-places.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-lakes.mjs && node scripts/validate-release.mjs
 
-PASS linked asset revision 3.1.0-45b670115122
+PASS linked asset revision 3.1.0-e7a6263b51ba
 PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
 PASS Time windows use civil years without year zero
 PASS Historical coverage never extrapolates before or after source coverage
@@ -135,9 +135,9 @@ PASS The asynchronous local-fetch API retries after failure, deduplicates and re
 {
   "snapshot": {
     "path": "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/world-history-atlas/dist/geography.js",
-    "sha256": "4c0ee47329c6184bd3c8e746f364467fa048c49eeb4545cd10b9a4ead4cd4873",
-    "mapEngineSha256": "c63b18b98172b0d6798b1f6253d51e100b0edda8d581b36b9907802f1b5a1957",
-    "capturedAt": "2026-10-02T07:30:06.180Z"
+    "sha256": "188c3e916613c764700873b06d45d8685f56fb9aba449cdd7db4dc23a6dbfcf6",
+    "mapEngineSha256": "f895ffedfea3b0e90334a6d3896d3166eb6919f844050ea38751a19d0ddbe4c2",
+    "capturedAt": "2026-10-02T07:57:29.087Z"
   },
   "counts": {
     "pass": 30,
@@ -374,6 +374,8 @@ PASS invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0
 PASS city URL retains left selection, year and camera
 PASS city URL retains right selection, year and camera
 51/51 view-state checks passed
+PASS Fixed binary fixture decodes area, identity and every unchanged coordinate delta
+PASS Corrupt, truncated and oversized binary lake data fail without a partial result
 PASS Area tiers change only at declared zoom thresholds
 PASS Spatial selection includes date-line crossings and repeated world copies
 PASS Delta decoding preserves closed rings and polygon holes
@@ -389,9 +391,9 @@ PASS Modern reference and disabled geography do not request natural lake detail
 PASS Late work after map destruction never mutates the removed map
 PASS Invisible globe-side event markers do not suppress lake names; visible markers keep priority
 PASS All archive shards have valid hashes, counts, class exclusions and coordinate encoding
-{"status":"passed","checks":15}
-PASS Static asset budgets: 15901 files, no file over 25 MiB
+{"status":"passed","checks":17}
+PASS Static asset budgets: 15902 files, no file over 25 MiB
 PASS All 357 physical assets match the current release inventory
 PASS All 11306 native archive pieces retain compressed and decoded hashes
 PASS 53 derived place assets match their provenance manifest
-{"result":"passed","checks":4,"staticFiles":15901,"physicalFiles":357,"nativePieces":11306,"cityFiles":53}
+{"result":"passed","checks":4,"staticFiles":15902,"physicalFiles":357,"nativePieces":11306,"cityFiles":53}

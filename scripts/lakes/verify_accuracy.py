@@ -1,11 +1,12 @@
 import sys,pathlib,json,gzip,math,time,argparse
 import shapefile
+from lake_codec import decode
 parser=argparse.ArgumentParser();parser.add_argument('--source',type=pathlib.Path,required=True);parser.add_argument('--data',type=pathlib.Path,required=True);parser.add_argument('--report',type=pathlib.Path,required=True);args=parser.parse_args();root=args.data;m=json.loads((root/'manifest.json').read_text())
 r=shapefile.Reader(str(args.source),encoding='cp1252')
 for i,v in enumerate(r.iterRecords(fields=['Hylak_id'])):assert v[0]==i+1
 checked=0;maxerror=[0,0];floating=0;start=time.time()
 for meta in m['shards']:
- d=json.loads(gzip.decompress((root/meta['file']).read_bytes()))
+ raw=gzip.decompress((root/meta['file']).read_bytes());d=decode(raw) if meta['file'].endswith('.bin.gz') else json.loads(raw)
  for f in d['features']:
   g=f['geometry'];original=r.shape(f['id']-1).__geo_interface__;assert g['type']==original['type']
   ps=[original['coordinates']] if original['type']=='Polygon' else original['coordinates']

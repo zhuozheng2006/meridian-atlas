@@ -115,7 +115,7 @@ python3 scripts/boundaries/build_small_native_assets.py \
 
 ## 精细湖岸 / Fine lake shores
 
-`dist/data/lakes/` 是HydroLAKES v1.0的CC BY 4.0派生数据。仅在放大至4级后读取131,887字节索引，再按当前视野选取空间分片。4级显示面积至少100 km²的湖体，6级加入5 km²以上湖体，9级显示来源内全部保留湖体。源码中的`LakeCache`合并并发请求并限制已解码存储；当前画面的地图引擎另保留所需几何。
+`dist/data/lakes/` 是HydroLAKES v1.0的CC BY 4.0派生数据。仅在放大至4级后读取131,739字节索引，再按当前视野选取空间分片。4级显示面积至少100 km²的湖体，6级加入5 km²以上湖体，9级显示来源内全部保留湖体。源码中的`LakeCache`合并并发请求并限制已解码存储；当前画面的地图引擎另保留所需几何。
 
 重建环境使用PyShp 2.3.1、Shapely 2.0.7；浏览器运行无需这些依赖。下载链接和ZIP/SHP/SHX/DBF/PRJ哈希见`scripts/lakes/source-lock.json`。原始ZIP只放在工作缓存，不发布原始格式镜像。
 
@@ -123,6 +123,6 @@ python3 scripts/boundaries/build_small_native_assets.py \
 python scripts/lakes/build_lakes.py --source /path/to/cache/HydroLAKES_polys_v10 --output /path/to/cache/derived-lakes
 ```
 
-构建器逐一验证源文件哈希。确认输出后整体替换`dist/data/lakes/`，运行`node scripts/validate-lakes.mjs`。派生文件使用`encoding: delta-1e6`，并不是未经解码即可使用的GeoJSON。每个Polygon存为一个多边形列表，每个环是`[dx,dy,dx,dy,...]`，累加后除以1,000,000；MultiPolygon保留多个多边形。`geometry.coordinates`字段出现时表示审计后保留的原始浮点坐标。`decodeLakeFeature`返回标准GeoJSON。
+构建器逐一验证源文件哈希。确认输出后整体替换`dist/data/lakes/`，运行`node scripts/validate-lakes.mjs`。派生分片使用`MLK1`二进制格式，并不是未经解码即可使用的GeoJSON。`lake-codec.js`以LEB128与ZigZag解码元数据和坐标增量，得到`encoding: delta-1e6`中间对象；逐点增量与旧格式完全相同。要素包围盒向外扩展不足0.000002度，仅用于视野筛选；空间索引保留原始包围盒。具名湖泊信息只在共享索引存一份。每个Polygon存为一个多边形列表，每个环是`[dx,dy,dx,dy,...]`，累加后除以1,000,000；MultiPolygon保留多个多边形。`geometry.coordinates`字段出现时表示审计后保留的原始浮点坐标。`decodeLakeFeature`返回标准GeoJSON。
 
 湖名中文映射按稳定Hylak_id绑定，编辑`scripts/lakes/name-translations.json`。湖名代表点从原始多边形内部计算，不是城市坐标或湖泊入口。新增映射时核对源名称和位置。重建不自动补造译名、历史湖岸或成湖日期。

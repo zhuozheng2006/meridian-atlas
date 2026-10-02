@@ -1,5 +1,5 @@
-import {Geography} from './geography.js?v=3.1.0-45b670115122';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=3.1.0-45b670115122';
+import {Geography} from './geography.js?v=3.1.0-e7a6263b51ba';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=3.1.0-e7a6263b51ba';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;

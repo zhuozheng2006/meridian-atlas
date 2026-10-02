@@ -2,12 +2,25 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
+import {decodeLakeArchive} from '../dist/lake-codec.js';
 import {LakeCache,LakeLayer,lakeTier,containsLakeBounds,intersectsLakeBounds,selectLakeShards,decodeLakeFeature} from '../dist/lakes.js';
 const results=[];const test=async(name,fn)=>{await fn();results.push(name);console.log('PASS '+name);};
 const bbox=[134,34,137,37],feature={type:'Feature',id:1,bbox,properties:{id:1,type:3,area:673.48,name:'Biwa'},geometry:{type:'Polygon',deltas:[[[135000000,35000000,1000000,0,0,1000000,-1000000,0,0,-1000000]]]}};
 const shard={file:'one.json.gz',minZoom:4,bbox,count:1,vertices:5};const data={encoding:'delta-1e6',features:[feature]},index={schemaVersion:1,shards:[shard]};
 const defer=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 const tick=async()=>{for(let i=0;i<12;i++)await Promise.resolve();};
+await test('Fixed binary fixture decodes area, identity and every unchanged coordinate delta',()=>{
+ const bytes=Buffer.from('4d4c4b31014a03948e04febedf8001febab021c2843dc2843d01010105020280897a000080897aff887a0000ff887a','hex');
+ const f=decodeLakeArchive(bytes).features[0];assert.equal(f.id,37);assert.deepEqual(f.properties,{id:37,type:3,area:673.48});assert.deepEqual(f.geometry,feature.geometry);
+ assert(f.bbox[0]<135&&f.bbox[1]<35&&f.bbox[2]>136&&f.bbox[3]>36);
+});
+await test('Corrupt, truncated and oversized binary lake data fail without a partial result',()=>{
+ const b=Buffer.from('4d4c4b31014a03948e04febedf8001febab021c2843dc2843d01010105020280897a000080897aff887a0000ff887a','hex');
+ for(let i=0;i<b.length;i++)assert.throws(()=>decodeLakeArchive(b.subarray(0,i)));
+ assert.throws(()=>decodeLakeArchive(Buffer.concat([b,Buffer.from([0])])));
+ assert.throws(()=>decodeLakeArchive(Buffer.from('4d4c4b31ffffffffffffffff7f','hex')));
+ assert.throws(()=>decodeLakeArchive(Buffer.from('4d4c4b31d10f','hex')));
+});
 function environment(options={}){
  const events={},writes=[],paints=[];let zoom=10,bounds=[135,35,136,36],loaded=false;
  const atlas={destroyed:false};
@@ -50,7 +63,7 @@ await test('Invisible globe-side event markers do not suppress lake names; visib
 });
 await test('All archive shards have valid hashes, counts, class exclusions and coordinate encoding',()=>{
  const root=new URL('../dist/data/lakes/',import.meta.url),m=JSON.parse(fs.readFileSync(new URL('manifest.json',root)));let records=0,vertices=0;const ids=new Set();
- for(const meta of m.shards){const packed=fs.readFileSync(new URL(meta.file,root));assert.equal(packed.length,meta.gzipBytes);assert.equal(crypto.createHash('sha256').update(packed).digest('hex'),meta.sha256);const raw=zlib.gunzipSync(packed);assert.equal(raw.length,meta.bytes);const s=JSON.parse(raw);assert.equal(s.encoding,'delta-1e6');assert.equal(s.features.length,meta.count);let count=0;
+ for(const meta of m.shards){const packed=fs.readFileSync(new URL(meta.file,root));assert.equal(packed.length,meta.gzipBytes);assert.equal(crypto.createHash('sha256').update(packed).digest('hex'),meta.sha256);const raw=zlib.gunzipSync(packed);assert.equal(raw.length,meta.bytes);const s=meta.file.endsWith('.bin.gz')?decodeLakeArchive(raw):JSON.parse(raw);assert.equal(s.encoding,'delta-1e6');assert.equal(s.features.length,meta.count);let count=0;
   for(const f of s.features){assert(!ids.has(f.id));ids.add(f.id);assert([1,3].includes(f.properties.type));assert(f.bbox[0]>=-180&&f.bbox[2]<=180&&f.bbox[1]>=-90&&f.bbox[3]<=90);const g=decodeLakeFeature(f);const ps=g.geometry.type==='Polygon'?[g.geometry.coordinates]:g.geometry.coordinates;for(const p of ps)for(const r of p){assert(r.length>=4);assert.deepEqual(r[0],r.at(-1));count+=r.length;}records++;}
   assert.equal(count,meta.vertices);vertices+=count;
  }

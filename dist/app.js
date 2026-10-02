@@ -1,10 +1,10 @@
-import {cityNarrative} from './city-narratives.js?v=3.1.0-45b670115122';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.1.0-45b670115122';
-import {sourcesHTML} from './source-reader.js?v=3.1.0-45b670115122';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.1.0-45b670115122';
-import {bindTimeline} from './timeline-controls.js?v=3.1.0-45b670115122';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.1.0-45b670115122';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.1.0-45b670115122';
+import {cityNarrative} from './city-narratives.js?v=3.1.0-e7a6263b51ba';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.1.0-e7a6263b51ba';
+import {sourcesHTML} from './source-reader.js?v=3.1.0-e7a6263b51ba';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.1.0-e7a6263b51ba';
+import {bindTimeline} from './timeline-controls.js?v=3.1.0-e7a6263b51ba';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.1.0-e7a6263b51ba';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.1.0-e7a6263b51ba';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text=(zh,en)=>state.lang==='en'?en:zh;

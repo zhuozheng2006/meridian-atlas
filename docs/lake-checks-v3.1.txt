@@ -1,3 +1,5 @@
+PASS Fixed binary fixture decodes area, identity and every unchanged coordinate delta
+PASS Corrupt, truncated and oversized binary lake data fail without a partial result
 PASS Area tiers change only at declared zoom thresholds
 PASS Spatial selection includes date-line crossings and repeated world copies
 PASS Delta decoding preserves closed rings and polygon holes
@@ -13,4 +15,4 @@ PASS Modern reference and disabled geography do not request natural lake detail
 PASS Late work after map destruction never mutates the removed map
 PASS Invisible globe-side event markers do not suppress lake names; visible markers keep priority
 PASS All archive shards have valid hashes, counts, class exclusions and coordinate encoding
-{"status":"passed","checks":15}
+{"status":"passed","checks":17}
