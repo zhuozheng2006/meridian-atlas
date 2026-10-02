@@ -1,5 +1,5 @@
-import {LakeLayer} from './lakes.js?v=3.9.0-1c4dec897b32';
-import {readJSON,EMPTY} from './map-engine.js?v=3.9.0-1c4dec897b32';
+import {LakeLayer} from './lakes.js?v=3.9.1-d4a2f4088db1';
+import {readJSON,EMPTY} from './map-engine.js?v=3.9.1-d4a2f4088db1';
 
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.

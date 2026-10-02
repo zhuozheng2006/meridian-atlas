@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "elapsedSeconds": 14.866,
+  "groups": 152,
+  "includedLocalities": 14145,
+  "excludedLocalities": 718,
+  "allSerializedGroupsValid": true,
+  "exactEqualityToInverseProjectedQuantizedSourceMemberUnions": true,
+  "exactBoundaryEquality": true,
+  "symmetricDifferenceGridUnitsSquared": 0.0,
+  "maxReprojectionResidualGridUnits": 9.313225746154785e-10,
+  "stableGroupIds": true,
+  "fullAdm1OrderPreserved": true,
+  "allAdm0MembershipValuesRetained": true,
+  "TYPE8Excluded": true,
+  "XXExcluded": true,
+  "sampledExistingMvtTiles": [
+    {
+      "z": 10,
+      "x": 525,
+      "y": 336,
+      "tileFeatures": 304,
+      "verifiedGroups": 2,
+      "exactUnionAndBoundaryEquality": false,
+      "differences": [
+        {
+          "id": "halc1500-adm1-c73e81873048dce4",
+          "areaDifferenceGridUnitsSquared": 9.0,
+          "boundaryHausdorffGridUnits": 1677.0,
+          "equals": false,
+          "boundaryEquals": false
+        }
+      ]
+    },
+    {
+      "z": 10,
+      "x": 526,
+      "y": 337,
+      "tileFeatures": 299,
+      "verifiedGroups": 3,
+      "exactUnionAndBoundaryEquality": false,
+      "differences": [
+        {
+          "id": "halc1500-adm1-cf80f848926bad85",
+          "areaDifferenceGridUnitsSquared": 19.0,
+          "boundaryHausdorffGridUnits": 1001.7809141723553,
+          "equals": false,
+          "boundaryEquals": false
+        }
+      ]
+    },
+    {
+      "z": 10,
+      "x": 524,
+      "y": 338,
+      "tileFeatures": 234,
+      "verifiedGroups": 1,
+      "exactUnionAndBoundaryEquality": false,
+      "differences": [
+        {
+          "id": "halc1500-adm1-c73e81873048dce4",
+          "areaDifferenceGridUnitsSquared": 18.0,
+          "boundaryHausdorffGridUnits": 3329.3310138825186,
+          "equals": false,
+          "boundaryEquals": false
+        }
+      ]
+    }
+  ],
+  "geometrySha256": "6587ff43b37baabc6a34117ba2481f2342a1dd169c432d2f108f8244f34c89a1",
+  "interpretation": "Every serialized group equals the inverse-projected exact union of source members after the existing z10 input quantization. Union adds no second snap. Independently clipped/snapped locality MVT samples may have measured sub-grid differences; neither this check nor tile density guarantees historical accuracy."
+}

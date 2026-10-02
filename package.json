@@ -1,12 +1,12 @@
 {
   "name": "meridian-world-history-atlas",
-  "version": "3.9.0",
+  "version": "3.9.1",
   "private": true,
   "type": "module",
   "description": "Source-linked bilingual world history atlas",
   "scripts": {
     "start": "python3 serve.py",
-    "test": "node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-border-envelopes.mjs && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-lakes.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-place-return.cjs",
+    "test": "node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-border-envelopes.mjs && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-view-state.cjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-halc-cache.mjs && node scripts/validate-halc-regions.mjs && node scripts/validate-lakes.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && python3 scripts/verify-halc-regions-data.py --data-dir public/data/halc-regions --integrity scripts/data-integrity/halc-regions.integrity.json --audit scripts/data-integrity/halc-regions.geometry-audit.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-place-return.cjs",
     "prepare:assets": "node scripts/stamp-assets.mjs",
     "build": "node scripts/build-worker.mjs"
   },

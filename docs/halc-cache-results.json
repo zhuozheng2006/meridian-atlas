@@ -1,0 +1,68 @@
+{
+  "method": "Actual HalcBoundaries, regionalAnchor and AtlasMap.refreshLabels; deterministic owner, map, DOM and load interfaces.",
+  "sourceSha256": "216e228daef6270b9cc2768319a371c85da99e0a9be3e0c6cb03b3fd6bde4882",
+  "pass": 15,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Repeated unchanged idle does zero queries, anchor computations and style writes",
+      "pass": true
+    },
+    {
+      "name": "Atlas label refresh restores cached collision boxes without recreating markers",
+      "pass": true
+    },
+    {
+      "name": "Changed viewport rescans once then returns to idle cache",
+      "pass": true
+    },
+    {
+      "name": "Resize invalidates viewport and collision caches",
+      "pass": true
+    },
+    {
+      "name": "Bearing and pitch participate in the view cache key",
+      "pass": true
+    },
+    {
+      "name": "Language updates labels without a geometry query",
+      "pass": true
+    },
+    {
+      "name": "Changed overlay blockers invalidate cached marker placement",
+      "pass": true
+    },
+    {
+      "name": "Label hide and show cannot reuse an empty marker cache",
+      "pass": true
+    },
+    {
+      "name": "New source load invalidates same-fid geometry and cached labels",
+      "pass": true
+    },
+    {
+      "name": "Returning from mode reactivates the unchanged viewport",
+      "pass": true
+    },
+    {
+      "name": "Returning from year reactivates the unchanged viewport",
+      "pass": true
+    },
+    {
+      "name": "Returning from modern reference reactivates the unchanged viewport",
+      "pass": true
+    },
+    {
+      "name": "Returning from border visibility reactivates the unchanged viewport",
+      "pass": true
+    },
+    {
+      "name": "Source readiness fallback without a loading event cannot strand the scan cache",
+      "pass": true
+    },
+    {
+      "name": "Retry recreates visible source layers instead of reusing old visibility state",
+      "pass": true
+    }
+  ]
+}

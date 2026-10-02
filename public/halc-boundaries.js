@@ -1,4 +1,5 @@
-import {readJSON} from './map-engine.js?v=3.9.0-1c4dec897b32';
+import {readJSON} from './map-engine.js?v=3.9.1-d4a2f4088db1';
+import {HalcRegions} from './halc-regions.js?v=3.9.1-d4a2f4088db1';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -37,11 +38,12 @@ export function halcLayers(){
 }
 export class HalcBoundaries{
  constructor(owner,{load=readJSON,anchor}={}){
-  this.owner=owner;this.atlas=owner.atlas;this.map=owner.map;this.load=load;this.anchor=anchor;this.active=false;this.failed=false;this.reason='disabled';this.features=[];this.markers=[];this.seq=0;this.dead=false;this.listeners=[];
+  this.owner=owner;this.atlas=owner.atlas;this.map=owner.map;this.load=load;this.anchor=anchor;this.active=false;this.failed=false;this.reason='disabled';this.features=[];this.markers=[];this.seq=0;this.dead=false;this.listeners=[];this.sourceEpoch=0;this.featureEpoch=0;
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
   on('idle',()=>this.settle());
-  on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||!this.eligible||!this.active)return;this.reason='loading';this.features=[];this.setActive(false);this.notify();});
+  on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;if(!this.eligible||!this.active)return;this.reason='loading';this.features=[];this.setActive(false);this.notify();});
   on('error',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.failed=true;this.lastError=String(e.error?.message||'HALC source error');this.reason='error';this.features=[];this.clearSelection();this.setActive(false);this.visibility();this.notify();});
+  this.regions=new HalcRegions(this,HALC_BOUNDS);
  }
  get lang(){return this.owner.lang;}
  get eligibility(){return halcEligibility({mode:this.owner.mode,year:this.owner.year,borders:this.atlas.showBorders,modern:this.owner.modern,zoom:this.map.getZoom(),bounds:this.map.getBounds?.(),destroyed:this.dead||this.atlas.destroyed});}
@@ -67,48 +69,61 @@ export class HalcBoundaries{
   expression.push('#aaa58d');this.map.setPaintProperty(HALC_LAYERS[0],'fill-color',['case',['==',['get','TYPE'],8],'#78969b',expression]);
  }
  visibility(){
+  this.regions?.visibility();
   const visible=this.eligible&&!this.failed;
+  const regional=!!this.regions?.ready&&!this.regions?.failed,key=visible+':'+this.active+':'+regional;if(key===this.visibilityKey)return;this.visibilityKey=key;
   for(const id of HALC_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible&&(id===HALC_LAYERS[0]||this.active)?'visible':'none');
   if(this.map.getLayer(HALC_LAYERS[0])){this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity',this.active?['case',['==',['get','TYPE'],8],.05,.24]:0);}
+  if(this.map.getLayer(HALC_LAYERS[1])){const independent=['in',';XX;',['concat',';',['coalesce',['get','ADM1'],''],';']];this.map.setPaintProperty(HALC_LAYERS[1],'line-opacity',regional?['interpolate',['linear'],['zoom'],6,['case',independent,.5,.015],8,['case',independent,.6,.1],11,.45,15,.65]:['interpolate',['linear'],['zoom'],6,.04,8,.16,11,.5,15,.65]);}
  }
  setActive(value){
   if(!value)this.clearLabels();
   if(this.active===value){this.visibility();return;}this.active=value;this.owner.atlas.boundaries?.applyVisibility(this.owner.detailedActive);this.visibility();this.atlas.refreshLabels();
  }
  update(){
-  if(this.dead)return;const reason=this.eligibility;
-  if(reason){this.reason=reason;this.features=[];this.clearSelection();this.setActive(false);this.clearLabels();this.visibility();this.notify();return;}
+  if(this.dead)return;const reason=this.eligibility;this.regions.update();
+  if(reason){this.reason=reason;this.features=[];this.scanKey=null;this.clearSelection();this.setActive(false);this.clearLabels();this.visibility();this.notify();return;}
   if(this.failed){this.reason='error';this.setActive(false);this.visibility();this.notify();return;}
-  if(this.active&&!this.map.isSourceLoaded(HALC_SOURCE)){this.features=[];this.setActive(false);}
-  this.reason=this.active?'ready':'loading';this.ensure();this.visibility();this.notify();this.settle();
+  if(this.active&&!this.map.isSourceLoaded(HALC_SOURCE)){this.features=[];this.scanKey=null;this.setActive(false);}
+  this.reason=this.active?'ready':'loading';this.ensure();this.regions.ensure();this.visibility();this.notify();this.settle();
  }
  settle(){
   if(!this.eligible||this.failed||!this.labels||this.settling||this.map.isMoving()||!this.map.getSource(HALC_SOURCE)||!this.map.isSourceLoaded(HALC_SOURCE))return;
+  this.regions.settle();this.visibility();
+  const key=this.viewportKey()+':'+this.sourceEpoch;
+  if(key===this.scanKey){this.refreshLabels();if(this.active&&this.pendingId){const id=this.pendingId;this.pendingId=null;this.openRecord(id);}return;}
   this.settling=true;
   try{
    const units=new Map();for(const f of this.map.queryRenderedFeatures({layers:[HALC_LAYERS[0]]})){const id=fid(f.properties.fid);if(!id)continue;if(!units.has(id))units.set(id,{...f,fragments:[]});units.get(id).fragments.push(f.geometry);}
-   this.features=[...units.values()].sort((a,b)=>a.properties.fid-b.properties.fid);this.reason=this.features.length?'ready':'empty';this.setActive(!!this.features.length);this.refreshLabels();this.notify();
+   this.features=[...units.values()].sort((a,b)=>a.properties.fid-b.properties.fid);this.scanKey=key;this.featureEpoch++;this.reason=this.features.length?'ready':'empty';this.setActive(!!this.features.length);this.refreshLabels();this.notify();
    if(this.active&&this.pendingId){const id=this.pendingId;this.pendingId=null;this.openRecord(id);}
   }finally{this.settling=false;}
  }
  hit(point){return this.active&&this.eligible?this.map.queryRenderedFeatures(point,{layers:[HALC_LAYERS[0]]})[0]||null:null;}
+ viewportKey(){const b=this.map.getBounds(),c=this.map.getContainer();return [b.getWest(),b.getSouth(),b.getEast(),b.getNorth(),this.map.getZoom(),this.map.getBearing?.()||0,this.map.getPitch?.()||0,c.clientWidth,c.clientHeight].join(':');}
+ groupName(code){return halcMembership(code,'ADM1',this.labels,this.lang);}
+ openGroup(code){this.owner.openIndex({halcGroup:code});}
+ openHit(feature,point){const p=feature.properties;if(this.map.getZoom()<8&&p.TYPE!==8&&p.ADM1&&!p.ADM1.split(';').includes('XX'))this.openGroup(p.ADM1);else this.openRecord(p.fid,point);}
  indexFeatures(){return this.features.map(f=>({...f,properties:{...f.properties,archive:'halc',record_id:'HALC-'+f.properties.fid,name:halcName(f.properties,this.labels,this.lang),name_en:f.properties.NAME,start_date:'1500',end_date:'1500'}}));}
- clearLabels(){for(const marker of this.markers)marker.remove();this.markers=[];}
+ clearLabels(){for(const marker of this.markers)marker.remove();this.markers=[];this.labelKey=null;this.labelBoxes=null;}
  refreshLabels(){
-  this.clearLabels();if(!this.active||!this.atlas.showLabels||!this.anchor)return;
+  if(!this.active||!this.atlas.showLabels||!this.anchor){this.clearLabels();return;}
   const bounds=this.map.getBounds(),box=[bounds.getWest(),bounds.getSouth(),bounds.getEast(),bounds.getNorth()],root=this.map.getContainer().getBoundingClientRect();
   const boxes=[...document.querySelectorAll('.map-heading,.map-tools,.compare-heading,.map-legend,.layer-panel,.event-marker,.regional-controls,.lake-label')].filter(el=>el.getClientRects().length).map(el=>el.getBoundingClientRect());
+  const key=[this.featureEpoch,this.regions.revision,this.viewportKey(),this.lang,root.left,root.top,...boxes.flatMap(b=>[b.left,b.top,b.right,b.bottom])].join(':');
+  if(key===this.labelKey){this.atlas.labelBoxes=this.labelBoxes;return;}this.clearLabels();this.labelKey=key;
   const overlaps=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top,names=new Set(),local=this.map.getZoom()>=8;
-  const ranked=this.features.filter(f=>f.properties.TYPE!==8&&(local||f.properties.ADM1&&f.properties.ADM1!=='XX'&&!f.properties.ADM1.includes(';'))).map(f=>({f,anchor:this.anchor(f,box[0]<box[2]?box:null)})).filter(x=>x.anchor).sort((a,b)=>b.anchor.score-a.anchor.score);
+  const candidates=!local&&this.regions.ready?this.regions.features:this.features;
+  const ranked=candidates.filter(f=>f.properties.TYPE!==8&&(local||f.properties.ADM1&&f.properties.ADM1!=='XX'&&!f.properties.ADM1.includes(';'))).map(f=>({f,anchor:this.anchor(f,box[0]<box[2]?box:null)})).filter(x=>x.anchor).sort((a,b)=>b.anchor.score-a.anchor.score);
   for(const {f,anchor}of ranked){
    if(this.markers.length>=12)break;const p=f.properties,name=local||p.ADM1==='XX'?halcName(p,this.labels,this.lang):halcMembership(p.ADM1,'ADM1',this.labels,this.lang);if(!name||names.has(name))continue;
    const english=local?halcName(p,this.labels,'en'):halcMembership(p.ADM1,'ADM1',this.labels,'en'),bilingual=this.lang==='bi'&&english!==name;
    const point=this.map.project(anchor.coordinate),w=Math.min(190,Math.max(80,name.length*12+16,bilingual?english.length*6+16:0)),height=bilingual?44:32,r={left:root.left+point.x-w/2,right:root.left+point.x+w/2,top:root.top+point.y-height/2,bottom:root.top+point.y+height/2};
    if(r.left<root.left+12||r.right>root.right-12||r.top<root.top+85||r.bottom>root.bottom-75||boxes.some(b=>overlaps(r,b)))continue;
-   const el=make('button',name,'regional-label halc-label');el.setAttribute('aria-label',name);if(bilingual)el.append(make('span',english));el.style.maxWidth=w+'px';el.title=t(this.lang,'查看地方单元：','Read local unit: ')+p.NAME;el.onclick=e=>{e.stopPropagation();this.openRecord(p.fid,{lng:anchor.coordinate[0],lat:anchor.coordinate[1]});};
+   const el=make('button',name,'regional-label halc-label');el.setAttribute('aria-label',name);if(bilingual)el.append(make('span',english));el.style.maxWidth=w+'px';el.title=local?t(this.lang,'查看地方单元：','Read local unit: ')+p.NAME:t(this.lang,'浏览这一归属下的地方单元','Browse local units with this attribution');el.onclick=e=>{e.stopPropagation();if(local)this.openRecord(p.fid,{lng:anchor.coordinate[0],lat:anchor.coordinate[1]});else this.openGroup(p.ADM1);};
    this.markers.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(anchor.coordinate).addTo(this.map));boxes.push(r);names.add(name);
   }
-  this.atlas.labelBoxes=boxes;this.atlas.places?.refresh();
+  this.labelBoxes=boxes;this.atlas.labelBoxes=boxes;this.atlas.places?.refresh();
  }
  clearSelection(){
   ++this.seq;this.pendingId=null;const id=this.selectedId;this.selectedId=null;const popup=this.popup;this.popup=null;if(popup)popup.remove();
@@ -150,6 +165,7 @@ export class HalcBoundaries{
   };
   for(const [key,zh,en]of [['record','区划资料','Record'],['sources','重建与来源','Sources'],['raw','原始字段','Original fields']]){const b=make('button',translate(zh,en));b.dataset.tab=key;b.id='halc-tab-'+this.atlas.container+'-'+r.fid+'-'+key;b.setAttribute('role','tab');b.setAttribute('aria-controls',panel.id);b.onclick=()=>show(key);b.onkeydown=e=>{const buttons=[...tabs.children],i=buttons.indexOf(b);let target;if(e.key==='ArrowRight')target=buttons[(i+1)%buttons.length];if(e.key==='ArrowLeft')target=buttons[(i+buttons.length-1)%buttons.length];if(e.key==='Home')target=buttons[0];if(e.key==='End')target=buttons.at(-1);if(target){e.preventDefault();e.stopPropagation();target.click();target.focus();}};tabs.append(b);}node.append(tabs,panel);show('record');
  }
- retry(){this.clearSelection();this.failed=false;this.lastError=null;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}
- destroy(){this.dead=true;this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
+ retryRegions(){this.regions.retry();this.regions.ensure();this.visibilityKey=null;this.visibility();this.refreshLabels();this.notify();}
+ retry(){this.clearSelection();this.regions.retry();this.failed=false;this.lastError=null;this.visibilityKey=null;this.scanKey=null;this.sourceEpoch++;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}
+ destroy(){this.dead=true;this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }

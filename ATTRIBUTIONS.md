@@ -66,3 +66,7 @@ License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 CShapes and its transformed data retain CC BY-NC-SA 4.0, including attribution, noncommercial use and share-alike terms. This data license is separate from the application code’s MIT license. Changes comprise deduplication, decade bundles, label anchors and Simplified Chinese display names.
 Source geometry values, property values and civil dates are preserved. The manifest records source defects; they are not silently repaired. Source SHA256: `6aa7b88a5a8cbc5366c4200af8af3d7d9cd632800a1e62cd1dd2b7bfe8d65a88`.
+
+## HALC 地方区划与地区归属轮廓
+
+Rombert Stapel, Historical Atlas of the Low Countries (1350–1800), version 15.0, [doi:10.34894/BTKFHV](https://doi.org/10.34894/BTKFHV). `public/data/halc/` 与 `public/data/halc-regions/` 中的转换数据采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。本项目将1500年原始地方单元转换为视野瓦片，并按完整原始 ADM1 值归并显示轮廓、去除重复共边；复合归属顺序保留，XX 与自然单元不并为领地。详细转换、核验与署名见相应目录 NOTICE 和 `docs/HALC-1500.md`。

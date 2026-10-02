@@ -1,0 +1,83 @@
+HALC v15 — 1500 ADM1 display groups / 1500年地区归属组
+
+Source and attribution / 来源与署名
+Rombert Stapel, Historical Atlas of the Low Countries (1350–1800), version 15.0,
+DataverseNL. Dataset DOI: https://doi.org/10.34894/BTKFHV
+Official geometry: https://dataverse.nl/api/access/datafile/639014
+Official codebook: https://dataverse.nl/api/access/datafile/639016
+Source geometry SHA1: 33da3c0222f9a94f3539ad0f780c6b899ab09a97
+ADM1 display grouping and tile-grid conversion by World History Atlas.
+
+License / 许可证
+The source dataset and these adapted data assets are provided under Creative
+Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+Retain the attribution, version/DOI, license link and description of changes
+when sharing these adapted data; apply the license's ShareAlike terms to them.
+No endorsement by the source author is implied. This notice covers these HALC
+data assets, without assigning a license to unrelated app code or datasets.
+
+Coverage and grouping / 范围与归属
+The source reconstructs the Low Countries and adjacent northern France and
+western Germany in 1500. Its bounds in WGS84 are 0.5394290755–8.3519884661 east
+and 48.5402029861–54.0243305418 north. The Alps, Switzerland and Bavaria are
+outside this layer. Source dates 1500-01-01 through 1500-12-31 identify the
+reconstruction snapshot, not exact locality lifetimes.
+
+14,145 of 14,863 source localities are grouped into 152 display/directory groups
+using their complete, unchanged ADM1 string. Semicolon membership order is
+preserved: for example AR;AM and AM;AR remain different groups. The 98 groups
+whose ADM1 contains a semicolon preserve shared or contested affiliations.
+Full ADM0 values, their constituent codes, fid membership, TYPE and QUALITY
+counts are retained in groups-index.json.gz. These groups do not identify
+single sovereign states or establish national boundaries.
+
+718 source localities are excluded from this derived group layer: TYPE 8 natural
+features and ADM1 memberships containing XX, including their overlap. XX means
+small sovereign regions in the source and is never combined into one state.
+All source localities remain in the separate original locality layer. QUALITY
+describes the basis of reconstruction, including modern-derived and estimated
+boundaries; it is not a numeric positional-accuracy rating.
+
+Changes made for this atlas / 转换过程
+Source WGS84 polygons are projected to Web Mercator and quantized independently
+at z6–10 to the same global integer grid as the locality layer (MVT extent 8192,
+buffer 64). Zero-tolerance collinear removal is checked for set equality.
+The attached precision model is cleared without moving these coordinates.
+Members of each complete ADM1 group are then unioned without a second snap.
+Each resulting group is clipped to buffered tile bounds on the integer grid
+and encoded in the halc_regions MVT source layer. New intersection nodes from
+union can be fractional; clipping quantizes those nodes again. No geographic
+smoothing, manual boundary repair, reconstructed date extension, membership
+reassignment or modern-border replacement is performed.
+
+The preserved canonical research GeoJSON is the inverse-projected exact union
+of the z10-quantized members, without decimal rounding. Tiles are a separate
+display conversion and are not claimed to be point-for-point identical to
+that union or to a union of individually clipped locality tiles. Comparison
+of three dense z10 tiles found 9, 19 and 18 grid-square units of set difference
+in thin internal seams/holes; their exterior rings had zero measured Hausdorff
+distance. This is a sample, not an all-tiles equality claim.
+
+The separate halc_region_edges line layer removes coincident visible boundaries.
+It unions all group boundary lines on each zoom's integer grid before clipping,
+merges adjoining arcs, clips the resulting network, then unions on the integer
+grid again to remove snapped coincidences. Group membership is unchanged. This
+line-grid conversion can differ from query-polygon boundaries by quantization;
+it is not a geographic smoothing process. The network does not include artificial
+tile-frame edges. Draw this line layer uniformly and retain halc_regions polygons
+for queries, rather than stroking each polygon and doubling coincident edges.
+
+There are 814 tiles, including 449 valid empty tiles; all 152 groups appear at
+each zoom z6–10. All tiles in the source's rectangular tile ranges are supplied.
+At z10 one integer grid unit is about 4.78 Web-Mercator metres; ground distance
+varies with latitude. Grid spacing and denser vectors do not establish the
+historical accuracy of the reconstruction. Small parts can collapse during
+quantization. Zooms beyond z10 enlarge the existing tiles without new detail.
+The original GeoPackage is unchanged and can be downloaded from the source.
+
+本层按来源的完整地区归属聚合地方单位，用于浏览和目录检索。共有或争议归属、
+原顺序和成员编号均保留；XX 与自然单元仍可在原地方图层查阅。瓦片转换含投影、
+整数网格量化、集合合并和裁剪，不作人工圆滑或补边。来源年代为1500年，覆盖
+低地国家及邻接地区；本层并未补充阿尔卑斯疆界。数据和转换结果均采用
+CC BY-SA 4.0，署名、原件、代码本和转换说明见上。

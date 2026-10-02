@@ -1,0 +1,68 @@
+{
+  "release": "3.9.1",
+  "preview": "http://127.0.0.1:8766/",
+  "method": "Actual in-app browser UI, screenshots and DOM layout checks; no production browsing",
+  "views": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "year": 1500,
+      "mode": "halc",
+      "center": [
+        4.8,
+        51.3
+      ],
+      "zoom": 7,
+      "checks": [
+        "regional outlines present",
+        "single affiliation labels",
+        "no visible tile-frame seams"
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "year": 1500,
+      "mode": "halc",
+      "zoom": 7,
+      "checks": [
+        "Brabant grouped directory",
+        "single outer scroll area",
+        "document width 390 with no horizontal overflow",
+        "dialog x20 y130.5 width350 height440"
+      ]
+    },
+    {
+      "viewport": "default",
+      "year": 1500,
+      "mode": "halc",
+      "zoom": 8,
+      "checks": [
+        "locality labels replace region labels",
+        "Tilburg label opens fid 7790 / BR7580A2"
+      ]
+    }
+  ],
+  "flows": [
+    "Brabant label opens grouped directory without selecting arbitrary locality",
+    "BR5000A search finds exactly one visible record",
+    "result opens Antwerp fid 9088 with source attributes",
+    "All areas returns to full visible directory",
+    "close control works after grouping and lookup",
+    "viewport resize recomputes labels"
+  ],
+  "consoleWarnings": 0,
+  "consoleErrors": 0,
+  "screenshots": [
+    "Meridian-3.9.1-regional-outlines.png",
+    "Meridian-3.9.1-mobile-directory.png"
+  ],
+  "limits": [
+    "Visual checks are sampled views, not a guarantee for every camera position.",
+    "Geometry audit and lifecycle tests are recorded separately."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "scope": "Independent small synthetic review of actual helper; no full source/tile rebuild.",
+  "helperSha256": "112d10fa821d4f48b59a50bc905ada0e9fd1a49a3dca0b3a252fb1f27031d029",
+  "cases": [
+    {
+      "name": "Clipping a crossing region does not create tile-frame sides",
+      "passed": true,
+      "lineLength": 20.0,
+      "frameCoincidentLength": 0.0,
+      "wrongClipThenBoundaryLength": 40.0
+    },
+    {
+      "name": "Shared edge is represented once",
+      "passed": true,
+      "networkLength": 70.0,
+      "summedPolygonBoundaryLength": 80.0
+    },
+    {
+      "name": "Interior rings survive network construction",
+      "passed": true,
+      "networkLength": 120.0,
+      "holeCount": 1
+    },
+    {
+      "name": "Each clipped diagonal tile has unique linework",
+      "passed": true,
+      "seamBandDiscreteHausdorffGrid": 0.19571270714459388,
+      "seamLineSetExactlyEqual": false
+    }
+  ],
+  "quantization": {
+    "gridCellGroundMetresApprox": {
+      "6": [
+        44.902294156972275,
+        50.60852547373658
+      ],
+      "7": [
+        22.451147078486137,
+        25.30426273686829
+      ],
+      "8": [
+        11.225573539243069,
+        12.652131368434144
+      ],
+      "9": [
+        5.612786769621534,
+        6.326065684217072
+      ],
+      "10": [
+        2.806393384810767,
+        3.163032842108536
+      ]
+    },
+    "coordinateRoundingNote": "One initial axis-rounding step is <=0.5 cell per axis, but this is not an end-to-end Hausdorff bound: valid_output can remove collapsed holes/parts; union noding and clipping also snap.",
+    "renderScale": "One grid cell is 1/16 CSS px at a tile native zoom with 512px tiles. Overzoom amplifies this; at map z15 with z10 source it is 2px.",
+    "seamNote": "Common global input grid avoids independently shifted data origins, but integer-grid clipping can slightly change diagonal slopes between adjacent buffers. Exact seam equality is not guaranteed; inspect sample magnitudes."
+  }
+}

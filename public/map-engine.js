@@ -1,10 +1,10 @@
-import {curvedBorders} from './border-curves.js?v=3.9.0-1c4dec897b32';
-import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.9.0-1c4dec897b32';
-import {BoundaryController} from './boundary-controller.js?v=3.9.0-1c4dec897b32';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.9.0-1c4dec897b32';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.9.0-1c4dec897b32';
-import {Geography} from './geography.js?v=3.9.0-1c4dec897b32';
-import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.9.0-1c4dec897b32';
+import {curvedBorders} from './border-curves.js?v=3.9.1-d4a2f4088db1';
+import {boundaryPaint,territoryOpacity} from './boundary-style.js?v=3.9.1-d4a2f4088db1';
+import {BoundaryController} from './boundary-controller.js?v=3.9.1-d4a2f4088db1';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.9.1-d4a2f4088db1';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.9.1-d4a2f4088db1';
+import {Geography} from './geography.js?v=3.9.1-d4a2f4088db1';
+import {loadNative,nativeGeometry,hasNativeBootstrap} from './native-geometry.js?v=3.9.1-d4a2f4088db1';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
@@ -53,7 +53,7 @@ export class AtlasMap{
   this.map.getCanvas().addEventListener('webglcontextlost',()=>onError?.(Error('contextlost')));
   this.map.on('click','territories',e=>{if(this.regional?.detailedActive||this.historical?.hit(e.point))return;if(this.geography?.reference&&this.map.getLayer('reference-water')&&this.map.queryRenderedFeatures(e.point,{layers:['reference-water']}).length)return;if(this.geography?.coastAligned&&this.geography.fineCoastVisible&&this.map.getLayer('reference-ocean')&&this.map.queryRenderedFeatures(e.point,{layers:['reference-ocean']}).length)return;if(this.geography?.coastAligned&&!this.geography.fineCoastVisible&&this.map.getLayer('coastal-water')&&this.map.queryRenderedFeatures(e.point,{layers:['coastal-water']}).length)return;if(this.showBorders&&e.features?.length){if(this.boundaries?.isCountry){this.boundaries.openRecord(e.features[0].properties.id,e.lngLat);return;}const r=this.recordMap?.get(e.features[0].properties.id);if(r)this.onPolity?.(r);}});
   this.map.on('mousemove',e=>{if(this.regional?.detailedActive)this.map.getCanvas().style.cursor=(this.regional.halc?.active?this.regional.halc.hit(e.point):this.regional.hit(e.point))?'pointer':'';});this.map.on('mouseenter','territories',()=>{if(!this.regional?.detailedActive)this.map.getCanvas().style.cursor='pointer';});this.map.on('mouseleave','territories',()=>this.map.getCanvas().style.cursor='');
-  this.map.on('error',e=>{if(!['terrain-dem','geographic-reference','historical-detail','regional-boundaries','halc-boundaries','relief'].includes(e.sourceId)&&e.error?.message?.includes('Failed to fetch'))onError?.(e.error);});
+  this.map.on('error',e=>{if(!['terrain-dem','geographic-reference','historical-detail','regional-boundaries','halc-boundaries','halc-regions','relief'].includes(e.sourceId)&&e.error?.message?.includes('Failed to fetch'))onError?.(e.error);});
   this.map.on('moveend',()=>{this.refreshLabels();this.upgradeLand();if(this.catalog)this.upgradeDetail();});
  }
  async prepareOverview(year){
