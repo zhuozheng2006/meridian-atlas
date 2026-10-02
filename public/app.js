@@ -1,13 +1,13 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-1436ddfb5f2a';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-1436ddfb5f2a';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-1436ddfb5f2a';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-1436ddfb5f2a';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-1436ddfb5f2a';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-1436ddfb5f2a';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-1436ddfb5f2a';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-1436ddfb5f2a';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-1436ddfb5f2a';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-1436ddfb5f2a';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-71d706b12380';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-71d706b12380';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-71d706b12380';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-71d706b12380';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-71d706b12380';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-71d706b12380';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-71d706b12380';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-71d706b12380';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-71d706b12380';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-71d706b12380';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -258,7 +258,7 @@ function installMapExport(){
  btn.textContent=text("导出图片","Export image");btn.title=text("把当前地图导出为 PNG","Export the current map as a PNG");
  btn.onclick=downloadMapImage;tools.append(btn);
  const toggle=document.createElement("button");toggle.id="battlesBtn";toggle.type="button";
- const paint=()=>{toggle.classList.toggle("active",!!state.battles);toggle.textContent=text("战役","Battles");toggle.title=text("在地图上显示同期战役记录","Show dated battles on the map");};
+ const paint=()=>{toggle.classList.toggle("active",!!state.battles);if(typeof renderLayerLabels==='function')renderLayerLabels();toggle.textContent=text("战役","Battles");toggle.title=text("在地图上显示同期战役记录","Show dated battles on the map");};
  toggle.onclick=()=>{state.battles=!state.battles;for(const m of [atlas,compareMap].filter(Boolean))m.battles?.toggle(state.battles);paint();saveURL();};
  paint();tools.append(toggle);
  const status=document.createElement("span");status.id="battleStatus";status.className="layer-note";status.setAttribute("aria-live","polite");tools.append(status);
@@ -363,7 +363,8 @@ function renderHistoricalStatus(){
 function renderRegionalStatus(){
  $('#boundaryModeLabel').textContent=text(compareMap?'左图边界来源':'边界来源',compareMap?'Left map boundaries':'Boundary source');
  const describe=map=>{const r=map?.regional;if(!r)return text('按视野读取边界','Boundaries follow the view');if(!map.showBorders)return text('疆域图层已收起','Borders are hidden');if(r.mode==='halc')return r.halc.title();if(map.boundaries?.mode==='cshapes')return map.boundaries.title(state.lang);if(r.modern)return text('现代地理参照已开启','Modern reference is on');if(!map.showBorders)return text('疆域图层已收起','Borders are hidden');return r.status==='error'?text('全球疆域 · 详图读取失败，可重试','Global overview · detail failed; retry'):r.status==='partial'?text('全球疆域 · 有局部详图可查看','Global overview · local detail available'):r.status==='updating'?text('地区详图 · 正在补齐视野…','Regional detail · Updating this view…'):r.active?(r.coverageEnough===false?text('局部详图 · 空白处未收录','Local detail · Gaps are unmapped'):text(`地区详图 · ${r.features.length} 条区划`,`Regional detail · ${r.features.length} areas`)):r.status==='loading'?text('全球疆域 · 正在读取详图','Global overview · loading detail'):text('全球疆域 · Cliopatria','Global overview · Cliopatria');};
- $('#mapLegend span:last-child').textContent=atlas?.regional?.mode==='halc'?atlas.regional.halc.landscape?.active&&atlas.regional.halc.landscape?.eligible?text('HALC · 1500 · 历史地貌与地方区划','HALC · 1500 · Historical landscape & local divisions'):text('历史疆域 · 现代地理底图','Historical territories · Contemporary geographic base'):atlas?.boundaries?.isCountry&&!atlas?.regional?.active?text('CShapes · 国家与属地 · 点击阅读记录','CShapes · States & dependencies · Select to read'):atlas?.regional?.active?text('详细历史区划 · 点击阅读年代与来源','Detailed historical areas · Select for dates and sources'):state.allTime?text('事件跨越全部年代；疆域仍为所选年份','Events span all periods; borders remain at the selected year'):text('历史疆域 · 点击阅读档案','Historical territories · Select to read');
+ const battleCount=state.battles?(atlas?.battles?.active?.length||0):0;
+ $('#mapLegend span:last-child').textContent=(atlas?.regional?.mode==='halc'?atlas.regional.halc.landscape?.active&&atlas.regional.halc.landscape?.eligible?text('HALC · 1500 · 历史地貌与地方区划','HALC · 1500 · Historical landscape & local divisions'):text('历史疆域 · 现代地理底图','Historical territories · Contemporary geographic base'):atlas?.boundaries?.isCountry&&!atlas?.regional?.active?text('CShapes · 国家与属地 · 点击阅读记录','CShapes · States & dependencies · Select to read'):atlas?.regional?.active?text('详细历史区划 · 点击阅读年代与来源','Detailed historical areas · Select for dates and sources'):state.allTime?text('事件跨越全部年代；疆域仍为所选年份','Events span all periods; borders remain at the selected year'):text('历史疆域 · 点击阅读档案','Historical territories · Select to read'))+(battleCount?' · '+text(`${battleCount} 条同期战役`,'`${battleCount}` battles in this window'):'');
  $('#regionalStatus').textContent=describe(atlas);$('#regionalStatus2').textContent=compareMap?describe(compareMap):'';$('#boundaryMode2Group').hidden=!compareMap;
 }
 function renderLayerLabels(){
