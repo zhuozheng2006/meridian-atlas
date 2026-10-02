@@ -1,6 +1,6 @@
 {
   "report": "offline-weaknet.mjs",
-  "generatedAt": "2026-10-02T19:15:43.100Z",
+  "generatedAt": "2026-10-02T19:44:15.914Z",
   "command": "node scripts/verification/offline-weaknet.mjs",
   "target": {
     "url": "http://127.0.0.1:8767",
@@ -11,31 +11,103 @@
   },
   "meta": {
     "provenance": {
-      "gitHead": "0bda3b86d6368986d0042c436938838c16a3a30a",
+      "gitHead": "963275b1ea2b992421aa27928a1ac04b1e16bd7e",
       "dirtyPaths": [
-        "M README.md",
+        "M docs/verification-3.10/content-balance.json",
+        " M docs/verification-3.10/content-sources.json",
         " M docs/verification-3.10/keyboard-focus.json",
+        " M docs/verification-3.10/mobile-check.json",
+        " M docs/verification-3.10/network-resilience.json",
+        " M docs/verification-3.10/ohm-1500.md",
+        " M docs/verification-3.10/perf-baseline.json",
         " M docs/verification-3.10/shots/keyboard-skiplink-target.png",
-        " M package.json",
+        " M docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-layers.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-reader.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-reader.png",
+        " M docs/verification-3.10/shots/network-wifi-4mbps.png",
+        " M docs/verification-3.10/shots/perf-after-drag.png",
+        " M docs/verification-3.10/shots/perf-compare-open.png",
+        " M docs/verification-3.10/shots/perf-desktop-1500.png",
+        " M docs/verification-3.10/shots/perf-layer-retry.png",
+        " M editorial/city-narratives.json",
         " M public/app.js",
+        " M public/boundary-controller.js",
+        " M public/city-narratives.js",
+        " M public/country-archive.js",
+        " M public/data/events.json",
+        " M public/data/events.json.gz",
+        " M public/data/ohm-1500/NOTICE.md",
+        " M public/data/ohm-1500/manifest.json",
+        " M public/data/ohm-1500/year-1492.json.gz",
+        " M public/data/ohm-1500/year-1500.json.gz",
+        " M public/data/places/city-narratives.json.gz",
+        " M public/geography.js",
+        " M public/halc-boundaries.js",
+        " M public/halc-landscape.js",
+        " M public/historical-detail.js",
         " M public/index.html",
+        " M public/lakes.js",
+        " M public/map-engine.js",
+        " M public/native-geometry.js",
+        " M public/places.js",
+        " M public/polity-places.js",
+        " M public/polity-reader.js",
+        " M public/regional-boundaries.js",
+        " M scripts/ohm/browser-check-ohm-1500.mjs",
+        " M scripts/ohm/build-ohm-1500.mjs",
+        " M scripts/ohm/verify-ohm-1500.mjs",
+        " M scripts/places/apply-events-3.10.mjs",
+        " M scripts/places/check-event-sources.mjs",
+        " M scripts/validate-city-narratives.mjs",
+        " M scripts/verification/independent-review.mjs",
         " M scripts/verification/keyboard-focus.mjs",
+        " M scripts/verification/lib/common.mjs",
         " M scripts/verification/mobile-check.mjs",
-        " M scripts/verification/offline-weaknet.mjs"
+        " M scripts/verification/offline-weaknet.mjs",
+        " M scripts/verification/perf-baseline.mjs",
+        "?? docs/AI-HANDOFF-3.10.txt",
+        "?? docs/VALIDATION-3.10.md",
+        "?? docs/verification-3.10/shots/keyboard-reader-focus.png",
+        "?? docs/verification-3.10/shots/network-404-error.png",
+        "?? docs/verification-3.10/shots/network-offline-error.png",
+        "?? docs/verification-3.10/shots/network-recovered.png",
+        "?? docs/verification-3.10/shots/network-slow-3g-400kbps.png",
+        "?? docs/verification-3.10/shots/network-slow-4g-1.6mbps.png",
+        "?? docs/verification-3.10/shots/perf-year-1510.png",
+        "?? docs/verification-3.10/shots/review-ohm-1500-alps.png",
+        "?? docs/verification-3.10/verify-boundary-review.json",
+        "?? docs/verification-3.11/",
+        "?? editorial/city-narratives-3.11.json",
+        "?? editorial/events-3.11.json",
+        "?? public/data/ohm-1500/year-1000.json.gz",
+        "?? public/data/ohm-1500/year-1200.json.gz",
+        "?? public/data/ohm-1500/year-1300.json.gz",
+        "?? public/data/ohm-1500/year-1400.json.gz",
+        "?? public/data/ohm-1500/year-1600.json.gz",
+        "?? public/data/ohm-1500/year-1700.json.gz",
+        "?? public/data/ohm-1500/year-1800.json.gz",
+        "?? public/data/ohm-1500/year-1900.json.gz",
+        "?? scripts/ohm/coverage-matrix.mjs",
+        "?? scripts/ohm/coverage.mjs",
+        "?? scripts/places/apply-city-narratives-3.11.mjs",
+        "?? scripts/verification/build-report-md.mjs"
       ],
-      "assetVersion": "3.9.4-380fd480ab21",
+      "assetVersion": "3.10.0-6af5167ed72f",
       "files": {
-        "public/index.html": "8140c3901c42f039",
-        "public/app.js": "90fb0e98cb263f46",
-        "public/map-engine.js": "20b3e2573a800e65",
+        "public/index.html": "af77ead8f3d2a76a",
+        "public/app.js": "ebee22bb57d11a4f",
+        "public/map-engine.js": "2e9a7f59658193b0",
         "public/timeline-controls.js": "b3954150517b0a12",
         "public/view-state.js": "1b57cdfe210a7322",
         "public/style.css": "95f5e8ac64efeda8",
         "public/product.css": "2631908c806f7e1e",
-        "public/cartography.css": "117414b5e2a91d3d",
-        "public/boundary-controller.js": "170f7551345509a1",
-        "public/regional-boundaries.js": "a1f54263074dbf10",
-        "public/geography.js": "7fa26e91e61e4d75"
+        "public/cartography.css": "0d6529a4e2e5463b",
+        "public/boundary-controller.js": "a3177e6595106833",
+        "public/regional-boundaries.js": "3bf76038fc306ce1",
+        "public/geography.js": "27c12a277aa10035"
       },
       "node": "v26.7.0",
       "platform": "darwin",
@@ -49,8 +121,9 @@
       "expected": "v => v.outcome === 'ready' && v.errorBox.hidden === true && v.year === 1500",
       "observed": {
         "outcome": "ready",
-        "ms": 4585,
+        "ms": 4397,
         "errorBox": {
+          "present": true,
           "hidden": true,
           "text": "",
           "hasRetryButton": false
@@ -58,14 +131,214 @@
         "year": 1500
       },
       "pass": true
+    },
+    {
+      "id": "net.throttled-outcomes-recorded",
+      "description": "Every throttled first load either reaches ready or shows a retry surface (no endless spinner)",
+      "expected": "v => v.every(x => x.outcome === 'ready' || x.outcome === 'error-ui')",
+      "observed": [
+        {
+          "profile": "wifi-4mbps",
+          "outcome": "ready",
+          "ms": 12029,
+          "error": "",
+          "failures": 0
+        },
+        {
+          "profile": "slow-4g-1.6mbps",
+          "outcome": "ready",
+          "ms": 19076,
+          "error": "",
+          "failures": 0
+        },
+        {
+          "profile": "slow-3g-400kbps",
+          "outcome": "ready",
+          "ms": 67717,
+          "error": "",
+          "failures": 0
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "net.throttled-recovers",
+      "description": "After the throttle is removed the app reaches map-ready again",
+      "expected": "v => v.every(x => x.recovery === 'ready')",
+      "observed": [
+        {
+          "profile": "wifi-4mbps",
+          "recovery": "ready",
+          "ms": 2966
+        },
+        {
+          "profile": "slow-4g-1.6mbps",
+          "recovery": "ready",
+          "ms": 3297
+        },
+        {
+          "profile": "slow-3g-400kbps",
+          "recovery": "timeout",
+          "ms": 91093
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "net.404-surface",
+      "description": "A 404 data source shows a retryable error surface naming the year",
+      "expected": "v => interceptionWorked ? (v.outcome === 'error-ui' && v.errorBox.hasRetryButton === true && /1450/.test(v.errorBox.text) && v.statuses.includes(404)) : null",
+      "observed": {
+        "outcome": "error-ui",
+        "errorBox": {
+          "present": true,
+          "hidden": false,
+          "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+          "hasRetryButton": true
+        },
+        "statuses": [
+          404,
+          404,
+          404,
+          404,
+          404,
+          404,
+          404
+        ],
+        "requested": 7,
+        "pausedTotal": 72,
+        "pausedSample": [
+          "/",
+          "/assets/maplibre-gl.css?v=3.10.0-6af5167ed72f",
+          "/style.css?v=3.10.0-6af5167ed72f",
+          "/product.css?v=3.10.0-6af5167ed72f",
+          "/cartography.css?v=3.10.0-6af5167ed72f",
+          "/startup.js?v=3.10.0-6af5167ed72f",
+          "/assets/maplibre-gl.js?v=3.10.0-6af5167ed72f",
+          "/app.js?v=3.10.0-6af5167ed72f",
+          "/boundary-comparison.js?v=3.10.0-6af5167ed72f",
+          "/view-state.js?v=3.10.0-6af5167ed72f",
+          "/city-narratives.js?v=3.10.0-6af5167ed72f",
+          "/source-reader.js?v=3.10.0-6af5167ed72f"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "net.404-no-bad-cache",
+      "description": "Retry while still 404 re-requests the source instead of replaying a cached rejection",
+      "expected": "v => interceptionWorked ? (v.after > v.before && v.stillError === true) : null",
+      "observed": {
+        "before": 7,
+        "after": 14,
+        "stillError": true
+      },
+      "pass": true
+    },
+    {
+      "id": "net.404-recovers",
+      "description": "Once the source returns 200 the retry loads the year and clears the error",
+      "expected": "v => v.outcome === 'ready' && v.year === NOTFOUND_YEAR && v.errorBox.hidden === true && /政体/.test(v.datasetStatus)",
+      "observed": {
+        "outcome": "ready",
+        "year": 1450,
+        "datasetStatus": "133 个当年政体 · 382 条事件",
+        "errorBox": {
+          "present": true,
+          "hidden": true,
+          "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+          "hasRetryButton": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "net.404-no-stale-state",
+      "description": "After recovery the year can be switched away and back with no stale error",
+      "expected": "v => v.to1500 === true && v.backTo1450 === true && v.finalYear === NOTFOUND_YEAR && v.finalErrorBox.hidden === true",
+      "observed": {
+        "to1500": true,
+        "backTo1450": true,
+        "finalYear": 1450,
+        "finalErrorBox": {
+          "present": true,
+          "hidden": true,
+          "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+          "hasRetryButton": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "net.offline-keeps-map",
+      "description": "Going offline while switching year keeps the previous map and shows a retryable error",
+      "expected": "v => v.outcome === 'error-ui' && v.errorBox.hasRetryButton === true && v.year === 1500 && v.onLine === false",
+      "observed": {
+        "outcome": "error-ui",
+        "year": 1500,
+        "onLine": false,
+        "errorBox": {
+          "present": true,
+          "hidden": false,
+          "text": "未能载入 公元 1600 年，已保留当前地图。重试",
+          "hasRetryButton": true
+        },
+        "failures": [
+          "net::ERR_INTERNET_DISCONNECTED",
+          "net::ERR_INTERNET_DISCONNECTED",
+          "net::ERR_INTERNET_DISCONNECTED",
+          "net::ERR_INTERNET_DISCONNECTED",
+          "net::ERR_INTERNET_DISCONNECTED"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "net.offline-retry-honest",
+      "description": "Retrying while offline does not fake success",
+      "expected": "v => v.errorBox.hidden === false && v.year === 1500",
+      "observed": {
+        "errorBox": {
+          "present": true,
+          "hidden": false,
+          "text": "未能载入 公元 1600 年，已保留当前地图。重试",
+          "hasRetryButton": true
+        },
+        "year": 1500
+      },
+      "pass": true
+    },
+    {
+      "id": "net.online-recovers",
+      "description": "After the connection returns, retry loads the requested year",
+      "expected": "v => v.outcome === 'ready' && v.year === 1600 && v.errorBox.hidden === true",
+      "observed": {
+        "outcome": "ready",
+        "year": 1600,
+        "ms": 1145,
+        "errorBox": {
+          "present": true,
+          "hidden": true,
+          "text": "未能载入 公元 1600 年，已保留当前地图。重试",
+          "hasRetryButton": true
+        }
+      },
+      "pass": true
     }
   ],
-  "limitations": [],
+  "limitations": [
+    "Throttling uses Network.emulateNetworkConditions (latency + throughput); it does not reproduce packet loss, DNS failures or flaky connections.",
+    "Offline cold start (reload while offline) is not meaningful with the driver cache disabled and no service worker: the app ships no offline shell.",
+    "CDP Fetch interception answers the 404 locally; only the status code is simulated.",
+    "There is no automatic retry/backoff to assert: the app exposes manual retry only.",
+    "Chrome serves repeated loads of the same document from its in-memory resource cache, which request interception cannot see. The 404 scenario therefore uses a fresh browser session (measured: a reused renderer paused 0 requests, a fresh one 59)."
+  ],
   "notes": [],
   "baseline": {
-    "ms": 4585,
+    "ms": 4397,
     "outcome": "ready",
     "errorBox": {
+      "present": true,
       "hidden": true,
       "text": "",
       "hasRetryButton": false
@@ -74,11 +347,12 @@
       "hidden": true,
       "text": "正在翻到 公元 1500 年…"
     },
-    "datasetStatus": "137 个当年政体 · 378 条事件",
+    "datasetStatus": "137 个当年政体 · 382 条事件",
     "year": 1500,
     "onLine": true,
     "requests": 63,
-    "transferBytes": 5665828
+    "transferBytes": 5671492,
+    "servedFromCache": 4
   },
   "throttled": [
     {
@@ -86,25 +360,84 @@
       "latencyMs": 100,
       "kbps": 4096,
       "outcome": "ready",
-      "elapsedMs": 10493,
+      "elapsedMs": 12029,
       "errorBox": {
+        "present": true,
         "hidden": true,
         "text": "",
         "hasRetryButton": false
       },
-      "loading": {
-        "hidden": true,
-        "text": "正在翻到 公元 1500 年…"
-      },
       "year": 1500,
+      "datasetStatus": "137 个当年政体 · 382 条事件",
       "requests": 63,
+      "servedFromCache": 4,
       "failures": [],
       "aborted": 0,
-      "datasetStatus": "137 个当年政体 · 378 条事件",
       "recovery": {
         "outcome": "ready",
-        "ms": 3282,
+        "ms": 2966,
         "errorBox": {
+          "present": true,
+          "hidden": true,
+          "text": "",
+          "hasRetryButton": false
+        },
+        "year": 1500
+      }
+    },
+    {
+      "profile": "slow-4g-1.6mbps",
+      "latencyMs": 300,
+      "kbps": 1638,
+      "outcome": "ready",
+      "elapsedMs": 19076,
+      "errorBox": {
+        "present": true,
+        "hidden": true,
+        "text": "",
+        "hasRetryButton": false
+      },
+      "year": 1500,
+      "datasetStatus": "137 个当年政体 · 382 条事件",
+      "requests": 63,
+      "servedFromCache": 4,
+      "failures": [],
+      "aborted": 0,
+      "recovery": {
+        "outcome": "ready",
+        "ms": 3297,
+        "errorBox": {
+          "present": true,
+          "hidden": true,
+          "text": "",
+          "hasRetryButton": false
+        },
+        "year": 1500
+      }
+    },
+    {
+      "profile": "slow-3g-400kbps",
+      "latencyMs": 400,
+      "kbps": 400,
+      "outcome": "ready",
+      "elapsedMs": 67717,
+      "errorBox": {
+        "present": true,
+        "hidden": true,
+        "text": "",
+        "hasRetryButton": false
+      },
+      "year": 1500,
+      "datasetStatus": "137 个当年政体 · 382 条事件",
+      "requests": 63,
+      "servedFromCache": 4,
+      "failures": [],
+      "aborted": 0,
+      "recovery": {
+        "outcome": "timeout",
+        "ms": 91093,
+        "errorBox": {
+          "present": true,
           "hidden": true,
           "text": "",
           "hasRetryButton": false
@@ -113,5 +446,166 @@
       }
     }
   ],
-  "fatal": "Error: Uncaught TypeError: Cannot read properties of null (reading 'hidden')\n    at <anonymous>:1:78\n    at <anonymous>:1:179\n    at evaluate (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/browser.mjs:55:31)\n    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/offline-weaknet.mjs:82:17"
+  "notFound": {
+    "simulatedUrl": "data/fast/overview-NNN.json.gz (year 1450)",
+    "year": 1450,
+    "httpHits": 14,
+    "interceptionWorked": true,
+    "pausedTotal": 72,
+    "pausedSample": [
+      "/",
+      "/assets/maplibre-gl.css?v=3.10.0-6af5167ed72f",
+      "/style.css?v=3.10.0-6af5167ed72f",
+      "/product.css?v=3.10.0-6af5167ed72f",
+      "/cartography.css?v=3.10.0-6af5167ed72f",
+      "/startup.js?v=3.10.0-6af5167ed72f",
+      "/assets/maplibre-gl.js?v=3.10.0-6af5167ed72f",
+      "/app.js?v=3.10.0-6af5167ed72f",
+      "/boundary-comparison.js?v=3.10.0-6af5167ed72f",
+      "/view-state.js?v=3.10.0-6af5167ed72f",
+      "/city-narratives.js?v=3.10.0-6af5167ed72f",
+      "/source-reader.js?v=3.10.0-6af5167ed72f"
+    ],
+    "initial": {
+      "outcome": "error-ui",
+      "ms": 4866,
+      "errorBox": {
+        "present": true,
+        "hidden": false,
+        "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      },
+      "year": 1450,
+      "responseStatuses": [
+        404,
+        404,
+        404,
+        404,
+        404,
+        404,
+        404
+      ]
+    },
+    "retryWhile404": {
+      "requestsBeforeRetry": 7,
+      "requestsAfterRetry": 14,
+      "errorBox": {
+        "present": true,
+        "hidden": false,
+        "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      },
+      "year": 1450
+    },
+    "recovery": {
+      "outcome": "ready",
+      "ms": 2817,
+      "year": 1450,
+      "datasetStatus": "133 个当年政体 · 382 条事件",
+      "errorBox": {
+        "present": true,
+        "hidden": true,
+        "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      }
+    },
+    "yearSwitch": {
+      "to1500": true,
+      "backTo1450": true,
+      "finalYear": 1450,
+      "finalErrorBox": {
+        "present": true,
+        "hidden": true,
+        "text": "未能载入 公元 1450 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      }
+    }
+  },
+  "offline": {
+    "duringOffline": {
+      "onLine": false,
+      "year": 1500,
+      "errorBox": {
+        "present": true,
+        "hidden": true,
+        "text": "",
+        "hasRetryButton": false
+      }
+    },
+    "switchYear": {
+      "outcome": "error-ui",
+      "ms": 13527,
+      "errorBox": {
+        "present": true,
+        "hidden": false,
+        "text": "未能载入 公元 1600 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      },
+      "year": 1500,
+      "failures": [
+        {
+          "url": "http://127.0.0.1:8767/data/fast/overview-013.json.gz",
+          "error": "net::ERR_INTERNET_DISCONNECTED",
+          "blocked": null,
+          "t": 1790970492579
+        },
+        {
+          "url": "http://127.0.0.1:8767/data/fast/overview-012.json.gz",
+          "error": "net::ERR_INTERNET_DISCONNECTED",
+          "blocked": null,
+          "t": 1790970492580
+        },
+        {
+          "url": "http://127.0.0.1:8767/data/fast/overview-011.json.gz",
+          "error": "net::ERR_INTERNET_DISCONNECTED",
+          "blocked": null,
+          "t": 1790970492580
+        },
+        {
+          "url": "http://127.0.0.1:8767/data/fast/overview-010.json.gz",
+          "error": "net::ERR_INTERNET_DISCONNECTED",
+          "blocked": null,
+          "t": 1790970492581
+        },
+        {
+          "url": "http://127.0.0.1:8767/data/fast/overview-007.json.gz",
+          "error": "net::ERR_INTERNET_DISCONNECTED",
+          "blocked": null,
+          "t": 1790970492581
+        }
+      ],
+      "onLine": false
+    },
+    "retryWhileOffline": {
+      "errorBox": {
+        "present": true,
+        "hidden": false,
+        "text": "未能载入 公元 1600 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      },
+      "year": 1500
+    },
+    "recoveryAfterOnline": {
+      "outcome": "ready",
+      "ms": 1145,
+      "year": 1600,
+      "errorBox": {
+        "present": true,
+        "hidden": true,
+        "text": "未能载入 公元 1600 年，已保留当前地图。重试",
+        "hasRetryButton": true
+      },
+      "datasetStatus": "104 个当年政体 · 382 条事件"
+    },
+    "serviceWorker": "registered-none",
+    "cacheDisabledByDriver": true
+  },
+  "conclusions": [
+    "Baseline first load: ready in 4397 ms, 63 requests, 5539 KiB encoded.",
+    "Throttled wifi-4mbps (4096 kbps, 100 ms): ready after 12029 ms; failed requests 0; recovery ready in 2966 ms.",
+    "Throttled slow-4g-1.6mbps (1638 kbps, 300 ms): ready after 19076 ms; failed requests 0; recovery ready in 3297 ms.",
+    "Throttled slow-3g-400kbps (400 kbps, 400 ms): ready after 67717 ms; failed requests 0; recovery timeout in 91093 ms.",
+    "Simulated 404 on data/fast/overview-NNN.json.gz (year 1450) (intercepted 14 of 72 paused requests): interception hits 14, error surface after 4866 ms (404,404,404,404,404,404,404), retry re-requested the file (7 -> 14 requests), recovery ready in 2817 ms.",
+    "Offline year switch: error surface after 13527 ms with 5 failed requests (sample error: net::ERR_INTERNET_DISCONNECTED); recovery after going online in 1145 ms."
+  ]
 }

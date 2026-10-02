@@ -85,7 +85,7 @@ async function profileRun(p, port) {
   try {
     await C.installInstrument(s);
     let safeAreaOverride = 'not-attempted';
-    await goto(s, URL_BASE + '/#year=1500&lang=bi&browse=0', { waitMs: 250 });
+    await C.navigate(s, URL_BASE + '/#year=1500&lang=bi&browse=0');
     const ready = await C.waitMapReady(s, 120000);
     out.readyMs = ready.elapsed;
     out.ready = { ok: ready.ready, afterQuietRecheck: !!ready.afterQuietRecheck, state: ready.state };
@@ -146,7 +146,7 @@ async function profileRun(p, port) {
 
     // Reader readability through the sidebar path (guaranteed entry).
     if (!markerOpened || markerOpened.hidden === true) {
-      await goto(s, URL_BASE + '/#year=1500&lang=bi&browse=1', { waitMs: 250 });
+      await C.navigate(s, URL_BASE + '/#year=1500&lang=bi&browse=1');
       await C.waitMapReady(s);
       const card = await evaluate(s, EXPR.box('#eventList [data-event]'));
       await touchTap(s, card.cx, card.cy);

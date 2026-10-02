@@ -1,0 +1,52 @@
+经纬纪 · Meridian Atlas｜3.10 交接增量说明
+日期：2026-10-03。应用版本：3.10.0。本轮基线：3.9.4（交接快照提交 c9c678f）。
+完整历史背景见同目录 AI-HANDOFF-3.9.4.txt；本文件只写这一轮的变化与仍然存在的问题。
+
+一、本轮改了什么（都有可复现证据）
+
+1. 疆域可读性（P0，用户截图的直接原因之一）
+   - 根因：现代地形晕渲（terrain-shade / relief，0.82 不透明度）此前绘制在疆域层之上，把中欧 1500 视图的政体填充与国界压得几乎看不见。
+   - 改动：public/geography.js 把 relief 与 terrain-shade 移到 territories 之下；public/boundary-style.js 新增 boundaryHaloPaint()，public/map-engine.js 新增 boundary-halo 图层，形成「浅色晕圈 + 深色细线」的双层描边；territoryOpacity 按缩放重新标定。
+   - 只改像素样式，没有移动、取整或插值任何坐标。boundary-controller.js 与 toggleBorders 同步处理新图层的可见性。
+
+2. 把「粗稀折线与锯齿」拆成三段量化（P0 证据）
+   - 工具：node scripts/verification/audit-geometry-fidelity.mjs → docs/verification-3.10/geometry-fidelity.json，说明见 geometry-fidelity.md。
+   - 结论：1500 年走 public/data/native（原始坐标，无简化/量化/取整）。实测 Duchy of Bavaria 55 个顶点、线段中位长 19.0 km、11/54 条边严格轴对齐；Swiss Confederation 68 个顶点；Duchy of Lorraine 102 个顶点。锯齿来自源数据本身。
+   - 构建期简化只在「没有 native bootstrap 的年份首帧」出现（36 条跨年代抽样：0.04° 概览相对源最大偏移中位 3.84 km、P90 4.26 km、最大 4.41 km；0.02° 派生物最大 2.22 km），真实浏览器实测 1503 年 137/137 条活动记录在约 12 秒内全部换成原始坐标（代价约 208 次请求）。
+
+3. 中欧 1500 年细边界（P0/P1）
+   - public/data/ohm-1500/：OpenHistoricalMap CC0 静态抽取，1500 年 98 条、1492 年 91 条行政边界（L2–4，窗口 4.5–14.5°E / 44–50.5°N，Overpass 快照 2026-10-02T18:09:08Z）。33.8 万坐标逐位命中原始响应，未简化、未修补。构建 scripts/ohm/build-ohm-1500.mjs，校验 scripts/ohm/verify-ohm-1500.mjs（13/13）。
+   - 诚实口径：OHM 在 1500 年没有旧瑞士联邦、巴伐利亚公国、符腾堡、巴登、哈布斯堡奥地利、蒂罗尔的面；应用列出「未收录」，不补画、不借其他年份。三条成员线未闭合的帝国圈以虚线呈现、不填充、不进标签。
+   - 详图与在线瓦片按 osm_id 去重，同一条边界不会双重描边。
+
+4. 有据遗址层（P1）
+   - public/data/places/attested-places.json.gz：12 条完整双语篇章（良渚、殷墟、泉州、蒲甘、阿瑜陀耶、多拉维拉、亨比、基尔瓦、卡拉尔、卡霍基亚、南马都尔、莱武卡）+ 2 条既有记录增强 + 4 条留档；交接研究里 18 个候选逐条有结论。
+   - 读取层（Lead 整合）：public/places.js 把该层并入地点列表（kind=attested-site，periods=[[start,end]]），public/city-narratives.js 新增 attestedChapter() 适配成阅读器章节，app.js 给空 milestones 加保护并加「有据遗址记录」标签。
+   - 代表点是世界遗产条目的代表点，不是古城中心；年代只落在来源所述范围内；绝不按名称或距离与邻近人口记录合并。
+
+5. 内容均衡与产品细节（P1）
+   - events.json 343→378（+35 条双语，全部偏补最薄地区/年代格），薄格 33→27；基线 343 条逐字段零改动。
+   - 手机 safe-area（viewport-fit=cover + env() 内边距）；年份步长默认值与页面标注一致（10 年，此前 JS 会静默重置为 1 年）。
+   - 真实浏览器验证驱动纳入仓库：scripts/verification/browser.mjs（CDP，无 npm 依赖，含截图/点击/按键/像素统计）。
+
+二、验证
+
+- npm test 全量通过（退出码 0，无 FAIL）。整合期修掉三处回归：validate-places 的档案计数需随有据遗址现算；validate-city-time 的夹具表缺 attested-places；validate-halc-continuity 的 owner 桩缺 ohmGapNotice 绑定。
+- scripts/places/validate-places.mjs 与 scripts/places/validate-city-narratives.mjs 原本是根校验器的过期副本并已产生假失败，现改为转发根校验器，消除漂移。
+- 浏览器横扫八个视图（1000 / 1500 阿尔卑斯 / 1700 / 1900 / 2020 / HALC 1500 / 1800 参考 / 公元前 500）控制台零错误。
+- 性能、键盘焦点、手机、弱网基线见 docs/verification-3.10/。
+
+三、仍然存在的问题（不要在下一轮当成已完成）
+
+1. 源分辨率不会因为渲染改进而提高；1500 年瑞士、巴伐利亚仍只有 55–102 个顶点。
+2. 非 bootstrap 年份首帧仍是 0.04° 概览（最大约 4.41 km），随后被原始几何替换；彻底消除需要重建 catalog.json.gz 与其哈希链（native manifest 记录了 catalog sha256）。
+3. OHM 固化数据只覆盖 1492/1500 两年与行政 2–4 级；更近的县界仍依赖在线瓦片。
+4. 双图对照的堆内存开销约 336 MB（无头 SwiftShader 实测），未优化。
+5. IEG Map 602 提取候选仍是研究级（控制点留一误差约 4.5 km，瑞士/洛林在控制点凸包外），未接入生产图层。
+6. 竞争对标仍是历史研究基线（docs/BENCHMARK-BASELINE-2.1.md），没有重新核验当前竞品状态。
+7. 数据许可：OHM 为 CC0，CShapes 为 CC BY-NC-SA 4.0，HALC 为 CC BY-SA 4.0，UNESCO 条目文本为 CC BY-SA IGO 3.0；商业发布前仍需逐项处理，见 ATTRIBUTIONS.md 的 3.10 小节。
+
+四、本地运行
+
+python3 serve.py --open（端口占用时 --port 8767）。前端为静态 HTML/CSS/ES modules + MapLibre，无需 npm install。
+改 JS/CSS 后先 npm run prepare:assets，再 npm test。版本号由 package.json 决定，资源查询串由 stamp-assets.mjs 统一写入。

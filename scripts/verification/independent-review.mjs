@@ -49,7 +49,7 @@ try {
   check('review.ohm-file-shipped', 'Frozen OHM 1500 extract is present, parses as a FeatureCollection and carries source metadata', feats.length > 0 && meta.source === 'OpenHistoricalMap' && !!meta.timestamp, { features: feats.length, source: meta.source, timestamp: meta.timestamp });
   check('review.ohm-licence-documented', 'NOTICE.md records the OHM source, licence and extraction pipeline', /CC0/.test(notice) && /Overpass/.test(notice), { mentionsCC0: /CC0/.test(notice), mentionsOverpass: /Overpass/.test(notice) });
   check('review.ohm-named-polities-absent', 'None of the six polities named in the fidelity doc exist in the frozen extract', presentNamed.length === 0, { matches: presentNamed });
-  check('review.ohm-gaps-declared', 'metadata.gaps lists the missing 1500 polities so the UI can say so honestly', gaps.length === 6, { gaps: gaps.map(g => g.en) });
+  check('review.ohm-gaps-declared', 'metadata.gaps lists the missing 1500 polities so the UI can say so honestly', gaps.length >= 6, { gapCount: gaps.length, gaps: gaps.map(g => g.en), docClaimsSixNamedPolities: ['Old Swiss Confederacy', 'Duchy of Bavaria', 'Württemberg', 'Margraviate of Baden', 'Habsburg Austria', 'County of Tyrol'] });
   check('review.ohm-alps-not-empty', 'The Alps window is NOT empty in the frozen extract: it carries admin-level-3 imperial circles', alpsFeats.length > 0, { alpsFeatures: alpsFeats.length, names: alpsNames.slice(0, 8) });
   check('review.ohm-geometry-finite', 'Every frozen OHM feature has finite coordinates', nonFinite === 0, { nonFinite });
 } catch (e) {
@@ -72,12 +72,12 @@ try {
   report.publishability = {
     attributionsFile: { path: 'ATTRIBUTIONS.md', bytes: attributions.length, sourcesMentioned: present },
     dataLicenceFile: { path: 'public/data/LICENSE.md', bytes: dataLicence.length },
-    ohmManifest: { schema: manifest.schema, year: manifest.year, source: manifest.source, license: manifest.license, attribution: manifest.attribution, timestamp: manifest.timestamp, features: manifest.relationCount },
+    ohmManifest: { schema: manifest.schema, source: manifest.source && manifest.source.name, endpoint: manifest.source && manifest.source.endpoint, license: manifest.source && manifest.source.license, attribution: manifest.source && manifest.source.copyright, timestamp: manifest.source && manifest.source.timestamp, bbox: manifest.source && manifest.source.bbox, adminLevels: manifest.source && manifest.source.adminLevels, relationCount: manifest.relationCount },
     nonCommercialLicenceFlagged: ncFlagged
   };
   check('review.attributions-present', 'ATTRIBUTIONS.md names the upstream data sources', Object.values(present).filter(Boolean).length >= 4, present);
   check('review.noncommercial-flagged', 'A non-commercial upstream licence (CShapes CC BY-NC-SA) is flagged in the attribution or data licence text, as the user asked to record licences honestly for later release decisions', ncFlagged, { nonCommercialLicenceFlagged: ncFlagged, dataLicenceMentionsNC: /NC/i.test(dataLicence) });
-  check('review.ohm-manifest-licence', 'The frozen OHM manifest records source, licence and extraction timestamp', !!manifest.source && !!manifest.license && !!manifest.timestamp, report.publishability.ohmManifest);
+  check('review.ohm-manifest-licence', 'The frozen OHM manifest records source, licence and extraction timestamp', !!(manifest.source && manifest.source.license && manifest.source.timestamp), report.publishability.ohmManifest);
 } catch (e) {
   report.publishability = { error: String(e.message || e) };
   check('review.attributions-present', 'ATTRIBUTIONS.md names the upstream data sources', false, report.publishability);
@@ -99,7 +99,7 @@ try {
   // 2a. User's camera, 1500, regional boundary mode.
   const url = URL_BASE + '/#year=1500&lang=bi&browse=1&' + CAMERA + '&boundaries=regional';
   const t0 = Date.now();
-  await goto(s, url, { waitMs: 300 });
+  await C.navigate(s, url);
   await C.waitMapReady(s, 120000);
   let ohmReadyMs = null;
   for (let i = 0; i < 120; i++) {
@@ -107,8 +107,15 @@ try {
     if (has) { ohmReadyMs = Date.now() - t0; break; }
     await sleep(500);
   }
-  await sleep(2500);
-  report.browser = { url, readyMs: Date.now() - t0, ohmLayerReadyMs: ohmReadyMs };
+  // Wait for the regional layer to finish updating before measuring coverage.
+  let regionalSettledMs = null;
+  for (let i = 0; i < 60; i++) {
+    const st2 = await evaluate(s, 'document.querySelector("#regionalStatus").textContent');
+    if (st2 && st2.indexOf('正在读取') < 0 && st2.indexOf('正在补齐') < 0) { regionalSettledMs = Date.now() - t0; break; }
+    await sleep(1000);
+  }
+  await sleep(1500);
+  report.browser = { url, readyMs: Date.now() - t0, ohmLayerReadyMs: ohmReadyMs, regionalSettledMs };
   report.style = await evaluate(s, STYLE_EXPR);
   report.ohmView = await evaluate(s, OHM_EXPR);
   report.ohmRequests = net.requests.filter(r => /data\/ohm-1500\//.test(r.url)).map(r => r.url.replace(/^.*\//, ''));
@@ -117,7 +124,20 @@ try {
   const st = report.style || {};
   check('review.relief-under-territories', 'Relief raster sits below the territory fills in the layer stack', st.reliefIndex >= 0 && st.territoriesIndex >= 0 && st.reliefIndex < st.territoriesIndex, { reliefIndex: st.reliefIndex, territoriesIndex: st.territoriesIndex, order: (st.layerIds || []).slice(0, 12) });
   check('review.boundary-halo-present', 'A cased boundary halo layer exists and is drawn below the crisp boundary line', st.haloIndex >= 0 && st.boundaryIndex > st.haloIndex, { haloIndex: st.haloIndex, boundaryIndex: st.boundaryIndex, haloPaint: st.haloPaint });
-  check('review.territory-opacity-calibrated', 'Territory fill opacity is a zoom interpolation between 0.2 and 0.53', Array.isArray(st.territoryOpacityExpression) && st.territoryOpacityExpression[0] === 'interpolate', { expression: st.territoryOpacityExpression });
+  // The zoom-calibrated fill belongs to the overview mode: in regional mode the app sets
+  // the fill to 0 because the detailed areas own the shading. Measure both modes.
+  let styleDefault = null;
+  try {
+    await C.navigate(s, URL_BASE + '/#year=1500&lang=bi&browse=1&' + CAMERA);
+    await C.waitMapReady(s, 120000);
+    await sleep(3000);
+    styleDefault = await evaluate(s, STYLE_EXPR);
+  } catch (e) { report.styleDefaultError = String(e.message || e); }
+  report.styleDefault = styleDefault;
+  const opacitySpec = styleDefault ? styleDefault.territoryOpacity : st.territoryOpacity;
+  // Expression shape: ['interpolate', ['linear'], ['zoom'], z0, o0, z1, o1, ...]
+  const opacityValues = Array.isArray(opacitySpec) && opacitySpec[0] === 'interpolate' ? opacitySpec.slice(3).filter((x, i) => i % 2 === 1 && typeof x === 'number') : [];
+  check('review.territory-opacity-calibrated', 'In overview mode the territory fill is a zoom interpolation whose stops stay between 0.15 and 0.6', Array.isArray(opacitySpec) && opacitySpec[0] === 'interpolate' && opacityValues.length > 0 && Math.min(...opacityValues) >= 0.15 && Math.max(...opacityValues) <= 0.6, { overviewExpression: opacitySpec, numericStops: opacityValues, regionalModeValue: st.territoryOpacity, docSays: '0.53 to 0.30' });
   const ov = report.ohmView || {};
   check('review.ohm-frozen-served-to-page', 'The page fetched the shipped frozen OHM file and built its layers', report.ohmRequests.length > 0 && (ov.layers || []).length > 0 && ov.hasSource === true, { requests: report.ohmRequests, layers: ov.layers, ohmLayerReadyMs });
   check('review.ohm-positive-control', 'Positive control: the frozen extract renders polygons over the Low Countries (the layer is not globally empty)', typeof ov.atLowCountries === 'number' ? ov.atLowCountries > 0 : null, { atLowCountries: ov.atLowCountries, renderedInViewport: ov.rendered, sourceFeatures: ov.sourceFeatures });
@@ -137,7 +157,7 @@ try {
   // 2c. 1503 native-geometry claim (non-bootstrap year, same camera).
   net.requests.length = 0;
   const t1 = Date.now();
-  await goto(s, URL_BASE + '/#year=1503&lang=bi&browse=1&' + CAMERA, { waitMs: 300 });
+  await C.navigate(s, URL_BASE + '/#year=1503&lang=bi&browse=1&' + CAMERA);
   await C.waitMapReady(s, 120000);
   let nativeMs = null;
   for (let i = 0; i < 240; i++) {

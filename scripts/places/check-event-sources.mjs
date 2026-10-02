@@ -16,7 +16,24 @@ const outPath=resolve(root,process.argv[3]||'docs/verification-3.10/content-sour
 const HANDOFF='/Users/zane/meridian_atlas/经纬纪-AI交接/研究资料/全球覆盖审查/settlement-candidates.json';
 const UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 // Words that must occur in a live page for the fetch to count as content evidence.
+// Expectations may be keyed by exact URL (preferred) or by host.
 const EXPECT={
+ 'https://en.wikipedia.org/wiki/Ban_Chiang':['ban chiang','bronze'],
+ 'https://en.wikipedia.org/wiki/Newgrange':['newgrange','neolithic'],
+ 'https://en.wikipedia.org/wiki/Br%C3%BA_na_B%C3%B3inne':['boyne','passage tomb'],
+ 'https://en.wikipedia.org/wiki/Dong_Son_culture':['dong son','bronze'],
+ 'https://en.wikipedia.org/wiki/Painted_Grey_Ware_culture':['painted grey ware','iron age'],
+ 'https://en.wikipedia.org/wiki/Nabta_Playa':['nabta playa','neolithic'],
+ 'https://en.wikipedia.org/wiki/Meadowcroft_Rockshelter':['meadowcroft','radiocarbon'],
+ 'https://en.wikipedia.org/wiki/Hoabinhian':['hoabinhian','hunter-gatherer'],
+ 'https://en.wikipedia.org/wiki/Iron_Age':['iron age','smelted iron'],
+ 'https://en.wikipedia.org/wiki/Polynesian_navigation':['polynesian','canoe'],
+ 'https://en.wikipedia.org/wiki/Polynesian_culture':['polynesian','settlement'],
+ 'https://en.wikipedia.org/wiki/Neolithic_Revolution':['neolithic','domestication'],
+ 'https://en.wikipedia.org/wiki/Bronze_Age':['bronze age','tin'],
+ 'https://en.wikipedia.org/wiki/Carnac_stones':['carnac','megalith'],
+ 'https://en.wikipedia.org/wiki/%C3%87atalh%C3%B6y%C3%BCk':['neolithic','anatolia'],
+ 'www.historicenvironment.scot':['skara brae','neolithic'],
  'whc.unesco.org':[],
  'www.iranicaonline.org':['isfahan','abbas'],
  'www.loc.gov':['1733'],
@@ -35,7 +52,9 @@ const EXPECT={
  'resources.metmuseum.org':[],
  'www.britishmuseum.org':[]
 };
-const batch=JSON.parse(await readFile(resolve(root,'editorial/events-3.10.json'),'utf8'));
+const batchFiles=(await readdir(resolve(root,'editorial'))).filter(name=>/^events-3\.\d+\.json$/.test(name)).sort();
+const batches=await Promise.all(batchFiles.map(async name=>JSON.parse(await readFile(resolve(root,'editorial',name),'utf8'))));
+const batch={files:batchFiles,entries:batches.flatMap(batch=>batch.entries)};
 const urls=[...new Set(batch.entries.flatMap(entry=>entry.sources.map(source=>source.url)))].sort();
 
 // Repository records: every file that already cites one of these URLs.
@@ -68,7 +87,7 @@ for(const url of urls){
   record.bytes=body.byteLength;
   if(response.status===200){
    const text=Buffer.from(body).toString('latin1').toLowerCase();
-   const expected=EXPECT[host]||[];
+   const expected=EXPECT[url]||EXPECT[host]||[];
    record.matched=expected.filter(word=>text.includes(word.toLowerCase()));
    // Binary PDFs and locale-redirected pages may hide their text from a byte scan;
    // they still pass on the repository record but are marked as unparsed.
@@ -86,7 +105,7 @@ for(const url of urls){
  if(!record.ok)record.failure=record.recordedIn.length?'live and recorded evidence both missing':'no evidence record';
  results.push(record);
 }
-const report={schemaVersion:1,generatedAt:new Date().toISOString(),batch:'editorial/events-3.10.json',checkedUrls:results.length,
+const report={schemaVersion:1,generatedAt:new Date().toISOString(),batches:batch.files,checkedUrls:results.length,
  modes:results.reduce((all,item)=>{all[item.mode]=(all[item.mode]||0)+1;return all},{}),
  passed:results.filter(item=>item.ok).length,failed:results.filter(item=>!item.ok).length,
  policy:'A source passes on live content evidence when the host answers and the expected words are present; otherwise it passes only when the repository or the reviewed handoff file already records the exact URL. Blocked hosts are never described as freshly verified.',

@@ -1,0 +1,1086 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T20:03:46.130Z",
+  "generator": "scripts/places/content-balance.mjs",
+  "purpose": "Quantify region x era content density before and after the 3.10 content expansion; thin cells drive the next authoring batch.",
+  "baselineRef": "7ee94b4",
+  "inputs": {
+    "events": {
+      "path": "public/data/events.json",
+      "sha256": "b9db71e4833f1163dbb48282171fcfce1ecd8b5ad729c7981a999c8e21987dd5",
+      "count": 390
+    },
+    "eventsGz": {
+      "path": "public/data/events.json.gz",
+      "sha256": "e90c566dbfe5f87b0394745f973a025a3ce19e096f100e7175836aae3a5b899e",
+      "matchesUncompressed": true
+    },
+    "cityNarratives": {
+      "path": "public/data/places/city-narratives.json.gz",
+      "sha256": "cdbdb42eb65e4197ceda027ce7da2f1e940fb7760987b38fb2f9456622628ae2",
+      "entries": 15,
+      "sources": 48
+    },
+    "enrichmentProfiles": {
+      "path": "public/data/enrichment/profile-index.json.gz",
+      "count": 1450
+    },
+    "enrichmentNarratives": {
+      "path": "public/data/enrichment/narratives.json",
+      "entries": 26
+    },
+    "attestedPlaces": {
+      "path": "public/data/places/attested-places.json.gz",
+      "sha256": "4048e9e4d2d2deaef3fcaec1a35d5626a0c9bad7ac199bddf8dcbb80129ac972",
+      "records": 12
+    }
+  },
+  "eras": [
+    {
+      "id": "prehistoric",
+      "zh": "史前（前3000以前）",
+      "en": "Prehistoric (before 3000 BCE)",
+      "coarse": "prehistoric",
+      "start": null,
+      "end": -3001
+    },
+    {
+      "id": "ancient-early",
+      "zh": "上古早期（前3000—前1201）",
+      "en": "Early antiquity (3000–1201 BCE)",
+      "coarse": "ancient",
+      "start": -3000,
+      "end": -1201
+    },
+    {
+      "id": "ancient-iron",
+      "zh": "上古铁器时代（前1200—前501）",
+      "en": "Iron-age antiquity (1200–501 BCE)",
+      "coarse": "ancient",
+      "start": -1200,
+      "end": -501
+    },
+    {
+      "id": "classical",
+      "zh": "古典时代（前500—公元499）",
+      "en": "Classical (500 BCE–499 CE)",
+      "coarse": "classical",
+      "start": -500,
+      "end": 499
+    },
+    {
+      "id": "medieval",
+      "zh": "中世纪（500—1499）",
+      "en": "Medieval (500–1499)",
+      "coarse": "medieval",
+      "start": 500,
+      "end": 1499
+    },
+    {
+      "id": "early-modern",
+      "zh": "近代早期（1500—1799）",
+      "en": "Early modern (1500–1799)",
+      "coarse": "early-modern",
+      "start": 1500,
+      "end": 1799
+    },
+    {
+      "id": "modern",
+      "zh": "近代（1800—1945）",
+      "en": "Modern (1800–1945)",
+      "coarse": "modern",
+      "start": 1800,
+      "end": 1945
+    },
+    {
+      "id": "contemporary",
+      "zh": "当代（1946—）",
+      "en": "Contemporary (1946–)",
+      "coarse": "contemporary",
+      "start": 1946,
+      "end": null
+    }
+  ],
+  "events": {
+    "total": 390,
+    "byRegion": {
+      "oceania": 28,
+      "americas": 45,
+      "east-asia": 48,
+      "southeast-asia": 40,
+      "west-central-asia": 31,
+      "africa": 67,
+      "south-asia": 35,
+      "europe": 57,
+      "global": 39
+    },
+    "byCoarseEra": {
+      "prehistoric": 17,
+      "ancient": 29,
+      "classical": 40,
+      "medieval": 110,
+      "early-modern": 49,
+      "modern": 63,
+      "contemporary": 82
+    },
+    "byEra": {
+      "prehistoric": 17,
+      "ancient-early": 14,
+      "ancient-iron": 15,
+      "classical": 40,
+      "medieval": 110,
+      "early-modern": 49,
+      "modern": 63,
+      "contemporary": 82
+    },
+    "byRegionEra": {
+      "oceania": {
+        "prehistoric": 3,
+        "ancient-early": 1,
+        "ancient-iron": 1,
+        "medieval": 7,
+        "early-modern": 3,
+        "modern": 4,
+        "contemporary": 9
+      },
+      "americas": {
+        "prehistoric": 2,
+        "ancient-early": 3,
+        "ancient-iron": 1,
+        "classical": 7,
+        "medieval": 14,
+        "early-modern": 6,
+        "modern": 7,
+        "contemporary": 5
+      },
+      "east-asia": {
+        "prehistoric": 2,
+        "ancient-early": 2,
+        "ancient-iron": 2,
+        "classical": 5,
+        "medieval": 19,
+        "early-modern": 5,
+        "modern": 9,
+        "contemporary": 4
+      },
+      "southeast-asia": {
+        "prehistoric": 1,
+        "ancient-early": 1,
+        "ancient-iron": 1,
+        "classical": 3,
+        "medieval": 16,
+        "early-modern": 3,
+        "modern": 5,
+        "contemporary": 10
+      },
+      "west-central-asia": {
+        "prehistoric": 3,
+        "ancient-early": 2,
+        "ancient-iron": 4,
+        "classical": 3,
+        "medieval": 12,
+        "early-modern": 4,
+        "modern": 1,
+        "contemporary": 2
+      },
+      "africa": {
+        "prehistoric": 2,
+        "ancient-early": 2,
+        "ancient-iron": 3,
+        "classical": 4,
+        "medieval": 22,
+        "early-modern": 6,
+        "modern": 8,
+        "contemporary": 20
+      },
+      "south-asia": {
+        "prehistoric": 1,
+        "ancient-early": 2,
+        "ancient-iron": 1,
+        "classical": 8,
+        "medieval": 5,
+        "early-modern": 6,
+        "modern": 6,
+        "contemporary": 6
+      },
+      "europe": {
+        "prehistoric": 3,
+        "ancient-early": 1,
+        "ancient-iron": 1,
+        "classical": 7,
+        "medieval": 13,
+        "early-modern": 12,
+        "modern": 13,
+        "contemporary": 7
+      },
+      "global": {
+        "ancient-iron": 1,
+        "classical": 3,
+        "medieval": 2,
+        "early-modern": 4,
+        "modern": 10,
+        "contemporary": 19
+      }
+    },
+    "overlappingRangesByRegionEra": {},
+    "byCategory": {
+      "society": 68,
+      "culture": 50,
+      "religion": 27,
+      "science": 49,
+      "politics": 106,
+      "trade": 44,
+      "war": 36,
+      "disaster": 10
+    },
+    "byPrecision": {
+      "circa": 28,
+      "range": 186,
+      "year": 176
+    },
+    "byLocationType": {
+      "representative": 202,
+      "site": 188
+    },
+    "bySourceCount": {
+      "1": 370,
+      "2": 20
+    },
+    "distinctSourceHosts": [
+      "82nd-and-fifth.metmuseum.org",
+      "academic.oup.com",
+      "afe.easia.columbia.edu",
+      "americanindian.si.edu",
+      "ansa.novascotia.ca",
+      "apsaraauthority.gov.kh",
+      "archive.cdc.gov",
+      "archives.gov.lk",
+      "asean.org",
+      "au.int",
+      "aws-digital-classroom.nma.gov.au",
+      "caluniv.ac.in",
+      "cojs.org",
+      "collections.library.utoronto.ca",
+      "colosseo.it",
+      "corporate.nas.gov.sg",
+      "countrystudies.us",
+      "digital-classroom.nma.gov.au",
+      "digitallibrary.un.org",
+      "discovery.ucl.ac.uk",
+      "documents1.worldbank.org",
+      "egymonuments.gov.eg",
+      "en.wikipedia.org",
+      "en.xa.gov.cn",
+      "encyclopedia.ushmm.org",
+      "ensembles.org",
+      "forumsec.org",
+      "gwtoday.gwu.edu",
+      "history.state.gov",
+      "home.cern",
+      "home.nps.gov",
+      "idp.bl.uk",
+      "lugares.inah.gob.mx",
+      "maa.missouri.edu",
+      "mathshistory.st-andrews.ac.uk",
+      "mk2films.com",
+      "namibia.un.org",
+      "newsroom.safaricom.co.ke",
+      "nijo-jocastle.city.kyoto.lg.jp",
+      "nzhistory.govt.nz",
+      "old.parliament.go.th",
+      "online.bunka.go.jp",
+      "ozone.unep.org",
+      "panipat.gov.in",
+      "peabody.harvard.edu",
+      "peacekeeping.un.org",
+      "pia.gov.ph",
+      "pmc.ncbi.nlm.nih.gov",
+      "president.gov.np",
+      "press.un.org",
+      "resources.metmuseum.org",
+      "sahistory.org.za",
+      "sdgs.un.org",
+      "sourcebooks.web.fordham.edu",
+      "teara.govt.nz",
+      "timeline.eccc.gov.kh",
+      "treaties.un.org",
+      "ui.edu.ng",
+      "unfccc.int",
+      "usl.edu.sl",
+      "visit.bodleian.ox.ac.uk",
+      "whc.unesco.org",
+      "www.911memorial.org",
+      "www.afro.who.int",
+      "www.alhambra-patronato.es",
+      "www.archives.gov",
+      "www.au.int",
+      "www.basiclaw.gov.hk",
+      "www.britannica.com",
+      "www.britishmuseum.org",
+      "www.census.gov",
+      "www.computerhistory.org",
+      "www.deutschlandmuseum.de",
+      "www.dpm.org.cn",
+      "www.english-heritage.org.uk",
+      "www.esa.int",
+      "www.federalreservehistory.org",
+      "www.genome.gov",
+      "www.getty.edu",
+      "www.gov.uk",
+      "www.grameenbank.org.bd",
+      "www.greenbeltmovement.org",
+      "www.gutenberg.de",
+      "www.historicenvironment.scot",
+      "www.iaea.org",
+      "www.icrc.org",
+      "www.indiaofthepast.org",
+      "www.iranicaonline.org",
+      "www.loc.gov",
+      "www.louvre.fr",
+      "www.metmuseum.org",
+      "www.mpg.de",
+      "www.nam.ac.uk",
+      "www.nasa.gov",
+      "www.nationaalarchief.nl",
+      "www.nationalarchives.gov.uk",
+      "www.nature.com",
+      "www.nelsonmandela.org",
+      "www.nlm.nih.gov",
+      "www.nma.gov.au",
+      "www.nobelprize.org",
+      "www.nps.gov",
+      "www.parliament.gov.fj",
+      "www.parliament.uk",
+      "www.parlimen.gov.my",
+      "www.pib.gov.in",
+      "www.salk.edu",
+      "www.si.edu",
+      "www.sydney.edu.au",
+      "www.tnm.jp",
+      "www.un.org",
+      "www.unesco.org",
+      "www.ungeneva.org",
+      "www.who.int",
+      "www.wmf.org",
+      "www.wto.org"
+    ],
+    "withEditorialNotes": 150
+  },
+  "thinCells": {
+    "threshold": 3,
+    "cells": [
+      {
+        "region": "global",
+        "era": "prehistoric",
+        "eraZh": "史前（前3000以前）",
+        "eventsByStart": 0,
+        "eventsOverlappingEra": 0,
+        "gap": 3
+      },
+      {
+        "region": "global",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 0,
+        "eventsOverlappingEra": 0,
+        "gap": 3
+      },
+      {
+        "region": "oceania",
+        "era": "classical",
+        "eraZh": "古典时代（前500—公元499）",
+        "eventsByStart": 0,
+        "eventsOverlappingEra": 0,
+        "gap": 3
+      },
+      {
+        "region": "americas",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "europe",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "europe",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "global",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "oceania",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "oceania",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "south-asia",
+        "era": "prehistoric",
+        "eraZh": "史前（前3000以前）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "south-asia",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "southeast-asia",
+        "era": "prehistoric",
+        "eraZh": "史前（前3000以前）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "southeast-asia",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "southeast-asia",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "west-central-asia",
+        "era": "modern",
+        "eraZh": "近代（1800—1945）",
+        "eventsByStart": 1,
+        "eventsOverlappingEra": 0,
+        "gap": 2
+      },
+      {
+        "region": "africa",
+        "era": "prehistoric",
+        "eraZh": "史前（前3000以前）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "africa",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "americas",
+        "era": "prehistoric",
+        "eraZh": "史前（前3000以前）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "east-asia",
+        "era": "prehistoric",
+        "eraZh": "史前（前3000以前）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "east-asia",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "east-asia",
+        "era": "ancient-iron",
+        "eraZh": "上古铁器时代（前1200—前501）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "global",
+        "era": "medieval",
+        "eraZh": "中世纪（500—1499）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "south-asia",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "west-central-asia",
+        "era": "ancient-early",
+        "eraZh": "上古早期（前3000—前1201）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      },
+      {
+        "region": "west-central-asia",
+        "era": "contemporary",
+        "eraZh": "当代（1946—）",
+        "eventsByStart": 2,
+        "eventsOverlappingEra": 0,
+        "gap": 1
+      }
+    ]
+  },
+  "cityNarratives": {
+    "entries": 15,
+    "sources": 48,
+    "byRegion": {
+      "unassigned": 15
+    },
+    "publishers": [
+      "APSARA National Authority, Cambodia",
+      "Agency for Cultural Affairs, Japan",
+      "Central Cultural Fund, Sri Lanka",
+      "City of Kyoto / Nijo-jo Castle",
+      "Egyptian Ministry of Tourism and Antiquities",
+      "Instituto Nacional de Antropología e Historia",
+      "Instituto Nacional de Antropología e Historia (INAH), Mexico",
+      "Karnataka Tourism, Government of Karnataka",
+      "Library of Congress",
+      "Ministry of Culture, Government of India / Press Information Bureau",
+      "Parco archeologico del Colosseo",
+      "Pleiades, Institute for the Study of the Ancient World",
+      "Reba, Reitsma & Seto (Figshare)",
+      "Smithsonian National Museum of the American Indian",
+      "State Administration of Cultural Heritage, China; hosted by UNESCO",
+      "The Metropolitan Museum of Art",
+      "UNESCO",
+      "UNESCO Silk Roads Programme",
+      "UNESCO World Heritage Centre",
+      "University of Sydney",
+      "Uzbekistan nomination; ICOMOS evaluation, hosted by UNESCO",
+      "Xi’an Municipal Government",
+      "Xi’an Municipal Government; Xi’an Museum collections"
+    ]
+  },
+  "enrichment": {
+    "profiles": 1450,
+    "narratives": 26
+  },
+  "attestedPlaces": {
+    "records": 12,
+    "byRegion": {
+      "east-asia": 3,
+      "southeast-asia": 2,
+      "south-asia": 2,
+      "africa": 1,
+      "americas": 2,
+      "oceania": 2
+    },
+    "byEra": {
+      "prehistoric": 1,
+      "ancient-early": 3,
+      "medieval": 7,
+      "modern": 1
+    },
+    "quarantined": 0,
+    "reviewedCandidates": 12
+  },
+  "baseline": {
+    "ref": "7ee94b4",
+    "total": 343,
+    "byRegion": {
+      "oceania": 25,
+      "east-asia": 41,
+      "americas": 41,
+      "west-central-asia": 23,
+      "south-asia": 28,
+      "africa": 62,
+      "europe": 52,
+      "global": 37,
+      "southeast-asia": 34
+    },
+    "byEra": {
+      "prehistoric": 10,
+      "ancient-early": 11,
+      "ancient-iron": 11,
+      "classical": 36,
+      "medieval": 94,
+      "early-modern": 37,
+      "modern": 62,
+      "contemporary": 82
+    },
+    "byRegionEra": {
+      "oceania": {
+        "prehistoric": 3,
+        "ancient-early": 1,
+        "medieval": 7,
+        "early-modern": 2,
+        "modern": 3,
+        "contemporary": 9
+      },
+      "east-asia": {
+        "prehistoric": 2,
+        "ancient-early": 1,
+        "ancient-iron": 2,
+        "classical": 5,
+        "medieval": 16,
+        "early-modern": 2,
+        "modern": 9,
+        "contemporary": 4
+      },
+      "americas": {
+        "prehistoric": 1,
+        "ancient-early": 3,
+        "ancient-iron": 1,
+        "classical": 7,
+        "medieval": 11,
+        "early-modern": 6,
+        "modern": 7,
+        "contemporary": 5
+      },
+      "west-central-asia": {
+        "prehistoric": 2,
+        "ancient-early": 2,
+        "ancient-iron": 4,
+        "classical": 2,
+        "medieval": 9,
+        "early-modern": 1,
+        "modern": 1,
+        "contemporary": 2
+      },
+      "south-asia": {
+        "prehistoric": 1,
+        "ancient-early": 1,
+        "classical": 7,
+        "medieval": 4,
+        "early-modern": 3,
+        "modern": 6,
+        "contemporary": 6
+      },
+      "africa": {
+        "prehistoric": 1,
+        "ancient-early": 2,
+        "ancient-iron": 3,
+        "classical": 4,
+        "medieval": 19,
+        "early-modern": 5,
+        "modern": 8,
+        "contemporary": 20
+      },
+      "europe": {
+        "ancient-early": 1,
+        "ancient-iron": 1,
+        "classical": 6,
+        "medieval": 12,
+        "early-modern": 12,
+        "modern": 13,
+        "contemporary": 7
+      },
+      "global": {
+        "classical": 2,
+        "medieval": 2,
+        "early-modern": 4,
+        "modern": 10,
+        "contemporary": 19
+      },
+      "southeast-asia": {
+        "classical": 3,
+        "medieval": 14,
+        "early-modern": 2,
+        "modern": 5,
+        "contemporary": 10
+      }
+    }
+  },
+  "delta": {
+    "total": 47,
+    "byRegionEra": {
+      "africa.prehistoric": {
+        "before": 1,
+        "after": 2,
+        "delta": 1
+      },
+      "africa.ancient-early": {
+        "before": 2,
+        "after": 2,
+        "delta": 0
+      },
+      "africa.ancient-iron": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "africa.classical": {
+        "before": 4,
+        "after": 4,
+        "delta": 0
+      },
+      "africa.medieval": {
+        "before": 19,
+        "after": 22,
+        "delta": 3
+      },
+      "africa.early-modern": {
+        "before": 5,
+        "after": 6,
+        "delta": 1
+      },
+      "africa.modern": {
+        "before": 8,
+        "after": 8,
+        "delta": 0
+      },
+      "africa.contemporary": {
+        "before": 20,
+        "after": 20,
+        "delta": 0
+      },
+      "americas.prehistoric": {
+        "before": 1,
+        "after": 2,
+        "delta": 1
+      },
+      "americas.ancient-early": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "americas.ancient-iron": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "americas.classical": {
+        "before": 7,
+        "after": 7,
+        "delta": 0
+      },
+      "americas.medieval": {
+        "before": 11,
+        "after": 14,
+        "delta": 3
+      },
+      "americas.early-modern": {
+        "before": 6,
+        "after": 6,
+        "delta": 0
+      },
+      "americas.modern": {
+        "before": 7,
+        "after": 7,
+        "delta": 0
+      },
+      "americas.contemporary": {
+        "before": 5,
+        "after": 5,
+        "delta": 0
+      },
+      "east-asia.prehistoric": {
+        "before": 2,
+        "after": 2,
+        "delta": 0
+      },
+      "east-asia.ancient-early": {
+        "before": 1,
+        "after": 2,
+        "delta": 1
+      },
+      "east-asia.ancient-iron": {
+        "before": 2,
+        "after": 2,
+        "delta": 0
+      },
+      "east-asia.classical": {
+        "before": 5,
+        "after": 5,
+        "delta": 0
+      },
+      "east-asia.medieval": {
+        "before": 16,
+        "after": 19,
+        "delta": 3
+      },
+      "east-asia.early-modern": {
+        "before": 2,
+        "after": 5,
+        "delta": 3
+      },
+      "east-asia.modern": {
+        "before": 9,
+        "after": 9,
+        "delta": 0
+      },
+      "east-asia.contemporary": {
+        "before": 4,
+        "after": 4,
+        "delta": 0
+      },
+      "europe.prehistoric": {
+        "before": 0,
+        "after": 3,
+        "delta": 3
+      },
+      "europe.ancient-early": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "europe.ancient-iron": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "europe.classical": {
+        "before": 6,
+        "after": 7,
+        "delta": 1
+      },
+      "europe.medieval": {
+        "before": 12,
+        "after": 13,
+        "delta": 1
+      },
+      "europe.early-modern": {
+        "before": 12,
+        "after": 12,
+        "delta": 0
+      },
+      "europe.modern": {
+        "before": 13,
+        "after": 13,
+        "delta": 0
+      },
+      "europe.contemporary": {
+        "before": 7,
+        "after": 7,
+        "delta": 0
+      },
+      "global.ancient-iron": {
+        "before": 0,
+        "after": 1,
+        "delta": 1
+      },
+      "global.classical": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "global.medieval": {
+        "before": 2,
+        "after": 2,
+        "delta": 0
+      },
+      "global.early-modern": {
+        "before": 4,
+        "after": 4,
+        "delta": 0
+      },
+      "global.modern": {
+        "before": 10,
+        "after": 10,
+        "delta": 0
+      },
+      "global.contemporary": {
+        "before": 19,
+        "after": 19,
+        "delta": 0
+      },
+      "oceania.prehistoric": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "oceania.ancient-early": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "oceania.ancient-iron": {
+        "before": 0,
+        "after": 1,
+        "delta": 1
+      },
+      "oceania.medieval": {
+        "before": 7,
+        "after": 7,
+        "delta": 0
+      },
+      "oceania.early-modern": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "oceania.modern": {
+        "before": 3,
+        "after": 4,
+        "delta": 1
+      },
+      "oceania.contemporary": {
+        "before": 9,
+        "after": 9,
+        "delta": 0
+      },
+      "south-asia.prehistoric": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "south-asia.ancient-early": {
+        "before": 1,
+        "after": 2,
+        "delta": 1
+      },
+      "south-asia.ancient-iron": {
+        "before": 0,
+        "after": 1,
+        "delta": 1
+      },
+      "south-asia.classical": {
+        "before": 7,
+        "after": 8,
+        "delta": 1
+      },
+      "south-asia.medieval": {
+        "before": 4,
+        "after": 5,
+        "delta": 1
+      },
+      "south-asia.early-modern": {
+        "before": 3,
+        "after": 6,
+        "delta": 3
+      },
+      "south-asia.modern": {
+        "before": 6,
+        "after": 6,
+        "delta": 0
+      },
+      "south-asia.contemporary": {
+        "before": 6,
+        "after": 6,
+        "delta": 0
+      },
+      "southeast-asia.prehistoric": {
+        "before": 0,
+        "after": 1,
+        "delta": 1
+      },
+      "southeast-asia.ancient-early": {
+        "before": 0,
+        "after": 1,
+        "delta": 1
+      },
+      "southeast-asia.ancient-iron": {
+        "before": 0,
+        "after": 1,
+        "delta": 1
+      },
+      "southeast-asia.classical": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "southeast-asia.medieval": {
+        "before": 14,
+        "after": 16,
+        "delta": 2
+      },
+      "southeast-asia.early-modern": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "southeast-asia.modern": {
+        "before": 5,
+        "after": 5,
+        "delta": 0
+      },
+      "southeast-asia.contemporary": {
+        "before": 10,
+        "after": 10,
+        "delta": 0
+      },
+      "west-central-asia.prehistoric": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "west-central-asia.ancient-early": {
+        "before": 2,
+        "after": 2,
+        "delta": 0
+      },
+      "west-central-asia.ancient-iron": {
+        "before": 4,
+        "after": 4,
+        "delta": 0
+      },
+      "west-central-asia.classical": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "west-central-asia.medieval": {
+        "before": 9,
+        "after": 12,
+        "delta": 3
+      },
+      "west-central-asia.early-modern": {
+        "before": 1,
+        "after": 4,
+        "delta": 3
+      },
+      "west-central-asia.modern": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "west-central-asia.contemporary": {
+        "before": 2,
+        "after": 2,
+        "delta": 0
+      }
+    }
+  }
+}

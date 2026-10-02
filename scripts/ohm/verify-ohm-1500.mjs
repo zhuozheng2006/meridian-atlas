@@ -158,7 +158,7 @@ check('A record present in both archives is drawn once',()=>{
  return {name:grouped[0].properties.name};
 });
 check('The frozen extract only answers for its own years and window',()=>{
- assert(OHM_YEARS.every(ohmCoversYear)&&!ohmCoversYear(1700)&&!ohmCoversYear(1493),'year gate');
+ assert(OHM_YEARS.every(ohmCoversYear)&&!ohmCoversYear(1750)&&!ohmCoversYear(1100),'year gate');
  const inside={getWest:()=>6,getSouth:()=>47,getEast:()=>9,getNorth:()=>49};
  const outside={getWest:()=>-5,getSouth:()=>40,getEast:()=>-2,getNorth:()=>44.5};
  const north={getWest:()=>6,getSouth:()=>52,getEast:()=>9,getNorth:()=>54};
@@ -178,18 +178,65 @@ check('Incomplete source relations are reported and flagged on their features',(
   if(relation.droppedHoles&&!feature.properties.unassigned_holes)missing.push(relation.id+':unassigned_holes');
  }
  assert(!missing.length,'unflagged incomplete relations: '+missing.join(', '));
- assert(manifest.excluded.length===0,'relations without a usable outer ring: '+manifest.excluded.length);
- return {flagged:flagged.map(relation=>relation.id),excluded:manifest.excluded.length};
+ // Relations whose members never close a ring are not drawn at all; they have to be listed in the
+ // year they belong to, so a reader can see why they are missing.
+ for(const relation of manifest.excluded){
+  const payload=payloads.get(relation.year),listed=payload?.metadata?.undrawable||[];
+  assert(listed.some(entry=>entry.ohm_relation===relation.id),'excluded relation '+relation.id+' is not listed for '+relation.year);
+  assert(payload.features.every(feature=>feature.properties.ohm_relation!==relation.id),'excluded relation '+relation.id+' was drawn anyway');
+ }
+ return {flagged:flagged.map(relation=>relation.id),excluded:manifest.excluded.map(relation=>relation.id+':'+relation.year)};
 });
 
 // 7. The snapshot must agree with the runtime filter used by the layer.
-check('Runtime visibility keeps exactly the records the snapshot expects at 1500',()=>{
- const payload=payloads.get(1500),other=payloads.get(1492);
- const kept=payload.features.filter(feature=>regionalVisible(feature.properties,1500));
- assert(kept.length===payload.features.length,'some 1500 records fail their own visibility filter');
- const stale=other.features.filter(feature=>!payload.features.some(candidate=>candidate.properties.osm_id===feature.properties.osm_id));
- const wronglyVisible=stale.filter(feature=>regionalVisible(feature.properties,1500));
- return {visible:kept.length,oneYearEarlier:other.features.length,onlyIn1492:stale.length,visibleAt1500From1492:wronglyVisible.length};
+check('Every record is visible in its own year and geometry is never borrowed across years',()=>{
+ const perYear={};
+ for(const year of OHM_YEARS){
+  const payload=payloads.get(year);
+  const kept=payload.features.filter(feature=>regionalVisible(feature.properties,year));
+  assert(kept.length===payload.features.length,'some '+year+' records fail their own visibility filter');
+  perYear[year]={records:payload.features.length,visible:kept.length};
+ }
+ let leaked=0;
+ for(const year of OHM_YEARS)for(const other of OHM_YEARS){
+  if(other===year)continue;
+  const ids=new Set(payloads.get(year).features.map(feature=>feature.properties.osm_id));
+  for(const feature of payloads.get(other).features){
+   if(ids.has(feature.properties.osm_id))continue;
+   if(regionalVisible(feature.properties,year))leaked++;
+  }
+ }
+ assert(leaked===0,'records from another year pass a foreign filter: '+leaked);
+ return {years:perYear,leakedAcrossYears:leaked};
+});
+check('Per-year coverage verdicts match the sampled land mask',()=>{
+ const perYear={};
+ for(const year of OHM_YEARS){
+  const coverage=payloads.get(year).metadata.coverage;
+  assert(coverage&&coverage.grid===24,'missing coverage metadata for '+year);
+  assert(coverage.landSamples>0&&coverage.covered>=0&&coverage.covered<=coverage.landSamples,'impossible sample counts for '+year);
+  const ratio=coverage.covered/coverage.landSamples;
+  assert(Math.abs(ratio-coverage.ratio)<1e-9,'ratio does not match its own samples for '+year);
+  const expected=coverage.records<8||ratio<.12?'sparse':ratio>=.45?'good':'partial';
+  assert(coverage.verdict===expected,'verdict '+coverage.verdict+' disagrees with the documented thresholds for '+year);
+  perYear[year]={records:coverage.records,covered:coverage.covered,land:coverage.landSamples,ratio:Number(ratio.toFixed(4)),verdict:coverage.verdict};
+ }
+ return perYear;
+});
+check('Undrawable source relations are reported per year instead of being patched',()=>{
+ const perYear={};
+ for(const year of OHM_YEARS){
+  const payload=payloads.get(year),listed=payload.metadata.undrawable||[];
+  assert(Array.isArray(listed),'missing undrawable list for '+year);
+  for(const entry of listed){
+   assert(payload.features.every(feature=>feature.properties.ohm_relation!==entry.ohm_relation),'an undrawable relation was drawn in '+year);
+   assert(entry.open_chains>=0,'undrawable entry without a reason for '+year);
+  }
+  perYear[year]=listed.length;
+ }
+ const total=Object.values(perYear).reduce((sum,value)=>sum+value,0);
+ assert(total===manifest.excluded.length,'per-year undrawable count differs from the manifest: '+total);
+ return perYear;
 });
 
 const report={checkedAt:new Date().toISOString(),dataDir,passed:results.filter(r=>r.passed).length,failed:results.filter(r=>!r.passed).length,results,notes};

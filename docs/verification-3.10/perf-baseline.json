@@ -1,6 +1,6 @@
 {
   "report": "perf-baseline.mjs",
-  "generatedAt": "2026-10-02T18:45:31.017Z",
+  "generatedAt": "2026-10-02T20:03:47.482Z",
   "command": "node scripts/verification/perf-baseline.mjs",
   "target": {
     "url": "http://127.0.0.1:8767",
@@ -11,30 +11,104 @@
   },
   "meta": {
     "provenance": {
-      "gitHead": "7ee94b4a179eaef4a4ac619c8e44a6f19151a77d",
+      "gitHead": "963275b1ea2b992421aa27928a1ac04b1e16bd7e",
       "dirtyPaths": [
-        "M public/boundary-controller.js",
-        " M public/boundary-style.js",
+        "M docs/real-fact-period-validation.json",
+        " M docs/verification-3.10/content-balance.json",
+        " M docs/verification-3.10/keyboard-focus.json",
+        " M docs/verification-3.10/mobile-check.json",
+        " M docs/verification-3.10/network-resilience.json",
+        " M docs/verification-3.10/ohm-1500.md",
+        " M docs/verification-3.10/perf-baseline.json",
+        " M docs/verification-3.10/shots/keyboard-skiplink-target.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-layers.png",
+        " M docs/verification-3.10/shots/mobile-android-360x740-reader.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
+        " M docs/verification-3.10/shots/mobile-iphone-14-390x844-reader.png",
+        " M docs/verification-3.10/shots/network-wifi-4mbps.png",
+        " M docs/verification-3.10/shots/perf-after-drag.png",
+        " M docs/verification-3.10/shots/perf-compare-open.png",
+        " M docs/verification-3.10/shots/perf-desktop-1500.png",
+        " M docs/verification-3.10/shots/perf-layer-retry.png",
+        " M editorial/city-narratives.json",
+        " M package.json",
+        " M public/app.js",
+        " M public/boundary-controller.js",
+        " M public/city-narratives.js",
+        " M public/country-archive.js",
+        " M public/data/events.json",
+        " M public/data/events.json.gz",
+        " M public/data/ohm-1500/NOTICE.md",
+        " M public/data/ohm-1500/manifest.json",
+        " M public/data/ohm-1500/year-1492.json.gz",
+        " M public/data/ohm-1500/year-1500.json.gz",
+        " M public/data/places/city-narratives.json.gz",
         " M public/geography.js",
+        " M public/halc-boundaries.js",
+        " M public/halc-landscape.js",
+        " M public/historical-detail.js",
+        " M public/index.html",
+        " M public/lakes.js",
         " M public/map-engine.js",
-        "?? docs/verification-3.10/",
-        "?? scripts/ohm/",
-        "?? scripts/places/content-balance.mjs",
-        "?? scripts/verification/"
+        " M public/native-geometry.js",
+        " M public/places.js",
+        " M public/polity-places.js",
+        " M public/polity-reader.js",
+        " M public/regional-boundaries.js",
+        " M scripts/ohm/browser-check-ohm-1500.mjs",
+        " M scripts/ohm/build-ohm-1500.mjs",
+        " M scripts/ohm/verify-ohm-1500.mjs",
+        " M scripts/places/apply-events-3.10.mjs",
+        " M scripts/places/check-event-sources.mjs",
+        " M scripts/validate-city-narratives.mjs",
+        " M scripts/verification/independent-review.mjs",
+        " M scripts/verification/keyboard-focus.mjs",
+        " M scripts/verification/lib/common.mjs",
+        " M scripts/verification/mobile-check.mjs",
+        " M scripts/verification/offline-weaknet.mjs",
+        " M scripts/verification/perf-baseline.mjs",
+        "?? docs/AI-HANDOFF-3.10.txt",
+        "?? docs/VALIDATION-3.10.md",
+        "?? docs/verification-3.10/shots/keyboard-reader-focus.png",
+        "?? docs/verification-3.10/shots/network-404-error.png",
+        "?? docs/verification-3.10/shots/network-offline-error.png",
+        "?? docs/verification-3.10/shots/network-recovered.png",
+        "?? docs/verification-3.10/shots/network-slow-3g-400kbps.png",
+        "?? docs/verification-3.10/shots/network-slow-4g-1.6mbps.png",
+        "?? docs/verification-3.10/shots/perf-year-1510.png",
+        "?? docs/verification-3.10/shots/review-ohm-1500-alps.png",
+        "?? docs/verification-3.10/verify-boundary-review.json",
+        "?? docs/verification-3.11/",
+        "?? editorial/city-narratives-3.11.json",
+        "?? editorial/events-3.11.json",
+        "?? public/data/ohm-1500/year-1000.json.gz",
+        "?? public/data/ohm-1500/year-1200.json.gz",
+        "?? public/data/ohm-1500/year-1300.json.gz",
+        "?? public/data/ohm-1500/year-1400.json.gz",
+        "?? public/data/ohm-1500/year-1600.json.gz",
+        "?? public/data/ohm-1500/year-1700.json.gz",
+        "?? public/data/ohm-1500/year-1800.json.gz",
+        "?? public/data/ohm-1500/year-1900.json.gz",
+        "?? scripts/ohm/coverage-matrix.mjs",
+        "?? scripts/ohm/coverage.mjs",
+        "?? scripts/places/apply-city-narratives-3.11.mjs",
+        "?? scripts/verification/build-report-md.mjs"
       ],
-      "assetVersion": "3.9.4-e92afe04dc8c",
+      "assetVersion": "3.10.0-6af5167ed72f",
       "files": {
-        "public/index.html": "39bf3528ad3c5c4b",
-        "public/app.js": "06b54fc279398399",
-        "public/map-engine.js": "8b582e77494d6cac",
+        "public/index.html": "af77ead8f3d2a76a",
+        "public/app.js": "ebee22bb57d11a4f",
+        "public/map-engine.js": "2e9a7f59658193b0",
         "public/timeline-controls.js": "b3954150517b0a12",
         "public/view-state.js": "1b57cdfe210a7322",
         "public/style.css": "95f5e8ac64efeda8",
         "public/product.css": "2631908c806f7e1e",
-        "public/cartography.css": "117414b5e2a91d3d",
-        "public/boundary-controller.js": "3a00fbfc420b24a3",
-        "public/regional-boundaries.js": "7882cc85a1a53133",
-        "public/geography.js": "576764e92f004eb5"
+        "public/cartography.css": "0d6529a4e2e5463b",
+        "public/boundary-controller.js": "a3177e6595106833",
+        "public/regional-boundaries.js": "3bf76038fc306ce1",
+        "public/geography.js": "27c12a277aa10035"
       },
       "node": "v26.7.0",
       "platform": "darwin",
@@ -47,8 +121,8 @@
       "description": "First screen reaches map-ready in both cold runs (network cache disabled)",
       "expected": "v => v.every(x => x !== null && x < 20000)",
       "observed": [
-        6290,
-        4731
+        4896,
+        5003
       ],
       "pass": true,
       "note": "mapReady = #loading hidden after data + first territory frame"
@@ -58,56 +132,86 @@
       "description": "No uncaught page errors on first load",
       "expected": "v => (report.coldLoad.runs[0].consoleErrors || []).filter(c => c.type === 'exception').length === 0 && (report.yearSequence.pageErrors || []).length === 0",
       "observed": {
-        "coldConsole": []
+        "coldConsole": [],
+        "yearSequenceErrors": []
       },
       "pass": true
     },
     {
       "id": "perf.year-step-latency",
-      "description": "Every 1-year step commits within 1000 ms of the keypress",
-      "expected": "v => v.length === 20 && v.every(x => x < 1000)",
-      "observed": [],
+      "description": "Year stepping stays interactive: median < 500 ms and p95 < 1000 ms (outliers listed separately)",
+      "expected": "v => v.n === 20 && v.median < 500 && v.p95 < 1000",
+      "observed": {
+        "stats": {
+          "n": 20,
+          "min": 217.6,
+          "median": 304,
+          "p95": 415.3,
+          "max": 495.7,
+          "mean": 313.5
+        },
+        "outliers": [],
+        "loadAtStart": {
+          "loadavg": [
+            12.57,
+            8.85,
+            9
+          ],
+          "chromeProcesses": 33,
+          "cpus": 18
+        }
+      },
       "pass": false
     },
     {
       "id": "perf.year-steps-all-settled",
       "description": "All 20 consecutive steps reached the target year",
       "expected": "v => v === 20",
-      "observed": 0,
-      "pass": false
+      "observed": 20,
+      "pass": true
     },
     {
       "id": "perf.drag-settles",
       "description": "An 800 px drag settles and moves the camera",
       "expected": "v => v && v.settleMs !== null && Math.abs(v.camera.deltaLng) > 1",
       "observed": {
-        "wallMs": 29014,
-        "settleMs": 2939,
+        "systemAtStart": {
+          "loadavg": [
+            13.92,
+            9.88,
+            9.37
+          ],
+          "chromeProcesses": 45,
+          "cpus": 18
+        },
+        "perMoveMs": 1178,
+        "wallMs": 23559,
+        "settleMs": 247,
         "camera": {
           "before": [
             25,
             18
           ],
           "after": [
-            -148.74222,
+            -148.73016,
             -20.35411
           ],
-          "deltaLng": -173.742,
+          "deltaLng": -173.73,
           "deltaLat": -38.354,
           "zoomBefore": 1.65,
           "zoomAfter": 1.629
         },
         "cameraOps": [],
         "longTasks": {
-          "count": 7,
-          "longestMs": 2951,
-          "totalMs": 11769
+          "count": 6,
+          "longestMs": 5567,
+          "totalMs": 13029
         },
         "rafRate": {
-          "count": 47,
-          "spanMs": 36196
+          "count": 38,
+          "spanMs": 30495
         },
-        "heapDeltaMB": -64.1,
+        "heapDeltaMB": -0.3,
         "pageErrors": []
       },
       "pass": true
@@ -118,7 +222,7 @@
       "expected": "v => v && v.recovered === true && v.requestsAfterRetry > 0",
       "observed": {
         "recovered": true,
-        "retryMs": 7547,
+        "retryMs": 4580,
         "requestsAfterRetry": 2
       },
       "pass": true
@@ -128,7 +232,7 @@
       "description": "Two-map comparison opens with a second live map and no error",
       "expected": "v => v.maps >= 2 && v.compareYearEnabled === true && !v.mapError",
       "observed": {
-        "openMs": 8039,
+        "openMs": 7411,
         "maps": 2,
         "compareYearEnabled": true,
         "map2Canvas": {
@@ -154,71 +258,90 @@
           "deltaLng": 0,
           "deltaLat": 0
         },
-        "heapDeltaMB": 336.3,
+        "heapDeltaMB": 181.8,
         "pageErrors": []
       },
       "pass": true
     }
   ],
   "limitations": [
-    "requestAnimationFrame is throttled to ~2 fps in this headless configuration ({\"count\":12,\"spanMs\":6207}), so per-frame FPS/jank is NOT reported; the per-step timeline uses MutationObserver timestamps instead.",
+    "requestAnimationFrame is throttled to ~2 fps in this headless configuration ({\"count\":11,\"spanMs\":4822}), so per-frame FPS/jank is NOT reported; the per-step timeline uses MutationObserver timestamps instead.",
     "performance.measureUserAgentSpecificMemory() is unavailable (page is not crossOriginIsolated); JS heap comes from the non-standard performance.memory.usedJSHeapSize.",
     "GPU raster times are from SwiftShader software rendering, not the user GPU.",
     "The CDP driver sets Network.setCacheDisabled(true), so cold/warm cache differences and disk-cache reuse are not measured.",
     "Frame timing during the drag is inferred from long tasks > 50 ms, not from compositor frames."
   ],
   "notes": [],
+  "systemAtStart": {
+    "loadavg": [
+      12.57,
+      8.85,
+      9
+    ],
+    "chromeProcesses": 33,
+    "cpus": 18
+  },
   "coldLoad": {
     "runs": [
       {
         "index": 1,
         "profile": "fresh (network cache disabled by driver)",
-        "mapReadyMs": 6290,
-        "measureMs": 6290,
+        "systemAtStart": {
+          "loadavg": [
+            12.57,
+            8.85,
+            9
+          ],
+          "chromeProcesses": 42,
+          "cpus": 18
+        },
+        "mapReadyMs": 4896,
+        "readyAfterQuietRecheck": false,
+        "measureMs": 4896,
         "navigation": {
-          "ttfbMs": 2,
+          "ttfbMs": 1,
           "responseEndMs": 2,
-          "domContentLoadedMs": 45,
-          "loadEventMs": 66,
+          "domContentLoadedMs": 33,
+          "loadEventMs": 52,
           "paints": [
             [
               "first-paint",
-              3632
+              2656
             ],
             [
               "first-contentful-paint",
-              3632
+              2656
             ]
           ]
         },
         "resources": {
-          "count": 56,
-          "encodedBytes": 5607344,
-          "transferBytes": 5624144,
+          "count": 57,
+          "encodedBytes": 5677879,
+          "transferBytes": 5694979,
           "byType": {
             "link": {
               "count": 4,
-              "encoded": 135803
+              "encoded": 136220
             },
             "script": {
               "count": 32,
-              "encoded": 1346448
+              "encoded": 1360331
             },
             "fetch": {
-              "count": 20,
-              "encoded": 4125093
+              "count": 21,
+              "encoded": 4181328
             }
           },
           "largest": [
             {
-              "name": "assets/maplibre-gl.js?v=3.9.4-e92afe04dc8c",
-              "ms": 7,
+              "name": "assets/maplibre-gl.js?v=3.10.0-6af5167ed72f",
+              "ms": 5,
               "encodedBytes": 937395,
               "decodedBytes": 937395
             },
             {
               "name": "data/physical/modern-ocean-mask-overview.json.gz",
-              "ms": 4,
+              "ms": 5,
               "encodedBytes": 736287,
               "decodedBytes": 736287
             },
@@ -230,7 +353,7 @@
             },
             {
               "name": "data/fast/catalog.json.gz",
-              "ms": 3,
+              "ms": 2,
               "encodedBytes": 602739,
               "decodedBytes": 602739
             },
@@ -248,19 +371,19 @@
             },
             {
               "name": "data/events.json.gz",
-              "ms": 2,
-              "encodedBytes": 190412,
-              "decodedBytes": 190412
+              "ms": 1,
+              "encodedBytes": 224681,
+              "decodedBytes": 224681
             },
             {
               "name": "data/physical/relief/2/2/1.webp",
-              "ms": 4,
+              "ms": 2,
               "encodedBytes": 182770,
               "decodedBytes": 182770
             },
             {
               "name": "data/native/year-1500.json.gz",
-              "ms": 2,
+              "ms": 1,
               "encodedBytes": 151086,
               "decodedBytes": 151086
             },
@@ -286,8 +409,8 @@
         },
         "instrumentation": "subclass+camops",
         "rafRate": {
-          "count": 12,
-          "spanMs": 6207
+          "count": 11,
+          "spanMs": 4822
         },
         "mapCanvas": {
           "attr": [
@@ -300,87 +423,103 @@
           ],
           "dpr": 1
         },
-        "heapMB": 125.2,
+        "heapMB": 274.3,
         "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
         "consoleErrors": [],
-        "datasetStatus": "137 个当年政体 · 343 条事件",
+        "datasetStatus": "137 个当年政体 · 390 条事件",
         "mapErrorShown": false
       },
       {
         "index": 2,
         "profile": "fresh (network cache disabled by driver)",
-        "mapReadyMs": 4731,
-        "measureMs": 4731,
+        "systemAtStart": {
+          "loadavg": [
+            13.56,
+            9.25,
+            9.14
+          ],
+          "chromeProcesses": 42,
+          "cpus": 18
+        },
+        "mapReadyMs": 5003,
+        "readyAfterQuietRecheck": false,
+        "measureMs": 5003,
         "navigation": {
-          "ttfbMs": 2,
+          "ttfbMs": 1,
           "responseEndMs": 2,
-          "domContentLoadedMs": 39,
-          "loadEventMs": 59,
+          "domContentLoadedMs": 37,
+          "loadEventMs": 56,
           "paints": [
             [
               "first-paint",
-              3388
+              2756
             ],
             [
               "first-contentful-paint",
-              3388
+              2756
             ]
           ]
         },
         "resources": {
-          "count": 53,
-          "encodedBytes": 4789794,
-          "transferBytes": 4805694,
+          "count": 57,
+          "encodedBytes": 5677879,
+          "transferBytes": 5694979,
           "byType": {
             "link": {
               "count": 4,
-              "encoded": 135803
+              "encoded": 136220
             },
             "script": {
               "count": 32,
-              "encoded": 1346448
+              "encoded": 1360331
             },
             "fetch": {
-              "count": 17,
-              "encoded": 3307543
+              "count": 21,
+              "encoded": 4181328
             }
           },
           "largest": [
             {
-              "name": "assets/maplibre-gl.js?v=3.9.4-e92afe04dc8c",
-              "ms": 6,
+              "name": "assets/maplibre-gl.js?v=3.10.0-6af5167ed72f",
+              "ms": 5,
               "encodedBytes": 937395,
               "decodedBytes": 937395
             },
             {
               "name": "data/physical/modern-ocean-mask-overview.json.gz",
-              "ms": 5,
+              "ms": 3,
               "encodedBytes": 736287,
               "decodedBytes": 736287
             },
             {
+              "name": "data/places/historical-settlements-index.json.gz",
+              "ms": 4,
+              "encodedBytes": 629588,
+              "decodedBytes": 629588
+            },
+            {
               "name": "data/fast/catalog.json.gz",
-              "ms": 3,
+              "ms": 2,
               "encodedBytes": 602739,
               "decodedBytes": 602739
             },
             {
               "name": "data/land-50m.json.gz",
-              "ms": 4,
+              "ms": 3,
               "encodedBytes": 527552,
               "decodedBytes": 527552
             },
             {
               "name": "data/coverage.json",
-              "ms": 2,
+              "ms": 1,
               "encodedBytes": 227984,
               "decodedBytes": 227984
             },
             {
               "name": "data/events.json.gz",
               "ms": 2,
-              "encodedBytes": 190412,
-              "decodedBytes": 190412
+              "encodedBytes": 224681,
+              "decodedBytes": 224681
             },
             {
               "name": "data/physical/relief/2/2/1.webp",
@@ -390,40 +529,34 @@
             },
             {
               "name": "data/native/year-1500.json.gz",
-              "ms": 2,
+              "ms": 1,
               "encodedBytes": 151086,
               "decodedBytes": 151086
             },
             {
               "name": "data/physical/physical-overview.json.gz",
-              "ms": 3,
+              "ms": 2,
               "encodedBytes": 137909,
               "decodedBytes": 137909
             },
             {
               "name": "data/physical/relief/2/3/1.webp",
-              "ms": 4,
+              "ms": 3,
               "encodedBytes": 132890,
               "decodedBytes": 132890
             },
             {
-              "name": "data/physical/relief/2/1/0.webp",
-              "ms": 5,
-              "encodedBytes": 99382,
-              "decodedBytes": 99382
-            },
-            {
-              "name": "app.js?v=3.9.4-e92afe04dc8c",
-              "ms": 4,
-              "encodedBytes": 88681,
-              "decodedBytes": 88681
+              "name": "data/places/urban-observations.json.gz",
+              "ms": 3,
+              "encodedBytes": 132325,
+              "decodedBytes": 132325
             }
           ]
         },
         "instrumentation": "subclass+camops",
         "rafRate": {
-          "count": 9,
-          "spanMs": 4228
+          "count": 13,
+          "spanMs": 5351
         },
         "mapCanvas": {
           "attr": [
@@ -436,10 +569,10 @@
           ],
           "dpr": 1
         },
-        "heapMB": 186.6,
+        "heapMB": 276.6,
         "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
         "consoleErrors": [],
-        "datasetStatus": "137 个当年政体 · 343 条事件",
+        "datasetStatus": "137 个当年政体 · 390 条事件",
         "mapErrorShown": false
       }
     ]
@@ -447,37 +580,309 @@
   "yearSequence": {
     "startYear": 1490,
     "step": 1,
-    "steps": [],
-    "fatal": "Error: waitFor timeout: document.querySelector(\"#loading\") && document.querySelector(\"#loading\").hidden === true last=false\n    at waitFor (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/browser.mjs:63:9)\n    at async yearSequence (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/perf-baseline.mjs:61:5)\n    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/perf-baseline.mjs:210:23"
+    "steps": [
+      {
+        "year": 1491,
+        "keyT": 5726.8,
+        "commitT": 5979.6,
+        "idleT": 5979.6,
+        "keyToCommitMs": 252.8,
+        "keyToIdleMs": 252.8,
+        "longTasks": 1,
+        "longestTaskMs": 255,
+        "heapAtIdleMB": 429.3
+      },
+      {
+        "year": 1492,
+        "keyT": 5987.5,
+        "commitT": 6272.5,
+        "idleT": 6272.5,
+        "keyToCommitMs": 285,
+        "keyToIdleMs": 285,
+        "longTasks": 1,
+        "longestTaskMs": 231,
+        "heapAtIdleMB": 532.1
+      },
+      {
+        "year": 1493,
+        "keyT": 6363.3,
+        "commitT": 6580.9,
+        "idleT": 6580.9,
+        "keyToCommitMs": 217.6,
+        "keyToIdleMs": 217.6,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 672.3
+      },
+      {
+        "year": 1494,
+        "keyT": 6586.1,
+        "commitT": 6816.7,
+        "idleT": 6816.7,
+        "keyToCommitMs": 230.6,
+        "keyToIdleMs": 230.6,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 748
+      },
+      {
+        "year": 1495,
+        "keyT": 6821.7,
+        "commitT": 7057.3,
+        "idleT": 7057.3,
+        "keyToCommitMs": 235.6,
+        "keyToIdleMs": 235.6,
+        "longTasks": 1,
+        "longestTaskMs": 237,
+        "heapAtIdleMB": 233.5
+      },
+      {
+        "year": 1496,
+        "keyT": 10386,
+        "commitT": 10645.2,
+        "idleT": 10645.3,
+        "keyToCommitMs": 259.2,
+        "keyToIdleMs": 259.3,
+        "longTasks": 1,
+        "longestTaskMs": 261,
+        "heapAtIdleMB": 393.3
+      },
+      {
+        "year": 1497,
+        "keyT": 10653.9,
+        "commitT": 10971.8,
+        "idleT": 10971.8,
+        "keyToCommitMs": 317.9,
+        "keyToIdleMs": 317.9,
+        "longTasks": 1,
+        "longestTaskMs": 319,
+        "heapAtIdleMB": 482.5
+      },
+      {
+        "year": 1498,
+        "keyT": 10977.2,
+        "commitT": 11289,
+        "idleT": 11289,
+        "keyToCommitMs": 311.8,
+        "keyToIdleMs": 311.8,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 558.6
+      },
+      {
+        "year": 1499,
+        "keyT": 11294.1,
+        "commitT": 11595.8,
+        "idleT": 11595.8,
+        "keyToCommitMs": 301.7,
+        "keyToIdleMs": 301.7,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 644
+      },
+      {
+        "year": 1500,
+        "keyT": 11608.5,
+        "commitT": 12023.7,
+        "idleT": 12023.8,
+        "keyToCommitMs": 415.2,
+        "keyToIdleMs": 415.3,
+        "longTasks": 2,
+        "longestTaskMs": 268,
+        "heapAtIdleMB": 311.8
+      },
+      {
+        "year": 1501,
+        "keyT": 12029,
+        "commitT": 12299.2,
+        "idleT": 12299.2,
+        "keyToCommitMs": 270.2,
+        "keyToIdleMs": 270.2,
+        "longTasks": 1,
+        "longestTaskMs": 272,
+        "heapAtIdleMB": 413.8
+      },
+      {
+        "year": 1502,
+        "keyT": 12305.6,
+        "commitT": 12801.3,
+        "idleT": 12801.3,
+        "keyToCommitMs": 495.7,
+        "keyToIdleMs": 495.7,
+        "longTasks": 2,
+        "longestTaskMs": 364,
+        "heapAtIdleMB": 257.5
+      },
+      {
+        "year": 1503,
+        "keyT": 12820.2,
+        "commitT": 13124.1,
+        "idleT": 13124.2,
+        "keyToCommitMs": 303.9,
+        "keyToIdleMs": 304,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 328.8
+      },
+      {
+        "year": 1504,
+        "keyT": 13130.2,
+        "commitT": 13445.4,
+        "idleT": 13445.4,
+        "keyToCommitMs": 315.2,
+        "keyToIdleMs": 315.2,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 406.8
+      },
+      {
+        "year": 1505,
+        "keyT": 13450.6,
+        "commitT": 13739.3,
+        "idleT": 13739.3,
+        "keyToCommitMs": 288.7,
+        "keyToIdleMs": 288.7,
+        "longTasks": 1,
+        "longestTaskMs": 290,
+        "heapAtIdleMB": 492
+      },
+      {
+        "year": 1506,
+        "keyT": 14833.7,
+        "commitT": 15161.1,
+        "idleT": 15161.1,
+        "keyToCommitMs": 327.4,
+        "keyToIdleMs": 327.4,
+        "longTasks": 1,
+        "longestTaskMs": 328,
+        "heapAtIdleMB": 574.9
+      },
+      {
+        "year": 1507,
+        "keyT": 17117.7,
+        "commitT": 17497.1,
+        "idleT": 17497.1,
+        "keyToCommitMs": 379.4,
+        "keyToIdleMs": 379.4,
+        "longTasks": 1,
+        "longestTaskMs": 382,
+        "heapAtIdleMB": 344.8
+      },
+      {
+        "year": 1508,
+        "keyT": 17505.9,
+        "commitT": 17863.7,
+        "idleT": 17863.8,
+        "keyToCommitMs": 357.8,
+        "keyToIdleMs": 357.9,
+        "longTasks": 1,
+        "longestTaskMs": 359,
+        "heapAtIdleMB": 430.3
+      },
+      {
+        "year": 1509,
+        "keyT": 17869.4,
+        "commitT": 18218.6,
+        "idleT": 18218.6,
+        "keyToCommitMs": 349.2,
+        "keyToIdleMs": 349.2,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 515
+      },
+      {
+        "year": 1510,
+        "keyT": 18224.3,
+        "commitT": 18579.4,
+        "idleT": 18579.5,
+        "keyToCommitMs": 355.1,
+        "keyToIdleMs": 355.2,
+        "longTasks": 0,
+        "longestTaskMs": 0,
+        "heapAtIdleMB": 603.4
+      }
+    ],
+    "initialReadyMs": 5069,
+    "initialSettled": {
+      "settled": true,
+      "elapsed": 593,
+      "pollMs": 300
+    },
+    "systemAtStart": {
+      "loadavg": [
+        11.8,
+        9.14,
+        9.1
+      ],
+      "chromeProcesses": 42,
+      "cpus": 18
+    },
+    "heapStartMB": 328.3,
+    "heapEndMB": 672.8,
+    "rawKeyEvents": 20,
+    "summary": {
+      "steps": 20,
+      "keyToCommitMs": {
+        "n": 20,
+        "min": 217.6,
+        "median": 303.9,
+        "p95": 415.2,
+        "max": 495.7,
+        "mean": 313.5
+      },
+      "keyToIdleMs": {
+        "n": 20,
+        "min": 217.6,
+        "median": 304,
+        "p95": 415.3,
+        "max": 495.7,
+        "mean": 313.5
+      },
+      "longTaskCount": 32,
+      "longestTaskMs": 3220,
+      "heapGrowthMB": 344.5
+    },
+    "resultYears": 1510,
+    "pageErrors": []
   },
   "bigDrag": {
-    "wallMs": 29014,
-    "settleMs": 2939,
+    "systemAtStart": {
+      "loadavg": [
+        13.92,
+        9.88,
+        9.37
+      ],
+      "chromeProcesses": 45,
+      "cpus": 18
+    },
+    "perMoveMs": 1178,
+    "wallMs": 23559,
+    "settleMs": 247,
     "camera": {
       "before": [
         25,
         18
       ],
       "after": [
-        -148.74222,
+        -148.73016,
         -20.35411
       ],
-      "deltaLng": -173.742,
+      "deltaLng": -173.73,
       "deltaLat": -38.354,
       "zoomBefore": 1.65,
       "zoomAfter": 1.629
     },
     "cameraOps": [],
     "longTasks": {
-      "count": 7,
-      "longestMs": 2951,
-      "totalMs": 11769
+      "count": 6,
+      "longestMs": 5567,
+      "totalMs": 13029
     },
     "rafRate": {
-      "count": 47,
-      "spanMs": 36196
+      "count": 38,
+      "spanMs": 30495
     },
-    "heapDeltaMB": -64.1,
+    "heapDeltaMB": -0.3,
     "pageErrors": []
   },
   "layerRetry": {
@@ -502,7 +907,7 @@
       "visible": false
     },
     "panelOpen": true,
-    "retryMs": 7547,
+    "retryMs": 4580,
     "recovered": true,
     "recoveredStatus": {
       "terrain": "本地晕渲 · 放大加载精细地形",
@@ -512,82 +917,82 @@
     "requestsAfterRetry": 2,
     "stepTimeline": [
       {
-        "t": 1548.4,
+        "t": 1487.9,
         "kind": "terrainStatus",
         "value": "本地晕渲 · 放大加载精细地形",
-        "heap": 211.1
+        "heap": 212.3
       },
       {
-        "t": 2255.2,
+        "t": 2057.3,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 21.4
+        "heap": 21.2
       },
       {
-        "t": 2273.3,
+        "t": 2075.7,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 21.4
+        "heap": 21.2
       },
       {
-        "t": 2273.3,
+        "t": 2075.7,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 21.4
+        "heap": 21.2
       },
       {
-        "t": 2273.3,
+        "t": 2075.8,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 21.4
+        "heap": 21.2
       },
       {
-        "t": 2582.6,
+        "t": 2356.4,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 139.1
+        "heap": 134.8
       },
       {
-        "t": 2587.8,
+        "t": 2361.7,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 139.1
+        "heap": 134.8
       },
       {
-        "t": 2609.1,
+        "t": 2383.7,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 139.1
+        "heap": 134.8
       },
       {
-        "t": 5578.5,
+        "t": 9339,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 252.7
+        "heap": 248.9
       },
       {
-        "t": 11518.4,
+        "t": 9373.4,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 264.5
+        "heap": 248.9
       },
       {
-        "t": 11519.3,
+        "t": 9378.9,
         "kind": "terrainStatus",
         "value": "部分精细图层暂不可用 · 可重试",
-        "heap": 264.5
+        "heap": 248.9
       },
       {
-        "t": 11519.4,
+        "t": 9378.9,
         "kind": "terrainStatus",
         "value": "本地晕渲 · 放大加载精细地形",
-        "heap": 264.5
+        "heap": 248.9
       }
     ],
     "pageErrors": []
   },
   "compareOpen": {
-    "openMs": 8039,
+    "openMs": 7411,
     "maps": 2,
     "compareYearEnabled": true,
     "map2Canvas": {
@@ -613,46 +1018,71 @@
       "deltaLng": 0,
       "deltaLat": 0
     },
-    "heapDeltaMB": 336.3,
+    "heapDeltaMB": 181.8,
     "pageErrors": []
   },
   "bottlenecks": [
     {
       "item": "heaviest single resource",
-      "detail": "assets/maplibre-gl.js?v=3.9.4-e92afe04dc8c",
+      "detail": "assets/maplibre-gl.js?v=3.10.0-6af5167ed72f",
       "encodedBytes": 937395,
-      "ms": 7
+      "ms": 5
     },
     {
       "item": "year step latency",
-      "detail": "key -> idle p95"
+      "detail": "key -> idle median / p95",
+      "value": [
+        304,
+        415.3
+      ]
+    },
+    {
+      "item": "year step outliers",
+      "detail": "> 1000 ms, correlated with long tasks",
+      "value": []
+    },
+    {
+      "item": "CDP mouse dispatch cost",
+      "detail": "per drag move under this host load (not app latency)",
+      "value": 1178
     },
     {
       "item": "longest main-thread task",
-      "detail": "during year sequence"
+      "detail": "during year sequence",
+      "value": 3220
     },
     {
       "item": "js heap growth",
-      "detail": "20 year steps"
+      "detail": "20 year steps",
+      "valueMB": 344.5
     },
     {
       "item": "js heap after first load",
       "detail": "run 1",
-      "valueMB": 125.2
+      "valueMB": 274.3
     },
     {
       "item": "two-map heap cost",
       "detail": "compare open",
-      "valueMB": 336.3
+      "valueMB": 181.8
     }
   ],
   "conclusions": [
-    "First screen: [6290,4731] ms map-ready (2 cold runs, cache disabled), DOMContentLoaded 45 ms, load event 66 ms.",
-    "Resource weight for one 1500 CE first screen: 56 requests / 5476 KiB encoded.",
-    "Year stepping 1490->1510 (21 steps of 1 year): key->idle median undefined ms, max undefined ms, long tasks undefined.",
-    "Large drag ~800 px: settled in 2939 ms wall (29014 ms of CDP mouse moves), camera moved -173.742 deg lng.",
-    "Blocked geography sources: status text after block = {\"terrain\":\"部分精细图层暂不可用 · 可重试\",\"lake\":\"放大查看湖岸细节\",\"mapError\":null}; after unblock + #terrainRetry recovered=true in 7547 ms.",
-    "Comparison map: opened in 8039 ms, 2 live maps, heap +336.3 MB."
+    "First screen: [4896,5003] ms map-ready (2 cold runs, cache disabled), DOMContentLoaded 33 ms, load event 52 ms.",
+    "Resource weight for one 1500 CE first screen: 57 requests / 5545 KiB encoded.",
+    "Year stepping 1490->1510 (21 steps of 1 year): key->idle median 304 ms, max 495.7 ms, long tasks 32.",
+    "Large drag ~800 px: settled in 247 ms wall (23559 ms of CDP mouse moves), camera moved -173.73 deg lng.",
+    "Blocked geography sources: status text after block = {\"terrain\":\"部分精细图层暂不可用 · 可重试\",\"lake\":\"放大查看湖岸细节\",\"mapError\":null}; after unblock + #terrainRetry recovered=true in 4580 ms.",
+    "Comparison map: opened in 7411 ms, 2 live maps, heap +181.8 MB."
   ],
-  "wallClockMs": 167993
+  "systemAtEnd": {
+    "loadavg": [
+      18.48,
+      12.36,
+      10.37
+    ],
+    "chromeProcesses": 32,
+    "cpus": 18
+  },
+  "wallClockMs": 129315
 }

@@ -48,11 +48,14 @@ const validate=entry=>{
   if(traditional)fail(where+': possible traditional characters '+[...new Set(traditional)].join(''));
  }
 };
-const editorial=JSON.parse(await readFile(resolve(root,'editorial/events-3.10.json'),'utf8'));
+const batchPaths=process.argv.filter(arg=>arg.startsWith('--batch=')).map(arg=>arg.slice('--batch='.length));
+if(!batchPaths.length)batchPaths.push('editorial/events-3.10.json');
+const batches=[];
+for(const batchPath of batchPaths){const batch=JSON.parse(await readFile(resolve(root,batchPath),'utf8'));if(!Array.isArray(batch.entries)||!batch.entries.length)fail('editorial batch is empty: '+batchPath);batches.push({path:batchPath,entries:batch.entries})}
+const editorial={entries:batches.flatMap(batch=>batch.entries)};
 const current=JSON.parse(await readFile(resolve(root,'public/data/events.json'),'utf8'));
-if(!Array.isArray(editorial.entries)||!editorial.entries.length)fail('editorial batch is empty');
 const seen=new Set();
-for(const entry of editorial.entries){validate(entry);if(seen.has(entry.id))fail('duplicate id inside batch: '+entry.id);seen.add(entry.id)}
+for(const entry of editorial.entries){validate(entry);if(seen.has(entry.id))fail('duplicate id inside batches: '+entry.id);seen.add(entry.id)}
 if(problems.length){console.error('FAIL editorial/events-3.10.json\n'+problems.join('\n'));process.exit(1)}
 
 const additions=new Map(editorial.entries.map(entry=>[entry.id,ordered(entry)]));
@@ -66,7 +69,7 @@ const gzip=gzipSync(Buffer.from(output),{level:9});
 gzip[4]=gzip[5]=gzip[6]=gzip[7]=0;gzip[9]=255; // deterministic header: no mtime, unknown OS
 const roundTrip=JSON.parse(gunzipSync(gzip).toString());
 if(JSON.stringify(roundTrip)!==JSON.stringify(merged))fail('gzip mirror does not round-trip');
-const stats={addedOrUpdated:additions.size,total:merged.length,previousTotal:current.length,byRegion:{},byEra:{}};
+const stats={batches:batches.map(batch=>batch.path),addedOrUpdated:additions.size,total:merged.length,previousTotal:current.length,byRegion:{},byEra:{}};
 const eraOf=year=>year< -3000?'prehistoric':year<=-1201?'ancient-early':year<=-501?'ancient-iron':year<=499?'classical':year<=1499?'medieval':year<=1799?'early-modern':year<=1945?'modern':'contemporary';
 for(const entry of additions.values()){stats.byRegion[entry.region]=(stats.byRegion[entry.region]||0)+1;stats.byEra[eraOf(entry.start)]=(stats.byEra[eraOf(entry.start)]||0)+1}
 if(checkOnly){console.log(JSON.stringify({result:'checked',...stats},null,2));process.exit(0)}

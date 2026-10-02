@@ -556,6 +556,121 @@
       "usage": "Original factual synthesis; no source prose or images reproduced.",
       "locator": "1998; chapter 1, printed p.40 / PDF page 39",
       "consultedUrl": "https://unesdoc.unesco.org/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_ee5bd446-a11d-4a1a-b6ac-64b945c80037?_=111664engo.pdf"
+    },
+    {
+      "id": "anuradhapura-unesco",
+      "title": "Sacred City of Anuradhapura",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/200/",
+      "accessedAt": "2026-10-03",
+      "access": "read-recorded-in-handoff-research",
+      "supports": [
+        "Sacred-city tradition from the third century BCE to the political shift of 993",
+        "Stupas, monasteries and waterworks of the dry zone"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "anuradhapura-ccf",
+      "title": "Heritage Sites",
+      "publisher": "Central Cultural Fund, Sri Lanka",
+      "url": "https://ccf.gov.lk/heritage-sites/",
+      "accessedAt": "2026-10-03",
+      "access": "read-full-page",
+      "supports": [
+        "Anuradhapura as Sri Lanka's first ancient capital and sacred Buddhist city",
+        "Stupas and ancient monuments of the North Central Province"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "anuradhapura-pleiades",
+      "title": "Anurādhapura (Pleiades place 49863)",
+      "publisher": "Pleiades, Institute for the Study of the Ancient World",
+      "url": "https://pleiades.stoa.org/places/49863",
+      "accessedAt": "2026-10-03",
+      "access": "record-source-url (page bot-protected in this session; the shipped derived record carries this URL)",
+      "supports": [
+        "Place identity and attested Roman-period span of the bound settlement record"
+      ],
+      "usage": "Source-record provenance only; no source prose reproduced."
+    },
+    {
+      "id": "teotihuacan-unesco",
+      "title": "Pre-Hispanic City of Teotihuacan",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/414/",
+      "accessedAt": "2026-10-03",
+      "access": "read-recorded-in-handoff-research",
+      "supports": [
+        "Urban building period between the first and seventh centuries CE",
+        "Representative point and property identification"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "teotihuacan-inah",
+      "title": "Zona Arqueológica Teotihuacan",
+      "publisher": "Instituto Nacional de Antropología e Historia (INAH), Mexico",
+      "url": "https://www.inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan",
+      "accessedAt": "2026-10-03",
+      "access": "read-full-page",
+      "supports": [
+        "Teotihuacan as one of the largest urban centres of its time and a seat of power in Mesoamerica",
+        "Náhuatl name meaning and valley setting",
+        "UNESCO World Heritage inscription since 1987"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "hampi-unesco",
+      "title": "Hampi",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/241/",
+      "accessedAt": "2026-10-03",
+      "access": "read-recorded-in-handoff-research",
+      "supports": [
+        "Capital construction and temple building between the fourteenth and sixteenth centuries",
+        "Capture and sack of the city in 1565"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "hampi-karnataka",
+      "title": "Hampi",
+      "publisher": "Karnataka Tourism, Government of Karnataka",
+      "url": "https://www.karnatakatourism.org/tour-item/hampi/",
+      "accessedAt": "2026-10-03",
+      "access": "read-full-page",
+      "supports": [
+        "Hampi located in Vijayanagara and once the grand capital of the Vijayanagara Empire",
+        "Ruins spread across nearly 29 square kilometres, with temples, palaces, royal enclosures and administrative structures"
+      ],
+      "usage": "Original factual synthesis; no source prose or images reproduced."
+    },
+    {
+      "id": "population-chandler",
+      "title": "Chandler urban population series (Figshare dataset record)",
+      "publisher": "Reba, Reitsma & Seto (Figshare)",
+      "url": "https://doi.org/10.6084/m9.figshare.2059494",
+      "accessedAt": "2026-10-03",
+      "access": "dataset-record-source-url",
+      "supports": [
+        "Discrete dated population observations carried by the chandler-bound records"
+      ],
+      "usage": "Dataset provenance only; values are read as discrete observations, never interpolated."
+    },
+    {
+      "id": "population-modelski",
+      "title": "Modelski ancient urban population series (Figshare dataset record)",
+      "publisher": "Reba, Reitsma & Seto (Figshare)",
+      "url": "https://doi.org/10.6084/m9.figshare.2059497",
+      "accessedAt": "2026-10-03",
+      "access": "dataset-record-source-url",
+      "supports": [
+        "Discrete dated population observations carried by the modelski-ancient-bound records"
+      ],
+      "usage": "Dataset provenance only; values are read as discrete observations, never interpolated."
     }
   ],
   "entries": [
@@ -4219,6 +4334,633 @@
             ]
           ],
           "observationYears": [],
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-anuradhapura",
+      "nameZh": "阿努拉德普勒",
+      "nameEn": "Anuradhapura",
+      "aliases": [
+        "Anurādhapura"
+      ],
+      "sourceRecordIds": [
+        "pleiades:49863",
+        "chandler:73",
+        "modelski-ancient:12"
+      ],
+      "scope": {
+        "start": -300,
+        "end": 993,
+        "zh": "斯里兰卡中北部干旱地带的古城与佛教圣城；从前3世纪圣城传统形成到993年政治中心转移。",
+        "en": "The ancient city and Buddhist sacred centre in the dry zone of north-central Sri Lanka, from the formation of the sacred-city tradition in the third century BCE to the political shift of 993.",
+        "spatial": {
+          "zh": "古城及其佛塔、寺院与蓄水设施所在的干旱地带；不扩大到全岛或现代城镇范围。",
+          "en": "The dry-zone setting of the old city with its stupas, monasteries and reservoirs; not extended to the whole island or the modern town."
+        },
+        "temporal": {
+          "zh": "约前3世纪至993年；人口记录只在其观测年显示，不表达逐年连续占居。",
+          "en": "From about the third century BCE to 993; population records appear only in their observation years and do not express continuous annual occupation."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "pleiades:49863",
+          "start": -30,
+          "end": 300,
+          "requiresObservation": false,
+          "noteZh": "Pleiades 记录的名称与分期只覆盖公元前30年至公元300年；该记录另有一个公元2000—2099年的现代地名证据，未用于古代展读。",
+          "noteEn": "The Pleiades name and period cover only 30 BCE to 300 CE; a separate modern attestation for 2000–2099 in the same record is not used for the ancient reading.",
+          "sourcePeriods": [
+            [
+              -30,
+              300,
+              "roman"
+            ]
+          ]
+        },
+        {
+          "sourceRecordId": "chandler:73",
+          "start": -100,
+          "end": 622,
+          "requiresObservation": true,
+          "noteZh": "只使用该记录的两次观测（前100年、622年）；观测值不插值。",
+          "noteEn": "Only the two observations carried by this record (100 BCE and 622 CE) are used; values are never interpolated.",
+          "observationYears": [
+            -100,
+            622
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:12",
+          "start": -100,
+          "end": 900,
+          "requiresObservation": true,
+          "noteZh": "使用该序列前100年至900年的九次观测；不把它视为城市连续占居证据。",
+          "noteEn": "Uses the nine observations from 100 BCE to 900 CE; they are not treated as evidence of continuous occupation.",
+          "observationYears": [
+            -100,
+            1,
+            100,
+            200,
+            300,
+            600,
+            700,
+            800,
+            900
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "阿努拉德普勒位于斯里兰卡中北部的干旱地带，古城沿河流与水库展开。佛塔、寺院、围墙与灌溉设施共同构成城市景观，蓄水系统保存季风降水，支撑人口与僧团生活。",
+          "en": "Anuradhapura lies in the dry zone of north-central Sri Lanka, its old city spread along rivers and reservoirs. Stupas, monasteries, walls and irrigation works formed the urban landscape, and stored monsoon water supported both population and monastic life.",
+          "sourceIds": [
+            "anuradhapura-ccf",
+            "anuradhapura-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "约公元前3世纪起，阿努拉德普勒成为僧伽罗王国的都城与上座部佛教中心。王权与僧团互相支持，佛塔与寺院持续扩建，来自南亚与东南亚的朝圣者和商人往来其间。十世纪末，南印度朱罗军队攻占城市，政治中心随后东移。",
+          "en": "From about the third century BCE Anuradhapura served as the capital of Sinhalese kings and a centre of Theravada Buddhism. Royal power and monastic institutions supported one another as stupas and monasteries expanded, and pilgrims and traders arrived from South and Southeast Asia. At the end of the tenth century a Chola army took the city and the political centre moved east.",
+          "sourceIds": [
+            "anuradhapura-unesco",
+            "anuradhapura-ccf"
+          ]
+        },
+        {
+          "id": "evidence",
+          "titleZh": "人口证据与解读",
+          "titleEn": "Population evidence and reading",
+          "zh": "本篇章绑定的两套人口记录只提供离散观测年：Chandler 记录给出前100年与622年两个数值，Modelski 古代序列覆盖前100年至900年。它们可以与遗址级时段并列阅读，但不能连成连续人口曲线，也不意味着每个中间年份都具有同等城市规模。",
+          "en": "The two population series bound here provide discrete observation years only: the Chandler record gives values for 100 BCE and 622 CE, while the Modelski ancient series runs from 100 BCE to 900 CE. They can be read alongside the site-level period but must not be joined into a continuous curve, and they do not imply the same urban scale in every intervening year.",
+          "sourceIds": [
+            "population-chandler",
+            "population-modelski",
+            "anuradhapura-pleiades"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": -300,
+          "endYear": -201,
+          "precision": "century",
+          "date": {
+            "zh": "公元前3世纪",
+            "en": "3rd century BCE"
+          },
+          "labelZh": "公元前3世纪",
+          "labelEn": "3rd century BCE",
+          "zh": "佛教传入并与王权结合，城市逐渐成为宗教与政治中心。",
+          "en": "Buddhism was adopted and linked with royal power as the city grew into a religious and political centre.",
+          "sourceIds": [
+            "anuradhapura-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 401,
+          "endYear": 500,
+          "precision": "century",
+          "date": {
+            "zh": "5世纪",
+            "en": "5th century CE"
+          },
+          "labelZh": "5世纪",
+          "labelEn": "5th century CE",
+          "zh": "佛塔与寺院大规模营建，城市成为南亚重要的佛教中心。",
+          "en": "Stupas and monasteries were built on a large scale and the city became a major Buddhist centre in South Asia.",
+          "sourceIds": [
+            "anuradhapura-ccf"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 993,
+          "endYear": 993,
+          "precision": "year",
+          "date": {
+            "zh": "993年",
+            "en": "993 CE"
+          },
+          "labelZh": "993年",
+          "labelEn": "993 CE",
+          "zh": "南印度朱罗军队攻占城市，政治中心随后东移。",
+          "en": "A South Indian Chola army took the city; the political centre then moved east.",
+          "sourceIds": [
+            "anuradhapura-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "anuradhapura-unesco",
+        "anuradhapura-ccf",
+        "anuradhapura-pleiades",
+        "population-chandler",
+        "population-modelski"
+      ],
+      "sourceRecords": [
+        {
+          "id": "pleiades:49863",
+          "name": "Anurādhapura",
+          "coordinates": [
+            80.414911,
+            8.313895
+          ],
+          "periods": [
+            [
+              -30,
+              300,
+              "roman"
+            ],
+            [
+              2000,
+              2099,
+              "twenty-first-ce"
+            ]
+          ],
+          "observationYears": [],
+          "sourceUrl": "https://pleiades.stoa.org/places/49863",
+          "dataFile": "historical-settlements.json",
+          "recordKind": "attested-settlement",
+          "timeBasis": "source-attested-period",
+          "coordinateUse": "preserve-source-representative-point",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "chandler:73",
+          "name": "Anuradhapura",
+          "nameZh": "阿努拉德普勒",
+          "coordinates": [
+            80.41306,
+            8.31223
+          ],
+          "periods": null,
+          "observationYears": [
+            -100,
+            622
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:12",
+          "name": "Anuradhapura",
+          "nameZh": "阿努拉德普勒",
+          "coordinates": [
+            80.383333,
+            8.35
+          ],
+          "periods": null,
+          "observationYears": [
+            -100,
+            1,
+            100,
+            200,
+            300,
+            600,
+            700,
+            800,
+            900
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-teotihuacan",
+      "nameZh": "特奥蒂瓦坎",
+      "nameEn": "Teotihuacan",
+      "aliases": [
+        "Teōtihuācān"
+      ],
+      "sourceRecordIds": [
+        "chandler:1404",
+        "modelski-ancient:128"
+      ],
+      "scope": {
+        "start": 1,
+        "end": 700,
+        "zh": "墨西哥高原腹地的古代都市；公元1世纪至7世纪的城市建设期。",
+        "en": "The ancient metropolis of the central Mexican highlands during its urban building phase from the first to the seventh century CE.",
+        "spatial": {
+          "zh": "特奥蒂瓦坎谷地的仪式与居住核心区；不扩大到现代城镇或整个墨西哥盆地。",
+          "en": "The ceremonial and residential core in the Teotihuacan valley; not extended to the modern town or the wider Basin of Mexico."
+        },
+        "temporal": {
+          "zh": "公元1—7世纪的城市建设期；两套人口序列中更早的观测保留在来源记录内，但不作为本篇章的城市时段。",
+          "en": "The urban building phase from the first to the seventh century CE; earlier observations in the two population series remain in the source records but are not treated as this dossier's city period."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:1404",
+          "start": 1,
+          "end": 700,
+          "requiresObservation": true,
+          "noteZh": "该记录的 −100 年观测早于世界遗产条目所述建设期，完整保留在 sourceRecords 内，但不在本篇章的可绑定观测年列表中。",
+          "noteEn": "The record's observation for 100 BCE predates the building period given by the World Heritage listing; it is preserved in full in sourceRecords but is not in this dossier's bindable observation years.",
+          "observationYears": [
+            361,
+            500,
+            622
+          ]
+        },
+        {
+          "sourceRecordId": "modelski-ancient:128",
+          "start": 1,
+          "end": 700,
+          "requiresObservation": true,
+          "noteZh": "该序列带有公元前900至前600年的观测；这些早期数值完整保留在 sourceRecords 内，未被裁剪，也不作为城市建设期的证据。",
+          "noteEn": "This series carries observations from 900 to 600 BCE; those early values remain complete in sourceRecords, are not clipped, and are not used as evidence for the urban building phase.",
+          "observationYears": [
+            400,
+            500,
+            600,
+            700
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "特奥蒂瓦坎位于墨西哥高原的谷地，城市沿南北轴线展开，太阳金字塔、月亮金字塔与亡者大道构成仪式核心，居住区按棋盘式布局延伸。周边谷地提供黑曜石、石灰与农业用地，支撑城市的手工业与人口。",
+          "en": "Teotihuacan stands in a valley of the central Mexican highlands, its city laid out along a north–south axis where the Pyramid of the Sun, the Pyramid of the Moon and the Avenue of the Dead form the ceremonial core, with residential quarters extending on a grid. Surrounding valleys supplied obsidian, lime and farmland for its crafts and population.",
+          "sourceIds": [
+            "teotihuacan-inah",
+            "teotihuacan-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "公元1世纪起，特奥蒂瓦坎发展为美洲规模最大的城市之一与区域权力中心，其影响远及玛雅与中部美洲各地。世界遗产条目把城市建设期定在公元1至7世纪；本篇章的时段止于700年，不主张此后的具体衰落年份。",
+          "en": "From the first century CE Teotihuacan grew into one of the largest cities of the Americas and a regional seat of power whose influence reached Maya and other Mesoamerican centres. The World Heritage listing places its urban building period between the first and seventh centuries; this dossier stops at 700 and does not assert a specific later decline date.",
+          "sourceIds": [
+            "teotihuacan-unesco",
+            "teotihuacan-inah"
+          ]
+        },
+        {
+          "id": "evidence",
+          "titleZh": "人口证据与解读",
+          "titleEn": "Population evidence and reading",
+          "zh": "两套人口记录只提供离散观测年：Chandler 记录有361年、500年与622年三个数值，Modelski 古代序列在400年至700年给出四个数值。Modelski 序列另含公元前900至前600年的观测，早于建设期，完整保留但不绑定；两组数据不能连成连续人口曲线。",
+          "en": "The two population records offer discrete observation years only: the Chandler record gives values for 361, 500 and 622 CE, while the Modelski ancient series provides four values between 400 and 700 CE. That series also carries observations for 900–600 BCE, earlier than the building period; they are preserved in full but not bound. Neither series forms a continuous population curve.",
+          "sourceIds": [
+            "population-chandler",
+            "population-modelski"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1,
+          "endYear": 100,
+          "precision": "century",
+          "date": {
+            "zh": "公元1世纪",
+            "en": "1st century CE"
+          },
+          "labelZh": "公元1世纪",
+          "labelEn": "1st century CE",
+          "zh": "城市建设启动，南北轴线与大型平台逐步成形。",
+          "en": "Urban construction began and the north–south axis with its large platforms took shape.",
+          "sourceIds": [
+            "teotihuacan-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 401,
+          "endYear": 500,
+          "precision": "century",
+          "date": {
+            "zh": "5世纪",
+            "en": "5th century CE"
+          },
+          "labelZh": "5世纪",
+          "labelEn": "5th century CE",
+          "zh": "城市规模与区域影响达到高峰。",
+          "en": "The city's scale and regional influence reached their height.",
+          "sourceIds": [
+            "teotihuacan-inah",
+            "population-chandler"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 601,
+          "endYear": 700,
+          "precision": "century",
+          "date": {
+            "zh": "7世纪",
+            "en": "7th century CE"
+          },
+          "labelZh": "7世纪",
+          "labelEn": "7th century CE",
+          "zh": "世界遗产条目所记建设期在此结束，此后区域政治格局变化。",
+          "en": "The building period recorded by the World Heritage listing ends here; regional political patterns changed afterwards.",
+          "sourceIds": [
+            "teotihuacan-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "teotihuacan-unesco",
+        "teotihuacan-inah",
+        "population-chandler",
+        "population-modelski"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:1404",
+          "name": "Teotihuacan",
+          "nameZh": "特奥蒂瓦坎",
+          "coordinates": [
+            -98.84606,
+            19.69291001
+          ],
+          "periods": null,
+          "observationYears": [
+            -100,
+            361,
+            500,
+            622
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        },
+        {
+          "id": "modelski-ancient:128",
+          "name": "Teotihuacan",
+          "nameZh": "特奥蒂瓦坎",
+          "coordinates": [
+            -98.84606,
+            19.69291001
+          ],
+          "periods": null,
+          "observationYears": [
+            -900,
+            -800,
+            -700,
+            -600,
+            400,
+            500,
+            600,
+            700
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059497",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
+          "coordinateUse": "preserve-source-urban-reference",
+          "bindingMode": "city-region-context",
+          "changesCoordinates": false,
+          "extendsSourceDates": false
+        }
+      ]
+    },
+    {
+      "id": "city-hampi",
+      "nameZh": "亨比",
+      "nameEn": "Hampi",
+      "aliases": [
+        "Vijayanagara",
+        "Vijayanagar"
+      ],
+      "sourceRecordIds": [
+        "chandler:1510"
+      ],
+      "scope": {
+        "start": 1336,
+        "end": 1565,
+        "zh": "通加巴德拉河南岸的维查耶纳伽尔都城遗址；传统建国1336年至1565年都城陷落。",
+        "en": "The Vijayanagara capital on the south bank of the Tungabhadra, from the traditional foundation in 1336 to the fall of the city in 1565.",
+        "spatial": {
+          "zh": "通加巴德拉河南岸的花岗岩丘陵、寺庙、集市与王室建筑群；不把现代 Hospet 或区域聚落并入。",
+          "en": "The granite hills, temples, bazaars and royal quarters south of the Tungabhadra; the modern town of Hospet and surrounding settlements are not merged into it."
+        },
+        "temporal": {
+          "zh": "1336—1565年的都城时期；记录中1300年的观测保留在来源记录内，但早于本篇章的都城时段。",
+          "en": "The capital period of 1336–1565; the record's observation for 1300 remains in the source record but predates this dossier's capital period."
+        }
+      },
+      "bindingRules": [
+        {
+          "sourceRecordId": "chandler:1510",
+          "start": 1336,
+          "end": 1565,
+          "requiresObservation": true,
+          "noteZh": "出货记录名称为 Vijayanagar，坐标为城市参照点，距亨比遗址代表点约2.5公里。绑定依据是名称与 Karnataka Tourism 官方页面所述身份（Hampi 位于 Vijayanagara，曾是维查耶纳伽尔帝国的都城），不是距离；记录中1300年的观测完整保留但不绑定，因为它早于1336年传统建国年。",
+          "noteEn": "The shipped record is named Vijayanagar with an urban reference point about 2.5 km from the Hampi site point. The binding rests on the name and on the identity stated by the official Karnataka Tourism page (Hampi is located in Vijayanagara and was once the grand capital of the Vijayanagara Empire), not on distance. The record's 1300 observation is preserved in full but not bound because it predates the traditional foundation year of 1336.",
+          "observationYears": [
+            1350,
+            1375,
+            1400,
+            1443,
+            1450,
+            1500,
+            1550,
+            1565
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "geography",
+          "titleZh": "城市与地理",
+          "titleEn": "City and geography",
+          "zh": "亨比位于通加巴德拉河南岸的花岗岩丘陵与河谷，寺庙、集市、王室建筑和灌溉设施依地形分布，遗址范围约29平方公里。河流、丘陵与石料资源共同塑造了都城的空间格局。",
+          "en": "Hampi lies among granite hills and the river valley south of the Tungabhadra, where temples, bazaars, royal buildings and irrigation works follow the terrain across a site of nearly 29 square kilometres. River, hills and stone resources together shaped the capital's layout.",
+          "sourceIds": [
+            "hampi-karnataka",
+            "hampi-unesco"
+          ]
+        },
+        {
+          "id": "history",
+          "titleZh": "历史脉络",
+          "titleEn": "Historical development",
+          "zh": "十四世纪至十六世纪，维查耶纳伽尔王国以亨比为都城统治南印度大部，与波斯、葡萄牙及东南亚商人保持贸易联系。1565年塔利科塔战役后都城被攻陷并遭劫掠，城市迅速衰败，地方势力仍在区域延续。",
+          "en": "From the fourteenth to the sixteenth century the Vijayanagara kingdom ruled much of South India from Hampi and traded with Persian, Portuguese and Southeast Asian merchants. After the battle of Talikota in 1565 the capital was taken and sacked, the city declined rapidly, and regional powers persisted nearby.",
+          "sourceIds": [
+            "hampi-unesco",
+            "hampi-karnataka"
+          ]
+        },
+        {
+          "id": "identity",
+          "titleZh": "身份判定与人口证据",
+          "titleEn": "Identity determination and population evidence",
+          "zh": "数据库记录的名称是 Vijayanagar，而遗址通称亨比：官方旅游页面明确说明亨比位于 Vijayanagara、曾是维查耶纳伽尔帝国的都城，因此本条按名称与来源所述身份绑定该记录，而不是按2.5公里的坐标邻近关系。人口观测为离散年份（1350年至1565年共八次），不能读作逐年人口曲线；1300年的观测早于都城时期，保留但不绑定。",
+          "en": "The database record is named Vijayanagar while the site is commonly called Hampi: the official tourism page states that Hampi is located in Vijayanagara and was once the grand capital of the Vijayanagara Empire, so the record is bound by that documented identity rather than by the 2.5 km coordinate proximity. Population observations are discrete (eight values from 1350 to 1565) and cannot be read as an annual curve; the 1300 observation predates the capital period and is preserved but not bound.",
+          "sourceIds": [
+            "hampi-karnataka",
+            "population-chandler"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "year": 1336,
+          "endYear": 1336,
+          "precision": "traditional-year",
+          "date": {
+            "zh": "1336年",
+            "en": "1336 CE"
+          },
+          "labelZh": "1336年",
+          "labelEn": "1336 CE",
+          "zh": "传统建国年份，维查耶纳伽尔王朝在此建立都城。",
+          "en": "The traditional foundation year of the Vijayanagara capital.",
+          "sourceIds": [
+            "hampi-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1500,
+          "endYear": 1500,
+          "precision": "year",
+          "date": {
+            "zh": "1500年",
+            "en": "1500 CE"
+          },
+          "labelZh": "1500年",
+          "labelEn": "1500 CE",
+          "zh": "城市与贸易繁荣，人口观测记录下这一时期的高峰。",
+          "en": "The city and its trade flourished, and the population series records a peak in this period.",
+          "sourceIds": [
+            "hampi-unesco",
+            "population-chandler"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        },
+        {
+          "year": 1565,
+          "endYear": 1565,
+          "precision": "year",
+          "date": {
+            "zh": "1565年",
+            "en": "1565 CE"
+          },
+          "labelZh": "1565年",
+          "labelEn": "1565 CE",
+          "zh": "塔利科塔战役后都城被攻陷并遭劫掠，城市迅速衰败。",
+          "en": "After the battle of Talikota the capital was taken and sacked and the city declined rapidly.",
+          "sourceIds": [
+            "hampi-unesco"
+          ],
+          "dateMeaning": "event-or-context; not a city lifespan"
+        }
+      ],
+      "sourceIds": [
+        "hampi-unesco",
+        "hampi-karnataka",
+        "population-chandler"
+      ],
+      "sourceRecords": [
+        {
+          "id": "chandler:1510",
+          "name": "Vijayanagar",
+          "coordinates": [
+            76.462,
+            15.335
+          ],
+          "periods": null,
+          "observationYears": [
+            1300,
+            1350,
+            1375,
+            1400,
+            1443,
+            1450,
+            1500,
+            1550,
+            1565
+          ],
+          "sourceUrl": "https://doi.org/10.6084/m9.figshare.2059494",
+          "dataFile": "urban-observations.json",
+          "recordKind": "urban-observation",
+          "timeBasis": "population-observation",
           "coordinateUse": "preserve-source-urban-reference",
           "bindingMode": "city-region-context",
           "changesCoordinates": false,

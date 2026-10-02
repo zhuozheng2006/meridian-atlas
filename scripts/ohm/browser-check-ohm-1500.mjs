@@ -67,41 +67,54 @@ function edgeDensity(image){
  return edges;
 }
 
-const scenarios=[
- {key:'regional-1500',year:1500,mode:'regional',click:{lng:7.7526,lat:48.5839,expect:'Strasbourg'},click2:{lng:10.3155,lat:49.2411,expect:'Franconian'}},
- {key:'auto-1500',year:1500,mode:'auto'},
- {key:'regional-1492',year:1492,mode:'regional'},
- {key:'regional-1700-control',year:1700,mode:'regional'}
-];
+// Years are supplied as --years; every one gets a regional-mode capture, plus an auto-mode
+// capture for the first year. The control year must NOT be part of the frozen extract.
+const CLICKS={1500:{lng:7.7526,lat:48.5839,expect:'Strasbourg'},1700:{lng:8.24,lat:50.0,expect:null},1000:{lng:8.5,lat:49.5,expect:null}};
+const yearList=arg('years','1000,1492,1500,1700').split(',').map(Number).filter(Number.isFinite);
+const controlYear=Number(arg('control','1750'));
+const scenarios=[];
+for(const year of yearList){
+ scenarios.push({key:'regional-'+year,year,mode:'regional',click:CLICKS[year]||{lng:Number(camParts[0]),lat:Number(camParts[1]),expect:null}});
+}
+scenarios.push({key:'auto-'+yearList[0],year:yearList[0],mode:'auto'});
+scenarios.push({key:'regional-'+controlYear+'-control',year:controlYear,mode:'regional'});
 
 fs.mkdirSync(outDir,{recursive:true});
-const session=await launch({width:1600,height:900,port:Number(arg('port','9351')),profile:'/tmp/atlas-cdp-ohm1500'});
+const port=Number(arg('port','9440'));
+const session=await launch({width:1600,height:900,port,profile:'/tmp/atlas-cdp-ohm-'+port});
 const allResponses=[];
 session.on(m=>{if(m.method==='Network.responseReceived'){const r=m.params.response;allResponses.push({url:r.url,status:r.status});}});
 const report={label,base,camera:CAMERA,checkedAt:new Date().toISOString(),scenarios:[],console:[]};
 try{
  for(const scenario of scenarios){
   const from=allResponses.length;
-  await goto(session,base+'/#year='+scenario.year+'&lang=bi&camera='+CAMERA+'&boundaries='+scenario.mode,{waitMs:2500});
-  let readyOk=true;try{await mapReady(session);}catch(e){readyOk=false;}
-  // Wait for a stable badge: four consecutive identical reads that are not a loading caption.
-  let previous=null,stable=0;
-  for(let i=0;i<80&&stable<4;i++){
-   const caption=await evaluate(session,"(()=>{const b=document.querySelector('.regional-badge');return b?b.textContent:null})()").catch(()=>null);
-   if(caption&&caption===previous&&!/正在读取|正在补齐|Updating|loading/i.test(caption))stable++;else stable=0;
-   previous=caption;await sleep(500);
+  // Concurrent headless Chromes can leave a page stuck on its loading screen; a scenario whose
+  // capture is blank or whose map never finished is retried once before it is reported.
+  let state=null,file=null,image=null,readyOk=false,attempts=0;
+  for(attempts=1;attempts<=2;attempts++){
+   await goto(session,base+'/#year='+scenario.year+'&lang=bi&camera='+CAMERA+'&boundaries='+scenario.mode,{waitMs:2500});
+   readyOk=true;try{await mapReady(session);}catch(e){readyOk=false;}
+   // Wait for a stable badge: four consecutive identical reads that are not a loading caption.
+   let previous=null,stable=0;
+   for(let i=0;i<80&&stable<4;i++){
+    const caption=await evaluate(session,"(()=>{const b=document.querySelector('.regional-badge');return b?b.textContent:null})()").catch(()=>null);
+    if(caption&&caption===previous&&!/正在读取|正在补齐|Updating|loading/i.test(caption))stable++;else stable=0;
+    previous=caption;await sleep(500);
+   }
+   await sleep(2500);
+   state=await evaluate(session,"(()=>{const badge=document.querySelector('.regional-badge'),status=document.querySelector('#regionalStatus'),canvas=document.querySelector('#map canvas');return{badge:badge?badge.textContent:null,status:status?status.textContent:null,labels:[...document.querySelectorAll('.regional-label')].map(e=>e.textContent),canvas:canvas?canvas.getBoundingClientRect().toJSON():null,dpr:window.devicePixelRatio};})()");
+   file=outDir+'/'+label+'-'+scenario.key+'.png';
+   await screenshot(session,file);
+   image=decodePNG(fs.readFileSync(file));
+   if(readyOk&&state.canvas&&edgeDensity(image)>4000)break;
+   await sleep(6000);
   }
-  await sleep(2500);
   const entries=allResponses.slice(from);
-  const state=await evaluate(session,"(()=>{const badge=document.querySelector('.regional-badge'),status=document.querySelector('#regionalStatus'),canvas=document.querySelector('#map canvas');return{badge:badge?badge.textContent:null,status:status?status.textContent:null,labels:[...document.querySelectorAll('.regional-label')].map(e=>e.textContent),canvas:canvas?canvas.getBoundingClientRect().toJSON():null,dpr:window.devicePixelRatio};})()");
-  const file=outDir+'/'+label+'-'+scenario.key+'.png';
-  await screenshot(session,file);
-  const image=decodePNG(fs.readFileSync(file));
   const unique=entries.filter((e,i,a)=>a.findIndex(x=>x.url===e.url)===i);
   const hosts=[...new Set(unique.map(e=>{try{return new URL(e.url).host}catch{return 'local'}}))];
   const compareLabel=arg('compare',null),compareFile=compareLabel?outDir+'/'+compareLabel+'-'+scenario.key+'.png':null;
   const baseline=compareFile&&fs.existsSync(compareFile)?decodePNG(fs.readFileSync(compareFile)):null;
-  const result={key:scenario.key,year:scenario.year,mode:scenario.mode,readyOk,state,file,tileEdgePixels:countColour(image,TILE_EDGE),frozenEdgePixels:countColour(image,FROZEN_EDGE),rustPixels:rustPixels(image),edgePixels:edgeDensity(image),baseline:compareFile,diff:baseline&&state.canvas?pixelDiff(baseline,image,state.canvas):null,baselineRustPixels:baseline?rustPixels(baseline):null,detailRequests:unique.filter(e=>/ohm-1500/.test(e.url)),tileRequests:unique.filter(e=>/vtiles/.test(e.url)).length,hosts,requestCount:unique.length};
+  const result={key:scenario.key,year:scenario.year,mode:scenario.mode,readyOk,attempts,state,file,tileEdgePixels:countColour(image,TILE_EDGE),frozenEdgePixels:countColour(image,FROZEN_EDGE),rustPixels:rustPixels(image),edgePixels:edgeDensity(image),baseline:compareFile,diff:baseline&&state.canvas?pixelDiff(baseline,image,state.canvas):null,baselineRustPixels:baseline?rustPixels(baseline):null,detailRequests:unique.filter(e=>/ohm-1500/.test(e.url)),tileRequests:unique.filter(e=>/vtiles/.test(e.url)).length,hosts,requestCount:unique.length};
   if(scenario.click&&state.canvas){
    const rect=state.canvas,zoom=Number(camParts[2]);
    const project=(lng,lat)=>{const world=512*Math.pow(2,zoom);
@@ -112,7 +125,7 @@ try{
    await clickPoint(session,point.x,point.y);await sleep(1500);
    result.click={x:Math.round(point.x),y:Math.round(point.y),popup:await evaluate(session,"(()=>{const p=document.querySelector('.maplibregl-popup');return p?{text:p.textContent.slice(0,400),link:(p.querySelector('a[href*=openhistoricalmap]')||{}).href||null,hasArea:/面积|area/i.test(p.textContent)}:null})()")};
    await screenshot(session,outDir+'/'+label+'-'+scenario.key+'-click.png');
-   if(scenario.click2){
+   if(scenario.click2&&scenario.click){
     await evaluate(session,"document.querySelector('.maplibregl-popup-close-button')?.click()");await sleep(400);
     const second=project(scenario.click2.lng,scenario.click2.lat);
     await clickPoint(session,second.x,second.y);await sleep(1500);

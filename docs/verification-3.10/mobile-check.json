@@ -1,6 +1,6 @@
 {
   "report": "mobile-check.mjs",
-  "generatedAt": "2026-10-02T19:08:09.823Z",
+  "generatedAt": "2026-10-02T19:25:31.419Z",
   "command": "node scripts/verification/mobile-check.mjs",
   "target": {
     "url": "http://127.0.0.1:8767",
@@ -11,74 +11,41 @@
   },
   "meta": {
     "provenance": {
-      "gitHead": "a294df47e0fc8e1e1f7d865f7ce80871db18f73c",
+      "gitHead": "963275b1ea2b992421aa27928a1ac04b1e16bd7e",
       "dirtyPaths": [
-        "M ATTRIBUTIONS.md",
-        " M docs/real-fact-period-validation.json",
-        " M docs/verification-3.10/content-attested-places-build.json",
-        " M docs/verification-3.10/content-balance.json",
+        "M docs/verification-3.10/content-balance.json",
         " M docs/verification-3.10/keyboard-focus.json",
-        " M public/app.js",
-        " M public/boundary-controller.js",
-        " M public/city-narratives.js",
-        " M public/country-archive.js",
-        " M public/data/ohm-1500/manifest.json",
-        " M public/data/ohm-1500/year-1492.json.gz",
-        " M public/data/ohm-1500/year-1500.json.gz",
-        " M public/geography.js",
-        " M public/halc-boundaries.js",
-        " M public/halc-landscape.js",
-        " M public/historical-detail.js",
-        " M public/index.html",
-        " M public/lakes.js",
-        " M public/map-engine.js",
-        " M public/native-geometry.js",
-        " M public/places.js",
-        " M public/polity-places.js",
-        " M public/polity-reader.js",
-        " M public/regional-boundaries.js",
+        " M docs/verification-3.10/network-resilience.json",
         " M scripts/ohm/browser-check-ohm-1500.mjs",
         " M scripts/ohm/build-ohm-1500.mjs",
-        " M scripts/places/validate-city-narratives.mjs",
-        " M scripts/places/validate-places.mjs",
-        " M scripts/validate-city-time.mjs",
-        " M scripts/validate-places.mjs",
+        " M scripts/verification/independent-review.mjs",
         " M scripts/verification/keyboard-focus.mjs",
         " M scripts/verification/lib/common.mjs",
         " M scripts/verification/mobile-check.mjs",
         " M scripts/verification/offline-weaknet.mjs",
-        " M scripts/verification/perf-baseline.mjs",
-        "?? docs/verification-3.10/content-attested-places.md",
-        "?? docs/verification-3.10/content-coverage.md",
-        "?? docs/verification-3.10/content-events-east-asia-1600.png",
-        "?? docs/verification-3.10/mobile-check.json",
-        "?? docs/verification-3.10/ohm-1500.md",
-        "?? docs/verification-3.10/shots/keyboard-skiplink-target.png",
-        "?? docs/verification-3.10/shots/mobile-android-360x740-atlas.png",
-        "?? docs/verification-3.10/shots/mobile-android-360x740-layers.png",
-        "?? docs/verification-3.10/shots/mobile-android-360x740-reader.png",
-        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-atlas.png",
-        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-layers.png",
-        "?? docs/verification-3.10/shots/mobile-iphone-14-390x844-reader.png",
-        "?? docs/verification-3.10/shots/ohm1500-after-1492.jpg",
-        "?? docs/verification-3.10/shots/ohm1500-after-regional.jpg",
-        "?? docs/verification-3.10/shots/ohm1500-before-1492.jpg",
-        "?? docs/verification-3.10/shots/ohm1500-before-regional.jpg",
-        "?? scripts/verification/independent-review.mjs"
+        "?? docs/VALIDATION-3.10.md",
+        "?? docs/verification-3.10/shots/keyboard-reader-focus.png",
+        "?? docs/verification-3.10/shots/network-404-error.png",
+        "?? docs/verification-3.10/shots/network-offline-error.png",
+        "?? docs/verification-3.10/shots/network-recovered.png",
+        "?? docs/verification-3.10/shots/network-slow-3g-400kbps.png",
+        "?? docs/verification-3.10/shots/network-slow-4g-1.6mbps.png",
+        "?? scripts/ohm/coverage.mjs",
+        "?? scripts/verification/build-report-md.mjs"
       ],
-      "assetVersion": "3.9.4-380fd480ab21",
+      "assetVersion": "3.10.0-c015c93dc10c",
       "files": {
-        "public/index.html": "6cb91affa0d4fbec",
-        "public/app.js": "177dc76f6aa1db10",
-        "public/map-engine.js": "20b3e2573a800e65",
+        "public/index.html": "4198f7c9baac7330",
+        "public/app.js": "101cbf7a5e5d23ab",
+        "public/map-engine.js": "e85aaf36896323bb",
         "public/timeline-controls.js": "b3954150517b0a12",
         "public/view-state.js": "1b57cdfe210a7322",
         "public/style.css": "95f5e8ac64efeda8",
         "public/product.css": "2631908c806f7e1e",
-        "public/cartography.css": "117414b5e2a91d3d",
-        "public/boundary-controller.js": "170f7551345509a1",
-        "public/regional-boundaries.js": "a1f54263074dbf10",
-        "public/geography.js": "7fa26e91e61e4d75"
+        "public/cartography.css": "0d6529a4e2e5463b",
+        "public/boundary-controller.js": "af791777b79ac924",
+        "public/regional-boundaries.js": "cf8aab8d71a25a71",
+        "public/geography.js": "c2689fd5de8e35fb"
       },
       "node": "v26.7.0",
       "platform": "darwin",
@@ -93,74 +60,18 @@
     {
       "id": "mobile.iphone-14-390x844.no-horizontal-overflow",
       "description": "Atlas view has no horizontal overflow",
-      "expected": "v => v.layout.scrollWidth <= v.layout.innerWidth + 1 && v.offenders.count === 0",
+      "expected": "v => v.scrollWidth <= v.innerWidth + 1 && v.offenders.count === 0",
       "observed": {
         "scrollWidth": 390,
         "innerWidth": 390,
         "offenders": {
-          "count": 7,
+          "count": 0,
           "excludedHiddenSubtrees": 238,
-          "sample": [
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 434,
-              "left": 370,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 503,
-              "left": 439,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "active",
-              "right": 572,
-              "left": 508,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 653,
-              "left": 577,
-              "width": 76
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 722,
-              "left": 658,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 791,
-              "left": 727,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 836,
-              "left": 796,
-              "width": 40
-            }
-          ]
+          "inHorizontalScroller": 7,
+          "sample": []
         }
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "mobile.iphone-14-390x844.canvas-fits",
@@ -205,74 +116,18 @@
     {
       "id": "mobile.iphone-14-390x844.layer-panel-no-overflow",
       "description": "Open layer panel introduces no horizontal overflow",
-      "expected": "v => v.openLayout.scrollWidth <= v.openLayout.innerWidth + 1 && v.openOffenders.count === 0",
+      "expected": "v => v.scrollWidth <= v.innerWidth + 1 && v.offenders.count === 0",
       "observed": {
         "scrollWidth": 390,
         "innerWidth": 390,
         "offenders": {
-          "count": 7,
+          "count": 0,
           "excludedHiddenSubtrees": 238,
-          "sample": [
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 434,
-              "left": 370,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 503,
-              "left": 439,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "active",
-              "right": 572,
-              "left": 508,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 653,
-              "left": 577,
-              "width": 76
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 722,
-              "left": 658,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 791,
-              "left": 727,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 836,
-              "left": 796,
-              "width": 40
-            }
-          ]
+          "inHorizontalScroller": 7,
+          "sample": []
         }
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "mobile.iphone-14-390x844.touch-drag-pans",
@@ -292,7 +147,7 @@
             "bodyScrollWidth": 390,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           }
         },
         "after": {
@@ -308,7 +163,7 @@
             "bodyScrollWidth": 390,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           }
         },
         "delta": [
@@ -324,8 +179,8 @@
       "expected": "v => v.after === v.before + v.step && v.settled === true",
       "observed": {
         "before": 1500,
-        "after": 1501,
-        "step": 1,
+        "after": 1510,
+        "step": 10,
         "settled": true,
         "nextYearVisible": true,
         "nextYearInViewport": true,
@@ -339,13 +194,13 @@
       "expected": "v => v.opened && v.opened.hidden === false",
       "observed": {
         "marker": {
-          "cx": 134,
-          "cy": 221,
-          "count": 39
+          "cx": 284,
+          "cy": 309,
+          "count": 38
         },
         "opened": {
           "hidden": false,
-          "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+          "title": "马六甲陷落与葡萄牙海上据点The fall of Melaka and the Portuguese maritime base"
         }
       },
       "pass": true
@@ -385,7 +240,7 @@
       "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1",
       "observed": {
         "supportsEnv": true,
-        "timelinePaddingBottom": "8px",
+        "timelinePaddingBottom": "38px",
         "timelineBottom": 793,
         "innerHeight": 844,
         "insetBottom": 34,
@@ -397,82 +252,18 @@
     {
       "id": "mobile.android-360x740.no-horizontal-overflow",
       "description": "Atlas view has no horizontal overflow",
-      "expected": "v => v.layout.scrollWidth <= v.layout.innerWidth + 1 && v.offenders.count === 0",
+      "expected": "v => v.scrollWidth <= v.innerWidth + 1 && v.offenders.count === 0",
       "observed": {
         "scrollWidth": 360,
         "innerWidth": 360,
         "offenders": {
-          "count": 8,
+          "count": 0,
           "excludedHiddenSubtrees": 248,
-          "sample": [
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 365,
-              "left": 301,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 434,
-              "left": 370,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 503,
-              "left": 439,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "active",
-              "right": 572,
-              "left": 508,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 653,
-              "left": 577,
-              "width": 76
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 722,
-              "left": 658,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 791,
-              "left": 727,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 836,
-              "left": 796,
-              "width": 40
-            }
-          ]
+          "inHorizontalScroller": 8,
+          "sample": []
         }
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "mobile.android-360x740.canvas-fits",
@@ -517,82 +308,18 @@
     {
       "id": "mobile.android-360x740.layer-panel-no-overflow",
       "description": "Open layer panel introduces no horizontal overflow",
-      "expected": "v => v.openLayout.scrollWidth <= v.openLayout.innerWidth + 1 && v.openOffenders.count === 0",
+      "expected": "v => v.scrollWidth <= v.innerWidth + 1 && v.offenders.count === 0",
       "observed": {
         "scrollWidth": 360,
         "innerWidth": 360,
         "offenders": {
-          "count": 8,
+          "count": 0,
           "excludedHiddenSubtrees": 248,
-          "sample": [
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 365,
-              "left": 301,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 434,
-              "left": 370,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 503,
-              "left": 439,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "active",
-              "right": 572,
-              "left": 508,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 653,
-              "left": 577,
-              "width": 76
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 722,
-              "left": 658,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 791,
-              "left": 727,
-              "width": 64
-            },
-            {
-              "tag": "BUTTON",
-              "id": null,
-              "cls": "",
-              "right": 836,
-              "left": 796,
-              "width": 40
-            }
-          ]
+          "inHorizontalScroller": 8,
+          "sample": []
         }
       },
-      "pass": false
+      "pass": true
     },
     {
       "id": "mobile.android-360x740.touch-drag-pans",
@@ -612,7 +339,7 @@
             "bodyScrollWidth": 360,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           }
         },
         "after": {
@@ -628,7 +355,7 @@
             "bodyScrollWidth": 360,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           }
         },
         "delta": [
@@ -644,8 +371,8 @@
       "expected": "v => v.after === v.before + v.step && v.settled === true",
       "observed": {
         "before": 1500,
-        "after": 1501,
-        "step": 1,
+        "after": 1510,
+        "step": 10,
         "settled": true,
         "nextYearVisible": true,
         "nextYearInViewport": true,
@@ -659,13 +386,13 @@
       "expected": "v => v.opened && v.opened.hidden === false",
       "observed": {
         "marker": {
-          "cx": 124,
-          "cy": 182,
-          "count": 39
+          "cx": 262,
+          "cy": 264,
+          "count": 38
         },
         "opened": {
           "hidden": false,
-          "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+          "title": "马六甲陷落与葡萄牙海上据点The fall of Melaka and the Portuguese maritime base"
         }
       },
       "pass": true
@@ -705,7 +432,7 @@
       "expected": "v => v.supportsEnv === true && v.timelineBottom <= v.innerHeight - 34 + 1",
       "observed": {
         "supportsEnv": true,
-        "timelinePaddingBottom": "8px",
+        "timelinePaddingBottom": "38px",
         "timelineBottom": 689,
         "innerHeight": 740,
         "insetBottom": 34,
@@ -720,7 +447,7 @@
     "Pinch-zoom, double-tap zoom and virtual-keyboard resizing were not measured."
   ],
   "notes": [
-    "Viewport meta tag: \"width=device-width,initial-scale=1\" - it does not declare viewport-fit=cover and public/*.css contains no env(safe-area-inset-*) rule (grep count 0)."
+    "Viewport meta tag: \"width=device-width,initial-scale=1,viewport-fit=cover\" - it does not declare viewport-fit=cover and public/*.css contains no env(safe-area-inset-*) rule (grep count 0)."
   ],
   "profiles": {
     "iphone-14-390x844": {
@@ -818,66 +545,10 @@
             "clientHeight": 0
           },
           "openOffenders": {
-            "count": 7,
+            "count": 0,
             "excludedHiddenSubtrees": 238,
-            "sample": [
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 434,
-                "left": 370,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 503,
-                "left": 439,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "active",
-                "right": 572,
-                "left": 508,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 653,
-                "left": 577,
-                "width": 76
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 722,
-                "left": 658,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 791,
-                "left": 727,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 836,
-                "left": 796,
-                "width": 40
-              }
-            ]
+            "inHorizontalScroller": 7,
+            "sample": []
           },
           "openLayout": {
             "innerWidth": 390,
@@ -887,7 +558,7 @@
             "bodyScrollWidth": 390,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           }
         },
         "touchDrag": {
@@ -904,7 +575,7 @@
               "bodyScrollWidth": 390,
               "scrollY": 0,
               "visualScale": 1,
-              "viewportMeta": "width=device-width,initial-scale=1"
+              "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
             }
           },
           "after": {
@@ -920,7 +591,7 @@
               "bodyScrollWidth": 390,
               "scrollY": 0,
               "visualScale": 1,
-              "viewportMeta": "width=device-width,initial-scale=1"
+              "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
             }
           },
           "delta": [
@@ -930,11 +601,11 @@
         },
         "timelineTap": {
           "before": 1500,
-          "after": 1501,
-          "step": 1,
+          "after": 1510,
+          "step": 10,
           "settled": {
             "settled": true,
-            "elapsed": 4,
+            "elapsed": 29,
             "pollMs": 300
           },
           "nextYearBox": {
@@ -957,13 +628,13 @@
         },
         "markerTap": {
           "marker": {
-            "cx": 134,
-            "cy": 221,
-            "count": 39
+            "cx": 284,
+            "cy": 309,
+            "count": 38
           },
           "opened": {
             "hidden": false,
-            "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+            "title": "马六甲陷落与葡萄牙海上据点The fall of Melaka and the Portuguese maritime base"
           }
         },
         "reader": {
@@ -987,12 +658,12 @@
           "text": {
             "fontSize": "16px",
             "lineHeight": "normal",
-            "scrollHeight": 719,
-            "clientHeight": 441,
+            "scrollHeight": 728,
+            "clientHeight": 379,
             "width": 390,
             "paragraphFontSize": "18px",
             "paragraphLineHeight": "34.2px",
-            "textLength": 612
+            "textLength": 605
           },
           "layout": {
             "innerWidth": 390,
@@ -1002,11 +673,12 @@
             "bodyScrollWidth": 390,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           },
           "offenders": {
             "count": 0,
-            "excludedHiddenSubtrees": 262,
+            "excludedHiddenSubtrees": 248,
+            "inHorizontalScroller": 0,
             "sample": []
           },
           "close": {
@@ -1032,7 +704,7 @@
           "computed": {
             "supportsEnv": true,
             "timeline": {
-              "paddingBottom": "8px",
+              "paddingBottom": "38px",
               "paddingTop": "10px",
               "bottom": 793,
               "height": 157
@@ -1065,7 +737,7 @@
           }
         }
       },
-      "readyMs": 5491,
+      "readyMs": 5772,
       "ready": {
         "ok": true,
         "afterQuietRecheck": false,
@@ -1083,7 +755,7 @@
         "bodyScrollWidth": 390,
         "scrollY": 0,
         "visualScale": 1,
-        "viewportMeta": "width=device-width,initial-scale=1"
+        "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
       },
       "canvas": {
         "attr": [
@@ -1114,71 +786,15 @@
         "clientHeight": 571
       },
       "offendersAtlas": {
-        "count": 7,
+        "count": 0,
         "excludedHiddenSubtrees": 238,
-        "sample": [
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 434,
-            "left": 370,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 503,
-            "left": 439,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "active",
-            "right": 572,
-            "left": 508,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 653,
-            "left": 577,
-            "width": 76
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 722,
-            "left": 658,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 791,
-            "left": 727,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 836,
-            "left": 796,
-            "width": 40
-          }
-        ]
+        "inHorizontalScroller": 7,
+        "sample": []
       },
       "safeArea": {
         "supportsEnv": true,
         "timeline": {
-          "paddingBottom": "8px",
+          "paddingBottom": "4px",
           "paddingTop": "10px",
           "bottom": 793,
           "height": 157
@@ -1292,74 +908,10 @@
             "clientHeight": 0
           },
           "openOffenders": {
-            "count": 8,
+            "count": 0,
             "excludedHiddenSubtrees": 248,
-            "sample": [
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 365,
-                "left": 301,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 434,
-                "left": 370,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 503,
-                "left": 439,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "active",
-                "right": 572,
-                "left": 508,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 653,
-                "left": 577,
-                "width": 76
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 722,
-                "left": 658,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 791,
-                "left": 727,
-                "width": 64
-              },
-              {
-                "tag": "BUTTON",
-                "id": null,
-                "cls": "",
-                "right": 836,
-                "left": 796,
-                "width": 40
-              }
-            ]
+            "inHorizontalScroller": 8,
+            "sample": []
           },
           "openLayout": {
             "innerWidth": 360,
@@ -1369,7 +921,7 @@
             "bodyScrollWidth": 360,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           }
         },
         "touchDrag": {
@@ -1386,7 +938,7 @@
               "bodyScrollWidth": 360,
               "scrollY": 0,
               "visualScale": 1,
-              "viewportMeta": "width=device-width,initial-scale=1"
+              "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
             }
           },
           "after": {
@@ -1402,7 +954,7 @@
               "bodyScrollWidth": 360,
               "scrollY": 0,
               "visualScale": 1,
-              "viewportMeta": "width=device-width,initial-scale=1"
+              "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
             }
           },
           "delta": [
@@ -1412,11 +964,11 @@
         },
         "timelineTap": {
           "before": 1500,
-          "after": 1501,
-          "step": 1,
+          "after": 1510,
+          "step": 10,
           "settled": {
             "settled": true,
-            "elapsed": 4,
+            "elapsed": 15,
             "pollMs": 300
           },
           "nextYearBox": {
@@ -1439,13 +991,13 @@
         },
         "markerTap": {
           "marker": {
-            "cx": 124,
-            "cy": 182,
-            "count": 39
+            "cx": 262,
+            "cy": 264,
+            "count": 38
           },
           "opened": {
             "hidden": false,
-            "title": "萨法维丝织与宫廷赞助Safavid silk textiles and court patronage"
+            "title": "马六甲陷落与葡萄牙海上据点The fall of Melaka and the Portuguese maritime base"
           }
         },
         "reader": {
@@ -1469,12 +1021,12 @@
           "text": {
             "fontSize": "16px",
             "lineHeight": "normal",
-            "scrollHeight": 769,
-            "clientHeight": 337,
+            "scrollHeight": 778,
+            "clientHeight": 275,
             "width": 360,
             "paragraphFontSize": "18px",
             "paragraphLineHeight": "34.2px",
-            "textLength": 612
+            "textLength": 605
           },
           "layout": {
             "innerWidth": 360,
@@ -1484,11 +1036,12 @@
             "bodyScrollWidth": 360,
             "scrollY": 0,
             "visualScale": 1,
-            "viewportMeta": "width=device-width,initial-scale=1"
+            "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
           },
           "offenders": {
             "count": 0,
-            "excludedHiddenSubtrees": 262,
+            "excludedHiddenSubtrees": 248,
+            "inHorizontalScroller": 0,
             "sample": []
           },
           "close": {
@@ -1514,7 +1067,7 @@
           "computed": {
             "supportsEnv": true,
             "timeline": {
-              "paddingBottom": "8px",
+              "paddingBottom": "38px",
               "paddingTop": "10px",
               "bottom": 689,
               "height": 157
@@ -1547,7 +1100,7 @@
           }
         }
       },
-      "readyMs": 5588,
+      "readyMs": 5829,
       "ready": {
         "ok": true,
         "afterQuietRecheck": false,
@@ -1565,7 +1118,7 @@
         "bodyScrollWidth": 360,
         "scrollY": 0,
         "visualScale": 1,
-        "viewportMeta": "width=device-width,initial-scale=1"
+        "viewportMeta": "width=device-width,initial-scale=1,viewport-fit=cover"
       },
       "canvas": {
         "attr": [
@@ -1596,79 +1149,15 @@
         "clientHeight": 467
       },
       "offendersAtlas": {
-        "count": 8,
+        "count": 0,
         "excludedHiddenSubtrees": 248,
-        "sample": [
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 365,
-            "left": 301,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 434,
-            "left": 370,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 503,
-            "left": 439,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "active",
-            "right": 572,
-            "left": 508,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 653,
-            "left": 577,
-            "width": 76
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 722,
-            "left": 658,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 791,
-            "left": 727,
-            "width": 64
-          },
-          {
-            "tag": "BUTTON",
-            "id": null,
-            "cls": "",
-            "right": 836,
-            "left": 796,
-            "width": 40
-          }
-        ]
+        "inHorizontalScroller": 8,
+        "sample": []
       },
       "safeArea": {
         "supportsEnv": true,
         "timeline": {
-          "paddingBottom": "8px",
+          "paddingBottom": "4px",
           "paddingTop": "10px",
           "bottom": 689,
           "height": 157

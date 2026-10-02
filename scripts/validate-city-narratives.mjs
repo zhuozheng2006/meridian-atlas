@@ -29,9 +29,12 @@ async function check(name,fn){try{await fn();results.push({name,passed:true});co
 const counters={entries:data.entries.length,sources:data.sources.length,sourceRecords:0,positiveBoundaries:0,negativeBoundaries:0,actualPeriodGaps:0,originalRegressionCases:0};
 
 await check('Imports the real matching module without DOM',()=>{assert.equal(typeof document,'undefined');assert.equal(typeof matchCityNarrative,'function');});
-await check('Twelve dossiers and thirty-nine institutional source registrations resolve',()=>{
- assert.equal(data.schemaVersion,1);assert.equal(data.entries.length,12);assert.equal(data.sources.length,39);
- assert.equal(new Set(data.entries.map(e=>e.id)).size,12);assert.equal(new Set(data.sources.map(s=>s.id)).size,39);
+const dossierCount=data.entries.length,registrationCount=data.sources.length;
+await check(`${dossierCount} dossiers and ${registrationCount} institutional source registrations resolve`,()=>{
+ assert.equal(data.schemaVersion,1);
+ assert(dossierCount>=12,`expected at least the twelve reviewed dossiers, found ${dossierCount}`);
+ assert(registrationCount>=39,`expected at least the thirty-nine reviewed source registrations, found ${registrationCount}`);
+ assert.equal(new Set(data.entries.map(e=>e.id)).size,dossierCount);assert.equal(new Set(data.sources.map(s=>s.id)).size,registrationCount);
  const sources=new Map(data.sources.map(s=>[s.id,s]));
  for(const s of data.sources){assert(s.publisher&&s.title&&s.accessedAt&&s.access);assert.match(s.url,/^https:\/\//);}
  for(const e of data.entries){
@@ -44,7 +47,8 @@ await check('Twelve dossiers and thirty-nine institutional source registrations 
   for(const m of e.milestones){assert(Number.isInteger(m.year)&&m.year!==0&&m.year<=m.endYear);assert(m.year>=e.scope.start&&m.endYear<=e.scope.end);assert(m.date.zh&&m.date.en&&m.precision);}
  }
 });
-await check('All forty bound records preserve actual names, coordinates, periods and observations',()=>{
+const declaredBoundRecords=data.entries.reduce((n,e)=>n+e.sourceRecordIds.length,0),declaredBindingRules=data.entries.reduce((n,e)=>n+e.bindingRules.length,0);
+await check(`All ${declaredBoundRecords} bound records preserve actual names, coordinates, periods and observations`,()=>{
  for(const e of data.entries)for(const r of e.sourceRecords){
   const original=records.get(r.id);assert(original,`${e.id}: missing ${r.id}`);
   assert.equal(r.name,original.name);assert.deepEqual(r.coordinates,original.coordinates);
@@ -55,7 +59,8 @@ await check('All forty bound records preserve actual names, coordinates, periods
   if(original.observations){assert.equal(rule.requiresObservation,true);assert(rule.observationYears?.length);for(const y of rule.observationYears)assert(original.observations.some(o=>o[0]===y)&&rule.start<=y&&y<=rule.end);}
   else{assert(rule.sourcePeriods?.length);for(const period of rule.sourcePeriods)assert(original.periods.some(p=>JSON.stringify(p)===JSON.stringify(period)));}
  }
- assert.equal(counters.sourceRecords,40);
+ assert.equal(counters.sourceRecords,declaredBoundRecords,`visited ${counters.sourceRecords} bound records but the dossiers declare ${declaredBoundRecords}`);
+ assert.equal(declaredBoundRecords,declaredBindingRules,'every declared bound record needs exactly one binding rule');
 });
 await check('Every binding accepts its evidence endpoints and rejects years outside its range',()=>{
  for(const e of data.entries)for(const r of e.bindingRules){

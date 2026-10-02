@@ -160,6 +160,9 @@ function instrumentPayload() {
   try { if (window.PerformanceObserver) new PerformanceObserver(l => { for (const e of l.getEntries()) window.__rec.longtasks.push({ start: Math.round(e.startTime), dur: Math.round(e.duration) }); }).observe({ entryTypes: ['longtask'] }); } catch (e) {}
   addEventListener('error', e => window.__rec.errors.push(String((e && e.message) || e)));
   addEventListener('unhandledrejection', e => window.__rec.errors.push('unhandledrejection: ' + String((e && e.reason && e.reason.message) || (e && e.reason))));
+  window.__compositionActive = false;
+  document.addEventListener('compositionstart', () => { window.__compositionActive = true; }, true);
+  document.addEventListener('compositionend', () => { window.__compositionActive = false; }, true);
   addEventListener('keydown', e => { try { const tg = e.target; window.__rec.keys.push({ t: t(), key: e.key, alt: !!e.altKey, shift: !!e.shiftKey, composing: !!e.isComposing, repeat: !!e.repeat, target: (tg && (tg.id || (typeof tg.className === 'string' ? tg.className : ''))) || (tg && tg.tagName) || null }); } catch (err) {} }, true);
   document.addEventListener('DOMContentLoaded', () => {
     const watch = (sel, kind, read, opts) => {
@@ -218,6 +221,7 @@ export const exprs = {
   steps: '(window.__rec ? window.__rec.steps : [])',
   keys: '(window.__rec ? window.__rec.keys : [])',
   pageErrors: '(window.__rec ? window.__rec.errors : [])',
+  compositionActive: '!!window.__compositionActive',
   heapMB: 'performance.memory ? Math.round(performance.memory.usedJSHeapSize / 104857.6) / 10 : null',
   reset: '(() => { window.__camops.length = 0; window.__rec.frames.length = 0; window.__rec.longtasks.length = 0; window.__rec.keys.length = 0; window.__rec.steps.length = 0; window.__rec.errors.length = 0; return true; })()',
   hash: 'location.hash',
@@ -234,6 +238,7 @@ export const stepTimeline = s => evaluate(s, exprs.steps);
 export const keyTimeline = s => evaluate(s, exprs.keys);
 export const heapMB = s => evaluate(s, exprs.heapMB);
 export const pageErrors = s => evaluate(s, exprs.pageErrors);
+export const compositionActive = s => evaluate(s, exprs.compositionActive);
 export const resetRecorder = s => evaluate(s, exprs.reset);
 export const hashParams = s => evaluate(s, exprs.hashParams);
 
@@ -261,6 +266,39 @@ export async function waitYearSettled(s, target, timeout = 30000) {
     await sleep(300);
   }
   return { settled: false, elapsed: Date.now() - start, last, pollMs: 300 };
+}
+
+// Page.navigate resolves before the new document commits, so polling straight away can
+// read the OLD document (which usually looks "ready"). Tag the old document, navigate and
+// wait until the tag is gone and a new body exists.
+export async function navigate(s, url, { timeout = 30000 } = {}) {
+  const token = 'nav-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  try { await evaluate(s, 'window.__navToken = ' + JSON.stringify(token)); } catch (e) {}
+  await s.send('Page.navigate', { url });
+  const t0 = Date.now();
+  while (Date.now() - t0 < timeout) {
+    let fresh = false;
+    try { fresh = await evaluate(s, 'window.__navToken === undefined && !!document.body'); } catch (e) { fresh = false; }
+    if (fresh === true) return { committed: true, elapsed: Date.now() - t0, token };
+    await sleep(200);
+  }
+  return { committed: false, elapsed: Date.now() - t0, token };
+}
+
+// Like navigate(), but bypasses the HTTP cache for the document and its subresources
+// (Page.reload ignoreCache) so request interception cannot be served from cache.
+export async function hardReload(s, { timeout = 30000 } = {}) {
+  const token = 'nav-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  try { await evaluate(s, 'window.__navToken = ' + JSON.stringify(token)); } catch (e) {}
+  await s.send('Page.reload', { ignoreCache: true });
+  const t0 = Date.now();
+  while (Date.now() - t0 < timeout) {
+    let fresh = false;
+    try { fresh = await evaluate(s, 'window.__navToken === undefined && !!document.body'); } catch (e) { fresh = false; }
+    if (fresh === true) return { committed: true, elapsed: Date.now() - t0, token, ignoreCache: true };
+    await sleep(200);
+  }
+  return { committed: false, elapsed: Date.now() - t0, token, ignoreCache: true };
 }
 
 export async function appReady(s) {

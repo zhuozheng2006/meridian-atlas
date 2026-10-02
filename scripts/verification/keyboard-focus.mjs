@@ -90,7 +90,10 @@ async function withSession(name, fn, attempts = 2) {
       instrumentation: await evaluate(s, C.exprs.instrumentMode)
     };
     if (!report.environment.userAgent) report.environment = { ...rec.environment, focusEmulation: rec.focusEmulation };
-    await fn(s, rec);
+    // Watchdog: a CDP await that never settles would otherwise hang the whole suite.
+    let watchdog;
+    const guard = new Promise((_, reject) => { watchdog = setTimeout(() => reject(Error('section watchdog: ' + name + ' exceeded 480000 ms')), 480000); });
+    try { await Promise.race([fn(s, rec), guard]); } finally { clearTimeout(watchdog); }
     rec.ok = true;
     report.sessions.push(rec);
     C.writeJSON(OUT, report);
@@ -272,7 +275,7 @@ async function sectionReader(s) {
   await sleep(500);
   const gAfterTab = { year: await year(s), hidden: await evaluate(s, 'document.querySelector("#detailPanel").hidden'), active: await evaluate(s, ASH.active) };
   await screenshot(s, C.screenshotPath('keyboard-reader-focus.png'));
-  await evaluate(s, '(() => { const ev = new KeyboardEvent("keydown", { key: "Escape", code: "Escape", bubbles: true, cancelable: true }); document.dispatchEvent(ev); return ev.defaultPrevented; })()');
+  await evaluate(s, '(() => { const t = document.activeElement || document.body; const ev = new KeyboardEvent("keydown", { key: "Escape", code: "Escape", bubbles: true, cancelable: true }); t.dispatchEvent(ev); return ev.defaultPrevented; })()');
   await sleep(500);
   const gClosed = await evaluate(s, '({ hidden: document.querySelector("#detailPanel").hidden, active: document.activeElement ? (document.activeElement.id || document.activeElement.tagName) : null })');
   report.readerFocus = { open: gOpen, before: gBefore, focusHeading: gFocus, trustedKeyEvents: 0, syntheticKeyEvents: synth, afterArrows: gAfter, focusTab: gTabFocus, afterTabArrow: gAfterTab, afterEscape: gClosed };
@@ -303,11 +306,14 @@ async function sectionTabIme(s) {
   await C.waitYearSettled(s, 1500, 60000);
   await evaluate(s, ASH.blur);
   let yearInputStopIndex = -1;
-  for (let i = 0; i < 90; i++) {
+  const walk = [];
+  for (let i = 0; i < 140; i++) {
     await press(s, 'Tab', 'Tab');
     const a = await evaluate(s, ASH.active);
+    walk.push(a && (a.id || a.cls || a.tag));
     if (a && a.id === 'yearInput') { yearInputStopIndex = i + 1; break; }
   }
+  const tabCensus = await evaluate(s, "(() => { const all = [...document.querySelectorAll('a[href],button,input,select,textarea,[tabindex]:not([tabindex=\"-1\"])')]; const vis = all.filter(el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && !el.disabled && !el.closest('[inert],[aria-hidden=\"true\"],[hidden]'); }); return { visibleFocusable: vis.length, eventCards: document.querySelectorAll('#eventList [data-event]').length, eventMarkers: document.querySelectorAll('.event-marker').length, maplibreControlFocusables: document.querySelectorAll('.maplibregl-ctrl button, .maplibregl-ctrl a').length }; })()");
   // With browse=0 the sidebar is inert: its controls must leave the tab order.
   await goto(s, URL_BASE + '/#year=1500&lang=bi&browse=0&step=10', { waitMs: 300 });
   await C.waitMapReady(s, 120000);
@@ -318,8 +324,12 @@ async function sectionTabIme(s) {
   const inertStops = inertSequence.map(x => x && (x.id || x.cls || x.tag)).filter(Boolean);
   report.tabOrder = {
     hasFocusAfterBlur: blur, focusEmulationObserved: await evaluate(s, 'document.hasFocus()'), sequence, firstStop, skipLinkBox, afterSkipLink: afterSkip,
-    yearInputStopIndex, documentedStop: 24, sidebarIds, inertSidebarStops: inertStops, inertSidebarReachedIds: inertStops.filter(id => sidebarIds.includes(id))
+    yearInputStopIndex, tabCensus, walkTail: walk.slice(-12), sidebarIds, inertSidebarStops: inertStops, inertSidebarReachedIds: inertStops.filter(id => sidebarIds.includes(id))
   };
+  report.findings = (report.findings || []).concat([
+    'Tab order: #yearInput is tab stop ' + yearInputStopIndex + ' of ' + (tabCensus.visibleFocusable || '?') + ' visible focusable elements at #year=1500. The sidebar event cards (' + tabCensus.eventCards + ') and the map event markers (' + tabCensus.eventMarkers + ') dominate the order, so keyboard users must use the skip link to reach the year field.',
+    'The tab walk looked for #yearInput within 140 presses; walkTail records the stops seen last.'
+  ]);
   report.checks.push(C.checkFn('kb.tab-focus-works', 'Tab moves focus in the headless session (precondition for the tab-order checks)', v => v.some(x => !!x), sequence.map(x => x && (x.id || x.cls || x.tag))));
   report.checks.push(C.checkFn('kb.skip-link-first', 'Tab from the top of the document focuses the skip link first', v => v && v.cls && v.cls.indexOf('skip-link') >= 0, firstStop));
   report.checks.push(C.checkFn('kb.skip-link-activates', 'Activating the skip link focuses #yearInput and shows the atlas view', v => v.active && v.active.id === 'yearInput' && v.atlasHidden === false, afterSkip));
@@ -329,15 +339,21 @@ async function sectionTabIme(s) {
 
   const imeCdp = { attempted: true };
   try {
-    await evaluate(s, ASH.focus('#search'));
+    // The inert-sidebar check left the document in browse=0 mode, where #sidebar is
+    // inert and its search field cannot take focus: return to the normal browse state.
+    await C.navigate(s, START_URL);
+    await C.waitMapReady(s, 120000);
+    await C.waitYearSettled(s, 1500, 60000);
+    imeCdp.focus = await evaluate(s, ASH.focus('#search'));
     await s.send('Input.imeSetComposition', { text: 'zhong', selectionStart: 5, selectionEnd: 5 });
+    imeCdp.compositionActive = await C.compositionActive(s);
     await C.resetRecorder(s);
-    const jB = { year: await year(s), value: await evaluate(s, 'document.querySelector("#search").value') };
+    const jB = { year: await year(s), value: await evaluate(s, 'document.querySelector("#search").value'), activeElement: await evaluate(s, 'document.activeElement ? (document.activeElement.id || document.activeElement.className) : null') };
     await key(s, { code: 'ArrowRight', key: 'ArrowRight' });
     await sleep(500);
-    const jA = { year: await year(s), value: await evaluate(s, 'document.querySelector("#search").value'), key: await lastKey(s) };
+    const jA = { year: await year(s), value: await evaluate(s, 'document.querySelector("#search").value'), key: await lastKey(s), compositionActiveDuringKey: imeCdp.compositionActive };
     await s.send('Input.imeSetComposition', { text: '', selectionStart: 0, selectionEnd: 0 });
-    imeCdp.compositionStarted = true; imeCdp.before = jB; imeCdp.afterArrow = jA;
+    imeCdp.compositionStarted = imeCdp.compositionActive === true; imeCdp.before = jB; imeCdp.afterArrow = jA;
   } catch (e) { imeCdp.error = String(e.message || e); imeCdp.compositionStarted = false; }
   const synthComposing = { run: null, yearAfter: null };
   await C.resetRecorder(s);
@@ -363,11 +379,13 @@ async function sectionTabIme(s) {
     await s.send('Input.imeSetComposition', { text: '', selectionStart: 0, selectionEnd: 0 });
   } catch (e) { imePolity.error = String(e.message || e); }
   report.ime = { cdpSearchComposition: imeCdp, syntheticComposing: synthComposing, syntheticControl: synthControl, cdpPolityComposition: imePolity };
-  report.checks.push(C.checkFn('kb.ime-composition-gated', 'During IME composition in #search, ArrowRight does not change the year', v => v.compositionStarted === true ? (v.afterArrow.year === v.before.year) : null, imeCdp));
+  report.checks.push(C.checkFn('kb.ime-composition-gated', 'During a real composition in #search, ArrowRight does not change the year', v => v.compositionActive === true && v.focus && v.focus.ok === true ? (v.afterArrow.year === v.before.year && v.afterArrow.key && v.afterArrow.key.target === 'search') : null, imeCdp));
   report.checks.push(C.checkFn('kb.ime-synthetic-guard', 'A keydown with isComposing=true is ignored, the same event with isComposing=false is not', v => v.composingYear === v.base && v.controlYear === v.base + 10, { base: synthComposing.yearAfter, composingEvent: synthComposing.run, controlEvent: synthControl.run, composingYear: synthComposing.yearAfter, controlYear: synthControl.yearAfter, controlSettled: synthWait.settled }));
   report.checks.push(C.checkFn('kb.ime-polity-search', 'During IME composition in the polity search, ArrowRight does not change the year', v => v.before !== undefined && v.after !== undefined ? v.before === v.after : null, imePolity));
 }
-const synthArrow = keyName => '(() => { const ev = new KeyboardEvent("keydown", { key: ' + JSON.stringify(keyName) + ', code: ' + JSON.stringify(keyName) + ', bubbles: true, cancelable: true }); document.dispatchEvent(ev); return { key: ev.key, defaultPrevented: ev.defaultPrevented }; })()';
+// Dispatch on the focused element so e.target matches a real keypress (dispatching on
+// document would make e.target === document and bypass the app's reader/input guards).
+const synthArrow = keyName => '(() => { const t = document.activeElement || document.body; const ev = new KeyboardEvent("keydown", { key: ' + JSON.stringify(keyName) + ', code: ' + JSON.stringify(keyName) + ', bubbles: true, cancelable: true }); t.dispatchEvent(ev); return { key: ev.key, target: t.id || t.tagName, defaultPrevented: ev.defaultPrevented }; })()';
 const EXPRBOX = sel => '(() => { const el = document.querySelector(' + JSON.stringify(sel) + '); if (!el) return null; const r = el.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height) }; })()';
 
 const ONLY = args.only ? String(args.only).split(',') : null;
