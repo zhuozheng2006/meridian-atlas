@@ -359,10 +359,260 @@
         }
       },
       "pass": true
+    },
+    {
+      "id": "kb.tab-focus-works",
+      "description": "Tab moves focus in the headless session (precondition for the tab-order checks)",
+      "expected": "v => v.some(x => !!x)",
+      "observed": [
+        "skip-link",
+        "brand",
+        "active",
+        "BUTTON",
+        "BUTTON",
+        "BUTTON",
+        "BUTTON",
+        "browseBtn",
+        "compareBtn",
+        "language",
+        "helpBtn",
+        "search",
+        "region",
+        "category",
+        "nearBtn",
+        "allBtn",
+        "window",
+        "event-card ",
+        "event-card ",
+        "event-card ",
+        "event-card ",
+        "event-card ",
+        "event-card ",
+        "event-card "
+      ],
+      "pass": true
+    },
+    {
+      "id": "kb.skip-link-first",
+      "description": "Tab from the top of the document focuses the skip link first",
+      "expected": "v => v && v.cls && v.cls.indexOf('skip-link') >= 0",
+      "observed": {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "text": "跳到年份 · Jump to year",
+        "rect": [
+          205,
+          48
+        ],
+        "visible": true
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.skip-link-activates",
+      "description": "Activating the skip link focuses #yearInput and shows the atlas view",
+      "expected": "v => v.active && v.active.id === 'yearInput' && v.atlasHidden === false",
+      "observed": {
+        "active": {
+          "tag": "INPUT",
+          "id": "yearInput",
+          "cls": "",
+          "text": "",
+          "rect": [
+            93,
+            31
+          ],
+          "visible": true
+        },
+        "atlasHidden": false,
+        "hash": "#year=1500&lang=bi&span=50&step=10&projection=globe&camera=25%2C18%2C1.65%2C0%2C0"
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.tab-stops-visible",
+      "description": "Every one of the first 24 tab stops is visible; #yearInput is reachable by Tab",
+      "expected": "v => v.allVisible === true && v.stops.some(s => s === 'yearInput')",
+      "observed": {
+        "stops": [
+          "skip-link",
+          "brand",
+          "active",
+          "BUTTON",
+          "BUTTON",
+          "BUTTON",
+          "BUTTON",
+          "browseBtn",
+          "compareBtn",
+          "language",
+          "helpBtn",
+          "search",
+          "region",
+          "category",
+          "nearBtn",
+          "allBtn",
+          "window",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card "
+        ],
+        "allVisible": true,
+        "yearInputStopIndex": -1
+      },
+      "pass": false
+    },
+    {
+      "id": "kb.no-hidden-layer-stops",
+      "description": "No tab stop lands inside the hidden layer panel",
+      "expected": "v => v.stops.every(s => !v.panelIds.includes(s))",
+      "observed": {
+        "stops": [
+          "skip-link",
+          "brand",
+          "active",
+          "BUTTON",
+          "BUTTON",
+          "BUTTON",
+          "BUTTON",
+          "browseBtn",
+          "compareBtn",
+          "language",
+          "helpBtn",
+          "search",
+          "region",
+          "category",
+          "nearBtn",
+          "allBtn",
+          "window",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card ",
+          "event-card "
+        ],
+        "panelIds": [
+          "layerTitle",
+          "layerIntro",
+          "terrainBtn",
+          "terrainStatus",
+          "lakeStatus",
+          "bordersBtn",
+          "boundaryStatus",
+          "boundaryModeLabel",
+          "boundaryMode",
+          "regionalStatus",
+          "boundaryMode2Group",
+          "boundaryMode2Label",
+          "boundaryMode2",
+          "regionalStatus2",
+          "borderCurvesBtn",
+          "borderCurvesHint",
+          "coastBtn",
+          "labelsBtn",
+          "citiesBtn",
+          "placeStatus",
+          "placeWindowLabel",
+          "placeWindow",
+          "placeWindowHint",
+          "streetsBtn",
+          "streetStatus",
+          "eventsBtn",
+          "referenceBtn",
+          "referenceHint",
+          "terrainRetry",
+          "layerClose"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.ime-composition-gated",
+      "description": "During IME composition in #search, ArrowRight does not change the year",
+      "expected": "v => v.compositionStarted === true ? (v.afterArrow.year === v.before.year) : null",
+      "observed": {
+        "attempted": true,
+        "compositionStarted": true,
+        "before": {
+          "year": 1500,
+          "value": "zhong"
+        },
+        "afterArrow": {
+          "year": 1500,
+          "value": "zhong",
+          "key": {
+            "t": 8337.8,
+            "key": "ArrowRight",
+            "alt": false,
+            "shift": false,
+            "composing": true,
+            "repeat": false,
+            "target": "search"
+          }
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.ime-synthetic-guard",
+      "description": "A keydown with isComposing=true is ignored, the same event with isComposing=false is not",
+      "expected": "v => v.composingYear === v.base && v.controlYear === v.base + 10",
+      "observed": {
+        "base": 1500,
+        "composingEvent": {
+          "defaultPrevented": false,
+          "isComposing": true
+        },
+        "controlEvent": {
+          "defaultPrevented": true,
+          "isComposing": false
+        },
+        "composingYear": 1500,
+        "controlYear": 1510,
+        "controlSettled": true
+      },
+      "pass": true
+    },
+    {
+      "id": "kb.ime-polity-search",
+      "description": "During IME composition in the polity search, ArrowRight does not change the year",
+      "expected": "v => v.before !== undefined && v.after !== undefined ? v.before === v.after : null",
+      "observed": {
+        "attempted": true,
+        "before": 1510,
+        "after": 1510,
+        "key": {
+          "t": 10958.8,
+          "key": "ArrowRight",
+          "alt": false,
+          "shift": false,
+          "composing": true,
+          "repeat": false,
+          "target": "politySearch"
+        }
+      },
+      "pass": true
     }
   ],
-  "limitations": [],
-  "notes": [],
+  "limitations": [
+    "Headless Chrome has no operating-system input method: real candidate windows and OS-level composition cannot be reproduced. The IME contract is tested through (a) CDP Input.imeSetComposition followed by a trusted key event, and (b) a synthetic KeyboardEvent carrying isComposing=true/false.",
+    "renderer document.hasFocus() is false in headless by default; Emulation.setFocusEmulationEnabled was requested and the observed value is recorded in report.tabOrder.focusEmulationObserved.",
+    "Key events are dispatched through CDP Input.dispatchKeyEvent (trusted); the isComposing tests use untrusted synthetic events and are labelled as such.",
+    "Touch keyboards / mobile virtual keyboards are not covered here; see mobile-check.mjs.",
+    "Sections run in separate browser sessions with one retry; a failed session is recorded in report.sessions[].error and its assertions are missing rather than silently passing.",
+    "The reader section mixes two trusted CDP key events with two synthetic KeyboardEvents because headless Chrome 154 on macOS twice aborted the browser process (SIGABRT, Cocoa assertion \"(self)->_enumeratingSubviewsCount < ((1 << 6) - 1)\" inside -[NSView performKeyEquivalent:]) when trusted key events were dispatched with the reader open; the crash reports are in ~/Library/Logs/DiagnosticReports (2026-10-03 02:50 and 02:54). This is a browser-build defect, not app code: the reader handler returns before doing any work for those keys."
+  ],
+  "notes": [
+    "session reader attempt 0 aborted: CDP Input.dispatchKeyEvent did not answer within 60000 ms; the browser session was probably lost",
+    "session reader attempt 1 aborted: CDP Input.dispatchKeyEvent did not answer within 60000 ms; the browser session was probably lost",
+    "session reader attempt 2 aborted: CDP Input.dispatchKeyEvent did not answer within 60000 ms; the browser session was probably lost"
+  ],
   "sessions": [
     {
       "name": "arrows-altpan",
@@ -426,6 +676,114 @@
       "focusEmulation": "enabled",
       "ready": {
         "ms": 4096,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "viewport": {
+          "w": 1600,
+          "h": 900,
+          "dpr": 1,
+          "hasFocus": true
+        },
+        "instrumentation": "subclass+camops"
+      },
+      "ok": true
+    },
+    {
+      "name": "reader",
+      "attempt": 0,
+      "startedAt": "2026-10-02T19:11:35.368Z",
+      "port": 9433,
+      "focusEmulation": "enabled",
+      "ready": {
+        "ms": 5005,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "viewport": {
+          "w": 1600,
+          "h": 900,
+          "dpr": 1,
+          "hasFocus": true
+        },
+        "instrumentation": "subclass+camops"
+      },
+      "error": "Error: CDP Input.dispatchKeyEvent did not answer within 60000 ms; the browser session was probably lost\n    at Timeout._onTimeout (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/keyboard-focus.mjs:38:43)\n    at listOnTimeout (node:internal/timers:685:17)\n    at process.processTimers (node:internal/timers:618:7)"
+    },
+    {
+      "name": "reader",
+      "attempt": 1,
+      "startedAt": "2026-10-02T19:12:49.840Z",
+      "port": 9438,
+      "focusEmulation": "enabled",
+      "ready": {
+        "ms": 5036,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "viewport": {
+          "w": 1600,
+          "h": 900,
+          "dpr": 1,
+          "hasFocus": true
+        },
+        "instrumentation": "subclass+camops"
+      },
+      "error": "Error: CDP Input.dispatchKeyEvent did not answer within 60000 ms; the browser session was probably lost\n    at Timeout._onTimeout (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/keyboard-focus.mjs:38:43)\n    at listOnTimeout (node:internal/timers:685:17)\n    at process.processTimers (node:internal/timers:618:7)"
+    },
+    {
+      "name": "reader",
+      "attempt": 2,
+      "startedAt": "2026-10-02T19:14:06.602Z",
+      "port": 9443,
+      "focusEmulation": "enabled",
+      "ready": {
+        "ms": 4750,
+        "afterQuietRecheck": false,
+        "state": {
+          "loadingHidden": true,
+          "busy": "false",
+          "hashYear": 1500
+        }
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "viewport": {
+          "w": 1600,
+          "h": 900,
+          "dpr": 1,
+          "hasFocus": true
+        },
+        "instrumentation": "subclass+camops"
+      },
+      "error": "Error: CDP Input.dispatchKeyEvent did not answer within 60000 ms; the browser session was probably lost\n    at Timeout._onTimeout (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/keyboard-focus.mjs:38:43)\n    at listOnTimeout (node:internal/timers:685:17)\n    at process.processTimers (node:internal/timers:618:7)"
+    },
+    {
+      "name": "tab-ime",
+      "attempt": 0,
+      "startedAt": "2026-10-02T19:15:21.950Z",
+      "port": 9445,
+      "focusEmulation": "enabled",
+      "ready": {
+        "ms": 4086,
         "afterQuietRecheck": false,
         "state": {
           "loadingHidden": true,
@@ -810,6 +1168,363 @@
     "afterArrowDown": {
       "primary": 1500,
       "compare": 1900
+    }
+  },
+  "tabOrder": {
+    "hasFocusAfterBlur": {
+      "hasFocus": true,
+      "active": "BODY"
+    },
+    "focusEmulationObserved": true,
+    "sequence": [
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "text": "跳到年份 · Jump to year",
+        "rect": [
+          205,
+          48
+        ],
+        "visible": true
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "brand",
+        "text": "◎经纬纪MERIDIAN ATLAS",
+        "rect": [
+          163,
+          56
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "active",
+        "text": "地图 Atlas",
+        "rect": [
+          88,
+          21
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "",
+        "text": "文明 Polities",
+        "rect": [
+          102,
+          21
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "",
+        "text": "专题 Journeys",
+        "rect": [
+          115,
+          21
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "",
+        "text": "年表 Chronicle",
+        "rect": [
+          117,
+          21
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "",
+        "text": "资料 Sources",
+        "rect": [
+          108,
+          21
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "browseBtn",
+        "cls": "active",
+        "text": "浏览",
+        "rect": [
+          54,
+          38
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "compareBtn",
+        "cls": "",
+        "text": "年份对照",
+        "rect": [
+          82,
+          38
+        ],
+        "visible": true
+      },
+      {
+        "tag": "SELECT",
+        "id": "language",
+        "cls": "",
+        "text": "中 / EN中文English",
+        "rect": [
+          91,
+          39
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "helpBtn",
+        "cls": "",
+        "text": "?",
+        "rect": [
+          34,
+          33
+        ],
+        "visible": true
+      },
+      {
+        "tag": "INPUT",
+        "id": "search",
+        "cls": "",
+        "text": "",
+        "rect": [
+          304,
+          38
+        ],
+        "visible": true
+      },
+      {
+        "tag": "SELECT",
+        "id": "region",
+        "cls": "",
+        "text": "全球东亚东南亚南亚西亚与中亚欧洲非洲美洲大洋洲跨地区",
+        "rect": [
+          149,
+          33
+        ],
+        "visible": true
+      },
+      {
+        "tag": "SELECT",
+        "id": "category",
+        "cls": "",
+        "text": "所有主题政治与国家战争与冲突文明与文化科学与技术贸易与交",
+        "rect": [
+          149,
+          33
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "nearBtn",
+        "cls": "active",
+        "text": "所选年代",
+        "rect": [
+          60,
+          29
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "allBtn",
+        "cls": "",
+        "text": "全部年代",
+        "rect": [
+          60,
+          29
+        ],
+        "visible": true
+      },
+      {
+        "tag": "SELECT",
+        "id": "window",
+        "cls": "",
+        "text": "当年±10 年±50 年±100 年±250 年",
+        "rect": [
+          78,
+          29
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1500 年贸易与交流卡布拉尔船队抵达巴西Cabr",
+        "rect": [
+          306,
+          154
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1500 年 — 公元 1600 年文明与文化十六",
+        "rect": [
+          306,
+          171
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1500 年 — 公元 1644 年贸易与交流十六",
+        "rect": [
+          306,
+          171
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1500 年 — 公元 1722 年贸易与交流萨法",
+        "rect": [
+          306,
+          154
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1501 年宗教与思想萨法维王朝建立Foundat",
+        "rect": [
+          306,
+          154
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1498 年贸易与交流达·伽马抵达卡利卡特Vasc",
+        "rect": [
+          306,
+          154
+        ],
+        "visible": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "event-card ",
+        "text": "公元 1495 年文明与文化阿斯基亚陵营建Constru",
+        "rect": [
+          306,
+          154
+        ],
+        "visible": true
+      }
+    ],
+    "firstStop": {
+      "tag": "A",
+      "id": null,
+      "cls": "skip-link",
+      "text": "跳到年份 · Jump to year",
+      "rect": [
+        205,
+        48
+      ],
+      "visible": true
+    },
+    "skipLinkBox": {
+      "x": 16,
+      "y": 12,
+      "width": 205,
+      "height": 48
+    },
+    "afterSkipLink": {
+      "active": {
+        "tag": "INPUT",
+        "id": "yearInput",
+        "cls": "",
+        "text": "",
+        "rect": [
+          93,
+          31
+        ],
+        "visible": true
+      },
+      "atlasHidden": false,
+      "hash": "#year=1500&lang=bi&span=50&step=10&projection=globe&camera=25%2C18%2C1.65%2C0%2C0"
+    }
+  },
+  "ime": {
+    "cdpSearchComposition": {
+      "attempted": true,
+      "compositionStarted": true,
+      "before": {
+        "year": 1500,
+        "value": "zhong"
+      },
+      "afterArrow": {
+        "year": 1500,
+        "value": "zhong",
+        "key": {
+          "t": 8337.8,
+          "key": "ArrowRight",
+          "alt": false,
+          "shift": false,
+          "composing": true,
+          "repeat": false,
+          "target": "search"
+        }
+      }
+    },
+    "syntheticComposing": {
+      "run": {
+        "defaultPrevented": false,
+        "isComposing": true
+      },
+      "yearAfter": 1500
+    },
+    "syntheticControl": {
+      "run": {
+        "defaultPrevented": true,
+        "isComposing": false
+      },
+      "yearAfter": 1510,
+      "settled": true
+    },
+    "cdpPolityComposition": {
+      "attempted": true,
+      "before": 1510,
+      "after": 1510,
+      "key": {
+        "t": 10958.8,
+        "key": "ArrowRight",
+        "alt": false,
+        "shift": false,
+        "composing": true,
+        "repeat": false,
+        "target": "politySearch"
+      }
     }
   }
 }

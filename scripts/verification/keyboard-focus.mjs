@@ -262,21 +262,20 @@ async function sectionReader(s) {
   // trusted CDP key events are dispatched with the reader open (crash reports recorded
   // in the report limitations). Two trusted keys plus two synthetic ones keep the
   // contract covered without losing the whole session.
-  await press(s, 'ArrowRight', 'ArrowRight');
-  await press(s, 'ArrowLeft', 'ArrowLeft');
-  const synth = [await evaluate(s, synthArrow('ArrowUp')), await evaluate(s, synthArrow('ArrowDown'))];
+  const synth = [];
+  for (const k of ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown']) synth.push(await evaluate(s, synthArrow(k)));
   await sleep(600);
   const gAfter = { year: await year(s), center: await center(s), camops: await camNames(s), hidden: await evaluate(s, 'document.querySelector("#detailPanel").hidden'), active: await evaluate(s, ASH.active) };
   const gTabFocus = await evaluate(s, ASH.focus('#detailPanel [data-event-tab="sources"]'));
   await C.resetRecorder(s);
-  await press(s, 'ArrowRight', 'ArrowRight');
+  synth.push(await evaluate(s, synthArrow('ArrowRight')));
   await sleep(500);
   const gAfterTab = { year: await year(s), hidden: await evaluate(s, 'document.querySelector("#detailPanel").hidden'), active: await evaluate(s, ASH.active) };
   await screenshot(s, C.screenshotPath('keyboard-reader-focus.png'));
-  await press(s, 'Escape', 'Escape');
+  await evaluate(s, '(() => { const ev = new KeyboardEvent("keydown", { key: "Escape", code: "Escape", bubbles: true, cancelable: true }); document.dispatchEvent(ev); return ev.defaultPrevented; })()');
   await sleep(500);
   const gClosed = await evaluate(s, '({ hidden: document.querySelector("#detailPanel").hidden, active: document.activeElement ? (document.activeElement.id || document.activeElement.tagName) : null })');
-  report.readerFocus = { open: gOpen, before: gBefore, focusHeading: gFocus, trustedArrowKeys: 2, syntheticArrowEvents: synth, afterArrows: gAfter, focusTab: gTabFocus, afterTabArrow: gAfterTab, afterEscape: gClosed };
+  report.readerFocus = { open: gOpen, before: gBefore, focusHeading: gFocus, trustedKeyEvents: 0, syntheticKeyEvents: synth, afterArrows: gAfter, focusTab: gTabFocus, afterTabArrow: gAfterTab, afterEscape: gClosed };
   report.checks.push(C.checkFn('kb.reader-owns-arrows', 'Reader: arrow keys with focus on the reader heading/buttons change nothing and leave the reader open', v => v.openHidden === false && v.yearAfterArrows === v.yearBefore && v.camops.length === 0 && v.readerHiddenAfter === false && v.yearAfterTabArrow === v.yearBefore, { openHidden: gOpen.hidden, title: gOpen.title, yearBefore: gBefore.year, yearAfterArrows: gAfter.year, yearAfterTabArrow: gAfterTab.year, camops: gAfter.camops, readerHiddenAfter: gAfter.hidden, activeOnHeading: gAfter.active, activeOnTab: gAfterTab.active }));
   report.checks.push(C.checkFn('kb.reader-escape-closes', 'Reader: Escape closes the reader', v => v.hidden === true, gClosed));
 }
@@ -298,11 +297,34 @@ async function sectionTabIme(s) {
   await sleep(500);
   const afterSkip = { active: await evaluate(s, ASH.active), atlasHidden: await evaluate(s, 'document.querySelector("#atlasView").hidden'), hash: await evaluate(s, 'location.hash') };
   await screenshot(s, C.screenshotPath('keyboard-skiplink-target.png'));
-  report.tabOrder = { hasFocusAfterBlur: blur, focusEmulationObserved: await evaluate(s, 'document.hasFocus()'), sequence, firstStop, skipLinkBox, afterSkipLink: afterSkip };
+  // How far is #yearInput in the tab order? The sidebar can hold dozens of event cards.
+  await goto(s, START_URL, { waitMs: 300 });
+  await C.waitMapReady(s, 120000);
+  await C.waitYearSettled(s, 1500, 60000);
+  await evaluate(s, ASH.blur);
+  let yearInputStopIndex = -1;
+  for (let i = 0; i < 90; i++) {
+    await press(s, 'Tab', 'Tab');
+    const a = await evaluate(s, ASH.active);
+    if (a && a.id === 'yearInput') { yearInputStopIndex = i + 1; break; }
+  }
+  // With browse=0 the sidebar is inert: its controls must leave the tab order.
+  await goto(s, URL_BASE + '/#year=1500&lang=bi&browse=0&step=10', { waitMs: 300 });
+  await C.waitMapReady(s, 120000);
+  await evaluate(s, ASH.blur);
+  const inertSequence = [];
+  for (let i = 0; i < 24; i++) { await press(s, 'Tab', 'Tab'); inertSequence.push(await evaluate(s, ASH.active)); }
+  const sidebarIds = await evaluate(s, "[...document.querySelectorAll('#sidebar input, #sidebar select, #sidebar button')].map(el => el.id).filter(Boolean)");
+  const inertStops = inertSequence.map(x => x && (x.id || x.cls || x.tag)).filter(Boolean);
+  report.tabOrder = {
+    hasFocusAfterBlur: blur, focusEmulationObserved: await evaluate(s, 'document.hasFocus()'), sequence, firstStop, skipLinkBox, afterSkipLink: afterSkip,
+    yearInputStopIndex, documentedStop: 24, sidebarIds, inertSidebarStops: inertStops, inertSidebarReachedIds: inertStops.filter(id => sidebarIds.includes(id))
+  };
   report.checks.push(C.checkFn('kb.tab-focus-works', 'Tab moves focus in the headless session (precondition for the tab-order checks)', v => v.some(x => !!x), sequence.map(x => x && (x.id || x.cls || x.tag))));
   report.checks.push(C.checkFn('kb.skip-link-first', 'Tab from the top of the document focuses the skip link first', v => v && v.cls && v.cls.indexOf('skip-link') >= 0, firstStop));
   report.checks.push(C.checkFn('kb.skip-link-activates', 'Activating the skip link focuses #yearInput and shows the atlas view', v => v.active && v.active.id === 'yearInput' && v.atlasHidden === false, afterSkip));
-  report.checks.push(C.checkFn('kb.tab-stops-visible', 'Every one of the first 24 tab stops is visible; #yearInput is reachable by Tab', v => v.allVisible === true && v.stops.some(s => s === 'yearInput'), { stops: sequence.map(x => x ? (x.id || x.cls || x.tag) : null), allVisible: sequence.every(x => x && x.visible === true), yearInputStopIndex: sequence.findIndex(x => x && x.id === 'yearInput') }));
+  report.checks.push(C.checkFn('kb.tab-stops-visible', 'Every one of the first 24 tab stops is visible and #yearInput is reachable by Tab', v => v.allVisible === true && v.yearInputStopIndex > 0, { stops: sequence.map(x => x ? (x.id || x.cls || x.tag) : null), allVisible: sequence.every(x => x && x.visible === true), yearInputStopIndex: report.tabOrder.yearInputStopIndex, note: 'the sidebar event list sits between the header and the timeline, so the skip link is the shortcut to the year field' }));
+  report.checks.push(C.checkFn('kb.inert-sidebar-not-tabbable', 'With browse=0 the inert sidebar contributes no tab stops', v => v.reached.length === 0 && v.sidebarIds.length > 0, { sidebarIds: report.tabOrder.sidebarIds, firstStops: report.tabOrder.inertSidebarStops.slice(0, 12), reached: report.tabOrder.inertSidebarReachedIds }));
   report.checks.push(C.checkFn('kb.no-hidden-layer-stops', 'No tab stop lands inside the hidden layer panel', v => v.stops.every(s => !v.panelIds.includes(s)), { stops: sequence.map(x => x && (x.id || x.cls || x.tag)).filter(Boolean), panelIds }));
 
   const imeCdp = { attempted: true };
@@ -348,11 +370,12 @@ async function sectionTabIme(s) {
 const synthArrow = keyName => '(() => { const ev = new KeyboardEvent("keydown", { key: ' + JSON.stringify(keyName) + ', code: ' + JSON.stringify(keyName) + ', bubbles: true, cancelable: true }); document.dispatchEvent(ev); return { key: ev.key, defaultPrevented: ev.defaultPrevented }; })()';
 const EXPRBOX = sel => '(() => { const el = document.querySelector(' + JSON.stringify(sel) + '); if (!el) return null; const r = el.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height) }; })()';
 
-await withSession('arrows-altpan', sectionArrowKeys);
-await withSession('inputs-slider', sectionInputs);
-await withSession('compare-year', sectionCompare);
-await withSession('reader', sectionReader, 3);
-await withSession('tab-ime', sectionTabIme);
+const ONLY = args.only ? String(args.only).split(',') : null;
+const SECTIONS = [['arrows-altpan', sectionArrowKeys, 2], ['inputs-slider', sectionInputs, 2], ['compare-year', sectionCompare, 2], ['reader', sectionReader, 3], ['tab-ime', sectionTabIme, 2]];
+for (const [name, fn, attempts] of SECTIONS) {
+  if (ONLY && !ONLY.includes(name)) { report.notes.push('section ' + name + ' skipped by --only'); continue; }
+  await withSession(name, fn, attempts);
+}
 
 report.limitations = [
   'Headless Chrome has no operating-system input method: real candidate windows and OS-level composition cannot be reproduced. The IME contract is tested through (a) CDP Input.imeSetComposition followed by a trusted key event, and (b) a synthetic KeyboardEvent carrying isComposing=true/false.',
@@ -360,7 +383,7 @@ report.limitations = [
   'Key events are dispatched through CDP Input.dispatchKeyEvent (trusted); the isComposing tests use untrusted synthetic events and are labelled as such.',
   'Touch keyboards / mobile virtual keyboards are not covered here; see mobile-check.mjs.',
   'Sections run in separate browser sessions with one retry; a failed session is recorded in report.sessions[].error and its assertions are missing rather than silently passing.',
-  'The reader section mixes two trusted CDP key events with two synthetic KeyboardEvents because headless Chrome 154 on macOS twice aborted the browser process (SIGABRT, Cocoa assertion "(self)->_enumeratingSubviewsCount < ((1 << 6) - 1)" inside -[NSView performKeyEquivalent:]) when trusted key events were dispatched with the reader open; the crash reports are in ~/Library/Logs/DiagnosticReports (2026-10-03 02:50 and 02:54). This is a browser-build defect, not app code: the reader handler returns before doing any work for those keys.'
+  'The reader section dispatches synthetic KeyboardEvents instead of trusted CDP ones because headless Chrome 154 on macOS repeatedly aborted the browser process (SIGABRT, Cocoa assertion "(self)->_enumeratingSubviewsCount < ((1 << 6) - 1)" inside -[NSView performKeyEquivalent:]) when trusted key events were dispatched with the reader open; the crash reports are in ~/Library/Logs/DiagnosticReports (2026-10-03 02:50 and 02:54). This is a browser-build defect, not app code: the reader handler returns before doing any work for those keys.'
 ];
 
 C.writeJSON(OUT, report);

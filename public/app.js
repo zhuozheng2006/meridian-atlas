@@ -1,13 +1,14 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.9.4-380fd480ab21';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.9.4-380fd480ab21';
-import {cityNarrative} from './city-narratives.js?v=3.9.4-380fd480ab21';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.9.4-380fd480ab21';
-import {sourcesHTML} from './source-reader.js?v=3.9.4-380fd480ab21';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.9.4-380fd480ab21';
-import {bindTimeline} from './timeline-controls.js?v=3.9.4-380fd480ab21';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.9.4-380fd480ab21';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.9.4-380fd480ab21';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-c015c93dc10c';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-c015c93dc10c';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-c015c93dc10c';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-c015c93dc10c';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-c015c93dc10c';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-c015c93dc10c';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-c015c93dc10c';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-c015c93dc10c';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-c015c93dc10c';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text=(zh,en)=>state.lang==='en'?en:zh;
 const bilingual=(v,cls='secondary')=>state.lang==='en'?escape(v.en):escape(v.zh)+(state.lang==='bi'?`<span class="${cls}">${escape(v.en)}</span>`:'');
@@ -23,6 +24,8 @@ const params=new URLSearchParams(location.hash.slice(1));
 const savedCamera=decodeCamera(params.get('camera'));let restoringView=!!savedCamera;
 for(const key of ['year','span','compareYear'])if(params.has(key)&&Number.isFinite(Number(params.get(key))))state[key]=Number(params.get(key));
 if(params.has('step')&&[1,10,50,100].includes(+params.get('step')))state.step=+params.get('step');
+// The shipped markup marks the ten-year step as the default; keep the rebuilt select
+// and the saved URL on the same value instead of silently resetting a fresh load to one year.
 if(['zh','en','bi'].includes(params.get('lang')))state.lang=params.get('lang');
 if(REGIONS[params.get('region')])state.region=params.get('region');if(CATS[params.get('category')])state.category=params.get('category');
 state.placeWindow=placeWindow(params.get('placeWindow'));
@@ -35,7 +38,7 @@ function normalizeYear(value){let y=Math.round(Number(value));if(!Number.isFinit
 state.year=normalizeYear(state.year);state.span=[0,10,50,100,250].includes(state.span)?state.span:50;state.compareYear=normalizeYear(state.compareYear);
 function scaled(y){let a=STOPS[0],b=STOPS[1];for(let i=1;i<STOPS.length;i++){if(y<=STOPS[i][0]){a=STOPS[i-1];b=STOPS[i];break;}a=STOPS[i-1];b=STOPS[i];}return (a[1]+(y-a[0])/(b[0]-a[0])*(b[1]-a[1]))*10000;}
 function unscaled(v){const f=v/10000;for(let i=1;i<STOPS.length;i++){if(f<=STOPS[i][1]){const a=STOPS[i-1],b=STOPS[i];return normalizeYear(a[0]+(f-a[1])/(b[1]-a[1])*(b[0]-a[0]));}}return 2026;}
-function saveURL(){const p=new URLSearchParams({year:state.year,lang:state.lang,span:state.span,step:state.step||1});if(state.placeWindow!==50)p.set('placeWindow',state.placeWindow);if(!state.borderCurves)p.set('borderCurves','0');if(state.region!=='all')p.set('region',state.region);if(state.category!=='all')p.set('category',state.category);if(state.selected){p.set('event',state.selected.id);if(state.selectedSide==='right')p.set('side','right');}if(state.compare){p.set('compare','1');p.set('compareYear',state.compareYear);}if(state.allTime)p.set('all','1');if(state.search)p.set('q',state.search);p.set('projection',state.projection);if(!state.browse)p.set('browse','0');if(state.selectedPolity){p.set('polity',state.selectedPolity.id);if(state.selectedSide==='right')p.set('side','right');}if(state.selectedPlace){p.set('place',state.selectedPlace.id);if(state.selectedSide==='right')p.set('side','right');}for(const k of ['borders','events','labels','terrain','cities','coast','streets'])if(!state[k])p.set(k,'0');if(state.boundaryMode!=='auto')p.set('boundaries',state.boundaryMode);if(state.compare&&state.compareBoundaryMode!==state.boundaryMode)p.set('boundaries2',state.compareBoundaryMode);if(state.selectedBoundary){p.set('boundary',state.selectedBoundary.id);if(state.selectedBoundary.side==='right')p.set('side','right');}if(state.reference)p.set('reference','1');if(state.view!=='atlas')p.set('view',state.view);const camera=restoringView?params.get('camera'):encodeCamera(atlas?.map);if(camera)p.set('camera',camera);history.replaceState(null,'','#'+p);}
+function saveURL(){const p=new URLSearchParams({year:state.year,lang:state.lang,span:state.span,step:state.step||DEFAULT_STEP});if(state.placeWindow!==50)p.set('placeWindow',state.placeWindow);if(!state.borderCurves)p.set('borderCurves','0');if(state.region!=='all')p.set('region',state.region);if(state.category!=='all')p.set('category',state.category);if(state.selected){p.set('event',state.selected.id);if(state.selectedSide==='right')p.set('side','right');}if(state.compare){p.set('compare','1');p.set('compareYear',state.compareYear);}if(state.allTime)p.set('all','1');if(state.search)p.set('q',state.search);p.set('projection',state.projection);if(!state.browse)p.set('browse','0');if(state.selectedPolity){p.set('polity',state.selectedPolity.id);if(state.selectedSide==='right')p.set('side','right');}if(state.selectedPlace){p.set('place',state.selectedPlace.id);if(state.selectedSide==='right')p.set('side','right');}for(const k of ['borders','events','labels','terrain','cities','coast','streets'])if(!state[k])p.set(k,'0');if(state.boundaryMode!=='auto')p.set('boundaries',state.boundaryMode);if(state.compare&&state.compareBoundaryMode!==state.boundaryMode)p.set('boundaries2',state.compareBoundaryMode);if(state.selectedBoundary){p.set('boundary',state.selectedBoundary.id);if(state.selectedBoundary.side==='right')p.set('side','right');}if(state.reference)p.set('reference','1');if(state.view!=='atlas')p.set('view',state.view);const camera=restoringView?params.get('camera'):encodeCamera(atlas?.map);if(camera)p.set('camera',camera);history.replaceState(null,'','#'+p);}
 function notify(msg){$('#toast').textContent=msg;$('#toast').hidden=false;clearTimeout(notify.timer);notify.timer=setTimeout(()=>$('#toast').hidden=true,3200);}
 function eventDate(e){const prefix=e.precision==='circa'?text('约 ','c. '):'';return prefix+yr(e.start)+(e.end!==e.start?' — '+yr(e.end):'');}
 function searchText(e){return [e.title.zh,e.title.en,e.summary.zh,e.summary.en].join(' ').toLowerCase();}
@@ -47,7 +50,7 @@ function renderLanguage(){document.documentElement.lang=state.lang==='en'?'en':'
  const tabs={polities:['文明','Polities'],atlas:['地图','Atlas'],stories:['专题','Journeys'],library:['年表','Chronicle'],sources:['资料','Sources']};$$('#tabs button').forEach(b=>{const names=tabs[b.dataset.view];b.innerHTML=state.lang==='bi'?`<span>${escape(names[0])}</span> <span class="nav-en">${escape(names[1])}</span>`:escape(text(...names));});
  $('#projectionBtn').textContent=state.projection==='mercator'?text('◉ 地球','◉ Globe'):text('▧ 平面','▧ Flat');$('#compareHeading label').textContent=text('对照年份','Comparison year');
  $('#window').innerHTML=[0,10,50,100,250].map(n=>`<option value="${n}">${n?`±${n} ${text('年','yr')}`:text('当年','This year')}</option>`).join('');$('#window').value=state.span;
- $('#step').innerHTML=[1,10,50,100].map(n=>`<option value="${n}">${n} ${text('年','yr')}</option>`).join('');$('#step').value=state.step||1;$('#prevYear').setAttribute('aria-label',text('向前一步','Previous year step'));$('#nextYear').setAttribute('aria-label',text('向后一步','Next year step'));$('#keyboardHint').onclick=()=>$('#helpDialog').showModal();
+ $('#step').innerHTML=[1,10,50,100].map(n=>`<option value="${n}">${n} ${text('年','yr')}</option>`).join('');$('#step').value=state.step||DEFAULT_STEP;$('#prevYear').setAttribute('aria-label',text('向前一步','Previous year step'));$('#nextYear').setAttribute('aria-label',text('向后一步','Next year step'));$('#keyboardHint').onclick=()=>$('#helpDialog').showModal();
  $('#eraButtons').innerHTML=ERAS.map(([y,zh,en])=>`<button data-year="${y}">${text(zh,en)}</button>`).join('');$$('#eraButtons button').forEach(b=>b.onclick=()=>{pause();setYear(+b.dataset.year);});
  $('#yearSlider').min=0;$('#yearSlider').max=10000;$('#yearSlider').step=1;$('.timeline-ticks').innerHTML=[-70000,-10000,-3400,1,1500,1800,2026].map(y=>`<span style="left:${scaled(y)/100}%">${y<0?Math.abs(y)+' BCE':y}</span>`).join('');$('.timeline-ticks span:first-child').style.transform='none';$('.timeline-ticks span:last-child').style.transform='translateX(-100%)';renderHelp();renderDensity();renderLayerLabels();}
 function renderDensity(){const bins=Array(130).fill(0);events.forEach(e=>bins[Math.max(0,Math.min(129,Math.floor(scaled(e.start)/10000*130)))]++);const max=Math.max(1,...bins);$('#density').innerHTML=bins.map(n=>`<i style="height:${n?4+Math.sqrt(n/max)*21:1}px"></i>`).join('');}

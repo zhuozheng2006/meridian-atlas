@@ -157,3 +157,7 @@
 }
 .landscape-legend{display:grid;grid-template-columns:1fr 1fr;gap:12px 8px;margin:20px 0;font-size:13px}.landscape-legend>div{display:flex;align-items:center;gap:8px}.landscape-legend i{width:15px;height:15px;flex:0 0 15px;border-radius:3px;border:1px solid #ffffff30}.regional-controls .regional-landscape{border-left:1px solid #b7ad8633}.regional-controls:has(.regional-landscape:not([hidden])){max-width:calc(100% - 78px);flex-wrap:wrap}
 .landscape-legend small{display:block;font-size:10px;line-height:1.45;opacity:.75;margin-top:2px}
+/* Phones with a home indicator: viewport-fit=cover lets the layout reach the screen
+   edge, so the bottom-docked elements claim the inset themselves. env() resolves to 0
+   everywhere else, leaving the existing layout untouched. */
+@supports(padding:env(safe-area-inset-bottom)){@media(max-width:760px){#timeline{padding-bottom:calc(env(safe-area-inset-bottom) + 4px)}header{padding-top:env(safe-area-inset-top)}}}

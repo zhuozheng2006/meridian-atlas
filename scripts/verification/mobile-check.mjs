@@ -20,9 +20,40 @@ const PROFILES = [
 ];
 const report = C.mkReport('mobile-check.mjs', { url: URL_BASE, width: 390, height: 844 }, { profiles: PROFILES.map(p => p.name) });
 
+// Elements outside the viewport that do NOT create document overflow are classified:
+// hidden subtrees (off-canvas sidebar, closed panels), horizontal scrollers (era row,
+// tabs) and genuinely clipped content. Only the last group is a layout defect.
+function offendersExpr() {
+  const W = innerWidth;
+  const out = [];
+  let excluded = 0; let inScroller = 0; const clipped = [];
+  const scrollable = el => {
+    let p = el.parentElement;
+    while (p && p !== document.documentElement) {
+      const cs = getComputedStyle(p);
+      if ((cs.overflowX === 'auto' || cs.overflowX === 'scroll') && p.scrollWidth > p.clientWidth + 1) return true;
+      p = p.parentElement;
+    }
+    return false;
+  };
+  for (const el of document.querySelectorAll('body *')) {
+    const r = el.getBoundingClientRect();
+    if (r.width <= 0 || r.height <= 0) continue;
+    if (r.right <= W + 1 && r.left >= -1) continue;
+    const cs = getComputedStyle(el);
+    if (cs.visibility === 'hidden' || cs.display === 'none') continue;
+    if (el.closest('[inert],[aria-hidden="true"],[hidden]')) { excluded++; continue; }
+    if (scrollable(el)) { inScroller++; continue; }
+    const entry = { tag: el.tagName, id: el.id || null, cls: (typeof el.className === 'string' ? el.className : '').slice(0, 40), right: Math.round(r.right), left: Math.round(r.left), width: Math.round(r.width) };
+    out.push(entry);
+    if (clipped.length < 12) clipped.push(entry);
+  }
+  return { count: out.length, excludedHiddenSubtrees: excluded, inHorizontalScroller: inScroller, sample: clipped };
+}
+
 const EXPR = {
   layout: '(() => ({ innerWidth, innerHeight, dpr: devicePixelRatio, scrollWidth: document.documentElement.scrollWidth, bodyScrollWidth: document.body.scrollWidth, scrollY: window.scrollY || document.documentElement.scrollTop || 0, visualScale: window.visualViewport ? Number(window.visualViewport.scale.toFixed(2)) : null, viewportMeta: (document.querySelector("meta[name=viewport]") || {}).content || null }))()',
-  offenders: '(() => { const W = innerWidth; const out = []; let excluded = 0; for (const el of document.querySelectorAll("body *")) { const r = el.getBoundingClientRect(); if (r.width <= 0 || r.height <= 0) continue; if (r.right <= W + 1 && r.left >= -1) continue; const cs = getComputedStyle(el); if (cs.visibility === "hidden" || cs.display === "none") continue; if (el.closest("[inert],[aria-hidden=\\"true\\"],[hidden]")) { excluded++; continue; } out.push({ tag: el.tagName, id: el.id || null, cls: (typeof el.className === "string" ? el.className : "").slice(0, 40), right: Math.round(r.right), left: Math.round(r.left), width: Math.round(r.width) }); if (out.length >= 12) break; } return { count: out.length, excludedHiddenSubtrees: excluded, sample: out }; })()',
+  offenders: '(' + offendersExpr.toString() + ')()',
   box: sel => '(() => { const el = document.querySelector(' + JSON.stringify(sel) + '); if (!el) return null; const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return { x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height), right: Math.round(r.right), bottom: Math.round(r.bottom), cx: Math.round(r.x + r.width / 2), cy: Math.round(r.y + r.height / 2), visible: el.getClientRects().length > 0 && r.width > 0 && r.height > 0, inViewport: r.top >= -1 && r.left >= -1 && r.right <= innerWidth + 1 && r.bottom <= innerHeight + 1, fontSize: cs.fontSize, lineHeight: cs.lineHeight, hidden: el.hidden === true, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight }; })()',
   safeArea: '(() => { const read = sel => { const el = document.querySelector(sel); if (!el) return null; const cs = getComputedStyle(el); const r = el.getBoundingClientRect(); return { paddingBottom: cs.paddingBottom, paddingTop: cs.paddingTop, bottom: Math.round(r.bottom), height: Math.round(r.height) }; }; return { supportsEnv: CSS.supports("padding-bottom: env(safe-area-inset-bottom)"), timeline: read("#timeline"), layerPanel: read("#layerPanel"), bodyPaddingBottom: getComputedStyle(document.body).paddingBottom, htmlPaddingBottom: getComputedStyle(document.documentElement).paddingBottom }; })()',
   readerText: '(() => { const el = document.querySelector("#detailPanel .reader-content"); if (!el) return null; const cs = getComputedStyle(el); const p = el.querySelector("p"); const pcs = p ? getComputedStyle(p) : null; const r = el.getBoundingClientRect(); return { fontSize: cs.fontSize, lineHeight: cs.lineHeight, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight, width: Math.round(r.width), paragraphFontSize: pcs ? pcs.fontSize : null, paragraphLineHeight: pcs ? pcs.lineHeight : null, textLength: (el.textContent || "").trim().length }; })()',
@@ -66,7 +97,7 @@ async function profileRun(p, port) {
     out.userAgent = await evaluate(s, 'navigator.userAgent');
     out.instrumentation = await evaluate(s, C.exprs.instrumentMode);
     await screenshot(s, C.screenshotPath('mobile-' + p.name + '-atlas.png'));
-    checks.push(C.checkFn('mobile.' + p.name + '.no-horizontal-overflow', 'Atlas view has no horizontal overflow', v => v.layout.scrollWidth <= v.layout.innerWidth + 1 && v.offenders.count === 0, { scrollWidth: out.layout.scrollWidth, innerWidth: out.layout.innerWidth, offenders: out.offendersAtlas }));
+    checks.push(C.checkFn('mobile.' + p.name + '.no-horizontal-overflow', 'Atlas view has no horizontal overflow', v => v.scrollWidth <= v.innerWidth + 1 && v.offenders.count === 0, { scrollWidth: out.layout.scrollWidth, innerWidth: out.layout.innerWidth, offenders: out.offendersAtlas }));
     checks.push(C.checkFn('mobile.' + p.name + '.canvas-fits', 'Map canvas matches the #map box, the viewport width and the device pixel ratio', v => v.canvasRect[0] === v.mapBox[0] && v.canvasRect[1] === v.mapBox[1] && v.canvasRect[0] > 0.9 * v.innerWidth && v.canvasAttr[0] === v.canvasRect[0] * v.dpr, { canvasRect: out.canvas.rect, canvasAttr: out.canvas.attr, dpr: out.layout.dpr, mapBox: [out.mapBox.width, out.mapBox.height], innerWidth: out.layout.innerWidth }));
 
     // Layer panel: open and close by touch.
@@ -82,7 +113,7 @@ async function profileRun(p, port) {
     const closedPanel = await evaluate(s, EXPR.box('#layerPanel'));
     out.states.layers = { before: beforePanel, layersBtn, opened: openPanel, closeBtn, closed: closedPanel, openOffenders, openLayout: layerLayout };
     checks.push(C.checkFn('mobile.' + p.name + '.layer-panel-touch', 'Layer panel opens and closes by touch and stays inside the viewport', v => v.beforeHidden === true && v.openedHidden === false && v.openedInViewport === true && v.closedHidden === true, { beforeHidden: beforePanel.hidden, openedHidden: openPanel.hidden, openedInViewport: openPanel.inViewport, openedRect: [openPanel.x, openPanel.y, openPanel.width, openPanel.height], closedHidden: closedPanel.hidden }));
-    checks.push(C.checkFn('mobile.' + p.name + '.layer-panel-no-overflow', 'Open layer panel introduces no horizontal overflow', v => v.openLayout.scrollWidth <= v.openLayout.innerWidth + 1 && v.openOffenders.count === 0, { scrollWidth: layerLayout.scrollWidth, innerWidth: layerLayout.innerWidth, offenders: openOffenders }));
+    checks.push(C.checkFn('mobile.' + p.name + '.layer-panel-no-overflow', 'Open layer panel introduces no horizontal overflow', v => v.scrollWidth <= v.innerWidth + 1 && v.offenders.count === 0, { scrollWidth: layerLayout.scrollWidth, innerWidth: layerLayout.innerWidth, offenders: openOffenders }));
 
     // Touch drag on the map pans the camera and does not scroll the page.
     const dragBefore = { center: (await C.mapState(s, 0)).center, layout: await evaluate(s, EXPR.layout) };

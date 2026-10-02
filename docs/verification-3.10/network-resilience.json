@@ -1,0 +1,117 @@
+{
+  "report": "offline-weaknet.mjs",
+  "generatedAt": "2026-10-02T19:15:43.100Z",
+  "command": "node scripts/verification/offline-weaknet.mjs",
+  "target": {
+    "url": "http://127.0.0.1:8767",
+    "viewport": {
+      "width": 1400,
+      "height": 900
+    }
+  },
+  "meta": {
+    "provenance": {
+      "gitHead": "0bda3b86d6368986d0042c436938838c16a3a30a",
+      "dirtyPaths": [
+        "M README.md",
+        " M docs/verification-3.10/keyboard-focus.json",
+        " M docs/verification-3.10/shots/keyboard-skiplink-target.png",
+        " M package.json",
+        " M public/app.js",
+        " M public/index.html",
+        " M scripts/verification/keyboard-focus.mjs",
+        " M scripts/verification/mobile-check.mjs",
+        " M scripts/verification/offline-weaknet.mjs"
+      ],
+      "assetVersion": "3.9.4-380fd480ab21",
+      "files": {
+        "public/index.html": "8140c3901c42f039",
+        "public/app.js": "90fb0e98cb263f46",
+        "public/map-engine.js": "20b3e2573a800e65",
+        "public/timeline-controls.js": "b3954150517b0a12",
+        "public/view-state.js": "1b57cdfe210a7322",
+        "public/style.css": "95f5e8ac64efeda8",
+        "public/product.css": "2631908c806f7e1e",
+        "public/cartography.css": "117414b5e2a91d3d",
+        "public/boundary-controller.js": "170f7551345509a1",
+        "public/regional-boundaries.js": "a1f54263074dbf10",
+        "public/geography.js": "7fa26e91e61e4d75"
+      },
+      "node": "v26.7.0",
+      "platform": "darwin",
+      "driverNote": "browser.mjs sets Network.setCacheDisabled(true): HTTP cache is never used."
+    }
+  },
+  "checks": [
+    {
+      "id": "net.baseline-ready",
+      "description": "Baseline first load reaches map-ready without an error surface",
+      "expected": "v => v.outcome === 'ready' && v.errorBox.hidden === true && v.year === 1500",
+      "observed": {
+        "outcome": "ready",
+        "ms": 4585,
+        "errorBox": {
+          "hidden": true,
+          "text": "",
+          "hasRetryButton": false
+        },
+        "year": 1500
+      },
+      "pass": true
+    }
+  ],
+  "limitations": [],
+  "notes": [],
+  "baseline": {
+    "ms": 4585,
+    "outcome": "ready",
+    "errorBox": {
+      "hidden": true,
+      "text": "",
+      "hasRetryButton": false
+    },
+    "loading": {
+      "hidden": true,
+      "text": "正在翻到 公元 1500 年…"
+    },
+    "datasetStatus": "137 个当年政体 · 378 条事件",
+    "year": 1500,
+    "onLine": true,
+    "requests": 63,
+    "transferBytes": 5665828
+  },
+  "throttled": [
+    {
+      "profile": "wifi-4mbps",
+      "latencyMs": 100,
+      "kbps": 4096,
+      "outcome": "ready",
+      "elapsedMs": 10493,
+      "errorBox": {
+        "hidden": true,
+        "text": "",
+        "hasRetryButton": false
+      },
+      "loading": {
+        "hidden": true,
+        "text": "正在翻到 公元 1500 年…"
+      },
+      "year": 1500,
+      "requests": 63,
+      "failures": [],
+      "aborted": 0,
+      "datasetStatus": "137 个当年政体 · 378 条事件",
+      "recovery": {
+        "outcome": "ready",
+        "ms": 3282,
+        "errorBox": {
+          "hidden": true,
+          "text": "",
+          "hasRetryButton": false
+        },
+        "year": 1500
+      }
+    }
+  ],
+  "fatal": "Error: Uncaught TypeError: Cannot read properties of null (reading 'hidden')\n    at <anonymous>:1:78\n    at <anonymous>:1:179\n    at evaluate (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/browser.mjs:55:31)\n    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/verification/offline-weaknet.mjs:82:17"
+}

@@ -21,10 +21,16 @@ const reports = {
 const results = [];
 for (const script of scripts) {
   const extra = args.quick && script === 'offline-weaknet.mjs' ? ['--quick'] : [];
-  C.log('running', script, extra.join(' '));
-  const t0 = Date.now();
-  const r = spawnSync(process.execPath, [path.join(C.HERE, script), ...extra], { cwd: C.ROOT, stdio: 'inherit' });
-  const entry = { script, exitCode: r.status, wallMs: Date.now() - t0, reportPath: reports[script] || null, checks: null };
+  const entry = { script, exitCode: null, wallMs: null, reportPath: reports[script] || null, checks: null };
+  if (!args['summary-only']) {
+    C.log('running', script, extra.join(' '));
+    const t0 = Date.now();
+    const r = spawnSync(process.execPath, [path.join(C.HERE, script), ...extra], { cwd: C.ROOT, stdio: 'inherit' });
+    entry.exitCode = r.status;
+    entry.wallMs = Date.now() - t0;
+  } else {
+    C.log('summary-only: reading', reports[script]);
+  }
   const file = reports[script] ? path.join(C.ROOT, reports[script]) : null;
   if (file && fs.existsSync(file)) {
     try {
@@ -42,13 +48,15 @@ for (const script of scripts) {
 const summary = {
   generatedAt: C.nowIso(),
   command: 'node scripts/verification/run-all.mjs' + (process.argv.slice(2).length ? ' ' + process.argv.slice(2).join(' ') : ''),
+  mode: args['summary-only'] ? 'summary-only (reports read from disk, scripts not re-run)' : 'full run',
   meta: { provenance: C.provenance(), systemAtEnd: C.systemLoad() },
   results,
-  failedScripts: results.filter(r => r.exitCode !== 0).map(r => r.script),
-  conclusion: results.every(r => r.exitCode === 0)
+  failedScripts: results.filter(r => r.exitCode !== null && r.exitCode !== 0).map(r => r.script),
+  reportsWithFailingChecks: results.filter(r => r.checks && (r.checks.failed > 0 || r.checks.error)).map(r => r.script),
+  conclusion: results.every(r => (r.exitCode === null || r.exitCode === 0) && r.checks && r.checks.failed === 0)
     ? 'All verification scripts completed with every measured assertion passing.'
     : 'At least one script reported a failing assertion or a script error; read the per-report checks before drawing conclusions.'
 };
 const file = C.writeJSON('docs/verification-3.10/verify-summary.json', summary);
 C.log('wrote', file);
-process.exitCode = summary.failedScripts.length ? 2 : 0;
+process.exitCode = summary.failedScripts.length || summary.reportsWithFailingChecks.length ? 2 : 0;

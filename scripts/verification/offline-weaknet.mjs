@@ -24,7 +24,7 @@ const THROTTLE = QUICK ? [] : [
   { name: 'slow-3g-400kbps', latency: 400, kbps: 400 }
 ];
 
-const ERRBOX = '(() => { const el = document.querySelector("#mapError"); return { hidden: el.hidden, text: el.textContent.trim().slice(0, 160), hasRetryButton: !!el.querySelector("button") }; })()';
+const ERRBOX = '(() => { const el = document.querySelector("#mapError"); if (!el) return { present: false, hidden: null, text: "", hasRetryButton: false }; return { present: true, hidden: el.hidden, text: el.textContent.trim().slice(0, 160), hasRetryButton: !!el.querySelector("button") }; })()';
 const LOADING = '(() => { const el = document.querySelector("#loading"); return { hidden: el.hidden, text: el.textContent.slice(0, 60) }; })()';
 const year = async s => Number((await C.hashParams(s)).year);
 const statusText = s => evaluate(s, 'document.querySelector("#datasetStatus").textContent');
@@ -33,9 +33,9 @@ async function waitOutcome(s, timeout = 60000) {
   const t0 = Date.now();
   let last = null;
   while (Date.now() - t0 < timeout) {
-    last = await evaluate(s, '(() => { const e = document.querySelector("#mapError"); const l = document.querySelector("#loading"); return { error: e && !e.hidden, loading: l && !l.hidden }; })()');
+    last = await evaluate(s, '(() => { const e = document.querySelector("#mapError"); const l = document.querySelector("#loading"); return { hasDom: !!document.body, readyState: document.readyState, error: !!(e && !e.hidden), loading: !!(l && !l.hidden) }; })()');
     if (last.error) return { outcome: 'error-ui', ms: Date.now() - t0 };
-    if (!last.loading) return { outcome: 'ready', ms: Date.now() - t0 };
+    if (last.hasDom && !last.loading) return { outcome: 'ready', ms: Date.now() - t0 };
     await sleep(1000); // >=1 s: faster evaluate polling can itself miss the settled state
   }
   return { outcome: 'timeout', ms: Date.now() - t0, last };
@@ -94,7 +94,7 @@ try {
   }
   if (report.throttled.length) {
     report.checks.push(C.checkFn('net.throttled-outcomes-recorded', 'Every throttled first load either reaches ready or shows a retry surface (no endless spinner)', v => v.every(x => x.outcome === 'ready' || x.outcome === 'error-ui'), report.throttled.map(x => ({ profile: x.profile, outcome: x.outcome, ms: x.elapsedMs, error: x.errorBox.text.slice(0, 60), failures: x.failures.length }))));
-    report.checks.push(C.checkFn('net.throttled-recovers', 'After the throttle is removed the app reaches map-ready again', v => v.every(x => x.recovery.outcome === 'ready'), report.throttled.map(x => ({ profile: x.profile, recovery: x.recovery.outcome, ms: x.recovery.ms }))));
+    report.checks.push(C.checkFn('net.throttled-recovers', 'After the throttle is removed the app reaches map-ready again', v => v.every(x => x.recovery === 'ready'), report.throttled.map(x => ({ profile: x.profile, recovery: x.recovery.outcome, ms: x.recovery.ms }))));
   }
 
   // reset any throttle
@@ -147,8 +147,8 @@ try {
     recovery: { outcome: notFoundRecovery.outcome, ms: Date.now() - recStart, year: recoveredYear, datasetStatus: recoveredStatus, errorBox: await evaluate(s, ERRBOX) },
     yearSwitch: { to1510: y1510.settled, to1500: y1500.settled, finalYear: await year(s), finalErrorBox: await evaluate(s, ERRBOX) }
   };
-  report.checks.push(C.checkFn('net.404-surface', 'A 404 data source shows a retryable error surface naming the year', v => v.initial.outcome === 'error-ui' && v.initial.errorBox.hasRetryButton === true && /1500/.test(v.initial.errorBox.text) && v.initial.responseStatuses.includes(404), { outcome: notFoundOutcome.outcome, errorBox: notFoundError, statuses: status404, requested: countUrl(net.requests, /year-1500/) }));
-  report.checks.push(C.checkFn('net.404-no-bad-cache', 'Retry while still 404 re-requests the source instead of replaying a cached rejection', v => v.requestsAfterRetry > v.requestsBeforeRetry && v.errorBox.hidden === false, { before: requestsBeforeRetry, after: requestsAfterRetry, stillError: afterFailedRetry.errorBox.hidden === false }));
+  report.checks.push(C.checkFn('net.404-surface', 'A 404 data source shows a retryable error surface naming the year', v => v.outcome === 'error-ui' && v.errorBox.hasRetryButton === true && /1500/.test(v.errorBox.text) && v.statuses.includes(404), { outcome: notFoundOutcome.outcome, errorBox: notFoundError, statuses: status404, requested: countUrl(net.requests, /year-1500/) }));
+  report.checks.push(C.checkFn('net.404-no-bad-cache', 'Retry while still 404 re-requests the source instead of replaying a cached rejection', v => v.after > v.before && v.stillError === true, { before: requestsBeforeRetry, after: requestsAfterRetry, stillError: afterFailedRetry.errorBox.hidden === false }));
   report.checks.push(C.checkFn('net.404-recovers', 'Once the source returns 200 the retry loads the year and clears the error', v => v.outcome === 'ready' && v.year === 1500 && v.errorBox.hidden === true && /政体/.test(v.datasetStatus), { outcome: notFoundRecovery.outcome, year: recoveredYear, datasetStatus: recoveredStatus, errorBox: report.notFound.recovery.errorBox }));
   report.checks.push(C.checkFn('net.404-no-stale-state', 'After recovery the year can be switched away and back with no stale error', v => v.to1510 === true && v.to1500 === true && v.finalYear === 1500 && v.finalErrorBox.hidden === true, report.notFound.yearSwitch));
 
@@ -185,9 +185,9 @@ try {
     serviceWorker: await evaluate(s, 'navigator.serviceWorker ? navigator.serviceWorker.controller ? "controlled" : "registered-none" : "unsupported"'),
     cacheDisabledByDriver: true
   };
-  report.checks.push(C.checkFn('net.offline-keeps-map', 'Going offline while switching year keeps the previous map and shows a retryable error', v => v.switchYear.outcome === 'error-ui' && v.switchYear.errorBox.hasRetryButton === true && v.switchYear.year === 1500 && v.switchYear.onLine === false, { outcome: offOutcome.outcome, year: offlineYear, onLine: report.offline.switchYear.onLine, errorBox: offlineError, failures: offlineFailures.map(f => f.error) }));
+  report.checks.push(C.checkFn('net.offline-keeps-map', 'Going offline while switching year keeps the previous map and shows a retryable error', v => v.outcome === 'error-ui' && v.errorBox.hasRetryButton === true && v.year === 1500 && v.onLine === false, { outcome: offOutcome.outcome, year: offlineYear, onLine: report.offline.switchYear.onLine, errorBox: offlineError, failures: offlineFailures.map(f => f.error) }));
   report.checks.push(C.checkFn('net.offline-retry-honest', 'Retrying while offline does not fake success', v => v.errorBox.hidden === false && v.year === 1500, retryWhileOffline));
-  report.checks.push(C.checkFn('net.online-recovers', 'After the connection returns, retry loads the requested year', v => v.outcome === 'ready' && v.year === 1600 && v.errorBox.hidden === true, { outcome: backOutcome.outcome, year: backYear, ms: Date.now() - backStart }));
+  report.checks.push(C.checkFn('net.online-recovers', 'After the connection returns, retry loads the requested year', v => v.outcome === 'ready' && v.year === 1600 && v.errorBox.hidden === true, { outcome: backOutcome.outcome, year: backYear, ms: Date.now() - backStart, errorBox: await evaluate(s, ERRBOX) }));
 
   report.notes.push('The driver disables the HTTP cache (Network.setCacheDisabled(true)), so browser-cache behaviour under offline conditions is out of scope; the in-app readJSON memory cache is what the 404 retry test exercises.');
   report.limitations = [
@@ -213,4 +213,4 @@ const failed = report.checks.filter(c => c.pass !== true);
 C.log('wrote', file);
 C.log('checks:', report.checks.length - failed.length, '/', report.checks.length);
 for (const c of report.checks) C.log(c.pass === true ? 'PASS' : (c.pass === false ? 'FAIL' : 'NONE'), c.id);
-process.exitCode = failed.some(f => f.pass === false) ? 2 : 0;
+process.exitCode = failed.some(f => f.pass === false) || report.fatal ? 2 : 0;
