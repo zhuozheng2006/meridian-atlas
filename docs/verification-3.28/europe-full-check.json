@@ -1,0 +1,2040 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-03T03:07:42.008Z",
+  "question": "How many European profiles without a narrative are there, how many pass the polity-class test when all of them are checked, and why are the others excluded?",
+  "method": "Every European profile without a narrative was looked up on Wikidata (P31 claims, labels resolved in English) and tested against the same polity-class list the round uses; the catalogue binding was read from public/data/fast/catalog.json.gz (POLITY records with a verifiedWikidata value, honouring profile-index exclusions).",
+  "europeanProfilesWithoutNarrative": 502,
+  "passedPolityClass": 369,
+  "rejectedByPolityClass": 133,
+  "passedAndBoundToPolityRecord": 369,
+  "alreadyInThisBatch": 0,
+  "rejectionReasons": {
+    "historical ethnic group": 18,
+    "historical period": 2,
+    "historical region": 6,
+    "countship": 8,
+    "Wikimedia disambiguation page": 9,
+    "no P31 classes": 5,
+    "island": 1,
+    "ethnic group": 7,
+    "religious military order": 1,
+    "civilization": 2,
+    "municipality of Catalonia": 2,
+    "type of organization": 1,
+    "language area": 1,
+    "noble family": 4,
+    "region of France": 1,
+    "historical province of France": 4,
+    "koinon": 4,
+    "Scottish region": 1,
+    "former administrative territorial entity": 1,
+    "patriarchate": 1,
+    "ethnic territory": 1,
+    "conquest": 2,
+    "city or town": 1,
+    "isolated human group": 1,
+    "city of oblast subordinance": 1,
+    "archaeological period": 1,
+    "time interval": 1,
+    "province of Sweden": 1,
+    "territory": 1,
+    "noble title": 1,
+    "human": 5,
+    "order of chivalry": 1,
+    "natural language": 1,
+    "regions of Occitania": 1,
+    "comarca of Catalonia": 2,
+    "aspect of history": 1,
+    "directorial system": 1,
+    "Period of Appanages": 1,
+    "endoinsulonym": 1,
+    "big city": 2,
+    "military unit": 1,
+    "Ukrainian historical regions": 1,
+    "natural region of France": 1,
+    "cultural region": 1,
+    "family": 1,
+    "city": 4,
+    "Crown Dependencies": 1,
+    "region": 1,
+    "tariqa": 1,
+    "war": 1,
+    "occupied territory": 1,
+    "state with limited recognition": 1,
+    "ethnoreligious group": 1,
+    "military junta": 1,
+    "invasion": 2,
+    "political faction": 1,
+    "treaty": 1,
+    "royal house": 1,
+    "historical administrative division": 1,
+    "rebellion": 1,
+    "guerrilla organization": 1,
+    "army": 1,
+    "political ideology": 1
+  },
+  "rejectionSamples": [
+    {
+      "qid": "Q849967",
+      "title": "不列吞凯尔特人",
+      "classes": [
+        "historical ethnic group"
+      ]
+    },
+    {
+      "qid": "Q12567",
+      "title": "维京人",
+      "classes": [
+        "historical period",
+        "culture",
+        "style",
+        "historical ethnic group"
+      ]
+    },
+    {
+      "qid": "Q171393",
+      "title": "瓦拉几亚",
+      "classes": [
+        "historical region"
+      ]
+    },
+    {
+      "qid": "Q45813",
+      "title": "匈人",
+      "classes": [
+        "historical ethnic group"
+      ]
+    },
+    {
+      "qid": "Q2070440",
+      "title": "讷韦尔子爵",
+      "classes": [
+        "countship"
+      ]
+    },
+    {
+      "qid": "Q101985",
+      "title": "撒克逊人",
+      "classes": [
+        "historical ethnic group",
+        "ethnic group",
+        "tribe"
+      ]
+    },
+    {
+      "qid": "Q66504140",
+      "title": "Habsburg Austria",
+      "classes": [
+        "Wikimedia disambiguation page"
+      ]
+    },
+    {
+      "qid": "Q68962",
+      "title": "阿瓦尔汗国",
+      "classes": [
+        "historical ethnic group"
+      ]
+    },
+    {
+      "qid": "Q2984183",
+      "title": "波列斯瓦夫三世的遗嘱",
+      "classes": []
+    },
+    {
+      "qid": "Q43048",
+      "title": "罗得岛",
+      "classes": [
+        "island",
+        "polis"
+      ]
+    },
+    {
+      "qid": "Q316860",
+      "title": "利普里安法兰克人",
+      "classes": [
+        "ethnic group",
+        "tribe"
+      ]
+    },
+    {
+      "qid": "Q13048507",
+      "title": "巴伐利亚人",
+      "classes": [
+        "human population",
+        "ethnic group"
+      ]
+    },
+    {
+      "qid": "Q48189",
+      "title": "条顿骑士团",
+      "classes": [
+        "religious military order",
+        "hospitaller order"
+      ]
+    },
+    {
+      "qid": "Q1481436",
+      "title": "富瓦伯国",
+      "classes": [
+        "countship"
+      ]
+    },
+    {
+      "qid": "Q17161",
+      "title": "伊特拉斯坎文明",
+      "classes": [
+        "civilization",
+        "historical ethnic group"
+      ]
+    }
+  ],
+  "polityButUnbound": [],
+  "eligibleList": [
+    {
+      "qid": "Q148499",
+      "title": "勃兰登堡边领",
+      "recordCount": 24
+    },
+    {
+      "qid": "Q27306",
+      "title": "普鲁士王国",
+      "recordCount": 29
+    },
+    {
+      "qid": "Q71747",
+      "title": "布列塔尼公国",
+      "recordCount": 18
+    },
+    {
+      "qid": "Q46370",
+      "title": "西法兰克王国",
+      "recordCount": 45
+    },
+    {
+      "qid": "Q62623",
+      "title": "卡尔马联合",
+      "recordCount": 26
+    },
+    {
+      "qid": "Q160440",
+      "title": "克里米亚汗国",
+      "recordCount": 21
+    },
+    {
+      "qid": "Q239502",
+      "title": "加利西亚－沃里尼亚王国",
+      "recordCount": 22
+    },
+    {
+      "qid": "Q7703611",
+      "title": "阿基坦公国",
+      "recordCount": 19
+    },
+    {
+      "qid": "Q2594661",
+      "title": "格温特王国",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q19336869",
+      "title": "布卢瓦伯国",
+      "recordCount": 19
+    },
+    {
+      "qid": "Q187684",
+      "title": "伊庇鲁斯采邑",
+      "recordCount": 21
+    },
+    {
+      "qid": "Q420759",
+      "title": "保加利亚第二帝国",
+      "recordCount": 22
+    },
+    {
+      "qid": "Q528546",
+      "title": "希腊第一共和国",
+      "recordCount": 23
+    },
+    {
+      "qid": "Q769782",
+      "title": "波伊斯王国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q3271735",
+      "title": "阿尔勒王国",
+      "recordCount": 16
+    },
+    {
+      "qid": "Q49683",
+      "title": "立陶宛大公国",
+      "recordCount": 20
+    },
+    {
+      "qid": "Q237325",
+      "title": "安提柯王朝",
+      "recordCount": 22
+    },
+    {
+      "qid": "Q179293",
+      "title": "卡斯蒂利亚王国",
+      "recordCount": 18
+    },
+    {
+      "qid": "Q131964",
+      "title": "奥地利帝国",
+      "recordCount": 22
+    },
+    {
+      "qid": "Q58389",
+      "title": "波旁王朝",
+      "recordCount": 18
+    },
+    {
+      "qid": "Q31",
+      "title": "比利时",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q107299",
+      "title": "诺森布里亚",
+      "recordCount": 16
+    },
+    {
+      "qid": "Q321371",
+      "title": "博斯普鲁斯王国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q7380487",
+      "title": "本都王国",
+      "recordCount": 15
+    },
+    {
+      "qid": "Q175276",
+      "title": "莱昂王国",
+      "recordCount": 16
+    },
+    {
+      "qid": "Q1541699",
+      "title": "安普里亚斯伯国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q148540",
+      "title": "佛罗伦萨共和国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q335088",
+      "title": "奇里乞亚亚美尼亚王国",
+      "recordCount": 16
+    },
+    {
+      "qid": "Q4712",
+      "title": "勃艮第公国",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q13590051",
+      "title": "勃艮第人王国",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q157070",
+      "title": "佛兰德伯国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q568638",
+      "title": "西里西亚公国",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q16933165",
+      "title": "桑多梅日公国",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q1241847",
+      "title": "阿波利亚王国",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q42834",
+      "title": "西罗马帝国",
+      "recordCount": 18
+    },
+    {
+      "qid": "Q200262",
+      "title": "纳瓦拉王国",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q2577303",
+      "title": "撒丁王国",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q1122980",
+      "title": "沃奈桑伯爵领地",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q1232887",
+      "title": "萨沃伊伯爵",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q2361927",
+      "title": "马佐夫舍公国",
+      "recordCount": 15
+    },
+    {
+      "qid": "Q975405",
+      "title": "鲁姆苏丹国",
+      "recordCount": 15
+    },
+    {
+      "qid": "Q178913",
+      "title": "特拉比松帝国",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q157367",
+      "title": "勃兰登堡-普鲁士",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q1483495",
+      "title": "斯摩棱斯克公国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q2626105",
+      "title": "索菲尼王国",
+      "recordCount": 11
+    },
+    {
+      "qid": "Q207162",
+      "title": "波旁复辟",
+      "recordCount": 17
+    },
+    {
+      "qid": "Q2295939",
+      "title": "加斯科涅公国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q1991742",
+      "title": "阿尔巴王国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q168352",
+      "title": "阿斯坎尼王朝",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q1515009",
+      "title": "大波兰公爵",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q154195",
+      "title": "巴伐利亚王国",
+      "recordCount": 16
+    },
+    {
+      "qid": "Q235",
+      "title": "摩纳哥",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q29654286",
+      "title": "卡帕多西亚王国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q238445",
+      "title": "格拉纳达王国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q28",
+      "title": "匈牙利",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q2576305",
+      "title": "克罗地亚公国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q222",
+      "title": "阿尔巴尼亚",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q153529",
+      "title": "米兰公国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q193152",
+      "title": "大摩拉维亚公国",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q3627069",
+      "title": "匈牙利皇冠领地波士尼亚省",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q28513",
+      "title": "奥匈帝国",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q954585",
+      "title": "布雷切尼奥格王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q1365493",
+      "title": "比萨共和国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q1794352",
+      "title": "特里尔选侯国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q546266",
+      "title": "香槟伯国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q237234",
+      "title": "奥斯若恩",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q38",
+      "title": "意大利",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q1297894",
+      "title": "里瓦戈萨",
+      "recordCount": 11
+    },
+    {
+      "qid": "Q3762571",
+      "title": "比提尼亚王国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q1469100",
+      "title": "卡拉曼公国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q111471",
+      "title": "达尔里阿达王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q43",
+      "title": "土耳其",
+      "recordCount": 11
+    },
+    {
+      "qid": "Q208169",
+      "title": "拉古萨共和国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q1051600",
+      "title": "普利亚和卡拉布里亚督军区",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q858841",
+      "title": "克罗地亚王国",
+      "recordCount": 11
+    },
+    {
+      "qid": "Q32",
+      "title": "卢森堡",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q13131807",
+      "title": "摩根努格",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q332005",
+      "title": "亚该亚侯国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q71084",
+      "title": "法兰西第一帝国",
+      "recordCount": 14
+    },
+    {
+      "qid": "Q153080",
+      "title": "东法兰克王国",
+      "recordCount": 13
+    },
+    {
+      "qid": "Q706018",
+      "title": "布伦瑞克-吕讷堡选帝侯国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q1250763",
+      "title": "西西里埃米尔国",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q661980",
+      "title": "奥波莱公国",
+      "recordCount": 11
+    },
+    {
+      "qid": "Q33242",
+      "title": "下勃艮第",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q43287",
+      "title": "德意志帝国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q2096678",
+      "title": "桑达尔王朝",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q815731",
+      "title": "大保加利亚公国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q230791",
+      "title": "苏格兰王国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q1761381",
+      "title": "鲁古多罗王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q2662372",
+      "title": "Principality of Minsk",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q2991084",
+      "title": "安茹伯爵",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q1065299",
+      "title": "萨勒诺公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q2829270",
+      "title": "斯波莱托公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q655621",
+      "title": "特兰西瓦尼亚公国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q188586",
+      "title": "西西里王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q1324889",
+      "title": "格尔米扬",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q276841",
+      "title": "巴达霍斯泰法",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q188553",
+      "title": "巴达维亚共和国",
+      "recordCount": 12
+    },
+    {
+      "qid": "Q236",
+      "title": "黑山",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q377350",
+      "title": "伊比利亚联盟",
+      "recordCount": 11
+    },
+    {
+      "qid": "Q1406298",
+      "title": "塞尔维亚帝国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q2162698",
+      "title": "波希米亚公国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q231392",
+      "title": "阿斯图里亚斯王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q199442",
+      "title": "阿拉贡王国",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q2980623",
+      "title": "波斯尼亚王国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q676811",
+      "title": "瓦伦西亚泰法",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q33061",
+      "title": "萨拉戈萨王国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q2580032",
+      "title": "Taifa of Almería",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q684030",
+      "title": "塞尔维亚公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q328818",
+      "title": "肯特王国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q158151",
+      "title": "萨克森-阿尔滕堡",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q228",
+      "title": "安道尔",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q33",
+      "title": "芬兰",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q1048918",
+      "title": "苏维汇王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q235030",
+      "title": "安条克公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q33235",
+      "title": "上勃艮第王国合并",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q1264808",
+      "title": "杜勒卡迪尔",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q2297073",
+      "title": "卡利亚里王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q751868",
+      "title": "布拉班特伯国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q109252949",
+      "title": "Duchy of Mecklenburg",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q155570",
+      "title": "萨克森-魏玛-艾森纳赫",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q186320",
+      "title": "巴登大公国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q252323",
+      "title": "德尼亚泰法",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q2022162",
+      "title": "帕加马王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q151624",
+      "title": "德意志邦联",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q771193",
+      "title": "布列塔尼王国",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q2723760",
+      "title": "加卢拉王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q1280122",
+      "title": "卡普阿公国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q921067",
+      "title": "穆尔西亚王国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q1483430",
+      "title": "基辅大公国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q33946",
+      "title": "捷克斯洛伐克",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q203493",
+      "title": "罗马尼亚王国",
+      "recordCount": 10
+    },
+    {
+      "qid": "Q317078",
+      "title": "普斯科夫共和国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q837998",
+      "title": "东盎格利亚",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q14551680",
+      "title": "利珀亲王国",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q20135",
+      "title": "黑森-达姆施塔特",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q2281221",
+      "title": "奥兰治亲王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q620765",
+      "title": "吕底亚",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q836680",
+      "title": "拿骚",
+      "recordCount": 9
+    },
+    {
+      "qid": "Q2899771",
+      "title": "匈牙利公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q770281",
+      "title": "新赫梯人",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q10416611",
+      "title": "汪达尔-阿兰王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q152115",
+      "title": "华沙公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q580447",
+      "title": "施蒂利亚公国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q13534654",
+      "title": "泰法王国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q671362",
+      "title": "图罗夫-平斯克公国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q846670",
+      "title": "达尼什曼德王朝",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q191",
+      "title": "爱沙尼亚",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q676184",
+      "title": "萨塞克斯王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q62389",
+      "title": "冰岛自由邦",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q16550783",
+      "title": "安哈尔特公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q639100",
+      "title": "罗伊斯幼系侯国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q538677",
+      "title": "安茹帝国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q1055",
+      "title": "汉堡",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q2208978",
+      "title": "阿勒曼尼亚",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q122293",
+      "title": "卢森堡王朝",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q373988",
+      "title": "特克贝利克",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q165763",
+      "title": "瓦尔德克统治者列表",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q605930",
+      "title": "托尔托萨泰法",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q201038",
+      "title": "罗马王政时代",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q13474305",
+      "title": "佛朗哥时期",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q459188",
+      "title": "马恩岛及群岛王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q588672",
+      "title": "哈马德王国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q2668600",
+      "title": "Taifa of Niebla",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q178897",
+      "title": "拉丁帝国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q249428",
+      "title": "贝尔格大公国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q1541779",
+      "title": "奥索纳伯爵",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q697084",
+      "title": "奥尔登堡公国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q529605",
+      "title": "黑森选侯国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q583038",
+      "title": "东哥德王国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q178665",
+      "title": "米坦尼",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q7318",
+      "title": "纳粹德国",
+      "recordCount": 8
+    },
+    {
+      "qid": "Q211",
+      "title": "拉脱维亚",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q48779892",
+      "title": "那不勒斯王国 (1806年－1815年)",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q154849",
+      "title": "托斯卡纳大公国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q175211",
+      "title": "德意志王国",
+      "recordCount": 7
+    },
+    {
+      "qid": "Q842091",
+      "title": "诺曼底公国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q1541787",
+      "title": "帕利亚斯伯国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q1541642",
+      "title": "County of Besalú",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q1322662",
+      "title": "切尔尼戈夫统治者列表",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q1252942",
+      "title": "杜克里亚",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q303421",
+      "title": "加利西亚王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q2261321",
+      "title": "拉玛赞",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q32579",
+      "title": "弗里吉亚",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q1183407",
+      "title": "Taifa of Algeciras",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q225",
+      "title": "波斯尼亚和黑塞哥维那",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q87791",
+      "title": "弗里西亚王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q2668584",
+      "title": "Taifa of Carmona",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q173065",
+      "title": "那不勒斯王国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q958291",
+      "title": "罗马尼亚联合公国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q36",
+      "title": "波兰",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q5311389",
+      "title": "图林根公国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q157710",
+      "title": "萨克森-迈宁根",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q2670895",
+      "title": "Taifa of Alpuente",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q216173",
+      "title": "但泽自由市",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q41304",
+      "title": "魏玛共和国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q269109",
+      "title": "梁赞大公",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q506008",
+      "title": "德伊勒",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q625380",
+      "title": "东匈牙利王国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q886986",
+      "title": "林赛王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q23148",
+      "title": "康沃尔郡",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q1261908",
+      "title": "佩列亚斯拉夫公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q7245121",
+      "title": "瓦罗纳公国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q2456191",
+      "title": "塞瑟卢格",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q16957",
+      "title": "东德",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q717112",
+      "title": "艾登王朝",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q181254",
+      "title": "尼西亚帝国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q209065",
+      "title": "希腊王国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q3568009",
+      "title": "维特瓦拉",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q206696",
+      "title": "海尔维第共和国",
+      "recordCount": 6
+    },
+    {
+      "qid": "Q276951",
+      "title": "塞维利亚泰法",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q950240",
+      "title": "吕贝克自由市",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q684501",
+      "title": "格沃古夫公国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q870517",
+      "title": "奥德里西亚王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q2081763",
+      "title": "Taifa of Saltés and Huelva",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q334714",
+      "title": "雅典公国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q326029",
+      "title": "不伦瑞克公国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q1994569",
+      "title": "Taifa of Silves",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q37",
+      "title": "立陶宛",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q164079",
+      "title": "汉诺威王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q213",
+      "title": "捷克",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q232806",
+      "title": "埃德萨伯国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q733799",
+      "title": "赫威赛",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q37024",
+      "title": "塞尔维亚和黑山",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q727710",
+      "title": "塔巴尔",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q878319",
+      "title": "塞尔维亚王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q180393",
+      "title": "两西西里王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q2060937",
+      "title": "Taifa of Albarracín",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q83286",
+      "title": "南斯拉夫社会主义联邦共和国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q1235737",
+      "title": "County of Aragon",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q874954",
+      "title": "西奥多罗公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q183",
+      "title": "德国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q644979",
+      "title": "青帐汗国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q219",
+      "title": "保加利亚",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q332137",
+      "title": "科马基尼王国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q110888",
+      "title": "埃塞克斯王国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q187830",
+      "title": "奥地利历史",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q205708",
+      "title": "Taifa of Granada",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q40",
+      "title": "奥地利",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q1656775",
+      "title": "立陶宛王国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q221",
+      "title": "北马其顿",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q159631",
+      "title": "符腾堡王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q2390604",
+      "title": "Taifa of Arcos",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q58296",
+      "title": "法兰西第一共和国",
+      "recordCount": 5
+    },
+    {
+      "qid": "Q1687929",
+      "title": "杰西卡公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q633573",
+      "title": "雷格德",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q3403551",
+      "title": "加里奇公国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q762943",
+      "title": "荷兰伯国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q642314",
+      "title": "勃艮第伯国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q1968654",
+      "title": "萨鲁汗侯国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q189",
+      "title": "冰岛",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2331954",
+      "title": "Despotate of Arta",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q680472",
+      "title": "沃伦公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q347",
+      "title": "列支敦士登",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q467864",
+      "title": "阿尔巴尼亚社会主义人民共和国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q62589",
+      "title": "瑞典－挪威联盟",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q16410",
+      "title": "匈牙利人民共和国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q2596884",
+      "title": "Principality of Drutsk",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q941887",
+      "title": "卡拉斯王朝",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q218",
+      "title": "罗马尼亚",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q224",
+      "title": "克罗地亚",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q16084290",
+      "title": "Illyrian kingdom",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q501303",
+      "title": "克拉科夫自由市",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q2285679",
+      "title": "哥多华王国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q36704",
+      "title": "南斯拉夫",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q1311990",
+      "title": "塞尔维亚大王子",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q207272",
+      "title": "波兰第二共和国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q325461",
+      "title": "萨洛尼卡王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q184",
+      "title": "白俄罗斯",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q212",
+      "title": "乌克兰",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q214",
+      "title": "斯洛伐克",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q330362",
+      "title": "英格兰联邦",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q836676",
+      "title": "马略卡王国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q659312",
+      "title": "利古里亚共和国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q680530",
+      "title": "Principality of Terebovlia",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q1400572",
+      "title": "门泰谢",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q156038",
+      "title": "库尔兰和瑟米加利亚公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q698089",
+      "title": "维尔茨堡大公国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q313136",
+      "title": "顿诺尼亚王国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q701969",
+      "title": "雷根斯堡亲王国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q58326",
+      "title": "法兰西第二共和国",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q877619",
+      "title": "执政府",
+      "recordCount": 4
+    },
+    {
+      "qid": "Q777981",
+      "title": "爱琴群岛公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q149846",
+      "title": "凯法利尼亚与扎金索斯公爵领地",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q215",
+      "title": "斯洛文尼亚",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q217",
+      "title": "摩尔多瓦",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2666791",
+      "title": "Taifa of Morón",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q17765809",
+      "title": "希腊第三共和国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q191484",
+      "title": "大保加利亚",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q2502248",
+      "title": "科克内斯公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q157013",
+      "title": "霍亨索伦-西格马林根亲王国（Hohenzollern-Sigmaringen）",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q165040",
+      "title": "帕尔马公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q252580",
+      "title": "摩德纳和雷焦公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q121932",
+      "title": "保加利亚人民共和国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q153091",
+      "title": "普鲁士公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q1246",
+      "title": "科索沃",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q713750",
+      "title": "西德",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q2410637",
+      "title": "哈米德",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q501754",
+      "title": "卡伦坦尼亚",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q927154",
+      "title": "维丁沙皇国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q872644",
+      "title": "Rugiland",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q31747",
+      "title": "爱尔兰自由邦",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q542165",
+      "title": "多布罗加专制公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q2621010",
+      "title": "维捷布斯克公爵",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q686312",
+      "title": "阿马尔菲公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q623751",
+      "title": "伯尼西亚",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q223793",
+      "title": "伊特鲁里亚王国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q3281269",
+      "title": "北海帝国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q5705",
+      "title": "加泰罗尼亚自治区",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q2719360",
+      "title": "卢森堡公国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q1407718",
+      "title": "爱尔兰邦联",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q842794",
+      "title": "罗马尼亚社会主义共和国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q178038",
+      "title": "西班牙第二共和国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q153943",
+      "title": "威斯特法伦王国",
+      "recordCount": 3
+    },
+    {
+      "qid": "Q2264840",
+      "title": "Dunoding",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q1967380",
+      "title": "Principality of Beloozero",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2564694",
+      "title": "Powys Fadog",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q704300",
+      "title": "法兰克福自由市",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2670639",
+      "title": "Powys Wenwynwyn",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q6673921",
+      "title": "洛泰尔王国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2077765",
+      "title": "Taifa of Santa Maria do Algarve",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q153015",
+      "title": "萨克森王国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q238",
+      "title": "圣马力诺",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q561204",
+      "title": "亚沃尔公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q570740",
+      "title": "莱格尼察公爵",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2670751",
+      "title": "摩拉维亚伯国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2524715",
+      "title": "Taifa of Ronda",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q837326",
+      "title": "尼特拉公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q7785",
+      "title": "英联邦",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q106311455",
+      "title": "圣萨瓦公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q273025",
+      "title": "高卢帝国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q62567",
+      "title": "冰岛王国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q1386189",
+      "title": "埃斯雷夫侯国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q1077630",
+      "title": "塞普丁修拉共和国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q682001",
+      "title": "比托姆公爵",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q700117",
+      "title": "拉蒂博尔公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q11750543",
+      "title": "Duchy of Kuyavia",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q688918",
+      "title": "克拉科夫大公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q1247508",
+      "title": "苏瓦松王国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q623151",
+      "title": "塞萨洛尼基帝国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q16570037",
+      "title": "Duchy of Kalisz",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q155594",
+      "title": "奥尔登堡王朝",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q547629",
+      "title": "利希滕贝格公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q600093",
+      "title": "西班牙哈布斯堡王朝",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q154741",
+      "title": "莱茵邦联",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q704288",
+      "title": "荷尔斯泰因公国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q153128",
+      "title": "克罗埃西亚独立国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q213353",
+      "title": "奇萨尔皮尼共和国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q2172530",
+      "title": "符腾堡选侯国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q637238",
+      "title": "巴登选侯国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q646390",
+      "title": "萨尔茨堡选侯国",
+      "recordCount": 2
+    },
+    {
+      "qid": "Q403",
+      "title": "塞尔维亚",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q1054580",
+      "title": "Duchy of Tuscia",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q106577",
+      "title": "纽斯特里亚",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q1139807",
+      "title": "葡萄牙伯国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q970940",
+      "title": "文奇察省",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q19872858",
+      "title": "阿尔斯特伯爵",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q2522604",
+      "title": "Taifa of Tejada",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q3572492",
+      "title": "索夫拉韦王国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q3462133",
+      "title": "萨克森-科堡-哥达",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q497777",
+      "title": "西班牙第一共和国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q690821",
+      "title": "巴登共和国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q7245120",
+      "title": "上匈牙利公国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q463289",
+      "title": "奇斯帕达纳共和国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q746443",
+      "title": "安布罗西亚共和国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q147909",
+      "title": "保加利亚王国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q1508143",
+      "title": "乌克兰国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q175881",
+      "title": "罗马共和国",
+      "recordCount": 1
+    },
+    {
+      "qid": "Q774783",
+      "title": "联合尼德兰主权公国",
+      "recordCount": 1
+    }
+  ],
+  "requests": 16
+}

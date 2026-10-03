@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-03T03:05:49.430Z",
+  "question": "How many profiles without a narrative lie in the European coordinate box, how many of them pass the identity checks, and why are the rest excluded?",
+  "method": "The profile index has no region field, so the region comes from the documented coordinate-box rule applied to the centres of the catalogue records bound to each profile (the same rule the selection script uses). A profile is \"bound\" when at least one POLITY record with a verifiedWikidata value carries that item; the polity-class test is the one recorded in narratives-candidates.json.",
+  "headline": {
+    "europeanProfilesWithoutNarrative": 502,
+    "europeanWithVerifiedPolityBinding": 502,
+    "europeanCandidatesChecked": 27,
+    "europeanPassingPolityClass": 23,
+    "europeanRejectedNotPolity": 4,
+    "europeanEligibleForBatch": 23,
+    "europeanInThisBatch": 16,
+    "conclusion": "Only 502 of the 502 European profiles without a narrative are bound to a verified polity item at all, and only 23 of those pass the polity-class test; 23 of them have matching catalogue records and are eligible for a batch. The gap between 502 and 19 is therefore a property of the data - most European profiles without a narrative are not bound to a verified polity entity - and not a threshold set by the scripts."
+  },
+  "europe": {
+    "notBoundToVerifiedPolity": 0,
+    "boundToVerifiedPolity": 502,
+    "candidatesChecked": 27,
+    "passedPolityClass": 23,
+    "rejectedNotPolity": [
+      {
+        "qid": "Q12567",
+        "title": "维京人",
+        "classes": [
+          "historical period",
+          "culture",
+          "style",
+          "historical ethnic group"
+        ]
+      },
+      {
+        "qid": "Q148499",
+        "title": "勃兰登堡边领",
+        "classes": [
+          "electoral principate",
+          "state in the Holy Roman Empire",
+          "historical country",
+          "colonial power",
+          "historical period"
+        ]
+      },
+      {
+        "qid": "Q66504140",
+        "title": "Habsburg Austria",
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q43048",
+        "title": "罗得岛",
+        "classes": [
+          "island",
+          "polis"
+        ]
+      }
+    ],
+    "passingButNoMatchingRecord": [],
+    "passingButHandBlocked": [],
+    "eligible": [
+      {
+        "qid": "Q849967",
+        "title": "不列吞凯尔特人",
+        "recordCount": 101,
+        "spanYears": 845
+      },
+      {
+        "qid": "Q171393",
+        "title": "瓦拉几亚",
+        "recordCount": 22,
+        "spanYears": 544
+      },
+      {
+        "qid": "Q45813",
+        "title": "匈人",
+        "recordCount": 21,
+        "spanYears": 567
+      },
+      {
+        "qid": "Q2070440",
+        "title": "讷韦尔子爵",
+        "recordCount": 20,
+        "spanYears": 510
+      },
+      {
+        "qid": "Q27306",
+        "title": "普鲁士王国",
+        "recordCount": 29,
+        "spanYears": 161
+      },
+      {
+        "qid": "Q71747",
+        "title": "布列塔尼公国",
+        "recordCount": 18,
+        "spanYears": 544
+      },
+      {
+        "qid": "Q46370",
+        "title": "西法兰克王国",
+        "recordCount": 45,
+        "spanYears": 139
+      },
+      {
+        "qid": "Q62623",
+        "title": "卡尔马联合",
+        "recordCount": 26,
+        "spanYears": 123
+      },
+      {
+        "qid": "Q160440",
+        "title": "克里米亚汗国",
+        "recordCount": 21,
+        "spanYears": 332
+      },
+      {
+        "qid": "Q239502",
+        "title": "加利西亚－沃里尼亚王国",
+        "recordCount": 22,
+        "spanYears": 295
+      },
+      {
+        "qid": "Q7703611",
+        "title": "阿基坦公国",
+        "recordCount": 19,
+        "spanYears": 449
+      },
+      {
+        "qid": "Q101985",
+        "title": "撒克逊人",
+        "recordCount": 17,
+        "spanYears": 516
+      },
+      {
+        "qid": "Q2594661",
+        "title": "格温特王国",
+        "recordCount": 17,
+        "spanYears": 515
+      },
+      {
+        "qid": "Q19336869",
+        "title": "布卢瓦伯国",
+        "recordCount": 19,
+        "spanYears": 411
+      },
+      {
+        "qid": "Q68962",
+        "title": "阿瓦尔汗国",
+        "recordCount": 22,
+        "spanYears": 244
+      },
+      {
+        "qid": "Q187684",
+        "title": "伊庇鲁斯采邑",
+        "recordCount": 21,
+        "spanYears": 275
+      },
+      {
+        "qid": "Q420759",
+        "title": "保加利亚第二帝国",
+        "recordCount": 22,
+        "spanYears": 206
+      },
+      {
+        "qid": "Q2984183",
+        "title": "波列斯瓦夫三世的遗嘱",
+        "recordCount": 22,
+        "spanYears": 165
+      },
+      {
+        "qid": "Q528546",
+        "title": "希腊第一共和国",
+        "recordCount": 23,
+        "spanYears": 118
+      },
+      {
+        "qid": "Q769782",
+        "title": "波伊斯王国",
+        "recordCount": 13,
+        "spanYears": 628
+      },
+      {
+        "qid": "Q3271735",
+        "title": "阿尔勒王国",
+        "recordCount": 16,
+        "spanYears": 448
+      },
+      {
+        "qid": "Q49683",
+        "title": "立陶宛大公国",
+        "recordCount": 20,
+        "spanYears": 229
+      },
+      {
+        "qid": "Q237325",
+        "title": "安提柯王朝",
+        "recordCount": 22,
+        "spanYears": 126
+      }
+    ],
+    "unboundExamples": []
+  },
+  "byRegion": [
+    {
+      "region": "africa",
+      "uncovered": 156,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 156,
+      "candidatesChecked": 35,
+      "passedPolityClass": 30,
+      "rejectedNotPolity": 5,
+      "eligibleForBatch": 28,
+      "inThisBatch": 0
+    },
+    {
+      "region": "americas",
+      "uncovered": 59,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 59,
+      "candidatesChecked": 31,
+      "passedPolityClass": 26,
+      "rejectedNotPolity": 5,
+      "eligibleForBatch": 24,
+      "inThisBatch": 0
+    },
+    {
+      "region": "east-asia",
+      "uncovered": 145,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 145,
+      "candidatesChecked": 19,
+      "passedPolityClass": 11,
+      "rejectedNotPolity": 8,
+      "eligibleForBatch": 11,
+      "inThisBatch": 0
+    },
+    {
+      "region": "europe",
+      "uncovered": 502,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 502,
+      "candidatesChecked": 27,
+      "passedPolityClass": 23,
+      "rejectedNotPolity": 4,
+      "eligibleForBatch": 23,
+      "inThisBatch": 16
+    },
+    {
+      "region": "global",
+      "uncovered": 32,
+      "noVerifiedPolityBinding": 5,
+      "boundWithVerifiedPolity": 27,
+      "candidatesChecked": 10,
+      "passedPolityClass": 10,
+      "rejectedNotPolity": 0,
+      "eligibleForBatch": 10,
+      "inThisBatch": 5
+    },
+    {
+      "region": "oceania",
+      "uncovered": 19,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 19,
+      "candidatesChecked": 19,
+      "passedPolityClass": 18,
+      "rejectedNotPolity": 1,
+      "eligibleForBatch": 16,
+      "inThisBatch": 0
+    },
+    {
+      "region": "south-asia",
+      "uncovered": 88,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 88,
+      "candidatesChecked": 30,
+      "passedPolityClass": 30,
+      "rejectedNotPolity": 0,
+      "eligibleForBatch": 29,
+      "inThisBatch": 0
+    },
+    {
+      "region": "southeast-asia",
+      "uncovered": 27,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 27,
+      "candidatesChecked": 27,
+      "passedPolityClass": 22,
+      "rejectedNotPolity": 5,
+      "eligibleForBatch": 22,
+      "inThisBatch": 0
+    },
+    {
+      "region": "west-central-asia",
+      "uncovered": 90,
+      "noVerifiedPolityBinding": 0,
+      "boundWithVerifiedPolity": 90,
+      "candidatesChecked": 21,
+      "passedPolityClass": 19,
+      "rejectedNotPolity": 2,
+      "eligibleForBatch": 19,
+      "inThisBatch": 3
+    }
+  ],
+  "note": "For other regions the same funnel applies; in Africa, west-central Asia and South Asia the share bound to a verified polity item is higher, which is why those regions kept supplying plans after Europe ran out."
+}

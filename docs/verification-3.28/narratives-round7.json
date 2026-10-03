@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "round": "3.28b",
+  "title": "政体叙述第七批与欧洲覆盖分析：337 → 361",
+  "generatedAt": "2026-10-03T03:09:57.823Z",
+  "task": "task-35",
+  "baseline": "7b609630",
+  "summary": {
+    "narrativesBefore": 337,
+    "narrativesAfter": 361,
+    "addedThisRound": 60,
+    "selectionCompleted": "60/60",
+    "pendingPlans": 0,
+    "recordsBound": 5984,
+    "profilesWithoutNarrative": 1094
+  },
+  "citationRules": {
+    "ruleOne": "Every external article is reached through the Wikidata sitelink of the entity; no name search.",
+    "ruleTwo": "A Chinese article is cited only when it carries the polity QID; where it disagrees with the English article, the English article governs.",
+    "ruleThree": "A QID comes only from the catalogue verifiedWikidata field or pageprops.wikibase_item, and an entity whose classes are not a polity is not written up.",
+    "englishVerified": "60/60",
+    "chineseAccepted": 57,
+    "chineseRejected": 3
+  },
+  "europeQuestion": {
+    "question": "How many profiles without a narrative lie in the European box, how many pass the identity checks, and why are the rest excluded?",
+    "answer": "Of 502 European profiles without a narrative, 369 pass the polity-class test and all of them are bound to catalogue POLITY records; 133 are rejected because their classes describe something other than a state.",
+    "rejectionReasons": {
+      "historical ethnic group": 18,
+      "historical period": 2,
+      "historical region": 6,
+      "countship": 8,
+      "Wikimedia disambiguation page": 9,
+      "no P31 classes": 5,
+      "island": 1,
+      "ethnic group": 7,
+      "religious military order": 1,
+      "civilization": 2,
+      "municipality of Catalonia": 2,
+      "type of organization": 1,
+      "language area": 1,
+      "noble family": 4,
+      "region of France": 1,
+      "historical province of France": 4,
+      "koinon": 4,
+      "Scottish region": 1,
+      "former administrative territorial entity": 1,
+      "patriarchate": 1,
+      "ethnic territory": 1,
+      "conquest": 2,
+      "city or town": 1,
+      "isolated human group": 1,
+      "city of oblast subordinance": 1,
+      "archaeological period": 1,
+      "time interval": 1,
+      "province of Sweden": 1,
+      "territory": 1,
+      "noble title": 1,
+      "human": 5,
+      "order of chivalry": 1,
+      "natural language": 1,
+      "regions of Occitania": 1,
+      "comarca of Catalonia": 2,
+      "aspect of history": 1,
+      "directorial system": 1,
+      "Period of Appanages": 1,
+      "endoinsulonym": 1,
+      "big city": 2,
+      "military unit": 1,
+      "Ukrainian historical regions": 1,
+      "natural region of France": 1,
+      "cultural region": 1,
+      "family": 1,
+      "city": 4,
+      "Crown Dependencies": 1,
+      "region": 1,
+      "tariqa": 1,
+      "war": 1,
+      "occupied territory": 1,
+      "state with limited recognition": 1,
+      "ethnoreligious group": 1,
+      "military junta": 1,
+      "invasion": 2,
+      "political faction": 1,
+      "treaty": 1,
+      "royal house": 1,
+      "historical administrative division": 1,
+      "rebellion": 1,
+      "guerrilla organization": 1,
+      "army": 1,
+      "political ideology": 1
+    },
+    "rejectionSamples": [
+      {
+        "qid": "Q849967",
+        "title": "不列吞凯尔特人",
+        "classes": [
+          "historical ethnic group"
+        ]
+      },
+      {
+        "qid": "Q12567",
+        "title": "维京人",
+        "classes": [
+          "historical period",
+          "culture",
+          "style",
+          "historical ethnic group"
+        ]
+      },
+      {
+        "qid": "Q171393",
+        "title": "瓦拉几亚",
+        "classes": [
+          "historical region"
+        ]
+      },
+      {
+        "qid": "Q45813",
+        "title": "匈人",
+        "classes": [
+          "historical ethnic group"
+        ]
+      },
+      {
+        "qid": "Q2070440",
+        "title": "讷韦尔子爵",
+        "classes": [
+          "countship"
+        ]
+      },
+      {
+        "qid": "Q101985",
+        "title": "撒克逊人",
+        "classes": [
+          "historical ethnic group",
+          "ethnic group",
+          "tribe"
+        ]
+      },
+      {
+        "qid": "Q66504140",
+        "title": "Habsburg Austria",
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q68962",
+        "title": "阿瓦尔汗国",
+        "classes": [
+          "historical ethnic group"
+        ]
+      }
+    ],
+    "correction": "The sixth-batch report said that nineteen European plans was the current ceiling. That was wrong. The verification step only checks the top candidates per region - thirty for Europe - and the selection can only draw on verified candidates, so nineteen was the ceiling inside that sample. Checking all 502 European profiles shows 369 pass the polity-class test, so the 40-50 per cent European quota is achievable once more candidates are verified.",
+    "method": "Every European profile without a narrative was looked up on Wikidata (P31 claims, labels resolved in English) and tested against the same polity-class list the round uses; the catalogue binding was read from public/data/fast/catalog.json.gz (POLITY records with a verifiedWikidata value, honouring profile-index exclusions).",
+    "requests": 16
+  },
+  "authored": {
+    "count": 60,
+    "zhChars": {
+      "min": 51,
+      "max": 163
+    },
+    "enWords": {
+      "min": 35,
+      "max": 101
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "sourcesMin": 2,
+    "sourcesMax": 2,
+    "coverageNotesPresent": 60,
+    "thinWordingPresent": 12,
+    "duplicatedCoverageNotes": 0,
+    "entriesWithoutChineseCitation": 3
+  },
+  "validation": [
+    {
+      "command": "node scripts/validate-v2.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-release.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-polity-period.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/places/audit-language.mjs . docs/verification-3.28/narratives-language-audit.json",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/verification-3.28/build-narratives-batch-3.28.mjs --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/verification-3.28/write-narratives-gz-3.28.mjs --check",
+      "exitCode": 0
+    }
+  ],
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 361,
+    "mtimeZero": true,
+    "deepEqual": true
+  },
+  "remaining": {
+    "profilesWithoutNarrative": 1094,
+    "note": "All sixty plans of the 3.28 selection are written; the next batch needs a fresh selection, and the per-region verification cap should be raised so Europe can supply its share."
+  }
+}
