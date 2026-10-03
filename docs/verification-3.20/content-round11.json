@@ -1,0 +1,1102 @@
+{
+  "schemaVersion": 1,
+  "round": "3.20",
+  "title": "内容第十一轮：最后 13 条升级完毕，结构化索引归零（291 → 0）",
+  "generatedAt": "2026-10-03T01:02:55.388Z",
+  "task": "task-23",
+  "baseline": "7b609630",
+  "head": "edd0d2c1",
+  "summary": {
+    "eventsTotal": 709,
+    "structuredBefore": 13,
+    "structuredAfter": 0,
+    "upgradedThisRound": 13,
+    "promotedEditorial": 291,
+    "battles": 603,
+    "pipelineComplete": true
+  },
+  "ledger": {
+    "initialPool": 291,
+    "reRankedPool": 133,
+    "upgradedTotal": 291,
+    "batches": [
+      {
+        "round": "3.14",
+        "window": "ranks 1-40 (3.14 ranking)",
+        "count": 40,
+        "cumulative": 40,
+        "yearCorrections": 0,
+        "labelVersusArticleTitle": 6
+      },
+      {
+        "round": "3.15",
+        "window": "ranks 41-100 minus 2 deferred",
+        "count": 58,
+        "cumulative": 98,
+        "yearCorrections": 0,
+        "labelVersusArticleTitle": 15
+      },
+      {
+        "round": "3.16",
+        "window": "ranks 101-161 minus 1 deferred",
+        "count": 60,
+        "cumulative": 158,
+        "yearCorrections": 0,
+        "labelVersusArticleTitle": 13
+      },
+      {
+        "round": "3.17",
+        "window": "3.17 ranking ranks 1-40",
+        "count": 40,
+        "cumulative": 198,
+        "yearCorrections": 5,
+        "labelVersusArticleTitle": 10
+      },
+      {
+        "round": "3.18",
+        "window": "3.17 ranking ranks 41-80",
+        "count": 40,
+        "cumulative": 238,
+        "yearCorrections": 2,
+        "labelVersusArticleTitle": 13
+      },
+      {
+        "round": "3.19",
+        "window": "3.17 ranking ranks 81-120",
+        "count": 40,
+        "cumulative": 278,
+        "yearCorrections": 1,
+        "labelVersusArticleTitle": 17
+      },
+      {
+        "round": "3.20",
+        "window": "3.17 ranking ranks 121-133",
+        "count": 13,
+        "cumulative": 291,
+        "yearCorrections": 0,
+        "labelVersusArticleTitle": 2
+      }
+    ],
+    "yearCorrections": [
+      {
+        "round": "3.17",
+        "qid": "Q111383245",
+        "id": "v312wd-q111383245",
+        "from": 2020,
+        "to": 2022,
+        "reason": "维基数据 P585 精度为年代（2020s），索引条目因此记为 2020 年；中英文维基条目均记交火自 2022 年开始、2024 年 2 月 17 日乌军撤离，本条采用 2022–2024 年。"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q112206624",
+        "id": "v312wd-q112206624",
+        "from": 2020,
+        "to": 2022,
+        "reason": "维基数据 P585 精度为年代（2020s）；中文维基记2022年4月在克雷明纳的交战，英文条目（克雷明纳条目重定向至顿巴斯攻势）记攻势始于2022年4月18日。"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q2274112",
+        "id": "v312wd-q2274112",
+        "from": 1600,
+        "to": 1614,
+        "reason": "中英文维基条目均记为1614年11月26日；维基数据 P585 记为1600年12月26日，与该战役所属的大坂冬之阵（1614–1615年）矛盾，本条采用条目正文年份。"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q1644792",
+        "id": "v312wd-q1644792",
+        "from": -497,
+        "to": -496,
+        "reason": "英文维基正文指出此战年代自古不明：李维系于公元前499年，狄奥尼修斯等作前496年，现代学者另有前493、前489年之说；维基数据 P585 精度为年代（前490年代）。本条采用正文最常引用的前496年（记作 −496）。"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q1036947",
+        "id": "v312wd-q1036947",
+        "from": -1178,
+        "to": -1175,
+        "reason": "维基数据 P585 为 ISO 天文纪年 −1178（即公元前1179年），英文维基正文记该战役发生于约公元前1175年；本条采用正文的约数年份并记作 −1175，约数性质在 notes 中说明。"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q1443091",
+        "id": "v312wd-q1443091",
+        "from": 1504,
+        "to": 1503,
+        "reason": "英文维基正文与维基数据P585均记1503年12月29日（精度到日），而结构化索引年为1504；本条以来源正文为准采用1503年，只保留年份精度。"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q2888964",
+        "id": "v312wd-q2888964",
+        "from": 1185,
+        "to": 1184,
+        "reason": "英文维基正文明确记该战役发生于1184年（源平合战期间源范赖渡海攻藤户），而索引年与维基数据P585为1185年1月10日（精度到日）；差异可能源于旧历年末与公历年初的换算。本条以条目正文为准采用1184年。"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q786657",
+        "id": "v312wd-q786657",
+        "from": 2000,
+        "to": 1811,
+        "reason": "英文维基正文明确记该战役发生于1811年1月（瓜达拉哈拉以东，墨西哥独立战争），而结构化索引年与维基数据P585为2000年1月17日；该P585值显然是年份录入错误，本条以条目正文为准采用1811年，并同步修正战役层。"
+      }
+    ],
+    "labelVersusArticleTitle": [
+      {
+        "round": "3.14",
+        "qid": "Q605321",
+        "label": "Battle of Panipat",
+        "article": "First Battle of Panipat",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.14",
+        "qid": "Q139808",
+        "label": "Battle of the Maureaco Fields",
+        "article": "Battle of the Catalaunian Plains",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.14",
+        "qid": "Q108102583",
+        "label": "Fall of Kabul",
+        "article": "Fall of Kabul (2021)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.14",
+        "qid": "Q47465940",
+        "label": "Turkish military operation in Afrin",
+        "article": "Operation Olive Branch",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.14",
+        "qid": "Q603549",
+        "label": "Battle of Nahāvand",
+        "article": "Battle of Nahavand",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.14",
+        "qid": "Q18071930",
+        "label": "Siege of Kobanî",
+        "article": "Siege of Kobani",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q112016",
+        "label": "Battle of the Persian Gate on the Mountain",
+        "article": "Battle of the Persian Gate",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q63146684",
+        "label": "Battles of Bedriacum",
+        "article": "Battle of Bedriacum",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q2588587",
+        "label": "Battle of Nisibis",
+        "article": "Battle of Nisibis (217)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q602880",
+        "label": "Battle of Anchialus",
+        "article": "Battle of Anchialus (708)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q1887494",
+        "label": "Battle of Uji",
+        "article": "Battle of Uji (1180)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q1137980",
+        "label": "Battle of Ravenna",
+        "article": "Battle of Ravenna (1512)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q233414",
+        "label": "Battle of Panipat",
+        "article": "Second Battle of Panipat",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q1193959",
+        "label": "Battle of Toba-Fushimi",
+        "article": "Battle of Toba–Fushimi",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q2665626",
+        "label": "Battle of Beersheba",
+        "article": "Battle of Beersheba (1917)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q199371",
+        "label": "Battle of Megiddo",
+        "article": "Battle of Megiddo (1918)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q709333",
+        "label": "Battle of Changsha",
+        "article": "Battle of Changsha (1939)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q696931",
+        "label": "Battle of Manila",
+        "article": "Battle of Manila (1945)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q699093",
+        "label": "Ruhr Pocket",
+        "article": "Ruhr pocket",
+        "kind": "case-only"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q1804983",
+        "label": "Battle of Baghdad",
+        "article": "Battle of Baghdad (2003)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.15",
+        "qid": "Q101305942",
+        "label": "Battle of Shusha",
+        "article": "Battle of Shusha (2020)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q3827914",
+        "label": "Battle of Xingyang",
+        "article": "Battle of Xingyang (190)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q1281559",
+        "label": "Battle of Isonzo",
+        "article": "Battle of Isonzo (489)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q851504",
+        "label": "Battle of Vouille",
+        "article": "Battle of Vouillé",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q1987213",
+        "label": "Battle of Dyrrhachium",
+        "article": "Battle of Dyrrhachium (1081)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q840006",
+        "label": "Battle of Stockach",
+        "article": "Battle of Stockach (1800)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q2890355",
+        "label": "Battle of Verona",
+        "article": "Battle of Verona (1805)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q857434",
+        "label": "Battle of Caldiero",
+        "article": "Battle of Caldiero (1805)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q4087313",
+        "label": "Battle of Peking",
+        "article": "Battle of Peking (1900)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q2748375",
+        "label": "Black Friday",
+        "article": "Black Friday (1945)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q379433",
+        "label": "Operation Ten-Go",
+        "article": "Operation Kikusui I",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q15913566",
+        "label": "Battle of O͘-gû-lân",
+        "article": "Battle of O-gu-lan",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q18639122",
+        "label": "Battle of Ramadi",
+        "article": "Battle of Ramadi (2014–2015)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.16",
+        "qid": "Q22117640",
+        "label": "Battle of Avdiivka",
+        "article": "Battle of Avdiivka (2017)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q767124",
+        "label": "Battle of Ctesiphon",
+        "article": "Battle of Ctesiphon (363)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q639827",
+        "label": "Siege of Damascus",
+        "article": "Siege of Damascus (634)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q652320",
+        "label": "Battle of Toulouse",
+        "article": "Battle of Toulouse (721)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q382967",
+        "label": "Siege of Damascus",
+        "article": "Siege of Damascus (1148)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q1148862",
+        "label": "Battle of Fariskur",
+        "article": "Battle of Fariskur (1250)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q2888296",
+        "label": "Conquest of Ceuta",
+        "article": "Portuguese conquest of Ceuta",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q2420811",
+        "label": "Battle of Mount Tabor",
+        "article": "Battle of Mount Tabor (1799)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q1420382",
+        "label": "Battle of Tel el-Kebir",
+        "article": "Battle of Tell El Kebir",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q118445706",
+        "label": "Battle of La Plata",
+        "article": "Battle of La Plata (1957)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.17",
+        "qid": "Q111383245",
+        "label": "Battle of Avdiivka",
+        "article": "Battle of Avdiivka (2023–2024)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q2281774",
+        "label": "Battle of Marj al-Rahit",
+        "article": "Battle of Marj Rahit (684)",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q1747219",
+        "label": "Battle of Avignon",
+        "article": "Siege of Avignon (737)",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q966312",
+        "label": "Battle of Anchialus",
+        "article": "Battle of Anchialus (763)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q1443091",
+        "label": "Battle of Garigliano",
+        "article": "Battle of Garigliano (1503)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q592069",
+        "label": "Battle of Sellenberk",
+        "article": "Battle of Șelimbăr",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q2750968",
+        "label": "Battle of Alexandria",
+        "article": "Battle of Alexandria (1801)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q1192867",
+        "label": "Battle of Pułtusk",
+        "article": "Battle of Pułtusk (1806)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q908888",
+        "label": "1842 retreat from Kabul",
+        "article": "Battle of Gandamak",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q220766",
+        "label": "Battle of Manzikert",
+        "article": "Battle of Manzikert (1915)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q936223",
+        "label": "Battle of Kara Killisse",
+        "article": "Battle of Kara Killisse (1915)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q2889635",
+        "label": "Final operations in Slovenia",
+        "article": "Battle of Poljana",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q5432157",
+        "label": "Fall of Kabul",
+        "article": "Fall of Kabul (2001)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.18",
+        "qid": "Q20045970",
+        "label": "Battle of Marinka",
+        "article": "Battle of Marinka (2015)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q1268339",
+        "label": "Battle of Beth Horon",
+        "article": "Battle of Beth Horon (166 BC)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q3496783",
+        "label": "Battle of Beth Horon",
+        "article": "Battle of Beth Horon (66)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q2457256",
+        "label": "Battle of Orleans",
+        "article": "Battle of Orléans (463)",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q303176",
+        "label": "Battle of Manila",
+        "article": "Battle of Manila (1898)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q5123963",
+        "label": "Bloody Sunday",
+        "article": "Bloody Sunday (1900)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q2624980",
+        "label": "Battle of Tobruk",
+        "article": "Battle of Tobruk (1911)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q2053030",
+        "label": "Battle of Givenchy",
+        "article": "Winter operations 1914–1915",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q250383",
+        "label": "Action at Néry",
+        "article": "Affair of Néry",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q4271928",
+        "label": "Battle of Balikpapan",
+        "article": "Battle of Balikpapan (1945)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q2889954",
+        "label": "Battle of Saigon",
+        "article": "Battle of Saigon (1968)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q4871330",
+        "label": "Battle of Jenin",
+        "article": "Battle of Jenin (2002)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q4872157",
+        "label": "Battle of Ramadi",
+        "article": "Battle of Ramadi (2004)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q2889747",
+        "label": "Battle of Ramadi",
+        "article": "Battle of Ramadi (2006)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q4872168",
+        "label": "Battle of Ras Kamboni",
+        "article": "Battle of Ras Kamboni (2007)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q1754030",
+        "label": "2008 Mardakert skirmishes",
+        "article": "2008 Mardakert clashes",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q1753755",
+        "label": "2010 Mardakert skirmishes",
+        "article": "2010 Mardakert clashes",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.19",
+        "qid": "Q21685887",
+        "label": "Battle of Ramadi",
+        "article": "Battle of Ramadi (2015–2016)",
+        "kind": "qualified-with-year-or-epithet"
+      },
+      {
+        "round": "3.20",
+        "qid": "Q3486072",
+        "label": "Battle of Akhalzic",
+        "article": "Battle of Akhaltsikhe",
+        "kind": "renamed"
+      },
+      {
+        "round": "3.20",
+        "qid": "Q4930640",
+        "label": "Bluff Cove Air Attacks",
+        "article": "Bluff Cove air attacks",
+        "kind": "case-only"
+      }
+    ],
+    "labelVersusArticleTitleTotal": 76,
+    "labelQualifiedWithYear": 52,
+    "deferrals": [
+      {
+        "round": "3.15",
+        "qids": [
+          "Q111383245",
+          "Q112206624"
+        ],
+        "reason": "Wikidata P585 contradicted both Wikipedia articles; both were upgraded in 3.17 with documented year corrections."
+      },
+      {
+        "round": "3.16",
+        "qids": [
+          "Q2274112"
+        ],
+        "reason": "Wikidata P585 recorded 1600 while both articles date the battle to 1614; upgraded in 3.17 with a documented correction."
+      }
+    ],
+    "evidence": {
+      "3.18 label check": {
+        "checked": 13,
+        "byVerdict": {
+          "missing": 1,
+          "wrong-event": 2,
+          "same-event-article": 4,
+          "overview": 1,
+          "disambiguation": 4,
+          "broader-article": 1
+        }
+      },
+      "3.19 label check": {
+        "checked": 14,
+        "byVerdict": {
+          "disambiguation": 10,
+          "same-event-article": 4
+        }
+      },
+      "3.20 label check": {
+        "checked": 2,
+        "pages": [
+          "Battle of Akhalzic -> Battle of Akhaltsikhe [same-event-page-with-caveat]",
+          "Bluff Cove Air Attacks -> Bluff Cove air attacks [same-event-article]"
+        ]
+      }
+    }
+  },
+  "events": {
+    "count": 13,
+    "zhChars": {
+      "min": 110,
+      "max": 130
+    },
+    "enWords": {
+      "min": 51,
+      "max": 60
+    },
+    "englishArticle": 13,
+    "chineseArticle": 0,
+    "withoutChineseArticle": 13,
+    "correctedYears": 0,
+    "dabOverride": [
+      {
+        "qid": "Q3486072",
+        "title": "Battle of Akhaltsikhe",
+        "reason": "The recorded title is flagged as a disambiguation page by the introduction heuristic, but the page is a short article documenting the 1828 offensive (this entry) and the 1829 defence of the same fortress; it was read in this session and the entry states the caveat in its notes."
+      }
+    ],
+    "entries": [
+      {
+        "rank": 121,
+        "id": "v312wd-q2888378",
+        "qid": "Q2888378",
+        "titleZh": "太古之战",
+        "titleEn": "Battle of Taegu",
+        "year": 1950,
+        "end": 1950,
+        "region": "east-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2888378",
+          "https://en.wikipedia.org/wiki/Battle_of_Taegu"
+        ]
+      },
+      {
+        "rank": 122,
+        "id": "v312wd-q2889338",
+        "qid": "Q2889338",
+        "titleZh": "米尔巴特之战",
+        "titleEn": "Battle of Mirbat",
+        "year": 1972,
+        "end": 1972,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2889338",
+          "https://en.wikipedia.org/wiki/Battle_of_Mirbat"
+        ]
+      },
+      {
+        "rank": 123,
+        "id": "v312wd-q4930640",
+        "qid": "Q4930640",
+        "titleZh": "被阿根廷空袭",
+        "titleEn": "Bluff Cove air attacks",
+        "year": 1982,
+        "end": 1982,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4930640",
+          "https://en.wikipedia.org/wiki/Bluff_Cove_air_attacks"
+        ]
+      },
+      {
+        "rank": 124,
+        "id": "v312wd-q2890373",
+        "qid": "Q2890373",
+        "titleZh": "瓦纳特战役",
+        "titleEn": "Battle of Wanat",
+        "year": 2008,
+        "end": 2008,
+        "region": "south-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2890373",
+          "https://en.wikipedia.org/wiki/Battle_of_Wanat"
+        ]
+      },
+      {
+        "rank": 125,
+        "id": "v312wd-q2889133",
+        "qid": "Q2889133",
+        "titleZh": "列里方丹战役",
+        "titleEn": "Battle of Leliefontein",
+        "year": 1900,
+        "end": 1900,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2889133",
+          "https://en.wikipedia.org/wiki/Battle_of_Leliefontein"
+        ]
+      },
+      {
+        "rank": 126,
+        "id": "v312wd-q4438362",
+        "qid": "Q4438362",
+        "titleZh": "奥科塔尔战役",
+        "titleEn": "Battle of Ocotal",
+        "year": 1927,
+        "end": 1927,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4438362",
+          "https://en.wikipedia.org/wiki/Battle_of_Ocotal"
+        ]
+      },
+      {
+        "rank": 127,
+        "id": "v312wd-q4872743",
+        "qid": "Q4872743",
+        "titleZh": "无线岭战役",
+        "titleEn": "Battle of Wireless Ridge",
+        "year": 1982,
+        "end": 1982,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4872743",
+          "https://en.wikipedia.org/wiki/Battle_of_Wireless_Ridge"
+        ]
+      },
+      {
+        "rank": 128,
+        "id": "v312wd-q1273257",
+        "qid": "Q1273257",
+        "titleZh": "拉拉古纳战役",
+        "titleEn": "Battle of Aguere",
+        "year": 1494,
+        "end": 1494,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1273257",
+          "https://en.wikipedia.org/wiki/Battle_of_Aguere"
+        ]
+      },
+      {
+        "rank": 129,
+        "id": "v312wd-q13423520",
+        "qid": "Q13423520",
+        "titleZh": "奥德河-尼萨河战役",
+        "titleEn": "Battle of the Oder–Neisse",
+        "year": 1945,
+        "end": 1945,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q13423520",
+          "https://en.wikipedia.org/wiki/Battle_of_the_Oder%E2%80%93Neisse"
+        ]
+      },
+      {
+        "rank": 130,
+        "id": "v312wd-q3486072",
+        "qid": "Q3486072",
+        "titleZh": "阿哈尔齐赫之战",
+        "titleEn": "Battle of Akhaltsikhe",
+        "year": 1828,
+        "end": 1828,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3486072",
+          "https://en.wikipedia.org/wiki/Battle_of_Akhaltsikhe"
+        ]
+      },
+      {
+        "rank": 131,
+        "id": "v312wd-q1497922",
+        "qid": "Q1497922",
+        "titleZh": "库里沃夫卡战役",
+        "titleEn": "Battle of Kuryłówka",
+        "year": 1945,
+        "end": 1945,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1497922",
+          "https://en.wikipedia.org/wiki/Battle_of_Kury%C5%82%C3%B3wka"
+        ]
+      },
+      {
+        "rank": 132,
+        "id": "v312wd-q2896424",
+        "qid": "Q2896424",
+        "titleZh": "亚德莫迪凯战役",
+        "titleEn": "Battle of Yad Mordechai",
+        "year": 1948,
+        "end": 1948,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2896424",
+          "https://en.wikipedia.org/wiki/Battle_of_Yad_Mordechai"
+        ]
+      },
+      {
+        "rank": 133,
+        "id": "v312wd-q4871076",
+        "qid": "Q4871076",
+        "titleZh": "甘加尔之战",
+        "titleEn": "Battle of Ganjgal",
+        "year": 2009,
+        "end": 2009,
+        "region": "south-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4871076",
+          "https://en.wikipedia.org/wiki/Battle_of_Ganjgal"
+        ]
+      }
+    ]
+  },
+  "chineseEvidence": {
+    "sitelink": 0,
+    "exactTitleLookup": {
+      "checked": 13,
+      "noPageUnderLabel": 13,
+      "existing": 0
+    },
+    "fullTextSearch": {
+      "ran": false,
+      "reason": "The Chinese Wikipedia search endpoint has returned 429 throughout this session; only the title-based lookup was possible, and it cannot find differently-titled articles or prove absence."
+    },
+    "wording": "All entries and this report say the absence is unconfirmed by this method (本方法未确认) rather than asserting that no Chinese article exists."
+  },
+  "language": {
+    "eventOffenders": 0,
+    "structured": 0,
+    "battleOffenders": 0
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate-cross-layer.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "     events: 709, structured index entries: 0",
+          "PASS Editorial events carry a dated source and a known provenance state",
+          "{\"passed\":3,\"total\":3,\"events\":709,\"battles\":603}"
+        ]
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Wikipedia links preserve source language and full URLs",
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "    ]",
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-places.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"total\": 20,",
+          "  \"failures\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-city-time.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "    }",
+          "  ]",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS All 11307 native archive pieces retain compressed and decoded hashes",
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/places/validate-battles.mjs . docs/verification-3.20/content-battles-validation.json",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Layer metadata records the selection policy and drop counts",
+          "PASS The layer does not duplicate ids or coordinates of existing place datasets",
+          "{\"passed\":8,\"total\":8,\"battles\":603,\"withBelligerents\":423,\"withConflict\":545,\"withReferences\":9,\"withChineseName\":603,\"withEnglishName\":603}"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.20/content-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleAffected\": 0,",
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/places/check-authoring-3.20.mjs --part=docs/verification-3.20/authoring/part-01.json",
+        "exitCode": 0,
+        "lastLines": [
+          "part-01.json v312wd-q1497922 131 1945..1945 zh122 en56 -- EN ",
+          "part-01.json v312wd-q2896424 132 1948..1948 zh125 en58 -- EN ",
+          "part-01.json v312wd-q4871076 133 2009..2009 zh116 en51 -- EN"
+        ]
+      },
+      {
+        "command": "node scripts/places/assemble-events-upgraded-3.20.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "    \"correctedYears\": 0",
+          "  }",
+          "}"
+        ]
+      }
+    ],
+    "crossLayerPassed": 3,
+    "crossLayerTotal": 3,
+    "battleChecksPassed": 8,
+    "battleChecksTotal": 8
+  },
+  "gz": [
+    {
+      "file": "public/data/events.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    },
+    {
+      "file": "public/data/battles.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    }
+  ],
+  "remaining": {
+    "structuredIndexEntries": 0,
+    "structuredIds": [],
+    "noChineseArticle": 13,
+    "note": "The structured index is empty: every ranked entity is now an editorial entry. What remains outside this pipeline is the Chinese-language coverage question (no entry of this final batch has a Chinese article) and the un-run full-text search."
+  }
+}
