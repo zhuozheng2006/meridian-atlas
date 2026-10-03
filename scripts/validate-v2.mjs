@@ -15,9 +15,38 @@ check('Unreferenced, deprecated and unknown statements stay out of sourced fact 
 check('Year-matched claims require adequate precision and bounded dates or a point date',()=>{const date=y=>({civilYear:y,precision:9});const s={temporal:{start:[date(100)],end:[date(200)]}};assert(statementApplies(s,100));assert(statementApplies(s,200));assert(!statementApplies(s,99));assert(!statementApplies(s,201));assert(!statementApplies({temporal:{start:[date(100)]}},101));assert(!statementApplies({temporal:{point:[{civilYear:100,precision:7}]}},100));assert(statementApplies({temporal:{point:[date(-1)]}},-1));assert(!statementApplies({temporal:{point:[date(-1)]}},1));});
 check('Known source identity/period conflicts cannot load factual dossiers',()=>{const r={id:'clio-00948',name:'Great Yuan',verifiedWikidata:'Q7313'};assert(!bindingAllowsProfile({qid:'Q7313',temporalCompatibility:{status:'potential_conflict'}},r));assert(!bindingAllowsProfile({qid:'Q1'},r));assert(!bindingAllowsProfile(undefined,r));assert(!bindingAllowsProfile({qid:'Q7313'},{...r,nameTranslationStatus:'ambiguous_source_period'}));assert(bindingAllowsProfile({qid:'Q7313',temporalCompatibility:{status:'no_detected_conflict'}},r));const a=[{...r,type:'POLITY',start:-110,end:-64},{...r,id:'later',type:'POLITY',start:1271,end:1368}];assert.deepEqual(periodChain(a,a[0]).map(x=>x.id),[r.id]);});
 check('Curated narratives match identity, exact record IDs and the selected period',()=>{const r={id:'one',name:'Example',verifiedWikidata:'Q1'},e={qid:'Q1',sourceNames:['Example'],recordIdsOverlappingScope:['one'],scope:{start:1643,end:1715}};assert(narrativeApplies(e,r,1700));assert(!narrativeApplies(e,r,1500));assert(!narrativeApplies(e,{...r,verifiedWikidata:'Q2'},1700));assert(!narrativeApplies(e,{...r,id:'two'},1700));});
+check('Every enrichment profile declares its boundary coverage and the declaration matches the records',()=>{
+ const index=json('public/data/enrichment/profile-index.json.gz');
+ const boundQids=new Set(Object.values(index.records).map(binding=>binding.qid));
+ const noTerritory=[];
+ for(const [qid,profile] of Object.entries(index.profiles)){
+  assert(['source-records','not-in-source'].includes(profile.boundaryCoverage),qid+' must declare boundaryCoverage');
+  const full=json('public/data/enrichment/'+profile.file);
+  assert.equal(full.qid,qid,qid+' profile file identity');
+  if(profile.boundaryCoverage==='source-records'){
+   assert(boundQids.has(qid),qid+' declares source-records but no catalogue record binds to it');
+   continue;
+  }
+  noTerritory.push(qid);
+  assert(!boundQids.has(qid),qid+' declares not-in-source but a catalogue record binds to it');
+  assert.equal(full.boundaryCoverage,'not-in-source',qid+' profile file must repeat boundaryCoverage');
+  const evidence=full.boundaryCoverageEvidence;
+  assert(evidence&&evidence.status==='not-in-source',qid+' needs boundaryCoverageEvidence with status not-in-source');
+  assert(evidence.checkedOn,qid+' coverage evidence needs checkedOn');
+  assert(evidence.dataset&&evidence.dataset.commit&&evidence.dataset.sha256,qid+' coverage evidence needs the pinned dataset identity');
+  assert(Array.isArray(evidence.sources)&&evidence.sources.length>=2,qid+' needs at least two coverage sources');
+  for(const source of evidence.sources){assert(String(source.url).startsWith('https://'),qid+' coverage source must be https');assert(source.checkedOn,qid+' coverage source needs checkedOn')}
+ }
+ const declared=index.coverage?.boundaryCoverage;
+ assert(declared,'profile index needs coverage.boundaryCoverage');
+ assert.deepEqual(noTerritory.slice().sort(),(declared.noTerritoryQids||[]).slice().sort(),'coverage.noTerritoryQids must list exactly the not-in-source profiles');
+ assert.equal(declared.notInSource,noTerritory.length);
+ assert.equal(declared.sourceRecords,Object.keys(index.profiles).length-noTerritory.length);
+ assert(declared.sourceRecords>=1450,'the source-record profiles must not shrink');
+});
 check('Compressed event archive equals editable full event JSON',()=>assert.deepEqual(json('public/data/events.json.gz'),events));
 check('Compressed enrichment narratives equal the editable source',()=>assert.deepEqual(json('public/data/enrichment/narratives.json.gz'),json('public/data/enrichment/narratives.json')));
-check('Enrichment profile paths, fact references and narrative bindings are internally consistent',()=>{const index=json('public/data/enrichment/profile-index.json.gz'),narr=json('public/data/enrichment/narratives.json');assert.equal(Object.keys(index.profiles).length,1450);for(const [qid,p]of Object.entries(index.profiles)){const full=json('public/data/enrichment/'+p.file);assert.equal(full.qid,qid);for(const statements of Object.values(full.fields))for(const s of statements){if(visibleStatement(s))assert(s.references.length,s.statementId);assert(s.sourceUrl.startsWith('https://www.wikidata.org/'));}}for(const e of narr.entries){assert(e.sections.politics.zh&&e.sections.politics.en);for(const f of [...Object.values(e.sections),...(e.facts||[])])for(const id of f.sourceIds)assert(e.sources.some(s=>s.id===id));for(const id of e.recordIdsOverlappingScope){const r=fast.records.find(r=>r.id===id);assert(r&&r.verifiedWikidata===e.qid&&e.sourceNames.includes(r.name));assert(r.start<=e.scope.end&&e.scope.start<=r.end);}}});
+check('Enrichment profile paths, fact references and narrative bindings are internally consistent',()=>{const index=json('public/data/enrichment/profile-index.json.gz'),narr=json('public/data/enrichment/narratives.json');assert.equal(Object.values(index.profiles).filter(p=>p.boundaryCoverage==='source-records').length,1450);for(const [qid,p]of Object.entries(index.profiles)){const full=json('public/data/enrichment/'+p.file);assert.equal(full.qid,qid);for(const statements of Object.values(full.fields))for(const s of statements){if(visibleStatement(s))assert(s.references.length,s.statementId);assert(s.sourceUrl.startsWith('https://www.wikidata.org/'));}}for(const e of narr.entries){assert(e.sections.politics.zh&&e.sections.politics.en);for(const f of [...Object.values(e.sections),...(e.facts||[])])for(const id of f.sourceIds)assert(e.sources.some(s=>s.id===id));for(const id of e.recordIdsOverlappingScope){const r=fast.records.find(r=>r.id===id);assert(r&&r.verifiedWikidata===e.qid&&e.sourceNames.includes(r.name));assert(r.start<=e.scope.end&&e.scope.start<=r.end);}}});
 const years=[-221,1,1000,1492,1750,1914,2024];const performance={catalogBefore:read('public/data/catalog.json.gz').length,catalogAfter:read('public/data/fast/catalog.json.gz').length,eventGzip:read('public/data/events.json.gz').length,years:years.map(year=>{const files=[...new Set(activeRecords(canonical,year).map(r=>canonical.geometryIndex[r.geometryId]+'.gz'))];return {year,previousGeometryBytes:files.reduce((n,f)=>n+read('public/data/'+f).length,0),bootstrapGeometryBytes:read(`public/data/fast/year-${year}.json.gz`).length};})};
 check('Initial atlas payload is substantially smaller than v1',()=>{assert(performance.catalogAfter<performance.catalogBefore*.5);for(const y of performance.years)assert(y.bootstrapGeometryBytes<y.previousGeometryBytes*.1,String(y.year));});
 console.log(JSON.stringify({result:'passed',checks,events:events.length,performance},null,2));

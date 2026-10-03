@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T01:26:47.720Z",
+  "generatedAt": "2026-10-03T01:33:28.662Z",
   "task": "task-25",
   "purpose": "Resolve why thirteen important polities appeared to have no enrichment profile, correct the 3.21 claim where it was wrong, and record what the pinned boundary source actually contains.",
   "sourcePin": {
@@ -54,7 +54,7 @@
     "polityRecords": 13380,
     "relationRecords": 385,
     "cataloguePolityQids": 1451,
-    "profiles": 1450,
+    "profiles": 1455,
     "catalogueQidsWithoutProfile": [
       "Q6000379"
     ],
@@ -212,25 +212,32 @@
         "reason": "no_verified_entity"
       }
     ],
-    "profilesWithoutCatalogueRecord": []
+    "profilesWithoutCatalogueRecord": [
+      "Q596092",
+      "Q171203",
+      "Q468814",
+      "Q3107156",
+      "Q842390"
+    ]
   },
   "thirteen": [
     {
       "probedQid": "Q209217",
-      "titleZh": "大津巴布韦",
-      "catalogueQid": "Q209217",
-      "corrected": false,
+      "titleZh": "津巴布韦王国",
+      "catalogueQid": "Q596092",
+      "corrected": true,
       "catalogueName": null,
       "recordCount": 0,
       "from": null,
       "to": null,
-      "profile": false,
-      "profileFile": null,
-      "profileFields": 0,
-      "profileStatements": 0,
-      "labelZh": null,
-      "labelEn": null,
-      "narrative": null
+      "profile": true,
+      "profileFile": "profiles/Q596092.json.gz",
+      "profileFields": 5,
+      "profileStatements": 5,
+      "labelZh": "津巴布韦王国",
+      "labelEn": "Kingdom of Zimbabwe",
+      "narrative": null,
+      "status": "not-in-source-profile"
     },
     {
       "probedQid": "Q1136041",
@@ -247,7 +254,8 @@
       "profileStatements": 8,
       "labelZh": "加涅姆-博尔努帝国",
       "labelEn": "Kanem-Bornu Empire",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q477423",
@@ -264,24 +272,26 @@
       "profileStatements": 12,
       "labelZh": "刚果王国",
       "labelEn": "Kingdom of Kongo",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q662922",
-      "titleZh": "贝宁王国",
-      "catalogueQid": "Q662922",
-      "corrected": false,
+      "titleZh": "贝宁帝国",
+      "catalogueQid": "Q171203",
+      "corrected": true,
       "catalogueName": null,
       "recordCount": 0,
       "from": null,
       "to": null,
-      "profile": false,
-      "profileFile": null,
-      "profileFields": 0,
-      "profileStatements": 0,
-      "labelZh": null,
-      "labelEn": null,
-      "narrative": null
+      "profile": true,
+      "profileFile": "profiles/Q171203.json.gz",
+      "profileFields": 7,
+      "profileStatements": 7,
+      "labelZh": "贝宁帝国",
+      "labelEn": "Benin Empire",
+      "narrative": null,
+      "status": "not-in-source-profile"
     },
     {
       "probedQid": "Q468814",
@@ -292,13 +302,14 @@
       "recordCount": 0,
       "from": null,
       "to": null,
-      "profile": false,
-      "profileFile": null,
-      "profileFields": 0,
-      "profileStatements": 0,
-      "labelZh": null,
-      "labelEn": null,
-      "narrative": null
+      "profile": true,
+      "profileFile": "profiles/Q468814.json.gz",
+      "profileFields": 9,
+      "profileStatements": 9,
+      "labelZh": "达荷美王国",
+      "labelEn": "Dahomey",
+      "narrative": null,
+      "status": "not-in-source-profile"
     },
     {
       "probedQid": "Q249594",
@@ -315,24 +326,26 @@
       "profileStatements": 1,
       "labelZh": "祖鲁兰",
       "labelEn": "Zululand",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q1740606",
       "titleZh": "基尔瓦苏丹国",
-      "catalogueQid": "Q1740606",
-      "corrected": false,
+      "catalogueQid": "Q3107156",
+      "corrected": true,
       "catalogueName": null,
       "recordCount": 0,
       "from": null,
       "to": null,
-      "profile": false,
-      "profileFile": null,
-      "profileFields": 0,
-      "profileStatements": 0,
-      "labelZh": null,
-      "labelEn": null,
-      "narrative": null
+      "profile": true,
+      "profileFile": "profiles/Q3107156.json.gz",
+      "profileFields": 5,
+      "profileStatements": 5,
+      "labelZh": "基尔瓦苏丹国",
+      "labelEn": "Kilwa Sultanate",
+      "narrative": null,
+      "status": "not-in-source-profile"
     },
     {
       "probedQid": "Q210400",
@@ -349,7 +362,8 @@
       "profileStatements": 9,
       "labelZh": "三佛齐",
       "labelEn": "Srivijaya",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q207982",
@@ -366,7 +380,8 @@
       "profileStatements": 10,
       "labelZh": "大城王国",
       "labelEn": "Ayutthaya Kingdom",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q1062587",
@@ -383,7 +398,8 @@
       "profileStatements": 6,
       "labelZh": "蒲甘王国",
       "labelEn": "Pagan kingdom",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q1052477",
@@ -400,24 +416,26 @@
       "profileStatements": 11,
       "labelZh": "亚齐苏丹国",
       "labelEn": "Aceh Sultanate",
-      "narrative": "3.12"
+      "narrative": "3.12",
+      "status": "catalogue-profile"
     },
     {
       "probedQid": "Q1056778",
-      "titleZh": "汤加",
-      "catalogueQid": "Q1056778",
-      "corrected": false,
+      "titleZh": "图依汤加帝国",
+      "catalogueQid": "Q842390",
+      "corrected": true,
       "catalogueName": null,
       "recordCount": 0,
       "from": null,
       "to": null,
-      "profile": false,
-      "profileFile": null,
-      "profileFields": 0,
-      "profileStatements": 0,
-      "labelZh": null,
-      "labelEn": null,
-      "narrative": null
+      "profile": true,
+      "profileFile": "profiles/Q842390.json.gz",
+      "profileFields": 8,
+      "profileStatements": 8,
+      "labelZh": "图依汤加帝国",
+      "labelEn": "Tuʻi Tonga Empire",
+      "narrative": null,
+      "status": "not-in-source-profile"
     },
     {
       "probedQid": "Q14452",
@@ -434,7 +452,8 @@
       "profileStatements": 0,
       "labelZh": null,
       "labelEn": null,
-      "narrative": null
+      "narrative": null,
+      "status": "no-polity-item"
     }
   ],
   "sevenResolved": [
@@ -516,30 +535,65 @@
       "narrative": "3.12"
     }
   ],
-  "sixAbsent": [
+  "noTerritoryProfiles": [
     {
-      "qid": "Q209217",
-      "titleZh": "大津巴布韦"
+      "probedQid": "Q209217",
+      "qid": "Q596092",
+      "titleZh": "津巴布韦王国",
+      "profileFile": "profiles/Q596092.json.gz"
     },
     {
-      "qid": "Q662922",
-      "titleZh": "贝宁王国"
+      "probedQid": "Q662922",
+      "qid": "Q171203",
+      "titleZh": "贝宁帝国",
+      "profileFile": "profiles/Q171203.json.gz"
     },
     {
+      "probedQid": "Q468814",
       "qid": "Q468814",
-      "titleZh": "达荷美"
+      "titleZh": "达荷美",
+      "profileFile": "profiles/Q468814.json.gz"
     },
     {
-      "qid": "Q1740606",
-      "titleZh": "基尔瓦苏丹国"
+      "probedQid": "Q1740606",
+      "qid": "Q3107156",
+      "titleZh": "基尔瓦苏丹国",
+      "profileFile": "profiles/Q3107156.json.gz"
     },
     {
-      "qid": "Q1056778",
-      "titleZh": "汤加"
+      "probedQid": "Q1056778",
+      "qid": "Q842390",
+      "titleZh": "图依汤加帝国",
+      "profileFile": "profiles/Q842390.json.gz"
+    }
+  ],
+  "unresolved": [
+    {
+      "probedQid": "Q14452",
+      "titleZh": "拉帕努伊",
+      "reason": "Wikidata has no polity item for this entity (island Q14452, people Q852486, monarchy Q6413065); no profile was invented."
+    }
+  ],
+  "identityCorrections": [
+    {
+      "probed": "Q662922",
+      "actual": "Löwenwolde (noble family)",
+      "used": "Q171203 Benin Empire"
     },
     {
-      "qid": "Q14452",
-      "titleZh": "拉帕努伊"
+      "probed": "Q1740606",
+      "actual": "Khatuna Mikaberidze (person)",
+      "used": "Q3107156 Kilwa Sultanate"
+    },
+    {
+      "probed": "Q1056778",
+      "actual": "Numbers (Apple application)",
+      "used": "Q842390 Tuʻi Tonga Empire"
+    },
+    {
+      "probed": "Q209217",
+      "actual": "Great Zimbabwe (archaeological site)",
+      "used": "Q596092 Kingdom of Zimbabwe"
     }
   ],
   "correction": {
@@ -573,6 +627,22 @@
       {
         "probed": "Q1052477",
         "real": "Q1061057"
+      },
+      {
+        "probed": "Q209217",
+        "real": "Q596092"
+      },
+      {
+        "probed": "Q662922",
+        "real": "Q171203"
+      },
+      {
+        "probed": "Q1740606",
+        "real": "Q3107156"
+      },
+      {
+        "probed": "Q1056778",
+        "real": "Q842390"
       }
     ]
   },
@@ -581,6 +651,197 @@
     "scripts/validate-v2.mjs asserts that the index holds exactly 1,450 profiles and that every profile file is bound to records; adding unbound profiles would fail the suite and changing that check is outside this round write scope.",
     "The six entities have no geometry in the pinned source, and the task forbids borrowing neighbouring or other-year geometry, so any polygon would be fabricated."
   ],
+  "step1": {
+    "round": "3.22",
+    "profiles": {
+      "schemaVersion": 1,
+      "generatedAt": "2026-10-03T01:32:11.268Z",
+      "task": "task-26",
+      "purpose": "Create enrichment profiles for polities the pinned boundary source does not contain, with a machine-readable boundaryCoverage field.",
+      "dataset": {
+        "repo": "Seshat-Global-History-Databank/cliopatria",
+        "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+        "url": "https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/ad28a691b7c07c1fca89d0e0636d324667d2a258/cliopatria.geojson.zip",
+        "sha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+        "member": "cliopatria_polities_only.geojson",
+        "features": 13765
+      },
+      "entities": [
+        {
+          "qid": "Q596092",
+          "titleZh": "津巴布韦王国",
+          "titleEn": "Kingdom of Zimbabwe",
+          "place": "大津巴布韦 Great Zimbabwe",
+          "fields": {
+            "inception": 1,
+            "dissolution": 1,
+            "instanceOf": 1,
+            "predecessors": 1,
+            "successors": 1
+          },
+          "statementCount": 5,
+          "fieldsWithCitedFacts": [],
+          "wikipedia": {
+            "en": "Kingdom of Great Zimbabwe",
+            "zh": "大津巴布韦"
+          },
+          "sources": [
+            "https://www.wikidata.org/wiki/Q596092",
+            "https://en.wikipedia.org/wiki/Kingdom_of_Great_Zimbabwe",
+            "https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%B4%A5%E5%B7%B4%E5%B8%83%E9%9F%A6"
+          ],
+          "boundaryCoverage": "not-in-source"
+        },
+        {
+          "qid": "Q171203",
+          "titleZh": "贝宁帝国",
+          "titleEn": "Benin Empire",
+          "place": "贝宁城 Benin City",
+          "fields": {
+            "inception": 1,
+            "dissolution": 1,
+            "instanceOf": 1,
+            "P17": 1,
+            "continent": 1,
+            "spokenLanguages": 1,
+            "capital": 1
+          },
+          "statementCount": 7,
+          "fieldsWithCitedFacts": [
+            "continent",
+            "spokenLanguages",
+            "capital"
+          ],
+          "wikipedia": {
+            "en": "Kingdom of Benin",
+            "zh": null
+          },
+          "sources": [
+            "https://www.wikidata.org/wiki/Q171203",
+            "https://en.wikipedia.org/wiki/Kingdom_of_Benin"
+          ],
+          "boundaryCoverage": "not-in-source"
+        },
+        {
+          "qid": "Q468814",
+          "titleZh": "达荷美王国",
+          "titleEn": "Dahomey",
+          "place": "阿波美 Abomey",
+          "fields": {
+            "inception": 1,
+            "dissolution": 1,
+            "capital": 1,
+            "instanceOf": 1,
+            "continent": 1,
+            "successors": 1,
+            "predecessors": 1,
+            "spokenLanguages": 1,
+            "government": 1
+          },
+          "statementCount": 9,
+          "fieldsWithCitedFacts": [
+            "continent",
+            "spokenLanguages",
+            "government"
+          ],
+          "wikipedia": {
+            "en": "Dahomey",
+            "zh": "达荷美王国"
+          },
+          "sources": [
+            "https://www.wikidata.org/wiki/Q468814",
+            "https://en.wikipedia.org/wiki/Dahomey",
+            "https://zh.wikipedia.org/wiki/%E8%BE%BE%E8%8D%B7%E7%BE%8E%E7%8E%8B%E5%9B%BD"
+          ],
+          "boundaryCoverage": "not-in-source"
+        },
+        {
+          "qid": "Q3107156",
+          "titleZh": "基尔瓦苏丹国",
+          "titleEn": "Kilwa Sultanate",
+          "place": "基尔瓦基西瓦尼 Kilwa Kisiwani",
+          "fields": {
+            "instanceOf": 1,
+            "dissolution": 1,
+            "inception": 1,
+            "capital": 1,
+            "P17": 1
+          },
+          "statementCount": 5,
+          "fieldsWithCitedFacts": [],
+          "wikipedia": {
+            "en": "Kilwa Sultanate",
+            "zh": null
+          },
+          "sources": [
+            "https://www.wikidata.org/wiki/Q3107156",
+            "https://en.wikipedia.org/wiki/Kilwa_Sultanate"
+          ],
+          "boundaryCoverage": "not-in-source"
+        },
+        {
+          "qid": "Q842390",
+          "titleZh": "图依汤加帝国",
+          "titleEn": "Tuʻi Tonga Empire",
+          "place": "汤加塔布 Tongatapu",
+          "fields": {
+            "dissolution": 1,
+            "instanceOf": 1,
+            "inception": 1,
+            "government": 1,
+            "capital": 1,
+            "spokenLanguages": 1,
+            "P17": 1,
+            "continent": 1
+          },
+          "statementCount": 8,
+          "fieldsWithCitedFacts": [
+            "capital",
+            "spokenLanguages"
+          ],
+          "wikipedia": {
+            "en": "Tuʻi Tonga Empire",
+            "zh": "图伊汤加帝国"
+          },
+          "sources": [
+            "https://www.wikidata.org/wiki/Q842390",
+            "https://en.wikipedia.org/wiki/Tu%CA%BBi_Tonga_Empire",
+            "https://zh.wikipedia.org/wiki/%E5%9B%BE%E4%BC%8A%E6%B1%A4%E5%8A%A0%E5%B8%9D%E5%9B%BD"
+          ],
+          "boundaryCoverage": "not-in-source"
+        }
+      ],
+      "notes": [
+        "Identity is resolved through the English Wikipedia article -> Wikidata item mapping. The QIDs first quoted for Benin, Kilwa and Tonga (Q662922, Q1740606, Q1056778) point at a noble family, a person and an Apple app and were rejected.",
+        "Rapa Nui has no Wikidata polity item (island Q14452, people Q852486, monarchy Q6413065 only) and no boundary feature, so no polity profile was invented for it.",
+        "boundaryCoverage is \"not-in-source\" for every profile in this batch: the pinned dataset contains no feature for the polity under any tested name or QID, and no geometry was borrowed or estimated."
+      ],
+      "index": {
+        "profileCount": 1455,
+        "markedSourceRecords": 1450,
+        "boundaryCoverage": {
+          "policy": "Every enrichment profile declares whether the pinned boundary source contains territory records for it: \"source-records\" means at least one catalogue record binds to it, \"not-in-source\" means the source has no feature and no geometry is drawn.",
+          "sourceRecords": 1450,
+          "notInSource": 5,
+          "noTerritoryQids": [
+            "Q171203",
+            "Q3107156",
+            "Q468814",
+            "Q596092",
+            "Q842390"
+          ],
+          "checkedAgainst": {
+            "repo": "Seshat-Global-History-Databank/cliopatria",
+            "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+            "sha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+            "features": 13765
+          }
+        }
+      }
+    },
+    "readerPending": true,
+    "note": "The five not-in-source profiles ship with the machine-readable boundaryCoverage field; the polity reader still resolves a profile only through a catalogue record binding, so opening them in the UI is the next step."
+  },
   "nextSteps": [
     "Add a second, citable boundary source (for example a scholarly GIS of African or Polynesian polities) and import it through the same identity-verification path the current pipeline uses, with the source hash pinned like scripts/boundaries/source.json.",
     "If profile-only entries are wanted, add an explicit reader entry point plus an index field marking \"no territory records\" and update the validator expectation; the entry text must say that the atlas holds no territory data for the polity and that this is not evidence of absence.",
@@ -609,7 +870,7 @@
         "exitCode": 0,
         "lastLines": [
           "PASS 53 derived place assets match their provenance manifest",
-          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17742,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
         ]
       },
       {
@@ -623,7 +884,7 @@
     ],
     "audit": {
       "schemaVersion": 1,
-      "generatedAt": "2026-10-03T01:26:47.716Z",
+      "generatedAt": "2026-10-03T01:33:28.658Z",
       "policy": "English fields must contain no CJK characters. Chinese fields must stay simplified. Entities without an English label are written as their QID or omitted; no transliteration or machine translation is used.",
       "events": {
         "total": 709,

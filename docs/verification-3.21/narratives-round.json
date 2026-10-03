@@ -6136,9 +6136,15 @@
     },
     "gaps": [
       "1288 profiles still have no narrative; Europe accounts for most of them (its pool is the largest), so the next round should keep the regional priority.",
-      "Some large regional cultures have no enrichment profile at all and therefore cannot be written: for example Great Zimbabwe, Kanem-Bornu, Kongo, Benin, Dahomey, Zulu, Kilwa, Srivijaya, Ayutthaya, Pagan, Aceh, Tonga, Rapa Nui and Samoa are absent from the 1,450-profile index.",
+      "Corrected in the 3.22 review: seven of the polities named in the 3.21 report (Kanem-Bornu Q1139762, Kongo Q796583, Zululand Q13558877, Srivijaya Q234197, Ayutthaya Q841364, Pagan Q888574, Aceh Q1061057) do have profiles and have had narratives since the 3.12 round; the 3.21 check used QIDs taken from memory instead of the catalogue verifiedWikidata. The genuinely absent polities, with identities resolved through Wikipedia-to-Wikidata mapping, are the Kingdom of Zimbabwe (Q596092; the Great Zimbabwe site is Q209217), Benin Empire (Q171203), Dahomey (Q468814), Kilwa Sultanate (Q3107156), the Tuʻi Tonga Empire (Q842390) and Rapa Nui (no Wikidata polity item: island Q14452, people Q852486, monarchy Q6413065). They have no feature in the pinned Cliopatria dataset; 3.22 created not-in-source profiles for five of them. See docs/verification-3.22/profile-gaps.md.",
       "Chinese Wikipedia coverage is uneven: a few entries cite a broader or neighbouring article (Makuria/Nubia) or a one-line stub (Pandya), and those limitations are stated in the entry note or the report.",
       "Narratives rest on two Wikipedia articles each; no institutional or primary source was consulted for this round beyond the articles themselves."
-    ]
+    ],
+    "correction": {
+      "at": "2026-10-03",
+      "round": "3.22",
+      "reason": "QIDs were taken from memory rather than resolved from the catalogue, so seven polities were wrongly reported as having no profile.",
+      "lesson": "A claim that data does not exist must state the query scope and the evidence: resolve the identity by name in the catalogue first, then use the catalogued verifiedWikidata."
+    }
   }
 }

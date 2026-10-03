@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T01:32:11.268Z",
+  "task": "task-26",
+  "purpose": "Create enrichment profiles for polities the pinned boundary source does not contain, with a machine-readable boundaryCoverage field.",
+  "dataset": {
+    "repo": "Seshat-Global-History-Databank/cliopatria",
+    "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+    "url": "https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/ad28a691b7c07c1fca89d0e0636d324667d2a258/cliopatria.geojson.zip",
+    "sha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+    "member": "cliopatria_polities_only.geojson",
+    "features": 13765
+  },
+  "entities": [
+    {
+      "qid": "Q596092",
+      "titleZh": "津巴布韦王国",
+      "titleEn": "Kingdom of Zimbabwe",
+      "place": "大津巴布韦 Great Zimbabwe",
+      "fields": {
+        "inception": 1,
+        "dissolution": 1,
+        "instanceOf": 1,
+        "predecessors": 1,
+        "successors": 1
+      },
+      "statementCount": 5,
+      "fieldsWithCitedFacts": [],
+      "wikipedia": {
+        "en": "Kingdom of Great Zimbabwe",
+        "zh": "大津巴布韦"
+      },
+      "sources": [
+        "https://www.wikidata.org/wiki/Q596092",
+        "https://en.wikipedia.org/wiki/Kingdom_of_Great_Zimbabwe",
+        "https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%B4%A5%E5%B7%B4%E5%B8%83%E9%9F%A6"
+      ],
+      "boundaryCoverage": "not-in-source"
+    },
+    {
+      "qid": "Q171203",
+      "titleZh": "贝宁帝国",
+      "titleEn": "Benin Empire",
+      "place": "贝宁城 Benin City",
+      "fields": {
+        "inception": 1,
+        "dissolution": 1,
+        "instanceOf": 1,
+        "P17": 1,
+        "continent": 1,
+        "spokenLanguages": 1,
+        "capital": 1
+      },
+      "statementCount": 7,
+      "fieldsWithCitedFacts": [
+        "continent",
+        "spokenLanguages",
+        "capital"
+      ],
+      "wikipedia": {
+        "en": "Kingdom of Benin",
+        "zh": null
+      },
+      "sources": [
+        "https://www.wikidata.org/wiki/Q171203",
+        "https://en.wikipedia.org/wiki/Kingdom_of_Benin"
+      ],
+      "boundaryCoverage": "not-in-source"
+    },
+    {
+      "qid": "Q468814",
+      "titleZh": "达荷美王国",
+      "titleEn": "Dahomey",
+      "place": "阿波美 Abomey",
+      "fields": {
+        "inception": 1,
+        "dissolution": 1,
+        "capital": 1,
+        "instanceOf": 1,
+        "continent": 1,
+        "successors": 1,
+        "predecessors": 1,
+        "spokenLanguages": 1,
+        "government": 1
+      },
+      "statementCount": 9,
+      "fieldsWithCitedFacts": [
+        "continent",
+        "spokenLanguages",
+        "government"
+      ],
+      "wikipedia": {
+        "en": "Dahomey",
+        "zh": "达荷美王国"
+      },
+      "sources": [
+        "https://www.wikidata.org/wiki/Q468814",
+        "https://en.wikipedia.org/wiki/Dahomey",
+        "https://zh.wikipedia.org/wiki/%E8%BE%BE%E8%8D%B7%E7%BE%8E%E7%8E%8B%E5%9B%BD"
+      ],
+      "boundaryCoverage": "not-in-source"
+    },
+    {
+      "qid": "Q3107156",
+      "titleZh": "基尔瓦苏丹国",
+      "titleEn": "Kilwa Sultanate",
+      "place": "基尔瓦基西瓦尼 Kilwa Kisiwani",
+      "fields": {
+        "instanceOf": 1,
+        "dissolution": 1,
+        "inception": 1,
+        "capital": 1,
+        "P17": 1
+      },
+      "statementCount": 5,
+      "fieldsWithCitedFacts": [],
+      "wikipedia": {
+        "en": "Kilwa Sultanate",
+        "zh": null
+      },
+      "sources": [
+        "https://www.wikidata.org/wiki/Q3107156",
+        "https://en.wikipedia.org/wiki/Kilwa_Sultanate"
+      ],
+      "boundaryCoverage": "not-in-source"
+    },
+    {
+      "qid": "Q842390",
+      "titleZh": "图依汤加帝国",
+      "titleEn": "Tuʻi Tonga Empire",
+      "place": "汤加塔布 Tongatapu",
+      "fields": {
+        "dissolution": 1,
+        "instanceOf": 1,
+        "inception": 1,
+        "government": 1,
+        "capital": 1,
+        "spokenLanguages": 1,
+        "P17": 1,
+        "continent": 1
+      },
+      "statementCount": 8,
+      "fieldsWithCitedFacts": [
+        "capital",
+        "spokenLanguages"
+      ],
+      "wikipedia": {
+        "en": "Tuʻi Tonga Empire",
+        "zh": "图伊汤加帝国"
+      },
+      "sources": [
+        "https://www.wikidata.org/wiki/Q842390",
+        "https://en.wikipedia.org/wiki/Tu%CA%BBi_Tonga_Empire",
+        "https://zh.wikipedia.org/wiki/%E5%9B%BE%E4%BC%8A%E6%B1%A4%E5%8A%A0%E5%B8%9D%E5%9B%BD"
+      ],
+      "boundaryCoverage": "not-in-source"
+    }
+  ],
+  "notes": [
+    "Identity is resolved through the English Wikipedia article -> Wikidata item mapping. The QIDs first quoted for Benin, Kilwa and Tonga (Q662922, Q1740606, Q1056778) point at a noble family, a person and an Apple app and were rejected.",
+    "Rapa Nui has no Wikidata polity item (island Q14452, people Q852486, monarchy Q6413065 only) and no boundary feature, so no polity profile was invented for it.",
+    "boundaryCoverage is \"not-in-source\" for every profile in this batch: the pinned dataset contains no feature for the polity under any tested name or QID, and no geometry was borrowed or estimated."
+  ],
+  "index": {
+    "profileCount": 1455,
+    "markedSourceRecords": 1450,
+    "boundaryCoverage": {
+      "policy": "Every enrichment profile declares whether the pinned boundary source contains territory records for it: \"source-records\" means at least one catalogue record binds to it, \"not-in-source\" means the source has no feature and no geometry is drawn.",
+      "sourceRecords": 1450,
+      "notInSource": 5,
+      "noTerritoryQids": [
+        "Q171203",
+        "Q3107156",
+        "Q468814",
+        "Q596092",
+        "Q842390"
+      ],
+      "checkedAgainst": {
+        "repo": "Seshat-Global-History-Databank/cliopatria",
+        "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+        "sha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+        "features": 13765
+      }
+    }
+  }
+}
