@@ -40,8 +40,10 @@ const englishCoverage=atrocities?atrocities.counts.englishFieldCoverage:null;
 const confirmedSearch=atrocitySearch?(atrocitySearch.perIncident||[]).filter(row=>(row.results||[]).length).length:null;
 const document={schemaVersion:1,round:'3.17',title:'内容第八轮：索引级收尾与暴行层双语补强',
  generatedAt:new Date().toISOString(),baseline,head:git('rev-parse --short HEAD'),
- summary:{eventsTotal:shipped.length,structuredBefore:133,structuredAfter:structured.length,upgradedThisRound:batch.count,
-  promotedEditorial:upgraded.length,battles:603,atrocities:atrocities?atrocities.incidents.length:null},
+ summary:{eventsTotal:shipped.length,structuredBefore:133,structuredAfterThisRound:133-batch.count,upgradedThisRound:batch.count,
+  corpusAtReportTime:{structured:structured.length,editorialV312wd:upgraded.length,
+   note:'Counted from public/data/events.json when this report was generated. If it differs from structuredAfterThisRound, a later round has already changed the corpus in the same working tree; this report attributes only the '+batch.count+' entries of the 3.17 batch to this round.'},
+  battles:603,atrocities:atrocities?atrocities.incidents.length:null},
  ranking:{formula:'score = 3 * (has zh or en Wikipedia article) + min(sitelinks, 40) / 10 + 0.5 * (belligerents recorded) + 2 * (has Chinese Wikipedia article)',
   candidates:ranking?ranking.ranking.length:null,withEnglishArticle:ranking?ranking.coverage.withEnglishArticle:null,
   withChineseArticle:ranking?ranking.coverage.withChineseArticle:null,withEither:ranking?ranking.coverage.withEither:null,
@@ -65,7 +67,8 @@ const document={schemaVersion:1,round:'3.17',title:'内容第八轮：索引级�
  verification:{ran:validationTotal,passed:validationOk,results:validation?validation.results:null,
   gzArchivesChecked:gzChecked,failedArchives:gzMirrors?gzMirrors.failed:null,
   simplifiedChecked:simplified?simplified.checked:null,simplifiedChanged:simplified?simplified.changed:null},
- remaining:{structuredIndexEntries:structured.length,
+ remaining:{structuredIndexEntriesAtReportTime:structured.length,
+  structuredIndexEntriesAfterThisRound:133-batch.count,
   structuredIds:structured.map(event=>event.id),
   atrocityWithoutChineseName:atrocities?atrocities.counts.withoutChineseName:null,
   englishSlotsUnresolved:englishCoverage?{countries:englishCoverage.countries.slots-englishCoverage.countries.resolved,conflict:englishCoverage.conflict.slots-englishCoverage.conflict.resolved,victims:englishCoverage.victims.slots-englishCoverage.victims.resolved}:null,
@@ -73,21 +76,23 @@ const document={schemaVersion:1,round:'3.17',title:'内容第八轮：索引级�
 await writeFile(resolve(root,'docs/verification-3.17/content-round8.json'),JSON.stringify(document,null,2)+'\n');
 const table=(rows,header)=>[header,...rows].join('\n');
 const md=[];
-md.push('# 3.17 内容第八轮：索引级收尾（133 → '+structured.length+'）与暴行层双语补强');
+md.push('# 3.17 内容第八轮：索引级收尾（133 → '+(133-batch.count)+'）与暴行层双语补强');
 md.push('');
 md.push('任务 task-20。基线提交 \`'+baseline+'\`，本报告由 \`scripts/places/report-content-round8-3.17.mjs --baseline='+baseline+'\` 从当前文件生成，可复跑。');
 md.push('');
-md.push('**结论**：索引级事件由 **133 条降到 '+structured.length+' 条**，本轮升级 **'+batch.count+' 条**（3.17 重排后的第 1–40 名）；暴行层中文名由 37 条提升到 **'+(atrocities?atrocities.counts.withChineseName:0)+' 条**，英文 country/conflict/victims 数组从全空补到 **'+(englishCoverage?englishCoverage.countries.resolved+englishCoverage.conflict.resolved+englishCoverage.victims.resolved:0)+'/'+(englishCoverage?englishCoverage.countries.slots+englishCoverage.conflict.slots+englishCoverage.victims.slots:0)+' 槽位**；'+validationOk+'/'+validationTotal+' 条校验命令 exit 0。');
+md.push('**结论**：索引级事件由 **133 条降到 '+(133-batch.count)+' 条**，本轮升级 **'+batch.count+' 条**（3.17 重排后的第 1–40 名）；暴行层中文名维持 **'+(atrocities?atrocities.counts.withChineseName:0)+'/293**（四条取名路线都没有找到可确认的新名，见第 5 节），英文 country/conflict/victims 数组从全空补到 **'+(englishCoverage?englishCoverage.countries.resolved+englishCoverage.conflict.resolved+englishCoverage.victims.resolved:0)+'/'+(englishCoverage?englishCoverage.countries.slots+englishCoverage.conflict.slots+englishCoverage.victims.slots:0)+' 槽位**；'+validationOk+'/'+validationTotal+' 条校验命令 exit 0。');
 md.push('');
 md.push('## 1. 结果摘要');
 md.push('');
 md.push('| 指标 | 基线 | 本轮 |');
 md.push('|---|---|---|');
 md.push('| 事件总数 | 709 | '+shipped.length+' |');
-md.push('| 其中索引级（provenance=wikidata-structured） | 133 | **'+structured.length+'** |');
-md.push('| 其中编辑级 v312wd 条目 | 158 | **'+upgraded.length+'** |');
+md.push('| 其中索引级（provenance=wikidata-structured） | 133 | **'+(133-batch.count)+'** |');
+md.push('| 其中编辑级 v312wd 条目 | 158 | **'+(158+batch.count)+'** |');
 md.push('| 战役层 battles | 603 | 603（5 条年份同步修正） |');
-md.push('| 暴行层 atrocities | 293（中文名 37） | 293（中文名 '+(atrocities?atrocities.counts.withChineseName:0)+'） |');
+md.push('| 暴行层 atrocities | 293（中文名 37） | 293（中文名 '+(atrocities?atrocities.counts.withChineseName:0)+'，英文数组已补） |');
+md.push('');
+md.push('> 报告生成时 \`public/data/events.json\` 的索引级为 '+structured.length+' 条：工作区里已有后续轮次（3.18）在继续升级，本报告只把 3.17 批次的 '+batch.count+' 条记在本轮名下，\`structuredAfterThisRound='+(133-batch.count)+'\` 是本轮结束时的口径。');
 md.push('');
 md.push('本批 '+batch.count+' 条的书写窗口：中文 '+document.events.zhChars.min+'–'+document.events.zhChars.max+' 字（要求 110–135），英文 '+document.events.enWords.min+'–'+document.events.enWords.max+' 词（要求 45–60）；id 一律保持 \`v312wd-<qid>\`，provenance 字段整条删除，wikidataQid 保留。');
 md.push('');
@@ -125,7 +130,10 @@ md.push('|---|---|---|');
 md.push('| 3.16 已有中文名（维基数据 zh 标签） | 37 | 本轮复核后原样保留 |');
 md.push('| 中文标签**其他变体**（zh-hans/zh-hant/zh-cn/zh-tw/zh-hk/zh-sg/zh-my） | '+(atrocityNames?atrocityNames.wikidataZhVariant:0)+' | 本轮新查，未发现新增（37 条已全部来自 zh 标签） |');
 md.push('| zhwiki sitelink | '+(atrocityNames?atrocityNames.zhwikiSitelink:0)+' | 27 条有 sitelink 的都已带 zh 标签，无新增 |');
-md.push('| 按英文名搜索中文维基 + 读导言确认 | '+(atrocityNames?atrocityNames.zhwikiSearchConfirmed:0)+' | '+(atrocitySearch?('共搜 '+atrocitySearch.searched+' 条，'+atrocitySearch.candidateCount+' 个候选标题'):'搜索未完成')+' |');
+const searchCandidates=atrocitySearch?Object.keys(atrocitySearch.introductions||{}).length:0;
+const searchHits=atrocitySearch?(atrocitySearch.perIncident||[]).filter(item=>(item.results||[]).length).length:0;
+md.push('| 按英文名搜索中文维基 + 读导言确认 | '+(atrocityNames?atrocityNames.zhwikiSearchConfirmed:0)+' | '+(atrocitySearch?('完成 '+atrocitySearch.searched+'/256 条（端点限流，约 2 分钟/次），'+searchHits+' 条返回候选、'+searchCandidates+' 个候选标题，读导言后无一为同一事件'):'搜索未完成')+' |');
+md.push('| 英文条目的中文跨语言链接（补充路线） | 0 | 158 个不同英文条目，0 个带 zh 跨语言链接 |');
 md.push('| 仍为 null | '+(atrocities?atrocities.counts.withoutChineseName:0)+' | 不音译不机翻，计入 counts |');
 md.push('');
 md.push('英文侧字段：把 pool 里只有中文字符串的 country/conflict/victim 回溯到实体自身的 P17/P361/P710 声明实体，取**同一实体**的 en 标签填入对应槽位；因 3.15 收获时对标签做过 MediaWiki 简繁转换，先用同一转换器把实体标签转成简体再匹配。结果：');
@@ -147,13 +155,13 @@ md.push('|---|---|---|');
 for(const row of (validation?validation.results:[]))md.push('| \`'+row.command+'\` | exit '+row.exitCode+' | '+row.passLines+'/'+(row.passLines+row.failLines)+' |');
 md.push('');
 md.push('- \`.gz\` 归档：'+gzChecked+' 个有可编辑 .json 孪生的归档全部 mtime=0 且与 .json deepEqual，失败 '+ (gzMirrors?gzMirrors.failed:0) +' 个（另 39 个是 prepare:assets 产物，本轮未跑、未重建）。');
-md.push('- 简体校验：'+ (simplified?simplified.checked:0) +' 个中文字段经 zh.wikipedia variant=zh-cn 转换比对，差异 '+ (simplified?simplified.changed:'?') +' 个。');
+md.push('- 简体校验：线上 '+ (simplified?simplified.checked:0) +' 个中文字段经 zh.wikipedia variant=zh-cn 转换比对，差异 '+ (simplified?simplified.changed:'?') +' 个（未完成 '+(simplified?simplified.unavailable:0)+' 个，端点限流）；全部 160 个中文字段的离线繁体字闸门 0 命中。');
 md.push('- 英文栏 CJK：audit-language 见校验输出（英文栏 CJK=0）。');
 md.push('');
 md.push('## 7. 仍然缺什么');
 md.push('');
-md.push('- 索引级还剩 **'+structured.length+' 条**（清单见 JSON 的 \`remaining.structuredIds\`），本轮只做到新排名第 40 名。');
-md.push('- 暴行层仍有 **'+(atrocities?atrocities.counts.withoutChineseName:0)+' 条**没有中文名：这些事件的 Wikidata 既无任何中文标签变体、也无 zh.wikipedia sitelink，搜索候选里没有可确认的同一事件条目。按规则保持 null，不编造译名。');
+md.push('- 索引级在本轮结束时还剩 **'+(133-batch.count)+' 条**（本轮只做到新排名第 40 名）；报告生成时工作区已被后续轮次继续升级到 '+structured.length+' 条。');
+md.push('- 暴行层仍有 **'+(atrocities?atrocities.counts.withoutChineseName:0)+' 条**没有中文名。四条路线都试过：中文标签变体 +0、zhwiki sitelink +0、按英文名搜索（256 条只完成 5 条，端点限流约 2 分钟/次）+0、158 个英文条目的中文跨语言链接 +0。按规则保持 null，不编造译名；完整证据见 \`docs/verification-3.17/atrocities-zh-names.json\` 与 \`atrocities-zh-search.json\`。');
 md.push('- 事件批次的中文维基**全文搜索**未跑完（搜索接口持续 429，退避后仍失败），本轮以「精确标题查询 + 重定向」逐条核对 33 条无中文引用条目（33/33 无对应页面）。标题无关的全文扫描留给下一轮。');
 md.push('- 暴行层仍未接入任何 UI（与 3.16 相同的决定），本轮只做数据与校验。');
 md.push('');

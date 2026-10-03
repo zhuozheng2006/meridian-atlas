@@ -1,0 +1,1157 @@
+{
+  "schemaVersion": 1,
+  "round": "3.19",
+  "title": "内容第十轮：第六批索引事件升级（53 → 13）",
+  "generatedAt": "2026-10-03T00:57:48.838Z",
+  "task": "task-22",
+  "baseline": "7b609630",
+  "head": "7b609630",
+  "summary": {
+    "eventsTotal": 709,
+    "structuredBefore": 53,
+    "structuredAfter": 13,
+    "upgradedThisRound": 40,
+    "promotedEditorial": 278,
+    "battles": 603
+  },
+  "ranking": {
+    "file": "docs/verification-3.17/content-upgrade-ranking.json",
+    "formula": "score = 3 * (has zh or en Wikipedia article) + min(sitelinks, 40) / 10 + 0.5 * (belligerents recorded) + 2 * (has Chinese Wikipedia article)",
+    "window": "ranks 81-120",
+    "windowSize": 40,
+    "withEnglishArticle": 40,
+    "withChineseArticle": 0,
+    "candidatePool": 133
+  },
+  "events": {
+    "count": 40,
+    "zhChars": {
+      "min": 113,
+      "max": 134
+    },
+    "enWords": {
+      "min": 50,
+      "max": 60
+    },
+    "englishArticle": 40,
+    "chineseArticle": 0,
+    "withoutChineseArticle": 40,
+    "correctedYears": 1,
+    "bce": {
+      "count": 8,
+      "entries": [
+        {
+          "qid": "Q2705449",
+          "year": -458,
+          "titleEn": "Battle of Mount Algidus"
+        },
+        {
+          "qid": "Q1290572",
+          "year": -164,
+          "titleEn": "Battle of Beth Zur"
+        },
+        {
+          "qid": "Q1268349",
+          "year": -162,
+          "titleEn": "Battle of Beth Zechariah"
+        },
+        {
+          "qid": "Q3555607",
+          "year": -129,
+          "titleEn": "Battle of Ecbatana"
+        },
+        {
+          "qid": "Q1268317",
+          "year": -165,
+          "titleEn": "Battle of Emmaus"
+        },
+        {
+          "qid": "Q4872472",
+          "year": -647,
+          "titleEn": "Battle of Susa"
+        },
+        {
+          "qid": "Q1268339",
+          "year": -166,
+          "titleEn": "Battle of Beth Horon (166 BC)"
+        },
+        {
+          "qid": "Q2920325",
+          "year": -167,
+          "titleEn": "Battle of the Ascent of Lebonah"
+        }
+      ],
+      "policy": "Every BCE entry was checked against the year written in the article text rather than converted mechanically from Wikidata P585; all eight agree with the index year."
+    },
+    "corrections": [
+      {
+        "qid": "Q786657",
+        "id": "v312wd-q786657",
+        "indexYear": 2000,
+        "year": 1811,
+        "end": 1811,
+        "reason": "英文维基正文明确记该战役发生于1811年1月（瓜达拉哈拉以东，墨西哥独立战争），而结构化索引年与维基数据P585为2000年1月17日；该P585值显然是年份录入错误，本条以条目正文为准采用1811年，并同步修正战役层。"
+      }
+    ],
+    "datingDisclosures": [
+      {
+        "qid": "Q2920325",
+        "id": "v312wd-q2920325",
+        "indexYear": -167,
+        "note": "断代依据：英文维基记公元前167年或前166年，维基数据P585为ISO -167（民用纪年前167年），本条采用索引年167并只保留年份精度，两说与地点不确定均写入正文。"
+      },
+      {
+        "qid": "Q1268339",
+        "id": "v312wd-q1268339",
+        "indexYear": -166,
+        "note": "断代依据：英文维基记公元前166年春至前165年春之间，维基数据P585为ISO -166（民用纪年前166年），本条采用索引年166并只保留年份精度，起止跨年在正文说明。"
+      },
+      {
+        "qid": "Q1290572",
+        "id": "v312wd-q1290572",
+        "indexYear": -164,
+        "note": "断代依据：英文维基正文记公元前164年10月，维基数据P585为ISO -164（民用纪年前164年），两者一致，本条只保留年份精度；战果是否具有决定性，条目本身即存争议，已写入正文。"
+      },
+      {
+        "qid": "Q2457256",
+        "id": "v312wd-q2457256",
+        "indexYear": 463,
+        "note": "断代依据：英文维基记463年，维基数据P585为463年、精度到年，本条只保留年份精度；对手身份（埃吉迪乌斯或其法兰克盟友）条目内即有异说，已写入正文。中文核查：中文维基百科没有463年奥尔良战役的条目——同名页面是列举1429年、1870年等历次奥尔良战役的列表，与本役无关；精确标题核对方面，该标签下没有对应页面；按记录标签做精确标题核对未发现对应页面，全文搜索因 429 限流未完成，故只能说本方法未确认，不能断言不存在。坐标、地区与类别沿袭结构化记录，本次升级不改动。"
+      },
+      {
+        "qid": "Q654722",
+        "id": "v312wd-q654722",
+        "indexYear": 1891,
+        "note": "断代依据：英文维基记1891年1月21日，维基数据P585为1891年1月24日，两者相差三天而年份一致，本条只保留年份精度。"
+      },
+      {
+        "qid": "Q2053030",
+        "id": "v312wd-q2053030",
+        "indexYear": 1914,
+        "note": "断代依据：英文维基记作战期为1914年11月23日至1915年2月6日，维基数据P585为1914年12月22日、精度到日，本条采用索引年1914并只保留年份精度，跨年在正文说明。"
+      },
+      {
+        "qid": "Q21685887",
+        "id": "v312wd-q21685887",
+        "indexYear": 2016,
+        "note": "断代依据：英文维基记战事自2015年底持续至2016年2月，维基数据P585为2016年2月9日、精度到日，本条采用索引年2016并只保留年份精度，起始年份2015在正文说明。"
+      }
+    ],
+    "titleResolution": {
+      "labelVersusArticleDiffer": 17,
+      "differences": [
+        {
+          "rank": 81,
+          "qid": "Q2624980",
+          "labelTitle": "Battle of Tobruk",
+          "articleTitle": "Battle of Tobruk (1911)"
+        },
+        {
+          "rank": 87,
+          "qid": "Q2457256",
+          "labelTitle": "Battle of Orleans",
+          "articleTitle": "Battle of Orléans (463)"
+        },
+        {
+          "rank": 91,
+          "qid": "Q2889954",
+          "labelTitle": "Battle of Saigon",
+          "articleTitle": "Battle of Saigon (1968)"
+        },
+        {
+          "rank": 92,
+          "qid": "Q2889747",
+          "labelTitle": "Battle of Ramadi",
+          "articleTitle": "Battle of Ramadi (2006)"
+        },
+        {
+          "rank": 93,
+          "qid": "Q4871330",
+          "labelTitle": "Battle of Jenin",
+          "articleTitle": "Battle of Jenin (2002)"
+        },
+        {
+          "rank": 98,
+          "qid": "Q303176",
+          "labelTitle": "Battle of Manila",
+          "articleTitle": "Battle of Manila (1898)"
+        },
+        {
+          "rank": 100,
+          "qid": "Q21685887",
+          "labelTitle": "Battle of Ramadi",
+          "articleTitle": "Battle of Ramadi (2015–2016)"
+        },
+        {
+          "rank": 102,
+          "qid": "Q1268339",
+          "labelTitle": "Battle of Beth Horon",
+          "articleTitle": "Battle of Beth Horon (166 BC)"
+        },
+        {
+          "rank": 108,
+          "qid": "Q4872157",
+          "labelTitle": "Battle of Ramadi",
+          "articleTitle": "Battle of Ramadi (2004)"
+        },
+        {
+          "rank": 109,
+          "qid": "Q4872168",
+          "labelTitle": "Battle of Ras Kamboni",
+          "articleTitle": "Battle of Ras Kamboni (2007)"
+        },
+        {
+          "rank": 110,
+          "qid": "Q3496783",
+          "labelTitle": "Battle of Beth Horon",
+          "articleTitle": "Battle of Beth Horon (66)"
+        },
+        {
+          "rank": 111,
+          "qid": "Q4271928",
+          "labelTitle": "Battle of Balikpapan",
+          "articleTitle": "Battle of Balikpapan (1945)"
+        },
+        {
+          "rank": 112,
+          "qid": "Q1754030",
+          "labelTitle": "2008 Mardakert skirmishes",
+          "articleTitle": "2008 Mardakert clashes"
+        },
+        {
+          "rank": 113,
+          "qid": "Q1753755",
+          "labelTitle": "2010 Mardakert skirmishes",
+          "articleTitle": "2010 Mardakert clashes"
+        },
+        {
+          "rank": 115,
+          "qid": "Q5123963",
+          "labelTitle": "Bloody Sunday",
+          "articleTitle": "Bloody Sunday (1900)"
+        },
+        {
+          "rank": 116,
+          "qid": "Q2053030",
+          "labelTitle": "Battle of Givenchy",
+          "articleTitle": "Winter operations 1914–1915"
+        },
+        {
+          "rank": 117,
+          "qid": "Q250383",
+          "labelTitle": "Action at Néry",
+          "articleTitle": "Affair of Néry"
+        }
+      ],
+      "labelTitleCheck": {
+        "checked": 14,
+        "byVerdict": {
+          "disambiguation": 10,
+          "same-event-article": 4
+        },
+        "pages": [
+          {
+            "label": "Battle of Balikpapan",
+            "resolvesTo": "Battle of Balikpapan",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Manila",
+            "resolvesTo": "Battle of Manila",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Saigon",
+            "resolvesTo": "Battle of Saigon",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Tobruk",
+            "resolvesTo": "Battle of Tobruk",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "2008 Mardakert skirmishes",
+            "resolvesTo": "2008 Mardakert clashes",
+            "verdict": "same-event-article"
+          },
+          {
+            "label": "Battle of Ramadi",
+            "resolvesTo": "Battle of Ramadi",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Orleans",
+            "resolvesTo": "Battle of Orléans",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Beth Horon",
+            "resolvesTo": "Battle of Beth Horon",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Jenin",
+            "resolvesTo": "Battle of Jenin",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Ras Kamboni",
+            "resolvesTo": "Battle of Ras Kamboni",
+            "verdict": "disambiguation"
+          },
+          {
+            "label": "Battle of Givenchy",
+            "resolvesTo": "Winter operations 1914–1915",
+            "verdict": "same-event-article"
+          },
+          {
+            "label": "Action at Néry",
+            "resolvesTo": "Affair of Néry",
+            "verdict": "same-event-article"
+          },
+          {
+            "label": "2010 Mardakert skirmishes",
+            "resolvesTo": "2010 Mardakert clashes",
+            "verdict": "same-event-article"
+          },
+          {
+            "label": "Bloody Sunday",
+            "resolvesTo": "Bloody Sunday",
+            "verdict": "disambiguation"
+          }
+        ]
+      }
+    },
+    "entries": [
+      {
+        "rank": 81,
+        "id": "v312wd-q2624980",
+        "qid": "Q2624980",
+        "titleZh": "图卜鲁格战役",
+        "titleEn": "Battle of Tobruk (1911)",
+        "year": 1911,
+        "end": 1911,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2624980",
+          "https://en.wikipedia.org/wiki/Battle_of_Tobruk_(1911)"
+        ]
+      },
+      {
+        "rank": 82,
+        "id": "v312wd-q2363420",
+        "qid": "Q2363420",
+        "titleZh": "边境支援",
+        "titleEn": "2011 southern Israel cross-border attacks",
+        "year": 2011,
+        "end": 2011,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2363420",
+          "https://en.wikipedia.org/wiki/2011_southern_Israel_cross-border_attacks"
+        ]
+      },
+      {
+        "rank": 83,
+        "id": "v312wd-q2705449",
+        "qid": "Q2705449",
+        "titleZh": "Mons Algidus战役",
+        "titleEn": "Battle of Mount Algidus",
+        "year": -458,
+        "end": -458,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2705449",
+          "https://en.wikipedia.org/wiki/Battle_of_Mount_Algidus"
+        ]
+      },
+      {
+        "rank": 84,
+        "id": "v312wd-q1290572",
+        "qid": "Q1290572",
+        "titleZh": "祖尔堡战役",
+        "titleEn": "Battle of Beth Zur",
+        "year": -164,
+        "end": -164,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1290572",
+          "https://en.wikipedia.org/wiki/Battle_of_Beth_Zur"
+        ]
+      },
+      {
+        "rank": 85,
+        "id": "v312wd-q1268349",
+        "qid": "Q1268349",
+        "titleZh": "杰卡里亚堡战役",
+        "titleEn": "Battle of Beth Zechariah",
+        "year": -162,
+        "end": -162,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1268349",
+          "https://en.wikipedia.org/wiki/Battle_of_Beth_Zechariah"
+        ]
+      },
+      {
+        "rank": 86,
+        "id": "v312wd-q3555607",
+        "qid": "Q3555607",
+        "titleZh": "埃克巴坦那战役",
+        "titleEn": "Battle of Ecbatana",
+        "year": -129,
+        "end": -129,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3555607",
+          "https://en.wikipedia.org/wiki/Battle_of_Ecbatana"
+        ]
+      },
+      {
+        "rank": 87,
+        "id": "v312wd-q2457256",
+        "qid": "Q2457256",
+        "titleZh": "奥尔良战役",
+        "titleEn": "Battle of Orléans (463)",
+        "year": 463,
+        "end": 463,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2457256",
+          "https://en.wikipedia.org/wiki/Battle_of_Orl%C3%A9ans_(463)"
+        ]
+      },
+      {
+        "rank": 88,
+        "id": "v312wd-q2599844",
+        "qid": "Q2599844",
+        "titleZh": "克列茨克战役",
+        "titleEn": "Battle of Kletsk",
+        "year": 1506,
+        "end": 1506,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2599844",
+          "https://en.wikipedia.org/wiki/Battle_of_Kletsk"
+        ]
+      },
+      {
+        "rank": 89,
+        "id": "v312wd-q1888562",
+        "qid": "Q1888562",
+        "titleZh": "1804年10月5日海战",
+        "titleEn": "Action of 5 October 1804",
+        "year": 1804,
+        "end": 1804,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1888562",
+          "https://en.wikipedia.org/wiki/Action_of_5_October_1804"
+        ]
+      },
+      {
+        "rank": 90,
+        "id": "v312wd-q654722",
+        "qid": "Q654722",
+        "titleZh": "穆雷达战役",
+        "titleEn": "Battle of Mulayda",
+        "year": 1891,
+        "end": 1891,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q654722",
+          "https://en.wikipedia.org/wiki/Battle_of_Mulayda"
+        ]
+      },
+      {
+        "rank": 91,
+        "id": "v312wd-q2889954",
+        "qid": "Q2889954",
+        "titleZh": "西贡战役",
+        "titleEn": "Battle of Saigon (1968)",
+        "year": 1968,
+        "end": 1968,
+        "region": "southeast-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2889954",
+          "https://en.wikipedia.org/wiki/Battle_of_Saigon_(1968)"
+        ]
+      },
+      {
+        "rank": 92,
+        "id": "v312wd-q2889747",
+        "qid": "Q2889747",
+        "titleZh": "2006年拉马迪战役",
+        "titleEn": "Battle of Ramadi (2006)",
+        "year": 2006,
+        "end": 2006,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2889747",
+          "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2006)"
+        ]
+      },
+      {
+        "rank": 93,
+        "id": "v312wd-q4871330",
+        "qid": "Q4871330",
+        "titleZh": "杰宁战役",
+        "titleEn": "Battle of Jenin (2002)",
+        "year": 2002,
+        "end": 2002,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4871330",
+          "https://en.wikipedia.org/wiki/Battle_of_Jenin_(2002)"
+        ]
+      },
+      {
+        "rank": 94,
+        "id": "v312wd-q1268317",
+        "qid": "Q1268317",
+        "titleZh": "伊茅斯战役",
+        "titleEn": "Battle of Emmaus",
+        "year": -165,
+        "end": -165,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1268317",
+          "https://en.wikipedia.org/wiki/Battle_of_Emmaus"
+        ]
+      },
+      {
+        "rank": 95,
+        "id": "v312wd-q2890073",
+        "qid": "Q2890073",
+        "titleZh": "苏帕洽战役",
+        "titleEn": "Battle of Suipacha",
+        "year": 1810,
+        "end": 1810,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2890073",
+          "https://en.wikipedia.org/wiki/Battle_of_Suipacha"
+        ]
+      },
+      {
+        "rank": 96,
+        "id": "v312wd-q1416369",
+        "qid": "Q1416369",
+        "titleZh": "克莱斯勒农场战役",
+        "titleEn": "Battle of Crysler's Farm",
+        "year": 1813,
+        "end": 1813,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1416369",
+          "https://en.wikipedia.org/wiki/Battle_of_Crysler's_Farm"
+        ]
+      },
+      {
+        "rank": 97,
+        "id": "v312wd-q177470",
+        "qid": "Q177470",
+        "titleZh": "斯托尼河战役",
+        "titleEn": "Battle of Stoney Creek",
+        "year": 1813,
+        "end": 1813,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q177470",
+          "https://en.wikipedia.org/wiki/Battle_of_Stoney_Creek"
+        ]
+      },
+      {
+        "rank": 98,
+        "id": "v312wd-q303176",
+        "qid": "Q303176",
+        "titleZh": "马尼拉战役",
+        "titleEn": "Battle of Manila (1898)",
+        "year": 1898,
+        "end": 1898,
+        "region": "southeast-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q303176",
+          "https://en.wikipedia.org/wiki/Battle_of_Manila_(1898)"
+        ]
+      },
+      {
+        "rank": 99,
+        "id": "v312wd-q786657",
+        "qid": "Q786657",
+        "titleZh": "卡尔德隆大桥战役",
+        "titleEn": "Battle of Calderón Bridge",
+        "year": 1811,
+        "end": 1811,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q786657",
+          "https://en.wikipedia.org/wiki/Battle_of_Calder%C3%B3n_Bridge"
+        ]
+      },
+      {
+        "rank": 100,
+        "id": "v312wd-q21685887",
+        "qid": "Q21685887",
+        "titleZh": "拉马迪之战 (2015-16)",
+        "titleEn": "Battle of Ramadi (2015–2016)",
+        "year": 2016,
+        "end": 2016,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q21685887",
+          "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2015%E2%80%932016)"
+        ]
+      },
+      {
+        "rank": 101,
+        "id": "v312wd-q4872472",
+        "qid": "Q4872472",
+        "titleZh": "苏萨战役",
+        "titleEn": "Battle of Susa",
+        "year": -647,
+        "end": -647,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4872472",
+          "https://en.wikipedia.org/wiki/Battle_of_Susa"
+        ]
+      },
+      {
+        "rank": 102,
+        "id": "v312wd-q1268339",
+        "qid": "Q1268339",
+        "titleZh": "霍伦堡战役",
+        "titleEn": "Battle of Beth Horon (166 BC)",
+        "year": -166,
+        "end": -166,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1268339",
+          "https://en.wikipedia.org/wiki/Battle_of_Beth_Horon_(166_BC)"
+        ]
+      },
+      {
+        "rank": 103,
+        "id": "v312wd-q1243260",
+        "qid": "Q1243260",
+        "titleZh": "戈尔佩赫拉战役",
+        "titleEn": "Battle of Golpejera",
+        "year": 1072,
+        "end": 1072,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1243260",
+          "https://en.wikipedia.org/wiki/Battle_of_Golpejera"
+        ]
+      },
+      {
+        "rank": 104,
+        "id": "v312wd-q932519",
+        "qid": "Q932519",
+        "titleZh": "姆波柔惹战役",
+        "titleEn": "Battle of Mbororé",
+        "year": 1641,
+        "end": 1641,
+        "region": "americas",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q932519",
+          "https://en.wikipedia.org/wiki/Battle_of_Mboror%C3%A9"
+        ]
+      },
+      {
+        "rank": 105,
+        "id": "v312wd-q2888406",
+        "qid": "Q2888406",
+        "titleZh": "钻石山战役",
+        "titleEn": "Battle of Diamond Hill",
+        "year": 1900,
+        "end": 1900,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2888406",
+          "https://en.wikipedia.org/wiki/Battle_of_Diamond_Hill"
+        ]
+      },
+      {
+        "rank": 106,
+        "id": "v312wd-q2889668",
+        "qid": "Q2889668",
+        "titleZh": "白杨树丛战役",
+        "titleEn": "Battle of Poplar Grove",
+        "year": 1900,
+        "end": 1900,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2889668",
+          "https://en.wikipedia.org/wiki/Battle_of_Poplar_Grove"
+        ]
+      },
+      {
+        "rank": 107,
+        "id": "v312wd-q2026028",
+        "qid": "Q2026028",
+        "titleZh": "卷发作战",
+        "titleEn": "Operation Crimp",
+        "year": 1966,
+        "end": 1966,
+        "region": "southeast-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2026028",
+          "https://en.wikipedia.org/wiki/Operation_Crimp"
+        ]
+      },
+      {
+        "rank": 108,
+        "id": "v312wd-q4872157",
+        "qid": "Q4872157",
+        "titleZh": "拉马迪战役",
+        "titleEn": "Battle of Ramadi (2004)",
+        "year": 2004,
+        "end": 2004,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4872157",
+          "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2004)"
+        ]
+      },
+      {
+        "rank": 109,
+        "id": "v312wd-q4872168",
+        "qid": "Q4872168",
+        "titleZh": "拉斯坎坡里战役",
+        "titleEn": "Battle of Ras Kamboni (2007)",
+        "year": 2007,
+        "end": 2007,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4872168",
+          "https://en.wikipedia.org/wiki/Battle_of_Ras_Kamboni_(2007)"
+        ]
+      },
+      {
+        "rank": 110,
+        "id": "v312wd-q3496783",
+        "qid": "Q3496783",
+        "titleZh": "伯和仑战役",
+        "titleEn": "Battle of Beth Horon (66)",
+        "year": 66,
+        "end": 66,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3496783",
+          "https://en.wikipedia.org/wiki/Battle_of_Beth_Horon_(66)"
+        ]
+      },
+      {
+        "rank": 111,
+        "id": "v312wd-q4271928",
+        "qid": "Q4271928",
+        "titleZh": "巴厘巴板海战",
+        "titleEn": "Battle of Balikpapan (1945)",
+        "year": 1945,
+        "end": 1945,
+        "region": "oceania",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4271928",
+          "https://en.wikipedia.org/wiki/Battle_of_Balikpapan_(1945)"
+        ]
+      },
+      {
+        "rank": 112,
+        "id": "v312wd-q1754030",
+        "qid": "Q1754030",
+        "titleZh": "2008年玛达克冲突",
+        "titleEn": "2008 Mardakert clashes",
+        "year": 2008,
+        "end": 2008,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1754030",
+          "https://en.wikipedia.org/wiki/2008_Mardakert_clashes"
+        ]
+      },
+      {
+        "rank": 113,
+        "id": "v312wd-q1753755",
+        "qid": "Q1753755",
+        "titleZh": "2010年马尔达凯特冲突",
+        "titleEn": "2010 Mardakert clashes",
+        "year": 2010,
+        "end": 2010,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1753755",
+          "https://en.wikipedia.org/wiki/2010_Mardakert_clashes"
+        ]
+      },
+      {
+        "rank": 114,
+        "id": "v312wd-q604356",
+        "qid": "Q604356",
+        "titleZh": "塔迈尔战役",
+        "titleEn": "Battle of Tamai",
+        "year": 1884,
+        "end": 1884,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q604356",
+          "https://en.wikipedia.org/wiki/Battle_of_Tamai"
+        ]
+      },
+      {
+        "rank": 115,
+        "id": "v312wd-q5123963",
+        "qid": "Q5123963",
+        "titleZh": "血腥星期日 (1900年)",
+        "titleEn": "Bloody Sunday (1900)",
+        "year": 1900,
+        "end": 1900,
+        "region": "africa",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q5123963",
+          "https://en.wikipedia.org/wiki/Bloody_Sunday_(1900)"
+        ]
+      },
+      {
+        "rank": 116,
+        "id": "v312wd-q2053030",
+        "qid": "Q2053030",
+        "titleZh": "冬季行动（1914-1915）",
+        "titleEn": "Winter operations 1914–1915",
+        "year": 1914,
+        "end": 1914,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2053030",
+          "https://en.wikipedia.org/wiki/Winter_operations_1914%E2%80%931915"
+        ]
+      },
+      {
+        "rank": 117,
+        "id": "v312wd-q250383",
+        "qid": "Q250383",
+        "titleZh": "内里事件",
+        "titleEn": "Affair of Néry",
+        "year": 1914,
+        "end": 1914,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q250383",
+          "https://en.wikipedia.org/wiki/Affair_of_N%C3%A9ry"
+        ]
+      },
+      {
+        "rank": 118,
+        "id": "v312wd-q2920325",
+        "qid": "Q2920325",
+        "titleZh": "马尔列弗纳战役",
+        "titleEn": "Battle of the Ascent of Lebonah",
+        "year": -167,
+        "end": -167,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2920325",
+          "https://en.wikipedia.org/wiki/Battle_of_the_Ascent_of_Lebonah"
+        ]
+      },
+      {
+        "rank": 119,
+        "id": "v312wd-q4871718",
+        "qid": "Q4871718",
+        "titleZh": "莫克雷德斯伯恩战役",
+        "titleEn": "Battle of Mercredesburne",
+        "year": 485,
+        "end": 485,
+        "region": "europe",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4871718",
+          "https://en.wikipedia.org/wiki/Battle_of_Mercredesburne"
+        ]
+      },
+      {
+        "rank": 120,
+        "id": "v312wd-q4871819",
+        "qid": "Q4871819",
+        "titleZh": "莫卧儿岭战役",
+        "titleEn": "Battle of Mughar Ridge",
+        "year": 1917,
+        "end": 1917,
+        "region": "west-central-asia",
+        "englishArticle": true,
+        "chineseArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4871819",
+          "https://en.wikipedia.org/wiki/Battle_of_Mughar_Ridge"
+        ]
+      }
+    ]
+  },
+  "crossLayerSync": {
+    "battles": 603,
+    "fixes": [
+      {
+        "qid": "Q786657",
+        "from": 2000,
+        "to": 1811
+      }
+    ],
+    "mechanism": "scripts/places/apply-battle-year-fixes-3.19.mjs moves the battle record to the corrected civil year and updates only year/start/end, the dating sentence of notes/notesEn and counts.byCentury; validate-cross-layer.mjs then passes 3/3."
+  },
+  "chineseEvidence": {
+    "sitelink": 0,
+    "exactTitleLookup": {
+      "checked": 40,
+      "noPageUnderLabel": 39,
+      "existing": [
+        {
+          "qid": "Q2457256",
+          "titleZh": "奥尔良战役",
+          "resolvedTitle": "奥尔良战役",
+          "intro": "历史上的奥尔良战役 1429年百年战争期间的奥尔良围城战 1870年普法战争期间的第二次奥尔良战役"
+        }
+      ]
+    },
+    "rejectedCandidate": {
+      "qid": "Q2457256",
+      "label": "奥尔良战役",
+      "reason": "The Chinese Wikipedia page of that name is a list of later battles of Orléans (1429, 1870) and does not document the battle of 463, so no Chinese citation is used."
+    },
+    "fullTextSearch": {
+      "ran": false,
+      "reason": "scripts/places/search-zh-articles-3.19.mjs was not run to completion because the Chinese Wikipedia search endpoint is still returning 429 for this session; the title-based lookup above is therefore the only Chinese check, and it can neither find differently-titled articles nor prove absence."
+    },
+    "wording": "The report and the entries say the absence is unconfirmed by this method (本方法未确认) rather than asserting that no Chinese article exists."
+  },
+  "language": {
+    "eventOffenders": 0,
+    "structured": 13,
+    "battleOffenders": 0
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate-cross-layer.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "     events: 709, structured index entries: 13",
+          "PASS Editorial events carry a dated source and a known provenance state",
+          "{\"passed\":3,\"total\":3,\"events\":709,\"battles\":603}"
+        ]
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Wikipedia links preserve source language and full URLs",
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "    ]",
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-places.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"total\": 20,",
+          "  \"failures\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-city-time.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "    }",
+          "  ]",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS All 11307 native archive pieces retain compressed and decoded hashes",
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/places/validate-battles.mjs . docs/verification-3.19/content-battles-validation.json",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Layer metadata records the selection policy and drop counts",
+          "PASS The layer does not duplicate ids or coordinates of existing place datasets",
+          "{\"passed\":8,\"total\":8,\"battles\":603,\"withBelligerents\":423,\"withConflict\":545,\"withReferences\":9,\"withChineseName\":603,\"withEnglishName\":603}"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.19/content-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleAffected\": 0,",
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/places/check-authoring-3.19.mjs --all",
+        "exitCode": 0,
+        "lastLines": [
+          "part-04.json v312wd-q2920325 118 -167..-167 zh119 en58 -- EN ",
+          "part-04.json v312wd-q4871718 119 485..485 zh133 en59 -- EN ",
+          "part-04.json v312wd-q4871819 120 1917..1917 zh126 en60 -- EN"
+        ]
+      },
+      {
+        "command": "node scripts/places/assemble-events-upgraded-3.19.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "    \"correctedYears\": 1",
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/places/apply-battle-year-fixes-3.19.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "    \"2000..2026\": 63",
+          "  }",
+          "}"
+        ]
+      }
+    ],
+    "crossLayerPassed": 3,
+    "crossLayerTotal": 3,
+    "battleChecksPassed": 8,
+    "battleChecksTotal": 8
+  },
+  "gz": [
+    {
+      "file": "public/data/events.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    },
+    {
+      "file": "public/data/battles.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    }
+  ],
+  "remaining": {
+    "structuredIndexEntries": 13,
+    "structuredIds": [
+      "v312wd-q1273257",
+      "v312wd-q3486072",
+      "v312wd-q2889133",
+      "v312wd-q4438362",
+      "v312wd-q13423520",
+      "v312wd-q1497922",
+      "v312wd-q2896424",
+      "v312wd-q2888378",
+      "v312wd-q2889338",
+      "v312wd-q4872743",
+      "v312wd-q4930640",
+      "v312wd-q2890373",
+      "v312wd-q4871076"
+    ],
+    "note": "13 index-level entries remain (ranks 121-133 of the 3.17 ranking). None of them has a Chinese article either; the next round works from the same ranking at rank 121."
+  }
+}

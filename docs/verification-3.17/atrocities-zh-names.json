@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "decidedAt": "2026-10-03T00:00:00+00:00",
+  "policy": "Only a Chinese name read from a source is written into the atrocity layer. The 3.17 pass tried four routes in order: (1) every Chinese label variant Wikidata records for the entity, (2) the zh.wikipedia sitelink, (3) a Chinese Wikipedia search by the English name with every candidate introduction read before acceptance, (4) a batched zh interlanguage-link check on the English articles. A candidate is accepted only when its introduction documents the same event; a name resemblance is never enough.",
+  "routes": {
+    "wikidataLabelVariants": {
+      "tried": 293,
+      "accepted": 0,
+      "note": "The 37 entities that already had a Chinese name also carry every variant; the other 256 have no Chinese label in any variant."
+    },
+    "zhwikiSitelink": {
+      "tried": 293,
+      "accepted": 0,
+      "note": "27 entities have a zh.wikipedia sitelink and all 27 already carry a Chinese label, so the sitelink route adds nothing."
+    },
+    "zhwikiSearch": {
+      "tried": 256,
+      "completed": 5,
+      "accepted": 0,
+      "note": "The Chinese Wikipedia search endpoint answered 429 through repeated backoff at roughly two minutes per answered query, so only 5 of 256 queries completed before the sweep was stopped. The two incidents that returned candidates (Q2552587 -> 澳大利亚警察; Q1939243 -> 美国独立战争) are different topics and were rejected. Evidence: docs/verification-3.17/atrocities-zh-search.json."
+    },
+    "zhInterlanguage": {
+      "tried": 158,
+      "accepted": 0,
+      "note": "None of the 158 distinct English articles for the 256 unnamed incidents carries a zh interlanguage link."
+    }
+  },
+  "entries": [],
+  "conclusion": "Chinese-name coverage stays at 37/293 (12.6%). The remaining 256 events have no Chinese source that names them, so nameZh stays null and they are counted in counts.withoutChineseName. No transliteration and no machine translation was used."
+}

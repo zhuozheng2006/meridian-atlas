@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-03T00:54:14.526Z",
+  "policy": "Exact-title lookup on the Chinese Wikipedia for the 3.19 entries that have no zhwiki sitelink, as a fallback after the full-text search endpoint returned 429 through six backoff attempts. A missing page proves there is no article under the recorded Chinese label; it does not prove that no differently-titled article exists.",
+  "searchAttempt": "scripts/places/search-zh-articles-3.19.mjs was aborted after the first entity (Q1784785) failed five search attempts with HTTP 429; see the round report.",
+  "requests": [
+    {
+      "status": 429,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:52:38.259Z"
+    },
+    {
+      "status": 429,
+      "count": 10,
+      "attempt": 2,
+      "at": "2026-10-03T00:52:48.815Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 3,
+      "at": "2026-10-03T00:53:09.474Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:53:18.126Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:53:26.733Z"
+    },
+    {
+      "status": 429,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:53:35.303Z"
+    },
+    {
+      "status": 429,
+      "count": 10,
+      "attempt": 2,
+      "at": "2026-10-03T00:53:45.885Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 3,
+      "at": "2026-10-03T00:54:06.523Z"
+    }
+  ],
+  "checked": 40,
+  "missing": 39,
+  "existing": [
+    {
+      "qid": "Q2457256",
+      "titleZh": "奥尔良战役",
+      "resolvedTitle": "奥尔良战役",
+      "intro": "历史上的奥尔良战役 1429年百年战争期间的奥尔良围城战 1870年普法战争期间的第二次奥尔良战役"
+    }
+  ],
+  "entries": [
+    {
+      "rank": 81,
+      "qid": "Q2624980",
+      "titleZh": "图卜鲁格战役",
+      "requested": "图卜鲁格战役",
+      "exists": false,
+      "resolvedTitle": "图卜鲁格战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 82,
+      "qid": "Q2363420",
+      "titleZh": "边境支援",
+      "requested": "边境支援",
+      "exists": false,
+      "resolvedTitle": "边境支援",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 83,
+      "qid": "Q2705449",
+      "titleZh": "Mons Algidus战役",
+      "requested": "Mons Algidus战役",
+      "exists": false,
+      "resolvedTitle": "Mons Algidus战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 84,
+      "qid": "Q1290572",
+      "titleZh": "祖尔堡战役",
+      "requested": "祖尔堡战役",
+      "exists": false,
+      "resolvedTitle": "祖尔堡战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 85,
+      "qid": "Q1268349",
+      "titleZh": "杰卡里亚堡战役",
+      "requested": "杰卡里亚堡战役",
+      "exists": false,
+      "resolvedTitle": "杰卡里亚堡战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 86,
+      "qid": "Q3555607",
+      "titleZh": "埃克巴坦那战役",
+      "requested": "埃克巴坦那战役",
+      "exists": false,
+      "resolvedTitle": "埃克巴坦那战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 87,
+      "qid": "Q2457256",
+      "titleZh": "奥尔良战役",
+      "requested": "奥尔良战役",
+      "exists": true,
+      "resolvedTitle": "奥尔良战役",
+      "redirected": false,
+      "intro": "历史上的奥尔良战役 1429年百年战争期间的奥尔良围城战 1870年普法战争期间的第二次奥尔良战役"
+    },
+    {
+      "rank": 88,
+      "qid": "Q2599844",
+      "titleZh": "克列茨克战役",
+      "requested": "克列茨克战役",
+      "exists": false,
+      "resolvedTitle": "克列茨克战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 89,
+      "qid": "Q1888562",
+      "titleZh": "1804年10月5日海战",
+      "requested": "1804年10月5日海战",
+      "exists": false,
+      "resolvedTitle": "1804年10月5日海战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 90,
+      "qid": "Q654722",
+      "titleZh": "穆雷达战役",
+      "requested": "穆雷达战役",
+      "exists": false,
+      "resolvedTitle": "穆雷达战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 91,
+      "qid": "Q2889954",
+      "titleZh": "西贡战役",
+      "requested": "西贡战役",
+      "exists": false,
+      "resolvedTitle": "西贡战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 92,
+      "qid": "Q2889747",
+      "titleZh": "2006年拉马迪战役",
+      "requested": "2006年拉马迪战役",
+      "exists": false,
+      "resolvedTitle": "2006年拉马迪战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 93,
+      "qid": "Q4871330",
+      "titleZh": "杰宁战役",
+      "requested": "杰宁战役",
+      "exists": false,
+      "resolvedTitle": "杰宁战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 94,
+      "qid": "Q1268317",
+      "titleZh": "伊茅斯战役",
+      "requested": "伊茅斯战役",
+      "exists": false,
+      "resolvedTitle": "伊茅斯战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 95,
+      "qid": "Q2890073",
+      "titleZh": "苏帕洽战役",
+      "requested": "苏帕洽战役",
+      "exists": false,
+      "resolvedTitle": "苏帕洽战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 96,
+      "qid": "Q1416369",
+      "titleZh": "克莱斯勒农场战役",
+      "requested": "克莱斯勒农场战役",
+      "exists": false,
+      "resolvedTitle": "克莱斯勒农场战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 97,
+      "qid": "Q177470",
+      "titleZh": "斯托尼河战役",
+      "requested": "斯托尼河战役",
+      "exists": false,
+      "resolvedTitle": "斯托尼河战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 98,
+      "qid": "Q303176",
+      "titleZh": "马尼拉战役",
+      "requested": "马尼拉战役",
+      "exists": false,
+      "resolvedTitle": "马尼拉战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 99,
+      "qid": "Q786657",
+      "titleZh": "卡尔德隆大桥战役",
+      "requested": "卡尔德隆大桥战役",
+      "exists": false,
+      "resolvedTitle": "卡尔德隆大桥战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 100,
+      "qid": "Q21685887",
+      "titleZh": "拉马迪之战 (2015-16)",
+      "requested": "拉马迪之战 (2015-16)",
+      "exists": false,
+      "resolvedTitle": "拉马迪之战 (2015-16)",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 101,
+      "qid": "Q4872472",
+      "titleZh": "苏萨战役",
+      "requested": "苏萨战役",
+      "exists": false,
+      "resolvedTitle": "苏萨战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 102,
+      "qid": "Q1268339",
+      "titleZh": "霍伦堡战役",
+      "requested": "霍伦堡战役",
+      "exists": false,
+      "resolvedTitle": "霍伦堡战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 103,
+      "qid": "Q1243260",
+      "titleZh": "戈尔佩赫拉战役",
+      "requested": "戈尔佩赫拉战役",
+      "exists": false,
+      "resolvedTitle": "戈尔佩赫拉战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 104,
+      "qid": "Q932519",
+      "titleZh": "姆波柔惹战役",
+      "requested": "姆波柔惹战役",
+      "exists": false,
+      "resolvedTitle": "姆波柔惹战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 105,
+      "qid": "Q2888406",
+      "titleZh": "钻石山战役",
+      "requested": "钻石山战役",
+      "exists": false,
+      "resolvedTitle": "钻石山战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 106,
+      "qid": "Q2889668",
+      "titleZh": "白杨树丛战役",
+      "requested": "白杨树丛战役",
+      "exists": false,
+      "resolvedTitle": "白杨树丛战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 107,
+      "qid": "Q2026028",
+      "titleZh": "卷发作战",
+      "requested": "卷发作战",
+      "exists": false,
+      "resolvedTitle": "卷发作战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 108,
+      "qid": "Q4872157",
+      "titleZh": "拉马迪战役",
+      "requested": "拉马迪战役",
+      "exists": false,
+      "resolvedTitle": "拉马迪战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 109,
+      "qid": "Q4872168",
+      "titleZh": "拉斯坎坡里战役",
+      "requested": "拉斯坎坡里战役",
+      "exists": false,
+      "resolvedTitle": "拉斯坎坡里战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 110,
+      "qid": "Q3496783",
+      "titleZh": "伯和仑战役",
+      "requested": "伯和仑战役",
+      "exists": false,
+      "resolvedTitle": "伯和仑战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 111,
+      "qid": "Q4271928",
+      "titleZh": "巴厘巴板海战",
+      "requested": "巴厘巴板海战",
+      "exists": false,
+      "resolvedTitle": "巴厘巴板海战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 112,
+      "qid": "Q1754030",
+      "titleZh": "2008年玛达克冲突",
+      "requested": "2008年玛达克冲突",
+      "exists": false,
+      "resolvedTitle": "2008年玛达克冲突",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 113,
+      "qid": "Q1753755",
+      "titleZh": "2010年马尔达凯特冲突",
+      "requested": "2010年马尔达凯特冲突",
+      "exists": false,
+      "resolvedTitle": "2010年马尔达凯特冲突",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 114,
+      "qid": "Q604356",
+      "titleZh": "塔迈尔战役",
+      "requested": "塔迈尔战役",
+      "exists": false,
+      "resolvedTitle": "塔迈尔战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 115,
+      "qid": "Q5123963",
+      "titleZh": "血腥星期日 (1900年)",
+      "requested": "血腥星期日 (1900年)",
+      "exists": false,
+      "resolvedTitle": "血腥星期日 (1900年)",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 116,
+      "qid": "Q2053030",
+      "titleZh": "冬季行動（1914-1915）",
+      "requested": "冬季行動（1914-1915）",
+      "exists": false,
+      "resolvedTitle": "冬季行動（1914-1915）",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 117,
+      "qid": "Q250383",
+      "titleZh": "內里事件",
+      "requested": "內里事件",
+      "exists": false,
+      "resolvedTitle": "內里事件",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 118,
+      "qid": "Q2920325",
+      "titleZh": "马尔列弗纳战役",
+      "requested": "马尔列弗纳战役",
+      "exists": false,
+      "resolvedTitle": "马尔列弗纳战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 119,
+      "qid": "Q4871718",
+      "titleZh": "莫克雷德斯伯恩战役",
+      "requested": "莫克雷德斯伯恩战役",
+      "exists": false,
+      "resolvedTitle": "莫克雷德斯伯恩战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 120,
+      "qid": "Q4871819",
+      "titleZh": "莫卧儿岭战役",
+      "requested": "莫卧儿岭战役",
+      "exists": false,
+      "resolvedTitle": "莫卧儿岭战役",
+      "redirected": false,
+      "intro": ""
+    }
+  ]
+}

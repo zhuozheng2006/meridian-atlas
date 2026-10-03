@@ -19,7 +19,11 @@ for(const entry of batch.entries){
  const fields=[['title.zh',entry.title.zh],['summary.zh',entry.summary.zh],['significance.zh',entry.significance.zh],['editorialNotes.zh',entry.editorialNotes.zh]];
  for(const [field,text] of fields)targets.push({id:entry.id,qid:entry.wikidataQid,field,text});
 }
-const unique=[...new Map(targets.map(item=>[item.text,item])).values()];
+const limitArg=process.argv.find(value=>value.startsWith('--limit='));
+const limit=limitArg?Number(limitArg.slice('--limit='.length)):0;
+// Titles first, so a bounded run still covers every entry's headline field.
+const ordered=[...new Map(targets.map(item=>[item.text,item])).values()].sort((a,b)=>a.field.localeCompare(b.field));
+const unique=limit?ordered.slice(0,limit):ordered;
 const results=[];
 for(const item of unique){
  let converted=null;

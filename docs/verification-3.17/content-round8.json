@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 1,
+  "round": "3.17",
+  "title": "内容第八轮：索引级收尾与暴行层双语补强",
+  "generatedAt": "2026-10-03T00:57:20.434Z",
+  "baseline": "69d052c6",
+  "head": "7b609630",
+  "summary": {
+    "eventsTotal": 709,
+    "structuredBefore": 133,
+    "structuredAfterThisRound": 93,
+    "upgradedThisRound": 40,
+    "corpusAtReportTime": {
+      "structured": 13,
+      "editorialV312wd": 278,
+      "note": "Counted from public/data/events.json when this report was generated. If it differs from structuredAfterThisRound, a later round has already changed the corpus in the same working tree; this report attributes only the 40 entries of the 3.17 batch to this round."
+    },
+    "battles": 603,
+    "atrocities": 293
+  },
+  "ranking": {
+    "formula": "score = 3 * (has zh or en Wikipedia article) + min(sitelinks, 40) / 10 + 0.5 * (belligerents recorded) + 2 * (has Chinese Wikipedia article)",
+    "candidates": 133,
+    "withEnglishArticle": 131,
+    "withChineseArticle": 7,
+    "withEither": 133,
+    "lesson": "The 3.14 formula scored only a Chinese Wikipedia article, so the tail looked empty: it reported that no entity after rank 171 had an article. The 3.17 formula counts an English article as evidence of lookup demand, and 133 of 133 remaining entities turn out to have an article in at least one edition (131 en, 7 zh). A \"the data does not exist\" conclusion must first check whether the query was the problem.",
+    "previousRankingSize": 291
+  },
+  "events": {
+    "count": 40,
+    "zhChars": {
+      "min": 111,
+      "max": 135
+    },
+    "enWords": {
+      "min": 48,
+      "max": 60
+    },
+    "englishArticle": 38,
+    "chineseArticle": 7,
+    "bothArticles": 5,
+    "withoutChineseArticle": 33,
+    "correctedYears": 5,
+    "corrections": [
+      {
+        "qid": "Q111383245",
+        "id": "v312wd-q111383245",
+        "indexYear": 2020,
+        "year": 2022,
+        "end": 2024,
+        "reason": "维基数据 P585 精度为年代（2020s），索引条目因此记为 2020 年；中英文维基条目均记交火自 2022 年开始、2024 年 2 月 17 日乌军撤离，本条采用 2022–2024 年。"
+      },
+      {
+        "qid": "Q112206624",
+        "id": "v312wd-q112206624",
+        "indexYear": 2020,
+        "year": 2022,
+        "end": 2022,
+        "reason": "维基数据 P585 精度为年代（2020s）；中文维基记2022年4月在克雷明纳的交战，英文条目（克雷明纳条目重定向至顿巴斯攻势）记攻势始于2022年4月18日。"
+      },
+      {
+        "qid": "Q2274112",
+        "id": "v312wd-q2274112",
+        "indexYear": 1600,
+        "year": 1614,
+        "end": 1614,
+        "reason": "中英文维基条目均记为1614年11月26日；维基数据 P585 记为1600年12月26日，与该战役所属的大坂冬之阵（1614–1615年）矛盾，本条采用条目正文年份。"
+      },
+      {
+        "qid": "Q1644792",
+        "id": "v312wd-q1644792",
+        "indexYear": -497,
+        "year": -496,
+        "end": -496,
+        "reason": "英文维基正文指出此战年代自古不明：李维系于公元前499年，狄奥尼修斯等作前496年，现代学者另有前493、前489年之说；维基数据 P585 精度为年代（前490年代）。本条采用正文最常引用的前496年（记作 −496）。"
+      },
+      {
+        "qid": "Q1036947",
+        "id": "v312wd-q1036947",
+        "indexYear": -1178,
+        "year": -1175,
+        "end": -1175,
+        "reason": "维基数据 P585 为 ISO 天文纪年 −1178（即公元前1179年），英文维基正文记该战役发生于约公元前1175年；本条采用正文的约数年份并记作 −1175，约数性质在 notes 中说明。"
+      }
+    ],
+    "entries": [
+      {
+        "rank": 1,
+        "previousRank": 53,
+        "id": "v312wd-q111383245",
+        "qid": "Q111383245",
+        "titleZh": "阿夫迪伊夫卡战役 (2022年—2024年)",
+        "titleEn": "Battle of Avdiivka (2023–2024)",
+        "year": 2022,
+        "end": 2024,
+        "region": "europe",
+        "chineseArticle": true,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q111383245",
+          "https://en.wikipedia.org/wiki/Battle_of_Avdiivka_(2023%E2%80%932024)",
+          "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%A4%AB%E8%BF%AA%E4%BC%8A%E5%A4%AB%E5%8D%A1%E6%88%98%E5%BD%B9_(2022%E5%B9%B4%E2%80%942024%E5%B9%B4)"
+        ]
+      },
+      {
+        "rank": 2,
+        "previousRank": 95,
+        "id": "v312wd-q112206624",
+        "qid": "Q112206624",
+        "titleZh": "克雷明纳战役",
+        "titleEn": "Battle of Kreminna",
+        "year": 2022,
+        "end": 2022,
+        "region": "europe",
+        "chineseArticle": true,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q112206624",
+          "https://en.wikipedia.org/wiki/Battle_of_Donbas_(2022)",
+          "https://zh.wikipedia.org/wiki/%E5%85%8B%E9%9B%B7%E6%98%8E%E7%B4%8D%E6%88%B0%E5%BD%B9"
+        ]
+      },
+      {
+        "rank": 3,
+        "previousRank": 163,
+        "id": "v312wd-q652320",
+        "qid": "Q652320",
+        "titleZh": "图卢兹战役",
+        "titleEn": "Battle of Toulouse (721)",
+        "year": 721,
+        "end": 721,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q652320",
+          "https://en.wikipedia.org/wiki/Battle_of_Toulouse_(721)"
+        ]
+      },
+      {
+        "rank": 4,
+        "previousRank": 165,
+        "id": "v312wd-q595320",
+        "qid": "Q595320",
+        "titleZh": "巴当山之战",
+        "titleEn": "Battle of Badon",
+        "year": 500,
+        "end": 500,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q595320",
+          "https://en.wikipedia.org/wiki/Battle_of_Badon"
+        ]
+      },
+      {
+        "rank": 5,
+        "previousRank": 132,
+        "id": "v312wd-q2274112",
+        "qid": "Q2274112",
+        "titleZh": "今福之战",
+        "titleEn": "Battle of Imafuku",
+        "year": 1614,
+        "end": 1614,
+        "region": "east-asia",
+        "chineseArticle": true,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2274112",
+          "https://en.wikipedia.org/wiki/Battle_of_Imafuku",
+          "https://zh.wikipedia.org/wiki/%E4%BB%8A%E7%A6%8F%E4%B9%8B%E6%88%B0"
+        ]
+      },
+      {
+        "rank": 6,
+        "previousRank": 167,
+        "id": "v312wd-q849474",
+        "qid": "Q849474",
+        "titleZh": "卡尔卡尔之战",
+        "titleEn": "Battle of Qarqar",
+        "year": -853,
+        "end": -853,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q849474",
+          "https://en.wikipedia.org/wiki/Battle_of_Qarqar"
+        ]
+      },
+      {
+        "rank": 7,
+        "previousRank": 168,
+        "id": "v312wd-q1137764",
+        "qid": "Q1137764",
+        "titleZh": "维苏威战役",
+        "titleEn": "Battle of Mons Lactarius",
+        "year": 552,
+        "end": 552,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1137764",
+          "https://en.wikipedia.org/wiki/Battle_of_Mons_Lactarius"
+        ]
+      },
+      {
+        "rank": 8,
+        "previousRank": 169,
+        "id": "v312wd-q769358",
+        "qid": "Q769358",
+        "titleZh": "塔吉纳战役",
+        "titleEn": "Battle of Taginae",
+        "year": 552,
+        "end": 552,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q769358",
+          "https://en.wikipedia.org/wiki/Battle_of_Taginae"
+        ]
+      },
+      {
+        "rank": 9,
+        "previousRank": 171,
+        "id": "v312wd-q382967",
+        "qid": "Q382967",
+        "titleZh": "1148年围攻大马士革",
+        "titleEn": "Siege of Damascus (1148)",
+        "year": 1148,
+        "end": 1148,
+        "region": "west-central-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q382967",
+          "https://en.wikipedia.org/wiki/Siege_of_Damascus_(1148)"
+        ]
+      },
+      {
+        "rank": 10,
+        "previousRank": 172,
+        "id": "v312wd-q1417205",
+        "qid": "Q1417205",
+        "titleZh": "蒙斯战役",
+        "titleEn": "Battle of Mons",
+        "year": 1914,
+        "end": 1914,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1417205",
+          "https://en.wikipedia.org/wiki/Battle_of_Mons"
+        ]
+      },
+      {
+        "rank": 11,
+        "previousRank": 173,
+        "id": "v312wd-q1644792",
+        "qid": "Q1644792",
+        "titleZh": "勒吉鲁斯湖战役",
+        "titleEn": "Battle of Lake Regillus",
+        "year": -496,
+        "end": -496,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1644792",
+          "https://en.wikipedia.org/wiki/Battle_of_Lake_Regillus"
+        ]
+      },
+      {
+        "rank": 12,
+        "previousRank": 174,
+        "id": "v312wd-q868027",
+        "qid": "Q868027",
+        "titleZh": "克朗塔夫战役",
+        "titleEn": "Battle of Clontarf",
+        "year": 1014,
+        "end": 1014,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q868027",
+          "https://en.wikipedia.org/wiki/Battle_of_Clontarf"
+        ]
+      },
+      {
+        "rank": 13,
+        "previousRank": 175,
+        "id": "v312wd-q636520",
+        "qid": "Q636520",
+        "titleZh": "迈尔季欧云之战 (1179)",
+        "titleEn": "Battle of Marj Ayyun",
+        "year": 1179,
+        "end": 1179,
+        "region": "west-central-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q636520",
+          "https://en.wikipedia.org/wiki/Battle_of_Marj_Ayyun"
+        ]
+      },
+      {
+        "rank": 14,
+        "previousRank": 176,
+        "id": "v312wd-q639827",
+        "qid": "Q639827",
+        "titleZh": "大马士革围城战",
+        "titleEn": "Siege of Damascus (634)",
+        "year": 634,
+        "end": 634,
+        "region": "west-central-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q639827",
+          "https://en.wikipedia.org/wiki/Siege_of_Damascus_(634)"
+        ]
+      },
+      {
+        "rank": 15,
+        "previousRank": 177,
+        "id": "v312wd-q653482",
+        "qid": "Q653482",
+        "titleZh": "卢格杜努姆战役",
+        "titleEn": "Battle of Lugdunum",
+        "year": 197,
+        "end": 197,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q653482",
+          "https://en.wikipedia.org/wiki/Battle_of_Lugdunum"
+        ]
+      },
+      {
+        "rank": 16,
+        "previousRank": 178,
+        "id": "v312wd-q577190",
+        "qid": "Q577190",
+        "titleZh": "克雷森之战",
+        "titleEn": "Battle of Cresson",
+        "year": 1187,
+        "end": 1187,
+        "region": "west-central-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q577190",
+          "https://en.wikipedia.org/wiki/Battle_of_Cresson"
+        ]
+      },
+      {
+        "rank": 17,
+        "previousRank": 179,
+        "id": "v312wd-q280468",
+        "qid": "Q280468",
+        "titleZh": "北邑战役",
+        "titleEn": "Battle of Ap Bac",
+        "year": 1963,
+        "end": 1963,
+        "region": "southeast-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q280468",
+          "https://en.wikipedia.org/wiki/Battle_of_Ap_Bac"
+        ]
+      },
+      {
+        "rank": 18,
+        "previousRank": 180,
+        "id": "v312wd-q637544",
+        "qid": "Q637544",
+        "titleZh": "安菲波利斯战役",
+        "titleEn": "Battle of Amphipolis",
+        "year": -422,
+        "end": -422,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q637544",
+          "https://en.wikipedia.org/wiki/Battle_of_Amphipolis"
+        ]
+      },
+      {
+        "rank": 19,
+        "previousRank": 181,
+        "id": "v312wd-q1265750",
+        "qid": "Q1265750",
+        "titleZh": "卡利奈孔战役",
+        "titleEn": "Battle of Callinicum",
+        "year": 531,
+        "end": 531,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1265750",
+          "https://en.wikipedia.org/wiki/Battle_of_Callinicum"
+        ]
+      },
+      {
+        "rank": 20,
+        "previousRank": 182,
+        "id": "v312wd-q2337526",
+        "qid": "Q2337526",
+        "titleZh": "第一次埃纳河战役",
+        "titleEn": "First Battle of the Aisne",
+        "year": 1914,
+        "end": 1914,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2337526",
+          "https://en.wikipedia.org/wiki/First_Battle_of_the_Aisne"
+        ]
+      },
+      {
+        "rank": 21,
+        "previousRank": 183,
+        "id": "v312wd-q2888296",
+        "qid": "Q2888296",
+        "titleZh": "葡萄牙征服休达",
+        "titleEn": "Portuguese conquest of Ceuta",
+        "year": 1415,
+        "end": 1415,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2888296",
+          "https://en.wikipedia.org/wiki/Portuguese_conquest_of_Ceuta"
+        ]
+      },
+      {
+        "rank": 22,
+        "previousRank": 184,
+        "id": "v312wd-q2420811",
+        "qid": "Q2420811",
+        "titleZh": "塔博尔山战役",
+        "titleEn": "Battle of Mount Tabor (1799)",
+        "year": 1799,
+        "end": 1799,
+        "region": "west-central-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2420811",
+          "https://en.wikipedia.org/wiki/Battle_of_Mount_Tabor_(1799)"
+        ]
+      },
+      {
+        "rank": 23,
+        "previousRank": 162,
+        "id": "v312wd-q2890423",
+        "qid": "Q2890423",
+        "titleZh": "玉奥之战",
+        "titleEn": "Battle of Yu Oc",
+        "year": 1884,
+        "end": 1884,
+        "region": "east-asia",
+        "chineseArticle": true,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2890423",
+          "https://en.wikipedia.org/wiki/Battle_of_Yu_Oc",
+          "https://zh.wikipedia.org/wiki/%E7%8E%89%E5%A5%A7%E4%B9%8B%E6%88%B0"
+        ]
+      },
+      {
+        "rank": 24,
+        "previousRank": 185,
+        "id": "v312wd-q1362188",
+        "qid": "Q1362188",
+        "titleZh": "塔里克提之战",
+        "titleEn": "Battle of Talikota",
+        "year": 1565,
+        "end": 1565,
+        "region": "south-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1362188",
+          "https://en.wikipedia.org/wiki/Battle_of_Talikota"
+        ]
+      },
+      {
+        "rank": 25,
+        "previousRank": 186,
+        "id": "v312wd-q1036947",
+        "qid": "Q1036947",
+        "titleZh": "三角洲之战",
+        "titleEn": "Battle of the Delta",
+        "year": -1175,
+        "end": -1175,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1036947",
+          "https://en.wikipedia.org/wiki/Battle_of_the_Delta"
+        ]
+      },
+      {
+        "rank": 26,
+        "previousRank": 164,
+        "id": "v312wd-q118445706",
+        "qid": "Q118445706",
+        "titleZh": "拉普拉塔战役",
+        "titleEn": "Battle of La Plata (1957)",
+        "year": 1957,
+        "end": 1957,
+        "region": "americas",
+        "chineseArticle": true,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q118445706",
+          "https://en.wikipedia.org/wiki/Battle_of_La_Plata_(1957)",
+          "https://zh.wikipedia.org/wiki/%E6%8B%89%E6%99%AE%E6%8B%89%E5%A1%94%E6%88%98%E5%BD%B9"
+        ]
+      },
+      {
+        "rank": 27,
+        "previousRank": 187,
+        "id": "v312wd-q1148862",
+        "qid": "Q1148862",
+        "titleZh": "法瑞斯库尔战役",
+        "titleEn": "Battle of Fariskur (1250)",
+        "year": 1250,
+        "end": 1250,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1148862",
+          "https://en.wikipedia.org/wiki/Battle_of_Fariskur_(1250)"
+        ]
+      },
+      {
+        "rank": 28,
+        "previousRank": 188,
+        "id": "v312wd-q524871",
+        "qid": "Q524871",
+        "titleZh": "兹库斯之战",
+        "titleEn": "Battle of Cyzicus",
+        "year": -410,
+        "end": -410,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q524871",
+          "https://en.wikipedia.org/wiki/Battle_of_Cyzicus"
+        ]
+      },
+      {
+        "rank": 29,
+        "previousRank": 189,
+        "id": "v312wd-q617650",
+        "qid": "Q617650",
+        "titleZh": "梅德韦战役",
+        "titleEn": "Battle of the Medway",
+        "year": 43,
+        "end": 43,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q617650",
+          "https://en.wikipedia.org/wiki/Battle_of_the_Medway"
+        ]
+      },
+      {
+        "rank": 30,
+        "previousRank": 190,
+        "id": "v312wd-q2237576",
+        "qid": "Q2237576",
+        "titleZh": "赫利奥波利斯战役",
+        "titleEn": "Battle of Heliopolis",
+        "year": 640,
+        "end": 640,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2237576",
+          "https://en.wikipedia.org/wiki/Battle_of_Heliopolis"
+        ]
+      },
+      {
+        "rank": 31,
+        "previousRank": 191,
+        "id": "v312wd-q2264459",
+        "qid": "Q2264459",
+        "titleZh": "切里尼奥拉战役",
+        "titleEn": "Battle of Cerignola",
+        "year": 1503,
+        "end": 1503,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2264459",
+          "https://en.wikipedia.org/wiki/Battle_of_Cerignola"
+        ]
+      },
+      {
+        "rank": 32,
+        "previousRank": 192,
+        "id": "v312wd-q2003949",
+        "qid": "Q2003949",
+        "titleZh": "勒卡托战役",
+        "titleEn": "Battle of Le Cateau",
+        "year": 1914,
+        "end": 1914,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2003949",
+          "https://en.wikipedia.org/wiki/Battle_of_Le_Cateau"
+        ]
+      },
+      {
+        "rank": 33,
+        "previousRank": 166,
+        "id": "v312wd-q2890079",
+        "qid": "Q2890079",
+        "titleZh": "西德曼之战",
+        "titleEn": "Battle of Sediman",
+        "year": 1798,
+        "end": 1798,
+        "region": "africa",
+        "chineseArticle": true,
+        "englishArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2890079",
+          "https://zh.wikipedia.org/wiki/%E8%A5%BF%E5%BE%B7%E6%9B%BC%E4%B9%8B%E6%88%B0"
+        ]
+      },
+      {
+        "rank": 34,
+        "previousRank": 193,
+        "id": "v312wd-q767124",
+        "qid": "Q767124",
+        "titleZh": "泰西封战役",
+        "titleEn": "Battle of Ctesiphon (363)",
+        "year": 363,
+        "end": 363,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q767124",
+          "https://en.wikipedia.org/wiki/Battle_of_Ctesiphon_(363)"
+        ]
+      },
+      {
+        "rank": 35,
+        "previousRank": 194,
+        "id": "v312wd-q966386",
+        "qid": "Q966386",
+        "titleZh": "韦兹龙斯之战",
+        "titleEn": "Battle of Vézeronce",
+        "year": 524,
+        "end": 524,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q966386",
+          "https://en.wikipedia.org/wiki/Battle_of_V%C3%A9zeronce"
+        ]
+      },
+      {
+        "rank": 36,
+        "previousRank": 195,
+        "id": "v312wd-q1420382",
+        "qid": "Q1420382",
+        "titleZh": "大土陵战役",
+        "titleEn": "Battle of Tell El Kebir",
+        "year": 1882,
+        "end": 1882,
+        "region": "africa",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1420382",
+          "https://en.wikipedia.org/wiki/Battle_of_Tell_El_Kebir"
+        ]
+      },
+      {
+        "rank": 37,
+        "previousRank": 196,
+        "id": "v312wd-q1030249",
+        "qid": "Q1030249",
+        "titleZh": "法尔战役",
+        "titleEn": "Battle of Fahl",
+        "year": 635,
+        "end": 635,
+        "region": "west-central-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1030249",
+          "https://en.wikipedia.org/wiki/Battle_of_Fahl"
+        ]
+      },
+      {
+        "rank": 38,
+        "previousRank": 197,
+        "id": "v312wd-q259526",
+        "qid": "Q259526",
+        "titleZh": "隆新战役",
+        "titleEn": "Battle of Long Tan",
+        "year": 1966,
+        "end": 1966,
+        "region": "southeast-asia",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q259526",
+          "https://en.wikipedia.org/wiki/Battle_of_Long_Tan"
+        ]
+      },
+      {
+        "rank": 39,
+        "previousRank": 170,
+        "id": "v312wd-q112725430",
+        "qid": "Q112725430",
+        "titleZh": "克节朗战役",
+        "titleEn": "Battle of Namka Chu",
+        "year": 1962,
+        "end": 1962,
+        "region": "south-asia",
+        "chineseArticle": true,
+        "englishArticle": false,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q112725430",
+          "https://zh.wikipedia.org/wiki/%E5%85%8B%E8%8A%82%E6%9C%97%E6%88%98%E5%BD%B9"
+        ]
+      },
+      {
+        "rank": 40,
+        "previousRank": 198,
+        "id": "v312wd-q975123",
+        "qid": "Q975123",
+        "titleZh": "诺提姆之战",
+        "titleEn": "Battle of Notium",
+        "year": -406,
+        "end": -406,
+        "region": "europe",
+        "chineseArticle": false,
+        "englishArticle": true,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q975123",
+          "https://en.wikipedia.org/wiki/Battle_of_Notium"
+        ]
+      }
+    ],
+    "rejectedChineseCandidate": {
+      "qid": "Q652320",
+      "title": "圖盧茲之戰",
+      "reason": "The Chinese article of that title documents the battle of Toulouse of 1814, not the 721 battle of this entry. It was found by the title search, its introduction was read, and it was rejected; the entry therefore ships with a Chinese-language gap note instead of a wrong citation."
+    }
+  },
+  "atrocities": {
+    "shipped": 293,
+    "chineseNamesBefore": 37,
+    "chineseNamesAfter": 37,
+    "withoutChineseName": 256,
+    "byRoute": {
+      "wikidataZhName": 0,
+      "wikidataZhVariant": 0,
+      "zhwikiSitelink": 0,
+      "zhwikiSearchConfirmed": 0,
+      "existing": 37,
+      "none": 256
+    },
+    "englishFieldCoverage": {
+      "countries": {
+        "slots": 293,
+        "resolved": 293
+      },
+      "conflict": {
+        "slots": 159,
+        "resolved": 156
+      },
+      "victims": {
+        "slots": 5,
+        "resolved": 4
+      },
+      "incidentsWithEnglishCountry": 293,
+      "incidentsWithEnglishConflict": 155
+    },
+    "searchedByName": 5,
+    "incidentsWithSearchHits": 2,
+    "confirmedNames": 0
+  },
+  "verification": {
+    "ran": 11,
+    "passed": 11,
+    "results": [
+      {
+        "name": "validate-cross-layer",
+        "command": "node scripts/validate-cross-layer.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "     events: 709, structured index entries: 53 | PASS Editorial events carry a dated source and a known provenance state | {\"passed\":3,\"total\":3,\"events\":709,\"battles\":603}",
+        "passLines": 3,
+        "failLines": 0
+      },
+      {
+        "name": "validate",
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "PASS Wikipedia links preserve source language and full URLs | PASS Required offline assets and launchers are present | {\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}",
+        "passLines": 10,
+        "failLines": 0
+      },
+      {
+        "name": "validate-v2",
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "    ] |   } | }",
+        "passLines": 11,
+        "failLines": 0
+      },
+      {
+        "name": "validate-places",
+        "command": "node scripts/validate-places.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "  \"total\": 20, |   \"failures\": [] | }",
+        "passLines": 20,
+        "failLines": 0
+      },
+      {
+        "name": "validate-city-time",
+        "command": "node scripts/validate-city-time.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "    } |   ] | }",
+        "passLines": 0,
+        "failLines": 0
+      },
+      {
+        "name": "validate-polity-period",
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "PASS 30/30 real polity dossier regressions",
+        "passLines": 1,
+        "failLines": 0
+      },
+      {
+        "name": "validate-release",
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "PASS All 11307 native archive pieces retain compressed and decoded hashes | PASS 53 derived place assets match their provenance manifest | {\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}",
+        "passLines": 4,
+        "failLines": 0
+      },
+      {
+        "name": "validate-battles",
+        "command": "node scripts/places/validate-battles.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "PASS Layer metadata records the selection policy and drop counts | PASS The layer does not duplicate ids or coordinates of existing place datasets | {\"passed\":8,\"total\":8,\"battles\":603,\"withBelligerents\":423,\"withConflict\":545,\"withReferences\":9,\"withChineseName\":603,\"withEnglishName\":603}",
+        "passLines": 8,
+        "failLines": 0
+      },
+      {
+        "name": "validate-atrocities",
+        "command": "node scripts/places/validate-atrocities.mjs . docs/verification-3.17/content-atrocities-validation.json",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "    \"withReferenceLinks\": 3 |   } | }",
+        "passLines": 8,
+        "failLines": 0
+      },
+      {
+        "name": "audit-language",
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.17/content-language-audit.json",
+        "exitCode": 0,
+        "passed": true,
+        "summary": "  \"battleAffected\": 0, |   \"battleExamples\": [] | }",
+        "passLines": 0,
+        "failLines": 0
+      },
+      {
+        "name": "verify-gz-mirrors",
+        "command": "node scripts/places/verify-gz-mirrors-3.17.mjs",
+        "exitCode": 0,
+        "passed": true,
+        "summary": " \"withoutSibling\": 39, |  \"failed\": [] | }",
+        "passLines": 0,
+        "failLines": 0
+      }
+    ],
+    "gzArchivesChecked": 3,
+    "failedArchives": 0,
+    "simplifiedChecked": 9,
+    "simplifiedChanged": 0
+  },
+  "remaining": {
+    "structuredIndexEntriesAtReportTime": 13,
+    "structuredIndexEntriesAfterThisRound": 93,
+    "structuredIds": [
+      "v312wd-q1273257",
+      "v312wd-q3486072",
+      "v312wd-q2889133",
+      "v312wd-q4438362",
+      "v312wd-q13423520",
+      "v312wd-q1497922",
+      "v312wd-q2896424",
+      "v312wd-q2888378",
+      "v312wd-q2889338",
+      "v312wd-q4872743",
+      "v312wd-q4930640",
+      "v312wd-q2890373",
+      "v312wd-q4871076"
+    ],
+    "atrocityWithoutChineseName": 256,
+    "englishSlotsUnresolved": {
+      "countries": 0,
+      "conflict": 3,
+      "victims": 1
+    },
+    "eventZhFullTextSearch": "The Chinese Wikipedia full-text search pass for the event batch could not be completed: the search endpoint answered 429 through repeated backoff. Article existence was instead verified by exact title lookup for all 33 entries without a Chinese citation (33/33 missing) - a title-independent full-text sweep is left for the next round."
+  }
+}
