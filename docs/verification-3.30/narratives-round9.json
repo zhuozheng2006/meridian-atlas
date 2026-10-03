@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "round": "3.30",
+  "batch": 1,
+  "title": "政体叙述第九批（第一批）：385 → 397",
+  "generatedAt": "2026-10-03T03:21:48.248Z",
+  "task": "task-37",
+  "baseline": "44109cbe",
+  "summary": {
+    "narrativesBefore": 385,
+    "narrativesAfter": 397,
+    "addedThisBatch": 12,
+    "selectedPlans": 99,
+    "writtenSoFar": 36,
+    "remainingPlans": 63,
+    "recordsBound": 6258,
+    "profilesWithoutNarrative": 1082
+  },
+  "plan": {
+    "selected": 99,
+    "selectedByRegion": {
+      "africa": 15,
+      "west-central-asia": 8,
+      "east-asia": 8,
+      "south-asia": 8,
+      "americas": 6,
+      "southeast-asia": 4,
+      "oceania": 4,
+      "europe": 46
+    },
+    "europeShare": 0.465,
+    "verifiedEnglish": "99/99",
+    "chineseAccepted": 92,
+    "chineseRejected": 7,
+    "writtenThisBatchByRegion": {
+      "south-asia": 8,
+      "americas": 4
+    }
+  },
+  "citationRules": {
+    "ruleOne": "Every external article is reached through the Wikidata sitelink of the entity; no name search.",
+    "ruleTwo": "A Chinese article is cited only when it carries the polity QID; where it disagrees with the English article, the English article governs.",
+    "ruleThree": "A QID comes only from the catalogue verifiedWikidata field or pageprops.wikibase_item, and an entity whose classes are not a polity is not written up.",
+    "capRule": "No statement that a region has no candidates may be made without stating the verification cap and re-running with it raised.",
+    "noNewSelection": "This batch needed no new selection: it writes plans that were selected and verified in the 3.29 round, so the caps of that round (Europe 200, 680 candidates checked) still apply."
+  },
+  "authored": {
+    "count": 12,
+    "zhChars": {
+      "min": 55,
+      "max": 156
+    },
+    "enWords": {
+      "min": 35,
+      "max": 96
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "sourcesMin": 2,
+    "sourcesMax": 2,
+    "coverageNotesPresent": 12,
+    "thinWordingPresent": 4,
+    "duplicatedCoverageNotes": 0,
+    "entriesWithoutChineseCitation": 0
+  },
+  "noteCleaning": {
+    "step": "node docs/verification-3.30/clean-coverage-notes-3.30.mjs",
+    "removed": 8,
+    "finalDuplicates": 0
+  },
+  "validation": [
+    {
+      "command": "node scripts/validate-v2.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-release.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-polity-period.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/places/audit-language.mjs . docs/verification-3.30/narratives-language-audit.json",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/verification-3.30/build-narratives-batch-3.30.mjs --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/verification-3.30/write-narratives-gz-3.30.mjs --check",
+      "exitCode": 0
+    }
+  ],
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 397,
+    "mtimeZero": true,
+    "deepEqual": true
+  },
+  "scope": {
+    "written": [
+      "public/data/enrichment/narratives.json",
+      "public/data/enrichment/narratives.json.gz",
+      "editorial/enrichment-narratives-3.12.json",
+      "docs/verification-3.30/"
+    ],
+    "untouched": [
+      "public/app.js",
+      "public/source-reader.js",
+      "public/atrocities.js",
+      "public/style.css",
+      "public/index.html"
+    ]
+  },
+  "remaining": {
+    "plans": 63,
+    "note": "The remaining plans are selected, identity-verified and have their introductions; the second batch can be written directly."
+  }
+}
