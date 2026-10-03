@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-03T02:45:39.493Z",
+  "policy": "A Chinese article is cited only when pageprops.wikibase_item equals the polity QID. Rejected entries ship the English article plus the Wikidata entity, and the entry text follows the English article wherever the Chinese introduction disagrees with it.",
+  "rule": "Where a Chinese introduction and the English article disagree, the English article governs.",
+  "requests": [
+    {
+      "status": 200,
+      "attempt": 1,
+      "count": 50
+    },
+    {
+      "status": 200,
+      "attempt": 1,
+      "count": 20
+    }
+  ],
+  "checked": 70,
+  "accepted": 52,
+  "rejected": 18,
+  "decisions": [
+    {
+      "qid": "Q1132786",
+      "accepted": false,
+      "title": "瓦达伊王国",
+      "reason": "no Chinese article under this title",
+      "evidence": "pageprops lookup returned no page"
+    },
+    {
+      "qid": "Q139708",
+      "accepted": true,
+      "title": "法屬敘利亞及黎巴嫩託管地",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q139708"
+    },
+    {
+      "qid": "Q207017",
+      "accepted": false,
+      "title": "宰比德",
+      "reason": "the Chinese article carries a different Wikidata item (Q138986), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q189545",
+      "accepted": true,
+      "title": "赞吉王朝",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q189545"
+    },
+    {
+      "qid": "Q858",
+      "accepted": true,
+      "title": "叙利亚",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q858"
+    },
+    {
+      "qid": "Q206789",
+      "accepted": false,
+      "title": "索宁克人",
+      "reason": "the Chinese article carries a different Wikidata item (Q1146970), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q398",
+      "accepted": true,
+      "title": "巴林",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q398"
+    },
+    {
+      "qid": "Q912382",
+      "accepted": true,
+      "title": "丹屬印度",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q912382"
+    },
+    {
+      "qid": "Q3045696",
+      "accepted": false,
+      "title": "佔領費茲",
+      "reason": "the Chinese article carries a different Wikidata item (Q105162351), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q216068",
+      "accepted": true,
+      "title": "示巴王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q216068"
+    },
+    {
+      "qid": "Q289577",
+      "accepted": false,
+      "title": "萨珊王朝海军",
+      "reason": "the Chinese article carries a different Wikidata item (Q22815364), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q154667",
+      "accepted": true,
+      "title": "格鲁吉亚王国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q154667"
+    },
+    {
+      "qid": "Q136884",
+      "accepted": true,
+      "title": "拉齊卡",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q136884"
+    },
+    {
+      "qid": "Q1433867",
+      "accepted": true,
+      "title": "哈萨克汗国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q1433867"
+    },
+    {
+      "qid": "Q146871",
+      "accepted": true,
+      "title": "德拉伊耶酋长国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q146871"
+    },
+    {
+      "qid": "Q146862",
+      "accepted": true,
+      "title": "内志酋长国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q146862"
+    },
+    {
+      "qid": "Q2477776",
+      "accepted": false,
+      "title": "基马克汗国",
+      "reason": "no Chinese article under this title",
+      "evidence": "pageprops lookup returned no page"
+    },
+    {
+      "qid": "Q1196201",
+      "accepted": true,
+      "title": "吐谷浑",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q1196201"
+    },
+    {
+      "qid": "Q23039102",
+      "accepted": false,
+      "title": "英屬緬甸",
+      "reason": "the Chinese article carries a different Wikidata item (Q2376315), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q185682",
+      "accepted": true,
+      "title": "法屬印度支那",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q185682"
+    },
+    {
+      "qid": "Q7352",
+      "accepted": true,
+      "title": "晋朝",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q7352"
+    },
+    {
+      "qid": "Q837855",
+      "accepted": true,
+      "title": "齐国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q837855"
+    },
+    {
+      "qid": "Q28057",
+      "accepted": true,
+      "title": "耽羅",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q28057"
+    },
+    {
+      "qid": "Q1059707",
+      "accepted": true,
+      "title": "蘭納",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q1059707"
+    },
+    {
+      "qid": "Q654380",
+      "accepted": false,
+      "title": "巴基斯坦",
+      "reason": "the Chinese article carries a different Wikidata item (Q843), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q14624218",
+      "accepted": true,
+      "title": "西遮娄其王朝",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q14624218"
+    },
+    {
+      "qid": "Q1501306",
+      "accepted": true,
+      "title": "伐迦陀迦",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q1501306"
+    },
+    {
+      "qid": "Q1709007",
+      "accepted": false,
+      "title": "荷蘭—葡萄牙戰爭",
+      "reason": "the Chinese article carries a different Wikidata item (Q377269), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q3332217",
+      "accepted": false,
+      "title": "廓爾喀人",
+      "reason": "the Chinese article carries a different Wikidata item (Q207962), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q3532146",
+      "accepted": false,
+      "title": "健陀羅阿迭多",
+      "reason": "the Chinese article carries a different Wikidata item (Q5520608), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q2006756",
+      "accepted": false,
+      "title": "历史主题条目索引",
+      "reason": "the Chinese article carries a different Wikidata item (Q3288136), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q790",
+      "accepted": true,
+      "title": "海地",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q790"
+    },
+    {
+      "qid": "Q25227",
+      "accepted": true,
+      "title": "荷属安的列斯",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q25227"
+    },
+    {
+      "qid": "Q786",
+      "accepted": true,
+      "title": "多明尼加",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q786"
+    },
+    {
+      "qid": "Q792",
+      "accepted": true,
+      "title": "萨尔瓦多",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q792"
+    },
+    {
+      "qid": "Q1658411",
+      "accepted": true,
+      "title": "砂拉越王国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q1658411"
+    },
+    {
+      "qid": "Q1679856",
+      "accepted": false,
+      "title": "苏丹塔哈机场",
+      "reason": "the Chinese article carries a different Wikidata item (Q1530927), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q756895",
+      "accepted": true,
+      "title": "谏义里国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q756895"
+    },
+    {
+      "qid": "Q1514510",
+      "accepted": false,
+      "title": "遊唱詩人 (歌劇)",
+      "reason": "the Chinese article carries a different Wikidata item (Q203470), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q174306",
+      "accepted": true,
+      "title": "热那亚共和国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q174306"
+    },
+    {
+      "qid": "Q62651",
+      "accepted": true,
+      "title": "丹麥-挪威",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q62651"
+    },
+    {
+      "qid": "Q45670",
+      "accepted": true,
+      "title": "葡萄牙王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q45670"
+    },
+    {
+      "qid": "Q816814",
+      "accepted": true,
+      "title": "格温内斯王国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q816814"
+    },
+    {
+      "qid": "Q71092",
+      "accepted": true,
+      "title": "法蘭西第二帝國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q71092"
+    },
+    {
+      "qid": "Q756617",
+      "accepted": true,
+      "title": "丹麥王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q756617"
+    },
+    {
+      "qid": "Q824489",
+      "accepted": false,
+      "title": "康乃馨革命",
+      "reason": "the Chinese article carries a different Wikidata item (Q193245), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q926295",
+      "accepted": true,
+      "title": "意大利殖民帝国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q926295"
+    },
+    {
+      "qid": "Q29",
+      "accepted": true,
+      "title": "西班牙",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q29"
+    },
+    {
+      "qid": "Q171150",
+      "accepted": true,
+      "title": "匈牙利王国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q171150"
+    },
+    {
+      "qid": "Q8890160",
+      "accepted": false,
+      "title": "波兰王国",
+      "reason": "the Chinese article carries a different Wikidata item (Q400952), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q10957559",
+      "accepted": true,
+      "title": "摩尔达维亚公国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q10957559"
+    },
+    {
+      "qid": "Q784963",
+      "accepted": true,
+      "title": "盎格鲁-撒克逊英格兰",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q784963"
+    },
+    {
+      "qid": "Q42585",
+      "accepted": true,
+      "title": "波希米亞王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q42585"
+    },
+    {
+      "qid": "Q156199",
+      "accepted": true,
+      "title": "薩克森選侯國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q156199"
+    },
+    {
+      "qid": "Q105313",
+      "accepted": true,
+      "title": "威塞克斯王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q105313"
+    },
+    {
+      "qid": "Q105092",
+      "accepted": true,
+      "title": "麥西亞王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q105092"
+    },
+    {
+      "qid": "Q204920",
+      "accepted": true,
+      "title": "阿拉贡联合王国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q204920"
+    },
+    {
+      "qid": "Q203817",
+      "accepted": true,
+      "title": "保加利亚第一帝国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q203817"
+    },
+    {
+      "qid": "Q153136",
+      "accepted": true,
+      "title": "哈布斯堡君主國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q153136"
+    },
+    {
+      "qid": "Q1337854",
+      "accepted": true,
+      "title": "科尔多瓦酋长国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q1337854"
+    },
+    {
+      "qid": "Q126936",
+      "accepted": true,
+      "title": "西哥特王国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q126936"
+    },
+    {
+      "qid": "Q217196",
+      "accepted": true,
+      "title": "卡斯蒂利亞聯合王國",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q217196"
+    },
+    {
+      "qid": "Q151536",
+      "accepted": true,
+      "title": "诺夫哥罗德共和国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q151536"
+    },
+    {
+      "qid": "Q65968",
+      "accepted": true,
+      "title": "哈布斯堡王朝",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q65968"
+    },
+    {
+      "qid": "Q267816",
+      "accepted": true,
+      "title": "贝内文托公国",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q267816"
+    },
+    {
+      "qid": "Q241748",
+      "accepted": false,
+      "title": "塞爾維亞王國",
+      "reason": "the Chinese article carries a different Wikidata item (Q1297414), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q837187",
+      "accepted": true,
+      "title": "哈姆丹王朝",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q837187"
+    },
+    {
+      "qid": "Q638064",
+      "accepted": false,
+      "title": "希爾萬國家公園",
+      "reason": "the Chinese article carries a different Wikidata item (Q4524236), so it documents another subject",
+      "evidence": "pageprops lookup"
+    },
+    {
+      "qid": "Q189326",
+      "accepted": true,
+      "title": "卡扎尔王朝",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q189326"
+    },
+    {
+      "qid": "Q851",
+      "accepted": true,
+      "title": "沙特阿拉伯",
+      "reason": "the Chinese article carries the same Wikidata item as the polity",
+      "evidence": "pageprops.wikibase_item = Q851"
+    }
+  ]
+}
