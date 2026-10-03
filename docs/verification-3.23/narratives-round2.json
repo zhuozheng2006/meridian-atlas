@@ -1,0 +1,1376 @@
+{
+  "schemaVersion": 1,
+  "round": "3.23",
+  "title": "政体叙述第二批：162 → 190",
+  "generatedAt": "2026-10-03T02:28:20.966Z",
+  "task": "task-28",
+  "baseline": "7b609630",
+  "head": "986123fc",
+  "summary": {
+    "narrativesBefore": 162,
+    "narrativesAfter": 190,
+    "addedThisRound": 28,
+    "target": 70,
+    "pending": 42,
+    "batchComplete": false,
+    "profiles": 1455,
+    "coveredBefore": 162,
+    "uncoveredBefore": 1293,
+    "stillWithoutNarrative": 1265
+  },
+  "selection": {
+    "method": "docs/verification-3.23/select-narratives-3.23.mjs, the task-24 scoring reused unchanged (recordCount, spanYears, yearsCovered, areaMax, mentions, citedFields, region priority)",
+    "profiles": 1455,
+    "covered": 162,
+    "uncovered": 1293,
+    "byRegionUncovered": {
+      "africa": 201,
+      "west-central-asia": 101,
+      "south-asia": 113,
+      "americas": 84,
+      "southeast-asia": 46,
+      "europe": 533,
+      "east-asia": 158,
+      "global": 32,
+      "oceania": 25
+    },
+    "chosen": 70,
+    "chosenByRegion": {
+      "africa": 16,
+      "americas": 16,
+      "south-asia": 14,
+      "southeast-asia": 14,
+      "oceania": 4,
+      "europe": 6
+    },
+    "europeShare": 0.086,
+    "europeCap": 0.2,
+    "quotas": "Africa, the Americas, South Asia, Southeast Asia and Oceania first; Europe capped at 20 per cent",
+    "regionReview": "the coordinate-box rule was reviewed by hand for seven Arabian entities the box placed in Africa and for four European metropoles it placed in Africa or the Americas"
+  },
+  "identity": {
+    "rule": "a QID may only come from the atlas catalogue verifiedWikidata field or from en.wikipedia pageprops.wikibase_item; never from memory",
+    "candidatesChecked": 265,
+    "verified": 235,
+    "notPolity": 30,
+    "unverified": 0,
+    "polityRule": "Wikidata P31 classes must include a polity class (country, state, empire, kingdom, khanate, dynasty, confederation, republic...)",
+    "handExclusions": [
+      {
+        "qid": "Q617219",
+        "reason": "\"English overseas possessions\" is a description of a collection of territories, not a polity with its own records.",
+        "title": "English overseas possession"
+      },
+      {
+        "qid": "Q223",
+        "reason": "Greenland is an island territory; the atlas records bound to it describe the island and its Danish autonomy rather than a sovereign polity of its own.",
+        "title": "Greenland"
+      },
+      {
+        "qid": "Q2345840",
+        "reason": "\"History of Sumer\" is a history topic, not a polity.",
+        "title": "history of Sumer"
+      },
+      {
+        "qid": "Q521263",
+        "reason": "\"History of Tibet\" is a history topic, not a polity.",
+        "title": "history of Tibet"
+      },
+      {
+        "qid": "Q19951607",
+        "reason": "\"French Colonial Africa\" is a region, not a polity.",
+        "title": "French Colonial Africa"
+      }
+    ],
+    "registeredGaps": 15,
+    "englishArticleIdentity": "249/265",
+    "batchIdentityCheck": "70/70"
+  },
+  "chineseCitations": {
+    "accepted": 55,
+    "rejected": 15,
+    "method": "pageprops.wikibase_item equals the polity QID, or the introduction was read and confirmed by hand",
+    "fallback": "entries without a Chinese citation ship the English article plus the Wikidata entity, so every entry still carries at least two https sources",
+    "rejectedReasons": [
+      {
+        "qid": "Q4899891",
+        "reason": "searched candidates are the Ottoman vilayet, the Eastern Crisis and unrelated biographies; none documents the Beylik of Tunis"
+      },
+      {
+        "qid": "Q1709337",
+        "reason": "no Chinese article about the Emirate of Nekor; the search returned an unrelated list and biographies"
+      },
+      {
+        "qid": "Q309272",
+        "reason": "the candidates are the Roman provinces Mauretania Caesariensis and Tingitana, not the kingdom of Mauretania"
+      },
+      {
+        "qid": "Q748595",
+        "reason": "no Chinese article about Qataban; the search returned unrelated lists"
+      },
+      {
+        "qid": "Q1109279",
+        "reason": "the candidates are the modern country and unrelated articles; none documents the First Mexican Republic"
+      },
+      {
+        "qid": "Q466803",
+        "reason": "the candidates are the Pala dynasty, Tamil people and unrelated topics, not the Pallava dynasty"
+      },
+      {
+        "qid": "Q5636647",
+        "reason": "the candidates are other dynasties (Umayyad, Samanid, Habsburg, Mirdasid, Nasrid), not the Habbari dynasty"
+      },
+      {
+        "qid": "Q1315339",
+        "reason": "no Chinese article found for the Lohara dynasty"
+      },
+      {
+        "qid": "Q123027565",
+        "reason": "no Chinese article about the Kashmir Sultanate; the search returned Pakistan and unrelated pages"
+      },
+      {
+        "qid": "Q1240096",
+        "reason": "the Chinese article under the label carries a different Wikidata item (Q1361)"
+      },
+      {
+        "qid": "Q5519387",
+        "reason": "the candidates are other kingdoms (Suebi, Frankish, Lavo) and unrelated pages, not Galuh"
+      },
+      {
+        "qid": "Q3503555",
+        "reason": "the candidates are the Malacca Sultanate, Singapore and an airport, not Palembang"
+      },
+      {
+        "qid": "Q4401026",
+        "reason": "no Chinese article found for the Kingdom of Namayan"
+      },
+      {
+        "qid": "Q287996",
+        "reason": "no Chinese article about Blambangan; the search returned unrelated pages"
+      },
+      {
+        "qid": "Q2817348",
+        "reason": "no Chinese article about the Bima Sultanate"
+      }
+    ]
+  },
+  "authored": {
+    "count": 28,
+    "pending": [
+      "Q832554 阿根廷邦联",
+      "Q241 古巴",
+      "Q77 乌拉圭",
+      "Q739 哥伦比亚",
+      "Q917 不丹",
+      "Q2086608 沙哈拉塔",
+      "Q240123 印度-赛西亚王国",
+      "Q854 斯里兰卡",
+      "Q129286 英属印度",
+      "Q467627 杜兰尼帝国",
+      "Q466803 拔罗婆王朝之起源",
+      "Q5636647 哈巴里王朝",
+      "Q1315339 ",
+      "Q1335260 阿富汗酋长国",
+      "Q83821 阿迪勒·沙阿王朝",
+      "Q2039087 昌德拉王朝",
+      "Q123027565 ",
+      "Q1240096 海得拉巴",
+      "Q1317579 吉打苏丹王朝",
+      "Q1332305 罗涡",
+      "Q10791211 妙乌王国",
+      "Q5519387 加卢王国",
+      "Q1155700 拉达那哥欣王国",
+      "Q1150344 柔佛苏丹王朝",
+      "Q422065 苏禄苏丹国",
+      "Q3503555 巨港苏丹国",
+      "Q2301908 广南国",
+      "Q734867 万丹苏丹",
+      "Q4401026 ",
+      "Q2247225 塔鲁曼内格拉",
+      "Q3284315 苏木都剌国",
+      "Q248572 马京达瑙苏丹国",
+      "Q1660566 班贾尔苏丹国",
+      "Q287996 布拉邦岸王国",
+      "Q2817348 ",
+      "Q1794655 古泰",
+      "Q229 塞浦路斯",
+      "Q55 荷兰",
+      "Q70802 法兰西第三共和国",
+      "Q172579 意大利王国",
+      "Q20 挪威",
+      "Q34 瑞典"
+    ],
+    "zhChars": {
+      "min": 53,
+      "max": 179
+    },
+    "enWords": {
+      "min": 35,
+      "max": 90
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "sourcesMin": 2,
+    "sourcesMax": 2,
+    "entriesWithoutChineseCitation": 5,
+    "coverageNotesPresent": 28,
+    "thinEntries": 8,
+    "thinWordingPresent": 8,
+    "byRegion": {
+      "africa": 16,
+      "americas": 12
+    },
+    "entries": [
+      {
+        "qid": "Q449639",
+        "titleZh": "阿勒底亚",
+        "titleEn": "Alodia",
+        "region": "africa",
+        "scope": {
+          "start": 347,
+          "end": 1506
+        },
+        "recordCount": 3,
+        "spanYears": 1159,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 157,
+            "en": 81
+          },
+          "economy": {
+            "zh": 96,
+            "en": 53
+          },
+          "culture": {
+            "zh": 103,
+            "en": 49
+          },
+          "events": {
+            "zh": 96,
+            "en": 51
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Alodia",
+          "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%8B%92%E5%BA%95%E4%BA%9A"
+        ],
+        "enArticle": "Alodia",
+        "zhArticle": "阿勒底亚"
+      },
+      {
+        "qid": "Q4899891",
+        "titleZh": "突尼斯省都辖区",
+        "titleEn": "Beylik of Tunis",
+        "region": "africa",
+        "scope": {
+          "start": 1706,
+          "end": 1884
+        },
+        "recordCount": 12,
+        "spanYears": 178,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 145,
+            "en": 75
+          },
+          "economy": {
+            "zh": 71,
+            "en": 35
+          },
+          "culture": {
+            "zh": 76,
+            "en": 44
+          },
+          "events": {
+            "zh": 96,
+            "en": 48
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Beylik_of_Tunis",
+          "https://www.wikidata.org/wiki/Q4899891"
+        ],
+        "enArticle": "Beylik of Tunis",
+        "zhArticle": "东方危机"
+      },
+      {
+        "qid": "Q1709337",
+        "titleZh": "内寇尔王国",
+        "titleEn": "Emirate of Nekor",
+        "region": "africa",
+        "scope": {
+          "start": 750,
+          "end": 1027
+        },
+        "recordCount": 9,
+        "spanYears": 277,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 134,
+            "en": 78
+          },
+          "economy": {
+            "zh": 70,
+            "en": 39
+          },
+          "culture": {
+            "zh": 73,
+            "en": 40
+          },
+          "events": {
+            "zh": 66,
+            "en": 40
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Emirate_of_Nekor",
+          "https://www.wikidata.org/wiki/Q1709337"
+        ],
+        "enArticle": "Emirate of Nekor",
+        "zhArticle": "各國建國時間列表"
+      },
+      {
+        "qid": "Q1136188",
+        "titleZh": "萨阿德王朝",
+        "titleEn": "Saadi dynasty",
+        "region": "africa",
+        "scope": {
+          "start": 1556,
+          "end": 1740
+        },
+        "recordCount": 10,
+        "spanYears": 184,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 179,
+            "en": 78
+          },
+          "economy": {
+            "zh": 97,
+            "en": 45
+          },
+          "culture": {
+            "zh": 82,
+            "en": 39
+          },
+          "events": {
+            "zh": 85,
+            "en": 48
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Saadi_Sultanate",
+          "https://zh.wikipedia.org/wiki/%E8%90%A8%E9%98%BF%E5%BE%B7%E7%8E%8B%E6%9C%9D"
+        ],
+        "enArticle": "Saadi Sultanate",
+        "zhArticle": "萨阿德王朝"
+      },
+      {
+        "qid": "Q1071439",
+        "titleZh": "伊默里纳王国",
+        "titleEn": "Merina Kingdom",
+        "region": "africa",
+        "scope": {
+          "start": 1792,
+          "end": 1897
+        },
+        "recordCount": 12,
+        "spanYears": 105,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 169,
+            "en": 69
+          },
+          "economy": {
+            "zh": 89,
+            "en": 49
+          },
+          "culture": {
+            "zh": 79,
+            "en": 38
+          },
+          "events": {
+            "zh": 85,
+            "en": 36
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Imerina",
+          "https://zh.wikipedia.org/wiki/%E4%BC%8A%E9%BB%98%E9%87%8C%E7%BA%B3%E7%8E%8B%E5%9B%BD"
+        ],
+        "enArticle": "Imerina",
+        "zhArticle": "伊默里纳王国"
+      },
+      {
+        "qid": "Q177819",
+        "titleZh": "古王国时期",
+        "titleEn": "Old Kingdom of Egypt",
+        "region": "africa",
+        "scope": {
+          "start": -2500,
+          "end": -2101
+        },
+        "recordCount": 5,
+        "spanYears": 399,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 139,
+            "en": 73
+          },
+          "economy": {
+            "zh": 81,
+            "en": 50
+          },
+          "culture": {
+            "zh": 89,
+            "en": 45
+          },
+          "events": {
+            "zh": 69,
+            "en": 43
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Old_Kingdom_of_Egypt",
+          "https://zh.wikipedia.org/wiki/%E5%8F%A4%E7%8E%8B%E5%9C%8B%E6%99%82%E6%9C%9F"
+        ],
+        "enArticle": "Old Kingdom of Egypt",
+        "zhArticle": "古王國時期"
+      },
+      {
+        "qid": "Q213510",
+        "titleZh": "比属刚果",
+        "titleEn": "Belgian Congo",
+        "region": "africa",
+        "scope": {
+          "start": 1890,
+          "end": 1962
+        },
+        "recordCount": 12,
+        "spanYears": 72,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 151,
+            "en": 80
+          },
+          "economy": {
+            "zh": 100,
+            "en": 57
+          },
+          "culture": {
+            "zh": 81,
+            "en": 49
+          },
+          "events": {
+            "zh": 71,
+            "en": 40
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Belgian_Congo",
+          "https://zh.wikipedia.org/wiki/%E6%AF%94%E5%B1%AC%E5%89%9B%E6%9E%9C"
+        ],
+        "enArticle": "Belgian Congo",
+        "zhArticle": "比屬剛果"
+      },
+      {
+        "qid": "Q309272",
+        "titleZh": "毛列塔尼亚",
+        "titleEn": "Mauretania",
+        "region": "africa",
+        "scope": {
+          "start": -212,
+          "end": 42
+        },
+        "recordCount": 8,
+        "spanYears": 254,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 152,
+            "en": 73
+          },
+          "economy": {
+            "zh": 82,
+            "en": 46
+          },
+          "culture": {
+            "zh": 83,
+            "en": 48
+          },
+          "events": {
+            "zh": 69,
+            "en": 40
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Mauretania",
+          "https://www.wikidata.org/wiki/Q309272"
+        ],
+        "enArticle": "Mauretania",
+        "zhArticle": "凯撒毛里塔尼亚"
+      },
+      {
+        "qid": "Q748595",
+        "titleZh": "Qataban",
+        "titleEn": "Qataban",
+        "region": "africa",
+        "scope": {
+          "start": -350,
+          "end": 183
+        },
+        "recordCount": 4,
+        "spanYears": 533,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 97,
+            "en": 58
+          },
+          "economy": {
+            "zh": 84,
+            "en": 42
+          },
+          "culture": {
+            "zh": 75,
+            "en": 46
+          },
+          "events": {
+            "zh": 61,
+            "en": 42
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Qataban",
+          "https://www.wikidata.org/wiki/Q748595"
+        ],
+        "enArticle": "Qataban",
+        "zhArticle": "中華民國節日與歲時列表"
+      },
+      {
+        "qid": "Q1475713",
+        "titleZh": "丰吉苏丹国",
+        "titleEn": "Sennar Sultanate",
+        "region": "africa",
+        "scope": {
+          "start": 1507,
+          "end": 1821
+        },
+        "recordCount": 7,
+        "spanYears": 314,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 171,
+            "en": 90
+          },
+          "economy": {
+            "zh": 84,
+            "en": 50
+          },
+          "culture": {
+            "zh": 73,
+            "en": 38
+          },
+          "events": {
+            "zh": 71,
+            "en": 46
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Funj_Sultanate",
+          "https://zh.wikipedia.org/wiki/%E4%B8%B0%E5%90%89%E8%8B%8F%E4%B8%B9%E5%9B%BD"
+        ],
+        "enArticle": "Funj Sultanate",
+        "zhArticle": "丰吉苏丹国"
+      },
+      {
+        "qid": "Q817",
+        "titleZh": "科威特",
+        "titleEn": "Kuwait",
+        "region": "africa",
+        "scope": {
+          "start": 1757,
+          "end": 2024
+        },
+        "recordCount": 8,
+        "spanYears": 267,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 136,
+            "en": 80
+          },
+          "economy": {
+            "zh": 79,
+            "en": 46
+          },
+          "culture": {
+            "zh": 66,
+            "en": 37
+          },
+          "events": {
+            "zh": 67,
+            "en": 35
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Kuwait",
+          "https://zh.wikipedia.org/wiki/%E7%A7%91%E5%A8%81%E7%89%B9"
+        ],
+        "enArticle": "Kuwait",
+        "zhArticle": "科威特"
+      },
+      {
+        "qid": "Q45",
+        "titleZh": "葡萄牙",
+        "titleEn": "Portugal",
+        "region": "africa",
+        "scope": {
+          "start": 1911,
+          "end": 2024
+        },
+        "recordCount": 9,
+        "spanYears": 113,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 134,
+            "en": 65
+          },
+          "economy": {
+            "zh": 81,
+            "en": 48
+          },
+          "culture": {
+            "zh": 89,
+            "en": 42
+          },
+          "events": {
+            "zh": 64,
+            "en": 38
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Portugal",
+          "https://zh.wikipedia.org/wiki/%E8%91%A1%E8%90%84%E7%89%99"
+        ],
+        "enArticle": "Portugal",
+        "zhArticle": "葡萄牙"
+      },
+      {
+        "qid": "Q10914393",
+        "titleZh": "新亚述帝国",
+        "titleEn": "Neo-Assyrian Empire",
+        "region": "africa",
+        "scope": {
+          "start": -900,
+          "end": -601
+        },
+        "recordCount": 6,
+        "spanYears": 299,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 165,
+            "en": 80
+          },
+          "economy": {
+            "zh": 80,
+            "en": 46
+          },
+          "culture": {
+            "zh": 78,
+            "en": 37
+          },
+          "events": {
+            "zh": 74,
+            "en": 41
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Neo-Assyrian_Empire",
+          "https://zh.wikipedia.org/wiki/%E6%96%B0%E4%BA%9A%E8%BF%B0%E5%B8%9D%E5%9B%BD"
+        ],
+        "enArticle": "Neo-Assyrian Empire",
+        "zhArticle": "新亚述帝国"
+      },
+      {
+        "qid": "Q187979",
+        "titleZh": "早王朝时期",
+        "titleEn": "Early Dynastic Period of Egypt",
+        "region": "africa",
+        "scope": {
+          "start": -3000,
+          "end": -2501
+        },
+        "recordCount": 2,
+        "spanYears": 499,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 126,
+            "en": 66
+          },
+          "economy": {
+            "zh": 65,
+            "en": 38
+          },
+          "culture": {
+            "zh": 72,
+            "en": 38
+          },
+          "events": {
+            "zh": 65,
+            "en": 39
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Early_Dynastic_Period_of_Egypt",
+          "https://zh.wikipedia.org/wiki/%E6%97%A9%E7%8E%8B%E6%9C%9D%E6%99%82%E6%9C%9F_(%E5%9F%83%E5%8F%8A)"
+        ],
+        "enArticle": "Early Dynastic Period of Egypt",
+        "zhArticle": "早王朝時期 (埃及)"
+      },
+      {
+        "qid": "Q555994",
+        "titleZh": "白羊王朝",
+        "titleEn": "Aq Qoyunlu",
+        "region": "africa",
+        "scope": {
+          "start": 1407,
+          "end": 1511
+        },
+        "recordCount": 10,
+        "spanYears": 104,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 162,
+            "en": 78
+          },
+          "economy": {
+            "zh": 74,
+            "en": 41
+          },
+          "culture": {
+            "zh": 85,
+            "en": 38
+          },
+          "events": {
+            "zh": 66,
+            "en": 36
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Aq_Qoyunlu",
+          "https://zh.wikipedia.org/wiki/%E7%99%BD%E7%BE%8A%E7%8E%8B%E6%9C%9D"
+        ],
+        "enArticle": "Aq Qoyunlu",
+        "zhArticle": "白羊王朝"
+      },
+      {
+        "qid": "Q191324",
+        "titleZh": "中王国时期",
+        "titleEn": "Middle Kingdom of Egypt",
+        "region": "africa",
+        "scope": {
+          "start": -2000,
+          "end": -1601
+        },
+        "recordCount": 3,
+        "spanYears": 399,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 159,
+            "en": 79
+          },
+          "economy": {
+            "zh": 80,
+            "en": 42
+          },
+          "culture": {
+            "zh": 88,
+            "en": 51
+          },
+          "events": {
+            "zh": 63,
+            "en": 37
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Middle_Kingdom_of_Egypt",
+          "https://zh.wikipedia.org/wiki/%E4%B8%AD%E7%8E%8B%E5%9C%8B%E6%99%82%E6%9C%9F"
+        ],
+        "enArticle": "Middle Kingdom of Egypt",
+        "zhArticle": "中王國時期"
+      },
+      {
+        "qid": "Q382593",
+        "titleZh": "新尼德兰",
+        "titleEn": "New Netherland",
+        "region": "americas",
+        "scope": {
+          "start": 1622,
+          "end": 1802
+        },
+        "recordCount": 22,
+        "spanYears": 180,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 171,
+            "en": 87
+          },
+          "economy": {
+            "zh": 71,
+            "en": 42
+          },
+          "culture": {
+            "zh": 75,
+            "en": 36
+          },
+          "events": {
+            "zh": 97,
+            "en": 43
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/New_Netherland",
+          "https://zh.wikipedia.org/wiki/%E6%96%B0%E5%B0%BC%E5%BE%B7%E5%85%B0"
+        ],
+        "enArticle": "New Netherland",
+        "zhArticle": "新尼德兰"
+      },
+      {
+        "qid": "Q298",
+        "titleZh": "智利",
+        "titleEn": "Chile",
+        "region": "americas",
+        "scope": {
+          "start": 1812,
+          "end": 2024
+        },
+        "recordCount": 16,
+        "spanYears": 212,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 145,
+            "en": 70
+          },
+          "economy": {
+            "zh": 74,
+            "en": 41
+          },
+          "culture": {
+            "zh": 69,
+            "en": 40
+          },
+          "events": {
+            "zh": 61,
+            "en": 38
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Chile",
+          "https://zh.wikipedia.org/wiki/%E6%99%BA%E5%88%A9"
+        ],
+        "enArticle": "Chile",
+        "zhArticle": "智利"
+      },
+      {
+        "qid": "Q750",
+        "titleZh": "玻利维亚",
+        "titleEn": "Bolivia",
+        "region": "americas",
+        "scope": {
+          "start": 1825,
+          "end": 2024
+        },
+        "recordCount": 14,
+        "spanYears": 199,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 131,
+            "en": 63
+          },
+          "economy": {
+            "zh": 81,
+            "en": 49
+          },
+          "culture": {
+            "zh": 84,
+            "en": 46
+          },
+          "events": {
+            "zh": 71,
+            "en": 43
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Bolivia",
+          "https://zh.wikipedia.org/wiki/%E7%8E%BB%E5%88%A9%E7%B6%AD%E4%BA%9E"
+        ],
+        "enArticle": "Bolivia",
+        "zhArticle": "玻利維亞"
+      },
+      {
+        "qid": "Q217230",
+        "titleZh": "巴西帝国",
+        "titleEn": "Empire of Brazil",
+        "region": "americas",
+        "scope": {
+          "start": 1822,
+          "end": 1889
+        },
+        "recordCount": 15,
+        "spanYears": 67,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 144,
+            "en": 71
+          },
+          "economy": {
+            "zh": 85,
+            "en": 41
+          },
+          "culture": {
+            "zh": 76,
+            "en": 39
+          },
+          "events": {
+            "zh": 81,
+            "en": 38
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Empire_of_Brazil",
+          "https://zh.wikipedia.org/wiki/%E5%B7%B4%E8%A5%BF%E5%B8%9D%E5%9C%8B"
+        ],
+        "enArticle": "Empire of Brazil",
+        "zhArticle": "巴西帝國"
+      },
+      {
+        "qid": "Q733",
+        "titleZh": "巴拉圭",
+        "titleEn": "Paraguay",
+        "region": "americas",
+        "scope": {
+          "start": 1811,
+          "end": 2024
+        },
+        "recordCount": 10,
+        "spanYears": 213,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 113,
+            "en": 72
+          },
+          "economy": {
+            "zh": 64,
+            "en": 36
+          },
+          "culture": {
+            "zh": 66,
+            "en": 40
+          },
+          "events": {
+            "zh": 57,
+            "en": 36
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Paraguay",
+          "https://zh.wikipedia.org/wiki/%E5%B7%B4%E6%8B%89%E5%9C%AD"
+        ],
+        "enArticle": "Paraguay",
+        "zhArticle": "巴拉圭"
+      },
+      {
+        "qid": "Q811",
+        "titleZh": "尼加拉瓜",
+        "titleEn": "Nicaragua",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "recordCount": 10,
+        "spanYears": 184,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 125,
+            "en": 80
+          },
+          "economy": {
+            "zh": 67,
+            "en": 43
+          },
+          "culture": {
+            "zh": 77,
+            "en": 39
+          },
+          "events": {
+            "zh": 67,
+            "en": 43
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Nicaragua",
+          "https://zh.wikipedia.org/wiki/%E5%B0%BC%E5%8A%A0%E6%8B%89%E7%93%9C"
+        ],
+        "enArticle": "Nicaragua",
+        "zhArticle": "尼加拉瓜"
+      },
+      {
+        "qid": "Q1109279",
+        "titleZh": "墨西哥合众国",
+        "titleEn": "First Mexican Republic",
+        "region": "americas",
+        "scope": {
+          "start": 1824,
+          "end": 1865
+        },
+        "recordCount": 13,
+        "spanYears": 41,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 128,
+            "en": 59
+          },
+          "economy": {
+            "zh": 76,
+            "en": 44
+          },
+          "culture": {
+            "zh": 65,
+            "en": 43
+          },
+          "events": {
+            "zh": 74,
+            "en": 36
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/First_Mexican_Republic",
+          "https://www.wikidata.org/wiki/Q1109279"
+        ],
+        "enArticle": "First Mexican Republic",
+        "zhArticle": "墨西哥毒品戰爭"
+      },
+      {
+        "qid": "Q717",
+        "titleZh": "委内瑞拉",
+        "titleEn": "Venezuela",
+        "region": "americas",
+        "scope": {
+          "start": 1811,
+          "end": 2024
+        },
+        "recordCount": 8,
+        "spanYears": 213,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 144,
+            "en": 75
+          },
+          "economy": {
+            "zh": 83,
+            "en": 48
+          },
+          "culture": {
+            "zh": 70,
+            "en": 41
+          },
+          "events": {
+            "zh": 60,
+            "en": 37
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Venezuela",
+          "https://zh.wikipedia.org/wiki/%E5%A7%94%E5%85%A7%E7%91%9E%E6%8B%89"
+        ],
+        "enArticle": "Venezuela",
+        "zhArticle": "委內瑞拉"
+      },
+      {
+        "qid": "Q783",
+        "titleZh": "洪都拉斯",
+        "titleEn": "Honduras",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "recordCount": 8,
+        "spanYears": 184,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 137,
+            "en": 79
+          },
+          "economy": {
+            "zh": 53,
+            "en": 40
+          },
+          "culture": {
+            "zh": 76,
+            "en": 38
+          },
+          "events": {
+            "zh": 62,
+            "en": 37
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Honduras",
+          "https://zh.wikipedia.org/wiki/%E6%B4%AA%E9%83%BD%E6%8B%89%E6%96%AF"
+        ],
+        "enArticle": "Honduras",
+        "zhArticle": "洪都拉斯"
+      },
+      {
+        "qid": "Q774",
+        "titleZh": "危地马拉",
+        "titleEn": "Guatemala",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "recordCount": 7,
+        "spanYears": 184,
+        "thin": false,
+        "sections": {
+          "politics": {
+            "zh": 142,
+            "en": 82
+          },
+          "economy": {
+            "zh": 60,
+            "en": 37
+          },
+          "culture": {
+            "zh": 79,
+            "en": 45
+          },
+          "events": {
+            "zh": 67,
+            "en": 36
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Guatemala",
+          "https://zh.wikipedia.org/wiki/%E5%8D%B1%E5%9C%B0%E9%A9%AC%E6%8B%89"
+        ],
+        "enArticle": "Guatemala",
+        "zhArticle": "危地马拉"
+      },
+      {
+        "qid": "Q736",
+        "titleZh": "厄瓜多尔",
+        "titleEn": "Ecuador",
+        "region": "americas",
+        "scope": {
+          "start": 1834,
+          "end": 2024
+        },
+        "recordCount": 5,
+        "spanYears": 190,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 120,
+            "en": 67
+          },
+          "economy": {
+            "zh": 67,
+            "en": 42
+          },
+          "culture": {
+            "zh": 69,
+            "en": 42
+          },
+          "events": {
+            "zh": 59,
+            "en": 42
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Ecuador",
+          "https://zh.wikipedia.org/wiki/%E5%8E%84%E7%93%9C%E5%A4%9A%E5%B0%94"
+        ],
+        "enArticle": "Ecuador",
+        "zhArticle": "厄瓜多尔"
+      },
+      {
+        "qid": "Q800",
+        "titleZh": "哥斯达黎加",
+        "titleEn": "Costa Rica",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "recordCount": 4,
+        "spanYears": 184,
+        "thin": true,
+        "sections": {
+          "politics": {
+            "zh": 142,
+            "en": 83
+          },
+          "economy": {
+            "zh": 66,
+            "en": 36
+          },
+          "culture": {
+            "zh": 75,
+            "en": 37
+          },
+          "events": {
+            "zh": 74,
+            "en": 39
+          }
+        },
+        "sources": [
+          "https://en.wikipedia.org/wiki/Costa_Rica",
+          "https://zh.wikipedia.org/wiki/%E5%93%A5%E6%96%AF%E8%BE%BE%E9%BB%8E%E5%8A%A0"
+        ],
+        "enArticle": "Costa Rica",
+        "zhArticle": "哥斯达黎加"
+      }
+    ]
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17743,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.23/narratives-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.23/build-narratives-batch-3.23.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"enMax\": 90",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.23/write-narratives-gz-3.23.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"bytes\": 314210",
+          "}"
+        ]
+      }
+    ]
+  },
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 190,
+    "mtimeZero": true,
+    "deepEqual": true
+  },
+  "remaining": {
+    "pendingPlans": [
+      "Q832554 阿根廷邦联",
+      "Q241 古巴",
+      "Q77 乌拉圭",
+      "Q739 哥伦比亚",
+      "Q917 不丹",
+      "Q2086608 沙哈拉塔",
+      "Q240123 印度-赛西亚王国",
+      "Q854 斯里兰卡",
+      "Q129286 英属印度",
+      "Q467627 杜兰尼帝国",
+      "Q466803 拔罗婆王朝之起源",
+      "Q5636647 哈巴里王朝",
+      "Q1315339 ",
+      "Q1335260 阿富汗酋长国",
+      "Q83821 阿迪勒·沙阿王朝",
+      "Q2039087 昌德拉王朝",
+      "Q123027565 ",
+      "Q1240096 海得拉巴",
+      "Q1317579 吉打苏丹王朝",
+      "Q1332305 罗涡",
+      "Q10791211 妙乌王国",
+      "Q5519387 加卢王国",
+      "Q1155700 拉达那哥欣王国",
+      "Q1150344 柔佛苏丹王朝",
+      "Q422065 苏禄苏丹国",
+      "Q3503555 巨港苏丹国",
+      "Q2301908 广南国",
+      "Q734867 万丹苏丹",
+      "Q4401026 ",
+      "Q2247225 塔鲁曼内格拉",
+      "Q3284315 苏木都剌国",
+      "Q248572 马京达瑙苏丹国",
+      "Q1660566 班贾尔苏丹国",
+      "Q287996 布拉邦岸王国",
+      "Q2817348 ",
+      "Q1794655 古泰",
+      "Q229 塞浦路斯",
+      "Q55 荷兰",
+      "Q70802 法兰西第三共和国",
+      "Q172579 意大利王国",
+      "Q20 挪威",
+      "Q34 瑞典"
+    ],
+    "pendingCount": 42,
+    "profilesStillWithoutNarrative": 1265,
+    "note": "The 42 pending plans are already verified and have their Wikipedia extracts in docs/verification-3.23/narratives-extracts.json, so the next round can author them without repeating the selection or the identity work."
+  }
+}
