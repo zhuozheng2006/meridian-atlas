@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T00:00:00+00:00",
+  "layer": "atrocities",
+  "policy": "3.17 bilingual strengthening: Chinese names resolved from Wikidata label variants, the zh.wikipedia sitelink and search-confirmed Chinese articles; English country/conflict/victim values resolved from the same Wikidata statement entities the Chinese labels came from. Nothing translated.",
+  "before": {
+    "withChineseName": 37,
+    "withoutChineseName": 256,
+    "englishArraysEmpty": true
+  },
+  "after": {
+    "shipped": 293,
+    "withChineseName": 37,
+    "withoutChineseName": 256,
+    "nameZhBySource": {
+      "wikidataZhName": 0,
+      "wikidataZhVariant": 0,
+      "zhwikiSitelink": 0,
+      "zhwikiSearchConfirmed": 0,
+      "existing": 37,
+      "none": 256
+    },
+    "englishFieldCoverage": {
+      "countries": {
+        "slots": 293,
+        "resolved": 293
+      },
+      "conflict": {
+        "slots": 159,
+        "resolved": 156
+      },
+      "victims": {
+        "slots": 5,
+        "resolved": 4
+      },
+      "incidentsWithEnglishCountry": 293,
+      "incidentsWithEnglishConflict": 155
+    }
+  },
+  "changedNames": []
+}

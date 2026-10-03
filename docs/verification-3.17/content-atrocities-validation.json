@@ -1,0 +1,46 @@
+{
+  "layer": "atrocities",
+  "checkedAt": "2026-10-03T00:49:22.383Z",
+  "passed": 8,
+  "total": 8,
+  "counters": {
+    "incidents": 293,
+    "withChineseName": 37,
+    "withEnglishName": 293,
+    "withReferenceLinks": 3
+  },
+  "results": [
+    {
+      "name": "The archive is deterministic and mirrors the editable JSON",
+      "passed": true
+    },
+    {
+      "name": "The layer states its semantic boundary against the battle layer",
+      "passed": true
+    },
+    {
+      "name": "Every incident has a unique id and a sourced Wikidata entity",
+      "passed": true
+    },
+    {
+      "name": "The two layers stay disjoint by Wikidata entity id",
+      "passed": true
+    },
+    {
+      "name": "Coordinates, years and regions come from the source record",
+      "passed": true
+    },
+    {
+      "name": "Names are source labels: at least one is present, Chinese may be absent but is never invented",
+      "passed": true
+    },
+    {
+      "name": "English fields contain Latin script only",
+      "passed": true
+    },
+    {
+      "name": "The count bookkeeping matches the pool",
+      "passed": true
+    }
+  ]
+}

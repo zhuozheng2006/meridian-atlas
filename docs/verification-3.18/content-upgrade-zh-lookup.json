@@ -1,0 +1,450 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-03T00:45:18.253Z",
+  "policy": "Exact-title lookup on the Chinese Wikipedia for the 3.18 entries that have no zhwiki sitelink, as a fallback after the full-text search endpoint returned 429 through six backoff attempts. A missing page proves there is no article under the recorded Chinese label; it does not prove that no differently-titled article exists.",
+  "searchAttempt": "scripts/places/search-zh-articles-3.18.mjs was aborted after the first entity (Q1784785) failed five search attempts with HTTP 429; see the round report.",
+  "requests": [
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:44:33.566Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:44:42.258Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:44:50.997Z"
+    },
+    {
+      "status": 429,
+      "count": 10,
+      "attempt": 1,
+      "at": "2026-10-03T00:44:59.584Z"
+    },
+    {
+      "status": 200,
+      "count": 10,
+      "attempt": 2,
+      "at": "2026-10-03T00:45:10.248Z"
+    }
+  ],
+  "checked": 40,
+  "missing": 39,
+  "existing": [
+    {
+      "qid": "Q5432157",
+      "titleZh": "喀布尔战役",
+      "resolvedTitle": "喀布尔战役",
+      "intro": "喀布尔战役可以指： 喀布尔战役 (2021年)，美军撤离期间塔利班再次占领喀布尔 喀布尔战役 (2001年)，美军联合北方联盟推翻塔利班政权 喀布尔战役 (1992–1996)，阿富汗内战期间塔利班首次占领喀布尔"
+    }
+  ],
+  "entries": [
+    {
+      "rank": 41,
+      "qid": "Q1784785",
+      "titleZh": "蒙斯·塞琉古战役",
+      "requested": "蒙斯·塞琉古战役",
+      "exists": false,
+      "resolvedTitle": "蒙斯·塞琉古战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 42,
+      "qid": "Q762717",
+      "titleZh": "波伦蒂亚战役",
+      "requested": "波伦蒂亚战役",
+      "exists": false,
+      "resolvedTitle": "波伦蒂亚战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 43,
+      "qid": "Q966312",
+      "titleZh": "安基阿卢斯战役",
+      "requested": "安基阿卢斯战役",
+      "exists": false,
+      "resolvedTitle": "安基阿卢斯战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 44,
+      "qid": "Q1443091",
+      "titleZh": "加里利亚诺河之战",
+      "requested": "加里利亚诺河之战",
+      "exists": false,
+      "resolvedTitle": "加里利亚诺河之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 45,
+      "qid": "Q2095678",
+      "titleZh": "阿瑟耶战役",
+      "requested": "阿瑟耶战役",
+      "exists": false,
+      "resolvedTitle": "阿瑟耶战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 46,
+      "qid": "Q1192867",
+      "titleZh": "普乌图斯克会战",
+      "requested": "普乌图斯克会战",
+      "exists": false,
+      "resolvedTitle": "普乌图斯克会战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 47,
+      "qid": "Q20045970",
+      "titleZh": "马林卡战役",
+      "requested": "马林卡战役",
+      "exists": false,
+      "resolvedTitle": "马林卡战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 48,
+      "qid": "Q2237785",
+      "titleZh": "维斯克拉战役",
+      "requested": "维斯克拉战役",
+      "exists": false,
+      "resolvedTitle": "维斯克拉战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 49,
+      "qid": "Q1113509",
+      "titleZh": "天目山之战",
+      "requested": "天目山之战",
+      "exists": false,
+      "resolvedTitle": "天目山之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 50,
+      "qid": "Q2750968",
+      "titleZh": "亚历山大战役",
+      "requested": "亚历山大战役",
+      "exists": false,
+      "resolvedTitle": "亚历山大战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 51,
+      "qid": "Q1288821",
+      "titleZh": "阿布·科里亚之战",
+      "requested": "阿布·科里亚之战",
+      "exists": false,
+      "resolvedTitle": "阿布·科里亚之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 52,
+      "qid": "Q2720985",
+      "titleZh": "柯克基利斯之战",
+      "requested": "柯克基利斯之战",
+      "exists": false,
+      "resolvedTitle": "柯克基利斯之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 53,
+      "qid": "Q220766",
+      "titleZh": "马拉兹吉尔特战役",
+      "requested": "马拉兹吉尔特战役",
+      "exists": false,
+      "resolvedTitle": "马拉兹吉尔特战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 54,
+      "qid": "Q2091385",
+      "titleZh": "阿拉威战役",
+      "requested": "阿拉威战役",
+      "exists": false,
+      "resolvedTitle": "阿拉威战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 55,
+      "qid": "Q2665461",
+      "titleZh": "巴巴利索斯战役",
+      "requested": "巴巴利索斯战役",
+      "exists": false,
+      "resolvedTitle": "巴巴利索斯战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 56,
+      "qid": "Q1855781",
+      "titleZh": "尼基乌战役",
+      "requested": "尼基乌战役",
+      "exists": false,
+      "resolvedTitle": "尼基乌战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 57,
+      "qid": "Q1896360",
+      "titleZh": "斯科普里战役",
+      "requested": "斯科普里战役",
+      "exists": false,
+      "resolvedTitle": "斯科普里战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 58,
+      "qid": "Q2237386",
+      "titleZh": "第一次元日战争",
+      "requested": "第一次元日战争",
+      "exists": false,
+      "resolvedTitle": "第一次元日战争",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 59,
+      "qid": "Q604175",
+      "titleZh": "伊里海战",
+      "requested": "伊里海战",
+      "exists": false,
+      "resolvedTitle": "伊里海战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 60,
+      "qid": "Q2889635",
+      "titleZh": "波利亚纳战役",
+      "requested": "波利亚纳战役",
+      "exists": false,
+      "resolvedTitle": "波利亚纳战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 61,
+      "qid": "Q2664174",
+      "titleZh": "卡姆代什战役",
+      "requested": "卡姆代什战役",
+      "exists": false,
+      "resolvedTitle": "卡姆代什战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 62,
+      "qid": "Q1132306",
+      "titleZh": "特兹拉卢姆之战",
+      "requested": "特兹拉卢姆之战",
+      "exists": false,
+      "resolvedTitle": "特兹拉卢姆之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 63,
+      "qid": "Q532544",
+      "titleZh": "斯文达克斯战役（Battle of Svindax）",
+      "requested": "斯文达克斯战役（Battle of Svindax）",
+      "exists": false,
+      "resolvedTitle": "斯文达克斯战役（Battle of Svindax）",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 64,
+      "qid": "Q1187406",
+      "titleZh": "格劳斯战役",
+      "requested": "格劳斯战役",
+      "exists": false,
+      "resolvedTitle": "格劳斯战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 65,
+      "qid": "Q541564",
+      "titleZh": "埃尔斯特河战役",
+      "requested": "埃尔斯特河战役",
+      "exists": false,
+      "resolvedTitle": "埃尔斯特河战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 66,
+      "qid": "Q1319855",
+      "titleZh": "基里纳战役",
+      "requested": "基里纳战役",
+      "exists": false,
+      "resolvedTitle": "基里纳战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 67,
+      "qid": "Q592069",
+      "titleZh": "谢林伯尔战役",
+      "requested": "谢林伯尔战役",
+      "exists": false,
+      "resolvedTitle": "谢林伯尔战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 68,
+      "qid": "Q2557155",
+      "titleZh": "塞奇高沼之战",
+      "requested": "塞奇高沼之战",
+      "exists": false,
+      "resolvedTitle": "塞奇高沼之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 69,
+      "qid": "Q1286106",
+      "titleZh": "法奧大登陸",
+      "requested": "法奧大登陸",
+      "exists": false,
+      "resolvedTitle": "法奧大登陸",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 70,
+      "qid": "Q936223",
+      "titleZh": "卡拉基利塞战役",
+      "requested": "卡拉基利塞战役",
+      "exists": false,
+      "resolvedTitle": "卡拉基利塞战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 71,
+      "qid": "Q1616794",
+      "titleZh": "阿基里斯行动",
+      "requested": "阿基里斯行动",
+      "exists": false,
+      "resolvedTitle": "阿基里斯行动",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 72,
+      "qid": "Q1638751",
+      "titleZh": "希姆里尼村附近爆发了血腥的战斗",
+      "requested": "希姆里尼村附近爆发了血腥的战斗",
+      "exists": false,
+      "resolvedTitle": "希姆里尼村附近爆发了血腥的战斗",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 73,
+      "qid": "Q2888964",
+      "titleZh": "藤户之战",
+      "requested": "藤户之战",
+      "exists": false,
+      "resolvedTitle": "藤户之战",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 74,
+      "qid": "Q743889",
+      "titleZh": "瓦乌战役",
+      "requested": "瓦乌战役",
+      "exists": false,
+      "resolvedTitle": "瓦乌战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 75,
+      "qid": "Q2281774",
+      "titleZh": "迈尔季·拉希特战役",
+      "requested": "迈尔季·拉希特战役",
+      "exists": false,
+      "resolvedTitle": "迈尔季·拉希特战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 76,
+      "qid": "Q5432157",
+      "titleZh": "喀布尔战役",
+      "requested": "喀布尔战役",
+      "exists": true,
+      "resolvedTitle": "喀布尔战役",
+      "redirected": false,
+      "intro": "喀布尔战役可以指： 喀布尔战役 (2021年)，美军撤离期间塔利班再次占领喀布尔 喀布尔战役 (2001年)，美军联合北方联盟推翻塔利班政权 喀布尔战役 (1992–1996)，阿富汗内战期间塔利班首次占领喀布尔"
+    },
+    {
+      "rank": 77,
+      "qid": "Q1747219",
+      "titleZh": "阿维尼翁战役",
+      "requested": "阿维尼翁战役",
+      "exists": false,
+      "resolvedTitle": "阿维尼翁战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 78,
+      "qid": "Q3046548",
+      "titleZh": "迪爾菲爾德大屠殺",
+      "requested": "迪爾菲爾德大屠殺",
+      "exists": false,
+      "resolvedTitle": "迪爾菲爾德大屠殺",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 79,
+      "qid": "Q1752783",
+      "titleZh": "沙托盖战役",
+      "requested": "沙托盖战役",
+      "exists": false,
+      "resolvedTitle": "沙托盖战役",
+      "redirected": false,
+      "intro": ""
+    },
+    {
+      "rank": 80,
+      "qid": "Q908888",
+      "titleZh": "甘大麦战役",
+      "requested": "甘大麦战役",
+      "exists": false,
+      "resolvedTitle": "甘大麦战役",
+      "redirected": false,
+      "intro": ""
+    }
+  ]
+}

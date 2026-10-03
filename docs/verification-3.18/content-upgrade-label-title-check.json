@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-03T00:48:23.665Z",
+  "policy": "Existence, disambiguation and same-event check of the English Wikipedia titles recorded as Wikidata English labels in the 3.17 ranking, for the entries whose label differs from the article title the batch cites. Every non-dab, non-missing introduction was read and classified by hand.",
+  "requests": [
+    {
+      "status": 200,
+      "attempt": 1,
+      "count": 10
+    },
+    {
+      "status": 429,
+      "attempt": 1,
+      "count": 3
+    },
+    {
+      "status": 429,
+      "attempt": 2,
+      "count": 3
+    },
+    {
+      "status": 429,
+      "attempt": 3,
+      "count": 3
+    },
+    {
+      "status": 200,
+      "attempt": 4,
+      "count": 3
+    }
+  ],
+  "checked": 13,
+  "byVerdict": {
+    "missing": 1,
+    "wrong-event": 2,
+    "same-event-article": 4,
+    "overview": 1,
+    "disambiguation": 4,
+    "broader-article": 1
+  },
+  "pages": [
+    {
+      "requested": "Final operations in Slovenia",
+      "title": "Final operations in Slovenia",
+      "missing": true,
+      "dab": false,
+      "intro": "",
+      "verdict": "missing",
+      "verdictReason": ""
+    },
+    {
+      "requested": "Battle of Manzikert",
+      "title": "Battle of Manzikert",
+      "missing": false,
+      "dab": false,
+      "intro": "The Battle of Manzikert or Malazgirt was fought between the Byzantine Empire and the Seljuk Empire on 26 August 1071 near Manzikert, Iberia (modern Malazgirt in",
+      "verdict": "wrong-event",
+      "verdictReason": "The label resolves to the battle of Manzikert of 1071 between Byzantium and the Seljuks; this batch documents the First World War battle of 1915. Citing the label would have cited the wrong battle."
+    },
+    {
+      "requested": "Battle of Pułtusk",
+      "title": "Battle of Pułtusk (1806)",
+      "missing": false,
+      "dab": false,
+      "intro": "The Battle of Pułtusk (or Pultusk) took place on 26 December 1806 during the War of the Fourth Coalition near Pultusk, Prussia (today Pułtusk, Poland). Despite ",
+      "verdict": "same-event-article",
+      "verdictReason": "The label resolves (directly or through a redirect) to the article this batch cites."
+    },
+    {
+      "requested": "Battle of Sellenberk",
+      "title": "Battle of Șelimbăr",
+      "missing": false,
+      "dab": false,
+      "intro": "The Battle of Șelimbăr, or Battle of Sellenberk (Hungarian: Sellenberk; German: Schellenberg), took place on 18 October 1599 between the Wallachian army of Mich",
+      "verdict": "same-event-article",
+      "verdictReason": "The label resolves (directly or through a redirect) to the article this batch cites."
+    },
+    {
+      "requested": "Battle of Garigliano",
+      "title": "Battle of Garigliano",
+      "missing": false,
+      "dab": false,
+      "intro": "The Battle of Garigliano was fought in 915 between Christian forces and the Saracens. Pope John X personally led the Christian forces into battle. The aim was t",
+      "verdict": "wrong-event",
+      "verdictReason": "The label resolves to the battle of the Garigliano of 915 between Christian forces and the Saracens; this batch documents the 1503 battle. Citing the label would have cited the wrong battle."
+    },
+    {
+      "requested": "Battle of Anchialus",
+      "title": "Battle of Anchialus",
+      "missing": false,
+      "dab": false,
+      "intro": "The Battle of Anchialus refers to three battles between Bulgaria and the Byzantine Empire. Battle of Anchialus (708), where Bulgarian Khan Tervel routed the for",
+      "verdict": "overview",
+      "verdictReason": "The label resolves to an overview that lists three battles of Anchialus (708, 763 and 917) rather than the 763 battle of this entry."
+    },
+    {
+      "requested": "Battle of Kara Killisse",
+      "title": "Battle of Kara Killisse (1915)",
+      "missing": false,
+      "dab": false,
+      "intro": "The Battle of Kara Killisse (Lit. Black church, Turkish: Karakilise Muharebesi), also known as the Battle of Malazgirt, was fought on the Caucasus front in July",
+      "verdict": "same-event-article",
+      "verdictReason": "The label resolves (directly or through a redirect) to the article this batch cites."
+    },
+    {
+      "requested": "Battle of Alexandria",
+      "title": "Battle of Alexandria",
+      "missing": false,
+      "dab": true,
+      "intro": "Battle of Alexandria, Raid on Alexandria, or Siege of Alexandria may refer to one of these military operations fought in or near the city of Alexandria, Egypt: ",
+      "verdict": "disambiguation",
+      "verdictReason": ""
+    },
+    {
+      "requested": "Battle of Marj al-Rahit",
+      "title": "Battle of Marj Rahit",
+      "missing": false,
+      "dab": true,
+      "intro": "The Battle of Marj Rahit can refer to one of several battles fought at the plain of Marj Rahit, near Damascus: Battle of Marj Rahit (634), between the Muslim Ar",
+      "verdict": "disambiguation",
+      "verdictReason": ""
+    },
+    {
+      "requested": "Battle of Marinka",
+      "title": "Battle of Marinka",
+      "missing": false,
+      "dab": true,
+      "intro": "Battle of Marinka may refer to: Battle of Marinka (2015), a battle during the war in Donbas Battle of Marinka (2022–2023), a battle during the Russian invasion ",
+      "verdict": "disambiguation",
+      "verdictReason": ""
+    },
+    {
+      "requested": "Battle of Avignon",
+      "title": "Siege of Avignon (737)",
+      "missing": false,
+      "dab": false,
+      "intro": "The siege of Avignon was contested in 737. Frankish forces led by Charles Martel defeated the Umayyad garrison of Avignon and destroyed the stronghold.",
+      "verdict": "same-event-article",
+      "verdictReason": "The label resolves (directly or through a redirect) to the article this batch cites."
+    },
+    {
+      "requested": "1842 retreat from Kabul",
+      "title": "1842 retreat from Kabul",
+      "missing": false,
+      "dab": false,
+      "intro": "The 1842 retreat from Kabul was the retreat of the British and East India Company forces from Kabul during the First Anglo-Afghan War. An uprising in Kabul forc",
+      "verdict": "broader-article",
+      "verdictReason": "The label resolves to the retreat as a whole, of which the battle of Gandamak is the closing episode."
+    },
+    {
+      "requested": "Fall of Kabul",
+      "title": "Fall of Kabul",
+      "missing": false,
+      "dab": true,
+      "intro": "Fall of Kabul may refer to these battles in Kabul, Afghanistan: Fall of Kabul (1992), capture of Kabul by rural Afghan coalition and fall of the Democratic Repu",
+      "verdict": "disambiguation",
+      "verdictReason": ""
+    }
+  ]
+}

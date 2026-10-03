@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "ranAt": "2026-10-03T00:49:22.486Z",
+  "policy": "Each validator was executed as a child process from the repository root; the exit code, PASS/FAIL line counts and the final output line are recorded verbatim so the round report can be checked against the commands.",
+  "total": 11,
+  "passed": 11,
+  "results": [
+    {
+      "name": "validate-cross-layer",
+      "command": "node scripts/validate-cross-layer.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "     events: 709, structured index entries: 53 | PASS Editorial events carry a dated source and a known provenance state | {\"passed\":3,\"total\":3,\"events\":709,\"battles\":603}",
+      "passLines": 3,
+      "failLines": 0
+    },
+    {
+      "name": "validate",
+      "command": "node scripts/validate.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "PASS Wikipedia links preserve source language and full URLs | PASS Required offline assets and launchers are present | {\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}",
+      "passLines": 10,
+      "failLines": 0
+    },
+    {
+      "name": "validate-v2",
+      "command": "node scripts/validate-v2.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "    ] |   } | }",
+      "passLines": 11,
+      "failLines": 0
+    },
+    {
+      "name": "validate-places",
+      "command": "node scripts/validate-places.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "  \"total\": 20, |   \"failures\": [] | }",
+      "passLines": 20,
+      "failLines": 0
+    },
+    {
+      "name": "validate-city-time",
+      "command": "node scripts/validate-city-time.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "    } |   ] | }",
+      "passLines": 0,
+      "failLines": 0
+    },
+    {
+      "name": "validate-polity-period",
+      "command": "node scripts/validate-polity-period.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "PASS 30/30 real polity dossier regressions",
+      "passLines": 1,
+      "failLines": 0
+    },
+    {
+      "name": "validate-release",
+      "command": "node scripts/validate-release.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "PASS All 11307 native archive pieces retain compressed and decoded hashes | PASS 53 derived place assets match their provenance manifest | {\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}",
+      "passLines": 4,
+      "failLines": 0
+    },
+    {
+      "name": "validate-battles",
+      "command": "node scripts/places/validate-battles.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "PASS Layer metadata records the selection policy and drop counts | PASS The layer does not duplicate ids or coordinates of existing place datasets | {\"passed\":8,\"total\":8,\"battles\":603,\"withBelligerents\":423,\"withConflict\":545,\"withReferences\":9,\"withChineseName\":603,\"withEnglishName\":603}",
+      "passLines": 8,
+      "failLines": 0
+    },
+    {
+      "name": "validate-atrocities",
+      "command": "node scripts/places/validate-atrocities.mjs . docs/verification-3.17/content-atrocities-validation.json",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "    \"withReferenceLinks\": 3 |   } | }",
+      "passLines": 8,
+      "failLines": 0
+    },
+    {
+      "name": "audit-language",
+      "command": "node scripts/places/audit-language.mjs . docs/verification-3.17/content-language-audit.json",
+      "exitCode": 0,
+      "passed": true,
+      "summary": "  \"battleAffected\": 0, |   \"battleExamples\": [] | }",
+      "passLines": 0,
+      "failLines": 0
+    },
+    {
+      "name": "verify-gz-mirrors",
+      "command": "node scripts/places/verify-gz-mirrors-3.17.mjs",
+      "exitCode": 0,
+      "passed": true,
+      "summary": " \"withoutSibling\": 39, |  \"failed\": [] | }",
+      "passLines": 0,
+      "failLines": 0
+    }
+  ]
+}
