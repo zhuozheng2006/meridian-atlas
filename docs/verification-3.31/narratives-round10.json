@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "round": "3.31",
+  "title": "政体叙述第十批：403 → 409",
+  "generatedAt": "2026-10-03T03:24:50.580Z",
+  "task": "task-38",
+  "summary": {
+    "narrativesBefore": 403,
+    "narrativesAfter": 409,
+    "addedThisBatch": 18,
+    "recordsBound": 6330,
+    "profilesWithoutNarrative": 1046
+  },
+  "ledger": {
+    "selection": "docs/verification-3.29（第八轮选点）",
+    "plans": 99,
+    "plansByRegion": {
+      "africa": 15,
+      "west-central-asia": 8,
+      "east-asia": 8,
+      "south-asia": 8,
+      "americas": 6,
+      "southeast-asia": 4,
+      "oceania": 4,
+      "europe": 46
+    },
+    "europeShare": 0.465,
+    "europeBand": "40-50%",
+    "verificationCap": {
+      "europe": 200,
+      "all": 680
+    },
+    "candidatesChecked": 680,
+    "verified": 619,
+    "rejectedNotPolity": 61,
+    "gapsRegistered": 44,
+    "englishVerified": "99/99",
+    "chineseAccepted": 92,
+    "chineseRejected": 7,
+    "batches": [
+      {
+        "batch": "第八轮（3.29）",
+        "written": 24
+      },
+      {
+        "batch": "第九批第一批（3.30）",
+        "written": 6
+      },
+      {
+        "batch": "第九批第二批（3.30b）",
+        "written": 18
+      }
+    ],
+    "writtenTotal": 48,
+    "remaining": 51,
+    "writtenByRegion": {
+      "africa": 8,
+      "west-central-asia": 8,
+      "east-asia": 8,
+      "americas": 6,
+      "southeast-asia": 4,
+      "oceania": 4,
+      "europe": 2,
+      "south-asia": 8
+    }
+  },
+  "authored": {
+    "count": 48,
+    "zhChars": {
+      "min": 50,
+      "max": 156
+    },
+    "enWords": {
+      "min": 35,
+      "max": 96
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "coverageNotesPresent": 48,
+    "duplicatedCoverageNotes": 0
+  },
+  "validation": [
+    {
+      "command": "node scripts/validate-v2.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-release.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-polity-period.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/places/audit-language.mjs . docs/verification-3.31/narratives-language-audit.json",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/verification-3.30/build-narratives-batch-3.30.mjs --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node docs/verification-3.30/write-narratives-gz-3.30.mjs --check",
+      "exitCode": 0
+    }
+  ],
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 409,
+    "mtimeZero": true,
+    "deepEqual": true
+  }
+}
