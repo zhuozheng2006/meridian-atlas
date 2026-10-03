@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T01:26:47.720Z",
+  "task": "task-25",
+  "purpose": "Resolve why thirteen important polities appeared to have no enrichment profile, correct the 3.21 claim where it was wrong, and record what the pinned boundary source actually contains.",
+  "sourcePin": {
+    "repo": "Seshat-Global-History-Databank/cliopatria",
+    "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+    "downloadUrl": "https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/ad28a691b7c07c1fca89d0e0636d324667d2a258/cliopatria.geojson.zip",
+    "sha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370"
+  },
+  "sourceCheck": {
+    "file": "/tmp/clio/cliopatria_polities_only.geojson",
+    "features": 13765,
+    "extractedSha256": "5df3b5868cfab8f76030853fa2346ed3cd71171ad807b6f72d783ee2dce6839e",
+    "zipSha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+    "pinnedSha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+    "pinnedArchiveMatches": true,
+    "repo": "Seshat-Global-History-Databank/cliopatria",
+    "commit": "ad28a691b7c07c1fca89d0e0636d324667d2a258",
+    "nameHits": {
+      "Benin": 3,
+      "Zimbabwe": 3
+    },
+    "qidOccurrences": {},
+    "historicalNameHits": {
+      "Great Zimbabwe": 0,
+      "Monomotapa": 0,
+      "Mutapa": 0,
+      "Dahomey": 0,
+      "Abomey": 0,
+      "Allada": 0,
+      "Kilwa": 0,
+      "Quiloa": 0,
+      "Swahili": 0,
+      "Zanj": 0,
+      "Tonga": 0,
+      "Tongatapu": 0,
+      "Rapa Nui": 0,
+      "Rapanui": 0,
+      "Easter Island": 0,
+      "Edo": 0,
+      "Ife": 0,
+      "Benin City": 0
+    },
+    "modernNameHits": {
+      "Zimbabwe": 3,
+      "Benin": 3
+    },
+    "absentConfirmed": true
+  },
+  "indexAccounting": {
+    "catalogueRecords": 13765,
+    "polityRecords": 13380,
+    "relationRecords": 385,
+    "cataloguePolityQids": 1451,
+    "profiles": 1450,
+    "catalogueQidsWithoutProfile": [
+      "Q6000379"
+    ],
+    "boundRecords": 13362,
+    "unboundPolityRecords": 18,
+    "exclusions": 403,
+    "exclusionReasons": {
+      "relation": 385,
+      "ambiguous_source_period": 7,
+      "no_verified_entity": 11
+    },
+    "unboundReasons": [
+      {
+        "recordId": "clio-00176",
+        "name": "Later Zhou",
+        "qid": "Q1154556",
+        "from": -750,
+        "to": -451,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-00327",
+        "name": "Later Zhou",
+        "qid": "Q1154556",
+        "from": -450,
+        "to": -405,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-00375",
+        "name": "Later Zhou",
+        "qid": "Q1154556",
+        "from": -404,
+        "to": -367,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-00414",
+        "name": "Later Zhou",
+        "qid": "Q1154556",
+        "from": -366,
+        "to": -351,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-00419",
+        "name": "Later Zhou",
+        "qid": "Q1154556",
+        "from": -350,
+        "to": -257,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-06973",
+        "name": "Hashemite Arab Federation",
+        "qid": "Q6000379",
+        "from": 1415,
+        "to": 1430,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-07110",
+        "name": "Hashemite Arab Federation",
+        "qid": "Q6000379",
+        "from": 1431,
+        "to": 1439,
+        "reason": "ambiguous_source_period"
+      },
+      {
+        "recordId": "clio-07774",
+        "name": "Timurid Empire",
+        "qid": null,
+        "from": 1507,
+        "to": 1511,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-07809",
+        "name": "Timurid Empire",
+        "qid": null,
+        "from": 1512,
+        "to": 1515,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-07821",
+        "name": "Timurid Empire",
+        "qid": null,
+        "from": 1516,
+        "to": 1525,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-07971",
+        "name": "Timurid Empire",
+        "qid": null,
+        "from": 1526,
+        "to": 1528,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-09373",
+        "name": "Cambodia",
+        "qid": null,
+        "from": 1700,
+        "to": 1756,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-09911",
+        "name": "Cambodia",
+        "qid": null,
+        "from": 1757,
+        "to": 1799,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-10526",
+        "name": "Cambodia",
+        "qid": null,
+        "from": 1800,
+        "to": 1802,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-11203",
+        "name": "Sultanate of Sambaliung",
+        "qid": null,
+        "from": 1830,
+        "to": 1847,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-11458",
+        "name": "Sultanate of Sambaliung",
+        "qid": null,
+        "from": 1848,
+        "to": 1848,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-12292",
+        "name": "Republic of Uryankhay",
+        "qid": null,
+        "from": 1912,
+        "to": 1912,
+        "reason": "no_verified_entity"
+      },
+      {
+        "recordId": "clio-12308",
+        "name": "Republic of Uryankhay",
+        "qid": null,
+        "from": 1913,
+        "to": 1913,
+        "reason": "no_verified_entity"
+      }
+    ],
+    "profilesWithoutCatalogueRecord": []
+  },
+  "thirteen": [
+    {
+      "probedQid": "Q209217",
+      "titleZh": "大津巴布韦",
+      "catalogueQid": "Q209217",
+      "corrected": false,
+      "catalogueName": null,
+      "recordCount": 0,
+      "from": null,
+      "to": null,
+      "profile": false,
+      "profileFile": null,
+      "profileFields": 0,
+      "profileStatements": 0,
+      "labelZh": null,
+      "labelEn": null,
+      "narrative": null
+    },
+    {
+      "probedQid": "Q1136041",
+      "titleZh": "卡涅姆-博尔努",
+      "catalogueQid": "Q1139762",
+      "corrected": true,
+      "catalogueName": "Empire of Kanem",
+      "recordCount": 14,
+      "from": 1072,
+      "to": 1894,
+      "profile": true,
+      "profileFile": "profiles/Q1139762.json.gz",
+      "profileFields": 14,
+      "profileStatements": 8,
+      "labelZh": "加涅姆-博尔努帝国",
+      "labelEn": "Kanem-Bornu Empire",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q477423",
+      "titleZh": "刚果王国",
+      "catalogueQid": "Q796583",
+      "corrected": true,
+      "catalogueName": "Kingdom of Kongo",
+      "recordCount": 3,
+      "from": 1440,
+      "to": 1669,
+      "profile": true,
+      "profileFile": "profiles/Q796583.json.gz",
+      "profileFields": 14,
+      "profileStatements": 12,
+      "labelZh": "刚果王国",
+      "labelEn": "Kingdom of Kongo",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q662922",
+      "titleZh": "贝宁王国",
+      "catalogueQid": "Q662922",
+      "corrected": false,
+      "catalogueName": null,
+      "recordCount": 0,
+      "from": null,
+      "to": null,
+      "profile": false,
+      "profileFile": null,
+      "profileFields": 0,
+      "profileStatements": 0,
+      "labelZh": null,
+      "labelEn": null,
+      "narrative": null
+    },
+    {
+      "probedQid": "Q468814",
+      "titleZh": "达荷美",
+      "catalogueQid": "Q468814",
+      "corrected": false,
+      "catalogueName": null,
+      "recordCount": 0,
+      "from": null,
+      "to": null,
+      "profile": false,
+      "profileFile": null,
+      "profileFields": 0,
+      "profileStatements": 0,
+      "labelZh": null,
+      "labelEn": null,
+      "narrative": null
+    },
+    {
+      "probedQid": "Q249594",
+      "titleZh": "祖鲁王国",
+      "catalogueQid": "Q13558877",
+      "corrected": true,
+      "catalogueName": "Zululand",
+      "recordCount": 6,
+      "from": 1820,
+      "to": 1897,
+      "profile": true,
+      "profileFile": "profiles/Q13558877.json.gz",
+      "profileFields": 14,
+      "profileStatements": 1,
+      "labelZh": "祖鲁兰",
+      "labelEn": "Zululand",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q1740606",
+      "titleZh": "基尔瓦苏丹国",
+      "catalogueQid": "Q1740606",
+      "corrected": false,
+      "catalogueName": null,
+      "recordCount": 0,
+      "from": null,
+      "to": null,
+      "profile": false,
+      "profileFile": null,
+      "profileFields": 0,
+      "profileStatements": 0,
+      "labelZh": null,
+      "labelEn": null,
+      "narrative": null
+    },
+    {
+      "probedQid": "Q210400",
+      "titleZh": "室利佛逝",
+      "catalogueQid": "Q234197",
+      "corrected": true,
+      "catalogueName": "Srivijaya",
+      "recordCount": 8,
+      "from": 674,
+      "to": 1293,
+      "profile": true,
+      "profileFile": "profiles/Q234197.json.gz",
+      "profileFields": 14,
+      "profileStatements": 9,
+      "labelZh": "三佛齐",
+      "labelEn": "Srivijaya",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q207982",
+      "titleZh": "阿瑜陀耶",
+      "catalogueQid": "Q841364",
+      "corrected": true,
+      "catalogueName": "Ayutthaya Kingdom",
+      "recordCount": 24,
+      "from": 1352,
+      "to": 1768,
+      "profile": true,
+      "profileFile": "profiles/Q841364.json.gz",
+      "profileFields": 14,
+      "profileStatements": 10,
+      "labelZh": "大城王国",
+      "labelEn": "Ayutthaya Kingdom",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q1062587",
+      "titleZh": "蒲甘王朝",
+      "catalogueQid": "Q888574",
+      "corrected": true,
+      "catalogueName": "Pagan Kingdom",
+      "recordCount": 8,
+      "from": 850,
+      "to": 1293,
+      "profile": true,
+      "profileFile": "profiles/Q888574.json.gz",
+      "profileFields": 14,
+      "profileStatements": 6,
+      "labelZh": "蒲甘王国",
+      "labelEn": "Pagan kingdom",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q1052477",
+      "titleZh": "亚齐苏丹国",
+      "catalogueQid": "Q1061057",
+      "corrected": true,
+      "catalogueName": "Sultanate of Aceh",
+      "recordCount": 16,
+      "from": 1516,
+      "to": 1959,
+      "profile": true,
+      "profileFile": "profiles/Q1061057.json.gz",
+      "profileFields": 14,
+      "profileStatements": 11,
+      "labelZh": "亚齐苏丹国",
+      "labelEn": "Aceh Sultanate",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q1056778",
+      "titleZh": "汤加",
+      "catalogueQid": "Q1056778",
+      "corrected": false,
+      "catalogueName": null,
+      "recordCount": 0,
+      "from": null,
+      "to": null,
+      "profile": false,
+      "profileFile": null,
+      "profileFields": 0,
+      "profileStatements": 0,
+      "labelZh": null,
+      "labelEn": null,
+      "narrative": null
+    },
+    {
+      "probedQid": "Q14452",
+      "titleZh": "拉帕努伊",
+      "catalogueQid": "Q14452",
+      "corrected": false,
+      "catalogueName": null,
+      "recordCount": 0,
+      "from": null,
+      "to": null,
+      "profile": false,
+      "profileFile": null,
+      "profileFields": 0,
+      "profileStatements": 0,
+      "labelZh": null,
+      "labelEn": null,
+      "narrative": null
+    }
+  ],
+  "sevenResolved": [
+    {
+      "probedQid": "Q1136041",
+      "catalogueQid": "Q1139762",
+      "titleZh": "卡涅姆-博尔努",
+      "catalogueName": "Empire of Kanem",
+      "recordCount": 14,
+      "from": 1072,
+      "to": 1894,
+      "profileFile": "profiles/Q1139762.json.gz",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q477423",
+      "catalogueQid": "Q796583",
+      "titleZh": "刚果王国",
+      "catalogueName": "Kingdom of Kongo",
+      "recordCount": 3,
+      "from": 1440,
+      "to": 1669,
+      "profileFile": "profiles/Q796583.json.gz",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q249594",
+      "catalogueQid": "Q13558877",
+      "titleZh": "祖鲁王国",
+      "catalogueName": "Zululand",
+      "recordCount": 6,
+      "from": 1820,
+      "to": 1897,
+      "profileFile": "profiles/Q13558877.json.gz",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q210400",
+      "catalogueQid": "Q234197",
+      "titleZh": "室利佛逝",
+      "catalogueName": "Srivijaya",
+      "recordCount": 8,
+      "from": 674,
+      "to": 1293,
+      "profileFile": "profiles/Q234197.json.gz",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q207982",
+      "catalogueQid": "Q841364",
+      "titleZh": "阿瑜陀耶",
+      "catalogueName": "Ayutthaya Kingdom",
+      "recordCount": 24,
+      "from": 1352,
+      "to": 1768,
+      "profileFile": "profiles/Q841364.json.gz",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q1062587",
+      "catalogueQid": "Q888574",
+      "titleZh": "蒲甘王朝",
+      "catalogueName": "Pagan Kingdom",
+      "recordCount": 8,
+      "from": 850,
+      "to": 1293,
+      "profileFile": "profiles/Q888574.json.gz",
+      "narrative": "3.12"
+    },
+    {
+      "probedQid": "Q1052477",
+      "catalogueQid": "Q1061057",
+      "titleZh": "亚齐苏丹国",
+      "catalogueName": "Sultanate of Aceh",
+      "recordCount": 16,
+      "from": 1516,
+      "to": 1959,
+      "profileFile": "profiles/Q1061057.json.gz",
+      "narrative": "3.12"
+    }
+  ],
+  "sixAbsent": [
+    {
+      "qid": "Q209217",
+      "titleZh": "大津巴布韦"
+    },
+    {
+      "qid": "Q662922",
+      "titleZh": "贝宁王国"
+    },
+    {
+      "qid": "Q468814",
+      "titleZh": "达荷美"
+    },
+    {
+      "qid": "Q1740606",
+      "titleZh": "基尔瓦苏丹国"
+    },
+    {
+      "qid": "Q1056778",
+      "titleZh": "汤加"
+    },
+    {
+      "qid": "Q14452",
+      "titleZh": "拉帕努伊"
+    }
+  ],
+  "correction": {
+    "previousClaim": "docs/verification-3.21/narratives-round.md stated that these thirteen polities have no enrichment profile and therefore cannot be written.",
+    "finding": "Seven of the thirteen do have profiles and territory records and already had narratives since the 3.12 round; the 3.21 check probed Wikidata QIDs that this project does not use for them. Six have no profile because the pinned boundary source contains no feature for them under any tested name or QID.",
+    "correctedQids": [
+      {
+        "probed": "Q1136041",
+        "real": "Q1139762"
+      },
+      {
+        "probed": "Q477423",
+        "real": "Q796583"
+      },
+      {
+        "probed": "Q249594",
+        "real": "Q13558877"
+      },
+      {
+        "probed": "Q210400",
+        "real": "Q234197"
+      },
+      {
+        "probed": "Q207982",
+        "real": "Q841364"
+      },
+      {
+        "probed": "Q1062587",
+        "real": "Q888574"
+      },
+      {
+        "probed": "Q1052477",
+        "real": "Q1061057"
+      }
+    ]
+  },
+  "whyNotAdded": [
+    "A profile is only reachable through a catalogue record: public/polity-reader.js loadProfile resolves profile-index.records[record.id] and then profiles[qid].file, so a profile without a record can never be opened in the reader.",
+    "scripts/validate-v2.mjs asserts that the index holds exactly 1,450 profiles and that every profile file is bound to records; adding unbound profiles would fail the suite and changing that check is outside this round write scope.",
+    "The six entities have no geometry in the pinned source, and the task forbids borrowing neighbouring or other-year geometry, so any polygon would be fabricated."
+  ],
+  "nextSteps": [
+    "Add a second, citable boundary source (for example a scholarly GIS of African or Polynesian polities) and import it through the same identity-verification path the current pipeline uses, with the source hash pinned like scripts/boundaries/source.json.",
+    "If profile-only entries are wanted, add an explicit reader entry point plus an index field marking \"no territory records\" and update the validator expectation; the entry text must say that the atlas holds no territory data for the polity and that this is not evidence of absence.",
+    "Record the six polities in the atlas coverage notes so that an empty map area is not read as absent history."
+  ],
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.22/profile-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      }
+    ],
+    "audit": {
+      "schemaVersion": 1,
+      "generatedAt": "2026-10-03T01:26:47.716Z",
+      "policy": "English fields must contain no CJK characters. Chinese fields must stay simplified. Entities without an English label are written as their QID or omitted; no transliteration or machine translation is used.",
+      "events": {
+        "total": 709,
+        "structured": 0,
+        "entriesWithCjkInEnglish": 0,
+        "byField": {},
+        "examples": []
+      },
+      "battles": {
+        "total": 603,
+        "byField": {},
+        "examples": [],
+        "entriesAffected": 0
+      },
+      "conclusion": {
+        "structuredEventSummaryEn": 0,
+        "structuredEventSignificanceEn": 0,
+        "battleBelligerentsMixed": 0,
+        "battleConflictMixed": 0,
+        "battleNotesMixed": 0
+      }
+    },
+    "gzMirrors": [
+      {
+        "file": "public/data/enrichment/narratives.json.gz",
+        "mtimeZero": true,
+        "deepEqual": true,
+        "note": null
+      },
+      {
+        "file": "public/data/enrichment/profile-index.json.gz",
+        "mtimeZero": true,
+        "deepEqual": null,
+        "note": "no plain JSON counterpart ships for this archive"
+      }
+    ],
+    "note": "No product data file was modified this round, so the gzip mirrors are the shipped ones; both were checked for mtime=0 and deep equality with their JSON."
+  }
+}
