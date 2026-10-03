@@ -1,0 +1,3135 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T00:01:21.348Z",
+  "task": "task-19",
+  "baselineCommit": "6aac5b51",
+  "scope": "Promote the index-level events ranked 101-161 to editorial level and settle the semantics of the battle layer by moving the excluded one-sided-killing pool into a separate, validated data layer.",
+  "events": {
+    "baselineTotal": 709,
+    "total": 709,
+    "structuredBaseline": 193,
+    "structured": 133,
+    "upgradedIndexEntriesBaseline": 98,
+    "upgradedIndexEntries": 158,
+    "batchCount": 60,
+    "newlyUpgraded": 60,
+    "batchByRegion": {
+      "east-asia": 29,
+      "europe": 12,
+      "americas": 6,
+      "southeast-asia": 3,
+      "africa": 6,
+      "west-central-asia": 3,
+      "global": 1
+    },
+    "idRule": "id stays v312wd-<qid>; the provenance field is removed entirely and wikidataQid is kept",
+    "minSummaryZhChars": 110,
+    "maxSummaryZhChars": 135,
+    "minSummaryEnWords": 45,
+    "maxSummaryEnWords": 60,
+    "selection": "ranks 101-161 of docs/verification-3.14/content-upgrade-ranking.json minus the one entity whose Wikidata P585 contradicts the cited articles; ranks 162-170 stay index-level for the next round",
+    "entries": [
+      {
+        "rank": 101,
+        "id": "v312wd-q2397117",
+        "qid": "Q2397117",
+        "titleZh": "采石之战",
+        "titleEn": "Battle of Caishi",
+        "year": 1161,
+        "region": "east-asia",
+        "sitelinks": 14,
+        "summaryZhChars": 120,
+        "summaryEnWords": 60,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2397117",
+          "https://en.wikipedia.org/wiki/Battle_of_Caishi",
+          "https://zh.wikipedia.org/wiki/%E9%87%87%E7%9F%B3%E4%B9%8B%E6%88%B0_(1161%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Caishi",
+        "zhArticle": "采石之戰 (1161年)",
+        "inheritedCoordinates": [
+          31.7,
+          118.44
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 102,
+        "id": "v312wd-q650507",
+        "qid": "Q650507",
+        "titleZh": "富士川之战",
+        "titleEn": "Battle of Fujigawa",
+        "year": 1180,
+        "region": "east-asia",
+        "sitelinks": 14,
+        "summaryZhChars": 122,
+        "summaryEnWords": 50,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q650507",
+          "https://en.wikipedia.org/wiki/Battle_of_Fujigawa",
+          "https://zh.wikipedia.org/wiki/%E5%AF%8C%E5%A3%AB%E5%B7%9D%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Fujigawa",
+        "zhArticle": "富士川之戰",
+        "inheritedCoordinates": [
+          35.158722222,
+          138.696361111
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 103,
+        "id": "v312wd-q657502",
+        "qid": "Q657502",
+        "titleZh": "埃尔兴根之战",
+        "titleEn": "Battle of Elchingen",
+        "year": 1805,
+        "region": "europe",
+        "sitelinks": 14,
+        "summaryZhChars": 112,
+        "summaryEnWords": 45,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q657502",
+          "https://en.wikipedia.org/wiki/Battle_of_Elchingen",
+          "https://zh.wikipedia.org/wiki/%E5%9F%83%E7%88%BE%E8%88%88%E6%A0%B9%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Elchingen",
+        "zhArticle": "埃爾興根之戰",
+        "inheritedCoordinates": [
+          48.454166666,
+          10.090555555
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 104,
+        "id": "v312wd-q2663279",
+        "qid": "Q2663279",
+        "titleZh": "八里桥之战",
+        "titleEn": "Battle of Palikao",
+        "year": 1860,
+        "region": "east-asia",
+        "sitelinks": 14,
+        "summaryZhChars": 115,
+        "summaryEnWords": 52,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2663279",
+          "https://en.wikipedia.org/wiki/Battle_of_Palikao",
+          "https://zh.wikipedia.org/wiki/%E5%85%AB%E9%87%8C%E6%A9%8B%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Palikao",
+        "zhArticle": "八里橋之戰",
+        "inheritedCoordinates": [
+          39.906667,
+          116.614167
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 105,
+        "id": "v312wd-q1281559",
+        "qid": "Q1281559",
+        "titleZh": "伊松佐河之战",
+        "titleEn": "Battle of Isonzo (489)",
+        "year": 489,
+        "region": "europe",
+        "sitelinks": 13,
+        "summaryZhChars": 120,
+        "summaryEnWords": 49,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1281559",
+          "https://en.wikipedia.org/wiki/Battle_of_Isonzo_(489)",
+          "https://zh.wikipedia.org/wiki/%E4%BC%8A%E6%9D%BE%E4%BD%90%E6%B2%B3%E6%88%B0%E5%BD%B9_(489%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Isonzo (489)",
+        "zhArticle": "伊松佐河戰役 (489年)",
+        "inheritedCoordinates": [
+          45.769725,
+          13.371191666
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 106,
+        "id": "v312wd-q2237381",
+        "qid": "Q2237381",
+        "titleZh": "粟津之战",
+        "titleEn": "Battle of Awazu",
+        "year": 1184,
+        "region": "east-asia",
+        "sitelinks": 13,
+        "summaryZhChars": 119,
+        "summaryEnWords": 51,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2237381",
+          "https://en.wikipedia.org/wiki/Battle_of_Awazu",
+          "https://zh.wikipedia.org/wiki/%E7%B2%9F%E6%B4%A5%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Awazu",
+        "zhArticle": "粟津之戰",
+        "inheritedCoordinates": [
+          34.98107,
+          135.89762
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 107,
+        "id": "v312wd-q348998",
+        "qid": "Q348998",
+        "titleZh": "伊斯利之战",
+        "titleEn": "Battle of Isly",
+        "year": 1844,
+        "region": "africa",
+        "sitelinks": 13,
+        "summaryZhChars": 116,
+        "summaryEnWords": 54,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q348998",
+          "https://en.wikipedia.org/wiki/Battle_of_Isly",
+          "https://zh.wikipedia.org/wiki/%E4%BC%8A%E6%96%AF%E5%88%A9%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Isly",
+        "zhArticle": "伊斯利之戰",
+        "inheritedCoordinates": [
+          34.69,
+          -1.93
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 108,
+        "id": "v312wd-q949635",
+        "qid": "Q949635",
+        "titleZh": "坎布拉战役",
+        "titleEn": "Battle of Kambula",
+        "year": 1879,
+        "region": "africa",
+        "sitelinks": 13,
+        "summaryZhChars": 118,
+        "summaryEnWords": 50,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q949635",
+          "https://en.wikipedia.org/wiki/Battle_of_Kambula",
+          "https://zh.wikipedia.org/wiki/%E5%9D%8E%E5%B8%83%E6%8B%89%E6%88%98%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Kambula",
+        "zhArticle": "坎布拉战役",
+        "inheritedCoordinates": [
+          -27.69289,
+          30.6727
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 109,
+        "id": "v312wd-q2313318",
+        "qid": "Q2313318",
+        "titleZh": "城濮之战",
+        "titleEn": "Battle of Chengpu",
+        "year": -632,
+        "region": "east-asia",
+        "sitelinks": 17,
+        "summaryZhChars": 127,
+        "summaryEnWords": 55,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2313318",
+          "https://en.wikipedia.org/wiki/Battle_of_Chengpu",
+          "https://zh.wikipedia.org/wiki/%E5%9F%8E%E6%BF%AE%E4%B9%8B%E6%88%98"
+        ],
+        "enArticle": "Battle of Chengpu",
+        "zhArticle": "城濮之战",
+        "inheritedCoordinates": [
+          34.6711,
+          114.529
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 110,
+        "id": "v312wd-q494058",
+        "qid": "Q494058",
+        "titleZh": "天安号沉没事件",
+        "titleEn": "ROKS Cheonan sinking",
+        "year": 2010,
+        "region": "east-asia",
+        "sitelinks": 17,
+        "summaryZhChars": 119,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q494058",
+          "https://en.wikipedia.org/wiki/ROKS_Cheonan_sinking",
+          "https://zh.wikipedia.org/wiki/%E5%A4%A9%E5%AE%89%E5%8F%B7%E6%B2%89%E6%B2%A1%E4%BA%8B%E4%BB%B6"
+        ],
+        "enArticle": "ROKS Cheonan sinking",
+        "zhArticle": "天安号沉没事件",
+        "inheritedCoordinates": [
+          37.92916667,
+          124.60055556
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 111,
+        "id": "v312wd-q1064989",
+        "qid": "Q1064989",
+        "titleZh": "严岛之战",
+        "titleEn": "Battle of Miyajima",
+        "year": 1555,
+        "region": "east-asia",
+        "sitelinks": 12,
+        "summaryZhChars": 112,
+        "summaryEnWords": 59,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1064989",
+          "https://en.wikipedia.org/wiki/Battle_of_Miyajima",
+          "https://zh.wikipedia.org/wiki/%E5%9A%B4%E5%B3%B6%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Miyajima",
+        "zhArticle": "嚴島之戰",
+        "inheritedCoordinates": [
+          34.301611111,
+          132.322305555
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 112,
+        "id": "v312wd-q857434",
+        "qid": "Q857434",
+        "titleZh": "卡尔迪耶罗之战",
+        "titleEn": "Battle of Caldiero (1805)",
+        "year": 1805,
+        "region": "europe",
+        "sitelinks": 12,
+        "summaryZhChars": 119,
+        "summaryEnWords": 51,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q857434",
+          "https://en.wikipedia.org/wiki/Battle_of_Caldiero_(1805)",
+          "https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%E8%BF%AA%E8%80%B6%E7%BE%85%E4%B9%8B%E6%88%B0_(1805%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Caldiero (1805)",
+        "zhArticle": "卡爾迪耶羅之戰 (1805年)",
+        "inheritedCoordinates": [
+          45.423888888,
+          11.190555555
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 113,
+        "id": "v312wd-q4087313",
+        "qid": "Q4087313",
+        "titleZh": "北京之战 (1900年)",
+        "titleEn": "Battle of Peking (1900)",
+        "year": 1900,
+        "region": "east-asia",
+        "sitelinks": 12,
+        "summaryZhChars": 123,
+        "summaryEnWords": 57,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4087313",
+          "https://en.wikipedia.org/wiki/Battle_of_Peking_(1900)",
+          "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E4%B9%8B%E6%88%98_(1900%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Peking (1900)",
+        "zhArticle": "北京之战 (1900年)",
+        "inheritedCoordinates": [
+          39.906666666,
+          116.3975
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 114,
+        "id": "v312wd-q543075",
+        "qid": "Q543075",
+        "titleZh": "荷兰港战役",
+        "titleEn": "Battle of Dutch Harbor",
+        "year": 1942,
+        "region": "americas",
+        "sitelinks": 12,
+        "summaryZhChars": 114,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q543075",
+          "https://en.wikipedia.org/wiki/Battle_of_Dutch_Harbor",
+          "https://zh.wikipedia.org/wiki/%E8%8D%B7%E8%98%AD%E6%B8%AF%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Dutch Harbor",
+        "zhArticle": "荷蘭港戰役",
+        "inheritedCoordinates": [
+          53.8875,
+          -166.54222222
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 115,
+        "id": "v312wd-q4871254",
+        "qid": "Q4871254",
+        "titleZh": "虎牢之战",
+        "titleEn": "Battle of Hulao",
+        "year": 621,
+        "region": "east-asia",
+        "sitelinks": 11,
+        "summaryZhChars": 110,
+        "summaryEnWords": 54,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4871254",
+          "https://en.wikipedia.org/wiki/Battle_of_Hulao",
+          "https://zh.wikipedia.org/wiki/%E8%99%8E%E7%89%A2%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Hulao",
+        "zhArticle": "虎牢之戰",
+        "inheritedCoordinates": [
+          34.843611,
+          113.206389
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 116,
+        "id": "v312wd-q2338569",
+        "qid": "Q2338569",
+        "titleZh": "奥林太坦坡战役",
+        "titleEn": "Battle of Ollantaytambo",
+        "year": 1537,
+        "region": "americas",
+        "sitelinks": 11,
+        "summaryZhChars": 127,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2338569",
+          "https://en.wikipedia.org/wiki/Battle_of_Ollantaytambo",
+          "https://zh.wikipedia.org/wiki/%E5%A5%A7%E6%9E%97%E5%A4%AA%E5%9D%A6%E5%9D%A1%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Ollantaytambo",
+        "zhArticle": "奧林太坦坡戰役",
+        "inheritedCoordinates": [
+          -13.258055555,
+          -72.263333333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 117,
+        "id": "v312wd-q840006",
+        "qid": "Q840006",
+        "titleZh": "施托卡赫-恩根之战",
+        "titleEn": "Battle of Stockach (1800)",
+        "year": 1800,
+        "region": "europe",
+        "sitelinks": 11,
+        "summaryZhChars": 112,
+        "summaryEnWords": 48,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q840006",
+          "https://en.wikipedia.org/wiki/Battles_of_Stockach_and_Engen",
+          "https://zh.wikipedia.org/wiki/%E6%96%BD%E6%89%98%E5%8D%A1%E8%B5%AB-%E6%81%A9%E6%A0%B9%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battles of Stockach and Engen",
+        "zhArticle": "施托卡赫-恩根之戰",
+        "inheritedCoordinates": [
+          47.51,
+          9.1
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 118,
+        "id": "v312wd-q575510",
+        "qid": "Q575510",
+        "titleZh": "普天堡战斗",
+        "titleEn": "Battle of Pochonbo",
+        "year": 1937,
+        "region": "east-asia",
+        "sitelinks": 11,
+        "summaryZhChars": 121,
+        "summaryEnWords": 53,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q575510",
+          "https://en.wikipedia.org/wiki/Battle_of_Pochonbo",
+          "https://zh.wikipedia.org/wiki/%E6%99%AE%E5%A4%A9%E5%A0%A1%E6%88%B0%E9%AC%A5"
+        ],
+        "enArticle": "Battle of Pochonbo",
+        "zhArticle": "普天堡戰鬥",
+        "inheritedCoordinates": [
+          41.524919979,
+          128.299416684
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 119,
+        "id": "v312wd-q2748375",
+        "qid": "Q2748375",
+        "titleZh": "黑色星期五 (1945年)",
+        "titleEn": "Black Friday (1945)",
+        "year": 1945,
+        "region": "europe",
+        "sitelinks": 11,
+        "summaryZhChars": 118,
+        "summaryEnWords": 51,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2748375",
+          "https://en.wikipedia.org/wiki/Black_Friday_(1945)",
+          "https://zh.wikipedia.org/wiki/%E9%BB%91%E8%89%B2%E6%98%9F%E6%9C%9F%E4%BA%94_(1945%E5%B9%B4)"
+        ],
+        "enArticle": "Black Friday (1945)",
+        "zhArticle": "黑色星期五 (1945年)",
+        "inheritedCoordinates": [
+          61.4625,
+          5.64
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 120,
+        "id": "v312wd-q18639122",
+        "qid": "Q18639122",
+        "titleZh": "拉马迪之战 (2014-2015年)",
+        "titleEn": "Battle of Ramadi (2014–2015)",
+        "year": 2014,
+        "region": "africa",
+        "sitelinks": 11,
+        "summaryZhChars": 122,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q18639122",
+          "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2014%E2%80%932015)",
+          "https://zh.wikipedia.org/wiki/%E6%8B%89%E9%A6%AC%E8%BF%AA%E4%B9%8B%E6%88%B0_(2014%E5%B9%B4%E8%87%B32015%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Ramadi (2014–2015)",
+        "zhArticle": "拉馬迪之戰 (2014年至2015年)",
+        "inheritedCoordinates": [
+          33.416666666,
+          43.3
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 121,
+        "id": "v312wd-q1374378",
+        "qid": "Q1374378",
+        "titleZh": "卡尔斯战役",
+        "titleEn": "Battle of Kars",
+        "year": 1877,
+        "region": "west-central-asia",
+        "sitelinks": 10,
+        "summaryZhChars": 127,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1374378",
+          "https://en.wikipedia.org/wiki/Battle_of_Kars",
+          "https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%88%BE%E6%96%AF%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Kars",
+        "zhArticle": "卡爾斯戰役",
+        "inheritedCoordinates": [
+          40.586667,
+          43.121111
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 122,
+        "id": "v312wd-q4871437",
+        "qid": "Q4871437",
+        "titleZh": "乞力马扎罗山战役",
+        "titleEn": "Battle of Kilimanjaro",
+        "year": 1914,
+        "region": "africa",
+        "sitelinks": 10,
+        "summaryZhChars": 119,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4871437",
+          "https://en.wikipedia.org/wiki/Battle_of_Kilimanjaro",
+          "https://zh.wikipedia.org/wiki/%E5%90%89%E5%8A%9B%E9%A6%AC%E6%9C%AD%E7%BE%85%E5%B1%B1%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Kilimanjaro",
+        "zhArticle": "吉力馬札羅山戰役",
+        "inheritedCoordinates": [
+          -3.075833333,
+          37.353333333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 123,
+        "id": "v312wd-q289102",
+        "qid": "Q289102",
+        "titleZh": "朝鲜海峡海战",
+        "titleEn": "Battle of Korea Strait",
+        "year": 1950,
+        "region": "east-asia",
+        "sitelinks": 10,
+        "summaryZhChars": 112,
+        "summaryEnWords": 60,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q289102",
+          "https://en.wikipedia.org/wiki/Battle_of_Korea_Strait",
+          "https://zh.wikipedia.org/wiki/%E6%9C%9D%E9%AE%AE%E6%B5%B7%E5%B3%BD%E6%B5%B7%E6%88%B0"
+        ],
+        "enArticle": "Battle of Korea Strait",
+        "zhArticle": "朝鮮海峽海戰",
+        "inheritedCoordinates": [
+          35.17944444,
+          129.07555556
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 124,
+        "id": "v312wd-q4870849",
+        "qid": "Q4870849",
+        "titleZh": "达斯曼宫战役",
+        "titleEn": "Battle of Dasman Palace",
+        "year": 1990,
+        "region": "africa",
+        "sitelinks": 10,
+        "summaryZhChars": 119,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4870849",
+          "https://en.wikipedia.org/wiki/Battle_of_Dasman_Palace",
+          "https://zh.wikipedia.org/wiki/%E9%81%94%E6%96%AF%E6%9B%BC%E5%AE%AE%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Dasman Palace",
+        "zhArticle": "達斯曼宮戰役",
+        "inheritedCoordinates": [
+          29.38693333,
+          47.99738056
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 125,
+        "id": "v312wd-q22117640",
+        "qid": "Q22117640",
+        "titleZh": "阿夫迪伊夫卡战役 (2017年)",
+        "titleEn": "Battle of Avdiivka (2017)",
+        "year": 2017,
+        "region": "europe",
+        "sitelinks": 10,
+        "summaryZhChars": 123,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q22117640",
+          "https://en.wikipedia.org/wiki/Battle_of_Avdiivka_(2017)",
+          "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%A4%AB%E8%BF%AA%E4%BC%8A%E5%A4%AB%E5%8D%A1%E6%88%B0%E5%BD%B9_(2017%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Avdiivka (2017)",
+        "zhArticle": "阿夫迪伊夫卡戰役 (2017年)",
+        "inheritedCoordinates": [
+          48.125,
+          37.766666666
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 126,
+        "id": "v312wd-q851504",
+        "qid": "Q851504",
+        "titleZh": "武耶之战",
+        "titleEn": "Battle of Vouillé",
+        "year": 507,
+        "region": "europe",
+        "sitelinks": 39,
+        "summaryZhChars": 114,
+        "summaryEnWords": 48,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q851504",
+          "https://en.wikipedia.org/wiki/Battle_of_Vouille"
+        ],
+        "enArticle": "Battle of Vouille",
+        "zhArticle": null,
+        "inheritedCoordinates": [
+          46.5833,
+          0.3333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 127,
+        "id": "v312wd-q1151692",
+        "qid": "Q1151692",
+        "titleZh": "下邳之战",
+        "titleEn": "Battle of Xiapi",
+        "year": 199,
+        "region": "east-asia",
+        "sitelinks": 14,
+        "summaryZhChars": 110,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1151692",
+          "https://en.wikipedia.org/wiki/Battle_of_Xiapi",
+          "https://zh.wikipedia.org/wiki/%E4%B8%8B%E9%82%B3%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Xiapi",
+        "zhArticle": "下邳之戰",
+        "inheritedCoordinates": [
+          34.342222222,
+          118.009722222
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 128,
+        "id": "v312wd-q1330310",
+        "qid": "Q1330310",
+        "titleZh": "长坂坡之战",
+        "titleEn": "Battle of Changban",
+        "year": 208,
+        "region": "east-asia",
+        "sitelinks": 14,
+        "summaryZhChars": 120,
+        "summaryEnWords": 59,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1330310",
+          "https://en.wikipedia.org/wiki/Battle_of_Changban",
+          "https://zh.wikipedia.org/wiki/%E9%95%BF%E5%9D%82%E5%9D%A1%E4%B9%8B%E6%88%98"
+        ],
+        "enArticle": "Battle of Changban",
+        "zhArticle": "长坂坡之战",
+        "inheritedCoordinates": [
+          32.045,
+          112.136
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 129,
+        "id": "v312wd-q588774",
+        "qid": "Q588774",
+        "titleZh": "同帅战役",
+        "titleEn": "Battle of Dong Xoai",
+        "year": 1965,
+        "region": "southeast-asia",
+        "sitelinks": 9,
+        "summaryZhChars": 116,
+        "summaryEnWords": 59,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q588774",
+          "https://en.wikipedia.org/wiki/Battle_of_Dong_Xoai",
+          "https://zh.wikipedia.org/wiki/%E5%90%8C%E5%B8%A5%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Dong Xoai",
+        "zhArticle": "同帥戰役",
+        "inheritedCoordinates": [
+          11.537222222,
+          106.896111111
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 130,
+        "id": "v312wd-q123058059",
+        "qid": "Q123058059",
+        "titleZh": "苏法战役",
+        "titleEn": "Battle of Sufa",
+        "year": 2023,
+        "region": "west-central-asia",
+        "sitelinks": 9,
+        "summaryZhChars": 116,
+        "summaryEnWords": 52,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q123058059",
+          "https://en.wikipedia.org/wiki/Battle_of_Sufa",
+          "https://zh.wikipedia.org/wiki/%E8%98%87%E6%B3%95%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Sufa",
+        "zhArticle": "蘇法戰役",
+        "inheritedCoordinates": [
+          31.237222222,
+          34.341388888
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 131,
+        "id": "v312wd-q379433",
+        "qid": "Q379433",
+        "titleZh": "天号作战",
+        "titleEn": "Operation Kikusui I",
+        "year": 1945,
+        "region": "east-asia",
+        "sitelinks": 38,
+        "summaryZhChars": 122,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q379433",
+          "https://en.wikipedia.org/wiki/Operation_Kikusui_I",
+          "https://zh.wikipedia.org/wiki/%E5%A4%A9%E8%99%9F%E4%BD%9C%E6%88%B0"
+        ],
+        "enArticle": "Operation Kikusui I",
+        "zhArticle": "天號作戰",
+        "inheritedCoordinates": [
+          30.36666667,
+          128.06666667
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 133,
+        "id": "v312wd-q2274135",
+        "qid": "Q2274135",
+        "titleZh": "鴫野之战",
+        "titleEn": "Battle of Shigino",
+        "year": 1614,
+        "region": "east-asia",
+        "sitelinks": 8,
+        "summaryZhChars": 118,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2274135",
+          "https://en.wikipedia.org/wiki/Battle_of_Shigino",
+          "https://zh.wikipedia.org/wiki/%E9%B4%AB%E9%87%8E%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Shigino",
+        "zhArticle": "鴫野之戰",
+        "inheritedCoordinates": [
+          34.691166666,
+          135.549333333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 134,
+        "id": "v312wd-q4273438",
+        "qid": "Q4273438",
+        "titleZh": "昆嵩战役",
+        "titleEn": "Battle of Kontum",
+        "year": 1972,
+        "region": "southeast-asia",
+        "sitelinks": 8,
+        "summaryZhChars": 124,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4273438",
+          "https://en.wikipedia.org/wiki/Battle_of_Kontum",
+          "https://zh.wikipedia.org/wiki/%E5%B4%91%E5%B5%A9%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Kontum",
+        "zhArticle": "崑嵩戰役",
+        "inheritedCoordinates": [
+          14.3561,
+          108.008
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 135,
+        "id": "v312wd-q3272217",
+        "qid": "Q3272217",
+        "titleZh": "昆阳之战",
+        "titleEn": "Battle of Kunyang",
+        "year": 23,
+        "region": "east-asia",
+        "sitelinks": 12,
+        "summaryZhChars": 112,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3272217",
+          "https://en.wikipedia.org/wiki/Battle_of_Kunyang",
+          "https://zh.wikipedia.org/wiki/%E6%98%86%E9%99%BD%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Kunyang",
+        "zhArticle": "昆陽之戰",
+        "inheritedCoordinates": [
+          33.626944444,
+          113.356944444
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 136,
+        "id": "v312wd-q2890355",
+        "qid": "Q2890355",
+        "titleZh": "维罗纳战役 (1805年)",
+        "titleEn": "Battle of Verona (1805)",
+        "year": 1805,
+        "region": "europe",
+        "sitelinks": 7,
+        "summaryZhChars": 121,
+        "summaryEnWords": 53,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2890355",
+          "https://en.wikipedia.org/wiki/Battle_of_Verona_(1805)",
+          "https://zh.wikipedia.org/wiki/%E7%B6%AD%E7%BE%85%E7%B4%8D%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Verona (1805)",
+        "zhArticle": "維羅納之戰",
+        "inheritedCoordinates": [
+          45.4333,
+          10.9833
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 137,
+        "id": "v312wd-q4872697",
+        "qid": "Q4872697",
+        "titleZh": "弗尔巴尼亚桥之战",
+        "titleEn": "Battle of Vrbanja Bridge",
+        "year": 1995,
+        "region": "europe",
+        "sitelinks": 7,
+        "summaryZhChars": 135,
+        "summaryEnWords": 50,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4872697",
+          "https://en.wikipedia.org/wiki/Battle_of_Vrbanja_Bridge",
+          "https://zh.wikipedia.org/wiki/%E5%BC%97%E5%B0%94%E5%B7%B4%E5%B0%BC%E4%BA%9A%E6%A1%A5%E4%B9%8B%E6%88%98"
+        ],
+        "enArticle": "Battle of Vrbanja Bridge",
+        "zhArticle": "弗尔巴尼亚桥之战",
+        "inheritedCoordinates": [
+          43.853305555,
+          18.4065
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 138,
+        "id": "v312wd-q123290408",
+        "qid": "Q123290408",
+        "titleZh": "加沙围城战",
+        "titleEn": "Siege of Gaza City",
+        "year": 2023,
+        "region": "west-central-asia",
+        "sitelinks": 7,
+        "summaryZhChars": 125,
+        "summaryEnWords": 54,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q123290408",
+          "https://en.wikipedia.org/wiki/Siege_of_Gaza_City",
+          "https://zh.wikipedia.org/wiki/%E5%8A%A0%E6%B2%99%E5%9C%8D%E5%9F%8E%E6%88%B0"
+        ],
+        "enArticle": "Siege of Gaza City",
+        "zhArticle": "加沙圍城戰",
+        "inheritedCoordinates": [
+          31.5,
+          34.466666666
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 139,
+        "id": "v312wd-q1617667",
+        "qid": "Q1617667",
+        "titleZh": "马塔基托战役",
+        "titleEn": "Battle of Mataquito",
+        "year": 1557,
+        "region": "americas",
+        "sitelinks": 6,
+        "summaryZhChars": 122,
+        "summaryEnWords": 54,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1617667",
+          "https://en.wikipedia.org/wiki/Battle_of_Mataquito",
+          "https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%A1%94%E5%9F%BA%E6%89%98%E6%88%98%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Mataquito",
+        "zhArticle": "马塔基托战役",
+        "inheritedCoordinates": [
+          -35.0681,
+          -71.6386
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 140,
+        "id": "v312wd-q860789",
+        "qid": "Q860789",
+        "titleZh": "折上原之战",
+        "titleEn": "Battle of Suriagehara",
+        "year": 1589,
+        "region": "east-asia",
+        "sitelinks": 6,
+        "summaryZhChars": 127,
+        "summaryEnWords": 50,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q860789",
+          "https://en.wikipedia.org/wiki/Battle_of_Suriagehara",
+          "https://zh.wikipedia.org/wiki/%E6%91%BA%E4%B8%8A%E5%8E%9F%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Suriagehara",
+        "zhArticle": "摺上原之戰",
+        "inheritedCoordinates": [
+          37.562138888,
+          140.066333333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 141,
+        "id": "v312wd-q4870995",
+        "qid": "Q4870995",
+        "titleZh": "菲拉卡岛战役",
+        "titleEn": "Battle of Failaka",
+        "year": 1990,
+        "region": "africa",
+        "sitelinks": 6,
+        "summaryZhChars": 126,
+        "summaryEnWords": 55,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q4870995",
+          "https://en.wikipedia.org/wiki/Battle_of_Failaka",
+          "https://zh.wikipedia.org/wiki/%E8%8F%B2%E6%8B%89%E5%8D%A1%E5%B3%B6%E6%88%B0%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Failaka",
+        "zhArticle": "菲拉卡島戰役",
+        "inheritedCoordinates": [
+          29.386933,
+          47.997381
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 142,
+        "id": "v312wd-q2005185",
+        "qid": "Q2005185",
+        "titleZh": "马陵之战",
+        "titleEn": "Battle of Maling",
+        "year": -342,
+        "region": "east-asia",
+        "sitelinks": 10,
+        "summaryZhChars": 113,
+        "summaryEnWords": 60,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2005185",
+          "https://en.wikipedia.org/wiki/Battle_of_Maling",
+          "https://zh.wikipedia.org/wiki/%E9%A6%AC%E9%99%B5%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Maling",
+        "zhArticle": "馬陵之戰",
+        "inheritedCoordinates": [
+          35.885833333,
+          115.3975
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 143,
+        "id": "v312wd-q3270429",
+        "qid": "Q3270429",
+        "titleZh": "巨鹿之战",
+        "titleEn": "Battle of Julu",
+        "year": -207,
+        "region": "east-asia",
+        "sitelinks": 10,
+        "summaryZhChars": 113,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3270429",
+          "https://en.wikipedia.org/wiki/Battle_of_Julu",
+          "https://zh.wikipedia.org/wiki/%E5%B7%A8%E9%B9%BF%E4%B9%8B%E6%88%98"
+        ],
+        "enArticle": "Battle of Julu",
+        "zhArticle": "巨鹿之战",
+        "inheritedCoordinates": [
+          37.066666666,
+          114.483333333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 144,
+        "id": "v312wd-q11211553",
+        "qid": "Q11211553",
+        "titleZh": "攻打蒙卡达兵营行动",
+        "titleEn": "Attack on the Moncada Barracks",
+        "year": 1953,
+        "region": "americas",
+        "sitelinks": 10,
+        "summaryZhChars": 124,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q11211553",
+          "https://en.wikipedia.org/wiki/Attack_on_the_Moncada_Barracks",
+          "https://zh.wikipedia.org/wiki/%E6%94%BB%E6%89%93%E8%92%99%E5%8D%A1%E9%81%94%E5%85%B5%E7%87%9F%E8%A1%8C%E5%8B%95"
+        ],
+        "enArticle": "Attack on the Moncada Barracks",
+        "zhArticle": "攻打蒙卡達兵營行動",
+        "inheritedCoordinates": [
+          20.02638889,
+          -75.81916667
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 145,
+        "id": "v312wd-q747679",
+        "qid": "Q747679",
+        "titleZh": "阿提密西安海战",
+        "titleEn": "Battle of Artemisium",
+        "year": -480,
+        "region": "europe",
+        "sitelinks": 34,
+        "summaryZhChars": 122,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q747679",
+          "https://en.wikipedia.org/wiki/Battle_of_Artemisium"
+        ],
+        "enArticle": "Battle of Artemisium",
+        "zhArticle": null,
+        "inheritedCoordinates": [
+          39.0527,
+          23.3178
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 146,
+        "id": "v312wd-q722331",
+        "qid": "Q722331",
+        "titleZh": "马邑之谋",
+        "titleEn": "Battle of Mayi",
+        "year": -133,
+        "region": "east-asia",
+        "sitelinks": 9,
+        "summaryZhChars": 117,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q722331",
+          "https://en.wikipedia.org/wiki/Battle_of_Mayi",
+          "https://zh.wikipedia.org/wiki/%E9%A9%AC%E9%82%91%E4%B9%8B%E8%B0%8B"
+        ],
+        "enArticle": "Battle of Mayi",
+        "zhArticle": "马邑之谋",
+        "inheritedCoordinates": [
+          39.335,
+          112.434
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 147,
+        "id": "v312wd-q3780302",
+        "qid": "Q3780302",
+        "titleZh": "阳城之战",
+        "titleEn": "Battle of Yangcheng",
+        "year": 191,
+        "region": "east-asia",
+        "sitelinks": 8,
+        "summaryZhChars": 113,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3780302",
+          "https://en.wikipedia.org/wiki/Battle_of_Yangcheng",
+          "https://zh.wikipedia.org/wiki/%E9%98%B3%E5%9F%8E%E4%B9%8B%E6%88%98"
+        ],
+        "enArticle": "Battle of Yangcheng",
+        "zhArticle": "阳城之战",
+        "inheritedCoordinates": [
+          34.455277777,
+          113.025277777
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 148,
+        "id": "v312wd-q1047091",
+        "qid": "Q1047091",
+        "titleZh": "沥涔吹蔑之战",
+        "titleEn": "Battle of Rạch Gầm-Xoài Mút",
+        "year": 1785,
+        "region": "southeast-asia",
+        "sitelinks": 8,
+        "summaryZhChars": 114,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1047091",
+          "https://en.wikipedia.org/wiki/Battle_of_R%E1%BA%A1ch_G%E1%BA%A7m-Xo%C3%A0i_M%C3%BAt",
+          "https://zh.wikipedia.org/wiki/%E7%80%9D%E6%B6%94%E5%90%B9%E8%94%91%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Rạch Gầm-Xoài Mút",
+        "zhArticle": "瀝涔吹蔑之戰",
+        "inheritedCoordinates": [
+          10.33888889,
+          106.325
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 149,
+        "id": "v312wd-q491188",
+        "qid": "Q491188",
+        "titleZh": "大青岛海战",
+        "titleEn": "Battle of Daecheong",
+        "year": 2009,
+        "region": "east-asia",
+        "sitelinks": 8,
+        "summaryZhChars": 122,
+        "summaryEnWords": 56,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q491188",
+          "https://en.wikipedia.org/wiki/Battle_of_Daecheong",
+          "https://zh.wikipedia.org/wiki/%E5%A4%A7%E9%9D%92%E5%B3%B6%E6%B5%B7%E6%88%B0"
+        ],
+        "enArticle": "Battle of Daecheong",
+        "zhArticle": "大青島海戰",
+        "inheritedCoordinates": [
+          37.825,
+          124.7
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 150,
+        "id": "v312wd-q3270739",
+        "qid": "Q3270739",
+        "titleZh": "博川战斗",
+        "titleEn": "Battle of Pakchon",
+        "year": 1950,
+        "region": "east-asia",
+        "sitelinks": 3,
+        "summaryZhChars": 129,
+        "summaryEnWords": 54,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3270739",
+          "https://en.wikipedia.org/wiki/Battle_of_Pakchon",
+          "https://zh.wikipedia.org/wiki/%E5%8D%9A%E5%B7%9D%E6%88%B0%E9%AC%A5"
+        ],
+        "enArticle": "Battle of Pakchon",
+        "zhArticle": "博川戰鬥",
+        "inheritedCoordinates": [
+          39.658888888,
+          125.591388888
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 151,
+        "id": "v312wd-q383614",
+        "qid": "Q383614",
+        "titleZh": "科希马战役",
+        "titleEn": "Battle of Kohima",
+        "year": 1944,
+        "region": "global",
+        "sitelinks": 32,
+        "summaryZhChars": 123,
+        "summaryEnWords": 57,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q383614",
+          "https://en.wikipedia.org/wiki/Battle_of_Kohima"
+        ],
+        "enArticle": "Battle of Kohima",
+        "zhArticle": null,
+        "inheritedCoordinates": [
+          25.668,
+          94.103
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 152,
+        "id": "v312wd-q3827914",
+        "qid": "Q3827914",
+        "titleZh": "荥阳之战 (190年)",
+        "titleEn": "Battle of Xingyang (190)",
+        "year": 190,
+        "region": "east-asia",
+        "sitelinks": 7,
+        "summaryZhChars": 110,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q3827914",
+          "https://en.wikipedia.org/wiki/Battle_of_Xingyang_(190)",
+          "https://zh.wikipedia.org/wiki/%E8%8D%A5%E9%98%B3%E4%B9%8B%E6%88%98_(190%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Xingyang (190)",
+        "zhArticle": "荥阳之战 (190年)",
+        "inheritedCoordinates": [
+          34.783333333,
+          113.35
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 153,
+        "id": "v312wd-q5778565",
+        "qid": "Q5778565",
+        "titleZh": "阿莱格里亚德皮奥战役",
+        "titleEn": "Battle of Alegría de Pío",
+        "year": 1956,
+        "region": "americas",
+        "sitelinks": 7,
+        "summaryZhChars": 126,
+        "summaryEnWords": 59,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q5778565",
+          "https://en.wikipedia.org/wiki/Battle_of_Alegr%C3%ADa_de_P%C3%ADo",
+          "https://zh.wikipedia.org/wiki/%E9%98%BF%E8%8E%B1%E6%A0%BC%E9%87%8C%E4%BA%9A%E5%BE%B7%E7%9A%AE%E5%A5%A5%E6%88%98%E5%BD%B9"
+        ],
+        "enArticle": "Battle of Alegría de Pío",
+        "zhArticle": "阿莱格里亚德皮奥战役",
+        "inheritedCoordinates": [
+          19.875277777,
+          -77.523888888
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 154,
+        "id": "v312wd-q1113659",
+        "qid": "Q1113659",
+        "titleZh": "富尔福德战役",
+        "titleEn": "Battle of Fulford",
+        "year": 1066,
+        "region": "europe",
+        "sitelinks": 31,
+        "summaryZhChars": 115,
+        "summaryEnWords": 57,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1113659",
+          "https://en.wikipedia.org/wiki/Battle_of_Fulford"
+        ],
+        "enArticle": "Battle of Fulford",
+        "zhArticle": null,
+        "inheritedCoordinates": [
+          53.9325,
+          -1.070833333
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 155,
+        "id": "v312wd-q1073429",
+        "qid": "Q1073429",
+        "titleZh": "白藤江之战 (981年)",
+        "titleEn": "Battle of Bạch Đằng",
+        "year": 981,
+        "region": "east-asia",
+        "sitelinks": 6,
+        "summaryZhChars": 114,
+        "summaryEnWords": 59,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1073429",
+          "https://en.wikipedia.org/wiki/Battle_of_B%E1%BA%A1ch_%C4%90%E1%BA%B1ng",
+          "https://zh.wikipedia.org/wiki/%E7%99%BD%E8%97%A4%E6%B1%9F%E4%B9%8B%E6%88%98_(981%E5%B9%B4)"
+        ],
+        "enArticle": "Battle of Bạch Đằng",
+        "zhArticle": "白藤江之战 (981年)",
+        "inheritedCoordinates": [
+          20.99,
+          106.755
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 156,
+        "id": "v312wd-q2339983",
+        "qid": "Q2339983",
+        "titleZh": "马乌莱河战役",
+        "titleEn": "Battle of the Maule",
+        "year": 1471,
+        "region": "americas",
+        "sitelinks": 6,
+        "summaryZhChars": 122,
+        "summaryEnWords": 51,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q2339983",
+          "https://en.wikipedia.org/wiki/Battle_of_the_Maule",
+          "https://zh.wikipedia.org/wiki/%E9%A9%AC%E4%B9%8C%E8%8E%B1%E6%B2%B3%E6%88%98%E5%BD%B9"
+        ],
+        "enArticle": "Battle of the Maule",
+        "zhArticle": "马乌莱河战役",
+        "inheritedCoordinates": [
+          -35.56954444,
+          -71.69831944
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 157,
+        "id": "v312wd-q15913566",
+        "qid": "Q15913566",
+        "titleZh": "乌牛栏之役",
+        "titleEn": "Battle of O-gu-lan",
+        "year": 1947,
+        "region": "east-asia",
+        "sitelinks": 1,
+        "summaryZhChars": 120,
+        "summaryEnWords": 57,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q15913566",
+          "https://zh.wikipedia.org/wiki/%E7%83%8F%E7%89%9B%E6%AC%84%E4%B9%8B%E5%BD%B9"
+        ],
+        "enArticle": null,
+        "zhArticle": "烏牛欄之役",
+        "inheritedCoordinates": [
+          23.966941719,
+          120.946318438
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 158,
+        "id": "v312wd-q15928518",
+        "qid": "Q15928518",
+        "titleZh": "青树坪战役",
+        "titleEn": "Battle of Qingshuping",
+        "year": 1949,
+        "region": "east-asia",
+        "sitelinks": 1,
+        "summaryZhChars": 121,
+        "summaryEnWords": 60,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q15928518",
+          "https://zh.wikipedia.org/wiki/%E9%9D%92%E6%A0%91%E5%9D%AA%E6%88%98%E5%BD%B9"
+        ],
+        "enArticle": null,
+        "zhArticle": "青树坪战役",
+        "inheritedCoordinates": [
+          27.384722222,
+          112.021944444
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 159,
+        "id": "v312wd-q1987213",
+        "qid": "Q1987213",
+        "titleZh": "都拉斯战役 (1081年)",
+        "titleEn": "Battle of Dyrrhachium (1081)",
+        "year": 1081,
+        "region": "europe",
+        "sitelinks": 30,
+        "summaryZhChars": 118,
+        "summaryEnWords": 53,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q1987213",
+          "https://en.wikipedia.org/wiki/Battle_of_Dyrrhachium_(1081)"
+        ],
+        "enArticle": "Battle of Dyrrhachium (1081)",
+        "zhArticle": null,
+        "inheritedCoordinates": [
+          41.3,
+          19.5
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 160,
+        "id": "v312wd-q914210",
+        "qid": "Q914210",
+        "titleZh": "笠泽之战",
+        "titleEn": "Battle of Lize",
+        "year": -478,
+        "region": "east-asia",
+        "sitelinks": 5,
+        "summaryZhChars": 117,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q914210",
+          "https://en.wikipedia.org/wiki/Battle_of_Lize",
+          "https://zh.wikipedia.org/wiki/%E8%B6%8A%E7%81%AD%E5%90%B4%E4%B9%8B%E6%88%98"
+        ],
+        "enArticle": "Battle of Lize",
+        "zhArticle": "越灭吴之战",
+        "inheritedCoordinates": [
+          30.8997,
+          120.953
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      },
+      {
+        "rank": 161,
+        "id": "v312wd-q847402",
+        "qid": "Q847402",
+        "titleZh": "彭城之战",
+        "titleEn": "Battle of Pengcheng",
+        "year": -205,
+        "region": "east-asia",
+        "sitelinks": 5,
+        "summaryZhChars": 111,
+        "summaryEnWords": 58,
+        "sources": [
+          "https://www.wikidata.org/wiki/Q847402",
+          "https://en.wikipedia.org/wiki/Battle_of_Pengcheng",
+          "https://zh.wikipedia.org/wiki/%E5%BD%AD%E5%9F%8E%E4%B9%8B%E6%88%B0"
+        ],
+        "enArticle": "Battle of Pengcheng",
+        "zhArticle": "彭城之戰",
+        "inheritedCoordinates": [
+          34.26666667,
+          117.16666667
+        ],
+        "provenanceRemoved": true,
+        "wikidataQidKept": true
+      }
+    ]
+  },
+  "civilYears": {
+    "policy": "Wikidata P585 is ISO 8601 astronomical (year zero exists); the project uses civil years without a year zero, so iso<=0 ships as iso-1.",
+    "convertedInBatch": [
+      {
+        "id": "v312wd-q2313318",
+        "qid": "Q2313318",
+        "titleZh": "城濮之战",
+        "civilYear": -632,
+        "isoYear": -631
+      },
+      {
+        "id": "v312wd-q747679",
+        "qid": "Q747679",
+        "titleZh": "阿提密西安海战",
+        "civilYear": -480,
+        "isoYear": -479
+      },
+      {
+        "id": "v312wd-q914210",
+        "qid": "Q914210",
+        "titleZh": "笠泽之战",
+        "civilYear": -478,
+        "isoYear": -477
+      },
+      {
+        "id": "v312wd-q2005185",
+        "qid": "Q2005185",
+        "titleZh": "马陵之战",
+        "civilYear": -342,
+        "isoYear": -341
+      },
+      {
+        "id": "v312wd-q3270429",
+        "qid": "Q3270429",
+        "titleZh": "巨鹿之战",
+        "civilYear": -207,
+        "isoYear": -206
+      },
+      {
+        "id": "v312wd-q847402",
+        "qid": "Q847402",
+        "titleZh": "彭城之战",
+        "civilYear": -205,
+        "isoYear": -204
+      },
+      {
+        "id": "v312wd-q722331",
+        "qid": "Q722331",
+        "titleZh": "马邑之谋",
+        "civilYear": -133,
+        "isoYear": -132
+      }
+    ]
+  },
+  "excluded": [
+    {
+      "id": "v312wd-q2274112",
+      "qid": "Q2274112",
+      "titleZh": "今福之战",
+      "rank": 132,
+      "reason": "Wikidata P585 records 1600 while the English article dates the battle to 26 November 1614 and the Chinese article places it in the winter campaign of the Siege of Osaka (1614). An editorial entry carrying the source year would break cross-layer consistency with the battle layer, and one carrying 1600 would enshrine a date both articles contradict, so the entity stays at index level."
+    }
+  ],
+  "sourceCoverage": {
+    "englishArticle": 58,
+    "chineseArticle": 55,
+    "bothArticles": 53,
+    "withoutEnglishArticle": [
+      {
+        "rank": 157,
+        "qid": "Q15913566",
+        "titleZh": "乌牛栏之役"
+      },
+      {
+        "rank": 158,
+        "qid": "Q15928518",
+        "titleZh": "青树坪战役"
+      }
+    ],
+    "withoutChineseArticle": [
+      {
+        "rank": 126,
+        "qid": "Q851504",
+        "titleZh": "武耶之战"
+      },
+      {
+        "rank": 145,
+        "qid": "Q747679",
+        "titleZh": "阿提密西安海战"
+      },
+      {
+        "rank": 151,
+        "qid": "Q383614",
+        "titleZh": "科希马战役"
+      },
+      {
+        "rank": 154,
+        "qid": "Q1113659",
+        "titleZh": "富尔福德战役"
+      },
+      {
+        "rank": 159,
+        "qid": "Q1987213",
+        "titleZh": "都拉斯战役 (1081年)"
+      }
+    ],
+    "policy": "Every entry cites at least one Wikipedia article read in this session and the Wikidata entity. An entity whose language edition has no article is cited to the editions that exist and discloses the gap in editorialNotes; no citation is invented and no entry ships with fewer than two https sources."
+  },
+  "titleFixes": {
+    "english": [
+      "Battles of Stockach and Engen",
+      "Battle of Dyrrhachium (1081)",
+      "Battle of Caldiero (1805)",
+      "Operation Kikusui I",
+      "Battle of Toulouse (721)",
+      "Battle of Isonzo (489)",
+      "Black Friday (1945)",
+      "Battle of Peking (1900)",
+      "Battle of Xingyang (190)",
+      "Battle of Verona (1805)",
+      "Battle of Ramadi (2014–2015)",
+      "Battle of Avdiivka (2017)"
+    ],
+    "chinese": [
+      "天號作戰",
+      "博川戰鬥",
+      "圖盧茲之戰",
+      "第二次法蘭克-西哥德戰爭"
+    ],
+    "policy": "Titles recorded in the ranking that resolve to a disambiguation page were replaced only after reading the introduction of the replacement article and confirming it covers the same event (docs/verification-3.16/content-upgrade-titles-verified.json). Twelve English and two Chinese titles were fixed this way; no title was guessed."
+  },
+  "remaining": {
+    "windowRanks": [
+      {
+        "rank": 132,
+        "qid": "Q2274112",
+        "id": "v312wd-q2274112",
+        "titleZh": "今福之战",
+        "titleEn": "Battle of Imafuku",
+        "year": 1600,
+        "state": "structured-index"
+      },
+      {
+        "rank": 162,
+        "qid": "Q2890423",
+        "id": "v312wd-q2890423",
+        "titleZh": "玉奥战役",
+        "titleEn": "Battle of Yu Oc",
+        "year": 1884,
+        "state": "structured-index"
+      },
+      {
+        "rank": 163,
+        "qid": "Q652320",
+        "id": "v312wd-q652320",
+        "titleZh": "图卢兹战役",
+        "titleEn": "Battle of Toulouse",
+        "year": 721,
+        "state": "structured-index"
+      },
+      {
+        "rank": 164,
+        "qid": "Q118445706",
+        "id": "v312wd-q118445706",
+        "titleZh": "拉普拉塔战役",
+        "titleEn": "Battle of La Plata",
+        "year": 1957,
+        "state": "structured-index"
+      },
+      {
+        "rank": 165,
+        "qid": "Q595320",
+        "id": "v312wd-q595320",
+        "titleZh": "巴当山之战",
+        "titleEn": "Battle of Badon",
+        "year": 500,
+        "state": "structured-index"
+      },
+      {
+        "rank": 166,
+        "qid": "Q2890079",
+        "id": "v312wd-q2890079",
+        "titleZh": "塞迪曼战役",
+        "titleEn": "Battle of Sediman",
+        "year": 1798,
+        "state": "structured-index"
+      },
+      {
+        "rank": 167,
+        "qid": "Q849474",
+        "id": "v312wd-q849474",
+        "titleZh": "卡尔卡尔之战",
+        "titleEn": "Battle of Qarqar",
+        "year": -852,
+        "state": "structured-index"
+      },
+      {
+        "rank": 168,
+        "qid": "Q1137764",
+        "id": "v312wd-q1137764",
+        "titleZh": "维苏威战役",
+        "titleEn": "Battle of Mons Lactarius",
+        "year": 552,
+        "state": "structured-index"
+      },
+      {
+        "rank": 169,
+        "qid": "Q769358",
+        "id": "v312wd-q769358",
+        "titleZh": "塔吉纳战役",
+        "titleEn": "Battle of Taginae",
+        "year": 552,
+        "state": "structured-index"
+      },
+      {
+        "rank": 170,
+        "qid": "Q112725430",
+        "id": "v312wd-q112725430",
+        "titleZh": "克节朗战役",
+        "titleEn": "Battle of Namka Chu",
+        "year": 1962,
+        "state": "structured-index"
+      }
+    ],
+    "windowCount": 10,
+    "structuredCount": 133,
+    "structuredEntities": [
+      {
+        "id": "v312wd-q1036947",
+        "qid": "Q1036947",
+        "titleZh": "三角洲之战",
+        "titleEn": "Battle of the Delta",
+        "year": -1178,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q849474",
+        "qid": "Q849474",
+        "titleZh": "卡尔卡尔之战",
+        "titleEn": "Battle of Qarqar",
+        "year": -853,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q4872472",
+        "qid": "Q4872472",
+        "titleZh": "苏萨战役",
+        "titleEn": "Battle of Susa",
+        "year": -647,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1644792",
+        "qid": "Q1644792",
+        "titleZh": "勒吉鲁斯湖战役",
+        "titleEn": "Battle of Lake Regillus",
+        "year": -497,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2705449",
+        "qid": "Q2705449",
+        "titleZh": "Mons Algidus战役",
+        "titleEn": "Battle of Mount Algidus",
+        "year": -458,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q637544",
+        "qid": "Q637544",
+        "titleZh": "安菲波利斯战役",
+        "titleEn": "Battle of Amphipolis",
+        "year": -422,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q524871",
+        "qid": "Q524871",
+        "titleZh": "兹库斯之战",
+        "titleEn": "Battle of Cyzicus",
+        "year": -410,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q975123",
+        "qid": "Q975123",
+        "titleZh": "诺提姆之战",
+        "titleEn": "Battle of Notium",
+        "year": -406,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2920325",
+        "qid": "Q2920325",
+        "titleZh": "马尔列弗纳战役",
+        "titleEn": "Battle of the Ascent of Lebonah",
+        "year": -167,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1268339",
+        "qid": "Q1268339",
+        "titleZh": "霍伦堡战役",
+        "titleEn": "Battle of Beth Horon",
+        "year": -166,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1268317",
+        "qid": "Q1268317",
+        "titleZh": "伊茅斯战役",
+        "titleEn": "Battle of Emmaus",
+        "year": -165,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1290572",
+        "qid": "Q1290572",
+        "titleZh": "祖尔堡战役",
+        "titleEn": "Battle of Beth Zur",
+        "year": -164,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1268349",
+        "qid": "Q1268349",
+        "titleZh": "杰卡里亚堡战役",
+        "titleEn": "Battle of Beth Zechariah",
+        "year": -162,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q3555607",
+        "qid": "Q3555607",
+        "titleZh": "埃克巴坦那战役",
+        "titleEn": "Battle of Ecbatana",
+        "year": -129,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q617650",
+        "qid": "Q617650",
+        "titleZh": "梅德韦战役",
+        "titleEn": "Battle of the Medway",
+        "year": 43,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q3496783",
+        "qid": "Q3496783",
+        "titleZh": "伯和仑战役",
+        "titleEn": "Battle of Beth Horon",
+        "year": 66,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q653482",
+        "qid": "Q653482",
+        "titleZh": "卢格杜努姆战役",
+        "titleEn": "Battle of Lugdunum",
+        "year": 197,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2665461",
+        "qid": "Q2665461",
+        "titleZh": "巴巴利索斯战役",
+        "titleEn": "Battle of Barbalissos",
+        "year": 252,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1132306",
+        "qid": "Q1132306",
+        "titleZh": "特兹拉卢姆之战",
+        "titleEn": "Battle of Tzirallum",
+        "year": 313,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1784785",
+        "qid": "Q1784785",
+        "titleZh": "蒙斯·塞琉古战役",
+        "titleEn": "Battle of Mons Seleucus",
+        "year": 353,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q767124",
+        "qid": "Q767124",
+        "titleZh": "泰西封战役",
+        "titleEn": "Battle of Ctesiphon",
+        "year": 363,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q762717",
+        "qid": "Q762717",
+        "titleZh": "波伦蒂亚战役",
+        "titleEn": "Battle of Pollentia",
+        "year": 402,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2457256",
+        "qid": "Q2457256",
+        "titleZh": "奥尔良战役",
+        "titleEn": "Battle of Orleans",
+        "year": 463,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q4871718",
+        "qid": "Q4871718",
+        "titleZh": "莫克雷德斯伯恩战役",
+        "titleEn": "Battle of Mercredesburne",
+        "year": 485,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q595320",
+        "qid": "Q595320",
+        "titleZh": "巴当山之战",
+        "titleEn": "Battle of Badon",
+        "year": 500,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q966386",
+        "qid": "Q966386",
+        "titleZh": "韦兹龙斯之战",
+        "titleEn": "Battle of Vézeronce",
+        "year": 524,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1265750",
+        "qid": "Q1265750",
+        "titleZh": "卡尔基斯战役",
+        "titleEn": "Battle of Callinicum",
+        "year": 531,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1137764",
+        "qid": "Q1137764",
+        "titleZh": "维苏威战役",
+        "titleEn": "Battle of Mons Lactarius",
+        "year": 552,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q769358",
+        "qid": "Q769358",
+        "titleZh": "塔吉纳战役",
+        "titleEn": "Battle of Taginae",
+        "year": 552,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q639827",
+        "qid": "Q639827",
+        "titleZh": "大马士革围城战",
+        "titleEn": "Siege of Damascus",
+        "year": 634,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1030249",
+        "qid": "Q1030249",
+        "titleZh": "法尔战役",
+        "titleEn": "Battle of Fahl",
+        "year": 635,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q2237576",
+        "qid": "Q2237576",
+        "titleZh": "赫利奥波利斯战役",
+        "titleEn": "Battle of Heliopolis",
+        "year": 640,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1855781",
+        "qid": "Q1855781",
+        "titleZh": "尼基乌战役",
+        "titleEn": "Battle of Nikiou",
+        "year": 646,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2237785",
+        "qid": "Q2237785",
+        "titleZh": "维斯克拉战役",
+        "titleEn": "Battle of Vescera",
+        "year": 682,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2281774",
+        "qid": "Q2281774",
+        "titleZh": "迈尔季·拉希特战役",
+        "titleEn": "Battle of Marj al-Rahit",
+        "year": 684,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q652320",
+        "qid": "Q652320",
+        "titleZh": "图卢兹战役",
+        "titleEn": "Battle of Toulouse",
+        "year": 721,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1747219",
+        "qid": "Q1747219",
+        "titleZh": "阿维尼翁战役",
+        "titleEn": "Battle of Avignon",
+        "year": 737,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q966312",
+        "qid": "Q966312",
+        "titleZh": "安基阿卢斯战役",
+        "titleEn": "Battle of Anchialus",
+        "year": 763,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1896360",
+        "qid": "Q1896360",
+        "titleZh": "斯科普里战役",
+        "titleEn": "Battle of Skopje",
+        "year": 1004,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q868027",
+        "qid": "Q868027",
+        "titleZh": "克朗塔夫之战",
+        "titleEn": "Battle of Clontarf",
+        "year": 1014,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1638751",
+        "qid": "Q1638751",
+        "titleZh": "希姆里尼村附近爆发了血腥的战斗",
+        "titleEn": "Battle of Shirimni",
+        "year": 1021,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q532544",
+        "qid": "Q532544",
+        "titleZh": "斯文达克斯战役（Battle of Svindax）",
+        "titleEn": "Battle of Svindax",
+        "year": 1022,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1187406",
+        "qid": "Q1187406",
+        "titleZh": "格劳斯战役",
+        "titleEn": "Battle of Graus",
+        "year": 1063,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1243260",
+        "qid": "Q1243260",
+        "titleZh": "戈尔佩赫拉战役",
+        "titleEn": "Battle of Golpejera",
+        "year": 1072,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q541564",
+        "qid": "Q541564",
+        "titleZh": "埃尔斯特河战役",
+        "titleEn": "Battle on the Elster",
+        "year": 1080,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q382967",
+        "qid": "Q382967",
+        "titleZh": "1148年围攻大马士革",
+        "titleEn": "Siege of Damascus",
+        "year": 1148,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q636520",
+        "qid": "Q636520",
+        "titleZh": "迈尔季欧云之战 (1179)",
+        "titleEn": "Battle of Marj Ayyun",
+        "year": 1179,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q2888964",
+        "qid": "Q2888964",
+        "titleZh": "藤户之战",
+        "titleEn": "Battle of Kojima",
+        "year": 1185,
+        "region": "east-asia"
+      },
+      {
+        "id": "v312wd-q577190",
+        "qid": "Q577190",
+        "titleZh": "克雷森之战",
+        "titleEn": "Battle of Cresson",
+        "year": 1187,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q1319855",
+        "qid": "Q1319855",
+        "titleZh": "基里纳战役",
+        "titleEn": "Battle of Kirina",
+        "year": 1235,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1148862",
+        "qid": "Q1148862",
+        "titleZh": "法瑞斯库尔战役",
+        "titleEn": "Battle of Fariskur",
+        "year": 1250,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2237386",
+        "qid": "Q2237386",
+        "titleZh": "第一次元日战争",
+        "titleEn": "Battle of Bun'ei",
+        "year": 1274,
+        "region": "east-asia"
+      },
+      {
+        "id": "v312wd-q2888296",
+        "qid": "Q2888296",
+        "titleZh": "葡萄牙征服休达",
+        "titleEn": "Conquest of Ceuta",
+        "year": 1415,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1273257",
+        "qid": "Q1273257",
+        "titleZh": "拉拉古纳战役",
+        "titleEn": "Battle of Aguere",
+        "year": 1494,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2264459",
+        "qid": "Q2264459",
+        "titleZh": "切里尼奧拉战役",
+        "titleEn": "Battle of Cerignola",
+        "year": 1503,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1443091",
+        "qid": "Q1443091",
+        "titleZh": "加里利亚诺河之战",
+        "titleEn": "Battle of Garigliano",
+        "year": 1504,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2599844",
+        "qid": "Q2599844",
+        "titleZh": "克列茨克战役",
+        "titleEn": "Battle of Kletsk",
+        "year": 1506,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1362188",
+        "qid": "Q1362188",
+        "titleZh": "塔里克提之战",
+        "titleEn": "Battle of Talikota",
+        "year": 1565,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q1113509",
+        "qid": "Q1113509",
+        "titleZh": "天目山之战",
+        "titleEn": "Battle of Tenmokuzan",
+        "year": 1582,
+        "region": "east-asia"
+      },
+      {
+        "id": "v312wd-q592069",
+        "qid": "Q592069",
+        "titleZh": "谢林伯尔战役",
+        "titleEn": "Battle of Sellenberk",
+        "year": 1599,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2274112",
+        "qid": "Q2274112",
+        "titleZh": "今福之战",
+        "titleEn": "Battle of Imafuku",
+        "year": 1600,
+        "region": "east-asia"
+      },
+      {
+        "id": "v312wd-q932519",
+        "qid": "Q932519",
+        "titleZh": "姆波柔惹战役",
+        "titleEn": "Battle of Mbororé",
+        "year": 1641,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q2557155",
+        "qid": "Q2557155",
+        "titleZh": "塞奇高沼之战",
+        "titleEn": "Battle of Sedgemoor",
+        "year": 1685,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q3046548",
+        "qid": "Q3046548",
+        "titleZh": "迪爾菲爾德大屠殺",
+        "titleEn": "Raid on Deerfield",
+        "year": 1704,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q2890079",
+        "qid": "Q2890079",
+        "titleZh": "塞迪曼战役",
+        "titleEn": "Battle of Sediman",
+        "year": 1798,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2420811",
+        "qid": "Q2420811",
+        "titleZh": "塔博尔山战役",
+        "titleEn": "Battle of Mount Tabor",
+        "year": 1799,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q2750968",
+        "qid": "Q2750968",
+        "titleZh": "亚历山大战役",
+        "titleEn": "Battle of Alexandria",
+        "year": 1801,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2095678",
+        "qid": "Q2095678",
+        "titleZh": "阿瑟耶战役",
+        "titleEn": "Battle of Assaye",
+        "year": 1803,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q1888562",
+        "qid": "Q1888562",
+        "titleZh": "1804年10月5日海战",
+        "titleEn": "Action of 5 October 1804",
+        "year": 1804,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1192867",
+        "qid": "Q1192867",
+        "titleZh": "普乌图斯克会战",
+        "titleEn": "Battle of Pułtusk",
+        "year": 1806,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2890073",
+        "qid": "Q2890073",
+        "titleZh": "苏帕洽战役",
+        "titleEn": "Battle of Suipacha",
+        "year": 1810,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q1416369",
+        "qid": "Q1416369",
+        "titleZh": "克莱斯勒农场战役",
+        "titleEn": "Battle of Crysler's Farm",
+        "year": 1813,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q1752783",
+        "qid": "Q1752783",
+        "titleZh": "沙托盖战役",
+        "titleEn": "Battle of the Chateauguay",
+        "year": 1813,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q177470",
+        "qid": "Q177470",
+        "titleZh": "斯托尼河战役",
+        "titleEn": "Battle of Stoney Creek",
+        "year": 1813,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q3486072",
+        "qid": "Q3486072",
+        "titleZh": "阿哈尔齐赫之战",
+        "titleEn": "Battle of Akhalzic",
+        "year": 1828,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q908888",
+        "qid": "Q908888",
+        "titleZh": "甘大麦战役",
+        "titleEn": "1842 retreat from Kabul",
+        "year": 1842,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q1420382",
+        "qid": "Q1420382",
+        "titleZh": "大土陵战役",
+        "titleEn": "Battle of Tel el-Kebir",
+        "year": 1882,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2890423",
+        "qid": "Q2890423",
+        "titleZh": "玉奥战役",
+        "titleEn": "Battle of Yu Oc",
+        "year": 1884,
+        "region": "east-asia"
+      },
+      {
+        "id": "v312wd-q604356",
+        "qid": "Q604356",
+        "titleZh": "塔迈尔战役",
+        "titleEn": "Battle of Tamai",
+        "year": 1884,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1288821",
+        "qid": "Q1288821",
+        "titleZh": "阿布·科里亚之战",
+        "titleEn": "Battle of Abu Klea",
+        "year": 1885,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q654722",
+        "qid": "Q654722",
+        "titleZh": "穆雷达战役",
+        "titleEn": "Battle of Mulayda",
+        "year": 1891,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q303176",
+        "qid": "Q303176",
+        "titleZh": "马尼拉战役",
+        "titleEn": "Battle of Manila",
+        "year": 1898,
+        "region": "southeast-asia"
+      },
+      {
+        "id": "v312wd-q2888406",
+        "qid": "Q2888406",
+        "titleZh": "钻石山战役",
+        "titleEn": "Battle of Diamond Hill",
+        "year": 1900,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2889133",
+        "qid": "Q2889133",
+        "titleZh": "列里方丹战役",
+        "titleEn": "Battle of Leliefontein",
+        "year": 1900,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2889668",
+        "qid": "Q2889668",
+        "titleZh": "白杨树丛战役",
+        "titleEn": "Battle of Poplar Grove",
+        "year": 1900,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q5123963",
+        "qid": "Q5123963",
+        "titleZh": "血腥星期日 (1900年)",
+        "titleEn": "Bloody Sunday",
+        "year": 1900,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2624980",
+        "qid": "Q2624980",
+        "titleZh": "图卜鲁格战役",
+        "titleEn": "Battle of Tobruk",
+        "year": 1911,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2720985",
+        "qid": "Q2720985",
+        "titleZh": "柯克基利斯之战",
+        "titleEn": "Battle of Kirk Kilisse",
+        "year": 1912,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q604175",
+        "qid": "Q604175",
+        "titleZh": "伊里海战",
+        "titleEn": "Battle of Elli",
+        "year": 1912,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1286106",
+        "qid": "Q1286106",
+        "titleZh": "法奧大登陸",
+        "titleEn": "Fao Landing",
+        "year": 1914,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1417205",
+        "qid": "Q1417205",
+        "titleZh": "蒙斯战役",
+        "titleEn": "Battle of Mons",
+        "year": 1914,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2003949",
+        "qid": "Q2003949",
+        "titleZh": "勒卡托战役",
+        "titleEn": "Battle of Le Cateau",
+        "year": 1914,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2053030",
+        "qid": "Q2053030",
+        "titleZh": "冬季行動（1914-1915）",
+        "titleEn": "Battle of Givenchy",
+        "year": 1914,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2337526",
+        "qid": "Q2337526",
+        "titleZh": "第一次埃纳河战役",
+        "titleEn": "First Battle of the Aisne",
+        "year": 1914,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q250383",
+        "qid": "Q250383",
+        "titleZh": "內里事件",
+        "titleEn": "Action at Néry",
+        "year": 1914,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q220766",
+        "qid": "Q220766",
+        "titleZh": "马拉兹吉尔特战役",
+        "titleEn": "Battle of Manzikert",
+        "year": 1915,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q936223",
+        "qid": "Q936223",
+        "titleZh": "卡拉基利塞战役",
+        "titleEn": "Battle of Kara Killisse",
+        "year": 1915,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q4871819",
+        "qid": "Q4871819",
+        "titleZh": "莫卧儿岭战役",
+        "titleEn": "Battle of Mughar Ridge",
+        "year": 1917,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q4438362",
+        "qid": "Q4438362",
+        "titleZh": "奥科塔尔战役",
+        "titleEn": "Battle of Ocotal",
+        "year": 1927,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q2091385",
+        "qid": "Q2091385",
+        "titleZh": "阿拉威战役",
+        "titleEn": "Battle of Arawe",
+        "year": 1943,
+        "region": "oceania"
+      },
+      {
+        "id": "v312wd-q743889",
+        "qid": "Q743889",
+        "titleZh": "瓦乌战役",
+        "titleEn": "Battle of Wau",
+        "year": 1943,
+        "region": "oceania"
+      },
+      {
+        "id": "v312wd-q13423520",
+        "qid": "Q13423520",
+        "titleZh": "奥德河-尼萨河战役",
+        "titleEn": "Battle of the Oder–Neisse",
+        "year": 1945,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q1497922",
+        "qid": "Q1497922",
+        "titleZh": "库里沃夫卡战役",
+        "titleEn": "Battle of Kuryłówka",
+        "year": 1945,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q2889635",
+        "qid": "Q2889635",
+        "titleZh": "波利亚纳战役",
+        "titleEn": "Final operations in Slovenia",
+        "year": 1945,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q4271928",
+        "qid": "Q4271928",
+        "titleZh": "巴厘巴板海战",
+        "titleEn": "Battle of Balikpapan",
+        "year": 1945,
+        "region": "oceania"
+      },
+      {
+        "id": "v312wd-q2896424",
+        "qid": "Q2896424",
+        "titleZh": "亚德莫迪凯战役",
+        "titleEn": "Battle of Yad Mordechai",
+        "year": 1948,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q2888378",
+        "qid": "Q2888378",
+        "titleZh": "太古之战",
+        "titleEn": "Battle of Taegu",
+        "year": 1950,
+        "region": "east-asia"
+      },
+      {
+        "id": "v312wd-q118445706",
+        "qid": "Q118445706",
+        "titleZh": "拉普拉塔战役",
+        "titleEn": "Battle of La Plata",
+        "year": 1957,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q112725430",
+        "qid": "Q112725430",
+        "titleZh": "克节朗战役",
+        "titleEn": "Battle of Namka Chu",
+        "year": 1962,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q280468",
+        "qid": "Q280468",
+        "titleZh": "北邑战役",
+        "titleEn": "Battle of Ap Bac",
+        "year": 1963,
+        "region": "southeast-asia"
+      },
+      {
+        "id": "v312wd-q2026028",
+        "qid": "Q2026028",
+        "titleZh": "卷发作战",
+        "titleEn": "Operation Crimp",
+        "year": 1966,
+        "region": "southeast-asia"
+      },
+      {
+        "id": "v312wd-q259526",
+        "qid": "Q259526",
+        "titleZh": "隆新战役",
+        "titleEn": "Battle of Long Tan",
+        "year": 1966,
+        "region": "southeast-asia"
+      },
+      {
+        "id": "v312wd-q2889954",
+        "qid": "Q2889954",
+        "titleZh": "西贡战役",
+        "titleEn": "Battle of Saigon",
+        "year": 1968,
+        "region": "southeast-asia"
+      },
+      {
+        "id": "v312wd-q2889338",
+        "qid": "Q2889338",
+        "titleZh": "米尔巴特之战",
+        "titleEn": "Battle of Mirbat",
+        "year": 1972,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q4872743",
+        "qid": "Q4872743",
+        "titleZh": "无线岭战役",
+        "titleEn": "Battle of Wireless Ridge",
+        "year": 1982,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q4930640",
+        "qid": "Q4930640",
+        "titleZh": "被阿根廷空襲",
+        "titleEn": "Bluff Cove Air Attacks",
+        "year": 1982,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q786657",
+        "qid": "Q786657",
+        "titleZh": "卡尔德隆大桥战役",
+        "titleEn": "Battle of Calderón Bridge",
+        "year": 2000,
+        "region": "americas"
+      },
+      {
+        "id": "v312wd-q5432157",
+        "qid": "Q5432157",
+        "titleZh": "喀布尔战役",
+        "titleEn": "Fall of Kabul",
+        "year": 2001,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q4871330",
+        "qid": "Q4871330",
+        "titleZh": "杰宁战役",
+        "titleEn": "Battle of Jenin",
+        "year": 2002,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q4872157",
+        "qid": "Q4872157",
+        "titleZh": "拉马迪战役",
+        "titleEn": "Battle of Ramadi",
+        "year": 2004,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q2889747",
+        "qid": "Q2889747",
+        "titleZh": "2006年拉马迪战役",
+        "titleEn": "Battle of Ramadi",
+        "year": 2006,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1616794",
+        "qid": "Q1616794",
+        "titleZh": "阿基里斯行动",
+        "titleEn": "Operation Achilles",
+        "year": 2007,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q4872168",
+        "qid": "Q4872168",
+        "titleZh": "拉斯坎坡里战役",
+        "titleEn": "Battle of Ras Kamboni",
+        "year": 2007,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q1754030",
+        "qid": "Q1754030",
+        "titleZh": "2008年玛达克冲突",
+        "titleEn": "2008 Mardakert skirmishes",
+        "year": 2008,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q2890373",
+        "qid": "Q2890373",
+        "titleZh": "瓦纳特战役",
+        "titleEn": "Battle of Wanat",
+        "year": 2008,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q2664174",
+        "qid": "Q2664174",
+        "titleZh": "卡姆代什战役",
+        "titleEn": "Battle of Kamdesh",
+        "year": 2009,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q4871076",
+        "qid": "Q4871076",
+        "titleZh": "甘加尔之战",
+        "titleEn": "Battle of Ganjgal",
+        "year": 2009,
+        "region": "south-asia"
+      },
+      {
+        "id": "v312wd-q1753755",
+        "qid": "Q1753755",
+        "titleZh": "2010年马尔达凯特冲突",
+        "titleEn": "2010 Mardakert skirmishes",
+        "year": 2010,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q2363420",
+        "qid": "Q2363420",
+        "titleZh": "边境支援",
+        "titleEn": "2011 southern Israel cross-border attacks",
+        "year": 2011,
+        "region": "west-central-asia"
+      },
+      {
+        "id": "v312wd-q20045970",
+        "qid": "Q20045970",
+        "titleZh": "马林卡战役",
+        "titleEn": "Battle of Marinka",
+        "year": 2015,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q21685887",
+        "qid": "Q21685887",
+        "titleZh": "拉马迪之战 (2015-16)",
+        "titleEn": "Battle of Ramadi",
+        "year": 2016,
+        "region": "africa"
+      },
+      {
+        "id": "v312wd-q111383245",
+        "qid": "Q111383245",
+        "titleZh": "阿夫迪伊夫卡战役",
+        "titleEn": "Battle of Avdiivka",
+        "year": 2020,
+        "region": "europe"
+      },
+      {
+        "id": "v312wd-q112206624",
+        "qid": "Q112206624",
+        "titleZh": "克列缅纳亚战役",
+        "titleEn": "Battle of Kreminna",
+        "year": 2020,
+        "region": "europe"
+      }
+    ],
+    "note": "The remaining structured index entries are the raw material for the next content round. This round took the window in rank order and stopped at 161 once 60 entries were assembled, so ranks 162-170 stay untouched. Chinese-article coverage falls steeply towards the tail of the ranking (every rank above 170 has no Chinese Wikipedia article at all), so the next round should decide per entity what is worth writing rather than working through the tail mechanically."
+  },
+  "battles": {
+    "total": 603,
+    "byRegion": {
+      "west-central-asia": 60,
+      "africa": 75,
+      "east-asia": 96,
+      "europe": 199,
+      "south-asia": 57,
+      "americas": 33,
+      "southeast-asia": 49,
+      "oceania": 30,
+      "global": 4
+    },
+    "unchanged": true,
+    "semanticRuling": {
+      "decision": "The battles layer documents combat between opposing forces. One-sided killings and massacres are a different category and are NOT merged into it; they ship as the separate atrocities layer instead.",
+      "enforcedBy": "scripts/places/validate-atrocities.mjs fails if any Wikidata entity id appears in both layers.",
+      "poolSize": 302,
+      "poolByClass": {
+        "Q3199915": 298,
+        "Q645883": 1,
+        "Q2380335": 1,
+        "Q97368680": 2
+      }
+    }
+  },
+  "atrocities": {
+    "layer": "atrocities",
+    "pool": 302,
+    "shipped": 293,
+    "poolByClass": {
+      "Q3199915": 298,
+      "Q645883": 1,
+      "Q2380335": 1,
+      "Q97368680": 2
+    },
+    "withChineseName": 37,
+    "withoutChineseName": 256,
+    "withReferenceLinks": 3,
+    "dropped": {
+      "noName": 9,
+      "noChineseName": 256,
+      "badCoordinates": 0,
+      "badYear": 0,
+      "outOfRange": 0,
+      "battleLayerOverlap": 0
+    },
+    "byClass": {
+      "Q3199915": 289,
+      "Q645883": 1,
+      "Q2380335": 1,
+      "Q97368680": 2
+    },
+    "byRegion": {
+      "oceania": 138,
+      "south-asia": 111,
+      "east-asia": 14,
+      "southeast-asia": 30
+    },
+    "byCentury": {
+      "1801..1900": 124,
+      "1901..2000": 121,
+      "1701..1800": 6,
+      "2001..2100": 41,
+      "1501..1600": 1
+    },
+    "validation": {
+      "passed": 8,
+      "total": 8,
+      "checks": [
+        {
+          "name": "The archive is deterministic and mirrors the editable JSON",
+          "passed": true
+        },
+        {
+          "name": "The layer states its semantic boundary against the battle layer",
+          "passed": true
+        },
+        {
+          "name": "Every incident has a unique id and a sourced Wikidata entity",
+          "passed": true
+        },
+        {
+          "name": "The two layers stay disjoint by Wikidata entity id",
+          "passed": true
+        },
+        {
+          "name": "Coordinates, years and regions come from the source record",
+          "passed": true
+        },
+        {
+          "name": "Names are source labels: at least one is present, Chinese may be absent but is never invented",
+          "passed": true
+        },
+        {
+          "name": "English fields contain Latin script only",
+          "passed": true
+        },
+        {
+          "name": "The count bookkeeping matches the pool",
+          "passed": true
+        }
+      ]
+    },
+    "ui": "No user interface consumes this layer in the 3.16 round; it is data plus an independent validator, as instructed."
+  },
+  "language": {
+    "eventOffenders": 0,
+    "structured": 133,
+    "battleOffenders": 0,
+    "atrocitiesTraditionalNames": 7,
+    "atrocitiesOffenders": 0
+  },
+  "sourceLinks": {
+    "checked": 185,
+    "ok": 185,
+    "failed": 0,
+    "byLayer": {
+      "events": 173,
+      "atrocities": 12
+    },
+    "policy": "Every URL cited by the 3.16 editorial batch was requested once (three attempts on failure) and the atrocity layer was sampled; the shipped files were not modified."
+  },
+  "validation": {
+    "crossLayer": 0,
+    "crossLayerPassed": 3,
+    "crossLayerTotal": 3,
+    "battleChecks": [
+      {
+        "name": "The battle archive is deterministic and mirrors the editable JSON",
+        "passed": true
+      },
+      {
+        "name": "At least three hundred battles with unique ids ship in the layer",
+        "passed": true
+      },
+      {
+        "name": "Every battle keeps valid coordinates, years and region codes from the source",
+        "passed": true
+      },
+      {
+        "name": "Belligerents and conflicts stay arrays of source strings and are never invented",
+        "passed": true
+      },
+      {
+        "name": "English fields contain Latin script only and Chinese fields are present",
+        "passed": true
+      },
+      {
+        "name": "Every battle cites its Wikidata entity and any statement reference",
+        "passed": true
+      },
+      {
+        "name": "Layer metadata records the selection policy and drop counts",
+        "passed": true
+      },
+      {
+        "name": "The layer does not duplicate ids or coordinates of existing place datasets",
+        "passed": true
+      }
+    ],
+    "battleChecksPassed": 8,
+    "battleChecksTotal": 8,
+    "commands": [
+      {
+        "command": "node scripts/validate-cross-layer.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "     events: 709, structured index entries: 133",
+          "PASS Editorial events carry a dated source and a known provenance state",
+          "{\"passed\":3,\"total\":3,\"events\":709,\"battles\":603}"
+        ],
+        "output": "shared entities: 291\nPASS A battle shared by both layers carries the same year in each\n     battles with an https source: 603/603\nPASS Every battle record points at a web source\n     events: 709, structured index entries: 133\nPASS Editorial events carry a dated source and a known provenance state\n{\"passed\":3,\"total\":3,\"events\":709,\"battles\":603}"
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Wikipedia links preserve source language and full URLs",
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ],
+        "output": "PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE\nPASS Time windows use civil years without year zero\nPASS Historical coverage never extrapolates before or after source coverage\nPASS All source record IDs and geometry references are consistent\nPASS Every civil-year coverage count matches the active-record selector\nPASS Boundary archive sizes and hashes match final manifest\nPASS Every shipped geometry can be parsed and all referenced shapes exist\nPASS Every event has bilingual text, valid dates, location semantics and traceable references\nPASS Wikipedia links preserve source language and full URLs\nPASS Required offline assets and launchers are present\n{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+      },
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "    ]",
+          "  }",
+          "}"
+        ],
+        "output": "PASS Lean catalog preserves every ID, interval, type and geometry association\nPASS Bootstrap maps exactly match active geometries for every precompiled year\nPASS Lazy full-record shards resolve all archive records\nPASS Unreferenced, deprecated and unknown statements stay out of sourced fact panels\nPASS Year-matched claims require adequate precision and bounded dates or a point date\nPASS Known source identity/period conflicts cannot load factual dossiers\nPASS Curated narratives match identity, exact record IDs and the selected period\nPASS Compressed event archive equals editable full event JSON\nPASS Compressed enrichment narratives equal the editable source\nPASS Enrichment profile paths, fact references and narrative bindings are internally consistent\nPASS Initial atlas payload is substantially smaller than v1\n{\n  \"result\": \"passed\",\n  \"checks\": 11,\n  \"events\": 709,\n  \"performance\": {\n    \"catalogBefore\": 1252656,\n    \"catalogAfter\": 602739,\n    \"eventGzip\": 396791,\n    \"years\": [\n      {\n        \"year\": -221,\n        \"previousGeometryBytes\": 342104,\n        \"bootstrapGeometryBytes\": 20053\n      },\n      {\n        \"year\": 1,\n        \"previousGeometryBytes\": 780016,\n        \"bootstrapGeometryBytes\": 26150\n      },\n      {\n        \"year\": 1000,\n        \"previousGeometryBytes\": 2597177,\n        \"bootstrapGeometryBytes\": 51341\n      },\n      {\n        \"year\": 1492,\n        \"previousGeometryBytes\": 3005248,\n        \"bootstrapGeometryBytes\": 79710\n      },\n      {\n        \"year\": 1750,\n        \"previousGeometryBytes\": 4405911,\n        \"bootstrapGeometryBytes\": 141081\n      },\n      {\n        \"year\": 1914,\n        \"previousGeometryBytes\": 5130307,\n        \"bootstrapGeometryBytes\": 213209\n      },\n      {\n        \"year\": 2024,\n        \"previousGeometryBytes\": 11345334,\n        \"bootstrapGeometryBytes\": 208283\n      }\n    ]\n  }\n}"
+      },
+      {
+        "command": "node scripts/validate-places.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"total\": 20,",
+          "  \"failures\": []",
+          "}"
+        ],
+        "output": "PASS Imports real places.js without DOM\nPASS Capital labels are readable and use pinned entity names\nPASS Dated city names follow the observation and preserve raw names across transitions\nPASS One unavailable archive preserves other sources and is retryable\nPASS Reviewed archaeological sites join the layer with their own period only\nPASS Modern reference is opt-in and never contaminates default loads\nPASS Historical index stays light and all details shards exist\nPASS A failed detail request retries, hydrates, and preserves unknown accuracy\nPASS Detail selects the matching period, not another location sharing its coordinates\nPASS Selected period belongs to the displayed point evidence\nPASS BCE/CE nearest year and observation selection use one consistent calendar\nPASS Dates outside population windows do not become city lifespans\nPASS Real historical attestation gaps remain empty\nPASS Capitals use explicit tenure bounds and do not project forward\nPASS Known internally contradictory name dates are quarantined\nPASS Known geographic feature conflicts are excluded without deleting mountain settlements\nPASS Source URLs exist before lazy Pleiades hydration\nPASS Search uses lazy-record aliases without fetching full records\nPASS Major city search preserves modern isolation and known Chinese names\nPASS Exact city-name relevance precedes incidental substring matches\n{\n  \"passed\": 20,\n  \"total\": 20,\n  \"failures\": []\n}"
+      },
+      {
+        "command": "node scripts/validate-city-time.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "    }",
+          "  ]",
+          "}"
+        ],
+        "output": "{\n  \"passed\": 22,\n  \"total\": 22,\n  \"syntheticChecks\": 18,\n  \"realDataChecks\": 4,\n  \"dataDir\": \"/Users/zane/meridian_atlas/world-history-atlas/public/data/places\",\n  \"results\": [\n    {\n      \"name\": \"URL population window accepts only supported values and preserves exact-year zero\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Population window limits are inclusive and exact-year mode rejects borrowed observations\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"BCE/CE population window does not insert a fictitious year zero\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Same-name-period filtering happens before choosing the nearest population record\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Cross-name-period observations are withheld rather than renamed to the map year\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Documented overlapping boundary year accepts observations on either side\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"A missing selected-year name period does not manufacture an exclusion or lifespan\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"A missing observation-year name period preserves its original source label\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"An uncovered gap in a name timeline stays unknown rather than becoming a name period\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Reviewed observation-name ranges are not treated as inferred rename boundaries\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Population values, source labels, coordinates and dated rules are never rewritten\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Population window does not change independently attested settlement or capital periods\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Country city filtering uses the same population window and name-period policy\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Country city cache differentiates 0, 25 and 50 years without mutating source records\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"An observation in an overlapping renaming year retains both historical names\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"New historical timeline aliases remain searchable in both global and country lists\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Open name-period bounds constrain names without asserting city existence\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Display and JSON export retain the observation year and original source record\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Real Tokyo records: 1867 uses Edo 1854, 1869 uses Tokyo 1875\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Real Samara: 1971 borrows 1975 Kuybyshev, not the later Samara observation\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Exact source-row quarantine preserves original geography/population without reassignment\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"Every real name timeline is sourced; all displayed values remain source observations\",\n      \"passed\": true\n    }\n  ]\n}"
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ],
+        "output": "PASS 30/30 real polity dossier regressions"
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS All 11307 native archive pieces retain compressed and decoded hashes",
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ],
+        "output": "PASS Static asset budgets: 17732 files, no file over 25 MiB\nPASS All 357 physical assets match the current release inventory\nPASS All 11307 native archive pieces retain compressed and decoded hashes\nPASS 53 derived place assets match their provenance manifest\n{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17732,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+      },
+      {
+        "command": "node scripts/places/validate-battles.mjs . docs/verification-3.16/content-battles-validation.json",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Layer metadata records the selection policy and drop counts",
+          "PASS The layer does not duplicate ids or coordinates of existing place datasets",
+          "{\"passed\":8,\"total\":8,\"battles\":603,\"withBelligerents\":423,\"withConflict\":545,\"withReferences\":9,\"withChineseName\":603,\"withEnglishName\":603}"
+        ],
+        "output": "PASS The battle archive is deterministic and mirrors the editable JSON\nPASS At least three hundred battles with unique ids ship in the layer\nPASS Every battle keeps valid coordinates, years and region codes from the source\nPASS Belligerents and conflicts stay arrays of source strings and are never invented\nPASS English fields contain Latin script only and Chinese fields are present\nPASS Every battle cites its Wikidata entity and any statement reference\nPASS Layer metadata records the selection policy and drop counts\nPASS The layer does not duplicate ids or coordinates of existing place datasets\n{\"passed\":8,\"total\":8,\"battles\":603,\"withBelligerents\":423,\"withConflict\":545,\"withReferences\":9,\"withChineseName\":603,\"withEnglishName\":603}"
+      },
+      {
+        "command": "node scripts/places/validate-atrocities.mjs . docs/verification-3.16/content-atrocities-validation.json",
+        "exitCode": 0,
+        "lastLines": [
+          "    \"withReferenceLinks\": 3",
+          "  }",
+          "}"
+        ],
+        "output": "PASS The archive is deterministic and mirrors the editable JSON\nPASS The layer states its semantic boundary against the battle layer\nPASS Every incident has a unique id and a sourced Wikidata entity\nPASS The two layers stay disjoint by Wikidata entity id\nPASS Coordinates, years and regions come from the source record\nPASS Names are source labels: at least one is present, Chinese may be absent but is never invented\nPASS English fields contain Latin script only\nPASS The count bookkeeping matches the pool\n{\n  \"passed\": 8,\n  \"total\": 8,\n  \"counters\": {\n    \"incidents\": 293,\n    \"withChineseName\": 37,\n    \"withEnglishName\": 293,\n    \"withReferenceLinks\": 3\n  }\n}"
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.16/content-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleAffected\": 0,",
+          "  \"battleExamples\": []",
+          "}"
+        ],
+        "output": "{\n  \"out\": \"/Users/zane/meridian_atlas/world-history-atlas/docs/verification-3.16/content-language-audit.json\",\n  \"eventsTotal\": 709,\n  \"structured\": 133,\n  \"eventOffenders\": 0,\n  \"eventFields\": {},\n  \"eventExamples\": [],\n  \"battles\": 603,\n  \"battleFields\": {},\n  \"battleAffected\": 0,\n  \"battleExamples\": []\n}"
+      },
+      {
+        "command": "node scripts/places/assemble-events-upgraded-3.16.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"entries\": 60,",
+          "  \"parts\": 6",
+          "}"
+        ],
+        "output": "{\n  \"result\": \"checked\",\n  \"entries\": 60,\n  \"parts\": 6\n}"
+      },
+      {
+        "command": "node scripts/places/build-atrocities.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "    \"southeast-asia\": 30",
+          "  }",
+          "}"
+        ],
+        "output": "{\n  \"result\": \"checked\",\n  \"shipped\": 293,\n  \"dropped\": {\n    \"noName\": 9,\n    \"noChineseName\": 256,\n    \"badCoordinates\": 0,\n    \"badYear\": 0,\n    \"outOfRange\": 0,\n    \"battleLayerOverlap\": 0\n  },\n  \"byRegion\": {\n    \"oceania\": 138,\n    \"south-asia\": 111,\n    \"east-asia\": 14,\n    \"southeast-asia\": 30\n  }\n}"
+      },
+      {
+        "command": "node scripts/places/apply-events-3.10.mjs --check --batch=editorial/events-upgraded-3.16.json",
+        "exitCode": 0,
+        "lastLines": [
+          "    \"contemporary\": 17",
+          "  }",
+          "}"
+        ],
+        "output": "{\n  \"result\": \"checked\",\n  \"batches\": [\n    \"editorial/events-upgraded-3.16.json\"\n  ],\n  \"addedOrUpdated\": 60,\n  \"total\": 709,\n  \"previousTotal\": 709,\n  \"byRegion\": {\n    \"east-asia\": 29,\n    \"europe\": 12,\n    \"americas\": 6,\n    \"southeast-asia\": 3,\n    \"africa\": 6,\n    \"west-central-asia\": 3,\n    \"global\": 1\n  },\n  \"byEra\": {\n    \"ancient-iron\": 1,\n    \"classical\": 12,\n    \"medieval\": 9,\n    \"early-modern\": 6,\n    \"modern\": 15,\n    \"contemporary\": 17\n  }\n}"
+      }
+    ]
+  },
+  "gzip": [
+    {
+      "file": "public/data/events.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    },
+    {
+      "file": "public/data/battles.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    },
+    {
+      "file": "public/data/atrocities.json.gz",
+      "mtimeZero": true,
+      "os": 255,
+      "deepEqual": true
+    }
+  ]
+}

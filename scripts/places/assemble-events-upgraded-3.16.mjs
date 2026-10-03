@@ -76,8 +76,13 @@ for(const item of authored){
  const extract=extractByQid.get(qid);
  if(!extract)fail(where+': no research extract for '+qid);
  const base=shippedById.get(item.id);
+ // The assembler must stay re-runnable after the batch has been applied: a shipped entry that is
+ // already the upgraded record of the same entity (same id, same QID, no provenance marker) is
+ // accepted, so --check works both before and after apply-events-3.10.mjs.
+ const alreadyUpgraded=base&&!base.provenance&&base.wikidataQid===qid;
  if(!base)fail(where+': no shipped entry to upgrade');
- else if(base.provenance!=='wikidata-structured')fail(where+': shipped entry is not a structured index entry');
+ else if(base.provenance!=='wikidata-structured'&&!alreadyUpgraded)fail(where+': shipped entry is not a structured index entry');
+ else if(alreadyUpgraded&&(base.summary?.zh!==item.summaryZh||base.start!==item.start))fail(where+': shipped upgraded entry does not match the authored batch');
  const iso=rankingRow?.year;
  if(!Number.isInteger(iso))fail(where+': ranking year is not an integer');
  const civil=Number.isInteger(iso)?yearOf(iso):null;
