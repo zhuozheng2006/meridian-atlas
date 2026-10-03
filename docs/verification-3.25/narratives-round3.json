@@ -1,0 +1,1426 @@
+{
+  "schemaVersion": 1,
+  "round": "3.25",
+  "title": "政体叙述第三批：190 → 231",
+  "generatedAt": "2026-10-03T02:34:26.129Z",
+  "task": "task-30",
+  "baseline": "7b609630",
+  "head": "2c0ea44e",
+  "summary": {
+    "narrativesBefore": 190,
+    "narrativesAfter": 231,
+    "addedThisTask": 41,
+    "addedAcrossBothRounds": 69,
+    "target": "70 plans from the 3.23 selection",
+    "completedPlans": 69,
+    "pendingPlans": 1,
+    "profiles": 1455,
+    "profilesWithoutNarrativeBefore": 1293,
+    "profilesWithoutNarrativeAfter": 1224,
+    "recordsBound": 3522
+  },
+  "identityRule": {
+    "statement": "A Wikidata QID may only be taken from the atlas catalogue verifiedWikidata field or from en.wikipedia pageprops.wikibase_item, never from memory; an entity whose Wikidata classes are not those of a polity is not written up and is registered as a gap.",
+    "candidatesChecked": 265,
+    "verified": 235,
+    "rejectedNotPolity": 30,
+    "unverified": 0,
+    "rejectedExamples": [
+      {
+        "qid": "Q23666",
+        "title": "大不列颠岛",
+        "classes": [
+          "island"
+        ],
+        "recordCount": 38
+      },
+      {
+        "qid": "Q4962",
+        "title": null,
+        "classes": [
+          "Wikimedia disambiguation page"
+        ],
+        "recordCount": 17
+      },
+      {
+        "qid": "Q494354",
+        "title": "喀喇汗国",
+        "classes": [
+          "historical country",
+          "nomadic confederacy",
+          "khanate",
+          "family"
+        ],
+        "recordCount": 21
+      },
+      {
+        "qid": "Q832554",
+        "title": "阿根廷邦联",
+        "classes": [
+          "historical period",
+          "confederation"
+        ],
+        "recordCount": 15
+      },
+      {
+        "qid": "Q466803",
+        "title": "拔罗婆王朝之起源",
+        "classes": [
+          "historical country",
+          "dynasty",
+          "historical period"
+        ],
+        "recordCount": 10
+      },
+      {
+        "qid": "Q12567",
+        "title": "维京人",
+        "classes": [
+          "historical period",
+          "culture",
+          "style",
+          "historical ethnic group"
+        ],
+        "recordCount": 28
+      },
+      {
+        "qid": "Q69829",
+        "title": "法兰西第四共和国",
+        "classes": [
+          "republic regime in France",
+          "historical period",
+          "historical country"
+        ],
+        "recordCount": 14
+      },
+      {
+        "qid": "Q177819",
+        "title": "古王国时期",
+        "classes": [
+          "era",
+          "historical country",
+          "historical period"
+        ],
+        "recordCount": 5
+      },
+      {
+        "qid": "Q1109279",
+        "title": "墨西哥合众国",
+        "classes": [
+          "historical period",
+          "historical country"
+        ],
+        "recordCount": 13
+      },
+      {
+        "qid": "Q703919",
+        "title": "吴朝",
+        "classes": [
+          "dynasty",
+          "historical period",
+          "kingdom"
+        ],
+        "recordCount": 17
+      },
+      {
+        "qid": "Q1155700",
+        "title": "拉达那哥欣王国",
+        "classes": [
+          "historical period",
+          "country",
+          "historical country"
+        ],
+        "recordCount": 14
+      },
+      {
+        "qid": "Q10914393",
+        "title": "新亚述帝国",
+        "classes": [
+          "historical country",
+          "historical period",
+          "style",
+          "empire"
+        ],
+        "recordCount": 6
+      },
+      {
+        "qid": "Q187979",
+        "title": "早王朝时期",
+        "classes": [
+          "periodization",
+          "era",
+          "historical country",
+          "historical period",
+          "middle chronology"
+        ],
+        "recordCount": 2
+      },
+      {
+        "qid": "Q191324",
+        "title": "中王国时期",
+        "classes": [
+          "historical country",
+          "era",
+          "historical period"
+        ],
+        "recordCount": 3
+      }
+    ],
+    "handExclusions": [
+      {
+        "qid": "Q617219",
+        "reason": "\"English overseas possessions\" is a description of a collection of territories, not a polity with its own records.",
+        "title": "English overseas possession"
+      },
+      {
+        "qid": "Q223",
+        "reason": "Greenland is an island territory; the atlas records bound to it describe the island and its Danish autonomy rather than a sovereign polity of its own.",
+        "title": "Greenland"
+      },
+      {
+        "qid": "Q2345840",
+        "reason": "\"History of Sumer\" is a history topic, not a polity.",
+        "title": "history of Sumer"
+      },
+      {
+        "qid": "Q521263",
+        "reason": "\"History of Tibet\" is a history topic, not a polity.",
+        "title": "history of Tibet"
+      },
+      {
+        "qid": "Q19951607",
+        "reason": "\"French Colonial Africa\" is a region, not a polity.",
+        "title": "French Colonial Africa"
+      }
+    ],
+    "secondCheck": "every English article actually cited was re-checked through pageprops.wikibase_item: 70/70 carry the polity QID",
+    "effect": "The rule stopped 30 candidates that would have produced dossiers about an island, a people, a title, a disambiguation page or a history topic (Great Britain the island, the Vikings, the title sultan, the Sultans of Perak, Selangor and Terengganu as positions, Olmec civilisation, History of Tibet, History of Sumer), and one further entity this round (Kutai) whose classes include a monarchy but whose only English article documents a region and its people.",
+    "gaps": [
+      {
+        "qid": "Q23666",
+        "title": "大不列颠岛",
+        "classes": [
+          "island"
+        ]
+      },
+      {
+        "qid": "Q4962",
+        "title": null,
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q12567",
+        "title": "维京人",
+        "classes": [
+          "historical period",
+          "culture",
+          "style",
+          "historical ethnic group"
+        ]
+      },
+      {
+        "qid": "Q185063",
+        "title": "战国",
+        "classes": [
+          "historical period"
+        ]
+      },
+      {
+        "qid": "Q582948",
+        "title": "维京人殖民北美",
+        "classes": [
+          "historical period"
+        ]
+      },
+      {
+        "qid": "Q2649311",
+        "title": "霹雳苏丹",
+        "classes": [
+          "position"
+        ]
+      },
+      {
+        "qid": "Q135364",
+        "title": "奥尔梅克文明",
+        "classes": [
+          "civilization",
+          "culture",
+          "ethnic group"
+        ]
+      },
+      {
+        "qid": "Q1178043",
+        "title": "Texcoco",
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q43292",
+        "title": "苏丹",
+        "classes": [
+          "noble title",
+          "honorific",
+          "position"
+        ]
+      },
+      {
+        "qid": "Q105946539",
+        "title": "Dongye",
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q19927420",
+        "title": "Mongol khanate",
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q204023",
+        "title": "战国时代",
+        "classes": [
+          "historical period"
+        ]
+      },
+      {
+        "qid": "Q7636765",
+        "title": "雪兰莪苏丹",
+        "classes": [
+          "position"
+        ]
+      },
+      {
+        "qid": "Q5769444",
+        "title": "登嘉楼苏丹",
+        "classes": [
+          "position"
+        ]
+      },
+      {
+        "qid": "Q354307",
+        "title": "马来亚",
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q1794655",
+        "title": "Kutai",
+        "classes": [
+          "region",
+          "Indonesian monarchy",
+          "historical country"
+        ],
+        "reason": "The article documents the historical region and the Kutai people rather than a state, so no polity narrative was written."
+      }
+    ]
+  },
+  "chineseCitations": {
+    "accepted": 55,
+    "rejected": 15,
+    "rejectedExamples": [
+      {
+        "qid": "Q4899891",
+        "reason": "searched candidates are the Ottoman vilayet, the Eastern Crisis and unrelated biographies; none documents the Beylik of Tunis"
+      },
+      {
+        "qid": "Q1709337",
+        "reason": "no Chinese article about the Emirate of Nekor; the search returned an unrelated list and biographies"
+      },
+      {
+        "qid": "Q309272",
+        "reason": "the candidates are the Roman provinces Mauretania Caesariensis and Tingitana, not the kingdom of Mauretania"
+      },
+      {
+        "qid": "Q748595",
+        "reason": "no Chinese article about Qataban; the search returned unrelated lists"
+      },
+      {
+        "qid": "Q1109279",
+        "reason": "the candidates are the modern country and unrelated articles; none documents the First Mexican Republic"
+      },
+      {
+        "qid": "Q466803",
+        "reason": "the candidates are the Pala dynasty, Tamil people and unrelated topics, not the Pallava dynasty"
+      }
+    ],
+    "fallbackEntries": 15,
+    "missedIntroductions": [
+      "Q1155700 拉达那哥欣王国",
+      "Q2247225 塔鲁曼内格拉",
+      "Q248572 马京达瑙苏丹国"
+    ],
+    "missedNote": "For three entries the Chinese introduction captured in the first pass belonged to an unrelated page (Laos, a university, Islam in Indonesia); those entries were written from the English introduction and the Chinese citation is kept only because pageprops confirmed the article documents the same polity."
+  },
+  "authored": {
+    "count": 69,
+    "zhChars": {
+      "min": 50,
+      "max": 179
+    },
+    "enWords": {
+      "min": 35,
+      "max": 95
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "sourcesMin": 2,
+    "sourcesMax": 2,
+    "coverageNotesPresent": 69,
+    "thinEntries": 18,
+    "thinWordingPresent": 18,
+    "byRegion": {
+      "africa": 16,
+      "americas": 16,
+      "south-asia": 14,
+      "southeast-asia": 14,
+      "oceania": 3,
+      "europe": 6
+    },
+    "entries": [
+      {
+        "qid": "Q449639",
+        "titleZh": "阿勒底亚",
+        "titleEn": "Alodia",
+        "region": "africa",
+        "scope": {
+          "start": 347,
+          "end": 1506
+        },
+        "records": 3,
+        "span": 1159,
+        "thin": true,
+        "zhArticle": "阿勒底亚"
+      },
+      {
+        "qid": "Q4899891",
+        "titleZh": "突尼斯省都辖区",
+        "titleEn": "Beylik of Tunis",
+        "region": "africa",
+        "scope": {
+          "start": 1706,
+          "end": 1884
+        },
+        "records": 12,
+        "span": 178,
+        "thin": false,
+        "zhArticle": "东方危机"
+      },
+      {
+        "qid": "Q1709337",
+        "titleZh": "内寇尔王国",
+        "titleEn": "Emirate of Nekor",
+        "region": "africa",
+        "scope": {
+          "start": 750,
+          "end": 1027
+        },
+        "records": 9,
+        "span": 277,
+        "thin": false,
+        "zhArticle": "各國建國時間列表"
+      },
+      {
+        "qid": "Q1136188",
+        "titleZh": "萨阿德王朝",
+        "titleEn": "Saadi dynasty",
+        "region": "africa",
+        "scope": {
+          "start": 1556,
+          "end": 1740
+        },
+        "records": 10,
+        "span": 184,
+        "thin": false,
+        "zhArticle": "萨阿德王朝"
+      },
+      {
+        "qid": "Q1071439",
+        "titleZh": "伊默里纳王国",
+        "titleEn": "Merina Kingdom",
+        "region": "africa",
+        "scope": {
+          "start": 1792,
+          "end": 1897
+        },
+        "records": 12,
+        "span": 105,
+        "thin": false,
+        "zhArticle": "伊默里纳王国"
+      },
+      {
+        "qid": "Q177819",
+        "titleZh": "古王国时期",
+        "titleEn": "Old Kingdom of Egypt",
+        "region": "africa",
+        "scope": {
+          "start": -2500,
+          "end": -2101
+        },
+        "records": 5,
+        "span": 399,
+        "thin": true,
+        "zhArticle": "古王國時期"
+      },
+      {
+        "qid": "Q213510",
+        "titleZh": "比属刚果",
+        "titleEn": "Belgian Congo",
+        "region": "africa",
+        "scope": {
+          "start": 1890,
+          "end": 1962
+        },
+        "records": 12,
+        "span": 72,
+        "thin": false,
+        "zhArticle": "比屬剛果"
+      },
+      {
+        "qid": "Q309272",
+        "titleZh": "毛列塔尼亚",
+        "titleEn": "Mauretania",
+        "region": "africa",
+        "scope": {
+          "start": -212,
+          "end": 42
+        },
+        "records": 8,
+        "span": 254,
+        "thin": false,
+        "zhArticle": "凯撒毛里塔尼亚"
+      },
+      {
+        "qid": "Q748595",
+        "titleZh": "Qataban",
+        "titleEn": "Qataban",
+        "region": "africa",
+        "scope": {
+          "start": -350,
+          "end": 183
+        },
+        "records": 4,
+        "span": 533,
+        "thin": true,
+        "zhArticle": "中華民國節日與歲時列表"
+      },
+      {
+        "qid": "Q1475713",
+        "titleZh": "丰吉苏丹国",
+        "titleEn": "Sennar Sultanate",
+        "region": "africa",
+        "scope": {
+          "start": 1507,
+          "end": 1821
+        },
+        "records": 7,
+        "span": 314,
+        "thin": false,
+        "zhArticle": "丰吉苏丹国"
+      },
+      {
+        "qid": "Q817",
+        "titleZh": "科威特",
+        "titleEn": "Kuwait",
+        "region": "africa",
+        "scope": {
+          "start": 1757,
+          "end": 2024
+        },
+        "records": 8,
+        "span": 267,
+        "thin": false,
+        "zhArticle": "科威特"
+      },
+      {
+        "qid": "Q45",
+        "titleZh": "葡萄牙",
+        "titleEn": "Portugal",
+        "region": "africa",
+        "scope": {
+          "start": 1911,
+          "end": 2024
+        },
+        "records": 9,
+        "span": 113,
+        "thin": false,
+        "zhArticle": "葡萄牙"
+      },
+      {
+        "qid": "Q10914393",
+        "titleZh": "新亚述帝国",
+        "titleEn": "Neo-Assyrian Empire",
+        "region": "africa",
+        "scope": {
+          "start": -900,
+          "end": -601
+        },
+        "records": 6,
+        "span": 299,
+        "thin": false,
+        "zhArticle": "新亚述帝国"
+      },
+      {
+        "qid": "Q187979",
+        "titleZh": "早王朝时期",
+        "titleEn": "Early Dynastic Period of Egypt",
+        "region": "africa",
+        "scope": {
+          "start": -3000,
+          "end": -2501
+        },
+        "records": 2,
+        "span": 499,
+        "thin": true,
+        "zhArticle": "早王朝時期 (埃及)"
+      },
+      {
+        "qid": "Q555994",
+        "titleZh": "白羊王朝",
+        "titleEn": "Aq Qoyunlu",
+        "region": "africa",
+        "scope": {
+          "start": 1407,
+          "end": 1511
+        },
+        "records": 10,
+        "span": 104,
+        "thin": false,
+        "zhArticle": "白羊王朝"
+      },
+      {
+        "qid": "Q191324",
+        "titleZh": "中王国时期",
+        "titleEn": "Middle Kingdom of Egypt",
+        "region": "africa",
+        "scope": {
+          "start": -2000,
+          "end": -1601
+        },
+        "records": 3,
+        "span": 399,
+        "thin": true,
+        "zhArticle": "中王國時期"
+      },
+      {
+        "qid": "Q382593",
+        "titleZh": "新尼德兰",
+        "titleEn": "New Netherland",
+        "region": "americas",
+        "scope": {
+          "start": 1622,
+          "end": 1802
+        },
+        "records": 22,
+        "span": 180,
+        "thin": false,
+        "zhArticle": "新尼德兰"
+      },
+      {
+        "qid": "Q298",
+        "titleZh": "智利",
+        "titleEn": "Chile",
+        "region": "americas",
+        "scope": {
+          "start": 1812,
+          "end": 2024
+        },
+        "records": 16,
+        "span": 212,
+        "thin": false,
+        "zhArticle": "智利"
+      },
+      {
+        "qid": "Q750",
+        "titleZh": "玻利维亚",
+        "titleEn": "Bolivia",
+        "region": "americas",
+        "scope": {
+          "start": 1825,
+          "end": 2024
+        },
+        "records": 14,
+        "span": 199,
+        "thin": false,
+        "zhArticle": "玻利維亞"
+      },
+      {
+        "qid": "Q832554",
+        "titleZh": "阿根廷邦联",
+        "titleEn": "Argentine Confederation",
+        "region": "americas",
+        "scope": {
+          "start": 1834,
+          "end": 1929
+        },
+        "records": 15,
+        "span": 95,
+        "thin": false,
+        "zhArticle": "阿根廷邦联"
+      },
+      {
+        "qid": "Q217230",
+        "titleZh": "巴西帝国",
+        "titleEn": "Empire of Brazil",
+        "region": "americas",
+        "scope": {
+          "start": 1822,
+          "end": 1889
+        },
+        "records": 15,
+        "span": 67,
+        "thin": false,
+        "zhArticle": "巴西帝國"
+      },
+      {
+        "qid": "Q733",
+        "titleZh": "巴拉圭",
+        "titleEn": "Paraguay",
+        "region": "americas",
+        "scope": {
+          "start": 1811,
+          "end": 2024
+        },
+        "records": 10,
+        "span": 213,
+        "thin": false,
+        "zhArticle": "巴拉圭"
+      },
+      {
+        "qid": "Q811",
+        "titleZh": "尼加拉瓜",
+        "titleEn": "Nicaragua",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "records": 10,
+        "span": 184,
+        "thin": false,
+        "zhArticle": "尼加拉瓜"
+      },
+      {
+        "qid": "Q1109279",
+        "titleZh": "墨西哥合众国",
+        "titleEn": "First Mexican Republic",
+        "region": "americas",
+        "scope": {
+          "start": 1824,
+          "end": 1865
+        },
+        "records": 13,
+        "span": 41,
+        "thin": true,
+        "zhArticle": "墨西哥毒品戰爭"
+      },
+      {
+        "qid": "Q717",
+        "titleZh": "委内瑞拉",
+        "titleEn": "Venezuela",
+        "region": "americas",
+        "scope": {
+          "start": 1811,
+          "end": 2024
+        },
+        "records": 8,
+        "span": 213,
+        "thin": false,
+        "zhArticle": "委內瑞拉"
+      },
+      {
+        "qid": "Q783",
+        "titleZh": "洪都拉斯",
+        "titleEn": "Honduras",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "records": 8,
+        "span": 184,
+        "thin": false,
+        "zhArticle": "洪都拉斯"
+      },
+      {
+        "qid": "Q774",
+        "titleZh": "危地马拉",
+        "titleEn": "Guatemala",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "records": 7,
+        "span": 184,
+        "thin": false,
+        "zhArticle": "危地马拉"
+      },
+      {
+        "qid": "Q736",
+        "titleZh": "厄瓜多尔",
+        "titleEn": "Ecuador",
+        "region": "americas",
+        "scope": {
+          "start": 1834,
+          "end": 2024
+        },
+        "records": 5,
+        "span": 190,
+        "thin": true,
+        "zhArticle": "厄瓜多尔"
+      },
+      {
+        "qid": "Q800",
+        "titleZh": "哥斯达黎加",
+        "titleEn": "Costa Rica",
+        "region": "americas",
+        "scope": {
+          "start": 1840,
+          "end": 2024
+        },
+        "records": 4,
+        "span": 184,
+        "thin": true,
+        "zhArticle": "哥斯达黎加"
+      },
+      {
+        "qid": "Q241",
+        "titleZh": "古巴",
+        "titleEn": "Cuba",
+        "region": "americas",
+        "scope": {
+          "start": 1905,
+          "end": 2024
+        },
+        "records": 6,
+        "span": 119,
+        "thin": false,
+        "zhArticle": "古巴"
+      },
+      {
+        "qid": "Q77",
+        "titleZh": "乌拉圭",
+        "titleEn": "Uruguay",
+        "region": "americas",
+        "scope": {
+          "start": 1828,
+          "end": 2024
+        },
+        "records": 4,
+        "span": 196,
+        "thin": true,
+        "zhArticle": "乌拉圭"
+      },
+      {
+        "qid": "Q739",
+        "titleZh": "哥伦比亚",
+        "titleEn": "Colombia",
+        "region": "americas",
+        "scope": {
+          "start": 1866,
+          "end": 2024
+        },
+        "records": 4,
+        "span": 158,
+        "thin": true,
+        "zhArticle": "哥伦比亚"
+      },
+      {
+        "qid": "Q917",
+        "titleZh": "不丹",
+        "titleEn": "Bhutan",
+        "region": "south-asia",
+        "scope": {
+          "start": 1636,
+          "end": 2024
+        },
+        "records": 18,
+        "span": 388,
+        "thin": false,
+        "zhArticle": "不丹"
+      },
+      {
+        "qid": "Q2086608",
+        "titleZh": "沙哈拉塔",
+        "titleEn": "Western Satraps",
+        "region": "south-asia",
+        "scope": {
+          "start": 43,
+          "end": 489
+        },
+        "records": 19,
+        "span": 446,
+        "thin": false,
+        "zhArticle": "西薩特拉普王朝"
+      },
+      {
+        "qid": "Q240123",
+        "titleZh": "印度-赛西亚王国",
+        "titleEn": "Indo-Scythians",
+        "region": "south-asia",
+        "scope": {
+          "start": -144,
+          "end": 282
+        },
+        "records": 16,
+        "span": 426,
+        "thin": false,
+        "zhArticle": "印度-斯基泰王國"
+      },
+      {
+        "qid": "Q854",
+        "titleZh": "斯里兰卡",
+        "titleEn": "Sri Lanka",
+        "region": "south-asia",
+        "scope": {
+          "start": 1236,
+          "end": 2024
+        },
+        "records": 8,
+        "span": 788,
+        "thin": false,
+        "zhArticle": "斯里蘭卡"
+      },
+      {
+        "qid": "Q129286",
+        "titleZh": "英属印度",
+        "titleEn": "British Raj",
+        "region": "south-asia",
+        "scope": {
+          "start": 1859,
+          "end": 1947
+        },
+        "records": 20,
+        "span": 88,
+        "thin": false,
+        "zhArticle": "英属印度"
+      },
+      {
+        "qid": "Q467627",
+        "titleZh": "杜兰尼帝国",
+        "titleEn": "Durrani Empire",
+        "region": "south-asia",
+        "scope": {
+          "start": 1748,
+          "end": 1827
+        },
+        "records": 19,
+        "span": 79,
+        "thin": false,
+        "zhArticle": "杜兰尼帝国"
+      },
+      {
+        "qid": "Q466803",
+        "titleZh": "拔罗婆王朝之起源",
+        "titleEn": "Pallava dynasty",
+        "region": "south-asia",
+        "scope": {
+          "start": 283,
+          "end": 805
+        },
+        "records": 10,
+        "span": 522,
+        "thin": false,
+        "zhArticle": "泰米尔人"
+      },
+      {
+        "qid": "Q5636647",
+        "titleZh": "哈巴里王朝",
+        "titleEn": "Habbari dynasty",
+        "region": "south-asia",
+        "scope": {
+          "start": 860,
+          "end": 1201
+        },
+        "records": 12,
+        "span": 341,
+        "thin": false,
+        "zhArticle": "奧瑪亞王朝"
+      },
+      {
+        "qid": "Q1315339",
+        "titleZh": "Lohara Dynasty",
+        "titleEn": "Lohara Dynasty",
+        "region": "south-asia",
+        "scope": {
+          "start": 1003,
+          "end": 1259
+        },
+        "records": 13,
+        "span": 256,
+        "thin": false,
+        "zhArticle": null
+      },
+      {
+        "qid": "Q1335260",
+        "titleZh": "阿富汗酋长国",
+        "titleEn": "Emirate of Afghanistan",
+        "region": "south-asia",
+        "scope": {
+          "start": 1828,
+          "end": 1925
+        },
+        "records": 16,
+        "span": 97,
+        "thin": false,
+        "zhArticle": "阿富汗酋长国"
+      },
+      {
+        "qid": "Q83821",
+        "titleZh": "阿迪勒·沙阿王朝",
+        "titleEn": "Bijapur Sultanate",
+        "region": "south-asia",
+        "scope": {
+          "start": 1492,
+          "end": 1686
+        },
+        "records": 14,
+        "span": 194,
+        "thin": false,
+        "zhArticle": "阿迪勒·沙阿王朝"
+      },
+      {
+        "qid": "Q2039087",
+        "titleZh": "昌德拉王朝",
+        "titleEn": "Chandelas of Jejakabhukti",
+        "region": "south-asia",
+        "scope": {
+          "start": 960,
+          "end": 1313
+        },
+        "records": 10,
+        "span": 353,
+        "thin": false,
+        "zhArticle": "昌德拉王朝"
+      },
+      {
+        "qid": "Q123027565",
+        "titleZh": "Kashmir Sultanate",
+        "titleEn": "Kashmir Sultanate",
+        "region": "south-asia",
+        "scope": {
+          "start": 1344,
+          "end": 1587
+        },
+        "records": 12,
+        "span": 243,
+        "thin": false,
+        "zhArticle": "巴基斯坦"
+      },
+      {
+        "qid": "Q1240096",
+        "titleZh": "海得拉巴",
+        "titleEn": "Hyderabad State",
+        "region": "south-asia",
+        "scope": {
+          "start": 1727,
+          "end": 1947
+        },
+        "records": 13,
+        "span": 220,
+        "thin": false,
+        "zhArticle": "海得拉巴 (印度)"
+      },
+      {
+        "qid": "Q1317579",
+        "titleZh": "吉打苏丹王朝",
+        "titleEn": "Kedah Sultanate",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1139,
+          "end": 1910
+        },
+        "records": 12,
+        "span": 771,
+        "thin": false,
+        "zhArticle": "吉打苏丹国"
+      },
+      {
+        "qid": "Q1332305",
+        "titleZh": "罗涡",
+        "titleEn": "Lavo Kingdom",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 638,
+          "end": 1394
+        },
+        "records": 12,
+        "span": 756,
+        "thin": false,
+        "zhArticle": "羅渦"
+      },
+      {
+        "qid": "Q10791211",
+        "titleZh": "妙乌王国",
+        "titleEn": "Kingdom of Mrauk U",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1429,
+          "end": 1787
+        },
+        "records": 14,
+        "span": 358,
+        "thin": false,
+        "zhArticle": "妙乌王国"
+      },
+      {
+        "qid": "Q5519387",
+        "titleZh": "加卢王国",
+        "titleEn": "Galuh Kingdom",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 674,
+          "end": 1481
+        },
+        "records": 5,
+        "span": 807,
+        "thin": true,
+        "zhArticle": "八哥猴 (電影)"
+      },
+      {
+        "qid": "Q1155700",
+        "titleZh": "拉达那哥欣王国",
+        "titleEn": "Rattanakosin Kingdom",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1783,
+          "end": 1931
+        },
+        "records": 14,
+        "span": 148,
+        "thin": false,
+        "zhArticle": "拉達那哥欣王國"
+      },
+      {
+        "qid": "Q1150344",
+        "titleZh": "柔佛苏丹王朝",
+        "titleEn": "Johor Sultanate",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1529,
+          "end": 1884
+        },
+        "records": 9,
+        "span": 355,
+        "thin": false,
+        "zhArticle": "柔佛苏丹国"
+      },
+      {
+        "qid": "Q422065",
+        "titleZh": "苏禄苏丹国",
+        "titleEn": "Sultanate of Sulu",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1459,
+          "end": 1879
+        },
+        "records": 7,
+        "span": 420,
+        "thin": false,
+        "zhArticle": "蘇祿蘇丹國"
+      },
+      {
+        "qid": "Q3503555",
+        "titleZh": "巨港苏丹国",
+        "titleEn": "Palembang Sultanate",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1459,
+          "end": 1821
+        },
+        "records": 6,
+        "span": 362,
+        "thin": false,
+        "zhArticle": "苏丹马赫穆德·巴达鲁丁二世国际机场"
+      },
+      {
+        "qid": "Q2301908",
+        "titleZh": "广南国",
+        "titleEn": "Nguyễn lords",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1572,
+          "end": 1775
+        },
+        "records": 9,
+        "span": 203,
+        "thin": false,
+        "zhArticle": "廣南國"
+      },
+      {
+        "qid": "Q734867",
+        "titleZh": "万丹苏丹",
+        "titleEn": "Banten Sultanate",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1529,
+          "end": 1808
+        },
+        "records": 6,
+        "span": 279,
+        "thin": false,
+        "zhArticle": "萬丹蘇丹國"
+      },
+      {
+        "qid": "Q4401026",
+        "titleZh": "Kingdom of Namayan",
+        "titleEn": "Kingdom of Namayan",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1202,
+          "end": 1571
+        },
+        "records": 4,
+        "span": 369,
+        "thin": true,
+        "zhArticle": null
+      },
+      {
+        "qid": "Q2247225",
+        "titleZh": "塔鲁曼内格拉",
+        "titleEn": "Tarumanagara",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 367,
+          "end": 673
+        },
+        "records": 4,
+        "span": 306,
+        "thin": true,
+        "zhArticle": "塔魯曼內格拉"
+      },
+      {
+        "qid": "Q3284315",
+        "titleZh": "苏木都剌国",
+        "titleEn": "Samudra Pasai",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1272,
+          "end": 1520
+        },
+        "records": 5,
+        "span": 248,
+        "thin": true,
+        "zhArticle": "苏木都剌国"
+      },
+      {
+        "qid": "Q248572",
+        "titleZh": "马京达瑙苏丹国",
+        "titleEn": "Sultanate of Maguindanao",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1521,
+          "end": 1852
+        },
+        "records": 3,
+        "span": 331,
+        "thin": true,
+        "zhArticle": "馬京達瑙蘇丹國"
+      },
+      {
+        "qid": "Q1660566",
+        "titleZh": "班贾尔苏丹国",
+        "titleEn": "Sultanate of Banjar",
+        "region": "oceania",
+        "scope": {
+          "start": 1526,
+          "end": 1859
+        },
+        "records": 2,
+        "span": 333,
+        "thin": true,
+        "zhArticle": "班贾尔苏丹国"
+      },
+      {
+        "qid": "Q287996",
+        "titleZh": "布拉邦岸王国",
+        "titleEn": "Kingdom of Blambangan",
+        "region": "oceania",
+        "scope": {
+          "start": 1519,
+          "end": 1743
+        },
+        "records": 4,
+        "span": 224,
+        "thin": true,
+        "zhArticle": "奥辛人"
+      },
+      {
+        "qid": "Q2817348",
+        "titleZh": "Bima Sultanate",
+        "titleEn": "Bima Sultanate",
+        "region": "oceania",
+        "scope": {
+          "start": 1626,
+          "end": 1889
+        },
+        "records": 3,
+        "span": 263,
+        "thin": true,
+        "zhArticle": "文字列表"
+      },
+      {
+        "qid": "Q229",
+        "titleZh": "塞浦路斯",
+        "titleEn": "Cyprus",
+        "region": "europe",
+        "scope": {
+          "start": 692,
+          "end": 2024
+        },
+        "records": 6,
+        "span": 1332,
+        "thin": false,
+        "zhArticle": "塞浦路斯"
+      },
+      {
+        "qid": "Q55",
+        "titleZh": "荷兰",
+        "titleEn": "Netherlands",
+        "region": "europe",
+        "scope": {
+          "start": 1811,
+          "end": 2024
+        },
+        "records": 62,
+        "span": 213,
+        "thin": false,
+        "zhArticle": "荷兰"
+      },
+      {
+        "qid": "Q70802",
+        "titleZh": "法兰西第三共和国",
+        "titleEn": "French Third Republic",
+        "region": "europe",
+        "scope": {
+          "start": 1871,
+          "end": 1939
+        },
+        "records": 41,
+        "span": 68,
+        "thin": false,
+        "zhArticle": "法兰西第三共和国"
+      },
+      {
+        "qid": "Q172579",
+        "titleZh": "意大利王国",
+        "titleEn": "Kingdom of Italy",
+        "region": "europe",
+        "scope": {
+          "start": 587,
+          "end": 1946
+        },
+        "records": 49,
+        "span": 1359,
+        "thin": false,
+        "zhArticle": "意大利王国"
+      },
+      {
+        "qid": "Q20",
+        "titleZh": "挪威",
+        "titleEn": "Norway",
+        "region": "europe",
+        "scope": {
+          "start": 866,
+          "end": 2024
+        },
+        "records": 30,
+        "span": 1158,
+        "thin": false,
+        "zhArticle": "挪威"
+      },
+      {
+        "qid": "Q34",
+        "titleZh": "瑞典",
+        "titleEn": "Sweden",
+        "region": "europe",
+        "scope": {
+          "start": 980,
+          "end": 2024
+        },
+        "records": 30,
+        "span": 1044,
+        "thin": false,
+        "zhArticle": "瑞典"
+      }
+    ]
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17743,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.25/narratives-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.23/build-narratives-batch-3.23.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"enMax\": 95",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.23/write-narratives-gz-3.23.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"bytes\": 372188",
+          "}"
+        ]
+      }
+    ]
+  },
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 231,
+    "mtimeZero": true,
+    "deepEqual": true
+  },
+  "remaining": {
+    "pendingPlans": [
+      "Q1794655 古泰"
+    ],
+    "profilesWithoutNarrative": 1224,
+    "note": "One of the seventy plans is not written (Kutai), and 1,224 of the 1,455 profiles still have no narrative; the selection and verification tooling is reusable for the next batch."
+  }
+}
