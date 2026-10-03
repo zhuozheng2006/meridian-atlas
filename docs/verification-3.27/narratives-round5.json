@@ -1,0 +1,633 @@
+{
+  "schemaVersion": 1,
+  "round": "3.27",
+  "title": "政体叙述第五批：267 → 301",
+  "generatedAt": "2026-10-03T02:55:08.222Z",
+  "task": "task-32",
+  "baseline": "7b609630",
+  "head": "2f5a7af0",
+  "summary": {
+    "narrativesBefore": 267,
+    "narrativesAfter": 301,
+    "addedThisRound": 34,
+    "finishedPlans": "the 3.26 selection of 70 plans is now complete (36 written in 3.26 + 34 in 3.27)",
+    "profiles": 1455,
+    "profilesWithoutNarrativeBefore": 1224,
+    "profilesWithoutNarrativeAfter": 1154,
+    "recordsBound": 5088
+  },
+  "citationRules": {
+    "ruleOne": "A QID may only come from the atlas catalogue verifiedWikidata field or from en.wikipedia pageprops.wikibase_item; never from memory.",
+    "ruleTwo": "Every external article must be reached by looking the entity up (Wikidata sitelink or pageprops.wikibase_item); never take the first hit of a search by name. This rule is general and applies to both the English and the Chinese side, because a name search can return a disambiguation page, a concept article or an unrelated entity that looks plausible.",
+    "ruleThree": "Where a Chinese introduction and the English article disagree, the English article governs.",
+    "ruleTwoEvidence": "In the 3.26 round the strict English check found five wrong articles, all of them produced by name lookup: Jin (a disambiguation page), Qi (an article about the concept qi), Vakataka empire, Kediri and Estado Novo (articles about other entities). They were re-resolved through the Wikidata enwiki sitelink and the check then passed 70/70.",
+    "thisRound": "This round made no new external lookups at all: it wrote the 34 plans whose English article and Chinese citation had already been resolved and verified through the entity in 3.26, so the rule was followed by construction.",
+    "englishVerified": "70/70",
+    "chineseAccepted": 52,
+    "chineseRejected": 18
+  },
+  "regionPolicy": {
+    "target": "40-50 per cent for Europe; no change larger than ten percentage points was made this round",
+    "batches": [
+      {
+        "batch": "第一批（3.23 选定 70 篇）",
+        "europe": "8.6%",
+        "byRegion": {
+          "africa": 16,
+          "americas": 16,
+          "south-asia": 14,
+          "southeast-asia": 14,
+          "oceania": 4,
+          "europe": 6
+        },
+        "note": "欧洲被压到 8.6%，优先补欠覆盖地区"
+      },
+      {
+        "batch": "第二批（3.25，41 篇）",
+        "europe": "8.7%",
+        "byRegion": {
+          "africa": 16,
+          "americas": 16,
+          "south-asia": 14,
+          "southeast-asia": 14,
+          "oceania": 3,
+          "europe": 6
+        },
+        "note": "沿用压低欧洲的配额"
+      },
+      {
+        "batch": "第三批（3.26，36 篇）",
+        "europe": "0.0%",
+        "byRegion": {
+          "africa": 9,
+          "west-central-asia": 8,
+          "east-asia": 7,
+          "south-asia": 6,
+          "americas": 5,
+          "southeast-asia": 1
+        },
+        "note": "配额调整：欧洲升到约 46%"
+      },
+      {
+        "batch": "第四批（3.27，本轮 34 篇）",
+        "europe": "82.4%",
+        "byRegion": {
+          "southeast-asia": 1,
+          "oceania": 1,
+          "europe": 28,
+          "west-central-asia": 4
+        },
+        "note": "沿用 40%–50% 区间，未再调整超过 10 个百分点"
+      }
+    ],
+    "europeShareThisRound": 0.824
+  },
+  "authored": {
+    "count": 34,
+    "zhChars": {
+      "min": 53,
+      "max": 169
+    },
+    "enWords": {
+      "min": 35,
+      "max": 96
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "sourcesMin": 2,
+    "sourcesMax": 2,
+    "coverageNotesPresent": 34,
+    "thinEntries": 4,
+    "thinWordingPresent": 4,
+    "duplicatedCoverageNotes": 0,
+    "entriesWithoutChineseCitation": 6,
+    "byRegion": {
+      "southeast-asia": 1,
+      "oceania": 1,
+      "europe": 28,
+      "west-central-asia": 4
+    },
+    "entries": [
+      {
+        "qid": "Q1679856",
+        "titleZh": "占碑苏丹国",
+        "titleEn": "Jambi Sultanate",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1670,
+          "end": 1904
+        },
+        "records": 4,
+        "span": 234,
+        "thin": true
+      },
+      {
+        "qid": "Q756895",
+        "titleZh": "谏义里国",
+        "titleEn": "Kediri",
+        "region": "oceania",
+        "scope": {
+          "start": 1046,
+          "end": 1226
+        },
+        "records": 4,
+        "span": 180,
+        "thin": true
+      },
+      {
+        "qid": "Q1514510",
+        "titleZh": "乌赫尔伯国",
+        "titleEn": "County of Urgell",
+        "region": "europe",
+        "scope": {
+          "start": 870,
+          "end": 1808
+        },
+        "records": 34,
+        "span": 938,
+        "thin": false
+      },
+      {
+        "qid": "Q174306",
+        "titleZh": "热那亚共和国",
+        "titleEn": "Republic of Genoa",
+        "region": "europe",
+        "scope": {
+          "start": 1010,
+          "end": 1795
+        },
+        "records": 38,
+        "span": 785,
+        "thin": false
+      },
+      {
+        "qid": "Q62651",
+        "titleZh": "丹麦-挪威",
+        "titleEn": "Denmark–Norway",
+        "region": "europe",
+        "scope": {
+          "start": 1046,
+          "end": 1940
+        },
+        "records": 32,
+        "span": 894,
+        "thin": false
+      },
+      {
+        "qid": "Q45670",
+        "titleZh": "葡萄牙王国",
+        "titleEn": "Kingdom of Portugal",
+        "region": "europe",
+        "scope": {
+          "start": 1147,
+          "end": 1911
+        },
+        "records": 44,
+        "span": 764,
+        "thin": false
+      },
+      {
+        "qid": "Q816814",
+        "titleZh": "圭内斯王国",
+        "titleEn": "Kingdom of Gwynedd",
+        "region": "europe",
+        "scope": {
+          "start": 540,
+          "end": 1284
+        },
+        "records": 24,
+        "span": 744,
+        "thin": false
+      },
+      {
+        "qid": "Q71092",
+        "titleZh": "法兰西第二帝国",
+        "titleEn": "Second French Empire",
+        "region": "europe",
+        "scope": {
+          "start": 1853,
+          "end": 1870
+        },
+        "records": 16,
+        "span": 17,
+        "thin": true
+      },
+      {
+        "qid": "Q756617",
+        "titleZh": "丹麦王国",
+        "titleEn": "Kingdom of Denmark",
+        "region": "europe",
+        "scope": {
+          "start": 936,
+          "end": 1406
+        },
+        "records": 54,
+        "span": 470,
+        "thin": false
+      },
+      {
+        "qid": "Q824489",
+        "titleZh": "新国家体制",
+        "titleEn": "Estado Novo",
+        "region": "europe",
+        "scope": {
+          "start": 1926,
+          "end": 2024
+        },
+        "records": 13,
+        "span": 98,
+        "thin": false
+      },
+      {
+        "qid": "Q926295",
+        "titleZh": "意大利殖民地",
+        "titleEn": "Italian Empire",
+        "region": "europe",
+        "scope": {
+          "start": 1890,
+          "end": 1943
+        },
+        "records": 14,
+        "span": 53,
+        "thin": true
+      },
+      {
+        "qid": "Q29",
+        "titleZh": "西班牙",
+        "titleEn": "Spain",
+        "region": "europe",
+        "scope": {
+          "start": 1516,
+          "end": 2024
+        },
+        "records": 62,
+        "span": 508,
+        "thin": false
+      },
+      {
+        "qid": "Q171150",
+        "titleZh": "匈牙利王国",
+        "titleEn": "Kingdom of Hungary",
+        "region": "europe",
+        "scope": {
+          "start": 1000,
+          "end": 1546
+        },
+        "records": 55,
+        "span": 546,
+        "thin": false
+      },
+      {
+        "qid": "Q8890160",
+        "titleZh": "波兰王国",
+        "titleEn": "Kingdom of Poland",
+        "region": "europe",
+        "scope": {
+          "start": 962,
+          "end": 1449
+        },
+        "records": 54,
+        "span": 487,
+        "thin": false
+      },
+      {
+        "qid": "Q10957559",
+        "titleZh": "摩尔达维亚公国",
+        "titleEn": "Principality of Moldavia",
+        "region": "europe",
+        "scope": {
+          "start": 1363,
+          "end": 1858
+        },
+        "records": 29,
+        "span": 495,
+        "thin": false
+      },
+      {
+        "qid": "Q784963",
+        "titleZh": "盎格鲁-撒克逊英格兰",
+        "titleEn": "Anglo-Saxon England",
+        "region": "europe",
+        "scope": {
+          "start": 441,
+          "end": 935
+        },
+        "records": 62,
+        "span": 494,
+        "thin": false
+      },
+      {
+        "qid": "Q42585",
+        "titleZh": "波希米亚王国",
+        "titleEn": "Kingdom of Bohemia",
+        "region": "europe",
+        "scope": {
+          "start": 1202,
+          "end": 1528
+        },
+        "records": 64,
+        "span": 326,
+        "thin": false
+      },
+      {
+        "qid": "Q156199",
+        "titleZh": "萨克森选侯国",
+        "titleEn": "Electorate of Saxony",
+        "region": "europe",
+        "scope": {
+          "start": 1363,
+          "end": 1805
+        },
+        "records": 27,
+        "span": 442,
+        "thin": false
+      },
+      {
+        "qid": "Q105313",
+        "titleZh": "韦塞克斯",
+        "titleEn": "Kingdom of Wessex",
+        "region": "europe",
+        "scope": {
+          "start": 534,
+          "end": 935
+        },
+        "records": 29,
+        "span": 401,
+        "thin": false
+      },
+      {
+        "qid": "Q105092",
+        "titleZh": "默西亚王国",
+        "titleEn": "Mercia",
+        "region": "europe",
+        "scope": {
+          "start": 534,
+          "end": 925
+        },
+        "records": 30,
+        "span": 391,
+        "thin": false
+      },
+      {
+        "qid": "Q204920",
+        "titleZh": "阿拉贡联合王国",
+        "titleEn": "Crown of Aragon",
+        "region": "europe",
+        "scope": {
+          "start": 1169,
+          "end": 1515
+        },
+        "records": 35,
+        "span": 346,
+        "thin": false
+      },
+      {
+        "qid": "Q203817",
+        "titleZh": "保加利亚第一帝国",
+        "titleEn": "First Bulgarian Empire",
+        "region": "europe",
+        "scope": {
+          "start": 682,
+          "end": 1017
+        },
+        "records": 31,
+        "span": 335,
+        "thin": false
+      },
+      {
+        "qid": "Q153136",
+        "titleZh": "哈布斯堡君主国",
+        "titleEn": "Habsburg monarchy",
+        "region": "europe",
+        "scope": {
+          "start": 1556,
+          "end": 1805
+        },
+        "records": 104,
+        "span": 249,
+        "thin": false
+      },
+      {
+        "qid": "Q1337854",
+        "titleZh": "科尔多瓦酋长国",
+        "titleEn": "Emirate of Córdoba",
+        "region": "europe",
+        "scope": {
+          "start": 757,
+          "end": 1071
+        },
+        "records": 30,
+        "span": 314,
+        "thin": false
+      },
+      {
+        "qid": "Q126936",
+        "titleZh": "西哥特王国",
+        "titleEn": "Visigothic Kingdom",
+        "region": "europe",
+        "scope": {
+          "start": 426,
+          "end": 723
+        },
+        "records": 26,
+        "span": 297,
+        "thin": false
+      },
+      {
+        "qid": "Q217196",
+        "titleZh": "卡斯提尔联合王国",
+        "titleEn": "Crown of Castile",
+        "region": "europe",
+        "scope": {
+          "start": 1236,
+          "end": 1515
+        },
+        "records": 25,
+        "span": 279,
+        "thin": false
+      },
+      {
+        "qid": "Q151536",
+        "titleZh": "诺夫哥罗德共和国",
+        "titleEn": "Novgorod Republic",
+        "region": "europe",
+        "scope": {
+          "start": 1056,
+          "end": 1481
+        },
+        "records": 22,
+        "span": 425,
+        "thin": false
+      },
+      {
+        "qid": "Q65968",
+        "titleZh": "哈布斯堡王朝",
+        "titleEn": "House of Habsburg",
+        "region": "europe",
+        "scope": {
+          "start": 1260,
+          "end": 1515
+        },
+        "records": 30,
+        "span": 255,
+        "thin": false
+      },
+      {
+        "qid": "Q267816",
+        "titleZh": "贝内文托公国",
+        "titleEn": "Duchy of Benevento",
+        "region": "europe",
+        "scope": {
+          "start": 577,
+          "end": 1084
+        },
+        "records": 21,
+        "span": 507,
+        "thin": false
+      },
+      {
+        "qid": "Q241748",
+        "titleZh": "塞尔维亚王国",
+        "titleEn": "Kingdom of Serbia",
+        "region": "europe",
+        "scope": {
+          "start": 1188,
+          "end": 1884
+        },
+        "records": 19,
+        "span": 696,
+        "thin": false
+      },
+      {
+        "qid": "Q837187",
+        "titleZh": "汉达尼德王朝",
+        "titleEn": "Hamdanid dynasty",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 936,
+          "end": 1259
+        },
+        "records": 23,
+        "span": 323,
+        "thin": false
+      },
+      {
+        "qid": "Q638064",
+        "titleZh": "希尔万",
+        "titleEn": "Shirvan",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 825,
+          "end": 1539
+        },
+        "records": 16,
+        "span": 714,
+        "thin": false
+      },
+      {
+        "qid": "Q189326",
+        "titleZh": "卡扎尔家族",
+        "titleEn": "Qajar dynasty",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1788,
+          "end": 1923
+        },
+        "records": 27,
+        "span": 135,
+        "thin": false
+      },
+      {
+        "qid": "Q851",
+        "titleZh": "沙特阿拉伯",
+        "titleEn": "Saudi Arabia",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1936,
+          "end": 2024
+        },
+        "records": 13,
+        "span": 88,
+        "thin": false
+      }
+    ]
+  },
+  "authoringParts": {
+    "directory": "docs/verification-3.27/authoring/",
+    "files": [
+      "part-04.json",
+      "part-05.json",
+      "part-06.json"
+    ],
+    "note": "The parts live in this round's report directory. The builder for this round reads them there and reads the chosen plans and verified extracts from docs/verification-3.26, where the selection and the identity checks were made."
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17743,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.27/narratives-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.27/build-narratives-batch-3.27.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"enMax\": 96",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.26/write-narratives-gz-3.26.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"bytes\": 478338",
+          "}"
+        ]
+      }
+    ]
+  },
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 301,
+    "mtimeZero": true,
+    "deepEqual": true
+  },
+  "remaining": {
+    "profilesWithoutNarrative": 1154,
+    "note": "All seventy plans of the 3.26 selection are written. The remaining profiles have not yet been selected or verified; the tooling in docs/verification-3.26 can be re-run for the next batch."
+  }
+}
