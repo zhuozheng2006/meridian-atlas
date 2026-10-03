@@ -1,0 +1,7924 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-03T02:59:18.826Z",
+  "policy": "Identity verification for the 3.28 narratives: the atlas catalogue verifiedWikidata field and the English Wikipedia pageprops.wikibase_item are the only sources a QID may come from; Wikidata P31 statements then decide whether the entity is a polity. Entities classed as islands, people, families, events, history topics or other non-polities are registered as gaps and not written up.",
+  "sources": {
+    "catalogue": "public/data/fast/catalog.json.gz records with type=POLITY and verifiedWikidata",
+    "pageprops": "https://en.wikipedia.org/w/api.php action=query&prop=pageprops",
+    "p31": "https://www.wikidata.org/w/api.php action=wbgetentities&props=claims"
+  },
+  "requests": [
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=claims&ids=Q2345840|",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=claims&ids=Q582861|Q",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=claims&ids=Q6737189|",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=claims&ids=Q255931|Q",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=claims&ids=Q424|Q164",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=claims&ids=Q3503548|",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&titles=",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&titles=",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&titles=",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&titles=",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&titles=",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&titles=",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=labels&languages=en|",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=labels&languages=en|",
+      "status": 429,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=labels&languages=en|",
+      "status": 429,
+      "attempt": 2
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=labels&languages=en|",
+      "status": 200,
+      "attempt": 3
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=labels&languages=en|",
+      "status": 200,
+      "attempt": 1
+    },
+    {
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=labels&languages=en|",
+      "status": 200,
+      "attempt": 1
+    }
+  ],
+  "candidates": 255,
+  "verified": 225,
+  "notPolity": 30,
+  "unverified": [],
+  "classLabels": {
+    "Q63313685": "history of a geographic region",
+    "Q23442": "island",
+    "Q4167410": "Wikimedia disambiguation page",
+    "Q17524420": "aspect of history",
+    "Q66724388": "autonomous country within the Kingdom of Denmark",
+    "Q192611": "electoral unit",
+    "Q112099": "island country",
+    "Q161243": "dependent territory",
+    "Q6256": "country",
+    "Q788176": "autonomous administrative territorial entity",
+    "Q140892892": "country sometimes considered transcontinental",
+    "Q1790360": "colonial empire",
+    "Q3024240": "historical country",
+    "Q82794": "region",
+    "Q518554": "partition",
+    "Q1620908": "historical region",
+    "Q4204501": "historical ethnic group",
+    "Q55208590": "extinct human group",
+    "Q26883974": "nomadic confederacy",
+    "Q331644": "khanate",
+    "Q8436": "family",
+    "Q465299": "archaeological culture",
+    "Q1549591": "big city",
+    "Q1907114": "metropolitan area",
+    "Q15149663": "state of Mexico",
+    "Q133311": "tribe",
+    "Q13417114": "noble family",
+    "Q41710": "ethnic group",
+    "Q858804": "ethnic minorities in China",
+    "Q11514315": "historical period",
+    "Q11042": "culture",
+    "Q1292119": "style",
+    "Q17152708": "republic regime in France",
+    "Q3624078": "sovereign state",
+    "Q12759805": "sultanate",
+    "Q189898": "Emirate",
+    "Q164950": "dynasty",
+    "Q417175": "kingdom",
+    "Q1345055": "horde",
+    "Q1052942": "list of Muslim states and dynasties",
+    "Q101352": "family name",
+    "Q48349": "empire",
+    "Q1323642": "transcontinental country",
+    "Q15649504": "satrapy",
+    "Q878223": "highland",
+    "Q3502482": "cultural region",
+    "Q15239622": "disputed territory",
+    "Q8432": "civilization",
+    "Q2472587": "people",
+    "Q515": "city",
+    "Q15284": "municipality",
+    "Q51929311": "largest city",
+    "Q257391": "federal capital",
+    "Q1564373": "mission station",
+    "Q107637871": "transboundary site",
+    "Q210272": "cultural heritage",
+    "Q355567": "noble title",
+    "Q1129474": "cultural landscape",
+    "Q1250464": "realm",
+    "Q123480": "landlocked country",
+    "Q512187": "federal republic",
+    "Q842112": "socialist state",
+    "Q849866": "communist state",
+    "Q1335818": "supranational union",
+    "Q160016": "member states of the United Nations",
+    "Q6688521": "permanent members of the United Nations Security Council",
+    "Q113393649": "cratonym",
+    "Q7275": "state",
+    "Q17007978": "counterintelligence state",
+    "Q353344": "countship",
+    "Q1151405": "client state",
+    "Q20521456": "electoral principate",
+    "Q26830017": "state in the Holy Roman Empire",
+    "Q20181813": "colonial power",
+    "Q1010624": "Boer republic",
+    "Q96196009": "former or current state",
+    "Q5": "human",
+    "Q7270": "republic",
+    "Q1088391": "rump state",
+    "Q190967": "Crusader states",
+    "Q93468132": "hexadecad",
+    "Q51576574": "Mediterranean country",
+    "Q4164871": "position",
+    "Q1371288": "vassal state",
+    "Q208500": "principality",
+    "Q47053": "estuary",
+    "Q4022": "river",
+    "Q573344": "main stem",
+    "Q5589178": "regime",
+    "Q208164": "puppet state",
+    "Q43229": "organization",
+    "Q558566": "capital city relocation",
+    "Q17544377": "history of a country or state",
+    "Q16887380": "group",
+    "Q93469064": "octadecad",
+    "Q56061": "administrative territorial entity",
+    "Q107390": "federated state",
+    "Q113136497": "state of the German Confederation 1815–1848 & 1850–1866",
+    "Q10711424": "state with limited recognition",
+    "Q154547": "duchy",
+    "Q188800": "personal union",
+    "Q170156": "confederation",
+    "Q1102202": "dynastic union",
+    "Q41614": "constitutional monarchy",
+    "Q13002315": "legendary figure",
+    "Q3932025": "Hellenistic kingdom",
+    "Q836688": "ancient Chinese state",
+    "Q10904438": "Twelve Vassals",
+    "Q6266": "nation",
+    "Q10551526": "confessional state",
+    "Q15243209": "historic district",
+    "Q702492": "urban area",
+    "Q99541706": "historical unrecognized state",
+    "Q1520223": "constitutional republic",
+    "Q5255892": "democratic republic",
+    "Q43702": "federation",
+    "Q1326966": "honorific",
+    "Q63791824": "country bordering the Baltic Sea",
+    "Q179164": "unitary state",
+    "Q11815167": "archipelagic state",
+    "Q2067184": "Bulgarian Empire",
+    "Q202686": "Commonwealth realm",
+    "Q918240": "territorial evolution of the British Empire",
+    "Q1798550": "petty kingdom",
+    "Q3244203": "monarchy of Antigua and Barbuda",
+    "Q1336152": "princely state",
+    "Q33829": "human population",
+    "Q2479824": "altepetl",
+    "Q133442": "city-state",
+    "Q116052725": "national geopolitical entity",
+    "Q24457356": "historiographical concept",
+    "Q5098": "province of Indonesia",
+    "Q12479773": "first-level administrative country subdivision in Indonesia",
+    "Q846025": "Mahajanapada",
+    "Q2387481": "Indonesian monarchy",
+    "Q19953632": "former administrative territorial entity",
+    "Q10864048": "first-level administrative division",
+    "Q148837": "polis",
+    "Q5312628": "protectorate",
+    "Q465613": "people's republic",
+    "Q20014933": "multiethnic state",
+    "Q3117863": "isolated human group",
+    "Q15063586": "state of Malaysia",
+    "Q5283521": "district of Laos",
+    "Q2264924": "port city",
+    "Q902814": "border city",
+    "Q208511": "global city",
+    "Q108178728": "national capital",
+    "Q734818": "condominium",
+    "Q13406463": "Wikimedia list article",
+    "Q335806": "abugida",
+    "Q467037": "Brahmic scripts",
+    "Q4004706": "unicase alphabet",
+    "Q29517555": "natural writing system",
+    "Q719487": "overseas collectivity of France"
+  },
+  "rows": [
+    {
+      "qid": "Q2345840",
+      "zh": "苏美尔历史",
+      "en": "history of Sumer",
+      "regionBox": "africa",
+      "score": 21.825,
+      "recordCount": 9,
+      "spanYears": 1639,
+      "yearsCovered": 1490,
+      "areaMax": 106576.07,
+      "firstStart": -3400,
+      "lastEnd": -1761,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "History of Sumer",
+      "articleQid": "Q2345840",
+      "articleMatch": true,
+      "p31": [
+        "Q63313685"
+      ],
+      "p31Labels": [
+        "history of a geographic region"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q23666",
+      "zh": "大不列颠岛",
+      "en": "Great Britain",
+      "regionBox": "africa",
+      "score": 18.457,
+      "recordCount": 38,
+      "spanYears": 315,
+      "yearsCovered": 316,
+      "areaMax": 1005177.24,
+      "firstStart": 1709,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 38,
+      "enArticle": "Great Britain",
+      "articleQid": "Q23666",
+      "articleMatch": true,
+      "p31": [
+        "Q23442"
+      ],
+      "p31Labels": [
+        "island"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q23442",
+          "label": "island"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q4962",
+      "zh": null,
+      "en": null,
+      "regionBox": "west-central-asia",
+      "score": 18.419,
+      "recordCount": 17,
+      "spanYears": 1457,
+      "yearsCovered": 342,
+      "areaMax": 86639.95,
+      "firstStart": 567,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": null,
+      "articleQid": null,
+      "articleMatch": false,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q521263",
+      "zh": "西藏历史",
+      "en": "history of Tibet",
+      "regionBox": "south-asia",
+      "score": 17.762,
+      "recordCount": 34,
+      "spanYears": 430,
+      "yearsCovered": 431,
+      "areaMax": 1604860.82,
+      "firstStart": 1363,
+      "lastEnd": 1793,
+      "catalogueMatch": true,
+      "catalogueRecords": 34,
+      "enArticle": "History of Tibet",
+      "articleQid": "Q521263",
+      "articleMatch": true,
+      "p31": [
+        "Q17524420"
+      ],
+      "p31Labels": [
+        "aspect of history"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q223",
+      "zh": "格陵兰",
+      "en": "Greenland",
+      "regionBox": "americas",
+      "score": 17.704,
+      "recordCount": 24,
+      "spanYears": 206,
+      "yearsCovered": 207,
+      "areaMax": 2219796.41,
+      "firstStart": 1734,
+      "lastEnd": 1940,
+      "catalogueMatch": true,
+      "catalogueRecords": 24,
+      "enArticle": "Greenland",
+      "articleQid": "Q223",
+      "articleMatch": true,
+      "p31": [
+        "Q66724388",
+        "Q192611",
+        "Q112099",
+        "Q161243",
+        "Q6256",
+        "Q788176",
+        "Q140892892"
+      ],
+      "p31Labels": [
+        "autonomous country within the Kingdom of Denmark",
+        "electoral unit",
+        "island country",
+        "dependent territory",
+        "country",
+        "autonomous administrative territorial entity",
+        "country sometimes considered transcontinental"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q617219",
+      "zh": "英格兰海外领地",
+      "en": "English overseas possession",
+      "regionBox": "americas",
+      "score": 17.44,
+      "recordCount": 27,
+      "spanYears": 170,
+      "yearsCovered": 170,
+      "areaMax": 227713.78,
+      "firstStart": 1609,
+      "lastEnd": 1779,
+      "catalogueMatch": true,
+      "catalogueRecords": 27,
+      "enArticle": "English overseas possession",
+      "articleQid": null,
+      "articleMatch": false,
+      "p31": [
+        "Q1790360",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "colonial empire",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19951607",
+      "zh": null,
+      "en": "French Colonial Africa",
+      "regionBox": "africa",
+      "score": 17.029,
+      "recordCount": 38,
+      "spanYears": 111,
+      "yearsCovered": 112,
+      "areaMax": 11670647.22,
+      "firstStart": 1846,
+      "lastEnd": 1957,
+      "catalogueMatch": true,
+      "catalogueRecords": 38,
+      "enArticle": "French colonial empire",
+      "articleQid": "Q179023",
+      "articleMatch": false,
+      "p31": [
+        "Q82794"
+      ],
+      "p31Labels": [
+        "region"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q179848",
+      "zh": "瓜分非洲",
+      "en": "Scramble for Africa",
+      "regionBox": "africa",
+      "score": 16.777,
+      "recordCount": 33,
+      "spanYears": 75,
+      "yearsCovered": 76,
+      "areaMax": 11835198.69,
+      "firstStart": 1885,
+      "lastEnd": 1960,
+      "catalogueMatch": true,
+      "catalogueRecords": 33,
+      "enArticle": "Scramble for Africa",
+      "articleQid": "Q179848",
+      "articleMatch": true,
+      "p31": [
+        "Q518554"
+      ],
+      "p31Labels": [
+        "partition"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1517159",
+      "zh": "哈德拉毛",
+      "en": "Hadhramaut",
+      "regionBox": "africa",
+      "score": 16.287,
+      "recordCount": 5,
+      "spanYears": 1005,
+      "yearsCovered": 1006,
+      "areaMax": 98062.04,
+      "firstStart": -700,
+      "lastEnd": 305,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Hadhramaut",
+      "articleQid": "Q1517159",
+      "articleMatch": true,
+      "p31": [
+        "Q82794",
+        "Q1620908"
+      ],
+      "p31Labels": [
+        "region",
+        "historical region"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q849967",
+      "zh": "不列吞凯尔特人",
+      "en": "Celtic Britons",
+      "regionBox": "europe",
+      "score": 16.261,
+      "recordCount": 101,
+      "spanYears": 845,
+      "yearsCovered": 1643,
+      "areaMax": 207599.69,
+      "firstStart": 439,
+      "lastEnd": 1284,
+      "catalogueMatch": true,
+      "catalogueRecords": 101,
+      "enArticle": "Celtic Britons",
+      "articleQid": "Q849967",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501"
+      ],
+      "p31Labels": [
+        "historical ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q173282",
+      "zh": "可萨人",
+      "en": "Khazars",
+      "regionBox": "west-central-asia",
+      "score": 15.695,
+      "recordCount": 25,
+      "spanYears": 349,
+      "yearsCovered": 350,
+      "areaMax": 803247.27,
+      "firstStart": 630,
+      "lastEnd": 979,
+      "catalogueMatch": true,
+      "catalogueRecords": 25,
+      "enArticle": "Khazars",
+      "articleQid": "Q173282",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501"
+      ],
+      "p31Labels": [
+        "historical ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q854062",
+      "zh": "乌孙",
+      "en": "Wusun",
+      "regionBox": "west-central-asia",
+      "score": 14.636,
+      "recordCount": 17,
+      "spanYears": 620,
+      "yearsCovered": 543,
+      "areaMax": 205696.62,
+      "firstStart": -170,
+      "lastEnd": 450,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Wusun",
+      "articleQid": "Q854062",
+      "articleMatch": true,
+      "p31": [
+        "Q55208590"
+      ],
+      "p31Labels": [
+        "extinct human group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q494354",
+      "zh": "喀喇汗国",
+      "en": "Karakhanid Khanate",
+      "regionBox": "west-central-asia",
+      "score": 13.946,
+      "recordCount": 21,
+      "spanYears": 288,
+      "yearsCovered": 328,
+      "areaMax": 1311108.47,
+      "firstStart": 850,
+      "lastEnd": 1138,
+      "catalogueMatch": true,
+      "catalogueRecords": 21,
+      "enArticle": "Kara-Khanid Khanate",
+      "articleQid": "Q494354",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q26883974",
+        "Q331644",
+        "Q8436"
+      ],
+      "p31Labels": [
+        "historical country",
+        "nomadic confederacy",
+        "khanate",
+        "family"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q8436",
+          "label": "family"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q2379418",
+      "zh": "古韦拉克鲁斯文化",
+      "en": "Classic Veracruz culture",
+      "regionBox": "americas",
+      "score": 13.662,
+      "recordCount": 4,
+      "spanYears": 680,
+      "yearsCovered": 681,
+      "areaMax": 18503.86,
+      "firstStart": 555,
+      "lastEnd": 1235,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Classic Veracruz culture",
+      "articleQid": "Q2379418",
+      "articleMatch": true,
+      "p31": [
+        "Q465299"
+      ],
+      "p31Labels": [
+        "archaeological culture"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q220594",
+      "zh": "纳巴泰人",
+      "en": "Nabataeans",
+      "regionBox": "africa",
+      "score": 13.573,
+      "recordCount": 12,
+      "spanYears": 269,
+      "yearsCovered": 264,
+      "areaMax": 126351.33,
+      "firstStart": -164,
+      "lastEnd": 105,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Nabataeans",
+      "articleQid": "Q220594",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501"
+      ],
+      "p31Labels": [
+        "historical ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q221283",
+      "zh": "海岸角",
+      "en": "Cape Coast",
+      "regionBox": "africa",
+      "score": 13.516,
+      "recordCount": 14,
+      "spanYears": 142,
+      "yearsCovered": 143,
+      "areaMax": 284725.14,
+      "firstStart": 1653,
+      "lastEnd": 1795,
+      "catalogueMatch": true,
+      "catalogueRecords": 14,
+      "enArticle": "Cape Coast",
+      "articleQid": "Q221283",
+      "articleMatch": true,
+      "p31": [
+        "Q1549591",
+        "Q1907114"
+      ],
+      "p31Labels": [
+        "big city",
+        "metropolitan area"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q79861",
+      "zh": "米却肯州",
+      "en": "Michoacán",
+      "regionBox": "americas",
+      "score": 13.418,
+      "recordCount": 12,
+      "spanYears": 228,
+      "yearsCovered": 229,
+      "areaMax": 74593.15,
+      "firstStart": 1305,
+      "lastEnd": 1533,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Michoacán",
+      "articleQid": "Q79861",
+      "articleMatch": true,
+      "p31": [
+        "Q15149663"
+      ],
+      "p31Labels": [
+        "state of Mexico"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q491106",
+      "zh": "希瓦汗国",
+      "en": "Khanate of Khiva",
+      "regionBox": "west-central-asia",
+      "score": 13.211,
+      "recordCount": 17,
+      "spanYears": 407,
+      "yearsCovered": 363,
+      "areaMax": 848278.55,
+      "firstStart": 1512,
+      "lastEnd": 1919,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Khanate of Khiva",
+      "articleQid": "Q491106",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q577668",
+      "zh": "布哈拉汗国",
+      "en": "Khanate of Bukhara",
+      "regionBox": "west-central-asia",
+      "score": 13.049,
+      "recordCount": 19,
+      "spanYears": 271,
+      "yearsCovered": 272,
+      "areaMax": 767162.41,
+      "firstStart": 1516,
+      "lastEnd": 1787,
+      "catalogueMatch": true,
+      "catalogueRecords": 19,
+      "enArticle": "Khanate of Bukhara",
+      "articleQid": "Q577668",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q331644"
+      ],
+      "p31Labels": [
+        "historical country",
+        "khanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q943191",
+      "zh": "拉赫姆王国",
+      "en": "Lakhmids",
+      "regionBox": "africa",
+      "score": 12.789,
+      "recordCount": 8,
+      "spanYears": 363,
+      "yearsCovered": 337,
+      "areaMax": 259124.28,
+      "firstStart": 270,
+      "lastEnd": 633,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Lakhmid kingdom",
+      "articleQid": "Q943191",
+      "articleMatch": true,
+      "p31": [
+        "Q133311",
+        "Q13417114"
+      ],
+      "p31Labels": [
+        "tribe",
+        "noble family"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q187985",
+      "zh": "藏族",
+      "en": "Tibetan people",
+      "regionBox": "south-asia",
+      "score": 12.715,
+      "recordCount": 11,
+      "spanYears": 409,
+      "yearsCovered": 410,
+      "areaMax": 1864703,
+      "firstStart": 850,
+      "lastEnd": 1259,
+      "catalogueMatch": true,
+      "catalogueRecords": 11,
+      "enArticle": "Tibetans",
+      "articleQid": "Q187985",
+      "articleMatch": true,
+      "p31": [
+        "Q41710",
+        "Q858804"
+      ],
+      "p31Labels": [
+        "ethnic group",
+        "ethnic minorities in China"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q12567",
+      "zh": "维京人",
+      "en": "Vikings",
+      "regionBox": "europe",
+      "score": 12.645,
+      "recordCount": 28,
+      "spanYears": 539,
+      "yearsCovered": 540,
+      "areaMax": 134647.8,
+      "firstStart": 793,
+      "lastEnd": 1332,
+      "catalogueMatch": true,
+      "catalogueRecords": 28,
+      "enArticle": "Vikings",
+      "articleQid": "Q12567",
+      "articleMatch": true,
+      "p31": [
+        "Q11514315",
+        "Q11042",
+        "Q1292119",
+        "Q4204501"
+      ],
+      "p31Labels": [
+        "historical period",
+        "culture",
+        "style",
+        "historical ethnic group"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        },
+        {
+          "qid": "Q11042",
+          "label": "culture"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q467985",
+      "zh": "月氏",
+      "en": "Yuezhi",
+      "regionBox": "west-central-asia",
+      "score": 12.524,
+      "recordCount": 14,
+      "spanYears": 446,
+      "yearsCovered": 447,
+      "areaMax": 916154.15,
+      "firstStart": -404,
+      "lastEnd": 42,
+      "catalogueMatch": true,
+      "catalogueRecords": 14,
+      "enArticle": "Yuezhi",
+      "articleQid": "Q467985",
+      "articleMatch": true,
+      "p31": [
+        "Q41710"
+      ],
+      "p31Labels": [
+        "ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q69829",
+      "zh": "法兰西第四共和国",
+      "en": "French Fourth Republic",
+      "regionBox": "africa",
+      "score": 12.512,
+      "recordCount": 14,
+      "spanYears": 12,
+      "yearsCovered": 26,
+      "areaMax": 13156365.21,
+      "firstStart": 1945,
+      "lastEnd": 1957,
+      "catalogueMatch": true,
+      "catalogueRecords": 14,
+      "enArticle": "French Fourth Republic",
+      "articleQid": "Q69829",
+      "articleMatch": true,
+      "p31": [
+        "Q17152708",
+        "Q11514315",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "republic regime in France",
+        "historical period",
+        "historical country"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q842",
+      "zh": "阿曼",
+      "en": "Oman",
+      "regionBox": "west-central-asia",
+      "score": 12.506,
+      "recordCount": 17,
+      "spanYears": 280,
+      "yearsCovered": 208,
+      "areaMax": 314024.15,
+      "firstStart": 1744,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Oman",
+      "articleQid": "Q842",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256",
+        "Q12759805"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country",
+        "sultanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q205466",
+      "zh": "突厥汗国",
+      "en": "Göktürks",
+      "regionBox": "west-central-asia",
+      "score": 12.455,
+      "recordCount": 21,
+      "spanYears": 73,
+      "yearsCovered": 120,
+      "areaMax": 4205581.84,
+      "firstStart": 587,
+      "lastEnd": 660,
+      "catalogueMatch": true,
+      "catalogueRecords": 21,
+      "enArticle": "Göktürks",
+      "articleQid": "Q205466",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q331644"
+      ],
+      "p31Labels": [
+        "historical country",
+        "khanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q5551337",
+      "zh": null,
+      "en": "German colonization of Africa",
+      "regionBox": "africa",
+      "score": 12.381,
+      "recordCount": 13,
+      "spanYears": 47,
+      "yearsCovered": 48,
+      "areaMax": 2671280.05,
+      "firstStart": 1871,
+      "lastEnd": 1918,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "German colonization of Africa",
+      "articleQid": "Q5551337",
+      "articleMatch": true,
+      "p31": [],
+      "p31Labels": [],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q5362837",
+      "zh": "杰贝勒沙马尔酋长国",
+      "en": "Emirate of Jabal Shammar",
+      "regionBox": "africa",
+      "score": 12.31,
+      "recordCount": 12,
+      "spanYears": 96,
+      "yearsCovered": 65,
+      "areaMax": 674959.88,
+      "firstStart": 1825,
+      "lastEnd": 1921,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Emirate of Jabal Shammar",
+      "articleQid": "Q5362837",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q189898",
+        "Q3624078"
+      ],
+      "p31Labels": [
+        "historical country",
+        "Emirate",
+        "sovereign state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q846",
+      "zh": "卡塔尔",
+      "en": "Qatar",
+      "regionBox": "africa",
+      "score": 12.31,
+      "recordCount": 9,
+      "spanYears": 204,
+      "yearsCovered": 140,
+      "areaMax": 24771.47,
+      "firstStart": 1820,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Qatar",
+      "articleQid": "Q846",
+      "articleMatch": true,
+      "p31": [
+        "Q189898",
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "Emirate",
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q703919",
+      "zh": "吴朝",
+      "en": "Ngô dynasty",
+      "regionBox": "east-asia",
+      "score": 12.165,
+      "recordCount": 17,
+      "spanYears": 459,
+      "yearsCovered": 460,
+      "areaMax": 152558.23,
+      "firstStart": 947,
+      "lastEnd": 1406,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Ngô dynasty",
+      "articleQid": "Q703919",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q11514315",
+        "Q417175"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical period",
+        "kingdom"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q170770",
+      "zh": "莫斯科大公国",
+      "en": "Grand Principality of Moscow",
+      "regionBox": "global",
+      "score": 12.136,
+      "recordCount": 30,
+      "spanYears": 252,
+      "yearsCovered": 253,
+      "areaMax": 2433400.72,
+      "firstStart": 1294,
+      "lastEnd": 1546,
+      "catalogueMatch": true,
+      "catalogueRecords": 30,
+      "enArticle": "Grand Principality of Moscow",
+      "articleQid": "Q170770",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q3624078"
+      ],
+      "p31Labels": [
+        "historical country",
+        "sovereign state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q631210",
+      "zh": "诺盖汗国",
+      "en": "Nogai Horde",
+      "regionBox": "west-central-asia",
+      "score": 12.111,
+      "recordCount": 16,
+      "spanYears": 287,
+      "yearsCovered": 288,
+      "areaMax": 704704.45,
+      "firstStart": 1450,
+      "lastEnd": 1737,
+      "catalogueMatch": true,
+      "catalogueRecords": 16,
+      "enArticle": "Nogai Horde",
+      "articleQid": "Q631210",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1345055"
+      ],
+      "p31Labels": [
+        "historical country",
+        "horde"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1191125",
+      "zh": "蒙兀儿斯坦",
+      "en": "Moghulistan",
+      "regionBox": "global",
+      "score": 12.087,
+      "recordCount": 25,
+      "spanYears": 223,
+      "yearsCovered": 361,
+      "areaMax": 1383469.83,
+      "firstStart": 1463,
+      "lastEnd": 1686,
+      "catalogueMatch": true,
+      "catalogueRecords": 25,
+      "enArticle": "Moghulistan",
+      "articleQid": "Q1191125",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q331644"
+      ],
+      "p31Labels": [
+        "historical country",
+        "khanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1177379",
+      "zh": "麦因",
+      "en": "Minaeans",
+      "regionBox": "africa",
+      "score": 12.041,
+      "recordCount": 6,
+      "spanYears": 357,
+      "yearsCovered": 328,
+      "areaMax": 214510.02,
+      "firstStart": -383,
+      "lastEnd": -26,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Ma'in",
+      "articleQid": "Q1177379",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501",
+        "Q133311"
+      ],
+      "p31Labels": [
+        "historical ethnic group",
+        "tribe"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q5261548",
+      "zh": "罗瑟斯",
+      "en": "Rassid dynasty",
+      "regionBox": "africa",
+      "score": 11.814,
+      "recordCount": 9,
+      "spanYears": 166,
+      "yearsCovered": 167,
+      "areaMax": 360697.87,
+      "firstStart": 1636,
+      "lastEnd": 1802,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Rassid dynasty",
+      "articleQid": "Q5261548",
+      "articleMatch": true,
+      "p31": [
+        "Q1052942",
+        "Q101352"
+      ],
+      "p31Labels": [
+        "list of Muslim states and dynasties",
+        "family name"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19569014",
+      "zh": "塔尔普尔王朝",
+      "en": "Talpur dynasty",
+      "regionBox": "south-asia",
+      "score": 11.77,
+      "recordCount": 15,
+      "spanYears": 74,
+      "yearsCovered": 75,
+      "areaMax": 535463.79,
+      "firstStart": 1820,
+      "lastEnd": 1894,
+      "catalogueMatch": true,
+      "catalogueRecords": 15,
+      "enArticle": "Talpur dynasty",
+      "articleQid": "Q19569014",
+      "articleMatch": true,
+      "p31": [],
+      "p31Labels": [],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q34266",
+      "zh": "俄罗斯帝国",
+      "en": "Russian Empire",
+      "regionBox": "global",
+      "score": 11.737,
+      "recordCount": 65,
+      "spanYears": 195,
+      "yearsCovered": 196,
+      "areaMax": 23074979.9,
+      "firstStart": 1721,
+      "lastEnd": 1916,
+      "catalogueMatch": true,
+      "catalogueRecords": 65,
+      "enArticle": "Russian Empire",
+      "articleQid": "Q34266",
+      "articleMatch": true,
+      "p31": [
+        "Q48349",
+        "Q3624078",
+        "Q3024240",
+        "Q1323642",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "empire",
+        "sovereign state",
+        "historical country",
+        "transcontinental country",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q177076",
+      "zh": "高加索阿尔巴尼亚王国",
+      "en": "Caucasian Albania",
+      "regionBox": "west-central-asia",
+      "score": 11.602,
+      "recordCount": 9,
+      "spanYears": 572,
+      "yearsCovered": 546,
+      "areaMax": 75000.99,
+      "firstStart": -63,
+      "lastEnd": 509,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Caucasian Albania",
+      "articleQid": "Q177076",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q15649504"
+      ],
+      "p31Labels": [
+        "historical country",
+        "satrapy"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1194765",
+      "zh": "迦摩缕波",
+      "en": "Kamarupa",
+      "regionBox": "global",
+      "score": 11.547,
+      "recordCount": 13,
+      "spanYears": 785,
+      "yearsCovered": 786,
+      "areaMax": 230539.19,
+      "firstStart": 353,
+      "lastEnd": 1138,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Kamarupa",
+      "articleQid": "Q1194765",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q17252",
+      "zh": "西藏",
+      "en": "Tibet",
+      "regionBox": "south-asia",
+      "score": 11.532,
+      "recordCount": 15,
+      "spanYears": 40,
+      "yearsCovered": 41,
+      "areaMax": 1366396.19,
+      "firstStart": 1912,
+      "lastEnd": 1952,
+      "catalogueMatch": true,
+      "catalogueRecords": 15,
+      "enArticle": "Tibet",
+      "articleQid": "Q17252",
+      "articleMatch": true,
+      "p31": [
+        "Q82794",
+        "Q878223",
+        "Q3502482",
+        "Q15239622"
+      ],
+      "p31Labels": [
+        "region",
+        "highland",
+        "cultural region",
+        "disputed territory"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1627675",
+      "zh": "骠国",
+      "en": "Pyu city-states",
+      "regionBox": "east-asia",
+      "score": 11.479,
+      "recordCount": 5,
+      "spanYears": 961,
+      "yearsCovered": 962,
+      "areaMax": 116186.98,
+      "firstStart": 84,
+      "lastEnd": 1045,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Pyu city-states",
+      "articleQid": "Q1627675",
+      "articleMatch": true,
+      "p31": [
+        "Q8432",
+        "Q2472587",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "civilization",
+        "people",
+        "historical country"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q2472587",
+          "label": "people"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q185063",
+      "zh": "战国",
+      "en": "Warring States period",
+      "regionBox": "east-asia",
+      "score": 11.479,
+      "recordCount": 19,
+      "spanYears": 261,
+      "yearsCovered": 262,
+      "areaMax": 1633841.83,
+      "firstStart": -480,
+      "lastEnd": -219,
+      "catalogueMatch": true,
+      "catalogueRecords": 19,
+      "enArticle": "Warring States period",
+      "articleQid": "Q185063",
+      "articleMatch": true,
+      "p31": [
+        "Q11514315"
+      ],
+      "p31Labels": [
+        "historical period"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q171393",
+      "zh": "瓦拉几亚",
+      "en": "Wallachia",
+      "regionBox": "europe",
+      "score": 11.46,
+      "recordCount": 22,
+      "spanYears": 544,
+      "yearsCovered": 520,
+      "areaMax": 74679.74,
+      "firstStart": 1314,
+      "lastEnd": 1858,
+      "catalogueMatch": true,
+      "catalogueRecords": 22,
+      "enArticle": "Wallachia",
+      "articleQid": "Q171393",
+      "articleMatch": true,
+      "p31": [
+        "Q1620908"
+      ],
+      "p31Labels": [
+        "historical region"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3037",
+      "zh": "加德满都",
+      "en": "Kathmandu",
+      "regionBox": "south-asia",
+      "score": 11.435,
+      "recordCount": 4,
+      "spanYears": 559,
+      "yearsCovered": 560,
+      "areaMax": 687.44,
+      "firstStart": 1202,
+      "lastEnd": 1761,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Kathmandu",
+      "articleQid": "Q3037",
+      "articleMatch": true,
+      "p31": [
+        "Q515",
+        "Q15284",
+        "Q1549591",
+        "Q51929311",
+        "Q257391"
+      ],
+      "p31Labels": [
+        "city",
+        "municipality",
+        "big city",
+        "largest city",
+        "federal capital"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q45813",
+      "zh": "匈人",
+      "en": "Huns",
+      "regionBox": "europe",
+      "score": 11.315,
+      "recordCount": 21,
+      "spanYears": 567,
+      "yearsCovered": 565,
+      "areaMax": 1913269.47,
+      "firstStart": 106,
+      "lastEnd": 673,
+      "catalogueMatch": true,
+      "catalogueRecords": 21,
+      "enArticle": "Huns",
+      "articleQid": "Q45813",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501"
+      ],
+      "p31Labels": [
+        "historical ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q465960",
+      "zh": "瓜拉尼人聚居地的耶稣会传教区",
+      "en": "Jesuit missions among the Guaraní",
+      "regionBox": "americas",
+      "score": 11.163,
+      "recordCount": 7,
+      "spanYears": 173,
+      "yearsCovered": 174,
+      "areaMax": 261320.64,
+      "firstStart": 1595,
+      "lastEnd": 1768,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Jesuit missions among the Guaraní",
+      "articleQid": "Q465960",
+      "articleMatch": true,
+      "p31": [
+        "Q1564373",
+        "Q107637871",
+        "Q210272"
+      ],
+      "p31Labels": [
+        "mission station",
+        "transboundary site",
+        "cultural heritage"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1474791",
+      "zh": "达尔富尔苏丹国",
+      "en": "Sultanate of Darfur",
+      "regionBox": "africa",
+      "score": 11.121,
+      "recordCount": 5,
+      "spanYears": 267,
+      "yearsCovered": 268,
+      "areaMax": 296630.47,
+      "firstStart": 1609,
+      "lastEnd": 1876,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Sultanate of Darfur",
+      "articleQid": "Q1474791",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2365048",
+      "zh": "阿达尔苏丹国",
+      "en": "Adal Sultanate",
+      "regionBox": "africa",
+      "score": 11.093,
+      "recordCount": 7,
+      "spanYears": 163,
+      "yearsCovered": 164,
+      "areaMax": 488419.91,
+      "firstStart": 1415,
+      "lastEnd": 1578,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Adal Sultanate",
+      "articleQid": "Q2365048",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2614237",
+      "zh": null,
+      "en": "Nawab of Awadh",
+      "regionBox": "south-asia",
+      "score": 11.077,
+      "recordCount": 13,
+      "spanYears": 75,
+      "yearsCovered": 76,
+      "areaMax": 115929.47,
+      "firstStart": 1727,
+      "lastEnd": 1802,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Nawab of Awadh",
+      "articleQid": "Q2614237",
+      "articleMatch": true,
+      "p31": [
+        "Q355567"
+      ],
+      "p31Labels": [
+        "noble title"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1014",
+      "zh": "利比里亚",
+      "en": "Liberia",
+      "regionBox": "africa",
+      "score": 11.074,
+      "recordCount": 6,
+      "spanYears": 176,
+      "yearsCovered": 177,
+      "areaMax": 101996.98,
+      "firstStart": 1848,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Liberia",
+      "articleQid": "Q1014",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q582861",
+      "zh": "马林王朝",
+      "en": "Marinid dynasty",
+      "regionBox": "africa",
+      "score": 11.073,
+      "recordCount": 6,
+      "spanYears": 217,
+      "yearsCovered": 134,
+      "areaMax": 737940.88,
+      "firstStart": 1250,
+      "lastEnd": 1467,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Marinid dynasty",
+      "articleQid": "Q582861",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q164950"
+      ],
+      "p31Labels": [
+        "historical country",
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q207600",
+      "zh": "阿格拉布王朝",
+      "en": "Aghlabids",
+      "regionBox": "africa",
+      "score": 11.072,
+      "recordCount": 8,
+      "spanYears": 110,
+      "yearsCovered": 111,
+      "areaMax": 252335.25,
+      "firstStart": 800,
+      "lastEnd": 910,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Aghlabid dynasty",
+      "articleQid": "Q207600",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240",
+        "Q189898"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country",
+        "Emirate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q311341",
+      "zh": "哈萨绿洲",
+      "en": "Al-Ahsa Oasis",
+      "regionBox": "africa",
+      "score": 11.072,
+      "recordCount": 5,
+      "spanYears": 260,
+      "yearsCovered": 261,
+      "areaMax": 73757.06,
+      "firstStart": 1260,
+      "lastEnd": 1520,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Al-Ahsa Oasis",
+      "articleQid": "Q311341",
+      "articleMatch": true,
+      "p31": [
+        "Q1129474",
+        "Q1549591"
+      ],
+      "p31Labels": [
+        "cultural landscape",
+        "big city"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19083",
+      "zh": "高加索伊比利亚王国",
+      "en": "Kingdom of Iberia",
+      "regionBox": "west-central-asia",
+      "score": 11.07,
+      "recordCount": 7,
+      "spanYears": 596,
+      "yearsCovered": 570,
+      "areaMax": 35867.97,
+      "firstStart": -63,
+      "lastEnd": 533,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Kingdom of Iberia",
+      "articleQid": "Q19083",
+      "articleMatch": true,
+      "p31": [
+        "Q1250464",
+        "Q6256",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "realm",
+        "country",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1050",
+      "zh": "斯威士兰",
+      "en": "Eswatini",
+      "regionBox": "africa",
+      "score": 11.033,
+      "recordCount": 7,
+      "spanYears": 139,
+      "yearsCovered": 74,
+      "areaMax": 17288.89,
+      "firstStart": 1885,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Eswatini",
+      "articleQid": "Q1050",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q123480",
+        "Q417175",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "landlocked country",
+        "kingdom",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q15180",
+      "zh": "苏联",
+      "en": "Soviet Union",
+      "regionBox": "global",
+      "score": 10.975,
+      "recordCount": 26,
+      "spanYears": 69,
+      "yearsCovered": 70,
+      "areaMax": 24600101.31,
+      "firstStart": 1922,
+      "lastEnd": 1991,
+      "catalogueMatch": true,
+      "catalogueRecords": 26,
+      "enArticle": "Soviet Union",
+      "articleQid": "Q15180",
+      "articleMatch": true,
+      "p31": [
+        "Q512187",
+        "Q842112",
+        "Q3024240",
+        "Q3624078",
+        "Q849866",
+        "Q1323642",
+        "Q1335818",
+        "Q160016",
+        "Q6688521",
+        "Q113393649",
+        "Q7275",
+        "Q17007978",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "federal republic",
+        "socialist state",
+        "historical country",
+        "sovereign state",
+        "communist state",
+        "transcontinental country",
+        "supranational union",
+        "member states of the United Nations",
+        "permanent members of the United Nations Security Council",
+        "cratonym",
+        "state",
+        "counterintelligence state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q796",
+      "zh": "伊拉克",
+      "en": "Iraq",
+      "regionBox": "africa",
+      "score": 10.974,
+      "recordCount": 8,
+      "spanYears": 64,
+      "yearsCovered": 57,
+      "areaMax": 456521.15,
+      "firstStart": 1960,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Iraq",
+      "articleQid": "Q796",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q272033",
+      "zh": "的黎波里伯国",
+      "en": "County of Tripoli",
+      "regionBox": "africa",
+      "score": 10.876,
+      "recordCount": 6,
+      "spanYears": 182,
+      "yearsCovered": 183,
+      "areaMax": 6236.1,
+      "firstStart": 1111,
+      "lastEnd": 1293,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "County of Tripoli",
+      "articleQid": "Q272033",
+      "articleMatch": true,
+      "p31": [
+        "Q353344",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "countship",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3532152",
+      "zh": null,
+      "en": "Early Pandyan kingdom",
+      "regionBox": "south-asia",
+      "score": 10.874,
+      "recordCount": 2,
+      "spanYears": 596,
+      "yearsCovered": 597,
+      "areaMax": 32556.37,
+      "firstStart": -291,
+      "lastEnd": 305,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Early Pandyan kingdom",
+      "articleQid": "Q3532152",
+      "articleMatch": true,
+      "p31": [],
+      "p31Labels": [],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q877155",
+      "zh": "哲罗",
+      "en": "Chera dynasty",
+      "regionBox": "south-asia",
+      "score": 10.874,
+      "recordCount": 2,
+      "spanYears": 596,
+      "yearsCovered": 597,
+      "areaMax": 25180.58,
+      "firstStart": -291,
+      "lastEnd": 305,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Chera dynasty",
+      "articleQid": "Q877155",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q124943",
+      "zh": "埃及王国",
+      "en": "Kingdom of Egypt",
+      "regionBox": "africa",
+      "score": 10.862,
+      "recordCount": 9,
+      "spanYears": 30,
+      "yearsCovered": 31,
+      "areaMax": 1007436.8,
+      "firstStart": 1922,
+      "lastEnd": 1952,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Kingdom of Egypt",
+      "articleQid": "Q124943",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1151405",
+        "Q1323642"
+      ],
+      "p31Labels": [
+        "historical country",
+        "client state",
+        "transcontinental country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q974",
+      "zh": "刚果民主共和国",
+      "en": "Democratic Republic of the Congo",
+      "regionBox": "africa",
+      "score": 10.844,
+      "recordCount": 6,
+      "spanYears": 64,
+      "yearsCovered": 42,
+      "areaMax": 2307867.78,
+      "firstStart": 1960,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Democratic Republic of the Congo",
+      "articleQid": "Q974",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q148499",
+      "zh": "勃兰登堡边领",
+      "en": "Margraviate of Brandenburg",
+      "regionBox": "europe",
+      "score": 10.828,
+      "recordCount": 24,
+      "spanYears": 358,
+      "yearsCovered": 319,
+      "areaMax": 80499.56,
+      "firstStart": 1260,
+      "lastEnd": 1618,
+      "catalogueMatch": true,
+      "catalogueRecords": 24,
+      "enArticle": "Margraviate of Brandenburg",
+      "articleQid": "Q148499",
+      "articleMatch": true,
+      "p31": [
+        "Q20521456",
+        "Q26830017",
+        "Q3024240",
+        "Q20181813",
+        "Q11514315"
+      ],
+      "p31Labels": [
+        "electoral principate",
+        "state in the Holy Roman Empire",
+        "historical country",
+        "colonial power",
+        "historical period"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q140446",
+      "zh": "扎格维王朝",
+      "en": "Zagwe dynasty",
+      "regionBox": "africa",
+      "score": 10.82,
+      "recordCount": 3,
+      "spanYears": 324,
+      "yearsCovered": 325,
+      "areaMax": 14454.28,
+      "firstStart": 947,
+      "lastEnd": 1271,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Zagwe dynasty",
+      "articleQid": "Q140446",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q7903",
+      "zh": "卡萨布兰卡",
+      "en": "Casablanca",
+      "regionBox": "africa",
+      "score": 10.806,
+      "recordCount": 4,
+      "spanYears": 272,
+      "yearsCovered": 273,
+      "areaMax": 38057.28,
+      "firstStart": 793,
+      "lastEnd": 1065,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Casablanca",
+      "articleQid": "Q7903",
+      "articleMatch": true,
+      "p31": [
+        "Q515"
+      ],
+      "p31Labels": [
+        "city"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1029847",
+      "zh": "纳塔利亚共和国",
+      "en": "Natalia Republic",
+      "regionBox": "africa",
+      "score": 10.792,
+      "recordCount": 8,
+      "spanYears": 70,
+      "yearsCovered": 71,
+      "areaMax": 62052.18,
+      "firstStart": 1840,
+      "lastEnd": 1910,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Natalia Republic",
+      "articleQid": "Q1029847",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1010624"
+      ],
+      "p31Labels": [
+        "historical country",
+        "Boer republic"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q307697",
+      "zh": "扎亚尼德王朝",
+      "en": "Zayyanid Dynasty",
+      "regionBox": "africa",
+      "score": 10.789,
+      "recordCount": 4,
+      "spanYears": 275,
+      "yearsCovered": 257,
+      "areaMax": 126172.04,
+      "firstStart": 1236,
+      "lastEnd": 1511,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Zayyanid Dynasty",
+      "articleQid": null,
+      "articleMatch": false,
+      "p31": [
+        "Q164950",
+        "Q96196009"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "former or current state"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q156173",
+      "zh": "朱古达",
+      "en": "Jugurtha",
+      "regionBox": "africa",
+      "score": 10.772,
+      "recordCount": 6,
+      "spanYears": 150,
+      "yearsCovered": 151,
+      "areaMax": 307188.44,
+      "firstStart": -197,
+      "lastEnd": -47,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Jugurtha",
+      "articleQid": "Q156173",
+      "articleMatch": true,
+      "p31": [
+        "Q5"
+      ],
+      "p31Labels": [
+        "human"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q5",
+          "label": "human"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q3057606",
+      "zh": null,
+      "en": "history of Egypt under the Muhammad Ali dynasty",
+      "regionBox": "africa",
+      "score": 10.722,
+      "recordCount": 8,
+      "spanYears": 60,
+      "yearsCovered": 61,
+      "areaMax": 2689003.42,
+      "firstStart": 1805,
+      "lastEnd": 1865,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "History of Egypt under the Muhammad Ali dynasty",
+      "articleQid": "Q3057606",
+      "articleMatch": true,
+      "p31": [
+        "Q17524420"
+      ],
+      "p31Labels": [
+        "aspect of history"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q762084",
+      "zh": "班巴拉帝国",
+      "en": "Bamana Empire",
+      "regionBox": "africa",
+      "score": 10.684,
+      "recordCount": 7,
+      "spanYears": 108,
+      "yearsCovered": 97,
+      "areaMax": 104715.64,
+      "firstStart": 1713,
+      "lastEnd": 1821,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Ségou Empire",
+      "articleQid": "Q762084",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1049",
+      "zh": "苏丹",
+      "en": "Sudan",
+      "regionBox": "africa",
+      "score": 10.678,
+      "recordCount": 6,
+      "spanYears": 68,
+      "yearsCovered": 69,
+      "areaMax": 2477370.63,
+      "firstStart": 1956,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Sudan",
+      "articleQid": "Q1049",
+      "articleMatch": true,
+      "p31": [
+        "Q7270",
+        "Q3624078",
+        "Q6256",
+        "Q1088391"
+      ],
+      "p31Labels": [
+        "republic",
+        "sovereign state",
+        "country",
+        "rump state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q466433",
+      "zh": "卡尔科塔王朝",
+      "en": "Karkota dynasty",
+      "regionBox": "south-asia",
+      "score": 10.671,
+      "recordCount": 8,
+      "spanYears": 267,
+      "yearsCovered": 268,
+      "areaMax": 209254.52,
+      "firstStart": 592,
+      "lastEnd": 859,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Karkota dynasty",
+      "articleQid": "Q466433",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q213638",
+      "zh": "塞浦路斯王国",
+      "en": "Kingdom of Cyprus",
+      "regionBox": "africa",
+      "score": 10.645,
+      "recordCount": 3,
+      "spanYears": 299,
+      "yearsCovered": 300,
+      "areaMax": 12554.14,
+      "firstStart": 1192,
+      "lastEnd": 1491,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Kingdom of Cyprus",
+      "articleQid": "Q213638",
+      "articleMatch": true,
+      "p31": [
+        "Q190967",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "Crusader states",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q7440601",
+      "zh": "海地王朝",
+      "en": "First Sealand dynasty",
+      "regionBox": "africa",
+      "score": 10.645,
+      "recordCount": 3,
+      "spanYears": 299,
+      "yearsCovered": 300,
+      "areaMax": 15392.04,
+      "firstStart": -1700,
+      "lastEnd": -1401,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "First Sealand dynasty",
+      "articleQid": "Q7440601",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q846025",
+      "zh": "十六大国",
+      "en": "Mahajanapada",
+      "regionBox": "south-asia",
+      "score": 10.605,
+      "recordCount": 8,
+      "spanYears": 249,
+      "yearsCovered": 280,
+      "areaMax": 802716.1,
+      "firstStart": -600,
+      "lastEnd": -351,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Mahajanapadas",
+      "articleQid": "Q846025",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q93468132"
+      ],
+      "p31Labels": [
+        "historical country",
+        "hexadecad"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q18211496",
+      "zh": "索兰奇王国",
+      "en": "Chaulukya dynasty",
+      "regionBox": "south-asia",
+      "score": 10.566,
+      "recordCount": 7,
+      "spanYears": 302,
+      "yearsCovered": 303,
+      "areaMax": 234888.75,
+      "firstStart": 947,
+      "lastEnd": 1249,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Chaulukya dynasty",
+      "articleQid": "Q18211496",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q970799",
+      "zh": "瓦塔斯王朝",
+      "en": "Wattasid dynasty",
+      "regionBox": "africa",
+      "score": 10.561,
+      "recordCount": 7,
+      "spanYears": 87,
+      "yearsCovered": 88,
+      "areaMax": 388316.4,
+      "firstStart": 1468,
+      "lastEnd": 1555,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Wattasid dynasty",
+      "articleQid": "Q970799",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19805959",
+      "zh": "戈尔孔达的苏丹国",
+      "en": "Golconda Sultanate",
+      "regionBox": "south-asia",
+      "score": 10.561,
+      "recordCount": 9,
+      "spanYears": 167,
+      "yearsCovered": 168,
+      "areaMax": 203633.14,
+      "firstStart": 1519,
+      "lastEnd": 1686,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Sultanate of Golconda",
+      "articleQid": "Q19805959",
+      "articleMatch": true,
+      "p31": [
+        "Q12759805",
+        "Q417175",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "sultanate",
+        "kingdom",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q948",
+      "zh": "突尼斯",
+      "en": "Tunisia",
+      "regionBox": "africa",
+      "score": 10.558,
+      "recordCount": 6,
+      "spanYears": 68,
+      "yearsCovered": 69,
+      "areaMax": 151652.34,
+      "firstStart": 1956,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Tunisia",
+      "articleQid": "Q948",
+      "articleMatch": true,
+      "p31": [
+        "Q6256",
+        "Q3624078",
+        "Q7270",
+        "Q51576574"
+      ],
+      "p31Labels": [
+        "country",
+        "sovereign state",
+        "republic",
+        "Mediterranean country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q582948",
+      "zh": "维京人殖民北美",
+      "en": "Norse colonization of North America",
+      "regionBox": "americas",
+      "score": 10.554,
+      "recordCount": 3,
+      "spanYears": 312,
+      "yearsCovered": 222,
+      "areaMax": 26128.27,
+      "firstStart": 1072,
+      "lastEnd": 1384,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Norse settlement of North America",
+      "articleQid": "Q582948",
+      "articleMatch": true,
+      "p31": [
+        "Q11514315"
+      ],
+      "p31Labels": [
+        "historical period"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q2649311",
+      "zh": "霹雳苏丹",
+      "en": "Sultan of Perak",
+      "regionBox": "southeast-asia",
+      "score": 10.531,
+      "recordCount": 6,
+      "spanYears": 347,
+      "yearsCovered": 348,
+      "areaMax": 23992.83,
+      "firstStart": 1529,
+      "lastEnd": 1876,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Sultan of Perak",
+      "articleQid": "Q2649311",
+      "articleMatch": true,
+      "p31": [
+        "Q4164871"
+      ],
+      "p31Labels": [
+        "position"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4164871",
+          "label": "position"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q431575",
+      "zh": "伊德里斯王朝",
+      "en": "Idrisid dynasty",
+      "regionBox": "africa",
+      "score": 10.524,
+      "recordCount": 5,
+      "spanYears": 186,
+      "yearsCovered": 172,
+      "areaMax": 194486.08,
+      "firstStart": 793,
+      "lastEnd": 979,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Idrisid dynasty",
+      "articleQid": "Q431575",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q924",
+      "zh": "坦桑尼亚",
+      "en": "Tanzania",
+      "regionBox": "africa",
+      "score": 10.523,
+      "recordCount": 6,
+      "spanYears": 63,
+      "yearsCovered": 64,
+      "areaMax": 887494.35,
+      "firstStart": 1961,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Tanzania",
+      "articleQid": "Q924",
+      "articleMatch": true,
+      "p31": [
+        "Q7270",
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "republic",
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q250515",
+      "zh": "东恒伽王朝",
+      "en": "Eastern Ganga dynasty",
+      "regionBox": "south-asia",
+      "score": 10.517,
+      "recordCount": 7,
+      "spanYears": 295,
+      "yearsCovered": 296,
+      "areaMax": 206035.41,
+      "firstStart": 1056,
+      "lastEnd": 1351,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Eastern Ganga dynasty",
+      "articleQid": "Q250515",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q258",
+      "zh": "南非",
+      "en": "South Africa",
+      "regionBox": "africa",
+      "score": 10.496,
+      "recordCount": 5,
+      "spanYears": 92,
+      "yearsCovered": 93,
+      "areaMax": 2060879.19,
+      "firstStart": 1932,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "South Africa",
+      "articleQid": "Q258",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1929987",
+      "zh": "卡拉曼里王朝",
+      "en": "Karamanli dynasty",
+      "regionBox": "africa",
+      "score": 10.484,
+      "recordCount": 6,
+      "spanYears": 126,
+      "yearsCovered": 127,
+      "areaMax": 85533.7,
+      "firstStart": 1713,
+      "lastEnd": 1839,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Karamanli dynasty",
+      "articleQid": "Q1929987",
+      "articleMatch": true,
+      "p31": [
+        "Q8436"
+      ],
+      "p31Labels": [
+        "family"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q8436",
+          "label": "family"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q4083686",
+      "zh": "孟加拉苏丹国",
+      "en": "Sultanate of Bengal",
+      "regionBox": "south-asia",
+      "score": 10.475,
+      "recordCount": 9,
+      "spanYears": 189,
+      "yearsCovered": 190,
+      "areaMax": 361167.33,
+      "firstStart": 1344,
+      "lastEnd": 1533,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Bengal Sultanate",
+      "articleQid": "Q4083686",
+      "articleMatch": true,
+      "p31": [
+        "Q12759805",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "sultanate",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1760473",
+      "zh": "阿布哈兹公国",
+      "en": "Principality of Abkhazia",
+      "regionBox": "west-central-asia",
+      "score": 10.463,
+      "recordCount": 10,
+      "spanYears": 361,
+      "yearsCovered": 329,
+      "areaMax": 10254.78,
+      "firstStart": 1468,
+      "lastEnd": 1829,
+      "catalogueMatch": true,
+      "catalogueRecords": 10,
+      "enArticle": "Principality of Abkhazia",
+      "articleQid": "Q1760473",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1371288"
+      ],
+      "p31Labels": [
+        "historical country",
+        "vassal state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2195101",
+      "zh": "古利亚亲王国",
+      "en": "Principality of Guria",
+      "regionBox": "west-central-asia",
+      "score": 10.463,
+      "recordCount": 10,
+      "spanYears": 361,
+      "yearsCovered": 329,
+      "areaMax": 4850.56,
+      "firstStart": 1468,
+      "lastEnd": 1829,
+      "catalogueMatch": true,
+      "catalogueRecords": 10,
+      "enArticle": "Principality of Guria",
+      "articleQid": "Q2195101",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q208500"
+      ],
+      "p31Labels": [
+        "historical country",
+        "principality"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q35827",
+      "zh": "拉普拉塔河",
+      "en": "Río de la Plata",
+      "regionBox": "americas",
+      "score": 10.456,
+      "recordCount": 8,
+      "spanYears": 22,
+      "yearsCovered": 23,
+      "areaMax": 1678493.51,
+      "firstStart": 1811,
+      "lastEnd": 1833,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Río de la Plata",
+      "articleQid": "Q35827",
+      "articleMatch": true,
+      "p31": [
+        "Q47053",
+        "Q4022",
+        "Q573344"
+      ],
+      "p31Labels": [
+        "estuary",
+        "river",
+        "main stem"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q172107",
+      "zh": "波兰立陶宛联邦",
+      "en": "Polish–Lithuanian Commonwealth",
+      "regionBox": "europe",
+      "score": 10.419,
+      "recordCount": 45,
+      "spanYears": 221,
+      "yearsCovered": 222,
+      "areaMax": 950874.13,
+      "firstStart": 1572,
+      "lastEnd": 1793,
+      "catalogueMatch": true,
+      "catalogueRecords": 45,
+      "enArticle": "Polish–Lithuanian Commonwealth",
+      "articleQid": "Q172107",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q3024240",
+        "Q1088391"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "historical country",
+        "rump state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q13426199",
+      "zh": "中华民国大陆时期",
+      "en": "Republic of China",
+      "regionBox": "east-asia",
+      "score": 10.408,
+      "recordCount": 19,
+      "spanYears": 112,
+      "yearsCovered": 99,
+      "areaMax": 8440429.81,
+      "firstStart": 1912,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 19,
+      "enArticle": "Taiwan",
+      "articleQid": "Q865",
+      "articleMatch": false,
+      "p31": [
+        "Q3024240",
+        "Q11514315"
+      ],
+      "p31Labels": [
+        "historical country",
+        "historical period"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q2070440",
+      "zh": "讷韦尔子爵",
+      "en": "County of Nevers",
+      "regionBox": "europe",
+      "score": 10.384,
+      "recordCount": 20,
+      "spanYears": 510,
+      "yearsCovered": 417,
+      "areaMax": 14776.23,
+      "firstStart": 1010,
+      "lastEnd": 1520,
+      "catalogueMatch": true,
+      "catalogueRecords": 20,
+      "enArticle": "County of Nevers",
+      "articleQid": "Q2070440",
+      "articleMatch": true,
+      "p31": [
+        "Q353344"
+      ],
+      "p31Labels": [
+        "countship"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q568523",
+      "zh": "诺巴",
+      "en": "Nobatia",
+      "regionBox": "africa",
+      "score": 10.358,
+      "recordCount": 2,
+      "spanYears": 308,
+      "yearsCovered": 309,
+      "areaMax": 147534.11,
+      "firstStart": 347,
+      "lastEnd": 655,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Nobatia",
+      "articleQid": "Q568523",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q417175"
+      ],
+      "p31Labels": [
+        "historical country",
+        "kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q83546",
+      "zh": "弗拉基米尔-苏兹达尔大公国",
+      "en": "Grand Principality of Vladimir",
+      "regionBox": "global",
+      "score": 10.356,
+      "recordCount": 17,
+      "spanYears": 430,
+      "yearsCovered": 378,
+      "areaMax": 250636.61,
+      "firstStart": 1056,
+      "lastEnd": 1486,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Vladimir-Suzdal",
+      "articleQid": "Q83546",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1371288"
+      ],
+      "p31Labels": [
+        "historical country",
+        "vassal state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1411866",
+      "zh": "纳贾希王朝",
+      "en": "Najahids",
+      "regionBox": "africa",
+      "score": 10.316,
+      "recordCount": 6,
+      "spanYears": 102,
+      "yearsCovered": 103,
+      "areaMax": 215442.11,
+      "firstStart": 1066,
+      "lastEnd": 1168,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Najahid dynasty",
+      "articleQid": "Q1411866",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q135364",
+      "zh": "奥尔梅克文明",
+      "en": "Olmecas",
+      "regionBox": "americas",
+      "score": 10.295,
+      "recordCount": 2,
+      "spanYears": 299,
+      "yearsCovered": 300,
+      "areaMax": 17602.64,
+      "firstStart": -650,
+      "lastEnd": -351,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Olmecas",
+      "articleQid": null,
+      "articleMatch": false,
+      "p31": [
+        "Q8432",
+        "Q11042",
+        "Q41710"
+      ],
+      "p31Labels": [
+        "civilization",
+        "culture",
+        "ethnic group"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11042",
+          "label": "culture"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q400998",
+      "zh": "艾哈迈德讷格尔王朝",
+      "en": "Ahmadnagar Sultanate",
+      "regionBox": "south-asia",
+      "score": 10.272,
+      "recordCount": 9,
+      "spanYears": 160,
+      "yearsCovered": 161,
+      "areaMax": 152748.58,
+      "firstStart": 1492,
+      "lastEnd": 1652,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Ahmadnagar Sultanate",
+      "articleQid": "Q400998",
+      "articleMatch": true,
+      "p31": [
+        "Q12759805",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "sultanate",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2272880",
+      "zh": "塔克鲁尔王国",
+      "en": "Takrur",
+      "regionBox": "africa",
+      "score": 10.267,
+      "recordCount": 4,
+      "spanYears": 195,
+      "yearsCovered": 196,
+      "areaMax": 74356.91,
+      "firstStart": 1040,
+      "lastEnd": 1235,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Takrur",
+      "articleQid": "Q2272880",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q149747",
+      "zh": "阿迪亚波纳",
+      "en": "Adiabene",
+      "regionBox": "west-central-asia",
+      "score": 10.259,
+      "recordCount": 8,
+      "spanYears": 433,
+      "yearsCovered": 397,
+      "areaMax": 13757.91,
+      "firstStart": -63,
+      "lastEnd": 370,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Adiabene",
+      "articleQid": "Q149747",
+      "articleMatch": true,
+      "p31": [
+        "Q1371288",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "vassal state",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q6737189",
+      "zh": "迈特拉卡王朝",
+      "en": "Maitraka dynasty",
+      "regionBox": "south-asia",
+      "score": 10.237,
+      "recordCount": 7,
+      "spanYears": 255,
+      "yearsCovered": 256,
+      "areaMax": 303530.9,
+      "firstStart": 476,
+      "lastEnd": 731,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Maitraka dynasty",
+      "articleQid": "Q6737189",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q7135130",
+      "zh": "帕拉玛拉王朝",
+      "en": "Paramara dynasty",
+      "regionBox": "south-asia",
+      "score": 10.237,
+      "recordCount": 7,
+      "spanYears": 255,
+      "yearsCovered": 256,
+      "areaMax": 215748.79,
+      "firstStart": 980,
+      "lastEnd": 1235,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Paramara dynasty",
+      "articleQid": "Q7135130",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q69808",
+      "zh": "维希法国",
+      "en": "Vichy France",
+      "regionBox": "africa",
+      "score": 10.228,
+      "recordCount": 7,
+      "spanYears": 4,
+      "yearsCovered": 9,
+      "areaMax": 11922017.91,
+      "firstStart": 1940,
+      "lastEnd": 1944,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Vichy France",
+      "articleQid": "Q69808",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q5589178",
+        "Q208164",
+        "Q43229",
+        "Q558566"
+      ],
+      "p31Labels": [
+        "historical country",
+        "regime",
+        "puppet state",
+        "organization",
+        "capital city relocation"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q43229",
+          "label": "organization"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q194355",
+      "zh": "雅盖洛王朝",
+      "en": "Jagiellonian dynasty",
+      "regionBox": "europe",
+      "score": 10.224,
+      "recordCount": 25,
+      "spanYears": 176,
+      "yearsCovered": 177,
+      "areaMax": 1053996.3,
+      "firstStart": 1395,
+      "lastEnd": 1571,
+      "catalogueMatch": true,
+      "catalogueRecords": 25,
+      "enArticle": "Jagiellonian dynasty",
+      "articleQid": "Q194355",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2907860",
+      "zh": "明格列尔公国",
+      "en": "Principality of Mingrelia",
+      "regionBox": "west-central-asia",
+      "score": 10.22,
+      "recordCount": 9,
+      "spanYears": 342,
+      "yearsCovered": 310,
+      "areaMax": 13250.74,
+      "firstStart": 1468,
+      "lastEnd": 1810,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Principality of Mingrelia",
+      "articleQid": "Q2907860",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q215443",
+      "zh": "瑞典帝国",
+      "en": "Swedish Empire",
+      "regionBox": "europe",
+      "score": 10.166,
+      "recordCount": 25,
+      "spanYears": 202,
+      "yearsCovered": 203,
+      "areaMax": 1024846.58,
+      "firstStart": 1612,
+      "lastEnd": 1814,
+      "catalogueMatch": true,
+      "catalogueRecords": 25,
+      "enArticle": "Swedish Empire",
+      "articleQid": "Q215443",
+      "articleMatch": true,
+      "p31": [
+        "Q48349",
+        "Q17544377",
+        "Q17524420",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "empire",
+        "history of a country or state",
+        "aspect of history",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1178043",
+      "zh": null,
+      "en": "Texcoco",
+      "regionBox": "americas",
+      "score": 10.134,
+      "recordCount": 3,
+      "spanYears": 226,
+      "yearsCovered": 227,
+      "areaMax": 2631.9,
+      "firstStart": 1202,
+      "lastEnd": 1428,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Texcoco",
+      "articleQid": "Q1178043",
+      "articleMatch": true,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q5349053",
+      "zh": "项羽十八诸侯",
+      "en": "Eighteen Kingdoms",
+      "regionBox": "east-asia",
+      "score": 10.13,
+      "recordCount": 20,
+      "spanYears": 4,
+      "yearsCovered": 55,
+      "areaMax": 2128027.65,
+      "firstStart": -208,
+      "lastEnd": -204,
+      "catalogueMatch": true,
+      "catalogueRecords": 20,
+      "enArticle": "Eighteen Kingdoms",
+      "articleQid": "Q5349053",
+      "articleMatch": true,
+      "p31": [
+        "Q16887380",
+        "Q93469064"
+      ],
+      "p31Labels": [
+        "group",
+        "octadecad"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q104028",
+      "zh": "犹大山地",
+      "en": "Judea",
+      "regionBox": "west-central-asia",
+      "score": 10.095,
+      "recordCount": 13,
+      "spanYears": 149,
+      "yearsCovered": 150,
+      "areaMax": 32758.39,
+      "firstStart": -144,
+      "lastEnd": 5,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Judea",
+      "articleQid": "Q104028",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q56061"
+      ],
+      "p31Labels": [
+        "historical country",
+        "administrative territorial entity"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q27306",
+      "zh": "普鲁士王国",
+      "en": "Kingdom of Prussia",
+      "regionBox": "europe",
+      "score": 10.079,
+      "recordCount": 29,
+      "spanYears": 161,
+      "yearsCovered": 142,
+      "areaMax": 345821.05,
+      "firstStart": 1702,
+      "lastEnd": 1863,
+      "catalogueMatch": true,
+      "catalogueRecords": 29,
+      "enArticle": "Kingdom of Prussia",
+      "articleQid": "Q27306",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q3624078",
+        "Q107390",
+        "Q113136497",
+        "Q26830017"
+      ],
+      "p31Labels": [
+        "historical country",
+        "sovereign state",
+        "federated state",
+        "state of the German Confederation 1815–1848 & 1850–1866",
+        "state in the Holy Roman Empire"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q801",
+      "zh": "以色列",
+      "en": "Israel",
+      "regionBox": "west-central-asia",
+      "score": 10.064,
+      "recordCount": 13,
+      "spanYears": 76,
+      "yearsCovered": 77,
+      "areaMax": 90410.95,
+      "firstStart": 1948,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Israel",
+      "articleQid": "Q801",
+      "articleMatch": true,
+      "p31": [
+        "Q51576574",
+        "Q6256",
+        "Q82794",
+        "Q3624078",
+        "Q10711424"
+      ],
+      "p31Labels": [
+        "Mediterranean country",
+        "country",
+        "region",
+        "sovereign state",
+        "state with limited recognition"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q71747",
+      "zh": "布列塔尼公国",
+      "en": "Duchy of Brittany",
+      "regionBox": "europe",
+      "score": 10.052,
+      "recordCount": 18,
+      "spanYears": 544,
+      "yearsCovered": 516,
+      "areaMax": 37386.92,
+      "firstStart": 947,
+      "lastEnd": 1491,
+      "catalogueMatch": true,
+      "catalogueRecords": 18,
+      "enArticle": "Duchy of Brittany",
+      "articleQid": "Q71747",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q154547",
+        "Q1250464"
+      ],
+      "p31Labels": [
+        "historical country",
+        "duchy",
+        "realm"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q46370",
+      "zh": "西法兰克王国",
+      "en": "West Francia",
+      "regionBox": "europe",
+      "score": 10.005,
+      "recordCount": 45,
+      "spanYears": 139,
+      "yearsCovered": 280,
+      "areaMax": 1247012.03,
+      "firstStart": 850,
+      "lastEnd": 989,
+      "catalogueMatch": true,
+      "catalogueRecords": 45,
+      "enArticle": "West Francia",
+      "articleQid": "Q46370",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q804",
+      "zh": "巴拿马",
+      "en": "Panama",
+      "regionBox": "americas",
+      "score": 9.985,
+      "recordCount": 3,
+      "spanYears": 119,
+      "yearsCovered": 120,
+      "areaMax": 83580.34,
+      "firstStart": 1905,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Panama",
+      "articleQid": "Q804",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q7270",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "republic",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q606377",
+      "zh": "伊察",
+      "en": "Itza people",
+      "regionBox": "americas",
+      "score": 9.966,
+      "recordCount": 4,
+      "spanYears": 152,
+      "yearsCovered": 153,
+      "areaMax": 33237.2,
+      "firstStart": 1547,
+      "lastEnd": 1699,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Itza people",
+      "articleQid": "Q606377",
+      "articleMatch": true,
+      "p31": [
+        "Q41710"
+      ],
+      "p31Labels": [
+        "ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2428714",
+      "zh": "犀那王朝",
+      "en": "Sena dynasty",
+      "regionBox": "south-asia",
+      "score": 9.943,
+      "recordCount": 8,
+      "spanYears": 163,
+      "yearsCovered": 164,
+      "areaMax": 257143.09,
+      "firstStart": 1072,
+      "lastEnd": 1235,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Sena dynasty",
+      "articleQid": "Q2428714",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q62623",
+      "zh": "卡尔马联合",
+      "en": "Kalmar Union",
+      "regionBox": "europe",
+      "score": 9.861,
+      "recordCount": 26,
+      "spanYears": 123,
+      "yearsCovered": 248,
+      "areaMax": 1285990.38,
+      "firstStart": 1402,
+      "lastEnd": 1525,
+      "catalogueMatch": true,
+      "catalogueRecords": 26,
+      "enArticle": "Kalmar Union",
+      "articleQid": "Q62623",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q188800",
+        "Q417175",
+        "Q170156",
+        "Q1102202"
+      ],
+      "p31Labels": [
+        "historical country",
+        "personal union",
+        "kingdom",
+        "confederation",
+        "dynastic union"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q810",
+      "zh": "约旦",
+      "en": "Jordan",
+      "regionBox": "west-central-asia",
+      "score": 9.827,
+      "recordCount": 13,
+      "spanYears": 77,
+      "yearsCovered": 76,
+      "areaMax": 103705.88,
+      "firstStart": 1947,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Jordan",
+      "articleQid": "Q810",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q41614",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "constitutional monarchy",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q160440",
+      "zh": "克里米亚汗国",
+      "en": "Crimean Khanate",
+      "regionBox": "europe",
+      "score": 9.796,
+      "recordCount": 21,
+      "spanYears": 332,
+      "yearsCovered": 333,
+      "areaMax": 222902.74,
+      "firstStart": 1450,
+      "lastEnd": 1782,
+      "catalogueMatch": true,
+      "catalogueRecords": 21,
+      "enArticle": "Crimean Khanate",
+      "articleQid": "Q160440",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q331644"
+      ],
+      "p31Labels": [
+        "historical country",
+        "khanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2118293",
+      "zh": "乌古斯可汗",
+      "en": "Oghuz Khagan",
+      "regionBox": "west-central-asia",
+      "score": 9.787,
+      "recordCount": 9,
+      "spanYears": 305,
+      "yearsCovered": 306,
+      "areaMax": 466506.32,
+      "firstStart": 750,
+      "lastEnd": 1055,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Oghuz Khagan",
+      "articleQid": "Q2118293",
+      "articleMatch": true,
+      "p31": [
+        "Q13002315"
+      ],
+      "p31Labels": [
+        "legendary figure"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1124402",
+      "zh": "图格鲁克王朝",
+      "en": "Tughlaq dynasty",
+      "regionBox": "south-asia",
+      "score": 9.768,
+      "recordCount": 9,
+      "spanYears": 88,
+      "yearsCovered": 89,
+      "areaMax": 2449486.16,
+      "firstStart": 1326,
+      "lastEnd": 1414,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Tughlaq dynasty",
+      "articleQid": "Q1124402",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q239502",
+      "zh": "加利西亚－沃里尼亚王国",
+      "en": "Kingdom of Galicia–Volhynia",
+      "regionBox": "europe",
+      "score": 9.739,
+      "recordCount": 22,
+      "spanYears": 295,
+      "yearsCovered": 282,
+      "areaMax": 452489.79,
+      "firstStart": 1056,
+      "lastEnd": 1351,
+      "catalogueMatch": true,
+      "catalogueRecords": 22,
+      "enArticle": "Kingdom of Galicia–Volhynia",
+      "articleQid": "Q239502",
+      "articleMatch": true,
+      "p31": [
+        "Q417175",
+        "Q208500"
+      ],
+      "p31Labels": [
+        "kingdom",
+        "principality"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q215643",
+      "zh": "印度-希腊王国",
+      "en": "Indo-Greek Kingdoms",
+      "regionBox": "south-asia",
+      "score": 9.721,
+      "recordCount": 8,
+      "spanYears": 139,
+      "yearsCovered": 113,
+      "areaMax": 784978.01,
+      "firstStart": -126,
+      "lastEnd": 13,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Indo-Greek Kingdom",
+      "articleQid": "Q215643",
+      "articleMatch": true,
+      "p31": [
+        "Q3932025"
+      ],
+      "p31Labels": [
+        "Hellenistic kingdom"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1147897",
+      "zh": "卫国",
+      "en": "Wey",
+      "regionBox": "east-asia",
+      "score": 9.666,
+      "recordCount": 9,
+      "spanYears": 502,
+      "yearsCovered": 503,
+      "areaMax": 6979.35,
+      "firstStart": -750,
+      "lastEnd": -248,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Wey",
+      "articleQid": "Q682199",
+      "articleMatch": false,
+      "p31": [
+        "Q836688",
+        "Q10904438",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "ancient Chinese state",
+        "Twelve Vassals",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q7703611",
+      "zh": "阿基坦公国",
+      "en": "Duchy of Aquitaine",
+      "regionBox": "europe",
+      "score": 9.637,
+      "recordCount": 19,
+      "spanYears": 449,
+      "yearsCovered": 371,
+      "areaMax": 141787.91,
+      "firstStart": 990,
+      "lastEnd": 1439,
+      "catalogueMatch": true,
+      "catalogueRecords": 19,
+      "enArticle": "Duchy of Aquitaine",
+      "articleQid": "Q7703611",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q414",
+      "zh": "阿根廷",
+      "en": "Argentina",
+      "regionBox": "americas",
+      "score": 9.57,
+      "recordCount": 3,
+      "spanYears": 94,
+      "yearsCovered": 95,
+      "areaMax": 2792789.27,
+      "firstStart": 1930,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Argentina",
+      "articleQid": "Q414",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256",
+        "Q6266",
+        "Q10551526",
+        "Q140892892"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country",
+        "nation",
+        "confessional state",
+        "country sometimes considered transcontinental"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q5582862",
+      "zh": "库斯科",
+      "en": "Cusco",
+      "regionBox": "americas",
+      "score": 9.567,
+      "recordCount": 3,
+      "spanYears": 145,
+      "yearsCovered": 146,
+      "areaMax": 8783.28,
+      "firstStart": 1294,
+      "lastEnd": 1439,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Cusco",
+      "articleQid": "Q5582862",
+      "articleMatch": true,
+      "p31": [
+        "Q515",
+        "Q1549591",
+        "Q15243209",
+        "Q702492"
+      ],
+      "p31Labels": [
+        "city",
+        "big city",
+        "historic district",
+        "urban area"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q101985",
+      "zh": "撒克逊人",
+      "en": "Saxons",
+      "regionBox": "europe",
+      "score": 9.554,
+      "recordCount": 17,
+      "spanYears": 516,
+      "yearsCovered": 512,
+      "areaMax": 82798.01,
+      "firstStart": 283,
+      "lastEnd": 799,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Saxons",
+      "articleQid": "Q101985",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501",
+        "Q41710",
+        "Q133311"
+      ],
+      "p31Labels": [
+        "historical ethnic group",
+        "ethnic group",
+        "tribe"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q66504140",
+      "zh": null,
+      "en": "Habsburg Austria",
+      "regionBox": "europe",
+      "score": 9.544,
+      "recordCount": 27,
+      "spanYears": 96,
+      "yearsCovered": 157,
+      "areaMax": 174883.61,
+      "firstStart": 1459,
+      "lastEnd": 1555,
+      "catalogueMatch": true,
+      "catalogueRecords": 27,
+      "enArticle": "Habsburg Austria",
+      "articleQid": "Q66504140",
+      "articleMatch": true,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q2594661",
+      "zh": "格温特王国",
+      "en": "Kingdom of Gwent",
+      "regionBox": "europe",
+      "score": 9.531,
+      "recordCount": 17,
+      "spanYears": 515,
+      "yearsCovered": 503,
+      "areaMax": 1529.86,
+      "firstStart": 540,
+      "lastEnd": 1055,
+      "catalogueMatch": true,
+      "catalogueRecords": 17,
+      "enArticle": "Kingdom of Gwent",
+      "articleQid": "Q2594661",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19336869",
+      "zh": "布卢瓦伯国",
+      "en": "County of Blois",
+      "regionBox": "europe",
+      "score": 9.529,
+      "recordCount": 19,
+      "spanYears": 411,
+      "yearsCovered": 412,
+      "areaMax": 38776.72,
+      "firstStart": 990,
+      "lastEnd": 1401,
+      "catalogueMatch": true,
+      "catalogueRecords": 19,
+      "enArticle": "County of Blois",
+      "articleQid": "Q19336869",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q353344"
+      ],
+      "p31Labels": [
+        "historical country",
+        "countship"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q696241",
+      "zh": "浩罕汗国",
+      "en": "Khanate of Kokand",
+      "regionBox": "west-central-asia",
+      "score": 9.521,
+      "recordCount": 11,
+      "spanYears": 167,
+      "yearsCovered": 168,
+      "areaMax": 475815.95,
+      "firstStart": 1709,
+      "lastEnd": 1876,
+      "catalogueMatch": true,
+      "catalogueRecords": 11,
+      "enArticle": "Khanate of Kokand",
+      "articleQid": "Q696241",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q331644"
+      ],
+      "p31Labels": [
+        "historical country",
+        "khanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q81931",
+      "zh": "美利坚联盟国",
+      "en": "Confederate States of America",
+      "regionBox": "americas",
+      "score": 9.52,
+      "recordCount": 5,
+      "spanYears": 4,
+      "yearsCovered": 5,
+      "areaMax": 1709918.48,
+      "firstStart": 1861,
+      "lastEnd": 1865,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Confederate States of America",
+      "articleQid": "Q81931",
+      "articleMatch": true,
+      "p31": [
+        "Q99541706",
+        "Q1520223",
+        "Q5255892",
+        "Q43702",
+        "Q170156",
+        "Q10711424"
+      ],
+      "p31Labels": [
+        "historical unrecognized state",
+        "constitutional republic",
+        "democratic republic",
+        "federation",
+        "confederation",
+        "state with limited recognition"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q822",
+      "zh": "黎巴嫩",
+      "en": "Lebanon",
+      "regionBox": "west-central-asia",
+      "score": 9.502,
+      "recordCount": 12,
+      "spanYears": 80,
+      "yearsCovered": 81,
+      "areaMax": 9886.47,
+      "firstStart": 1944,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Lebanon",
+      "articleQid": "Q822",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q51576574",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "Mediterranean country",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q43292",
+      "zh": "苏丹",
+      "en": "sultan",
+      "regionBox": "oceania",
+      "score": 9.474,
+      "recordCount": 3,
+      "spanYears": 346,
+      "yearsCovered": 347,
+      "areaMax": 2155.13,
+      "firstStart": 1512,
+      "lastEnd": 1858,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Sultan",
+      "articleQid": "Q43292",
+      "articleMatch": true,
+      "p31": [
+        "Q355567",
+        "Q1326966",
+        "Q4164871"
+      ],
+      "p31Labels": [
+        "noble title",
+        "honorific",
+        "position"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4164871",
+          "label": "position"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q260437",
+      "zh": "阿特罗帕特尼王国",
+      "en": "Atropatene",
+      "regionBox": "west-central-asia",
+      "score": 9.466,
+      "recordCount": 11,
+      "spanYears": 142,
+      "yearsCovered": 143,
+      "areaMax": 147253.24,
+      "firstStart": -307,
+      "lastEnd": -165,
+      "catalogueMatch": true,
+      "catalogueRecords": 11,
+      "enArticle": "Atropatene",
+      "articleQid": "Q260437",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1620908"
+      ],
+      "p31Labels": [
+        "historical country",
+        "historical region"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q35",
+      "zh": "丹麦",
+      "en": "Denmark",
+      "regionBox": "americas",
+      "score": 9.465,
+      "recordCount": 3,
+      "spanYears": 79,
+      "yearsCovered": 80,
+      "areaMax": 2273280.83,
+      "firstStart": 1945,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Denmark",
+      "articleQid": "Q35",
+      "articleMatch": true,
+      "p31": [
+        "Q7275",
+        "Q20181813",
+        "Q63791824",
+        "Q6256",
+        "Q66724388"
+      ],
+      "p31Labels": [
+        "state",
+        "colonial power",
+        "country bordering the Baltic Sea",
+        "country",
+        "autonomous country within the Kingdom of Denmark"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2622868",
+      "zh": "亚美尼亚",
+      "en": "Bagratid Armenia",
+      "regionBox": "west-central-asia",
+      "score": 9.465,
+      "recordCount": 11,
+      "spanYears": 159,
+      "yearsCovered": 160,
+      "areaMax": 99465.62,
+      "firstStart": 886,
+      "lastEnd": 1045,
+      "catalogueMatch": true,
+      "catalogueRecords": 11,
+      "enArticle": "Bagratid Armenia",
+      "articleQid": "Q2622868",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q417175"
+      ],
+      "p31Labels": [
+        "historical country",
+        "kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q68962",
+      "zh": "阿瓦尔汗国",
+      "en": "Pannonian Avars",
+      "regionBox": "europe",
+      "score": 9.41,
+      "recordCount": 22,
+      "spanYears": 244,
+      "yearsCovered": 245,
+      "areaMax": 1022314.84,
+      "firstStart": 561,
+      "lastEnd": 805,
+      "catalogueMatch": true,
+      "catalogueRecords": 22,
+      "enArticle": "Pannonian Avars",
+      "articleQid": "Q68962",
+      "articleMatch": true,
+      "p31": [
+        "Q4204501"
+      ],
+      "p31Labels": [
+        "historical ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2267508",
+      "zh": "郑主",
+      "en": "Trịnh lords",
+      "regionBox": "east-asia",
+      "score": 9.407,
+      "recordCount": 14,
+      "spanYears": 215,
+      "yearsCovered": 216,
+      "areaMax": 158296.22,
+      "firstStart": 1572,
+      "lastEnd": 1787,
+      "catalogueMatch": true,
+      "catalogueRecords": 14,
+      "enArticle": "Trịnh lords",
+      "articleQid": "Q2267508",
+      "articleMatch": true,
+      "p31": [],
+      "p31Labels": [],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q55502",
+      "zh": "耶路撒冷王国",
+      "en": "Kingdom of Jerusalem",
+      "regionBox": "west-central-asia",
+      "score": 9.36,
+      "recordCount": 10,
+      "spanYears": 194,
+      "yearsCovered": 195,
+      "areaMax": 53894.96,
+      "firstStart": 1099,
+      "lastEnd": 1293,
+      "catalogueMatch": true,
+      "catalogueRecords": 10,
+      "enArticle": "Kingdom of Jerusalem",
+      "articleQid": "Q55502",
+      "articleMatch": true,
+      "p31": [
+        "Q190967",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "Crusader states",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q669317",
+      "zh": "比德尔苏丹国",
+      "en": "Bidar Sultanate",
+      "regionBox": "south-asia",
+      "score": 9.334,
+      "recordCount": 7,
+      "spanYears": 126,
+      "yearsCovered": 127,
+      "areaMax": 63693.19,
+      "firstStart": 1492,
+      "lastEnd": 1618,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Bidar Sultanate",
+      "articleQid": "Q669317",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1863715",
+      "zh": "新格拉纳达",
+      "en": "New Granada",
+      "regionBox": "americas",
+      "score": 9.322,
+      "recordCount": 5,
+      "spanYears": 10,
+      "yearsCovered": 11,
+      "areaMax": 1341011.34,
+      "firstStart": 1811,
+      "lastEnd": 1821,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "New Granada",
+      "articleQid": "Q1863715",
+      "articleMatch": true,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q1068371",
+      "zh": "兆汉人",
+      "en": "Chauhan",
+      "regionBox": "south-asia",
+      "score": 9.299,
+      "recordCount": 5,
+      "spanYears": 221,
+      "yearsCovered": 222,
+      "areaMax": 242786.07,
+      "firstStart": 980,
+      "lastEnd": 1201,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Chauhan",
+      "articleQid": "Q28466564",
+      "articleMatch": false,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q83142",
+      "zh": "叶尼塞吉尔吉斯人",
+      "en": "Yenisei Kirghiz",
+      "regionBox": "global",
+      "score": 9.24,
+      "recordCount": 9,
+      "spanYears": 664,
+      "yearsCovered": 635,
+      "areaMax": 424096.47,
+      "firstStart": 555,
+      "lastEnd": 1219,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Yenisei Kyrgyz",
+      "articleQid": "Q83142",
+      "articleMatch": true,
+      "p31": [
+        "Q41710"
+      ],
+      "p31Labels": [
+        "ethnic group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q754",
+      "zh": "特立尼达和多巴哥",
+      "en": "Trinidad and Tobago",
+      "regionBox": "americas",
+      "score": 9.229,
+      "recordCount": 2,
+      "spanYears": 61,
+      "yearsCovered": 62,
+      "areaMax": 6176.98,
+      "firstStart": 1963,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Trinidad and Tobago",
+      "articleQid": "Q754",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q179164",
+        "Q112099",
+        "Q6256",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "unitary state",
+        "island country",
+        "country",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1530838",
+      "zh": "马杜赖纳亚克王朝",
+      "en": "Madurai Nayak dynasty",
+      "regionBox": "south-asia",
+      "score": 9.208,
+      "recordCount": 5,
+      "spanYears": 208,
+      "yearsCovered": 209,
+      "areaMax": 48189.86,
+      "firstStart": 1529,
+      "lastEnd": 1737,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Madurai Nayak dynasty",
+      "articleQid": "Q1530838",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q734",
+      "zh": "圭亚那",
+      "en": "Guyana",
+      "regionBox": "americas",
+      "score": 9.201,
+      "recordCount": 2,
+      "spanYears": 57,
+      "yearsCovered": 58,
+      "areaMax": 212447.65,
+      "firstStart": 1967,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Guyana",
+      "articleQid": "Q734",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q187684",
+      "zh": "伊庇鲁斯采邑",
+      "en": "Despotate of Epirus",
+      "regionBox": "europe",
+      "score": 9.195,
+      "recordCount": 21,
+      "spanYears": 275,
+      "yearsCovered": 235,
+      "areaMax": 108524.55,
+      "firstStart": 1206,
+      "lastEnd": 1481,
+      "catalogueMatch": true,
+      "catalogueRecords": 21,
+      "enArticle": "Despotate of Epirus",
+      "articleQid": "Q187684",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1371288"
+      ],
+      "p31Labels": [
+        "historical country",
+        "vassal state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q373650",
+      "zh": "苏尔王朝",
+      "en": "Sur Empire",
+      "regionBox": "south-asia",
+      "score": 9.18,
+      "recordCount": 8,
+      "spanYears": 54,
+      "yearsCovered": 55,
+      "areaMax": 1254263.4,
+      "firstStart": 1540,
+      "lastEnd": 1594,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Sur Empire",
+      "articleQid": "Q373650",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q48349",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "empire",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q255931",
+      "zh": "骇黎朋猜",
+      "en": "Haripuñjaya",
+      "regionBox": "east-asia",
+      "score": 9.176,
+      "recordCount": 5,
+      "spanYears": 632,
+      "yearsCovered": 633,
+      "areaMax": 143044.1,
+      "firstStart": 661,
+      "lastEnd": 1293,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Haripuñjaya",
+      "articleQid": "Q255931",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q420759",
+      "zh": "保加利亚第二帝国",
+      "en": "Second Bulgarian Empire",
+      "regionBox": "europe",
+      "score": 9.144,
+      "recordCount": 22,
+      "spanYears": 206,
+      "yearsCovered": 207,
+      "areaMax": 312295.9,
+      "firstStart": 1188,
+      "lastEnd": 1394,
+      "catalogueMatch": true,
+      "catalogueRecords": 22,
+      "enArticle": "Second Bulgarian Empire",
+      "articleQid": "Q420759",
+      "articleMatch": true,
+      "p31": [
+        "Q48349",
+        "Q2067184",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "empire",
+        "Bulgarian Empire",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q766",
+      "zh": "牙买加",
+      "en": "Jamaica",
+      "regionBox": "americas",
+      "score": 9.109,
+      "recordCount": 2,
+      "spanYears": 61,
+      "yearsCovered": 62,
+      "areaMax": 13345.92,
+      "firstStart": 1963,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Jamaica",
+      "articleQid": "Q766",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q918240",
+        "Q112099",
+        "Q6256",
+        "Q3624078",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "territorial evolution of the British Empire",
+        "island country",
+        "country",
+        "sovereign state",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q4765854",
+      "zh": "掸族各邦",
+      "en": "Shan States",
+      "regionBox": "east-asia",
+      "score": 9.085,
+      "recordCount": 12,
+      "spanYears": 269,
+      "yearsCovered": 270,
+      "areaMax": 387959.01,
+      "firstStart": 1294,
+      "lastEnd": 1563,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Shan States",
+      "articleQid": "Q4765854",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1798550"
+      ],
+      "p31Labels": [
+        "historical country",
+        "petty kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q781",
+      "zh": "安提瓜和巴布达",
+      "en": "Antigua and Barbuda",
+      "regionBox": "americas",
+      "score": 9.081,
+      "recordCount": 2,
+      "spanYears": 57,
+      "yearsCovered": 58,
+      "areaMax": 586.28,
+      "firstStart": 1967,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Antigua and Barbuda",
+      "articleQid": "Q781",
+      "articleMatch": true,
+      "p31": [
+        "Q112099",
+        "Q6256",
+        "Q3624078",
+        "Q3244203",
+        "Q202686",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "island country",
+        "country",
+        "sovereign state",
+        "monarchy of Antigua and Barbuda",
+        "Commonwealth realm",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3277580",
+      "zh": "卡纳蒂克苏丹国",
+      "en": "Carnatic state",
+      "regionBox": "south-asia",
+      "score": 9.075,
+      "recordCount": 7,
+      "spanYears": 89,
+      "yearsCovered": 90,
+      "areaMax": 137875.83,
+      "firstStart": 1713,
+      "lastEnd": 1802,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Carnatic Sultanate",
+      "articleQid": "Q3277580",
+      "articleMatch": true,
+      "p31": [
+        "Q1336152"
+      ],
+      "p31Labels": [
+        "princely state"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1065073",
+      "zh": "宋国",
+      "en": "Song",
+      "regionBox": "east-asia",
+      "score": 9.057,
+      "recordCount": 8,
+      "spanYears": 465,
+      "yearsCovered": 466,
+      "areaMax": 34773.42,
+      "firstStart": -750,
+      "lastEnd": -285,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Song",
+      "articleQid": "Q7366",
+      "articleMatch": false,
+      "p31": [
+        "Q836688",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "ancient Chinese state",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2571484",
+      "zh": "查谟-克什米尔 (土邦)",
+      "en": "Jammu and Kashmir",
+      "regionBox": "south-asia",
+      "score": 9.035,
+      "recordCount": 7,
+      "spanYears": 101,
+      "yearsCovered": 40,
+      "areaMax": 182006.45,
+      "firstStart": 1846,
+      "lastEnd": 1947,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Jammu and Kashmir",
+      "articleQid": "Q2746364",
+      "articleMatch": false,
+      "p31": [
+        "Q1336152"
+      ],
+      "p31Labels": [
+        "princely state"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q847420",
+      "zh": "库特布沙希王朝",
+      "en": "Mamluk Sultanate",
+      "regionBox": "south-asia",
+      "score": 9.033,
+      "recordCount": 7,
+      "spanYears": 83,
+      "yearsCovered": 84,
+      "areaMax": 1344818.94,
+      "firstStart": 1210,
+      "lastEnd": 1293,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Mamluk Sultanate",
+      "articleQid": "Q282428",
+      "articleMatch": false,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1311219",
+      "zh": "贾夫纳王国",
+      "en": "Jaffna kingdom",
+      "regionBox": "south-asia",
+      "score": 9.012,
+      "recordCount": 3,
+      "spanYears": 280,
+      "yearsCovered": 281,
+      "areaMax": 22776.78,
+      "firstStart": 1314,
+      "lastEnd": 1594,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Jaffna kingdom",
+      "articleQid": "Q1311219",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q5062192",
+      "zh": "墨西哥共和国极权政府",
+      "en": "Centralist Republic of Mexico",
+      "regionBox": "americas",
+      "score": 8.979,
+      "recordCount": 4,
+      "spanYears": 11,
+      "yearsCovered": 12,
+      "areaMax": 2144955.63,
+      "firstStart": 1836,
+      "lastEnd": 1847,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Centralist Republic of Mexico",
+      "articleQid": "Q5062192",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q11709",
+      "zh": "洛迪王朝",
+      "en": "Lodi dynasty",
+      "regionBox": "south-asia",
+      "score": 8.977,
+      "recordCount": 7,
+      "spanYears": 75,
+      "yearsCovered": 76,
+      "areaMax": 441657.8,
+      "firstStart": 1453,
+      "lastEnd": 1528,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Lodi dynasty",
+      "articleQid": "Q11709",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q244",
+      "zh": "巴巴多斯",
+      "en": "Barbados",
+      "regionBox": "americas",
+      "score": 8.961,
+      "recordCount": 2,
+      "spanYears": 57,
+      "yearsCovered": 58,
+      "areaMax": 735.39,
+      "firstStart": 1967,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Barbados",
+      "articleQid": "Q244",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q3624078",
+        "Q112099",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "sovereign state",
+        "island country",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1209676",
+      "zh": "墨西哥人 (墨西哥合众国)",
+      "en": "Mexicans",
+      "regionBox": "americas",
+      "score": 8.958,
+      "recordCount": 4,
+      "spanYears": 8,
+      "yearsCovered": 9,
+      "areaMax": 310981.43,
+      "firstStart": 1811,
+      "lastEnd": 1819,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Mexicans",
+      "articleQid": "Q1209676",
+      "articleMatch": true,
+      "p31": [
+        "Q33829"
+      ],
+      "p31Labels": [
+        "human population"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q778",
+      "zh": "巴哈马",
+      "en": "The Bahamas",
+      "regionBox": "americas",
+      "score": 8.919,
+      "recordCount": 2,
+      "spanYears": 51,
+      "yearsCovered": 52,
+      "areaMax": 18694.32,
+      "firstStart": 1973,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "The Bahamas",
+      "articleQid": "Q778",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q3624078",
+        "Q11815167",
+        "Q56061",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "sovereign state",
+        "archipelagic state",
+        "administrative territorial entity",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q13695",
+      "zh": "特诺奇提特兰",
+      "en": "Tenochtitlan",
+      "regionBox": "americas",
+      "score": 8.916,
+      "recordCount": 2,
+      "spanYears": 102,
+      "yearsCovered": 103,
+      "areaMax": 2493.25,
+      "firstStart": 1326,
+      "lastEnd": 1428,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Tenochtitlan",
+      "articleQid": "Q13695",
+      "articleMatch": true,
+      "p31": [
+        "Q2479824",
+        "Q1549591",
+        "Q133442"
+      ],
+      "p31Labels": [
+        "altepetl",
+        "big city",
+        "city-state"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2984183",
+      "zh": "波列斯瓦夫三世的遗嘱",
+      "en": "Testament of Bolesław III Krzywousty",
+      "regionBox": "europe",
+      "score": 8.909,
+      "recordCount": 22,
+      "spanYears": 165,
+      "yearsCovered": 192,
+      "areaMax": 224682.66,
+      "firstStart": 1139,
+      "lastEnd": 1304,
+      "catalogueMatch": true,
+      "catalogueRecords": 22,
+      "enArticle": "Testament of Bolesław III Wrymouth",
+      "articleQid": "Q2984183",
+      "articleMatch": true,
+      "p31": [],
+      "p31Labels": [],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q730",
+      "zh": "苏里南",
+      "en": "Suriname",
+      "regionBox": "americas",
+      "score": 8.898,
+      "recordCount": 2,
+      "spanYears": 48,
+      "yearsCovered": 49,
+      "areaMax": 146979.14,
+      "firstStart": 1976,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Suriname",
+      "articleQid": "Q730",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256",
+        "Q116052725"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country",
+        "national geopolitical entity"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q190025",
+      "zh": "中美洲联邦共和国",
+      "en": "Federal Republic of Central America",
+      "regionBox": "americas",
+      "score": 8.897,
+      "recordCount": 3,
+      "spanYears": 15,
+      "yearsCovered": 16,
+      "areaMax": 443683.04,
+      "firstStart": 1824,
+      "lastEnd": 1839,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Federal Republic of Central America",
+      "articleQid": "Q190025",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "historical country",
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q528546",
+      "zh": "希腊第一共和国",
+      "en": "First Hellenic Republic",
+      "regionBox": "europe",
+      "score": 8.878,
+      "recordCount": 23,
+      "spanYears": 118,
+      "yearsCovered": 119,
+      "areaMax": 206602.78,
+      "firstStart": 1822,
+      "lastEnd": 1940,
+      "catalogueMatch": true,
+      "catalogueRecords": 23,
+      "enArticle": "First Hellenic Republic",
+      "articleQid": "Q528546",
+      "articleMatch": true,
+      "p31": [
+        "Q24457356",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historiographical concept",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q836",
+      "zh": "缅甸",
+      "en": "Myanmar",
+      "regionBox": "east-asia",
+      "score": 8.864,
+      "recordCount": 12,
+      "spanYears": 204,
+      "yearsCovered": 142,
+      "areaMax": 797916.02,
+      "firstStart": 1820,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Myanmar",
+      "articleQid": "Q836",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256",
+        "Q7270"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country",
+        "republic"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q242",
+      "zh": "伯利兹",
+      "en": "Belize",
+      "regionBox": "americas",
+      "score": 8.849,
+      "recordCount": 2,
+      "spanYears": 41,
+      "yearsCovered": 42,
+      "areaMax": 22822.55,
+      "firstStart": 1983,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Belize",
+      "articleQid": "Q242",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3125978",
+      "zh": "巴厘省",
+      "en": "Bali",
+      "regionBox": "oceania",
+      "score": 8.832,
+      "recordCount": 3,
+      "spanYears": 220,
+      "yearsCovered": 221,
+      "areaMax": 7719.03,
+      "firstStart": 1687,
+      "lastEnd": 1907,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Bali",
+      "articleQid": "Q3125978",
+      "articleMatch": true,
+      "p31": [
+        "Q5098",
+        "Q12479773"
+      ],
+      "p31Labels": [
+        "province of Indonesia",
+        "first-level administrative country subdivision in Indonesia"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q757",
+      "zh": "圣文森特和格林纳丁斯",
+      "en": "Saint Vincent and the Grenadines",
+      "regionBox": "americas",
+      "score": 8.827,
+      "recordCount": 2,
+      "spanYears": 55,
+      "yearsCovered": 56,
+      "areaMax": 565.28,
+      "firstStart": 1969,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Saint Vincent and the Grenadines",
+      "articleQid": "Q757",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q112099",
+        "Q3624078",
+        "Q6256",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "island country",
+        "sovereign state",
+        "country",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1194906",
+      "zh": "阿萨玛卡",
+      "en": "Assaka",
+      "regionBox": "south-asia",
+      "score": 8.795,
+      "recordCount": 3,
+      "spanYears": 249,
+      "yearsCovered": 250,
+      "areaMax": 5466.95,
+      "firstStart": -600,
+      "lastEnd": -351,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Asmaka",
+      "articleQid": "Q1194906",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q846025"
+      ],
+      "p31Labels": [
+        "historical country",
+        "Mahajanapada"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1794655",
+      "zh": "古泰",
+      "en": "Kutai",
+      "regionBox": "oceania",
+      "score": 8.781,
+      "recordCount": 4,
+      "spanYears": 197,
+      "yearsCovered": 198,
+      "areaMax": 6765.8,
+      "firstStart": 1648,
+      "lastEnd": 1845,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Kutai",
+      "articleQid": "Q1794655",
+      "articleMatch": true,
+      "p31": [
+        "Q82794",
+        "Q2387481",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "region",
+        "Indonesian monarchy",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q769",
+      "zh": "格林纳达",
+      "en": "Grenada",
+      "regionBox": "americas",
+      "score": 8.778,
+      "recordCount": 2,
+      "spanYears": 48,
+      "yearsCovered": 49,
+      "areaMax": 481.91,
+      "firstStart": 1976,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Grenada",
+      "articleQid": "Q769",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q112099",
+        "Q3624078",
+        "Q6256",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "island country",
+        "sovereign state",
+        "country",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1138904",
+      "zh": "阿富汗王国",
+      "en": "Kingdom of Afghanistan",
+      "regionBox": "south-asia",
+      "score": 8.774,
+      "recordCount": 7,
+      "spanYears": 46,
+      "yearsCovered": 47,
+      "areaMax": 643906.43,
+      "firstStart": 1926,
+      "lastEnd": 1972,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Kingdom of Afghanistan",
+      "articleQid": "Q1138904",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1250464"
+      ],
+      "p31Labels": [
+        "historical country",
+        "realm"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q769782",
+      "zh": "波伊斯王国",
+      "en": "Kingdom of Powys",
+      "regionBox": "europe",
+      "score": 8.764,
+      "recordCount": 13,
+      "spanYears": 628,
+      "yearsCovered": 537,
+      "areaMax": 5723.9,
+      "firstStart": 540,
+      "lastEnd": 1168,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Kingdom of Powys",
+      "articleQid": "Q769782",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1798550"
+      ],
+      "p31Labels": [
+        "historical country",
+        "petty kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2077648",
+      "zh": "井里汶苏丹国",
+      "en": "Sultanate of Cirebon",
+      "regionBox": "southeast-asia",
+      "score": 8.76,
+      "recordCount": 4,
+      "spanYears": 194,
+      "yearsCovered": 195,
+      "areaMax": 30571.87,
+      "firstStart": 1482,
+      "lastEnd": 1676,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Sultanate of Cirebon",
+      "articleQid": "Q2077648",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q12759805"
+      ],
+      "p31Labels": [
+        "historical country",
+        "sultanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q889",
+      "zh": "阿富汗",
+      "en": "Afghanistan",
+      "regionBox": "south-asia",
+      "score": 8.759,
+      "recordCount": 6,
+      "spanYears": 45,
+      "yearsCovered": 37,
+      "areaMax": 643925.88,
+      "firstStart": 1979,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Afghanistan",
+      "articleQid": "Q889",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q123480",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "landlocked country",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q760",
+      "zh": "圣卢西亚",
+      "en": "Saint Lucia",
+      "regionBox": "americas",
+      "score": 8.757,
+      "recordCount": 2,
+      "spanYears": 45,
+      "yearsCovered": 46,
+      "areaMax": 790.61,
+      "firstStart": 1979,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Saint Lucia",
+      "articleQid": "Q760",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q112099",
+        "Q3624078",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "island country",
+        "sovereign state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q784",
+      "zh": "多米尼克",
+      "en": "Dominica",
+      "regionBox": "americas",
+      "score": 8.757,
+      "recordCount": 2,
+      "spanYears": 45,
+      "yearsCovered": 46,
+      "areaMax": 1262.86,
+      "firstStart": 1979,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Dominica",
+      "articleQid": "Q784",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q112099",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "island country",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2578028",
+      "zh": "锡克联盟",
+      "en": "Sikh Confederacy",
+      "regionBox": "south-asia",
+      "score": 8.748,
+      "recordCount": 7,
+      "spanYears": 44,
+      "yearsCovered": 39,
+      "areaMax": 63121.8,
+      "firstStart": 1762,
+      "lastEnd": 1806,
+      "catalogueMatch": true,
+      "catalogueRecords": 7,
+      "enArticle": "Sikh Confederacy",
+      "articleQid": "Q2578028",
+      "articleMatch": true,
+      "p31": [
+        "Q6256",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "country",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3271735",
+      "zh": "阿尔勒王国",
+      "en": "Kingdom of Arles",
+      "regionBox": "europe",
+      "score": 8.738,
+      "recordCount": 16,
+      "spanYears": 448,
+      "yearsCovered": 449,
+      "areaMax": 117221.3,
+      "firstStart": 936,
+      "lastEnd": 1384,
+      "catalogueMatch": true,
+      "catalogueRecords": 16,
+      "enArticle": "Kingdom of Arles",
+      "articleQid": "Q3271735",
+      "articleMatch": true,
+      "p31": [
+        "Q1250464",
+        "Q19953632",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "realm",
+        "former administrative territorial entity",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q49683",
+      "zh": "立陶宛大公国",
+      "en": "Grand Duchy of Lithuania",
+      "regionBox": "europe",
+      "score": 8.725,
+      "recordCount": 20,
+      "spanYears": 229,
+      "yearsCovered": 230,
+      "areaMax": 815504.03,
+      "firstStart": 1220,
+      "lastEnd": 1449,
+      "catalogueMatch": true,
+      "catalogueRecords": 20,
+      "enArticle": "Grand Duchy of Lithuania",
+      "articleQid": "Q49683",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q204989",
+      "zh": "圣基茨岛",
+      "en": "Saint Kitts",
+      "regionBox": "americas",
+      "score": 8.721,
+      "recordCount": 2,
+      "spanYears": 57,
+      "yearsCovered": 58,
+      "areaMax": 501.29,
+      "firstStart": 1967,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Saint Kitts",
+      "articleQid": "Q204989",
+      "articleMatch": true,
+      "p31": [
+        "Q23442",
+        "Q10864048",
+        "Q107390"
+      ],
+      "p31Labels": [
+        "island",
+        "first-level administrative division",
+        "federated state"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q23442",
+          "label": "island"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q43048",
+      "zh": "罗得岛",
+      "en": "Rhodes",
+      "regionBox": "europe",
+      "score": 8.721,
+      "recordCount": 4,
+      "spanYears": 1437,
+      "yearsCovered": 68,
+      "areaMax": 25801.44,
+      "firstStart": -188,
+      "lastEnd": 1249,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Rhodes",
+      "articleQid": "Q43048",
+      "articleMatch": true,
+      "p31": [
+        "Q23442",
+        "Q148837"
+      ],
+      "p31Labels": [
+        "island",
+        "polis"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q23442",
+          "label": "island"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q630882",
+      "zh": "新格拉纳达共和国",
+      "en": "Republic of New Granada",
+      "regionBox": "americas",
+      "score": 8.72,
+      "recordCount": 3,
+      "spanYears": 24,
+      "yearsCovered": 25,
+      "areaMax": 1423059.66,
+      "firstStart": 1834,
+      "lastEnd": 1858,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Republic of New Granada",
+      "articleQid": "Q630882",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1088391"
+      ],
+      "p31Labels": [
+        "historical country",
+        "rump state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1378584",
+      "zh": "弁韩",
+      "en": "Byeonhan confederacy",
+      "regionBox": "east-asia",
+      "score": 8.651,
+      "recordCount": 3,
+      "spanYears": 657,
+      "yearsCovered": 658,
+      "areaMax": 13603.44,
+      "firstStart": -91,
+      "lastEnd": 566,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Byeonhan confederacy",
+      "articleQid": "Q1378584",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q199821",
+      "zh": "大哥伦比亚共和国",
+      "en": "Gran Colombia",
+      "regionBox": "americas",
+      "score": 8.629,
+      "recordCount": 3,
+      "spanYears": 11,
+      "yearsCovered": 12,
+      "areaMax": 4324091.6,
+      "firstStart": 1822,
+      "lastEnd": 1833,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Gran Colombia",
+      "articleQid": "Q199821",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q736936",
+      "zh": "鲁国",
+      "en": "Lu",
+      "regionBox": "east-asia",
+      "score": 8.616,
+      "recordCount": 6,
+      "spanYears": 502,
+      "yearsCovered": 503,
+      "areaMax": 43470.05,
+      "firstStart": -750,
+      "lastEnd": -248,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Lu",
+      "articleQid": "Q224451",
+      "articleMatch": false,
+      "p31": [
+        "Q836688",
+        "Q10904438"
+      ],
+      "p31Labels": [
+        "ancient Chinese state",
+        "Twelve Vassals"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3530610",
+      "zh": "坦贾武尔马拉塔王国",
+      "en": "Thanjavur Maratha kingdom",
+      "regionBox": "south-asia",
+      "score": 8.606,
+      "recordCount": 5,
+      "spanYears": 122,
+      "yearsCovered": 123,
+      "areaMax": 14693.72,
+      "firstStart": 1677,
+      "lastEnd": 1799,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Thanjavur Maratha kingdom",
+      "articleQid": "Q3530610",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q208500",
+        "Q417175",
+        "Q1336152"
+      ],
+      "p31Labels": [
+        "historical country",
+        "principality",
+        "kingdom",
+        "princely state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q237325",
+      "zh": "安提柯王朝",
+      "en": "Antigonid dynasty",
+      "regionBox": "europe",
+      "score": 8.584,
+      "recordCount": 22,
+      "spanYears": 126,
+      "yearsCovered": 127,
+      "areaMax": 137606.51,
+      "firstStart": -291,
+      "lastEnd": -165,
+      "catalogueMatch": true,
+      "catalogueRecords": 22,
+      "enArticle": "Antigonid dynasty",
+      "articleQid": "Q237325",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q402580",
+      "zh": "马打兰王国",
+      "en": "Mataram kingdom",
+      "regionBox": "oceania",
+      "score": 8.578,
+      "recordCount": 2,
+      "spanYears": 268,
+      "yearsCovered": 269,
+      "areaMax": 59609.69,
+      "firstStart": 741,
+      "lastEnd": 1009,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Mataram kingdom",
+      "articleQid": "Q402580",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q417175"
+      ],
+      "p31Labels": [
+        "historical country",
+        "kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q911440",
+      "zh": "西域都护府",
+      "en": "Protectorate of the Western Regions",
+      "regionBox": "global",
+      "score": 8.576,
+      "recordCount": 11,
+      "spanYears": 484,
+      "yearsCovered": 403,
+      "areaMax": 695193.22,
+      "firstStart": 117,
+      "lastEnd": 601,
+      "catalogueMatch": true,
+      "catalogueRecords": 11,
+      "enArticle": "Protectorate of the Western Regions",
+      "articleQid": "Q911440",
+      "articleMatch": true,
+      "p31": [
+        "Q5312628"
+      ],
+      "p31Labels": [
+        "protectorate"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q212056",
+      "zh": "蒙古人民共和国",
+      "en": "Mongolian People's Republic",
+      "regionBox": "east-asia",
+      "score": 8.477,
+      "recordCount": 14,
+      "spanYears": 65,
+      "yearsCovered": 66,
+      "areaMax": 1572664.74,
+      "firstStart": 1926,
+      "lastEnd": 1991,
+      "catalogueMatch": true,
+      "catalogueRecords": 14,
+      "enArticle": "Mongolian People's Republic",
+      "articleQid": "Q212056",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q842112",
+        "Q3024240",
+        "Q465613"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "socialist state",
+        "historical country",
+        "people's republic"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q105946539",
+      "zh": null,
+      "en": "Dongye",
+      "regionBox": "east-asia",
+      "score": 8.476,
+      "recordCount": 6,
+      "spanYears": 482,
+      "yearsCovered": 483,
+      "areaMax": 29067.91,
+      "firstStart": -91,
+      "lastEnd": 391,
+      "catalogueMatch": true,
+      "catalogueRecords": 6,
+      "enArticle": "Dongye",
+      "articleQid": "Q105946539",
+      "articleMatch": true,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q651377",
+      "zh": "巽伽王朝",
+      "en": "Shunga Empire",
+      "regionBox": "south-asia",
+      "score": 8.473,
+      "recordCount": 5,
+      "spanYears": 103,
+      "yearsCovered": 104,
+      "areaMax": 1155729.56,
+      "firstStart": -170,
+      "lastEnd": -67,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Shunga Empire",
+      "articleQid": "Q651377",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q833",
+      "zh": "马来西亚",
+      "en": "Malaysia",
+      "regionBox": "southeast-asia",
+      "score": 8.429,
+      "recordCount": 4,
+      "spanYears": 61,
+      "yearsCovered": 62,
+      "areaMax": 347799.29,
+      "firstStart": 1963,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Malaysia",
+      "articleQid": "Q833",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256",
+        "Q140892892"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country",
+        "country sometimes considered transcontinental"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q424",
+      "zh": "柬埔寨",
+      "en": "Cambodia",
+      "regionBox": "southeast-asia",
+      "score": 8.428,
+      "recordCount": 5,
+      "spanYears": 68,
+      "yearsCovered": 49,
+      "areaMax": 184307.35,
+      "firstStart": 1956,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 5,
+      "enArticle": "Cambodia",
+      "articleQid": "Q424",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q6256",
+        "Q1250464"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "country",
+        "realm"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1642472",
+      "zh": "汤都王国",
+      "en": "Tondo",
+      "regionBox": "southeast-asia",
+      "score": 8.424,
+      "recordCount": 3,
+      "spanYears": 196,
+      "yearsCovered": 197,
+      "areaMax": 4952.56,
+      "firstStart": 1375,
+      "lastEnd": 1571,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Tondo",
+      "articleQid": "Q446874",
+      "articleMatch": false,
+      "p31": [
+        "Q3024240",
+        "Q20014933"
+      ],
+      "p31Labels": [
+        "historical country",
+        "multiethnic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19927420",
+      "zh": null,
+      "en": "Mongol khanate",
+      "regionBox": "east-asia",
+      "score": 8.371,
+      "recordCount": 12,
+      "spanYears": 167,
+      "yearsCovered": 168,
+      "areaMax": 5082632.23,
+      "firstStart": 1468,
+      "lastEnd": 1635,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Mongol khanate",
+      "articleQid": "Q19927420",
+      "articleMatch": true,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q204023",
+      "zh": "战国时代",
+      "en": "Sengoku period",
+      "regionBox": "east-asia",
+      "score": 8.273,
+      "recordCount": 13,
+      "spanYears": 103,
+      "yearsCovered": 104,
+      "areaMax": 323272.59,
+      "firstStart": 1468,
+      "lastEnd": 1571,
+      "catalogueMatch": true,
+      "catalogueRecords": 13,
+      "enArticle": "Sengoku period",
+      "articleQid": "Q204023",
+      "articleMatch": true,
+      "p31": [
+        "Q11514315"
+      ],
+      "p31Labels": [
+        "historical period"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q11514315",
+          "label": "historical period"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q155361",
+      "zh": "柔然",
+      "en": "Rouran Khaganate",
+      "regionBox": "east-asia",
+      "score": 8.266,
+      "recordCount": 12,
+      "spanYears": 152,
+      "yearsCovered": 153,
+      "areaMax": 3872479.84,
+      "firstStart": 402,
+      "lastEnd": 554,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Rouran Khaganate",
+      "articleQid": "Q155361",
+      "articleMatch": true,
+      "p31": [
+        "Q48349",
+        "Q2472587",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "empire",
+        "people",
+        "historical country"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q2472587",
+          "label": "people"
+        }
+      ],
+      "polity": true,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q3402317",
+      "zh": "土默特部",
+      "en": "Tumed",
+      "regionBox": "east-asia",
+      "score": 8.266,
+      "recordCount": 12,
+      "spanYears": 152,
+      "yearsCovered": 153,
+      "areaMax": 2616320.44,
+      "firstStart": 1547,
+      "lastEnd": 1699,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Tumed",
+      "articleQid": "Q3402317",
+      "articleMatch": true,
+      "p31": [
+        "Q3117863"
+      ],
+      "p31Labels": [
+        "isolated human group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q213893",
+      "zh": "森美兰",
+      "en": "Negeri Sembilan",
+      "regionBox": "southeast-asia",
+      "score": 8.235,
+      "recordCount": 4,
+      "spanYears": 119,
+      "yearsCovered": 120,
+      "areaMax": 6245.13,
+      "firstStart": 1775,
+      "lastEnd": 1894,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Negeri Sembilan",
+      "articleQid": "Q213893",
+      "articleMatch": true,
+      "p31": [
+        "Q15063586",
+        "Q43702"
+      ],
+      "p31Labels": [
+        "state of Malaysia",
+        "federation"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q584435",
+      "zh": "北大年苏丹国",
+      "en": "Patani Kingdom",
+      "regionBox": "southeast-asia",
+      "score": 8.228,
+      "recordCount": 4,
+      "spanYears": 118,
+      "yearsCovered": 119,
+      "areaMax": 19828.44,
+      "firstStart": 1572,
+      "lastEnd": 1690,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Patani Kingdom",
+      "articleQid": "Q584435",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3446232",
+      "zh": "单重布啰国",
+      "en": "Tanjungpura Kingdom",
+      "regionBox": "oceania",
+      "score": 8.2,
+      "recordCount": 2,
+      "spanYears": 214,
+      "yearsCovered": 215,
+      "areaMax": 11473.12,
+      "firstStart": 1619,
+      "lastEnd": 1833,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Tanjungpura Kingdom",
+      "articleQid": "Q3446232",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q19746028",
+      "zh": null,
+      "en": "Mempawah Kingdom",
+      "regionBox": "southeast-asia",
+      "score": 8.158,
+      "recordCount": 2,
+      "spanYears": 208,
+      "yearsCovered": 209,
+      "areaMax": 2936.87,
+      "firstStart": 1619,
+      "lastEnd": 1827,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Mempawah Kingdom",
+      "articleQid": "Q19746028",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q2387481"
+      ],
+      "p31Labels": [
+        "historical country",
+        "Indonesian monarchy"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q190165",
+      "zh": "琅勃拉邦",
+      "en": "Luang Prabang",
+      "regionBox": "east-asia",
+      "score": 8.147,
+      "recordCount": 11,
+      "spanYears": 185,
+      "yearsCovered": 186,
+      "areaMax": 160851.05,
+      "firstStart": 1709,
+      "lastEnd": 1894,
+      "catalogueMatch": true,
+      "catalogueRecords": 11,
+      "enArticle": "Luang Prabang",
+      "articleQid": "Q190165",
+      "articleMatch": true,
+      "p31": [
+        "Q515",
+        "Q5283521"
+      ],
+      "p31Labels": [
+        "city",
+        "district of Laos"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q5032034",
+      "zh": "钱德拉王朝",
+      "en": "Chandra dynasty",
+      "regionBox": "southeast-asia",
+      "score": 8.137,
+      "recordCount": 3,
+      "spanYears": 155,
+      "yearsCovered": 156,
+      "areaMax": 77249.53,
+      "firstStart": 900,
+      "lastEnd": 1055,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Chandra dynasty",
+      "articleQid": "Q5032034",
+      "articleMatch": true,
+      "p31": [
+        "Q164950"
+      ],
+      "p31Labels": [
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3109927",
+      "zh": "三发苏丹国",
+      "en": "Sultanate of Sambas",
+      "regionBox": "southeast-asia",
+      "score": 8.116,
+      "recordCount": 2,
+      "spanYears": 202,
+      "yearsCovered": 203,
+      "areaMax": 5901.86,
+      "firstStart": 1619,
+      "lastEnd": 1821,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Sultanate of Sambas",
+      "articleQid": "Q3109927",
+      "articleMatch": true,
+      "p31": [
+        "Q12759805"
+      ],
+      "p31Labels": [
+        "sultanate"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q869",
+      "zh": "泰国",
+      "en": "Thailand",
+      "regionBox": "southeast-asia",
+      "score": 8.056,
+      "recordCount": 3,
+      "spanYears": 92,
+      "yearsCovered": 93,
+      "areaMax": 522065.17,
+      "firstStart": 1932,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Thailand",
+      "articleQid": "Q869",
+      "articleMatch": true,
+      "p31": [
+        "Q41614",
+        "Q3624078",
+        "Q6256",
+        "Q179164"
+      ],
+      "p31Labels": [
+        "constitutional monarchy",
+        "sovereign state",
+        "country",
+        "unitary state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q185944",
+      "zh": "吉兰丹",
+      "en": "Kelantan",
+      "regionBox": "southeast-asia",
+      "score": 8.046,
+      "recordCount": 3,
+      "spanYears": 142,
+      "yearsCovered": 143,
+      "areaMax": 8268.28,
+      "firstStart": 1762,
+      "lastEnd": 1904,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Kelantan",
+      "articleQid": "Q185944",
+      "articleMatch": true,
+      "p31": [
+        "Q15063586"
+      ],
+      "p31Labels": [
+        "state of Malaysia"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q7636765",
+      "zh": "雪兰莪苏丹",
+      "en": "Sultan of Selangor",
+      "regionBox": "southeast-asia",
+      "score": 7.976,
+      "recordCount": 3,
+      "spanYears": 132,
+      "yearsCovered": 133,
+      "areaMax": 11824.16,
+      "firstStart": 1744,
+      "lastEnd": 1876,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Sultan of Selangor",
+      "articleQid": "Q7636765",
+      "articleMatch": true,
+      "p31": [
+        "Q4164871"
+      ],
+      "p31Labels": [
+        "position"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4164871",
+          "label": "position"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q5769444",
+      "zh": "登嘉楼苏丹",
+      "en": "Sultan of Terengganu",
+      "regionBox": "southeast-asia",
+      "score": 7.941,
+      "recordCount": 2,
+      "spanYears": 177,
+      "yearsCovered": 178,
+      "areaMax": 14423.9,
+      "firstStart": 1727,
+      "lastEnd": 1904,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Sultan of Terengganu",
+      "articleQid": "Q5769444",
+      "articleMatch": true,
+      "p31": [
+        "Q4164871"
+      ],
+      "p31Labels": [
+        "position"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4164871",
+          "label": "position"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q487829",
+      "zh": "察合台汗国",
+      "en": "Chagatai Khanate",
+      "regionBox": "global",
+      "score": 7.928,
+      "recordCount": 15,
+      "spanYears": 168,
+      "yearsCovered": 169,
+      "areaMax": 2460789.88,
+      "firstStart": 1294,
+      "lastEnd": 1462,
+      "catalogueMatch": true,
+      "catalogueRecords": 15,
+      "enArticle": "Chagatai Khanate",
+      "articleQid": "Q487829",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q331644",
+        "Q1345055"
+      ],
+      "p31Labels": [
+        "historical country",
+        "khanate",
+        "horde"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q691",
+      "zh": "巴布亚新几内亚",
+      "en": "Papua New Guinea",
+      "regionBox": "oceania",
+      "score": 7.838,
+      "recordCount": 3,
+      "spanYears": 78,
+      "yearsCovered": 79,
+      "areaMax": 483567.77,
+      "firstStart": 1946,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Papua New Guinea",
+      "articleQid": "Q691",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q112099",
+        "Q6256",
+        "Q3624078",
+        "Q11815167",
+        "Q41614"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "island country",
+        "country",
+        "sovereign state",
+        "archipelagic state",
+        "constitutional monarchy"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q334",
+      "zh": "新加坡",
+      "en": "Singapore",
+      "regionBox": "southeast-asia",
+      "score": 7.821,
+      "recordCount": 2,
+      "spanYears": 57,
+      "yearsCovered": 58,
+      "areaMax": 460.67,
+      "firstStart": 1967,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Singapore",
+      "articleQid": "Q334",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q133442",
+        "Q112099",
+        "Q515",
+        "Q2264924",
+        "Q1549591",
+        "Q902814",
+        "Q6256",
+        "Q208511",
+        "Q108178728"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "city-state",
+        "island country",
+        "city",
+        "port city",
+        "big city",
+        "border city",
+        "country",
+        "global city",
+        "national capital"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1408641",
+      "zh": "戈瓦苏丹国",
+      "en": "Sultanate of Gowa",
+      "regionBox": "oceania",
+      "score": 7.801,
+      "recordCount": 2,
+      "spanYears": 157,
+      "yearsCovered": 158,
+      "areaMax": 2613.03,
+      "firstStart": 1512,
+      "lastEnd": 1669,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Sultanate of Gowa",
+      "articleQid": "Q1408641",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1055713",
+      "zh": "燕国",
+      "en": "Yan",
+      "regionBox": "east-asia",
+      "score": 7.741,
+      "recordCount": 3,
+      "spanYears": 527,
+      "yearsCovered": 528,
+      "areaMax": 105153.73,
+      "firstStart": -750,
+      "lastEnd": -223,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Yan",
+      "articleQid": "Q40077",
+      "articleMatch": false,
+      "p31": [
+        "Q836688"
+      ],
+      "p31Labels": [
+        "ancient Chinese state"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q861054",
+      "zh": "鲜卑",
+      "en": "Xianbei",
+      "regionBox": "east-asia",
+      "score": 7.741,
+      "recordCount": 10,
+      "spanYears": 177,
+      "yearsCovered": 178,
+      "areaMax": 5220509.86,
+      "firstStart": 60,
+      "lastEnd": 237,
+      "catalogueMatch": true,
+      "catalogueRecords": 10,
+      "enArticle": "Xianbei",
+      "articleQid": "Q861054",
+      "articleMatch": true,
+      "p31": [
+        "Q41710",
+        "Q55208590"
+      ],
+      "p31Labels": [
+        "ethnic group",
+        "extinct human group"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2650109",
+      "zh": "徐国",
+      "en": "Xu",
+      "regionBox": "east-asia",
+      "score": 7.657,
+      "recordCount": 4,
+      "spanYears": 465,
+      "yearsCovered": 466,
+      "areaMax": 4786.47,
+      "firstStart": -750,
+      "lastEnd": -285,
+      "catalogueMatch": true,
+      "catalogueRecords": 4,
+      "enArticle": "Xu",
+      "articleQid": "Q400397",
+      "articleMatch": false,
+      "p31": [
+        "Q836688"
+      ],
+      "p31Labels": [
+        "ancient Chinese state"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1936158",
+      "zh": "闽越",
+      "en": "Minyue",
+      "regionBox": "east-asia",
+      "score": 7.618,
+      "recordCount": 9,
+      "spanYears": 222,
+      "yearsCovered": 179,
+      "areaMax": 468197.2,
+      "firstStart": -333,
+      "lastEnd": -111,
+      "catalogueMatch": true,
+      "catalogueRecords": 9,
+      "enArticle": "Minyue",
+      "articleQid": "Q1936158",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q49322",
+      "zh": "淡目国",
+      "en": "Sultanate of Demak",
+      "regionBox": "oceania",
+      "score": 7.584,
+      "recordCount": 3,
+      "spanYears": 76,
+      "yearsCovered": 77,
+      "areaMax": 45494.65,
+      "firstStart": 1475,
+      "lastEnd": 1551,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Demak Sultanate",
+      "articleQid": "Q49322",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q12759805"
+      ],
+      "p31Labels": [
+        "historical country",
+        "sultanate"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1572529",
+      "zh": "勃固王朝",
+      "en": "Hanthawaddy Kingdom",
+      "regionBox": "east-asia",
+      "score": 7.566,
+      "recordCount": 8,
+      "spanYears": 252,
+      "yearsCovered": 253,
+      "areaMax": 78655.9,
+      "firstStart": 1294,
+      "lastEnd": 1546,
+      "catalogueMatch": true,
+      "catalogueRecords": 8,
+      "enArticle": "Hanthawaddy kingdom",
+      "articleQid": "Q1572529",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q417175"
+      ],
+      "p31Labels": [
+        "historical country",
+        "kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q712",
+      "zh": "斐济",
+      "en": "Fiji",
+      "regionBox": "oceania",
+      "score": 7.539,
+      "recordCount": 2,
+      "spanYears": 51,
+      "yearsCovered": 52,
+      "areaMax": 21695.74,
+      "firstStart": 1973,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Fiji",
+      "articleQid": "Q712",
+      "articleMatch": true,
+      "p31": [
+        "Q112099",
+        "Q3624078",
+        "Q179164",
+        "Q11815167",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "island country",
+        "sovereign state",
+        "unitary state",
+        "archipelagic state",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q354307",
+      "zh": "马来亚",
+      "en": "Malaya",
+      "regionBox": "southeast-asia",
+      "score": 7.451,
+      "recordCount": 3,
+      "spanYears": 57,
+      "yearsCovered": 58,
+      "areaMax": 143935.22,
+      "firstStart": 1294,
+      "lastEnd": 1351,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Malaya",
+      "articleQid": "Q354307",
+      "articleMatch": true,
+      "p31": [
+        "Q4167410"
+      ],
+      "p31Labels": [
+        "Wikimedia disambiguation page"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q4167410",
+          "label": "Wikimedia disambiguation page"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    },
+    {
+      "qid": "Q27842",
+      "zh": "新加坡王国",
+      "en": "Kingdom of Singapura",
+      "regionBox": "southeast-asia",
+      "score": 7.374,
+      "recordCount": 2,
+      "spanYears": 96,
+      "yearsCovered": 97,
+      "areaMax": 460.67,
+      "firstStart": 1305,
+      "lastEnd": 1401,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Kingdom of Singapura",
+      "articleQid": "Q27842",
+      "articleMatch": true,
+      "p31": [
+        "Q1250464",
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "realm",
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q13093931",
+      "zh": "戎牙路",
+      "en": "Janggala",
+      "regionBox": "oceania",
+      "score": 7.346,
+      "recordCount": 2,
+      "spanYears": 92,
+      "yearsCovered": 93,
+      "areaMax": 34429.06,
+      "firstStart": 1046,
+      "lastEnd": 1138,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Janggala",
+      "articleQid": "Q13093931",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q1250464"
+      ],
+      "p31Labels": [
+        "historical country",
+        "realm"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q752431",
+      "zh": "新赫布里底群岛",
+      "en": "New Hebrides",
+      "regionBox": "oceania",
+      "score": 7.346,
+      "recordCount": 2,
+      "spanYears": 92,
+      "yearsCovered": 93,
+      "areaMax": 16885.24,
+      "firstStart": 1890,
+      "lastEnd": 1982,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "New Hebrides",
+      "articleQid": "Q752431",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q734818"
+      ],
+      "p31Labels": [
+        "historical country",
+        "condominium"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q4332415",
+      "zh": "四卫拉特",
+      "en": "Four Oirats",
+      "regionBox": "global",
+      "score": 7.332,
+      "recordCount": 12,
+      "spanYears": 274,
+      "yearsCovered": 131,
+      "areaMax": 3962756.52,
+      "firstStart": 1402,
+      "lastEnd": 1676,
+      "catalogueMatch": true,
+      "catalogueRecords": 12,
+      "enArticle": "Oirat Confederation",
+      "articleQid": "Q4332415",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q574",
+      "zh": "东帝汶",
+      "en": "Timor-Leste",
+      "regionBox": "oceania",
+      "score": 7.308,
+      "recordCount": 2,
+      "spanYears": 18,
+      "yearsCovered": 19,
+      "areaMax": 18566.77,
+      "firstStart": 2006,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Timor-Leste",
+      "articleQid": "Q574",
+      "articleMatch": true,
+      "p31": [
+        "Q6256",
+        "Q3624078",
+        "Q112099"
+      ],
+      "p31Labels": [
+        "country",
+        "sovereign state",
+        "island country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q30592233",
+      "zh": null,
+      "en": "Pahang Sultanate",
+      "regionBox": "southeast-asia",
+      "score": 7.304,
+      "recordCount": 3,
+      "spanYears": 36,
+      "yearsCovered": 37,
+      "areaMax": 41046.49,
+      "firstStart": 1853,
+      "lastEnd": 1889,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Pahang Sultanate",
+      "articleQid": "Q30592233",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3503553",
+      "zh": "廖内—林加苏丹王朝",
+      "en": "Riau-Lingga Sultanate",
+      "regionBox": "southeast-asia",
+      "score": 7.304,
+      "recordCount": 3,
+      "spanYears": 36,
+      "yearsCovered": 37,
+      "areaMax": 103825.14,
+      "firstStart": 1820,
+      "lastEnd": 1856,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Riau-Lingga Sultanate",
+      "articleQid": "Q3503553",
+      "articleMatch": true,
+      "p31": [
+        "Q2387481",
+        "Q12759805"
+      ],
+      "p31Labels": [
+        "Indonesian monarchy",
+        "sultanate"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1050326",
+      "zh": "哈孟古布沃诺",
+      "en": "Hamengkubuwono",
+      "regionBox": "oceania",
+      "score": 7.297,
+      "recordCount": 2,
+      "spanYears": 85,
+      "yearsCovered": 86,
+      "areaMax": 4063.01,
+      "firstStart": 1744,
+      "lastEnd": 1829,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Hamengkubuwono",
+      "articleQid": "Q1050326",
+      "articleMatch": true,
+      "p31": [
+        "Q164950",
+        "Q13406463"
+      ],
+      "p31Labels": [
+        "dynasty",
+        "Wikimedia list article"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2122499",
+      "zh": "梭罗苏丹国",
+      "en": "Surakarta Sunanate",
+      "regionBox": "oceania",
+      "score": 7.297,
+      "recordCount": 2,
+      "spanYears": 85,
+      "yearsCovered": 86,
+      "areaMax": 3693.88,
+      "firstStart": 1744,
+      "lastEnd": 1829,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Surakarta Sunanate",
+      "articleQid": "Q2122499",
+      "articleMatch": true,
+      "p31": [
+        "Q12759805",
+        "Q3024240",
+        "Q164950"
+      ],
+      "p31Labels": [
+        "sultanate",
+        "historical country",
+        "dynasty"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q685",
+      "zh": "所罗门群岛",
+      "en": "Solomon Islands",
+      "regionBox": "oceania",
+      "score": 7.257,
+      "recordCount": 2,
+      "spanYears": 45,
+      "yearsCovered": 46,
+      "areaMax": 37719.38,
+      "firstStart": 1979,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Solomon Islands",
+      "articleQid": "Q685",
+      "articleMatch": true,
+      "p31": [
+        "Q202686",
+        "Q112099",
+        "Q3624078",
+        "Q6256",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "Commonwealth realm",
+        "island country",
+        "sovereign state",
+        "country",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q4401071",
+      "zh": "宿雾拉贾国",
+      "en": "Rajahnate of Cebu",
+      "regionBox": "southeast-asia",
+      "score": 7.22,
+      "recordCount": 2,
+      "spanYears": 74,
+      "yearsCovered": 75,
+      "areaMax": 6669.43,
+      "firstStart": 1497,
+      "lastEnd": 1571,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Cebu (historical polity)",
+      "articleQid": "Q4401071",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q417175"
+      ],
+      "p31Labels": [
+        "historical country",
+        "kingdom"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q213467",
+      "zh": "玻璃市州",
+      "en": "Perlis",
+      "regionBox": "southeast-asia",
+      "score": 7.178,
+      "recordCount": 2,
+      "spanYears": 68,
+      "yearsCovered": 69,
+      "areaMax": 1979.14,
+      "firstStart": 1842,
+      "lastEnd": 1910,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Perlis",
+      "articleQid": "Q213467",
+      "articleMatch": true,
+      "p31": [
+        "Q15063586"
+      ],
+      "p31Labels": [
+        "state of Malaysia"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q2060657",
+      "zh": "信诃沙里",
+      "en": "Singhasari Kingdom",
+      "regionBox": "oceania",
+      "score": 7.164,
+      "recordCount": 2,
+      "spanYears": 66,
+      "yearsCovered": 67,
+      "areaMax": 78238.39,
+      "firstStart": 1227,
+      "lastEnd": 1293,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Singhasari Kingdom",
+      "articleQid": null,
+      "articleMatch": false,
+      "p31": [
+        "Q3024240",
+        "Q1250464"
+      ],
+      "p31Labels": [
+        "historical country",
+        "realm"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1074947",
+      "zh": "布吉文",
+      "en": "Lontara",
+      "regionBox": "oceania",
+      "score": 7.157,
+      "recordCount": 3,
+      "spanYears": 15,
+      "yearsCovered": 16,
+      "areaMax": 45494.65,
+      "firstStart": 1572,
+      "lastEnd": 1587,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Lontara",
+      "articleQid": "Q6674868",
+      "articleMatch": false,
+      "p31": [
+        "Q335806",
+        "Q467037",
+        "Q4004706",
+        "Q29517555"
+      ],
+      "p31Labels": [
+        "abugida",
+        "Brahmic scripts",
+        "unicase alphabet",
+        "natural writing system"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1115291",
+      "zh": "吞武里王朝",
+      "en": "Thonburi Kingdom",
+      "regionBox": "southeast-asia",
+      "score": 7.143,
+      "recordCount": 3,
+      "spanYears": 13,
+      "yearsCovered": 14,
+      "areaMax": 360015.41,
+      "firstStart": 1769,
+      "lastEnd": 1782,
+      "catalogueMatch": true,
+      "catalogueRecords": 3,
+      "enArticle": "Thonburi Kingdom",
+      "articleQid": "Q1115291",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q695",
+      "zh": "帕劳",
+      "en": "Palau",
+      "regionBox": "southeast-asia",
+      "score": 7.138,
+      "recordCount": 2,
+      "spanYears": 28,
+      "yearsCovered": 29,
+      "areaMax": 658.69,
+      "firstStart": 1996,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Palau",
+      "articleQid": "Q695",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q112099",
+        "Q7270",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "island country",
+        "republic",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q686",
+      "zh": "瓦努阿图",
+      "en": "Vanuatu",
+      "regionBox": "oceania",
+      "score": 7.109,
+      "recordCount": 2,
+      "spanYears": 41,
+      "yearsCovered": 42,
+      "areaMax": 16885.24,
+      "firstStart": 1983,
+      "lastEnd": 2024,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Vanuatu",
+      "articleQid": "Q686",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q112099",
+        "Q6256",
+        "Q11815167"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "island country",
+        "country",
+        "archipelagic state"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3048747",
+      "zh": "坤甸苏丹国",
+      "en": "Pontianak Sultanate",
+      "regionBox": "southeast-asia",
+      "score": 7.087,
+      "recordCount": 2,
+      "spanYears": 55,
+      "yearsCovered": 56,
+      "areaMax": 4060.68,
+      "firstStart": 1772,
+      "lastEnd": 1827,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Pontianak Sultanate",
+      "articleQid": "Q3048747",
+      "articleMatch": true,
+      "p31": [
+        "Q12759805"
+      ],
+      "p31Labels": [
+        "sultanate"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q180573",
+      "zh": "越南共和国",
+      "en": "South Vietnam",
+      "regionBox": "southeast-asia",
+      "score": 6.823,
+      "recordCount": 2,
+      "spanYears": 19,
+      "yearsCovered": 14,
+      "areaMax": 180019.73,
+      "firstStart": 1956,
+      "lastEnd": 1975,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "South Vietnam",
+      "articleQid": "Q180573",
+      "articleMatch": true,
+      "p31": [
+        "Q3624078",
+        "Q3024240",
+        "Q6256"
+      ],
+      "p31Labels": [
+        "sovereign state",
+        "historical country",
+        "country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q12491034",
+      "zh": "固里班",
+      "en": "Kahuripan",
+      "regionBox": "oceania",
+      "score": 6.821,
+      "recordCount": 2,
+      "spanYears": 17,
+      "yearsCovered": 18,
+      "areaMax": 80770.76,
+      "firstStart": 1028,
+      "lastEnd": 1045,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Kahuripan",
+      "articleQid": "Q12491034",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q867778",
+      "zh": "柬埔寨人民共和国",
+      "en": "People's Republic of Kampuchea",
+      "regionBox": "southeast-asia",
+      "score": 6.814,
+      "recordCount": 2,
+      "spanYears": 16,
+      "yearsCovered": 17,
+      "areaMax": 184307.35,
+      "firstStart": 1979,
+      "lastEnd": 1995,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "People's Republic of Kampuchea",
+      "articleQid": "Q867778",
+      "articleMatch": true,
+      "p31": [
+        "Q99541706",
+        "Q10711424",
+        "Q465613"
+      ],
+      "p31Labels": [
+        "historical unrecognized state",
+        "state with limited recognition",
+        "people's republic"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q3503548",
+      "zh": "布隆甘苏丹国",
+      "en": "Sultanate of Bulungan",
+      "regionBox": "southeast-asia",
+      "score": 6.793,
+      "recordCount": 2,
+      "spanYears": 13,
+      "yearsCovered": 14,
+      "areaMax": 20247.13,
+      "firstStart": 1734,
+      "lastEnd": 1747,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Sultanate of Bulungan",
+      "articleQid": "Q3503548",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240",
+        "Q2387481"
+      ],
+      "p31Labels": [
+        "historical country",
+        "Indonesian monarchy"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q17515160",
+      "zh": "斐济王国",
+      "en": "Kingdom of Fiji",
+      "regionBox": "oceania",
+      "score": 6.737,
+      "recordCount": 2,
+      "spanYears": 5,
+      "yearsCovered": 6,
+      "areaMax": 21695.74,
+      "firstStart": 1871,
+      "lastEnd": 1876,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Kingdom of Fiji",
+      "articleQid": "Q17515160",
+      "articleMatch": true,
+      "p31": [
+        "Q1250464"
+      ],
+      "p31Labels": [
+        "realm"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q1479726",
+      "zh": "马来亚联合邦",
+      "en": "Federation of Malaya",
+      "regionBox": "southeast-asia",
+      "score": 6.73,
+      "recordCount": 2,
+      "spanYears": 4,
+      "yearsCovered": 5,
+      "areaMax": 139542.35,
+      "firstStart": 1958,
+      "lastEnd": 1962,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "Federation of Malaya",
+      "articleQid": "Q1479726",
+      "articleMatch": true,
+      "p31": [
+        "Q3024240"
+      ],
+      "p31Labels": [
+        "historical country"
+      ],
+      "disqualifying": [],
+      "polity": true,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q33788",
+      "zh": "新喀里多尼亚",
+      "en": "New Caledonia",
+      "regionBox": "oceania",
+      "score": 6.723,
+      "recordCount": 2,
+      "spanYears": 3,
+      "yearsCovered": 4,
+      "areaMax": 93457.1,
+      "firstStart": 1856,
+      "lastEnd": 1859,
+      "catalogueMatch": true,
+      "catalogueRecords": 2,
+      "enArticle": "New Caledonia",
+      "articleQid": "Q33788",
+      "articleMatch": true,
+      "p31": [
+        "Q161243",
+        "Q719487"
+      ],
+      "p31Labels": [
+        "dependent territory",
+        "overseas collectivity of France"
+      ],
+      "disqualifying": [],
+      "polity": false,
+      "verdict": "verified"
+    },
+    {
+      "qid": "Q191764",
+      "zh": "红色高棉",
+      "en": "Communist Party of the Cambodia (Khmer Rouge)",
+      "regionBox": "southeast-asia",
+      "score": 6.366,
+      "recordCount": 1,
+      "spanYears": 2,
+      "yearsCovered": 3,
+      "areaMax": 184307.35,
+      "firstStart": 1976,
+      "lastEnd": 1978,
+      "catalogueMatch": true,
+      "catalogueRecords": 1,
+      "enArticle": "Communist Party of the Cambodia (Khmer Rouge)",
+      "articleQid": null,
+      "articleMatch": false,
+      "p31": [
+        "Q43229"
+      ],
+      "p31Labels": [
+        "organization"
+      ],
+      "disqualifying": [
+        {
+          "qid": "Q43229",
+          "label": "organization"
+        }
+      ],
+      "polity": false,
+      "verdict": "not-a-polity"
+    }
+  ]
+}

@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "round": "3.28",
+  "title": "政体叙述第六批：301 → 337",
+  "generatedAt": "2026-10-03T03:04:07.564Z",
+  "task": "task-34",
+  "baseline": "7b609630",
+  "head": "c5353398",
+  "summary": {
+    "narrativesBefore": 301,
+    "narrativesAfter": 337,
+    "addedThisRound": 36,
+    "plansSelected": 60,
+    "pendingPlans": 24,
+    "profiles": 1455,
+    "profilesWithoutNarrativeBefore": 1154,
+    "profilesWithoutNarrativeAfter": 1118,
+    "recordsBound": 5440
+  },
+  "regionPolicy": {
+    "target": "Europe 40-50 per cent for a freshly selected batch",
+    "selectedEuropeShare": 0.317,
+    "writtenEuropeShare": 0.083,
+    "finding": "The target could not be met, and the reason is structural, not a choice: the eligible European pool is exhausted. Re-running the selection with a target of 400 plans returns only 19 eligible European plans out of 167 in total, and all 19 are already in this batch. Europe therefore makes up 19 of the 60 selected plans (31.7 per cent), which is the ceiling, not a quota that was missed.",
+    "measurement": "node docs/verification-3.28/choose-narratives-3.28.mjs --target=400 reported byRegion europe 19 out of 167 eligible plans; the file was restored to the 60-plan selection afterwards.",
+    "writtenOrderNote": "Within the batch the writing order puts the under-covered regions first, so the 36 plans written this round contain only 3 European plans; the remaining 24 plans, most of them European, are verified and ready.",
+    "batches": [
+      {
+        "batch": "3.23 选定 70 篇",
+        "europe": "8.6%",
+        "byRegion": {
+          "africa": 16,
+          "americas": 16,
+          "south-asia": 14,
+          "southeast-asia": 14,
+          "oceania": 4,
+          "europe": 6
+        }
+      },
+      {
+        "batch": "3.25 写 41 篇",
+        "europe": "8.7%",
+        "byRegion": {
+          "africa": 16,
+          "americas": 16,
+          "south-asia": 14,
+          "southeast-asia": 14,
+          "oceania": 3,
+          "europe": 6
+        }
+      },
+      {
+        "batch": "3.26 写 36 篇",
+        "europe": "0.0%",
+        "byRegion": {
+          "africa": 9,
+          "west-central-asia": 8,
+          "east-asia": 7,
+          "south-asia": 6,
+          "americas": 5,
+          "southeast-asia": 1
+        }
+      },
+      {
+        "batch": "3.27 写 34 篇",
+        "europe": "82.4%",
+        "byRegion": {
+          "southeast-asia": 1,
+          "oceania": 1,
+          "europe": 28,
+          "west-central-asia": 4
+        }
+      },
+      {
+        "batch": "3.28 重新选点 60 篇",
+        "europe": "31.7%",
+        "byRegion": {
+          "africa": 8,
+          "west-central-asia": 9,
+          "east-asia": 6,
+          "south-asia": 5,
+          "americas": 4,
+          "southeast-asia": 2,
+          "oceania": 2,
+          "europe": 19,
+          "global": 5
+        }
+      },
+      {
+        "batch": "3.28 本轮写 36 篇",
+        "europe": "8.3%",
+        "byRegion": {
+          "africa": 8,
+          "west-central-asia": 6,
+          "east-asia": 6,
+          "south-asia": 5,
+          "americas": 4,
+          "southeast-asia": 2,
+          "oceania": 2,
+          "europe": 3
+        }
+      }
+    ]
+  },
+  "citationRules": {
+    "ruleOne": "Every external article is reached by looking the entity up (Wikidata sitelink), never by taking the first hit of a search by name.",
+    "ruleTwo": "Where a Chinese introduction and the English article disagree, the English article governs; a Chinese article is cited only when pageprops.wikibase_item equals the polity QID.",
+    "ruleThree": "A QID may only come from the atlas catalogue verifiedWikidata field or from en.wikipedia pageprops.wikibase_item; an entity whose Wikidata classes are not a polity is not written up and is registered as a gap.",
+    "enforcedByConstruction": "The extraction step of this round resolves the enwiki and zhwiki sitelinks of every plan QID in one Wikidata request and reads exactly those pages, recording each page pageprops.wikibase_item, so no name-based lookup takes place at any point.",
+    "englishVerified": "60/60",
+    "chineseAccepted": 57,
+    "chineseRejected": 3,
+    "chineseRejectedList": [
+      {
+        "qid": "Q19805959",
+        "reason": "the entity has no Chinese Wikipedia sitelink"
+      },
+      {
+        "qid": "Q2594661",
+        "reason": "the entity has no Chinese Wikipedia sitelink"
+      },
+      {
+        "qid": "Q19336869",
+        "reason": "the entity has no Chinese Wikipedia sitelink"
+      }
+    ],
+    "gaps": 22
+  },
+  "candidates": {
+    "checked": 255,
+    "verified": 225,
+    "rejectedNotPolity": 30,
+    "rejectedExamples": [
+      {
+        "qid": "Q23666",
+        "title": "大不列颠岛",
+        "classes": [
+          "island"
+        ]
+      },
+      {
+        "qid": "Q4962",
+        "title": null,
+        "classes": [
+          "Wikimedia disambiguation page"
+        ]
+      },
+      {
+        "qid": "Q494354",
+        "title": "喀喇汗国",
+        "classes": [
+          "historical country",
+          "nomadic confederacy",
+          "khanate",
+          "family"
+        ]
+      },
+      {
+        "qid": "Q12567",
+        "title": "维京人",
+        "classes": [
+          "historical period",
+          "culture",
+          "style",
+          "historical ethnic group"
+        ]
+      },
+      {
+        "qid": "Q69829",
+        "title": "法兰西第四共和国",
+        "classes": [
+          "republic regime in France",
+          "historical period",
+          "historical country"
+        ]
+      },
+      {
+        "qid": "Q703919",
+        "title": "吴朝",
+        "classes": [
+          "dynasty",
+          "historical period",
+          "kingdom"
+        ]
+      },
+      {
+        "qid": "Q1627675",
+        "title": "骠国",
+        "classes": [
+          "civilization",
+          "people",
+          "historical country"
+        ]
+      },
+      {
+        "qid": "Q185063",
+        "title": "战国",
+        "classes": [
+          "historical period"
+        ]
+      }
+    ]
+  },
+  "authored": {
+    "count": 36,
+    "zhChars": {
+      "min": 51,
+      "max": 163
+    },
+    "enWords": {
+      "min": 35,
+      "max": 97
+    },
+    "cjkInEnglish": 0,
+    "traditionalCharacters": 0,
+    "sourcesMin": 2,
+    "sourcesMax": 2,
+    "coverageNotesPresent": 36,
+    "thinEntries": 12,
+    "thinWordingPresent": 12,
+    "duplicatedCoverageNotes": 0,
+    "entriesWithoutChineseCitation": 1,
+    "byRegion": {
+      "africa": 8,
+      "west-central-asia": 6,
+      "east-asia": 6,
+      "south-asia": 5,
+      "americas": 4,
+      "southeast-asia": 2,
+      "oceania": 2,
+      "europe": 3
+    },
+    "entries": [
+      {
+        "qid": "Q1474791",
+        "titleZh": "达尔富尔苏丹国",
+        "titleEn": "Sultanate of Darfur",
+        "region": "africa",
+        "scope": {
+          "start": 1609,
+          "end": 1876
+        },
+        "records": 5,
+        "span": 267,
+        "thin": true
+      },
+      {
+        "qid": "Q2365048",
+        "titleZh": "阿达尔苏丹国",
+        "titleEn": "Adal Sultanate",
+        "region": "africa",
+        "scope": {
+          "start": 1415,
+          "end": 1578
+        },
+        "records": 7,
+        "span": 163,
+        "thin": false
+      },
+      {
+        "qid": "Q1014",
+        "titleZh": "利比里亚",
+        "titleEn": "Liberia",
+        "region": "africa",
+        "scope": {
+          "start": 1848,
+          "end": 2024
+        },
+        "records": 6,
+        "span": 176,
+        "thin": false
+      },
+      {
+        "qid": "Q582861",
+        "titleZh": "马林王朝",
+        "titleEn": "Marinid dynasty",
+        "region": "africa",
+        "scope": {
+          "start": 1250,
+          "end": 1467
+        },
+        "records": 6,
+        "span": 217,
+        "thin": false
+      },
+      {
+        "qid": "Q207600",
+        "titleZh": "阿格拉布王朝",
+        "titleEn": "Aghlabids",
+        "region": "africa",
+        "scope": {
+          "start": 800,
+          "end": 910
+        },
+        "records": 8,
+        "span": 110,
+        "thin": false
+      },
+      {
+        "qid": "Q1050",
+        "titleZh": "斯威士兰",
+        "titleEn": "Eswatini",
+        "region": "africa",
+        "scope": {
+          "start": 1885,
+          "end": 2024
+        },
+        "records": 7,
+        "span": 139,
+        "thin": false
+      },
+      {
+        "qid": "Q796",
+        "titleZh": "伊拉克",
+        "titleEn": "Iraq",
+        "region": "africa",
+        "scope": {
+          "start": 1960,
+          "end": 2024
+        },
+        "records": 8,
+        "span": 64,
+        "thin": false
+      },
+      {
+        "qid": "Q272033",
+        "titleZh": "的黎波里伯国",
+        "titleEn": "County of Tripoli",
+        "region": "africa",
+        "scope": {
+          "start": 1111,
+          "end": 1293
+        },
+        "records": 6,
+        "span": 182,
+        "thin": false
+      },
+      {
+        "qid": "Q491106",
+        "titleZh": "希瓦汗国",
+        "titleEn": "Khanate of Khiva",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1512,
+          "end": 1919
+        },
+        "records": 17,
+        "span": 407,
+        "thin": false
+      },
+      {
+        "qid": "Q577668",
+        "titleZh": "布哈拉汗国",
+        "titleEn": "Khanate of Bukhara",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1516,
+          "end": 1787
+        },
+        "records": 19,
+        "span": 271,
+        "thin": false
+      },
+      {
+        "qid": "Q842",
+        "titleZh": "阿曼",
+        "titleEn": "Oman",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1744,
+          "end": 2024
+        },
+        "records": 17,
+        "span": 280,
+        "thin": false
+      },
+      {
+        "qid": "Q205466",
+        "titleZh": "突厥汗国",
+        "titleEn": "Göktürks",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 587,
+          "end": 660
+        },
+        "records": 21,
+        "span": 73,
+        "thin": false
+      },
+      {
+        "qid": "Q5362837",
+        "titleZh": "杰贝勒沙马尔酋长国",
+        "titleEn": "Emirate of Jabal Shammar",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1825,
+          "end": 1921
+        },
+        "records": 12,
+        "span": 96,
+        "thin": false
+      },
+      {
+        "qid": "Q846",
+        "titleZh": "卡塔尔",
+        "titleEn": "Qatar",
+        "region": "west-central-asia",
+        "scope": {
+          "start": 1820,
+          "end": 2024
+        },
+        "records": 9,
+        "span": 204,
+        "thin": false
+      },
+      {
+        "qid": "Q1147897",
+        "titleZh": "卫国",
+        "titleEn": "Wey",
+        "region": "east-asia",
+        "scope": {
+          "start": -750,
+          "end": -248
+        },
+        "records": 9,
+        "span": 502,
+        "thin": false
+      },
+      {
+        "qid": "Q255931",
+        "titleZh": "骇黎朋猜",
+        "titleEn": "Haripuñjaya",
+        "region": "east-asia",
+        "scope": {
+          "start": 661,
+          "end": 1293
+        },
+        "records": 5,
+        "span": 632,
+        "thin": true
+      },
+      {
+        "qid": "Q4765854",
+        "titleZh": "掸族各邦",
+        "titleEn": "Shan States",
+        "region": "east-asia",
+        "scope": {
+          "start": 1294,
+          "end": 1563
+        },
+        "records": 12,
+        "span": 269,
+        "thin": false
+      },
+      {
+        "qid": "Q1065073",
+        "titleZh": "宋国",
+        "titleEn": "Song",
+        "region": "east-asia",
+        "scope": {
+          "start": -750,
+          "end": -285
+        },
+        "records": 8,
+        "span": 465,
+        "thin": false
+      },
+      {
+        "qid": "Q836",
+        "titleZh": "缅甸",
+        "titleEn": "Myanmar",
+        "region": "east-asia",
+        "scope": {
+          "start": 1820,
+          "end": 2024
+        },
+        "records": 12,
+        "span": 204,
+        "thin": false
+      },
+      {
+        "qid": "Q1378584",
+        "titleZh": "弁韩",
+        "titleEn": "Byeonhan confederacy",
+        "region": "east-asia",
+        "scope": {
+          "start": -91,
+          "end": 566
+        },
+        "records": 3,
+        "span": 657,
+        "thin": true
+      },
+      {
+        "qid": "Q877155",
+        "titleZh": "哲罗",
+        "titleEn": "Chera dynasty",
+        "region": "south-asia",
+        "scope": {
+          "start": -291,
+          "end": 305
+        },
+        "records": 2,
+        "span": 596,
+        "thin": true
+      },
+      {
+        "qid": "Q466433",
+        "titleZh": "卡尔科塔王朝",
+        "titleEn": "Karkota dynasty",
+        "region": "south-asia",
+        "scope": {
+          "start": 592,
+          "end": 859
+        },
+        "records": 8,
+        "span": 267,
+        "thin": false
+      },
+      {
+        "qid": "Q846025",
+        "titleZh": "十六大国",
+        "titleEn": "Mahajanapada",
+        "region": "south-asia",
+        "scope": {
+          "start": -600,
+          "end": -351
+        },
+        "records": 8,
+        "span": 249,
+        "thin": false
+      },
+      {
+        "qid": "Q18211496",
+        "titleZh": "索兰奇王国",
+        "titleEn": "Chaulukya dynasty",
+        "region": "south-asia",
+        "scope": {
+          "start": 947,
+          "end": 1249
+        },
+        "records": 7,
+        "span": 302,
+        "thin": false
+      },
+      {
+        "qid": "Q19805959",
+        "titleZh": "戈尔孔达的苏丹国",
+        "titleEn": "Golconda Sultanate",
+        "region": "south-asia",
+        "scope": {
+          "start": 1519,
+          "end": 1686
+        },
+        "records": 9,
+        "span": 167,
+        "thin": false
+      },
+      {
+        "qid": "Q804",
+        "titleZh": "巴拿马",
+        "titleEn": "Panama",
+        "region": "americas",
+        "scope": {
+          "start": 1905,
+          "end": 2024
+        },
+        "records": 3,
+        "span": 119,
+        "thin": true
+      },
+      {
+        "qid": "Q414",
+        "titleZh": "阿根廷",
+        "titleEn": "Argentina",
+        "region": "americas",
+        "scope": {
+          "start": 1930,
+          "end": 2024
+        },
+        "records": 3,
+        "span": 94,
+        "thin": true
+      },
+      {
+        "qid": "Q81931",
+        "titleZh": "美利坚联盟国",
+        "titleEn": "Confederate States of America",
+        "region": "americas",
+        "scope": {
+          "start": 1861,
+          "end": 1865
+        },
+        "records": 5,
+        "span": 4,
+        "thin": true
+      },
+      {
+        "qid": "Q35",
+        "titleZh": "丹麦",
+        "titleEn": "Denmark",
+        "region": "americas",
+        "scope": {
+          "start": 1945,
+          "end": 2024
+        },
+        "records": 3,
+        "span": 79,
+        "thin": true
+      },
+      {
+        "qid": "Q2077648",
+        "titleZh": "井里汶苏丹国",
+        "titleEn": "Sultanate of Cirebon",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1482,
+          "end": 1676
+        },
+        "records": 4,
+        "span": 194,
+        "thin": true
+      },
+      {
+        "qid": "Q833",
+        "titleZh": "马来西亚",
+        "titleEn": "Malaysia",
+        "region": "southeast-asia",
+        "scope": {
+          "start": 1963,
+          "end": 2024
+        },
+        "records": 4,
+        "span": 61,
+        "thin": true
+      },
+      {
+        "qid": "Q402580",
+        "titleZh": "马打兰王国",
+        "titleEn": "Mataram kingdom",
+        "region": "oceania",
+        "scope": {
+          "start": 741,
+          "end": 1009
+        },
+        "records": 2,
+        "span": 268,
+        "thin": true
+      },
+      {
+        "qid": "Q3446232",
+        "titleZh": "单重布啰国",
+        "titleEn": "Tanjungpura Kingdom",
+        "region": "oceania",
+        "scope": {
+          "start": 1619,
+          "end": 1833
+        },
+        "records": 2,
+        "span": 214,
+        "thin": true
+      },
+      {
+        "qid": "Q172107",
+        "titleZh": "波兰立陶宛联邦",
+        "titleEn": "Polish–Lithuanian Commonwealth",
+        "region": "europe",
+        "scope": {
+          "start": 1572,
+          "end": 1793
+        },
+        "records": 45,
+        "span": 221,
+        "thin": false
+      },
+      {
+        "qid": "Q194355",
+        "titleZh": "雅盖洛王朝",
+        "titleEn": "Jagiellonian dynasty",
+        "region": "europe",
+        "scope": {
+          "start": 1395,
+          "end": 1571
+        },
+        "records": 25,
+        "span": 176,
+        "thin": false
+      },
+      {
+        "qid": "Q215443",
+        "titleZh": "瑞典帝国",
+        "titleEn": "Swedish Empire",
+        "region": "europe",
+        "scope": {
+          "start": 1612,
+          "end": 1814
+        },
+        "records": 25,
+        "span": 202,
+        "thin": false
+      }
+    ]
+  },
+  "authoringParts": {
+    "directory": "docs/verification-3.28/authoring/",
+    "files": [
+      "part-01.json",
+      "part-02.json",
+      "part-03.json"
+    ],
+    "note": "The parts live in this round directory; the builder reads them there together with the plans and extracts of the same round. The coverage-note cleaning step (clean-coverage-notes-3.28.mjs) is kept as a fixed part of the process."
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "node scripts/validate-v2.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "  }",
+          "}"
+        ]
+      },
+      {
+        "command": "node scripts/validate.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS Required offline assets and launchers are present",
+          "{\"result\":\"passed\",\"checks\":10,\"events\":709,\"boundaryRecords\":13765,\"polityRecords\":13380,\"coverageYears\":5424}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-release.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 53 derived place assets match their provenance manifest",
+          "{\"result\":\"passed\",\"checks\":4,\"staticFiles\":17744,\"physicalFiles\":357,\"nativePieces\":11307,\"cityFiles\":53}"
+        ]
+      },
+      {
+        "command": "node scripts/validate-polity-period.mjs",
+        "exitCode": 0,
+        "lastLines": [
+          "PASS 30/30 real polity dossier regressions"
+        ]
+      },
+      {
+        "command": "node scripts/places/audit-language.mjs . docs/verification-3.28/narratives-language-audit.json",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"battleExamples\": []",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.28/build-narratives-batch-3.28.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"enMax\": 97",
+          "}"
+        ]
+      },
+      {
+        "command": "node docs/verification-3.28/write-narratives-gz-3.28.mjs --check",
+        "exitCode": 0,
+        "lastLines": [
+          "  \"bytes\": 529149",
+          "}"
+        ]
+      }
+    ]
+  },
+  "gz": {
+    "file": "public/data/enrichment/narratives.json.gz",
+    "entries": 337,
+    "mtimeZero": true,
+    "deepEqual": true
+  },
+  "remaining": {
+    "pendingPlans": 24,
+    "profilesWithoutNarrative": 1118,
+    "note": "24 of the 60 selected plans are not written yet; their identity verification and introductions are already in place."
+  }
+}
