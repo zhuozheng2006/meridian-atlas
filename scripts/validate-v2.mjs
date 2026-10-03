@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {dirname,resolve} from 'node:path';
 import {activeRecords} from '../public/map-engine.js';
 import {visibleStatement,statementApplies,bindingAllowsProfile,narrativeApplies,periodChain} from '../public/polity-reader.js';
+import {reachability,declaredQids,renderedQids,section as noTerritorySection,dossier as noTerritoryDossier} from '../public/no-territory.js';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');const read=p=>readFileSync(resolve(root,p));const json=p=>JSON.parse(p.endsWith('.gz')?gunzipSync(read(p)):read(p));
 let checks=0;const check=(n,f)=>{f();checks++;console.log('PASS '+n)};
 const canonical=json('public/data/catalog.json.gz'),fast=json('public/data/fast/catalog.json.gz'),events=json('public/data/events.json');
@@ -43,6 +44,22 @@ check('Every enrichment profile declares its boundary coverage and the declarati
  assert.equal(declared.notInSource,noTerritory.length);
  assert.equal(declared.sourceRecords,Object.keys(index.profiles).length-noTerritory.length);
  assert(declared.sourceRecords>=1450,'the source-record profiles must not shrink');
+});
+check('Every enrichment profile is reachable through the catalogue or the no-territory view',()=>{
+ const index=json('public/data/enrichment/profile-index.json.gz');
+ const {unbound}=reachability(index);
+ const declared=declaredQids(index);
+ assert.deepEqual(unbound,declared,'profiles with no record binding must be exactly the declared no-territory list');
+ const passage={t:(zh,en)=>zh,escape:value=>String(value??''),lang:'zh'};
+ const html=noTerritorySection(index,passage);
+ assert.deepEqual(renderedQids(html),declared,'the no-territory section must render one entry per unbound profile');
+ for(const qid of declared){
+  const profile=json('public/data/enrichment/'+index.profiles[qid].file);
+  const note=profile.boundaryCoverageEvidence?.note||{};
+  assert(note.zh&&note.en,qid+' needs a bilingual coverage note');
+  assert(noTerritoryDossier(profile,passage).includes(note.zh.slice(0,20)),qid+' Chinese note must render in the dossier');
+  assert(noTerritoryDossier(profile,{t:(zh,en)=>en,escape:value=>String(value??''),lang:'en'}).includes(note.en.slice(0,20)),qid+' English note must render in the dossier');
+ }
 });
 check('Compressed event archive equals editable full event JSON',()=>assert.deepEqual(json('public/data/events.json.gz'),events));
 check('Compressed enrichment narratives equal the editable source',()=>assert.deepEqual(json('public/data/enrichment/narratives.json.gz'),json('public/data/enrichment/narratives.json')));

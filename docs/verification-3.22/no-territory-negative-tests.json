@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "name": "Entry point removed: the section renders no cards while five profiles have no records",
+      "outcome": "PASS (tampered case rejected)",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   'Q171203',\n- "
+    },
+    {
+      "name": "Declaration lost: an unbound profile is missing from coverage.noTerritoryQids",
+      "outcome": "PASS (tampered case rejected)",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'Q171203',\n    'Q3"
+    },
+    {
+      "name": "Note dropped: a dossier without the bilingual note cannot satisfy the contract",
+      "outcome": "PASS (tampered case rejected)",
+      "message": "The expression evaluated to a falsy value:\n\n  assert(renderedQids(section(index,passage))."
+    }
+  ],
+  "allRejected": true
+}

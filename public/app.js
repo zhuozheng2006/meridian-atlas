@@ -1,13 +1,14 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-4f89524ff74c';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-4f89524ff74c';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-4f89524ff74c';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-4f89524ff74c';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-4f89524ff74c';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-4f89524ff74c';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-4f89524ff74c';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-4f89524ff74c';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-4f89524ff74c';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-4f89524ff74c';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-76931d3559eb';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-76931d3559eb';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-76931d3559eb';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-76931d3559eb';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-76931d3559eb';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-76931d3559eb';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-76931d3559eb';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-76931d3559eb';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-76931d3559eb';
+import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.10.0-76931d3559eb';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-76931d3559eb';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -156,11 +157,22 @@ function renderBrowse(){
  if(atlas?.map){atlas.map.resize();compareMap?.map.resize();atlas.refreshLabels();compareMap?.refreshLabels();}
 }
 
+let enrichmentIndex=null,enrichmentIndexPromise=null;
+function loadEnrichmentIndex(){if(!enrichmentIndexPromise)enrichmentIndexPromise=readJSON('data/enrichment/profile-index.json.gz').then(index=>{enrichmentIndex=index;return index;}).catch(()=>null);return enrichmentIndexPromise;}
+// Opens the note of a polity the pinned boundary source does not contain. It renders the profile
+// note only: no geometry is created and the map is never moved.
+// Opens the note of a polity the pinned boundary source does not contain. The note is rendered
+// inside the polities view itself, because the reader panel only has layout in the map view; no
+// geometry is created and the map is never moved.
+async function openNoTerritory(qid){const index=enrichmentIndex||await loadEnrichmentIndex();const entry=index&&index.profiles&&index.profiles[qid];if(!entry)return;const profile=await readJSON('data/enrichment/'+entry.file);const view=$('#contentView');if(!view)return;view.innerHTML='<article class="no-territory-article">'+noTerritoryDossier(profile,{t:text,escape,lang:state.lang})+'</article>';const back=$('#noTerritoryClose');if(back){back.textContent=text('返回政体列表','Back to the list');back.onclick=()=>renderPolities();}view.scrollTop=0;const heading=view.querySelector('h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}}
 function renderPolities(){
  const groups=new Map();for(const r of catalog.records){if(r.type!=='POLITY')continue;if(!groups.has(r.name))groups.set(r.name,{...r,min:r.start,max:r.end,count:0});const g=groups.get(r.name);g.min=Math.min(g.min,r.start);g.max=Math.max(g.max,r.end);g.count++;}
  const query=politySearch.toLowerCase();const all=[...groups.values()].filter(r=>!query||(r.name+' '+r.zhName).toLowerCase().includes(query));const featured=['Qin Dynasty','Han Dynasty','Roman Empire','Tang Dynasty','Mongol Empire','Ming Dynasty','Ottoman Empire','Qing Dynasty','Mali Empire','Inca Empire'];all.sort((a,b)=>{const ai=featured.indexOf(a.name),bi=featured.indexOf(b.name);return (ai<0?999:ai)-(bi<0?999:bi)||a.min-b.min;});
  $('#contentView').innerHTML=`<span class="eyebrow">CIVILIZATIONS & STATES</span><h1>${text('国境之内，万千故事','Within every border, a thousand stories')}</h1><p class="lead">${text('从疆域走进国家的历史。翻阅政治与传承、文化与经济，也看看它在世界年表中留下的痕迹。','Step from the map into a polity’s history. Explore institutions and succession, culture and exchange, and its place in the world chronicle.')}</p><div class="library-controls"><input id="politySearch" type="search" placeholder="${text('搜索国家、王朝、帝国…','Find a state, dynasty or empire…')}" aria-label="${text('搜索政体','Search polities')}" value="${escape(politySearch)}"><span class="tag">${all.length} ${text('个名称','names')}</span></div><div class="polity-grid">${all.slice(0,150).map(r=>`<button class="polity-card" data-open-polity="${r.id}"><h3>${escape(polityName(r,state.lang))}${state.lang==='bi'&&r.zhName?`<span class="secondary">${escape(r.name)}</span>`:''}</h3><div class="polity-years">${text('疆域记录','Mapped record')} · ${yr(r.min)} — ${yr(r.max)}</div><div class="polity-count">${r.count} ${text('段疆域记录 · 打开档案','territory periods · Open dossier')}</div></button>`).join('')}</div>${all.length>150?`<p class="section-caption">${text('先展示150个结果，输入名称可继续查找。','Showing the first 150 results. Search by name to find more.')}</p>`:''}`;
+ $('#contentView').insertAdjacentHTML('beforeend',noTerritorySection(enrichmentIndex,{t:text,escape,lang:state.lang}));
  $('#politySearch').oninput=e=>{politySearch=e.target.value;clearTimeout(renderPolities.timer);renderPolities.timer=setTimeout(()=>{if(state.view!=='polities')return;const start=e.target.selectionStart;renderPolities();$('#politySearch').focus();$('#politySearch').setSelectionRange(start,start);},150);};$$('[data-open-polity]').forEach(b=>b.onclick=()=>jumpPolity(representativePolity(catalog.records.find(r=>r.id===b.dataset.openPolity))));
+ $$('[data-open-no-territory]').forEach(b=>b.onclick=()=>openNoTerritory(b.dataset.openNoTerritory));
+ if(!enrichmentIndex)loadEnrichmentIndex().then(()=>{if(state.view==='polities')renderPolities();});
 }
 function renderHelp(){$('#helpContent').innerHTML=`<span class="eyebrow">READING THE ATLAS</span><h2>${text('使用经纬纪','Using Meridian Atlas')}</h2><ol><li>${text('拖动底部时间轴，或直接输入年份。负数代表公元前；时间轴分段缩放，为近现代保留更多空间。','Drag the timeline or enter a year. Negative numbers mean BCE. The timeline uses piecewise scaling to leave more room for recent centuries.')}</li><li>${text('点击政体查阅边界记录，点击事件查阅背景、意义和来源。搜索框同时检索事件、政体、地点与遗址、战役；标有“结构化索引条目”的条目来自数据集声明，未经独立考订。','Click a polity for its boundary record, or an event for context, significance and sources. One field searches events, polities, places, reviewed sites and battles; entries marked as structured index entries come from dataset statements and were not independently reviewed.')}</li><li>${text('选择地区、主题与时间窗口。全部年代会在地图上显示跨时期事件，疆域仍对应当前年。','Choose region, theme and time window. All periods shows events across time while borders remain at the selected year.')}</li><li>${text('年份对照展示两张同步视角的地图。播放按设定步长推进；两侧跳转按钮寻找数据中实际记录的下一次变化。','Compare years displays two maps with synchronized cameras. Playback follows the chosen step; the side buttons jump between recorded boundary changes.')}</li><li>${text('“文明”可以按名称寻找国家档案，“专题”串联相关故事。数据来源、年代约定和阅读注记集中放在“资料”中。','Use Polities to find a historical dossier and Journeys to follow connected stories. Sources collects references, dating conventions and reading notes.')}</li></ol><p>${text('键盘：在地图或时间轴上，← → 按所选步长调整年份，Shift 加速10倍。年份输入框使用 ↑ ↓，自动跨过公元0年；按 Enter 确认。地图聚焦时，Alt + 方向键移动视角，+ / − 缩放。空格播放或暂停；Esc关闭详情。地图工具条的“战役”开关显示同期战役记录，“导出图片”把当前视图存成带年份与来源说明的 PNG。','Keyboard: On the map or timeline, ← → changes years by the selected step; Shift multiplies it by 10. In year fields, use ↑ ↓ and Enter to confirm. Year zero is skipped. With map focus, Alt + arrows pans and + / − zooms. Space plays or pauses; Esc closes details.')}</p>`;}
 async function setCompareYear(value,{coordinating=false}={}){
