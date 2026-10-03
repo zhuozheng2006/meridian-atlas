@@ -1,5 +1,5 @@
-import {LakeLayer} from './lakes.js?v=3.10.0-1e106f83cf32';
-import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-1e106f83cf32';
+import {LakeLayer} from './lakes.js?v=3.10.0-85d6d3916cb1';
+import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-85d6d3916cb1';
 
 // #region compact-geometry
 // Physical layers ship as compact payloads: integer coordinates quantised to 1e-5 deg

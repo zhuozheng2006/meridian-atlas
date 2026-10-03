@@ -1,0 +1,204 @@
+{
+  "report": "atrocities-layer.json",
+  "task": "task-33",
+  "generatedAt": "2026-10-03T03:18:17.838Z",
+  "deliverable": {
+    "module": "public/atrocities.js (new)",
+    "files": [
+      "public/app.js",
+      "public/source-reader.js",
+      "public/style.css"
+    ],
+    "notChanged": [
+      "public/battles.js",
+      "public/index.html",
+      "map engine"
+    ],
+    "defaultState": "off",
+    "markerClass": "atrocity-marker (violet triangle; battles stay terracotta rotated squares)"
+  },
+  "uiStrings": {
+    "layerNote": "独立图层：只记录来源所述、针对非战斗人员的单方面暴力，与战役层的两军交战不属同一语义；两层按维基数据实体互斥。本层中文名覆盖有限（37/293），多数条目以其来源语言的名称显示，不作音译或机翻。详情页不判定责任方或性质。",
+    "detailSemantics": "本层为针对非战斗人员的单方面暴力，与战役层的两军交战不属同一语义；两层按维基数据实体互斥。本层不判定责任方或性质，只记录来源所述事件。",
+    "fallbackNote": "该记录没有来源中文名，此处显示其来源语言（英文）的名称；本层不作音译或机器翻译。",
+    "sourcePageSection": "针对非战斗人员的单方面暴力另设独立图层，收录 293 条来源记录，与战役层按维基数据实体互斥，绝不混排。其中仅 37 条有来源中文名，其余 256 条以来源语言名称显示，不作音译或机器翻译。本层不判定责任方或性质，只记录来源所述事件；记录来自维基数据实体声明，条目注记标明参考链接的有无。"
+  },
+  "data": {
+    "shipped": 293,
+    "withChineseName": 37,
+    "withoutChineseName": 256,
+    "activeAtYear1999": 141,
+    "validatorDisjointness": "0 overlap by Wikidata entity"
+  },
+  "visibilityRule": {
+    "suppression": "zoom<3 || regional.detailedActive (same rule as the battle layer, unchanged)",
+    "measured": {
+      "[80,10] zoom 4.5": {
+        "detailedActive": false,
+        "markers": {
+          "desktop": 9,
+          "mobile": 5
+        }
+      },
+      "[125.4,-9] zoom 6 after 9s": {
+        "detailedActive": true,
+        "regionalStatus": "ready",
+        "markers": 0
+      },
+      "[125.34,-8.59] zoom 12": {
+        "detailedActive": true,
+        "markers": 0
+      },
+      "[81.72,7.62] zoom 9": {
+        "detailedActive": true,
+        "markers": 0
+      }
+    }
+  },
+  "dualSize": {
+    "desktop_1440x900": {
+      "off": {
+        "markers": 0,
+        "status": "独立图层 · 默认关闭",
+        "detailedActive": false,
+        "note": "独立图层：只记录来源所述、针对非战斗人员的单方面暴力，与战役层的两军交战不属同一语义；两层按维基数据实体互斥。本层中文名覆盖有限（37/293），多数条目以其来源语言的名称显示，不作音译或机翻。详情页不判定责任方或性质。"
+      },
+      "on": {
+        "markers": 9,
+        "active": 141,
+        "status": "141 条同期暴行记录",
+        "legend": "历史疆域 · 点击阅读档案 · 112 条同期战役 · 141 条暴行记录"
+      },
+      "zh": {
+        "marker": {
+          "found": true,
+          "cx": 884,
+          "cy": 410,
+          "title": "苏艾教堂大屠杀 · 公元 1999 年"
+        },
+        "title": "苏艾教堂大屠杀Suai Church massacre",
+        "semantics": true,
+        "battleBoundary": true,
+        "links": 1
+      },
+      "noZh": {
+        "isolated": {
+          "found": true,
+          "markers": 1,
+          "title": "Biak massacre · 公元 1998 年"
+        },
+        "title": "Biak massacre",
+        "fallbackNote": true,
+        "semantics": true,
+        "links": 1
+      },
+      "offAgain": {
+        "markers": 0,
+        "status": "独立图层 · 默认关闭"
+      },
+      "battleRegression": {
+        "battleMarkers": 1,
+        "atrocityMarkers": 0
+      },
+      "overflow": {
+        "scrollW": 1440,
+        "innerW": 1440
+      },
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    "mobile_390x844": {
+      "off": {
+        "markers": 0,
+        "status": "独立图层 · 默认关闭",
+        "detailedActive": false,
+        "note": "独立图层：只记录来源所述、针对非战斗人员的单方面暴力，与战役层的两军交战不属同一语义；两层按维基数据实体互斥。本层中文名覆盖有限（37/293），多数条目以其来源语言的名称显示，不作音译或机翻。详情页不判定责任方或性质。"
+      },
+      "on": {
+        "markers": 5,
+        "active": 141,
+        "status": "141 条同期暴行记录",
+        "legend": "历史疆域 · 点击阅读档案 · 112 条同期战役 · 141 条暴行记录"
+      },
+      "zh": {
+        "marker": {
+          "found": true,
+          "cx": 195,
+          "cy": 351,
+          "title": "苏艾教堂大屠杀 · 公元 1999 年"
+        },
+        "title": "苏艾教堂大屠杀Suai Church massacre",
+        "semantics": true,
+        "battleBoundary": true,
+        "links": 1
+      },
+      "noZh": {
+        "isolated": {
+          "found": true,
+          "markers": 1,
+          "title": "Biak massacre · 公元 1998 年"
+        },
+        "title": "Biak massacre",
+        "fallbackNote": true,
+        "semantics": true,
+        "links": 1
+      },
+      "offAgain": {
+        "markers": 0,
+        "status": "独立图层 · 默认关闭"
+      },
+      "battleRegression": {
+        "battleMarkers": 1,
+        "atrocityMarkers": 0
+      },
+      "overflow": {
+        "scrollW": 390,
+        "innerW": 390
+      },
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  },
+  "sourcesPage": {
+    "statCard": "293单方面暴力事件记录",
+    "sectionTitle": "暴行记录：一个独立图层",
+    "verifiedOn": [
+      "desktop 1440x900",
+      "mobile 390x844"
+    ]
+  },
+  "validators": {
+    "crossLayer": "3/3 pass",
+    "atrocities": "8/8 pass (exit 0)",
+    "validateV2": "exit 0",
+    "validate": "exit 0 (10 checks)",
+    "auditLanguage": "exit 0 (audits events/battles only; the new layer is covered by validate-atrocities)",
+    "testChain": {
+      "steps": 37,
+      "failed": 0,
+      "excluded": [
+        "stamp step (changed public/*.js; Lead stamps)"
+      ]
+    }
+  },
+  "stillMissing": [
+    "Chinese-name coverage 37/293 is a source-data fact; surfaced in three places and never transliterated",
+    "Not added to search on purpose: the two record classes must not share a list",
+    "Needs Lead re-stamp (public/atrocities.js added, public/app.js + source-reader.js + style.css changed)",
+    "Biak massacre shares coordinates with a same-year neighbour, so the overlap filter drops it; the click test isolated the candidate set (code paths untouched)"
+  ],
+  "preExistingFinding": {
+    "file": "public/style.css",
+    "issue": "15 literal backslash-n escapes (committed) make CSS parse the .no-territory* selectors as n.no-territory-title / n.no-territory-grid / n.no-territory-card, so those rules do not apply",
+    "evidence": "CSSOM selector inspection in the live page",
+    "action": "reported only, not changed in this task"
+  },
+  "screenshots": [
+    "docs/verification-3.28/shots/atrocities-desktop-on.png",
+    "docs/verification-3.28/shots/atrocities-desktop-zh.png",
+    "docs/verification-3.28/shots/atrocities-desktop-nozh.png",
+    "docs/verification-3.28/shots/atrocities-mobile-on.png",
+    "docs/verification-3.28/shots/atrocities-mobile-zh.png",
+    "docs/verification-3.28/shots/atrocities-mobile-nozh.png"
+  ]
+}
