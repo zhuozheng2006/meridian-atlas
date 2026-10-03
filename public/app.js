@@ -1,14 +1,14 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-76931d3559eb';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-76931d3559eb';
-import {cityNarrative} from './city-narratives.js?v=3.10.0-76931d3559eb';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-76931d3559eb';
-import {sourcesHTML} from './source-reader.js?v=3.10.0-76931d3559eb';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-76931d3559eb';
-import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-76931d3559eb';
-import {bindTimeline} from './timeline-controls.js?v=3.10.0-76931d3559eb';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-76931d3559eb';
-import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.10.0-76931d3559eb';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-76931d3559eb';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.10.0-49300bb23a5f';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.10.0-49300bb23a5f';
+import {cityNarrative} from './city-narratives.js?v=3.10.0-49300bb23a5f';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.10.0-49300bb23a5f';
+import {sourcesHTML} from './source-reader.js?v=3.10.0-49300bb23a5f';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.10.0-49300bb23a5f';
+import {BattleLayer,loadBattles} from './battles.js?v=3.10.0-49300bb23a5f';
+import {bindTimeline} from './timeline-controls.js?v=3.10.0-49300bb23a5f';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.10.0-49300bb23a5f';
+import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.10.0-49300bb23a5f';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.10.0-49300bb23a5f';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -307,7 +307,7 @@ async function openBattle(b,whichMap=atlas){
  const focus=$("#battleTitle");if(focus)focus.focus({preventScroll:true});
 }
 function bindPlaceLayer(map){map.places=new PlaceLayer(map,{window:state.placeWindow,onSelect:openPlace,onStatus:(status,count)=>{if(map===atlas){const el=$('#placeStatus');if(el)el.textContent=status!=='ready'?text('城市资料暂未载入 · 点击重试','Cities unavailable · retry'):text('有年代依据的城市与遗址','Dated cities and archaeological sites');}}});map.places.toggle(state.cities);map.places.setModern(state.reference);
- map.battles=new BattleLayer(map,{window:state.span,onSelect:openBattle,onStatus:(status,count)=>{if(map===atlas){const el=$('#battleStatus');if(el)el.textContent=status!=='ready'?text('战役资料暂未载入','Battles unavailable'):text(`${count} 条同期战役`,'Battles in this window');}}});map.battles.toggle(state.battles);map.battles.setYear(map.year,state.lang);}
+ map.battles=new BattleLayer(map,{window:state.span,onSelect:openBattle,onStatus:(status,count)=>{if(map===atlas){const el=$('#battleStatus');if(el)el.textContent=status!=='ready'?text('战役资料暂未载入','Battles unavailable'):text(`${count} 条同期战役`,'Battles in this window');renderLayerLabels();}}});map.battles.toggle(state.battles);map.battles.setYear(map.year,state.lang);}
 const placeSourceName=p=>p.source==='wikidata-capitals'?text('维基数据 · 首都资料','Wikidata · Capital records'):p.source==='pleiades'?text('Pleiades · 古地名档案','Pleiades · Ancient places'):p.source==='natural-earth'?text('Natural Earth · 现代参照','Natural Earth · Modern reference'):p.source==='chandler'?text('城市人口研究 · Chandler','Urban population · Chandler'):p.source?.startsWith('modelski')?text('城市人口研究 · Modelski','Urban population · Modelski'):p.source;
 let placeSearchSequence=0;
 async function renderPlaceSearch(){
@@ -376,7 +376,7 @@ function renderRegionalStatus(){
  $('#boundaryModeLabel').textContent=text(compareMap?'左图边界来源':'边界来源',compareMap?'Left map boundaries':'Boundary source');
  const describe=map=>{const r=map?.regional;if(!r)return text('按视野读取边界','Boundaries follow the view');if(!map.showBorders)return text('疆域图层已收起','Borders are hidden');if(r.mode==='halc')return r.halc.title();if(map.boundaries?.mode==='cshapes')return map.boundaries.title(state.lang);if(r.modern)return text('现代地理参照已开启','Modern reference is on');if(!map.showBorders)return text('疆域图层已收起','Borders are hidden');return r.status==='error'?text('全球疆域 · 详图读取失败，可重试','Global overview · detail failed; retry'):r.status==='partial'?text('全球疆域 · 有局部详图可查看','Global overview · local detail available'):r.status==='updating'?text('地区详图 · 正在补齐视野…','Regional detail · Updating this view…'):r.active?(r.coverageEnough===false?text('局部详图 · 空白处未收录','Local detail · Gaps are unmapped'):text(`地区详图 · ${r.features.length} 条区划`,`Regional detail · ${r.features.length} areas`)):r.status==='loading'?text('全球疆域 · 正在读取详图','Global overview · loading detail'):text('全球疆域 · Cliopatria','Global overview · Cliopatria');};
  const battleCount=state.battles?(atlas?.battles?.active?.length||0):0;
- $('#mapLegend span:last-child').textContent=(atlas?.regional?.mode==='halc'?atlas.regional.halc.landscape?.active&&atlas.regional.halc.landscape?.eligible?text('HALC · 1500 · 历史地貌与地方区划','HALC · 1500 · Historical landscape & local divisions'):text('历史疆域 · 现代地理底图','Historical territories · Contemporary geographic base'):atlas?.boundaries?.isCountry&&!atlas?.regional?.active?text('CShapes · 国家与属地 · 点击阅读记录','CShapes · States & dependencies · Select to read'):atlas?.regional?.active?text('详细历史区划 · 点击阅读年代与来源','Detailed historical areas · Select for dates and sources'):state.allTime?text('事件跨越全部年代；疆域仍为所选年份','Events span all periods; borders remain at the selected year'):text('历史疆域 · 点击阅读档案','Historical territories · Select to read'))+(battleCount?' · '+text(`${battleCount} 条同期战役`,'`${battleCount}` battles in this window')+((atlas?.map?.getZoom?.()||0)<3?text('（放大地图后显示）',' (shown once zoomed in)'):''):'');
+ $('#mapLegend span:last-child').textContent=(atlas?.regional?.mode==='halc'?atlas.regional.halc.landscape?.active&&atlas.regional.halc.landscape?.eligible?text('HALC · 1500 · 历史地貌与地方区划','HALC · 1500 · Historical landscape & local divisions'):text('历史疆域 · 现代地理底图','Historical territories · Contemporary geographic base'):atlas?.boundaries?.isCountry&&!atlas?.regional?.active?text('CShapes · 国家与属地 · 点击阅读记录','CShapes · States & dependencies · Select to read'):atlas?.regional?.active?text('详细历史区划 · 点击阅读年代与来源','Detailed historical areas · Select for dates and sources'):state.allTime?text('事件跨越全部年代；疆域仍为所选年份','Events span all periods; borders remain at the selected year'):text('历史疆域 · 点击阅读档案','Historical territories · Select to read'))+(battleCount?' · '+text(`${battleCount} 条同期战役`,'`${battleCount}` battles in this window')+((atlas?.map?.getZoom?.()||0)<3?text('（放大地图后显示）',' (shown once zoomed in)'):atlas?.regional?.detailedActive?text('（地区详图中隐藏）',' (hidden in regional detail)'):''):'');
  $('#regionalStatus').textContent=describe(atlas);$('#regionalStatus2').textContent=compareMap?describe(compareMap):'';$('#boundaryMode2Group').hidden=!compareMap;
 }
 function renderLayerLabels(){

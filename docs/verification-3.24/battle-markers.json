@@ -1,0 +1,137 @@
+{
+  "report": "battle-markers.json",
+  "generatedAt": "2026-10-03T02:16:41.561Z",
+  "task": "task-29",
+  "verdict": {
+    "markers": "by design (viewport/label filters at the reported URL); detailedActive suppression exists and is kept",
+    "legend": "real defect - stale render; fixed by re-rendering on battle onStatus"
+  },
+  "leadReading": {
+    "url": "http://127.0.0.1:8767/#year=1500&lang=bi&camera=9.32,48.08,5.2,0,0&browse=1",
+    "waited": "24s / 26s",
+    "btnActive": true,
+    "markers": 0,
+    "legend": "历史疆域 · 点击阅读档案",
+    "battlesActive": 24,
+    "battlesAll": 603,
+    "consoleErrors": 0
+  },
+  "reproduced": {
+    "waited": "22-25s",
+    "matches": [
+      "btnActive=true",
+      "battles.active=24",
+      "battles.all=603",
+      "legend without count",
+      "console errors 0"
+    ],
+    "differs": {
+      "markers": {
+        "lead": 0,
+        "measured": 1,
+        "why": "label-box overlap depends on layout; 1 of 24 battles passes every filter"
+      },
+      "detailedActive": {
+        "lead": "assumed true",
+        "measured": false
+      },
+      "regionalMode": "auto",
+      "regionalStatus": "zoom"
+    }
+  },
+  "decisiveExperiment": {
+    "method": "dispatch geometry-status on #map -> app listener calls renderLayerLabels() once",
+    "legendBefore": "历史疆域 · 点击阅读档案",
+    "legendAfter": "历史疆域 · 点击阅读档案 · 24 条同期战役",
+    "yearChangeAlsoRefreshes": "after year change to 1510 -> · 28 条同期战役"
+  },
+  "filterBreakdown": {
+    "zoom": 5.2,
+    "max": 32,
+    "active": 24,
+    "invalidCoordinates": 0,
+    "outOfBounds": 17,
+    "boxOverflow": 1,
+    "labelOverlap": 5,
+    "capped": 0,
+    "drawn": 1,
+    "sumCheck": 24,
+    "control_at_zoom8_bern": {
+      "active": 24,
+      "outOfBounds": 24,
+      "drawn": 0
+    }
+  },
+  "suppressionCheck": {
+    "url": "#year=1500&lang=bi&camera=9.32,48.08,6.72,0,0&browse=1&boundaries=regional",
+    "detailedActive": true,
+    "markers": 0,
+    "refreshBefore": 0,
+    "refreshAfter": 0,
+    "legend": "详细历史区划 · 点击阅读年代与来源 · 24 条同期战役（地区详图中隐藏）",
+    "verdict": "battles.js:28 suppression works as designed; not changed"
+  },
+  "fix": {
+    "file": "public/app.js",
+    "changes": [
+      "BattleLayer onStatus callback now calls renderLayerLabels() for the primary map (covers initial load, year/window changes, and errors; no polling)",
+      "legend suffix appends （地区详图中隐藏）/ (hidden in regional detail) when regional.detailedActive, alongside the existing zoom<3 note"
+    ],
+    "notChanged": [
+      "public/battles.js",
+      "suppression branch",
+      "no polling"
+    ]
+  },
+  "dualSize": {
+    "desktop_1440x900": {
+      "repro": {
+        "legend": "历史疆域 · 点击阅读档案 · 24 条同期战役",
+        "markers": 1
+      },
+      "toggleOff": {
+        "legend": "历史疆域 · 点击阅读档案",
+        "markers": 0
+      },
+      "toggleOn": {
+        "legend": "历史疆域 · 点击阅读档案 · 24 条同期战役",
+        "markers": 1
+      },
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "consoleErrors": 0
+    },
+    "mobile_390x844": {
+      "repro": {
+        "legend": "历史疆域 · 点击阅读档案 · 24 条同期战役",
+        "markers": 1
+      },
+      "toggleOff": {
+        "legend": "历史疆域 · 点击阅读档案",
+        "markers": 0
+      },
+      "toggleOn": {
+        "legend": "历史疆域 · 点击阅读档案 · 24 条同期战役",
+        "markers": 1
+      },
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "consoleErrors": 0,
+      "touch": true
+    }
+  },
+  "validators": {
+    "crossLayer": "3/3 pass",
+    "testChain": {
+      "steps": 37,
+      "failed": 0,
+      "excluded": [
+        "scripts/stamp-assets.mjs --check (edited app.js is not re-stamped; Lead stamps)"
+      ]
+    }
+  },
+  "stamp": {
+    "status": "needs Lead re-stamp",
+    "reason": "public/app.js changed after the last stamp"
+  }
+}
