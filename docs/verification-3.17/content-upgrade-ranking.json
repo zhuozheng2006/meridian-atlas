@@ -1,0 +1,3641 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-03T00:00:00+00:00",
+  "purpose": "Priority order for the closing 3.17 upgrade pass over the structured-index events that are still index-level. It replaces the 3.14 ranking, whose Chinese-article-first score could not order the tail: no remaining entity above rank 171 has a Chinese article, while 131 of the 133 have an English one.",
+  "method": {
+    "formula": "score = 3 * (has zh or en Wikipedia article) + min(sitelinks, 40) / 10 + 0.5 * (belligerents recorded) + 2 * (has Chinese Wikipedia article)",
+    "changes": [
+      "An English Wikipedia article now scores like a Chinese one (3), because the upgrade can cite and read it even when no Chinese edition exists.",
+      "A Chinese article keeps an extra weight of 2 on top, so entities with both editions stay ahead of English-only entities with the same footprint.",
+      "Article presence comes from the entity sitelink fetched in this round (content-upgrade-evidence.json), not from the 3.14 label/API cache.",
+      "Belligerents count when Wikidata P710 is recorded or the shipped entry already lists participants."
+    ],
+    "sitelinks": "Cached 3.14 WDQS COUNT results (docs/verification-3.14/content-upgrade-ranking-raw.json); no new query was issued, so this ranking is deterministic and offline.",
+    "tieBreakers": [
+      "has an English article",
+      "sitelink count",
+      "earlier year",
+      "QID"
+    ]
+  },
+  "inputs": {
+    "events": 133,
+    "source": "public/data/events.json entries with provenance=wikidata-structured"
+  },
+  "coverage": {
+    "withEnglishArticle": 131,
+    "withChineseArticle": 7,
+    "withEither": 133,
+    "withoutBoth": 0,
+    "withParticipants": 109,
+    "englishOnly": 126
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "qid": "Q111383245",
+      "id": "v312wd-q111383245",
+      "titleZh": "阿夫迪伊夫卡战役",
+      "titleEn": "Battle of Avdiivka",
+      "labelZh": "阿夫迪伊夫卡战役",
+      "labelZhHans": null,
+      "year": 2020,
+      "end": 2020,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Avdiivka (2023–2024)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Avdiivka_(2023%E2%80%932024)"
+      },
+      "zhArticle": {
+        "title": "阿夫迪伊夫卡战役 (2022年—2024年)",
+        "url": "https://zh.wikipedia.org/wiki/%E9%98%BF%E5%A4%AB%E8%BF%AA%E4%BC%8A%E5%A4%AB%E5%8D%A1%E6%88%98%E5%BD%B9_(2022%E5%B9%B4%E2%80%942024%E5%B9%B4)"
+      },
+      "p585": {
+        "time": "+2020-00-00T00:00:00Z",
+        "precision": 8,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 29,
+      "hasParticipants": true,
+      "previousRank": 53,
+      "score": 8.4
+    },
+    {
+      "rank": 2,
+      "qid": "Q112206624",
+      "id": "v312wd-q112206624",
+      "titleZh": "克列缅纳亚战役",
+      "titleEn": "Battle of Kreminna",
+      "labelZh": "克列缅纳亚战役",
+      "labelZhHans": null,
+      "year": 2020,
+      "end": 2020,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kreminna",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kreminna"
+      },
+      "zhArticle": {
+        "title": "克雷明納戰役",
+        "url": "https://zh.wikipedia.org/wiki/%E5%85%8B%E9%9B%B7%E6%98%8E%E7%B4%8D%E6%88%B0%E5%BD%B9"
+      },
+      "p585": {
+        "time": "+2020-00-00T00:00:00Z",
+        "precision": 8,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 16,
+      "hasParticipants": true,
+      "previousRank": 95,
+      "score": 7.1
+    },
+    {
+      "rank": 3,
+      "qid": "Q652320",
+      "id": "v312wd-q652320",
+      "titleZh": "图卢兹战役",
+      "titleEn": "Battle of Toulouse",
+      "labelZh": "图卢兹战役",
+      "labelZhHans": null,
+      "year": 721,
+      "end": 721,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Toulouse (721)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Toulouse_(721)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0721-06-09T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 29,
+      "hasParticipants": true,
+      "previousRank": 163,
+      "score": 6.4
+    },
+    {
+      "rank": 4,
+      "qid": "Q595320",
+      "id": "v312wd-q595320",
+      "titleZh": "巴当山之战",
+      "titleEn": "Battle of Badon",
+      "labelZh": "巴登山戰役",
+      "labelZhHans": "巴当山之战",
+      "year": 500,
+      "end": 500,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Badon",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Badon"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0500-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 28,
+      "hasParticipants": true,
+      "previousRank": 165,
+      "score": 6.3
+    },
+    {
+      "rank": 5,
+      "qid": "Q2274112",
+      "id": "v312wd-q2274112",
+      "titleZh": "今福之战",
+      "titleEn": "Battle of Imafuku",
+      "labelZh": "今福之戰",
+      "labelZhHans": "今福之战",
+      "year": 1600,
+      "end": 1600,
+      "region": "east-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Imafuku",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Imafuku"
+      },
+      "zhArticle": {
+        "title": "今福之戰",
+        "url": "https://zh.wikipedia.org/wiki/%E4%BB%8A%E7%A6%8F%E4%B9%8B%E6%88%B0"
+      },
+      "p585": {
+        "time": "+1600-12-26T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 132,
+      "score": 6.3
+    },
+    {
+      "rank": 6,
+      "qid": "Q849474",
+      "id": "v312wd-q849474",
+      "titleZh": "卡尔卡尔之战",
+      "titleEn": "Battle of Qarqar",
+      "labelZh": "卡尔卡尔之战",
+      "labelZhHans": "卡尔卡尔之战",
+      "year": -853,
+      "end": -853,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Qarqar",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Qarqar"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0853-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 26,
+      "hasParticipants": true,
+      "previousRank": 167,
+      "score": 6.1
+    },
+    {
+      "rank": 7,
+      "qid": "Q1137764",
+      "id": "v312wd-q1137764",
+      "titleZh": "维苏威战役",
+      "titleEn": "Battle of Mons Lactarius",
+      "labelZh": "维苏威战役",
+      "labelZhHans": null,
+      "year": 552,
+      "end": 552,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mons Lactarius",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mons_Lactarius"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0552-10-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 26,
+      "hasParticipants": true,
+      "previousRank": 168,
+      "score": 6.1
+    },
+    {
+      "rank": 8,
+      "qid": "Q769358",
+      "id": "v312wd-q769358",
+      "titleZh": "塔吉纳战役",
+      "titleEn": "Battle of Taginae",
+      "labelZh": "塔吉納戰役",
+      "labelZhHans": null,
+      "year": 552,
+      "end": 552,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Taginae",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Taginae"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0552-07-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 26,
+      "hasParticipants": true,
+      "previousRank": 169,
+      "score": 6.1
+    },
+    {
+      "rank": 9,
+      "qid": "Q382967",
+      "id": "v312wd-q382967",
+      "titleZh": "1148年围攻大马士革",
+      "titleEn": "Siege of Damascus",
+      "labelZh": "1148年围攻大马士革",
+      "labelZhHans": "1148年围攻大马士革",
+      "year": 1148,
+      "end": 1148,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Siege of Damascus (1148)",
+        "url": "https://en.wikipedia.org/wiki/Siege_of_Damascus_(1148)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1148-07-28T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 25,
+      "hasParticipants": true,
+      "previousRank": 171,
+      "score": 6
+    },
+    {
+      "rank": 10,
+      "qid": "Q1417205",
+      "id": "v312wd-q1417205",
+      "titleZh": "蒙斯战役",
+      "titleEn": "Battle of Mons",
+      "labelZh": "蒙斯戰役",
+      "labelZhHans": "蒙斯战役",
+      "year": 1914,
+      "end": 1914,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mons",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mons"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1914-08-23T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 24,
+      "hasParticipants": true,
+      "previousRank": 172,
+      "score": 5.9
+    },
+    {
+      "rank": 11,
+      "qid": "Q1644792",
+      "id": "v312wd-q1644792",
+      "titleZh": "勒吉鲁斯湖战役",
+      "titleEn": "Battle of Lake Regillus",
+      "labelZh": "勒吉鲁斯湖战役",
+      "labelZhHans": "勒吉鲁斯湖战役",
+      "year": -497,
+      "end": -497,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Lake Regillus",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Lake_Regillus"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0496-00-00T00:00:00Z",
+        "precision": 8,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 23,
+      "hasParticipants": true,
+      "previousRank": 173,
+      "score": 5.8
+    },
+    {
+      "rank": 12,
+      "qid": "Q868027",
+      "id": "v312wd-q868027",
+      "titleZh": "克朗塔夫之战",
+      "titleEn": "Battle of Clontarf",
+      "labelZh": "克朗塔夫戰役",
+      "labelZhHans": "克朗塔夫之战",
+      "year": 1014,
+      "end": 1014,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Clontarf",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Clontarf"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1014-04-23T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 23,
+      "hasParticipants": true,
+      "previousRank": 174,
+      "score": 5.8
+    },
+    {
+      "rank": 13,
+      "qid": "Q636520",
+      "id": "v312wd-q636520",
+      "titleZh": "迈尔季欧云之战 (1179)",
+      "titleEn": "Battle of Marj Ayyun",
+      "labelZh": "邁爾季歐雲之戰 (1179)",
+      "labelZhHans": null,
+      "year": 1179,
+      "end": 1179,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Marj Ayyun",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Marj_Ayyun"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1179-06-10T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 23,
+      "hasParticipants": true,
+      "previousRank": 175,
+      "score": 5.8
+    },
+    {
+      "rank": 14,
+      "qid": "Q639827",
+      "id": "v312wd-q639827",
+      "titleZh": "大马士革围城战",
+      "titleEn": "Siege of Damascus",
+      "labelZh": "大马士革围城战",
+      "labelZhHans": null,
+      "year": 634,
+      "end": 634,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Siege of Damascus (634)",
+        "url": "https://en.wikipedia.org/wiki/Siege_of_Damascus_(634)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0634-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 27,
+      "hasParticipants": false,
+      "previousRank": 176,
+      "score": 5.7
+    },
+    {
+      "rank": 15,
+      "qid": "Q653482",
+      "id": "v312wd-q653482",
+      "titleZh": "卢格杜努姆战役",
+      "titleEn": "Battle of Lugdunum",
+      "labelZh": "卢格杜努姆战役",
+      "labelZhHans": "卢格杜努姆战役",
+      "year": 197,
+      "end": 197,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Lugdunum",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Lugdunum"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0197-02-19T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 22,
+      "hasParticipants": true,
+      "previousRank": 177,
+      "score": 5.7
+    },
+    {
+      "rank": 16,
+      "qid": "Q577190",
+      "id": "v312wd-q577190",
+      "titleZh": "克雷森之战",
+      "titleEn": "Battle of Cresson",
+      "labelZh": "克雷森之战",
+      "labelZhHans": "克雷森之战",
+      "year": 1187,
+      "end": 1187,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Cresson",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Cresson"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1187-05-01T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 22,
+      "hasParticipants": true,
+      "previousRank": 178,
+      "score": 5.7
+    },
+    {
+      "rank": 17,
+      "qid": "Q280468",
+      "id": "v312wd-q280468",
+      "titleZh": "北邑战役",
+      "titleEn": "Battle of Ap Bac",
+      "labelZh": "北邑戰役",
+      "labelZhHans": "北邑战役",
+      "year": 1963,
+      "end": 1963,
+      "region": "southeast-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ap Bac",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ap_Bac"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1963-01-02T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 22,
+      "hasParticipants": true,
+      "previousRank": 179,
+      "score": 5.7
+    },
+    {
+      "rank": 18,
+      "qid": "Q637544",
+      "id": "v312wd-q637544",
+      "titleZh": "安菲波利斯战役",
+      "titleEn": "Battle of Amphipolis",
+      "labelZh": "安菲波利斯战役",
+      "labelZhHans": "安菲波利斯战役",
+      "year": -422,
+      "end": -422,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Amphipolis",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Amphipolis"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0422-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 21,
+      "hasParticipants": true,
+      "previousRank": 180,
+      "score": 5.6
+    },
+    {
+      "rank": 19,
+      "qid": "Q1265750",
+      "id": "v312wd-q1265750",
+      "titleZh": "卡尔基斯战役",
+      "titleEn": "Battle of Callinicum",
+      "labelZh": "卡利奈孔战役",
+      "labelZhHans": "卡尔基斯战役",
+      "year": 531,
+      "end": 531,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Callinicum",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Callinicum"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0531-04-19T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 21,
+      "hasParticipants": true,
+      "previousRank": 181,
+      "score": 5.6
+    },
+    {
+      "rank": 20,
+      "qid": "Q2337526",
+      "id": "v312wd-q2337526",
+      "titleZh": "第一次埃纳河战役",
+      "titleEn": "First Battle of the Aisne",
+      "labelZh": "第一次埃納河戰役",
+      "labelZhHans": null,
+      "year": 1914,
+      "end": 1914,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "First Battle of the Aisne",
+        "url": "https://en.wikipedia.org/wiki/First_Battle_of_the_Aisne"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1914-09-28T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 21,
+      "hasParticipants": true,
+      "previousRank": 182,
+      "score": 5.6
+    },
+    {
+      "rank": 21,
+      "qid": "Q2888296",
+      "id": "v312wd-q2888296",
+      "titleZh": "葡萄牙征服休达",
+      "titleEn": "Conquest of Ceuta",
+      "labelZh": "葡萄牙征服休达",
+      "labelZhHans": "葡萄牙征服休达",
+      "year": 1415,
+      "end": 1415,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Portuguese conquest of Ceuta",
+        "url": "https://en.wikipedia.org/wiki/Portuguese_conquest_of_Ceuta"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1415-08-21T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 20,
+      "hasParticipants": true,
+      "previousRank": 183,
+      "score": 5.5
+    },
+    {
+      "rank": 22,
+      "qid": "Q2420811",
+      "id": "v312wd-q2420811",
+      "titleZh": "塔博尔山战役",
+      "titleEn": "Battle of Mount Tabor",
+      "labelZh": "塔博尔山战役",
+      "labelZhHans": "塔博尔山战役",
+      "year": 1799,
+      "end": 1799,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mount Tabor (1799)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mount_Tabor_(1799)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1799-04-16T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 20,
+      "hasParticipants": true,
+      "previousRank": 184,
+      "score": 5.5
+    },
+    {
+      "rank": 23,
+      "qid": "Q2890423",
+      "id": "v312wd-q2890423",
+      "titleZh": "玉奥战役",
+      "titleEn": "Battle of Yu Oc",
+      "labelZh": "玉奧戰役",
+      "labelZhHans": null,
+      "year": 1884,
+      "end": 1884,
+      "region": "east-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Yu Oc",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Yu_Oc"
+      },
+      "zhArticle": {
+        "title": "玉奧之戰",
+        "url": "https://zh.wikipedia.org/wiki/%E7%8E%89%E5%A5%A7%E4%B9%8B%E6%88%B0"
+      },
+      "p585": {
+        "time": "+1884-11-19T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 5,
+      "hasParticipants": false,
+      "previousRank": 162,
+      "score": 5.5
+    },
+    {
+      "rank": 24,
+      "qid": "Q1362188",
+      "id": "v312wd-q1362188",
+      "titleZh": "塔里克提之战",
+      "titleEn": "Battle of Talikota",
+      "labelZh": "塔里克提之戰",
+      "labelZhHans": null,
+      "year": 1565,
+      "end": 1565,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Talikota",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Talikota"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1565-01-26T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 24,
+      "hasParticipants": false,
+      "previousRank": 185,
+      "score": 5.4
+    },
+    {
+      "rank": 25,
+      "qid": "Q1036947",
+      "id": "v312wd-q1036947",
+      "titleZh": "三角洲之战",
+      "titleEn": "Battle of the Delta",
+      "labelZh": "三角洲之戰",
+      "labelZhHans": null,
+      "year": -1178,
+      "end": -1178,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of the Delta",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_the_Delta"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-1178-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 19,
+      "hasParticipants": true,
+      "previousRank": 186,
+      "score": 5.4
+    },
+    {
+      "rank": 26,
+      "qid": "Q118445706",
+      "id": "v312wd-q118445706",
+      "titleZh": "拉普拉塔战役",
+      "titleEn": "Battle of La Plata",
+      "labelZh": "拉普拉塔战役",
+      "labelZhHans": null,
+      "year": 1957,
+      "end": 1957,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of La Plata (1957)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_La_Plata_(1957)"
+      },
+      "zhArticle": {
+        "title": "拉普拉塔战役",
+        "url": "https://zh.wikipedia.org/wiki/%E6%8B%89%E6%99%AE%E6%8B%89%E5%A1%94%E6%88%98%E5%BD%B9"
+      },
+      "p585": {
+        "time": "+1957-01-17T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 4,
+      "hasParticipants": false,
+      "previousRank": 164,
+      "score": 5.4
+    },
+    {
+      "rank": 27,
+      "qid": "Q1148862",
+      "id": "v312wd-q1148862",
+      "titleZh": "法瑞斯库尔战役",
+      "titleEn": "Battle of Fariskur",
+      "labelZh": "法瑞斯库尔战役",
+      "labelZhHans": "法瑞斯库尔战役",
+      "year": 1250,
+      "end": 1250,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Fariskur (1250)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Fariskur_(1250)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1250-04-06T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 23,
+      "hasParticipants": false,
+      "previousRank": 187,
+      "score": 5.3
+    },
+    {
+      "rank": 28,
+      "qid": "Q524871",
+      "id": "v312wd-q524871",
+      "titleZh": "兹库斯之战",
+      "titleEn": "Battle of Cyzicus",
+      "labelZh": "兹库斯之战",
+      "labelZhHans": null,
+      "year": -410,
+      "end": -410,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Cyzicus",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Cyzicus"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0410-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 18,
+      "hasParticipants": true,
+      "previousRank": 188,
+      "score": 5.3
+    },
+    {
+      "rank": 29,
+      "qid": "Q617650",
+      "id": "v312wd-q617650",
+      "titleZh": "梅德韦战役",
+      "titleEn": "Battle of the Medway",
+      "labelZh": "梅德韋戰役",
+      "labelZhHans": null,
+      "year": 43,
+      "end": 43,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of the Medway",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_the_Medway"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0043-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 18,
+      "hasParticipants": true,
+      "previousRank": 189,
+      "score": 5.3
+    },
+    {
+      "rank": 30,
+      "qid": "Q2237576",
+      "id": "v312wd-q2237576",
+      "titleZh": "赫利奥波利斯战役",
+      "titleEn": "Battle of Heliopolis",
+      "labelZh": "赫利奥波利斯战役",
+      "labelZhHans": null,
+      "year": 640,
+      "end": 640,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Heliopolis",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Heliopolis"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0640-07-06T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 18,
+      "hasParticipants": true,
+      "previousRank": 190,
+      "score": 5.3
+    },
+    {
+      "rank": 31,
+      "qid": "Q2264459",
+      "id": "v312wd-q2264459",
+      "titleZh": "切里尼奧拉战役",
+      "titleEn": "Battle of Cerignola",
+      "labelZh": "切里尼奧拉戰役",
+      "labelZhHans": "切里尼奧拉战役",
+      "year": 1503,
+      "end": 1503,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Cerignola",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Cerignola"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1503-04-28T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 18,
+      "hasParticipants": true,
+      "previousRank": 191,
+      "score": 5.3
+    },
+    {
+      "rank": 32,
+      "qid": "Q2003949",
+      "id": "v312wd-q2003949",
+      "titleZh": "勒卡托战役",
+      "titleEn": "Battle of Le Cateau",
+      "labelZh": "勒卡托戰役",
+      "labelZhHans": null,
+      "year": 1914,
+      "end": 1914,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Le Cateau",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Le_Cateau"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1914-08-26T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 18,
+      "hasParticipants": true,
+      "previousRank": 192,
+      "score": 5.3
+    },
+    {
+      "rank": 33,
+      "qid": "Q2890079",
+      "id": "v312wd-q2890079",
+      "titleZh": "塞迪曼战役",
+      "titleEn": "Battle of Sediman",
+      "labelZh": "塞迪曼戰役",
+      "labelZhHans": null,
+      "year": 1798,
+      "end": 1798,
+      "region": "africa",
+      "category": "war",
+      "enArticle": null,
+      "zhArticle": {
+        "title": "西德曼之戰",
+        "url": "https://zh.wikipedia.org/wiki/%E8%A5%BF%E5%BE%B7%E6%9B%BC%E4%B9%8B%E6%88%B0"
+      },
+      "p585": {
+        "time": "+1798-10-07T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 3,
+      "hasParticipants": false,
+      "previousRank": 166,
+      "score": 5.3
+    },
+    {
+      "rank": 34,
+      "qid": "Q767124",
+      "id": "v312wd-q767124",
+      "titleZh": "泰西封战役",
+      "titleEn": "Battle of Ctesiphon",
+      "labelZh": "泰西封戰役",
+      "labelZhHans": null,
+      "year": 363,
+      "end": 363,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ctesiphon (363)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ctesiphon_(363)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0363-05-29T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 17,
+      "hasParticipants": true,
+      "previousRank": 193,
+      "score": 5.2
+    },
+    {
+      "rank": 35,
+      "qid": "Q966386",
+      "id": "v312wd-q966386",
+      "titleZh": "韦兹龙斯之战",
+      "titleEn": "Battle of Vézeronce",
+      "labelZh": "韦兹龙斯之战",
+      "labelZhHans": null,
+      "year": 524,
+      "end": 524,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Vézeronce",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_V%C3%A9zeronce"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0524-06-25T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 17,
+      "hasParticipants": true,
+      "previousRank": 194,
+      "score": 5.2
+    },
+    {
+      "rank": 36,
+      "qid": "Q1420382",
+      "id": "v312wd-q1420382",
+      "titleZh": "大土陵战役",
+      "titleEn": "Battle of Tel el-Kebir",
+      "labelZh": "大土陵戰役",
+      "labelZhHans": null,
+      "year": 1882,
+      "end": 1882,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Tell El Kebir",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Tell_El_Kebir"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1882-09-13T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 17,
+      "hasParticipants": true,
+      "previousRank": 195,
+      "score": 5.2
+    },
+    {
+      "rank": 37,
+      "qid": "Q1030249",
+      "id": "v312wd-q1030249",
+      "titleZh": "法尔战役",
+      "titleEn": "Battle of Fahl",
+      "labelZh": "法尔战役",
+      "labelZhHans": "法尔战役",
+      "year": 635,
+      "end": 635,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Fahl",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Fahl"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0635-01-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 21,
+      "hasParticipants": false,
+      "previousRank": 196,
+      "score": 5.1
+    },
+    {
+      "rank": 38,
+      "qid": "Q259526",
+      "id": "v312wd-q259526",
+      "titleZh": "隆新战役",
+      "titleEn": "Battle of Long Tan",
+      "labelZh": "隆新戰役",
+      "labelZhHans": null,
+      "year": 1966,
+      "end": 1966,
+      "region": "southeast-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Long Tan",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Long_Tan"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1966-08-18T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 16,
+      "hasParticipants": true,
+      "previousRank": 197,
+      "score": 5.1
+    },
+    {
+      "rank": 39,
+      "qid": "Q112725430",
+      "id": "v312wd-q112725430",
+      "titleZh": "克节朗战役",
+      "titleEn": "Battle of Namka Chu",
+      "labelZh": "克节朗战役",
+      "labelZhHans": null,
+      "year": 1962,
+      "end": 1962,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": null,
+      "zhArticle": {
+        "title": "克节朗战役",
+        "url": "https://zh.wikipedia.org/wiki/%E5%85%8B%E8%8A%82%E6%9C%97%E6%88%98%E5%BD%B9"
+      },
+      "p585": {
+        "time": "+1962-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 1,
+      "hasParticipants": false,
+      "previousRank": 170,
+      "score": 5.1
+    },
+    {
+      "rank": 40,
+      "qid": "Q975123",
+      "id": "v312wd-q975123",
+      "titleZh": "诺提姆之战",
+      "titleEn": "Battle of Notium",
+      "labelZh": "诺提姆之战",
+      "labelZhHans": null,
+      "year": -406,
+      "end": -406,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Notium",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Notium"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0406-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 198,
+      "score": 5
+    },
+    {
+      "rank": 41,
+      "qid": "Q1784785",
+      "id": "v312wd-q1784785",
+      "titleZh": "蒙斯·塞琉古战役",
+      "titleEn": "Battle of Mons Seleucus",
+      "labelZh": "蒙斯·塞琉古戰役",
+      "labelZhHans": null,
+      "year": 353,
+      "end": 353,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mons Seleucus",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mons_Seleucus"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0353-08-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 199,
+      "score": 5
+    },
+    {
+      "rank": 42,
+      "qid": "Q762717",
+      "id": "v312wd-q762717",
+      "titleZh": "波伦蒂亚战役",
+      "titleEn": "Battle of Pollentia",
+      "labelZh": "波伦蒂亚战役",
+      "labelZhHans": null,
+      "year": 402,
+      "end": 402,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Pollentia",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Pollentia"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0402-04-06T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 200,
+      "score": 5
+    },
+    {
+      "rank": 43,
+      "qid": "Q966312",
+      "id": "v312wd-q966312",
+      "titleZh": "安基阿卢斯战役",
+      "titleEn": "Battle of Anchialus",
+      "labelZh": "安基阿卢斯战役",
+      "labelZhHans": null,
+      "year": 763,
+      "end": 763,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Anchialus (763)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Anchialus_(763)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0763-06-30T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 201,
+      "score": 5
+    },
+    {
+      "rank": 44,
+      "qid": "Q1443091",
+      "id": "v312wd-q1443091",
+      "titleZh": "加里利亚诺河之战",
+      "titleEn": "Battle of Garigliano",
+      "labelZh": "加里利亚诺河之战",
+      "labelZhHans": "加里利亚诺河之战",
+      "year": 1504,
+      "end": 1504,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Garigliano (1503)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Garigliano_(1503)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1503-12-29T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 202,
+      "score": 5
+    },
+    {
+      "rank": 45,
+      "qid": "Q2095678",
+      "id": "v312wd-q2095678",
+      "titleZh": "阿瑟耶战役",
+      "titleEn": "Battle of Assaye",
+      "labelZh": "阿瑟耶戰役",
+      "labelZhHans": null,
+      "year": 1803,
+      "end": 1803,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Assaye",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Assaye"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1803-09-23T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 203,
+      "score": 5
+    },
+    {
+      "rank": 46,
+      "qid": "Q1192867",
+      "id": "v312wd-q1192867",
+      "titleZh": "普乌图斯克会战",
+      "titleEn": "Battle of Pułtusk",
+      "labelZh": "普烏圖斯克會戰",
+      "labelZhHans": null,
+      "year": 1806,
+      "end": 1806,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Pułtusk (1806)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Pu%C5%82tusk_(1806)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1806-12-26T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 204,
+      "score": 5
+    },
+    {
+      "rank": 47,
+      "qid": "Q20045970",
+      "id": "v312wd-q20045970",
+      "titleZh": "马林卡战役",
+      "titleEn": "Battle of Marinka",
+      "labelZh": "馬林卡戰役",
+      "labelZhHans": null,
+      "year": 2015,
+      "end": 2015,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Marinka (2015)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Marinka_(2015)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2015-06-03T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 15,
+      "hasParticipants": true,
+      "previousRank": 205,
+      "score": 5
+    },
+    {
+      "rank": 48,
+      "qid": "Q2237785",
+      "id": "v312wd-q2237785",
+      "titleZh": "维斯克拉战役",
+      "titleEn": "Battle of Vescera",
+      "labelZh": "维斯克拉战役",
+      "labelZhHans": "维斯克拉战役",
+      "year": 682,
+      "end": 682,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Vescera",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Vescera"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0682-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 206,
+      "score": 4.9
+    },
+    {
+      "rank": 49,
+      "qid": "Q1113509",
+      "id": "v312wd-q1113509",
+      "titleZh": "天目山之战",
+      "titleEn": "Battle of Tenmokuzan",
+      "labelZh": "天目山之戰",
+      "labelZhHans": null,
+      "year": 1582,
+      "end": 1582,
+      "region": "east-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Tenmokuzan",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Tenmokuzan"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1582-04-03T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 207,
+      "score": 4.9
+    },
+    {
+      "rank": 50,
+      "qid": "Q2750968",
+      "id": "v312wd-q2750968",
+      "titleZh": "亚历山大战役",
+      "titleEn": "Battle of Alexandria",
+      "labelZh": "亞歷山大港戰役",
+      "labelZhHans": "亚历山大战役",
+      "year": 1801,
+      "end": 1801,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Alexandria (1801)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Alexandria_(1801)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1801-03-21T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 208,
+      "score": 4.9
+    },
+    {
+      "rank": 51,
+      "qid": "Q1288821",
+      "id": "v312wd-q1288821",
+      "titleZh": "阿布·科里亚之战",
+      "titleEn": "Battle of Abu Klea",
+      "labelZh": "阿布·科里亚之战",
+      "labelZhHans": null,
+      "year": 1885,
+      "end": 1885,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Abu Klea",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Abu_Klea"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1885-01-17T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 209,
+      "score": 4.9
+    },
+    {
+      "rank": 52,
+      "qid": "Q2720985",
+      "id": "v312wd-q2720985",
+      "titleZh": "柯克基利斯之战",
+      "titleEn": "Battle of Kirk Kilisse",
+      "labelZh": "柯克基利斯之戰",
+      "labelZhHans": null,
+      "year": 1912,
+      "end": 1912,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kirk Kilisse",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kirk_Kilisse"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1912-10-24T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 210,
+      "score": 4.9
+    },
+    {
+      "rank": 53,
+      "qid": "Q220766",
+      "id": "v312wd-q220766",
+      "titleZh": "马拉兹吉尔特战役",
+      "titleEn": "Battle of Manzikert",
+      "labelZh": "馬拉茲吉爾特戰役",
+      "labelZhHans": null,
+      "year": 1915,
+      "end": 1915,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Manzikert (1915)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Manzikert_(1915)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1915-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 211,
+      "score": 4.9
+    },
+    {
+      "rank": 54,
+      "qid": "Q2091385",
+      "id": "v312wd-q2091385",
+      "titleZh": "阿拉威战役",
+      "titleEn": "Battle of Arawe",
+      "labelZh": "阿拉威战役",
+      "labelZhHans": null,
+      "year": 1943,
+      "end": 1943,
+      "region": "oceania",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Arawe",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Arawe"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1943-12-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 14,
+      "hasParticipants": true,
+      "previousRank": 212,
+      "score": 4.9
+    },
+    {
+      "rank": 55,
+      "qid": "Q2665461",
+      "id": "v312wd-q2665461",
+      "titleZh": "巴巴利索斯战役",
+      "titleEn": "Battle of Barbalissos",
+      "labelZh": "巴巴利索斯战役",
+      "labelZhHans": "巴巴利索斯战役",
+      "year": 252,
+      "end": 252,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Barbalissos",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Barbalissos"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0252-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 213,
+      "score": 4.8
+    },
+    {
+      "rank": 56,
+      "qid": "Q1855781",
+      "id": "v312wd-q1855781",
+      "titleZh": "尼基乌战役",
+      "titleEn": "Battle of Nikiou",
+      "labelZh": "尼基乌战役",
+      "labelZhHans": null,
+      "year": 646,
+      "end": 646,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Nikiou",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Nikiou"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0646-05-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 214,
+      "score": 4.8
+    },
+    {
+      "rank": 57,
+      "qid": "Q1896360",
+      "id": "v312wd-q1896360",
+      "titleZh": "斯科普里战役",
+      "titleEn": "Battle of Skopje",
+      "labelZh": "斯科普里战役",
+      "labelZhHans": "斯科普里战役",
+      "year": 1004,
+      "end": 1004,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Skopje",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Skopje"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1004-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 215,
+      "score": 4.8
+    },
+    {
+      "rank": 58,
+      "qid": "Q2237386",
+      "id": "v312wd-q2237386",
+      "titleZh": "第一次元日战争",
+      "titleEn": "Battle of Bun'ei",
+      "labelZh": "第一次元日戰爭",
+      "labelZhHans": null,
+      "year": 1274,
+      "end": 1274,
+      "region": "east-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Bun'ei",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Bun'ei"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1274-11-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 216,
+      "score": 4.8
+    },
+    {
+      "rank": 59,
+      "qid": "Q604175",
+      "id": "v312wd-q604175",
+      "titleZh": "伊里海战",
+      "titleEn": "Battle of Elli",
+      "labelZh": "伊里海战",
+      "labelZhHans": "伊里海战",
+      "year": 1912,
+      "end": 1912,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Elli",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Elli"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1912-12-16T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 217,
+      "score": 4.8
+    },
+    {
+      "rank": 60,
+      "qid": "Q2889635",
+      "id": "v312wd-q2889635",
+      "titleZh": "波利亚纳战役",
+      "titleEn": "Final operations in Slovenia",
+      "labelZh": "波利亚纳战役",
+      "labelZhHans": null,
+      "year": 1945,
+      "end": 1945,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Poljana",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Poljana"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1945-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 218,
+      "score": 4.8
+    },
+    {
+      "rank": 61,
+      "qid": "Q2664174",
+      "id": "v312wd-q2664174",
+      "titleZh": "卡姆代什战役",
+      "titleEn": "Battle of Kamdesh",
+      "labelZh": "卡姆代什戰役",
+      "labelZhHans": null,
+      "year": 2009,
+      "end": 2009,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kamdesh",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kamdesh"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2009-10-03T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 13,
+      "hasParticipants": true,
+      "previousRank": 219,
+      "score": 4.8
+    },
+    {
+      "rank": 62,
+      "qid": "Q1132306",
+      "id": "v312wd-q1132306",
+      "titleZh": "特兹拉卢姆之战",
+      "titleEn": "Battle of Tzirallum",
+      "labelZh": "特兹拉卢姆之战",
+      "labelZhHans": "特兹拉卢姆之战",
+      "year": 313,
+      "end": 313,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Tzirallum",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Tzirallum"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0313-04-30T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 220,
+      "score": 4.7
+    },
+    {
+      "rank": 63,
+      "qid": "Q532544",
+      "id": "v312wd-q532544",
+      "titleZh": "斯文达克斯战役（Battle of Svindax）",
+      "titleEn": "Battle of Svindax",
+      "labelZh": "斯文达克斯战役",
+      "labelZhHans": "斯文达克斯战役（Battle of Svindax）",
+      "year": 1022,
+      "end": 1022,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Svindax",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Svindax"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1022-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 221,
+      "score": 4.7
+    },
+    {
+      "rank": 64,
+      "qid": "Q1187406",
+      "id": "v312wd-q1187406",
+      "titleZh": "格劳斯战役",
+      "titleEn": "Battle of Graus",
+      "labelZh": "格勞斯戰役",
+      "labelZhHans": null,
+      "year": 1063,
+      "end": 1063,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Graus",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Graus"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1063-05-08T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 222,
+      "score": 4.7
+    },
+    {
+      "rank": 65,
+      "qid": "Q541564",
+      "id": "v312wd-q541564",
+      "titleZh": "埃尔斯特河战役",
+      "titleEn": "Battle on the Elster",
+      "labelZh": "埃爾斯特河戰役",
+      "labelZhHans": null,
+      "year": 1080,
+      "end": 1080,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle on the Elster",
+        "url": "https://en.wikipedia.org/wiki/Battle_on_the_Elster"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1080-10-14T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 223,
+      "score": 4.7
+    },
+    {
+      "rank": 66,
+      "qid": "Q1319855",
+      "id": "v312wd-q1319855",
+      "titleZh": "基里纳战役",
+      "titleEn": "Battle of Kirina",
+      "labelZh": "基里纳战役",
+      "labelZhHans": "基里纳战役",
+      "year": 1235,
+      "end": 1235,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kirina",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kirina"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1235-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 224,
+      "score": 4.7
+    },
+    {
+      "rank": 67,
+      "qid": "Q592069",
+      "id": "v312wd-q592069",
+      "titleZh": "谢林伯尔战役",
+      "titleEn": "Battle of Sellenberk",
+      "labelZh": "谢林伯尔战役",
+      "labelZhHans": "谢林伯尔战役",
+      "year": 1599,
+      "end": 1599,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Șelimbăr",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_%C8%98elimb%C4%83r"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1599-10-28T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 225,
+      "score": 4.7
+    },
+    {
+      "rank": 68,
+      "qid": "Q2557155",
+      "id": "v312wd-q2557155",
+      "titleZh": "塞奇高沼之战",
+      "titleEn": "Battle of Sedgemoor",
+      "labelZh": "塞奇高沼之戰",
+      "labelZhHans": null,
+      "year": 1685,
+      "end": 1685,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Sedgemoor",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Sedgemoor"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1685-07-06T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 226,
+      "score": 4.7
+    },
+    {
+      "rank": 69,
+      "qid": "Q1286106",
+      "id": "v312wd-q1286106",
+      "titleZh": "法奧大登陸",
+      "titleEn": "Fao Landing",
+      "labelZh": "法奧大登陸",
+      "labelZhHans": null,
+      "year": 1914,
+      "end": 1914,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Fao Landing",
+        "url": "https://en.wikipedia.org/wiki/Fao_Landing"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1914-11-06T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 227,
+      "score": 4.7
+    },
+    {
+      "rank": 70,
+      "qid": "Q936223",
+      "id": "v312wd-q936223",
+      "titleZh": "卡拉基利塞战役",
+      "titleEn": "Battle of Kara Killisse",
+      "labelZh": "卡拉基利塞戰役",
+      "labelZhHans": null,
+      "year": 1915,
+      "end": 1915,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kara Killisse (1915)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kara_Killisse_(1915)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1915-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 12,
+      "hasParticipants": true,
+      "previousRank": 228,
+      "score": 4.7
+    },
+    {
+      "rank": 71,
+      "qid": "Q1616794",
+      "id": "v312wd-q1616794",
+      "titleZh": "阿基里斯行动",
+      "titleEn": "Operation Achilles",
+      "labelZh": "阿基里斯行动",
+      "labelZhHans": "阿基里斯行动",
+      "year": 2007,
+      "end": 2007,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Operation Achilles",
+        "url": "https://en.wikipedia.org/wiki/Operation_Achilles"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2007-05-30T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 16,
+      "hasParticipants": false,
+      "previousRank": 229,
+      "score": 4.6
+    },
+    {
+      "rank": 72,
+      "qid": "Q1638751",
+      "id": "v312wd-q1638751",
+      "titleZh": "希姆里尼村附近爆发了血腥的战斗",
+      "titleEn": "Battle of Shirimni",
+      "labelZh": "希姆里尼战役",
+      "labelZhHans": "希姆里尼村附近爆发了血腥的战斗",
+      "year": 1021,
+      "end": 1021,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Shirimni",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Shirimni"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1021-09-11T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 11,
+      "hasParticipants": true,
+      "previousRank": 230,
+      "score": 4.6
+    },
+    {
+      "rank": 73,
+      "qid": "Q2888964",
+      "id": "v312wd-q2888964",
+      "titleZh": "藤户之战",
+      "titleEn": "Battle of Kojima",
+      "labelZh": "藤戶之戰",
+      "labelZhHans": null,
+      "year": 1185,
+      "end": 1185,
+      "region": "east-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kojima",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kojima"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1185-01-10T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 11,
+      "hasParticipants": true,
+      "previousRank": 231,
+      "score": 4.6
+    },
+    {
+      "rank": 74,
+      "qid": "Q743889",
+      "id": "v312wd-q743889",
+      "titleZh": "瓦乌战役",
+      "titleEn": "Battle of Wau",
+      "labelZh": "瓦烏戰役",
+      "labelZhHans": null,
+      "year": 1943,
+      "end": 1943,
+      "region": "oceania",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Wau",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Wau"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1943-02-04T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 11,
+      "hasParticipants": true,
+      "previousRank": 232,
+      "score": 4.6
+    },
+    {
+      "rank": 75,
+      "qid": "Q2281774",
+      "id": "v312wd-q2281774",
+      "titleZh": "迈尔季·拉希特战役",
+      "titleEn": "Battle of Marj al-Rahit",
+      "labelZh": "迈尔季·拉希特战役",
+      "labelZhHans": null,
+      "year": 684,
+      "end": 684,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Marj Rahit (684)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Marj_Rahit_(684)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0684-08-18T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 15,
+      "hasParticipants": false,
+      "previousRank": 233,
+      "score": 4.5
+    },
+    {
+      "rank": 76,
+      "qid": "Q5432157",
+      "id": "v312wd-q5432157",
+      "titleZh": "喀布尔战役",
+      "titleEn": "Fall of Kabul",
+      "labelZh": "喀布尔战役",
+      "labelZhHans": null,
+      "year": 2001,
+      "end": 2001,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Fall of Kabul (2001)",
+        "url": "https://en.wikipedia.org/wiki/Fall_of_Kabul_(2001)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2001-11-13T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 15,
+      "hasParticipants": false,
+      "previousRank": 234,
+      "score": 4.5
+    },
+    {
+      "rank": 77,
+      "qid": "Q1747219",
+      "id": "v312wd-q1747219",
+      "titleZh": "阿维尼翁战役",
+      "titleEn": "Battle of Avignon",
+      "labelZh": "阿维尼翁战役",
+      "labelZhHans": "阿维尼翁战役",
+      "year": 737,
+      "end": 737,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Siege of Avignon (737)",
+        "url": "https://en.wikipedia.org/wiki/Siege_of_Avignon_(737)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0737-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 10,
+      "hasParticipants": true,
+      "previousRank": 235,
+      "score": 4.5
+    },
+    {
+      "rank": 78,
+      "qid": "Q3046548",
+      "id": "v312wd-q3046548",
+      "titleZh": "迪爾菲爾德大屠殺",
+      "titleEn": "Raid on Deerfield",
+      "labelZh": "迪爾菲爾德大屠殺",
+      "labelZhHans": null,
+      "year": 1704,
+      "end": 1704,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Raid on Deerfield",
+        "url": "https://en.wikipedia.org/wiki/Raid_on_Deerfield"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1704-02-29T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 10,
+      "hasParticipants": true,
+      "previousRank": 236,
+      "score": 4.5
+    },
+    {
+      "rank": 79,
+      "qid": "Q1752783",
+      "id": "v312wd-q1752783",
+      "titleZh": "沙托盖战役",
+      "titleEn": "Battle of the Chateauguay",
+      "labelZh": "沙托盖战役",
+      "labelZhHans": null,
+      "year": 1813,
+      "end": 1813,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of the Chateauguay",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_the_Chateauguay"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1813-10-26T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 10,
+      "hasParticipants": true,
+      "previousRank": 237,
+      "score": 4.5
+    },
+    {
+      "rank": 80,
+      "qid": "Q908888",
+      "id": "v312wd-q908888",
+      "titleZh": "甘大麦战役",
+      "titleEn": "1842 retreat from Kabul",
+      "labelZh": "甘大麦战役",
+      "labelZhHans": null,
+      "year": 1842,
+      "end": 1842,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Gandamak",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Gandamak"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1842-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 10,
+      "hasParticipants": true,
+      "previousRank": 238,
+      "score": 4.5
+    },
+    {
+      "rank": 81,
+      "qid": "Q2624980",
+      "id": "v312wd-q2624980",
+      "titleZh": "图卜鲁格战役",
+      "titleEn": "Battle of Tobruk",
+      "labelZh": "图卜鲁格战役",
+      "labelZhHans": null,
+      "year": 1911,
+      "end": 1911,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Tobruk (1911)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Tobruk_(1911)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1911-12-22T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 10,
+      "hasParticipants": true,
+      "previousRank": 239,
+      "score": 4.5
+    },
+    {
+      "rank": 82,
+      "qid": "Q2363420",
+      "id": "v312wd-q2363420",
+      "titleZh": "边境支援",
+      "titleEn": "2011 southern Israel cross-border attacks",
+      "labelZh": "边境支援",
+      "labelZhHans": null,
+      "year": 2011,
+      "end": 2011,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "2011 southern Israel cross-border attacks",
+        "url": "https://en.wikipedia.org/wiki/2011_southern_Israel_cross-border_attacks"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2011-08-18T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 14,
+      "hasParticipants": false,
+      "previousRank": 240,
+      "score": 4.4
+    },
+    {
+      "rank": 83,
+      "qid": "Q2705449",
+      "id": "v312wd-q2705449",
+      "titleZh": "Mons Algidus战役",
+      "titleEn": "Battle of Mount Algidus",
+      "labelZh": "Mons Algidus战役",
+      "labelZhHans": "Mons Algidus战役",
+      "year": -458,
+      "end": -458,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mount Algidus",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mount_Algidus"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0458-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 241,
+      "score": 4.4
+    },
+    {
+      "rank": 84,
+      "qid": "Q1290572",
+      "id": "v312wd-q1290572",
+      "titleZh": "祖尔堡战役",
+      "titleEn": "Battle of Beth Zur",
+      "labelZh": "祖爾堡戰役",
+      "labelZhHans": null,
+      "year": -164,
+      "end": -164,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Beth Zur",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Beth_Zur"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0164-10-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 242,
+      "score": 4.4
+    },
+    {
+      "rank": 85,
+      "qid": "Q1268349",
+      "id": "v312wd-q1268349",
+      "titleZh": "杰卡里亚堡战役",
+      "titleEn": "Battle of Beth Zechariah",
+      "labelZh": "傑卡里亞堡戰役",
+      "labelZhHans": null,
+      "year": -162,
+      "end": -162,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Beth Zechariah",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Beth_Zechariah"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0162-05-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 243,
+      "score": 4.4
+    },
+    {
+      "rank": 86,
+      "qid": "Q3555607",
+      "id": "v312wd-q3555607",
+      "titleZh": "埃克巴坦那战役",
+      "titleEn": "Battle of Ecbatana",
+      "labelZh": "埃克巴坦那戰役",
+      "labelZhHans": null,
+      "year": -129,
+      "end": -129,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ecbatana",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ecbatana"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0129-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 244,
+      "score": 4.4
+    },
+    {
+      "rank": 87,
+      "qid": "Q2457256",
+      "id": "v312wd-q2457256",
+      "titleZh": "奥尔良战役",
+      "titleEn": "Battle of Orleans",
+      "labelZh": "奥尔良战役",
+      "labelZhHans": null,
+      "year": 463,
+      "end": 463,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Orléans (463)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Orl%C3%A9ans_(463)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0463-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 245,
+      "score": 4.4
+    },
+    {
+      "rank": 88,
+      "qid": "Q2599844",
+      "id": "v312wd-q2599844",
+      "titleZh": "克列茨克战役",
+      "titleEn": "Battle of Kletsk",
+      "labelZh": "科勒切斯科之戰",
+      "labelZhHans": "克列茨克战役",
+      "year": 1506,
+      "end": 1506,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kletsk",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kletsk"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1506-08-05T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 246,
+      "score": 4.4
+    },
+    {
+      "rank": 89,
+      "qid": "Q1888562",
+      "id": "v312wd-q1888562",
+      "titleZh": "1804年10月5日海战",
+      "titleEn": "Action of 5 October 1804",
+      "labelZh": "1804年10月5日海戰",
+      "labelZhHans": null,
+      "year": 1804,
+      "end": 1804,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Action of 5 October 1804",
+        "url": "https://en.wikipedia.org/wiki/Action_of_5_October_1804"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1804-10-05T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 247,
+      "score": 4.4
+    },
+    {
+      "rank": 90,
+      "qid": "Q654722",
+      "id": "v312wd-q654722",
+      "titleZh": "穆雷达战役",
+      "titleEn": "Battle of Mulayda",
+      "labelZh": "穆萊達戰役",
+      "labelZhHans": "穆雷达战役",
+      "year": 1891,
+      "end": 1891,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mulayda",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mulayda"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1891-01-24T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 248,
+      "score": 4.4
+    },
+    {
+      "rank": 91,
+      "qid": "Q2889954",
+      "id": "v312wd-q2889954",
+      "titleZh": "西贡战役",
+      "titleEn": "Battle of Saigon",
+      "labelZh": "西貢戰役 (1968年)",
+      "labelZhHans": "西贡战役",
+      "year": 1968,
+      "end": 1968,
+      "region": "southeast-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Saigon (1968)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Saigon_(1968)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1968-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 249,
+      "score": 4.4
+    },
+    {
+      "rank": 92,
+      "qid": "Q2889747",
+      "id": "v312wd-q2889747",
+      "titleZh": "2006年拉马迪战役",
+      "titleEn": "Battle of Ramadi",
+      "labelZh": "2006年拉馬迪戰役",
+      "labelZhHans": null,
+      "year": 2006,
+      "end": 2006,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ramadi (2006)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2006)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2006-11-15T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 9,
+      "hasParticipants": true,
+      "previousRank": 250,
+      "score": 4.4
+    },
+    {
+      "rank": 93,
+      "qid": "Q4871330",
+      "id": "v312wd-q4871330",
+      "titleZh": "杰宁战役",
+      "titleEn": "Battle of Jenin",
+      "labelZh": "傑寧戰役",
+      "labelZhHans": null,
+      "year": 2002,
+      "end": 2002,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Jenin (2002)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Jenin_(2002)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2002-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 13,
+      "hasParticipants": false,
+      "previousRank": 251,
+      "score": 4.3
+    },
+    {
+      "rank": 94,
+      "qid": "Q1268317",
+      "id": "v312wd-q1268317",
+      "titleZh": "伊茅斯战役",
+      "titleEn": "Battle of Emmaus",
+      "labelZh": "伊茅斯戰役",
+      "labelZhHans": null,
+      "year": -165,
+      "end": -165,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Emmaus",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Emmaus"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0165-09-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 252,
+      "score": 4.3
+    },
+    {
+      "rank": 95,
+      "qid": "Q2890073",
+      "id": "v312wd-q2890073",
+      "titleZh": "苏帕洽战役",
+      "titleEn": "Battle of Suipacha",
+      "labelZh": "蘇帕洽戰役",
+      "labelZhHans": null,
+      "year": 1810,
+      "end": 1810,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Suipacha",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Suipacha"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1810-11-07T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 253,
+      "score": 4.3
+    },
+    {
+      "rank": 96,
+      "qid": "Q1416369",
+      "id": "v312wd-q1416369",
+      "titleZh": "克莱斯勒农场战役",
+      "titleEn": "Battle of Crysler's Farm",
+      "labelZh": "克萊斯勒農場戰役",
+      "labelZhHans": null,
+      "year": 1813,
+      "end": 1813,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Crysler's Farm",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Crysler's_Farm"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1813-11-11T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 254,
+      "score": 4.3
+    },
+    {
+      "rank": 97,
+      "qid": "Q177470",
+      "id": "v312wd-q177470",
+      "titleZh": "斯托尼河战役",
+      "titleEn": "Battle of Stoney Creek",
+      "labelZh": "斯托尼河战役",
+      "labelZhHans": null,
+      "year": 1813,
+      "end": 1813,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Stoney Creek",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Stoney_Creek"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1813-06-06T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 255,
+      "score": 4.3
+    },
+    {
+      "rank": 98,
+      "qid": "Q303176",
+      "id": "v312wd-q303176",
+      "titleZh": "马尼拉战役",
+      "titleEn": "Battle of Manila",
+      "labelZh": "马尼拉战役",
+      "labelZhHans": "马尼拉战役",
+      "year": 1898,
+      "end": 1898,
+      "region": "southeast-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Manila (1898)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Manila_(1898)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1898-08-13T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 256,
+      "score": 4.3
+    },
+    {
+      "rank": 99,
+      "qid": "Q786657",
+      "id": "v312wd-q786657",
+      "titleZh": "卡尔德隆大桥战役",
+      "titleEn": "Battle of Calderón Bridge",
+      "labelZh": "卡尔德隆大桥战役",
+      "labelZhHans": null,
+      "year": 2000,
+      "end": 2000,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Calderón Bridge",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Calder%C3%B3n_Bridge"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2000-01-17T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 257,
+      "score": 4.3
+    },
+    {
+      "rank": 100,
+      "qid": "Q21685887",
+      "id": "v312wd-q21685887",
+      "titleZh": "拉马迪之战 (2015-16)",
+      "titleEn": "Battle of Ramadi",
+      "labelZh": "拉馬迪之戰 (2015-16)",
+      "labelZhHans": null,
+      "year": 2016,
+      "end": 2016,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ramadi (2015–2016)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2015%E2%80%932016)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2016-02-09T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": true,
+      "previousRank": 258,
+      "score": 4.3
+    },
+    {
+      "rank": 101,
+      "qid": "Q4872472",
+      "id": "v312wd-q4872472",
+      "titleZh": "苏萨战役",
+      "titleEn": "Battle of Susa",
+      "labelZh": "蘇薩戰役",
+      "labelZhHans": null,
+      "year": -647,
+      "end": -647,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Susa",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Susa"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0647-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 12,
+      "hasParticipants": false,
+      "previousRank": 259,
+      "score": 4.2
+    },
+    {
+      "rank": 102,
+      "qid": "Q1268339",
+      "id": "v312wd-q1268339",
+      "titleZh": "霍伦堡战役",
+      "titleEn": "Battle of Beth Horon",
+      "labelZh": "霍倫堡戰役",
+      "labelZhHans": null,
+      "year": -166,
+      "end": -166,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Beth Horon (166 BC)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Beth_Horon_(166_BC)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0166-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 260,
+      "score": 4.2
+    },
+    {
+      "rank": 103,
+      "qid": "Q1243260",
+      "id": "v312wd-q1243260",
+      "titleZh": "戈尔佩赫拉战役",
+      "titleEn": "Battle of Golpejera",
+      "labelZh": "戈爾佩赫拉戰役",
+      "labelZhHans": null,
+      "year": 1072,
+      "end": 1072,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Golpejera",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Golpejera"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1072-01-12T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 261,
+      "score": 4.2
+    },
+    {
+      "rank": 104,
+      "qid": "Q932519",
+      "id": "v312wd-q932519",
+      "titleZh": "姆波柔惹战役",
+      "titleEn": "Battle of Mbororé",
+      "labelZh": "姆波柔惹戰役",
+      "labelZhHans": null,
+      "year": 1641,
+      "end": 1641,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mbororé",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mboror%C3%A9"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1641-03-11T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 262,
+      "score": 4.2
+    },
+    {
+      "rank": 105,
+      "qid": "Q2888406",
+      "id": "v312wd-q2888406",
+      "titleZh": "钻石山战役",
+      "titleEn": "Battle of Diamond Hill",
+      "labelZh": "鑽石山戰役",
+      "labelZhHans": null,
+      "year": 1900,
+      "end": 1900,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Diamond Hill",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Diamond_Hill"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1900-06-12T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 263,
+      "score": 4.2
+    },
+    {
+      "rank": 106,
+      "qid": "Q2889668",
+      "id": "v312wd-q2889668",
+      "titleZh": "白杨树丛战役",
+      "titleEn": "Battle of Poplar Grove",
+      "labelZh": "白楊樹叢戰役",
+      "labelZhHans": null,
+      "year": 1900,
+      "end": 1900,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Poplar Grove",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Poplar_Grove"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1900-03-07T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 264,
+      "score": 4.2
+    },
+    {
+      "rank": 107,
+      "qid": "Q2026028",
+      "id": "v312wd-q2026028",
+      "titleZh": "卷发作战",
+      "titleEn": "Operation Crimp",
+      "labelZh": "捲髮作戰",
+      "labelZhHans": null,
+      "year": 1966,
+      "end": 1966,
+      "region": "southeast-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Operation Crimp",
+        "url": "https://en.wikipedia.org/wiki/Operation_Crimp"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1966-01-14T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 265,
+      "score": 4.2
+    },
+    {
+      "rank": 108,
+      "qid": "Q4872157",
+      "id": "v312wd-q4872157",
+      "titleZh": "拉马迪战役",
+      "titleEn": "Battle of Ramadi",
+      "labelZh": "拉马迪战役",
+      "labelZhHans": "拉马迪战役",
+      "year": 2004,
+      "end": 2004,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ramadi (2004)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ramadi_(2004)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2004-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 266,
+      "score": 4.2
+    },
+    {
+      "rank": 109,
+      "qid": "Q4872168",
+      "id": "v312wd-q4872168",
+      "titleZh": "拉斯坎坡里战役",
+      "titleEn": "Battle of Ras Kamboni",
+      "labelZh": "拉斯坎坡里戰役",
+      "labelZhHans": null,
+      "year": 2007,
+      "end": 2007,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ras Kamboni (2007)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ras_Kamboni_(2007)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2007-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": true,
+      "previousRank": 267,
+      "score": 4.2
+    },
+    {
+      "rank": 110,
+      "qid": "Q3496783",
+      "id": "v312wd-q3496783",
+      "titleZh": "伯和仑战役",
+      "titleEn": "Battle of Beth Horon",
+      "labelZh": "伯和仑战役",
+      "labelZhHans": "伯和仑战役",
+      "year": 66,
+      "end": 66,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Beth Horon (66)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Beth_Horon_(66)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0066-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 11,
+      "hasParticipants": false,
+      "previousRank": 268,
+      "score": 4.1
+    },
+    {
+      "rank": 111,
+      "qid": "Q4271928",
+      "id": "v312wd-q4271928",
+      "titleZh": "巴厘巴板海战",
+      "titleEn": "Battle of Balikpapan",
+      "labelZh": "巴厘巴板海战",
+      "labelZhHans": "巴厘巴板海战",
+      "year": 1945,
+      "end": 1945,
+      "region": "oceania",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Balikpapan (1945)",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Balikpapan_(1945)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1945-07-01T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 11,
+      "hasParticipants": false,
+      "previousRank": 269,
+      "score": 4.1
+    },
+    {
+      "rank": 112,
+      "qid": "Q1754030",
+      "id": "v312wd-q1754030",
+      "titleZh": "2008年玛达克冲突",
+      "titleEn": "2008 Mardakert skirmishes",
+      "labelZh": "2008年玛达克冲突",
+      "labelZhHans": null,
+      "year": 2008,
+      "end": 2008,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "2008 Mardakert clashes",
+        "url": "https://en.wikipedia.org/wiki/2008_Mardakert_clashes"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2008-03-04T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 11,
+      "hasParticipants": false,
+      "previousRank": 270,
+      "score": 4.1
+    },
+    {
+      "rank": 113,
+      "qid": "Q1753755",
+      "id": "v312wd-q1753755",
+      "titleZh": "2010年马尔达凯特冲突",
+      "titleEn": "2010 Mardakert skirmishes",
+      "labelZh": "2010年马尔达凯特冲突",
+      "labelZhHans": null,
+      "year": 2010,
+      "end": 2010,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "2010 Mardakert clashes",
+        "url": "https://en.wikipedia.org/wiki/2010_Mardakert_clashes"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2010-09-01T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 11,
+      "hasParticipants": false,
+      "previousRank": 271,
+      "score": 4.1
+    },
+    {
+      "rank": 114,
+      "qid": "Q604356",
+      "id": "v312wd-q604356",
+      "titleZh": "塔迈尔战役",
+      "titleEn": "Battle of Tamai",
+      "labelZh": "塔邁爾戰役",
+      "labelZhHans": null,
+      "year": 1884,
+      "end": 1884,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Tamai",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Tamai"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1884-03-13T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 6,
+      "hasParticipants": true,
+      "previousRank": 272,
+      "score": 4.1
+    },
+    {
+      "rank": 115,
+      "qid": "Q5123963",
+      "id": "v312wd-q5123963",
+      "titleZh": "血腥星期日 (1900年)",
+      "titleEn": "Bloody Sunday",
+      "labelZh": "血腥星期日 (1900年)",
+      "labelZhHans": null,
+      "year": 1900,
+      "end": 1900,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Bloody Sunday (1900)",
+        "url": "https://en.wikipedia.org/wiki/Bloody_Sunday_(1900)"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1900-02-18T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 6,
+      "hasParticipants": true,
+      "previousRank": 273,
+      "score": 4.1
+    },
+    {
+      "rank": 116,
+      "qid": "Q2053030",
+      "id": "v312wd-q2053030",
+      "titleZh": "冬季行動（1914-1915）",
+      "titleEn": "Battle of Givenchy",
+      "labelZh": "冬季行動（1914-1915）",
+      "labelZhHans": null,
+      "year": 1914,
+      "end": 1914,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Winter operations 1914–1915",
+        "url": "https://en.wikipedia.org/wiki/Winter_operations_1914%E2%80%931915"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1914-12-22T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 6,
+      "hasParticipants": true,
+      "previousRank": 274,
+      "score": 4.1
+    },
+    {
+      "rank": 117,
+      "qid": "Q250383",
+      "id": "v312wd-q250383",
+      "titleZh": "內里事件",
+      "titleEn": "Action at Néry",
+      "labelZh": "內里事件",
+      "labelZhHans": null,
+      "year": 1914,
+      "end": 1914,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Affair of Néry",
+        "url": "https://en.wikipedia.org/wiki/Affair_of_N%C3%A9ry"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1914-09-01T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 6,
+      "hasParticipants": true,
+      "previousRank": 275,
+      "score": 4.1
+    },
+    {
+      "rank": 118,
+      "qid": "Q2920325",
+      "id": "v312wd-q2920325",
+      "titleZh": "马尔列弗纳战役",
+      "titleEn": "Battle of the Ascent of Lebonah",
+      "labelZh": "馬爾列弗納戰役",
+      "labelZhHans": null,
+      "year": -167,
+      "end": -167,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of the Ascent of Lebonah",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_the_Ascent_of_Lebonah"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "-0167-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 5,
+      "hasParticipants": true,
+      "previousRank": 276,
+      "score": 4
+    },
+    {
+      "rank": 119,
+      "qid": "Q4871718",
+      "id": "v312wd-q4871718",
+      "titleZh": "莫克雷德斯伯恩战役",
+      "titleEn": "Battle of Mercredesburne",
+      "labelZh": "莫克雷德斯伯恩戰役",
+      "labelZhHans": null,
+      "year": 485,
+      "end": 485,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mercredesburne",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mercredesburne"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+0485-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 5,
+      "hasParticipants": true,
+      "previousRank": 277,
+      "score": 4
+    },
+    {
+      "rank": 120,
+      "qid": "Q4871819",
+      "id": "v312wd-q4871819",
+      "titleZh": "莫卧儿岭战役",
+      "titleEn": "Battle of Mughar Ridge",
+      "labelZh": "莫臥兒嶺戰役",
+      "labelZhHans": null,
+      "year": 1917,
+      "end": 1917,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mughar Ridge",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mughar_Ridge"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1917-11-13T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 5,
+      "hasParticipants": true,
+      "previousRank": 278,
+      "score": 4
+    },
+    {
+      "rank": 121,
+      "qid": "Q2888378",
+      "id": "v312wd-q2888378",
+      "titleZh": "太古之战",
+      "titleEn": "Battle of Taegu",
+      "labelZh": "太古之戰",
+      "labelZhHans": null,
+      "year": 1950,
+      "end": 1950,
+      "region": "east-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Taegu",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Taegu"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1950-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 5,
+      "hasParticipants": true,
+      "previousRank": 279,
+      "score": 4
+    },
+    {
+      "rank": 122,
+      "qid": "Q2889338",
+      "id": "v312wd-q2889338",
+      "titleZh": "米尔巴特之战",
+      "titleEn": "Battle of Mirbat",
+      "labelZh": "米爾巴特之戰",
+      "labelZhHans": null,
+      "year": 1972,
+      "end": 1972,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Mirbat",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Mirbat"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1972-07-19T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 5,
+      "hasParticipants": true,
+      "previousRank": 280,
+      "score": 4
+    },
+    {
+      "rank": 123,
+      "qid": "Q4930640",
+      "id": "v312wd-q4930640",
+      "titleZh": "被阿根廷空襲",
+      "titleEn": "Bluff Cove Air Attacks",
+      "labelZh": "被阿根廷空襲",
+      "labelZhHans": null,
+      "year": 1982,
+      "end": 1982,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Bluff Cove air attacks",
+        "url": "https://en.wikipedia.org/wiki/Bluff_Cove_air_attacks"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1982-06-08T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 5,
+      "hasParticipants": true,
+      "previousRank": 281,
+      "score": 4
+    },
+    {
+      "rank": 124,
+      "qid": "Q2890373",
+      "id": "v312wd-q2890373",
+      "titleZh": "瓦纳特战役",
+      "titleEn": "Battle of Wanat",
+      "labelZh": "瓦納特戰役",
+      "labelZhHans": null,
+      "year": 2008,
+      "end": 2008,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Wanat",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Wanat"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2008-07-13T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 9,
+      "hasParticipants": false,
+      "previousRank": 282,
+      "score": 3.9
+    },
+    {
+      "rank": 125,
+      "qid": "Q2889133",
+      "id": "v312wd-q2889133",
+      "titleZh": "列里方丹战役",
+      "titleEn": "Battle of Leliefontein",
+      "labelZh": "列裡方丹戰役",
+      "labelZhHans": null,
+      "year": 1900,
+      "end": 1900,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Leliefontein",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Leliefontein"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1900-11-07T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 4,
+      "hasParticipants": true,
+      "previousRank": 283,
+      "score": 3.9
+    },
+    {
+      "rank": 126,
+      "qid": "Q4438362",
+      "id": "v312wd-q4438362",
+      "titleZh": "奥科塔尔战役",
+      "titleEn": "Battle of Ocotal",
+      "labelZh": "奥科塔尔战役",
+      "labelZhHans": "奥科塔尔战役",
+      "year": 1927,
+      "end": 1927,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ocotal",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ocotal"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1927-07-16T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 4,
+      "hasParticipants": true,
+      "previousRank": 284,
+      "score": 3.9
+    },
+    {
+      "rank": 127,
+      "qid": "Q4872743",
+      "id": "v312wd-q4872743",
+      "titleZh": "无线岭战役",
+      "titleEn": "Battle of Wireless Ridge",
+      "labelZh": "無線嶺戰役",
+      "labelZhHans": null,
+      "year": 1982,
+      "end": 1982,
+      "region": "americas",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Wireless Ridge",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Wireless_Ridge"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1982-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 4,
+      "hasParticipants": true,
+      "previousRank": 285,
+      "score": 3.9
+    },
+    {
+      "rank": 128,
+      "qid": "Q1273257",
+      "id": "v312wd-q1273257",
+      "titleZh": "拉拉古纳战役",
+      "titleEn": "Battle of Aguere",
+      "labelZh": "拉拉古纳战役",
+      "labelZhHans": null,
+      "year": 1494,
+      "end": 1494,
+      "region": "africa",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Aguere",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Aguere"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1494-11-15T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985786"
+      },
+      "sitelinks": 8,
+      "hasParticipants": false,
+      "previousRank": 286,
+      "score": 3.8
+    },
+    {
+      "rank": 129,
+      "qid": "Q13423520",
+      "id": "v312wd-q13423520",
+      "titleZh": "奥德河-尼萨河战役",
+      "titleEn": "Battle of the Oder–Neisse",
+      "labelZh": "奧德河-尼薩河戰役",
+      "labelZhHans": null,
+      "year": 1945,
+      "end": 1945,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of the Oder–Neisse",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_the_Oder%E2%80%93Neisse"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1945-04-00T00:00:00Z",
+        "precision": 10,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 8,
+      "hasParticipants": false,
+      "previousRank": 287,
+      "score": 3.8
+    },
+    {
+      "rank": 130,
+      "qid": "Q3486072",
+      "id": "v312wd-q3486072",
+      "titleZh": "阿哈尔齐赫之战",
+      "titleEn": "Battle of Akhalzic",
+      "labelZh": "阿哈尔齐赫之战",
+      "labelZhHans": null,
+      "year": 1828,
+      "end": 1828,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Akhaltsikhe",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Akhaltsikhe"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1828-08-09T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 7,
+      "hasParticipants": false,
+      "previousRank": 288,
+      "score": 3.7
+    },
+    {
+      "rank": 131,
+      "qid": "Q1497922",
+      "id": "v312wd-q1497922",
+      "titleZh": "库里沃夫卡战役",
+      "titleEn": "Battle of Kuryłówka",
+      "labelZh": "库里沃夫卡战役",
+      "labelZhHans": "库里沃夫卡战役",
+      "year": 1945,
+      "end": 1945,
+      "region": "europe",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Kuryłówka",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Kury%C5%82%C3%B3wka"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1945-05-07T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 6,
+      "hasParticipants": false,
+      "previousRank": 289,
+      "score": 3.6
+    },
+    {
+      "rank": 132,
+      "qid": "Q2896424",
+      "id": "v312wd-q2896424",
+      "titleZh": "亚德莫迪凯战役",
+      "titleEn": "Battle of Yad Mordechai",
+      "labelZh": "亚德莫迪凯战役",
+      "labelZhHans": null,
+      "year": 1948,
+      "end": 1948,
+      "region": "west-central-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Yad Mordechai",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Yad_Mordechai"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+1948-00-00T00:00:00Z",
+        "precision": 9,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 6,
+      "hasParticipants": false,
+      "previousRank": 290,
+      "score": 3.6
+    },
+    {
+      "rank": 133,
+      "qid": "Q4871076",
+      "id": "v312wd-q4871076",
+      "titleZh": "甘加尔之战",
+      "titleEn": "Battle of Ganjgal",
+      "labelZh": "甘加爾之戰",
+      "labelZhHans": null,
+      "year": 2009,
+      "end": 2009,
+      "region": "south-asia",
+      "category": "war",
+      "enArticle": {
+        "title": "Battle of Ganjgal",
+        "url": "https://en.wikipedia.org/wiki/Battle_of_Ganjgal"
+      },
+      "zhArticle": null,
+      "p585": {
+        "time": "+2009-09-08T00:00:00Z",
+        "precision": 11,
+        "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+      },
+      "sitelinks": 1,
+      "hasParticipants": true,
+      "previousRank": 291,
+      "score": 3.6
+    }
+  ]
+}
