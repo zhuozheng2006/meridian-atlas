@@ -1,15 +1,17 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
 const ROOT=require('node:path').resolve(__dirname,'../public')+'/';
+let researchState;
+const flush=()=>new Promise(resolve=>setImmediate(resolve));
 function context(){
  const nodes=new Map();const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},focus(){},replaceChildren(){},append(){},closest(){return null},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(){},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
  const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(){}};
- const c=vm.createContext({console,document,location:{hash:''},history:{replaceState(){}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set});
+ const c=vm.createContext({...researchState,console,document,window:{},location:{hash:''},history:{replaceState(){}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set});
  for(const name of ['view-state.js','map-engine.js','timeline-controls.js','polity-reader.js','app.js']){const code=fs.readFileSync(ROOT+name,'utf8').replace(/^import .*$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
  renderEvents=()=>{};renderYear=()=>{};renderBrowse=()=>{};saveURL=()=>{};showView=()=>{};
  globalThis.renderLog=[];
  const mapStub=()=>({year:1900,map:{resize(){},getCenter(){return [0,0]},getZoom(){return 1},getBearing(){return 0},getPitch(){return 0},jumpTo(){},on(){},off(){}},selectPolity(){},destroy(){this.destroyed=true},setYear:async()=>0,fly(){}});
- atlas=mapStub();compareMap=mapStub();catalog={records:[],metadata:{}};
+ atlas=mapStub();atlasReady=true;mapURLRestored=true;compareMap=mapStub();catalog={records:[],metadata:{}};
  polityReader=new PolityReader({catalog:()=>catalog,language:()=>state.lang,events:()=>[],close:closeDetail});
  polityReader.render=function(){document.querySelector('#detailPanel').hidden=false;renderLog.push('polity:'+this.record.id)};
  renderEventDetail=e=>{document.querySelector('#detailPanel').hidden=false;renderLog.push('event:'+e.id)};
@@ -19,6 +21,8 @@ function context(){
  `,c);return c;
 }
 (async()=>{
+ // Execute the real independent URL helpers; do not mock research state parsing.
+ researchState=await import(require('node:url').pathToFileURL(ROOT+'research-view.js'));
  for(const action of ['toggleCompare','closeDetail','eventSwitch']){
   const c=context();
   vm.runInContext(`
@@ -38,6 +42,7 @@ function context(){
  {
   const c=context();
   vm.runInContext(`globalThis.release=null;atlas.setYear=()=>new Promise(r=>release=r);globalThis.openPromise=openEvent(event);closeDetail();`,c);
+  await flush(); // setYear now crosses the resolved lazy-ready boundary first.
   const before=vm.runInContext('({hidden:panel().hidden,selected:state.selected?.id})',c);
   vm.runInContext('release(1)',c);await vm.runInContext('openPromise',c);
   const after=vm.runInContext('({hidden:panel().hidden,selected:state.selected?.id,renderLog})',c);
@@ -46,6 +51,7 @@ function context(){
  {
   const c=context();
   vm.runInContext(`globalThis.releases=[];atlas.setYear=()=>new Promise(r=>releases.push(r));globalThis.a=openEvent({...event,id:'A',start:1800});globalThis.b=openEvent({...event,id:'B',start:1900});`,c);
+  await flush();
   vm.runInContext('releases[1](1)',c);await vm.runInContext('b',c);vm.runInContext('releases[0](1)',c);await vm.runInContext('a',c);
   const result=vm.runInContext('({selected:state.selected?.id,year:state.year,renderLog})',c);assert.equal(result.selected,'B');assert.equal(result.year,1900);assert.deepEqual(Array.from(result.renderLog),['event:B']);console.log('PASS out-of-order event responses');
  }

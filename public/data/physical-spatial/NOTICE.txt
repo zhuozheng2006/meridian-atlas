@@ -1,0 +1,10 @@
+Natural Earth physical geography: public domain.
+Source: https://www.naturalearthdata.com/
+These are contemporary physical reference layers, not reconstructions of historical coastlines.
+
+Spatial derivative of the project's already published land-10m, rivers-10m and lakes-10m data. The input files and SHA-256 hashes are recorded in index.json.gz. The published inputs are quantized to 1e-5 degrees; this spatial derivative adds no further coordinate rounding, simplification, or resampling. Clipping inserts double-precision intersection vertices.
+
+Each 10-degree cell stores the land intersection and its exact water complement from the same land union. The coastline is clipped from the original union boundary as a LINE, never generated from a clipped polygon's rectangular closure. Rivers and lakes preserve original feature properties and source-array IDs. One empty source river geometry remains empty. Original global files remain available.
+
+Build: scripts/cartography/build-physical-spatial.py
+Independent geometry audit: scripts/cartography/audit-physical-spatial.py against the actual JavaScript decoder output produced by scripts/cartography/decode-published-physical.mjs.

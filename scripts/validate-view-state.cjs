@@ -11,17 +11,18 @@ const realPolity=realCatalog.records.filter(r=>r.name==='Qin Dynasty').sort((a,b
 const realPlace=readData('places/urban-observations').cities.find(p=>p.id==='chandler:1202');
 assert(realEvent&&realPolity&&realPlace,'Required real historical fixtures exist');
 const flush=()=>new Promise(r=>setImmediate(r));
+let researchState;
 function context(hash=''){
  const nodes=new Map(),keyListeners=[],eventListeners=new Map();
  const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},dataset:{},isConnected:true,scrollTop:0,focus(){},replaceChildren(){},append(){},insertAdjacentHTML(){},closest(){return null},matches(){return false},click(){this.onclick?.({target:this})},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(k,v){this[k]=v},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
  const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(type,fn){if(type==='keydown')keyListeners.push(fn);if(!eventListeners.has(type))eventListeners.set(type,[]);eventListeners.get(type).push(fn)}};
  const location={hash,href:'https://example.test/'+hash};
- const c=vm.createContext({console,document,location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null});
+ const c=vm.createContext({...researchState,console,document,window:{},location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null});
  for(const name of files){const code=snapshots[name].replace(/^import .*$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
- globalThis.renderLog=[];globalThis.focusLog=[];globalThis.readerOptions=[];globalThis.originalBindLayers=bindLayers;
- const makeMap=()=>({year:1492,geometryKey:'o',active:[],map:{camera:{center:[25,18],zoom:2,bearing:0,pitch:0},resize(){},getCenter(){const a=this.camera.center;return {lng:a[0],lat:a[1],toArray(){return a}}},getZoom(){return this.camera.zoom},getBearing(){return this.camera.bearing},getPitch(){return this.camera.pitch},jumpTo(camera){const center=camera.center;this.camera={...this.camera,...camera,...(center?{center:Array.isArray(center)?center:[center.lng,center.lat]}:{})}},on(){},off(){}},places:{select(p){this.selected=p},toggle(){},setModern(){},setYear(){}},geography:{toggle(){},alignCoast(){},setReference(){}},selectPolity(){},refreshLabels(){},toggleBorders(){},projection(){},setEvents(){},destroy(){this.destroyed=true},async setYear(c,y){this.year=y;return 1},fly(lon,lat,zoom){this.map.camera={...this.map.camera,center:[lon,lat],zoom}},focusPolity(r){focusLog.push(r.id);this.map.camera={...this.map.camera,center:r.center||[10,20],zoom:3}}});
- atlas=makeMap();compareMap=null;catalog=realCatalog;events=realEvents;
+ globalThis.renderLog=[];globalThis.focusLog=[];globalThis.readerOptions=[];globalThis.originalBindLayers=bindLayers;globalThis.originalRenderYear=renderYear;
+ const makeMap=()=>({year:1492,lang:state.lang,geometryKey:'o',active:[],map:{camera:{center:[25,18],zoom:2,bearing:0,pitch:0},resize(){},getCenter(){const a=this.camera.center;return {lng:a[0],lat:a[1],toArray(){return a}}},getZoom(){return this.camera.zoom},getBearing(){return this.camera.bearing},getPitch(){return this.camera.pitch},jumpTo(camera){const center=camera.center;this.camera={...this.camera,...camera,...(center?{center:Array.isArray(center)?center:[center.lng,center.lat]}:{})}},on(){},off(){}},places:{select(p){this.selected=p},toggle(){},setModern(){},setYear(){}},geography:{toggle(){},alignCoast(){},setReference(){}},selectPolity(){},refreshLabels(){},toggleBorders(){},projection(){},setEvents(){},destroy(){this.destroyed=true},async setYear(c,y,lang){this.year=y;this.lang=lang;return 1},fly(lon,lat,zoom){this.map.camera={...this.map.camera,center:[lon,lat],zoom}},focusPolity(r){focusLog.push(r.id);this.map.camera={...this.map.camera,center:r.center||[10,20],zoom:3}}});
+ atlas=makeMap();atlasReady=true;mapURLRestored=true;compareMap=null;catalog=realCatalog;events=realEvents;
  polityReader={seq:0,open(r,m,opts){document.querySelector('#detailPanel').hidden=false;renderLog.push('polity:'+r.id);readerOptions.push(opts)}};
  renderEvents=()=>{};renderYear=()=>saveURL();renderBrowse=()=>{};renderLanguage=()=>{};renderPolities=()=>{};bindLayers=()=>{};
  renderEventDetail=e=>{beginDetail();document.querySelector('#detailPanel').hidden=false;renderLog.push('event:'+e.id)};
@@ -29,6 +30,9 @@ function context(hash=''){
  placeDetail=async p=>p;
  globalThis.panel=()=>document.querySelector('#detailPanel');
  globalThis.prepareInit=()=>{
+  // Real boot and URL restoration run from a cold state; renderer/network remain fixture boundaries.
+  atlas=null;atlasReady=false;mapURLRestored=false;catalog=undefined;events=[];coreDataPromise=null;atlasBootPromise=null;
+  loadMapLibre=async()=>({});renderDensity=()=>{};renderYear=originalRenderYear;
   AtlasMap=class{constructor(container,options){const m=makeMap();if(options.camera)m.map.jumpTo(options.camera);Object.assign(this,m)}};
   PolityReader=class{constructor(){this.seq=0}open(r,m,opts){renderLog.push('polity:'+r.id);readerOptions.push(opts)}};
   readJSON=async url=>url.includes('catalog')?realCatalog:url.includes('events')?realEvents:[];
@@ -40,6 +44,7 @@ function value(c,code){return vm.runInContext(code,c)}
 const results=[];
 async function test(name,fn){try{await fn();results.push({name,pass:true});console.log('PASS '+name)}catch(e){results.push({name,pass:false,error:e.stack});console.error('FAIL '+name+'\n'+e.message)}}
 async function run(){
+ researchState=await import(require('node:url').pathToFileURL(path.join(ROOT,'research-view.js')));
  for(const side of ['left','right'])await test(`city to polity navigation opens the ${side} dossier`,async()=>{
   const c=context();value(c,`state.selectedPlace=realPlace;state.selectedSide='${side}';state.view='polities';panel().hidden=false;${side==='right'?"state.compare=true;compareMap=makeMap();state.compareYear=1492;":''}`);
   await value(c,`jumpPolity(realPolity,${side==='right'?'compareMap':'atlas'})`);
@@ -106,6 +111,7 @@ async function run(){
    originalBindLayers();globalThis.exploreHandler=eventListeners.get('halc-explore')[0];
   `);
   const pending=value(c,`exploreHandler({target:{id:'${side==='right'?'map2':'map'}'}})`);
+  await flush();
   assert.equal(value(c,'yearCallCount'),1,'The actual handler should begin loading the requested year');
   assert.equal(value(c,'flyLog.length'),0,'The camera must wait for the year load');
   if(action!=='normal')value(c,"exploreTarget.regional.setMode('overview')");

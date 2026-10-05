@@ -1,0 +1,1292 @@
+{
+  "schemaVersion": 1,
+  "status": "REVIEWABLE PROPOSAL ONLY; no production files changed",
+  "baseSha256": "5e65cbcc62603878a59b88ec06e5cfb6165276c2e8af184b34f36b081e67ab92",
+  "scopeSemantics": {
+    "runtime": "public/polity-reader.js narrativeApplies() gates map year within scope; narrativeScope() prints 本篇聚焦 / This overview covers",
+    "conclusion": "scope is editorial focus, not a lifespan field. Tightening it changes when an overview can appear, but does not correct underlying source geometry dates.",
+    "sourceGeometryPolicy": "No change proposed to source boundary dates or shapes."
+  },
+  "evidence": [
+    {
+      "id": "hawaii-lahaina",
+      "title": "Lahaina Historic District",
+      "url": "https://www.nps.gov/places/lahaina-historic-district.htm",
+      "publisher": "U.S. National Park Service",
+      "checkedOn": "2026-10-06",
+      "access": "Official full page read during focused correction audit",
+      "supports": [
+        "Unification between 1795 and 1810; Lahaina capital 1820–1845; nineteenth-century whaling, 1861 sugar mill and Chinese contract workers from the 1850s."
+      ]
+    },
+    {
+      "id": "hawaii-iolani",
+      "title": "Iolani Palace: A Hawaiian Place of History, Power, and Prestige",
+      "url": "https://www.nps.gov/articles/000/iolani-palace-a-hawaiian-place-of-history-power-and-prestige.htm",
+      "publisher": "U.S. National Park Service",
+      "checkedOn": "2026-10-06",
+      "access": "Official full page read during focused correction audit",
+      "supports": [
+        "The monarchy was overthrown in 1893; the later republic and annexation belong to its aftermath."
+      ]
+    },
+    {
+      "id": "hawaii-immigration",
+      "title": "Asian Americans and Pacific Islanders in the Making of the Nation",
+      "url": "https://www.nps.gov/articles/asian-americans-and-pacific-islanders-in-the-making-of-the-nation.htm",
+      "publisher": "U.S. National Park Service",
+      "checkedOn": "2026-10-06",
+      "access": "Official full page read during focused correction audit",
+      "supports": [
+        "Recruitment of Filipino labour in Hawaii began in 1906, after the kingdom period."
+      ]
+    },
+    {
+      "id": "tangier-frus-1956",
+      "title": "FRUS 1955–1957, Africa, Volume XVIII, Document 200",
+      "url": "https://history.state.gov/historicaldocuments/frus1955-57v18/d200",
+      "publisher": "U.S. Department of State, Office of the Historian",
+      "checkedOn": "2026-10-06",
+      "access": "Official full page read during focused correction audit",
+      "supports": [
+        "The Tangier convention was signed on 18 December 1923; the final declaration and protocol were signed on 29 October 1956."
+      ]
+    },
+    {
+      "id": "benin-recognition",
+      "title": "Benin (Dahomey): U.S. History of Recognition",
+      "url": "https://history.state.gov/countries/benin/1000",
+      "publisher": "U.S. Department of State, Office of the Historian",
+      "checkedOn": "2026-10-06",
+      "access": "Official full page read during focused correction audit",
+      "supports": [
+        "Dahomey proclaimed independence on 1 August 1960 and changed its name to Benin in 1975."
+      ]
+    },
+    {
+      "id": "benin-abomey",
+      "title": "Royal Palaces of Abomey",
+      "url": "https://whc.unesco.org/en/list/323",
+      "publisher": "UNESCO World Heritage Centre",
+      "checkedOn": "2026-10-06",
+      "access": "Official full page read during focused correction audit",
+      "supports": [
+        "Aja-Fon court culture, earthen walls and polychrome bas-reliefs; royal palaces preserve the heritage of Dahomey in present-day Benin."
+      ]
+    }
+  ],
+  "supportFragments": [
+    {
+      "sourceId": "hawaii-immigration",
+      "quote": "Filipinos who, from 1906, were being recruited as cheap labor",
+      "supports": "Remove Filipino labour recruitment from the kingdom-period economy."
+    },
+    {
+      "sourceId": "hawaii-iolani",
+      "quote": "In 1893, a second coup abolished the monarchy altogether",
+      "supports": "1893 is the political end point addressed by this overview."
+    },
+    {
+      "sourceId": "tangier-frus-1956",
+      "quote": "signed at Paris, December 18, 1923, by Britain, France, and Spain",
+      "supports": "1923 is treaty signature, not the inherited map start of 1912."
+    },
+    {
+      "sourceId": "benin-recognition",
+      "quote": "On that date, Dahomey’s independence from French sovereignty was proclaimed.",
+      "supports": "Sentence refers to 1 August 1960."
+    }
+  ],
+  "entries": [
+    {
+      "qid": "Q156418",
+      "id": "overview-q156418",
+      "changes": [
+        {
+          "path": "/editorialNotes",
+          "oldValue": [
+            {
+              "zh": "本站疆域数据仅收录该政体 5 条记录（公元1791 年至公元1894 年），覆盖很薄，叙述以所列维基百科条目为主要依据，不能据本站疆域记录推断其疆域变化。 本站疆域记录覆盖1791—1894年（5 条）；1893年政变与1898年并入美国作为后续写入。",
+              "en": "This atlas holds only 5 territory records for this polity (1791 CE to 1894 CE), a thin coverage: the essay rests mainly on the listed Wikipedia articles and the territory records here cannot support claims about territorial change. The territory records cover 1791-1894 (five records); the 1893 coup and the 1898 annexation appear as aftermath."
+            }
+          ],
+          "newValue": [
+            {
+              "zh": "疆域源收录5条记录，范围为1791—1894年；这组记录的起止年与本篇叙述范围分别保存。菲律宾劳工自1906年起的招募属于王国结束后的历史。",
+              "en": "The boundary source contains five records spanning 1791–1894, stored separately from this overview’s period. Recruitment of Filipino workers from 1906 belongs to the post-kingdom period."
+            }
+          ]
+        },
+        {
+          "path": "/facts",
+          "oldValue": [
+            {
+              "key": "unification",
+              "value": {
+                "zh": "卡美哈梅哈一世自1795年起统一群岛，1810年完成全岛统一。",
+                "en": "Kamehameha I unified the islands from 1795 and completed the union in 1810."
+              },
+              "sourceIds": [
+                "q156418-enwiki",
+                "q156418-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            },
+            {
+              "key": "mahele",
+              "value": {
+                "zh": "1848年大土地分配使土地可以买卖，改变了土地制度。",
+                "en": "The Great Mahele of 1848 made land alienable and transformed land tenure."
+              },
+              "sourceIds": [
+                "q156418-enwiki",
+                "q156418-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            },
+            {
+              "key": "overthrow",
+              "value": {
+                "zh": "1893年利留卡拉尼女王被推翻，1894年成立共和国。",
+                "en": "Queen Liliuokalani was overthrown in 1893 and a republic was established in 1894."
+              },
+              "sourceIds": [
+                "q156418-enwiki",
+                "q156418-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            }
+          ],
+          "newValue": [
+            {
+              "key": "unification",
+              "value": {
+                "zh": "卡美哈梅哈一世自1795年起统一群岛，1810年完成全岛统一。",
+                "en": "Kamehameha I unified the islands from 1795 and completed the union in 1810."
+              },
+              "sourceIds": [
+                "q156418-enwiki",
+                "q156418-zhwiki",
+                "hawaii-lahaina"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            },
+            {
+              "key": "mahele",
+              "value": {
+                "zh": "1848年大土地分配使土地可以买卖，改变了土地制度。",
+                "en": "The Great Mahele of 1848 made land alienable and transformed land tenure."
+              },
+              "sourceIds": [
+                "q156418-enwiki",
+                "q156418-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            },
+            {
+              "key": "overthrow",
+              "value": {
+                "zh": "1893年利留卡拉尼女王被推翻，1894年成立共和国。",
+                "en": "Queen Liliuokalani was overthrown in 1893 and a republic was established in 1894."
+              },
+              "sourceIds": [
+                "q156418-enwiki",
+                "q156418-zhwiki",
+                "hawaii-iolani"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            }
+          ]
+        },
+        {
+          "path": "/scope/end",
+          "oldValue": 1894,
+          "newValue": 1893
+        },
+        {
+          "path": "/scope/note",
+          "oldValue": null,
+          "newValue": {
+            "zh": "本篇从1795年开始的统一进程讲到1893年王朝被推翻；1894年共和国成立及1898年并入美国作为后续背景。",
+            "en": "This overview runs from the unification process beginning in 1795 to the overthrow of the monarchy in 1893. The republic of 1894 and annexation in 1898 are aftermath."
+          }
+        },
+        {
+          "path": "/scope/start",
+          "oldValue": 1791,
+          "newValue": 1795
+        },
+        {
+          "path": "/sections/economy/en",
+          "oldValue": "Sandalwood, whaling and then sugar underpinned the economy. Mid-nineteenth-century land reform allowed land to be bought and sold, and sugar plantations depended on immigrant labour from China, Japan, Portugal and the Philippines, changing the islands' population. A reciprocity treaty with the United States boosted sugar exports, and Pearl Harbor became an important port.",
+          "newValue": "Whaling supported Lahaina’s port and businesses during the nineteenth century. As whaling declined in the 1860s, sugar production became important in West Maui. Chinese contract workers arrived on plantations from the 1850s, and some settled locally after completing their contracts, contributing to lasting immigrant communities."
+        },
+        {
+          "path": "/sections/economy/sourceIds",
+          "oldValue": [
+            "q156418-enwiki",
+            "q156418-zhwiki"
+          ],
+          "newValue": [
+            "hawaii-lahaina"
+          ]
+        },
+        {
+          "path": "/sections/economy/zh",
+          "oldValue": "经济先后以檀香木、捕鲸和蔗糖为支柱。19世纪中期土地制度 reform 使土地可以买卖，甘蔗种植园与制糖业依赖外来劳工，来自中国、日本、葡萄牙和菲律宾的移民改变了群岛人口结构。与美国签订互惠条约后蔗糖出口迅速增长，珍珠港成为重要港口。",
+          "newValue": "19世纪的捕鲸航运推动拉海纳港口和商业发展，1860年代捕鲸业衰退后，蔗糖生产逐渐成为西毛伊的重要产业。中国契约劳工自1850年代来到种植园，部分人在合同结束后定居当地，形成持续发展的移民社群。"
+        },
+        {
+          "path": "/sections/events/sourceIds",
+          "oldValue": [
+            "q156418-enwiki",
+            "q156418-zhwiki"
+          ],
+          "newValue": [
+            "q156418-enwiki",
+            "q156418-zhwiki",
+            "hawaii-lahaina",
+            "hawaii-iolani"
+          ]
+        },
+        {
+          "path": "/sections/politics/sourceIds",
+          "oldValue": [
+            "q156418-enwiki",
+            "q156418-zhwiki"
+          ],
+          "newValue": [
+            "q156418-enwiki",
+            "q156418-zhwiki",
+            "hawaii-lahaina",
+            "hawaii-iolani"
+          ]
+        },
+        {
+          "path": "/sources",
+          "oldValue": [
+            {
+              "id": "q156418-enwiki",
+              "title": "Hawaiian Kingdom",
+              "url": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom",
+              "publisher": "Wikipedia",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API",
+              "supports": [
+                "Unification under Kamehameha I from 1795 and full unification in 1810",
+                "The constitutional monarchy, the Great Mahele and the sugar economy",
+                "The 1887 constitution, the 1893 overthrow and the republic of 1894",
+                "Hawaiian language, Christianity and land tenure"
+              ]
+            },
+            {
+              "id": "q156418-zhwiki",
+              "title": "夏威夷王國",
+              "url": "https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%A8%81%E5%A4%B7%E7%8E%8B%E5%9C%8B",
+              "publisher": "维基百科",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API (variant=zh-cn)",
+              "supports": [
+                "1795年起卡美哈梅哈一世统一，1810年全岛统一",
+                "君主立宪、大土地分配与蔗糖经济",
+                "1887年宪法、1893年政变与1894年共和国",
+                "夏威夷语、基督教与土地制度"
+              ]
+            }
+          ],
+          "newValue": [
+            {
+              "id": "q156418-enwiki",
+              "title": "Hawaiian Kingdom",
+              "url": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom",
+              "publisher": "Wikipedia",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API",
+              "supports": [
+                "Unification under Kamehameha I from 1795 and full unification in 1810",
+                "The constitutional monarchy, the Great Mahele and the sugar economy",
+                "The 1887 constitution, the 1893 overthrow and the republic of 1894",
+                "Hawaiian language, Christianity and land tenure"
+              ]
+            },
+            {
+              "id": "q156418-zhwiki",
+              "title": "夏威夷王國",
+              "url": "https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%A8%81%E5%A4%B7%E7%8E%8B%E5%9C%8B",
+              "publisher": "维基百科",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API (variant=zh-cn)",
+              "supports": [
+                "1795年起卡美哈梅哈一世统一，1810年全岛统一",
+                "君主立宪、大土地分配与蔗糖经济",
+                "1887年宪法、1893年政变与1894年共和国",
+                "夏威夷语、基督教与土地制度"
+              ]
+            },
+            {
+              "id": "hawaii-lahaina",
+              "title": "Lahaina Historic District",
+              "url": "https://www.nps.gov/places/lahaina-historic-district.htm",
+              "publisher": "U.S. National Park Service",
+              "checkedOn": "2026-10-06",
+              "access": "Official full page read during focused correction audit",
+              "supports": [
+                "Unification between 1795 and 1810; Lahaina capital 1820–1845; nineteenth-century whaling, 1861 sugar mill and Chinese contract workers from the 1850s."
+              ]
+            },
+            {
+              "id": "hawaii-iolani",
+              "title": "Iolani Palace: A Hawaiian Place of History, Power, and Prestige",
+              "url": "https://www.nps.gov/articles/000/iolani-palace-a-hawaiian-place-of-history-power-and-prestige.htm",
+              "publisher": "U.S. National Park Service",
+              "checkedOn": "2026-10-06",
+              "access": "Official full page read during focused correction audit",
+              "supports": [
+                "The monarchy was overthrown in 1893; the later republic and annexation belong to its aftermath."
+              ]
+            },
+            {
+              "id": "hawaii-immigration",
+              "title": "Asian Americans and Pacific Islanders in the Making of the Nation",
+              "url": "https://www.nps.gov/articles/asian-americans-and-pacific-islanders-in-the-making-of-the-nation.htm",
+              "publisher": "U.S. National Park Service",
+              "checkedOn": "2026-10-06",
+              "access": "Official full page read during focused correction audit",
+              "supports": [
+                "Recruitment of Filipino labour in Hawaii began in 1906, after the kingdom period."
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/summary/zh",
+          "oldValue": "夏威夷王国由卡美哈梅哈一世自1795年起逐步统一群岛，1810年完成全岛统一。19世纪逐步建立君主立宪体制，1840年与1852年颁布宪法，设立议会与法院。1887年宪法削弱王权，1891年利留卡拉尼女王继位后试图恢复权力，1893年被推翻，1894年成立共和国，1898年被美国兼并。\n\n经济先后以檀香木、捕鲸和蔗糖为支柱。19世纪中期土地制度 reform 使土地可以买卖，甘蔗种植园与制糖业依赖外来劳工，来自中国、日本、葡萄牙和菲律宾的移民改变了群岛人口结构。与美国签订互惠条约后蔗糖出口迅速增长，珍珠港成为重要港口。\n\n夏威夷语与草裙舞、航海与土地观念构成原住民文化核心，19世纪传教士带来基督教与文字教育，夏威夷语成为书写语言并用于报纸与法律。王室赞助音乐与舞蹈，卡美哈梅哈家族与卡拉卡瓦家族留下宫廷传统。多元移民文化形成今天的夏威夷地方认同。",
+          "newValue": "夏威夷王国由卡美哈梅哈一世自1795年起逐步统一群岛，1810年完成全岛统一。19世纪逐步建立君主立宪体制，1840年与1852年颁布宪法，设立议会与法院。1887年宪法削弱王权，1891年利留卡拉尼女王继位后试图恢复权力，1893年被推翻，1894年成立共和国，1898年被美国兼并。\n\n19世纪的捕鲸航运推动拉海纳港口和商业发展，1860年代捕鲸业衰退后，蔗糖生产逐渐成为西毛伊的重要产业。中国契约劳工自1850年代来到种植园，部分人在合同结束后定居当地，形成持续发展的移民社群。\n\n夏威夷语与草裙舞、航海与土地观念构成原住民文化核心，19世纪传教士带来基督教与文字教育，夏威夷语成为书写语言并用于报纸与法律。王室赞助音乐与舞蹈，卡美哈梅哈家族与卡拉卡瓦家族留下宫廷传统。多元移民文化形成今天的夏威夷地方认同。"
+        },
+        {
+          "path": "/verification",
+          "oldValue": "Source-guided editorial synthesis read on 2026-10-03; not independently peer reviewed by a historian.",
+          "newValue": "Focused corrections on 2026-10-06: overview scope, cited field revisions and source notes checked against the added official sources. Other retained claims have not received a new full scholarly audit."
+        },
+        {
+          "path": "/zhCharacterCount",
+          "oldValue": 377,
+          "newValue": 280
+        }
+      ],
+      "proposedEntry": {
+        "id": "overview-q156418",
+        "qid": "Q156418",
+        "sourceNames": [
+          "Kingdom of Hawaï'i"
+        ],
+        "title": {
+          "zh": "夏威夷王国",
+          "en": "Kingdom of Hawaii"
+        },
+        "scope": {
+          "start": 1795,
+          "end": 1893,
+          "note": {
+            "zh": "本篇从1795年开始的统一进程讲到1893年王朝被推翻；1894年共和国成立及1898年并入美国作为后续背景。",
+            "en": "This overview runs from the unification process beginning in 1795 to the overthrow of the monarchy in 1893. The republic of 1894 and annexation in 1898 are aftermath."
+          }
+        },
+        "sections": {
+          "politics": {
+            "zh": "夏威夷王国由卡美哈梅哈一世自1795年起逐步统一群岛，1810年完成全岛统一。19世纪逐步建立君主立宪体制，1840年与1852年颁布宪法，设立议会与法院。1887年宪法削弱王权，1891年利留卡拉尼女王继位后试图恢复权力，1893年被推翻，1894年成立共和国，1898年被美国兼并。",
+            "en": "The Hawaiian Kingdom was unified by Kamehameha I from 1795, completing the union of the islands in 1810. A constitutional monarchy developed in the nineteenth century with constitutions in 1840 and 1852, a legislature and courts. The 1887 constitution curtailed royal power, and when Queen Liliuokalani tried to restore it after 1891 she was overthrown in 1893; a republic followed in 1894 and the United States annexed the islands in 1898.",
+            "sourceIds": [
+              "q156418-enwiki",
+              "q156418-zhwiki",
+              "hawaii-lahaina",
+              "hawaii-iolani"
+            ]
+          },
+          "economy": {
+            "zh": "19世纪的捕鲸航运推动拉海纳港口和商业发展，1860年代捕鲸业衰退后，蔗糖生产逐渐成为西毛伊的重要产业。中国契约劳工自1850年代来到种植园，部分人在合同结束后定居当地，形成持续发展的移民社群。",
+            "en": "Whaling supported Lahaina’s port and businesses during the nineteenth century. As whaling declined in the 1860s, sugar production became important in West Maui. Chinese contract workers arrived on plantations from the 1850s, and some settled locally after completing their contracts, contributing to lasting immigrant communities.",
+            "sourceIds": [
+              "hawaii-lahaina"
+            ]
+          },
+          "culture": {
+            "zh": "夏威夷语与草裙舞、航海与土地观念构成原住民文化核心，19世纪传教士带来基督教与文字教育，夏威夷语成为书写语言并用于报纸与法律。王室赞助音乐与舞蹈，卡美哈梅哈家族与卡拉卡瓦家族留下宫廷传统。多元移民文化形成今天的夏威夷地方认同。",
+            "en": "The Hawaiian language, hula, navigation and land concepts form the core of Native Hawaiian culture. Missionaries brought Christianity and literacy in the nineteenth century, and Hawaiian became a written language used in newspapers and law. The monarchy patronised music and dance, and the Kamehameha and Kalakaua houses left court traditions. Immigrant cultures together shaped today's local Hawaiian identity.",
+            "sourceIds": [
+              "q156418-enwiki",
+              "q156418-zhwiki"
+            ]
+          },
+          "events": {
+            "zh": "关键节点包括1795年起统一进程、1810年全岛统一、1840与1852年宪法、1848年大土地分配、1876年与美国的互惠条约、1887年宪法、1893年政变，以及1894年共和国成立。",
+            "en": "Key moments include the unification process from 1795, full unification in 1810, the constitutions of 1840 and 1852, the Great Mahele of 1848, the reciprocity treaty with the United States in 1876, the constitution of 1887, the coup of 1893, and the republic of 1894.",
+            "sourceIds": [
+              "q156418-enwiki",
+              "q156418-zhwiki",
+              "hawaii-lahaina",
+              "hawaii-iolani"
+            ]
+          }
+        },
+        "sources": [
+          {
+            "id": "q156418-enwiki",
+            "title": "Hawaiian Kingdom",
+            "url": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom",
+            "publisher": "Wikipedia",
+            "checkedOn": "2026-10-03",
+            "access": "read via MediaWiki extract API",
+            "supports": [
+              "Unification under Kamehameha I from 1795 and full unification in 1810",
+              "The constitutional monarchy, the Great Mahele and the sugar economy",
+              "The 1887 constitution, the 1893 overthrow and the republic of 1894",
+              "Hawaiian language, Christianity and land tenure"
+            ]
+          },
+          {
+            "id": "q156418-zhwiki",
+            "title": "夏威夷王國",
+            "url": "https://zh.wikipedia.org/wiki/%E5%A4%8F%E5%A8%81%E5%A4%B7%E7%8E%8B%E5%9C%8B",
+            "publisher": "维基百科",
+            "checkedOn": "2026-10-03",
+            "access": "read via MediaWiki extract API (variant=zh-cn)",
+            "supports": [
+              "1795年起卡美哈梅哈一世统一，1810年全岛统一",
+              "君主立宪、大土地分配与蔗糖经济",
+              "1887年宪法、1893年政变与1894年共和国",
+              "夏威夷语、基督教与土地制度"
+            ]
+          },
+          {
+            "id": "hawaii-lahaina",
+            "title": "Lahaina Historic District",
+            "url": "https://www.nps.gov/places/lahaina-historic-district.htm",
+            "publisher": "U.S. National Park Service",
+            "checkedOn": "2026-10-06",
+            "access": "Official full page read during focused correction audit",
+            "supports": [
+              "Unification between 1795 and 1810; Lahaina capital 1820–1845; nineteenth-century whaling, 1861 sugar mill and Chinese contract workers from the 1850s."
+            ]
+          },
+          {
+            "id": "hawaii-iolani",
+            "title": "Iolani Palace: A Hawaiian Place of History, Power, and Prestige",
+            "url": "https://www.nps.gov/articles/000/iolani-palace-a-hawaiian-place-of-history-power-and-prestige.htm",
+            "publisher": "U.S. National Park Service",
+            "checkedOn": "2026-10-06",
+            "access": "Official full page read during focused correction audit",
+            "supports": [
+              "The monarchy was overthrown in 1893; the later republic and annexation belong to its aftermath."
+            ]
+          },
+          {
+            "id": "hawaii-immigration",
+            "title": "Asian Americans and Pacific Islanders in the Making of the Nation",
+            "url": "https://www.nps.gov/articles/asian-americans-and-pacific-islanders-in-the-making-of-the-nation.htm",
+            "publisher": "U.S. National Park Service",
+            "checkedOn": "2026-10-06",
+            "access": "Official full page read during focused correction audit",
+            "supports": [
+              "Recruitment of Filipino labour in Hawaii began in 1906, after the kingdom period."
+            ]
+          }
+        ],
+        "editorialNotes": [
+          {
+            "zh": "疆域源收录5条记录，范围为1791—1894年；这组记录的起止年与本篇叙述范围分别保存。菲律宾劳工自1906年起的招募属于王国结束后的历史。",
+            "en": "The boundary source contains five records spanning 1791–1894, stored separately from this overview’s period. Recruitment of Filipino workers from 1906 belongs to the post-kingdom period."
+          }
+        ],
+        "license": "CC BY-SA 4.0 for the linked Wikipedia articles; original bilingual synthesis by this project.",
+        "verification": "Focused corrections on 2026-10-06: overview scope, cited field revisions and source notes checked against the added official sources. Other retained claims have not received a new full scholarly audit.",
+        "facts": [
+          {
+            "key": "unification",
+            "value": {
+              "zh": "卡美哈梅哈一世自1795年起统一群岛，1810年完成全岛统一。",
+              "en": "Kamehameha I unified the islands from 1795 and completed the union in 1810."
+            },
+            "sourceIds": [
+              "q156418-enwiki",
+              "q156418-zhwiki",
+              "hawaii-lahaina"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          },
+          {
+            "key": "mahele",
+            "value": {
+              "zh": "1848年大土地分配使土地可以买卖，改变了土地制度。",
+              "en": "The Great Mahele of 1848 made land alienable and transformed land tenure."
+            },
+            "sourceIds": [
+              "q156418-enwiki",
+              "q156418-zhwiki"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          },
+          {
+            "key": "overthrow",
+            "value": {
+              "zh": "1893年利留卡拉尼女王被推翻，1894年成立共和国。",
+              "en": "Queen Liliuokalani was overthrown in 1893 and a republic was established in 1894."
+            },
+            "sourceIds": [
+              "q156418-enwiki",
+              "q156418-zhwiki",
+              "hawaii-iolani"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          }
+        ],
+        "binding": "Exact sourceNames AND matching verifiedWikidata AND exact record ID AND the map year inside scope; never bind by fuzzy name.",
+        "recordIds": [
+          "clio-10298",
+          "clio-10406",
+          "clio-10805",
+          "clio-11061",
+          "clio-12055"
+        ],
+        "recordIdsOverlappingScope": [
+          "clio-10298",
+          "clio-10406",
+          "clio-10805",
+          "clio-11061",
+          "clio-12055"
+        ],
+        "eventKeywords": [
+          "Hawaii",
+          "夏威夷",
+          "Kamehameha",
+          "Liliuokalani"
+        ],
+        "summary": {
+          "zh": "夏威夷王国由卡美哈梅哈一世自1795年起逐步统一群岛，1810年完成全岛统一。19世纪逐步建立君主立宪体制，1840年与1852年颁布宪法，设立议会与法院。1887年宪法削弱王权，1891年利留卡拉尼女王继位后试图恢复权力，1893年被推翻，1894年成立共和国，1898年被美国兼并。\n\n19世纪的捕鲸航运推动拉海纳港口和商业发展，1860年代捕鲸业衰退后，蔗糖生产逐渐成为西毛伊的重要产业。中国契约劳工自1850年代来到种植园，部分人在合同结束后定居当地，形成持续发展的移民社群。\n\n夏威夷语与草裙舞、航海与土地观念构成原住民文化核心，19世纪传教士带来基督教与文字教育，夏威夷语成为书写语言并用于报纸与法律。王室赞助音乐与舞蹈，卡美哈梅哈家族与卡拉卡瓦家族留下宫廷传统。多元移民文化形成今天的夏威夷地方认同。"
+        },
+        "zhCharacterCount": 280
+      }
+    },
+    {
+      "qid": "Q3497642",
+      "id": "overview-q3497642",
+      "changes": [
+        {
+          "path": "/editorialNotes",
+          "oldValue": [
+            {
+              "zh": "本站疆域数据仅收录该政体 2 条记录（公元1912 年至公元1957 年），覆盖很薄，叙述以所列维基百科条目为主要依据，不能据本站疆域记录推断其疆域变化。",
+              "en": "This atlas holds only 2 territory records for this polity (1912 CE to 1957 CE), a thin coverage: the essay rests mainly on the listed Wikipedia articles and the territory records here cannot support claims about territorial change."
+            }
+          ],
+          "newValue": [
+            {
+              "zh": "疆域源的2条记录标为1912—1957年；本篇依据1923年公约和1956年最终安排确定叙述范围。原始边界记录及其日期保持原样，便于对照。",
+              "en": "The two boundary records are dated 1912–1957. This overview instead uses the 1923 convention and the final 1956 settlement to define its focus; the original geometry dates remain available for comparison."
+            }
+          ]
+        },
+        {
+          "path": "/scope/end",
+          "oldValue": 1957,
+          "newValue": 1956
+        },
+        {
+          "path": "/scope/note",
+          "oldValue": null,
+          "newValue": {
+            "zh": "本篇聚焦1923年丹吉尔公约至1956年地位安排，1923年是公约签订年。国际共管在第二次世界大战中的中断及1945年恢复另行说明。",
+            "en": "This overview focuses on the 1923 Tangier Convention through the settlement of its status in 1956. The start is the convention date. Wartime interruption and restoration in 1945 are treated separately."
+          }
+        },
+        {
+          "path": "/scope/start",
+          "oldValue": 1912,
+          "newValue": 1923
+        },
+        {
+          "path": "/sections/events/en",
+          "oldValue": "Key moments are the establishment of the international administration by agreement in 1923, the working of the free trade regime, the Spanish occupation during the Second World War and the return to Moroccan sovereignty after independence in 1956, events that determined the modern allegiance of Tangier.",
+          "newValue": "Key moments are the signing of the Tangier Convention in 1923, the working of the free trade regime, the Spanish occupation during the Second World War and the return to Moroccan sovereignty after independence in 1956, events that determined the modern allegiance of Tangier."
+        },
+        {
+          "path": "/sections/events/sourceIds",
+          "oldValue": [
+            "q3497642-enwiki",
+            "q3497642-wikidata"
+          ],
+          "newValue": [
+            "q3497642-enwiki",
+            "q3497642-wikidata",
+            "tangier-frus-1956"
+          ]
+        },
+        {
+          "path": "/sections/events/zh",
+          "oldValue": "关键节点包括1923年国际共管协议的设立、自由贸易体制的运行、二战期间西班牙的占领，以及1956年摩洛哥独立后回归主权，这些事件决定了丹吉尔的现代归属。",
+          "newValue": "关键节点包括1923年丹吉尔公约的签订、自由贸易体制的运行、二战期间西班牙的占领，以及1956年摩洛哥独立后回归主权，这些事件决定了丹吉尔的现代归属。"
+        },
+        {
+          "path": "/sections/politics/en",
+          "oldValue": "The Tangier International Zone was a territory in Morocco under international administration established by agreement among France, Spain, Britain and others in 1923, governed by a multinational committee and an administrator with free trade and free currency convertibility. It became an important centre of international finance and intelligence activity and was briefly occupied by Spain during the Second World War; after Moroccan independence in 1956 the zone returned to Moroccan sovereignty the same year.",
+          "newValue": "The Tangier International Zone was a territory in Morocco under international administration whose international administration was provided for by a convention signed by Britain, France and Spain in 1923, governed by a multinational committee and an administrator with free trade and free currency convertibility. It became an important centre of international finance and intelligence activity and was briefly occupied by Spain during the Second World War; after Moroccan independence in 1956 the zone returned to Moroccan sovereignty the same year."
+        },
+        {
+          "path": "/sections/politics/sourceIds",
+          "oldValue": [
+            "q3497642-enwiki",
+            "q3497642-wikidata"
+          ],
+          "newValue": [
+            "q3497642-enwiki",
+            "q3497642-wikidata",
+            "tangier-frus-1956"
+          ]
+        },
+        {
+          "path": "/sections/politics/zh",
+          "oldValue": "丹吉尔国际区是摩洛哥境内由国际共管的地区，1923年由法国、西班牙与英国等国协议设立，由多国委员会与管理者治理，实行自由贸易与货币自由兑换。它成为国际金融与谍报活动的重要地点，二战期间一度被西班牙占领；1956年摩洛哥独立后，该区于同年回归摩洛哥主权。",
+          "newValue": "丹吉尔国际区是摩洛哥境内由国际共管的地区，英国、法国和西班牙于1923年签订有关其国际管理的公约，由多国委员会与管理者治理，实行自由贸易与货币自由兑换。它成为国际金融与谍报活动的重要地点，二战期间一度被西班牙占领；1956年摩洛哥独立后，该区于同年回归摩洛哥主权。"
+        },
+        {
+          "path": "/sources",
+          "oldValue": [
+            {
+              "id": "q3497642-enwiki",
+              "title": "Tangier International Zone",
+              "url": "https://en.wikipedia.org/wiki/Tangier_International_Zone",
+              "publisher": "Wikipedia",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API; pageprops.wikibase_item equals Q3497642",
+              "supports": [
+                "The Tangier International Zone as a territory in Morocco under international administration",
+                "Its existence from 1923 to 1956 and its return to Moroccan sovereignty"
+              ]
+            },
+            {
+              "id": "q3497642-wikidata",
+              "title": "Wikidata — Q3497642",
+              "url": "https://www.wikidata.org/wiki/Q3497642",
+              "publisher": "Wikidata",
+              "checkedOn": "2026-10-03",
+              "access": "entity statements read for the identity and the period of this polity",
+              "supports": [
+                "The Tangier International Zone as a territory in Morocco under international administration",
+                "Its existence from 1923 to 1956 and its return to Moroccan sovereignty"
+              ]
+            }
+          ],
+          "newValue": [
+            {
+              "id": "q3497642-enwiki",
+              "title": "Tangier International Zone",
+              "url": "https://en.wikipedia.org/wiki/Tangier_International_Zone",
+              "publisher": "Wikipedia",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API; pageprops.wikibase_item equals Q3497642",
+              "supports": [
+                "The Tangier International Zone as a territory in Morocco under international administration",
+                "Its existence from 1923 to 1956 and its return to Moroccan sovereignty"
+              ]
+            },
+            {
+              "id": "q3497642-wikidata",
+              "title": "Wikidata — Q3497642",
+              "url": "https://www.wikidata.org/wiki/Q3497642",
+              "publisher": "Wikidata",
+              "checkedOn": "2026-10-03",
+              "access": "entity statements read for the identity and the period of this polity",
+              "supports": [
+                "The Tangier International Zone as a territory in Morocco under international administration",
+                "Its existence from 1923 to 1956 and its return to Moroccan sovereignty"
+              ]
+            },
+            {
+              "id": "tangier-frus-1956",
+              "title": "FRUS 1955–1957, Africa, Volume XVIII, Document 200",
+              "url": "https://history.state.gov/historicaldocuments/frus1955-57v18/d200",
+              "publisher": "U.S. Department of State, Office of the Historian",
+              "checkedOn": "2026-10-06",
+              "access": "Official full page read during focused correction audit",
+              "supports": [
+                "The Tangier convention was signed on 18 December 1923; the final declaration and protocol were signed on 29 October 1956."
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/summary/zh",
+          "oldValue": "丹吉尔国际区是摩洛哥境内由国际共管的地区，1923年由法国、西班牙与英国等国协议设立，由多国委员会与管理者治理，实行自由贸易与货币自由兑换。它成为国际金融与谍报活动的重要地点，二战期间一度被西班牙占领；1956年摩洛哥独立后，该区于同年回归摩洛哥主权。\n\n经济以自由贸易、转口贸易、金融服务与旅游业为基础，丹吉尔港是地中海与大西洋之间的转运节点，免税与货币自由政策吸引国际商业，走私与投机活动亦见于记载。\n\n丹吉尔国际区时期多元社群并存，阿拉伯、西班牙、法国与国际侨民共处，咖啡馆与文学沙龙活跃，建筑融合摩尔与欧洲风格，音乐与报刊文化具有国际色彩。",
+          "newValue": "丹吉尔国际区是摩洛哥境内由国际共管的地区，英国、法国和西班牙于1923年签订有关其国际管理的公约，由多国委员会与管理者治理，实行自由贸易与货币自由兑换。它成为国际金融与谍报活动的重要地点，二战期间一度被西班牙占领；1956年摩洛哥独立后，该区于同年回归摩洛哥主权。\n\n经济以自由贸易、转口贸易、金融服务与旅游业为基础，丹吉尔港是地中海与大西洋之间的转运节点，免税与货币自由政策吸引国际商业，走私与投机活动亦见于记载。\n\n丹吉尔国际区时期多元社群并存，阿拉伯、西班牙、法国与国际侨民共处，咖啡馆与文学沙龙活跃，建筑融合摩尔与欧洲风格，音乐与报刊文化具有国际色彩。"
+        },
+        {
+          "path": "/verification",
+          "oldValue": "Source-guided editorial synthesis read on 2026-10-03; not independently peer reviewed by a historian.",
+          "newValue": "Focused corrections on 2026-10-06: overview scope, cited field revisions and source notes checked against the added official sources. Other retained claims have not received a new full scholarly audit."
+        },
+        {
+          "path": "/zhCharacterCount",
+          "oldValue": 274,
+          "newValue": 246
+        }
+      ],
+      "proposedEntry": {
+        "id": "overview-q3497642",
+        "qid": "Q3497642",
+        "sourceNames": [
+          "Tangier International Zone"
+        ],
+        "title": {
+          "zh": "丹吉尔国际区",
+          "en": "Tangier International Zone"
+        },
+        "scope": {
+          "start": 1923,
+          "end": 1956,
+          "note": {
+            "zh": "本篇聚焦1923年丹吉尔公约至1956年地位安排，1923年是公约签订年。国际共管在第二次世界大战中的中断及1945年恢复另行说明。",
+            "en": "This overview focuses on the 1923 Tangier Convention through the settlement of its status in 1956. The start is the convention date. Wartime interruption and restoration in 1945 are treated separately."
+          }
+        },
+        "sections": {
+          "politics": {
+            "zh": "丹吉尔国际区是摩洛哥境内由国际共管的地区，英国、法国和西班牙于1923年签订有关其国际管理的公约，由多国委员会与管理者治理，实行自由贸易与货币自由兑换。它成为国际金融与谍报活动的重要地点，二战期间一度被西班牙占领；1956年摩洛哥独立后，该区于同年回归摩洛哥主权。",
+            "en": "The Tangier International Zone was a territory in Morocco under international administration whose international administration was provided for by a convention signed by Britain, France and Spain in 1923, governed by a multinational committee and an administrator with free trade and free currency convertibility. It became an important centre of international finance and intelligence activity and was briefly occupied by Spain during the Second World War; after Moroccan independence in 1956 the zone returned to Moroccan sovereignty the same year.",
+            "sourceIds": [
+              "q3497642-enwiki",
+              "q3497642-wikidata",
+              "tangier-frus-1956"
+            ]
+          },
+          "economy": {
+            "zh": "经济以自由贸易、转口贸易、金融服务与旅游业为基础，丹吉尔港是地中海与大西洋之间的转运节点，免税与货币自由政策吸引国际商业，走私与投机活动亦见于记载。",
+            "en": "The economy rested on free trade, transit trade, financial services and tourism, with the port of Tangier a transit point between the Mediterranean and the Atlantic, tax exemption and free currency policies attracting international business, and smuggling and speculation also being recorded.",
+            "sourceIds": [
+              "q3497642-enwiki",
+              "q3497642-wikidata"
+            ]
+          },
+          "culture": {
+            "zh": "丹吉尔国际区时期多元社群并存，阿拉伯、西班牙、法国与国际侨民共处，咖啡馆与文学沙龙活跃，建筑融合摩尔与欧洲风格，音乐与报刊文化具有国际色彩。",
+            "en": "In the period of the international zone plural communities coexisted, Arab, Spanish, French and international residents living together, its cafes and literary salons active, its architecture combining Moorish and European styles, and its music and press having an international flavour.",
+            "sourceIds": [
+              "q3497642-enwiki",
+              "q3497642-wikidata"
+            ]
+          },
+          "events": {
+            "zh": "关键节点包括1923年丹吉尔公约的签订、自由贸易体制的运行、二战期间西班牙的占领，以及1956年摩洛哥独立后回归主权，这些事件决定了丹吉尔的现代归属。",
+            "en": "Key moments are the signing of the Tangier Convention in 1923, the working of the free trade regime, the Spanish occupation during the Second World War and the return to Moroccan sovereignty after independence in 1956, events that determined the modern allegiance of Tangier.",
+            "sourceIds": [
+              "q3497642-enwiki",
+              "q3497642-wikidata",
+              "tangier-frus-1956"
+            ]
+          }
+        },
+        "sources": [
+          {
+            "id": "q3497642-enwiki",
+            "title": "Tangier International Zone",
+            "url": "https://en.wikipedia.org/wiki/Tangier_International_Zone",
+            "publisher": "Wikipedia",
+            "checkedOn": "2026-10-03",
+            "access": "read via MediaWiki extract API; pageprops.wikibase_item equals Q3497642",
+            "supports": [
+              "The Tangier International Zone as a territory in Morocco under international administration",
+              "Its existence from 1923 to 1956 and its return to Moroccan sovereignty"
+            ]
+          },
+          {
+            "id": "q3497642-wikidata",
+            "title": "Wikidata — Q3497642",
+            "url": "https://www.wikidata.org/wiki/Q3497642",
+            "publisher": "Wikidata",
+            "checkedOn": "2026-10-03",
+            "access": "entity statements read for the identity and the period of this polity",
+            "supports": [
+              "The Tangier International Zone as a territory in Morocco under international administration",
+              "Its existence from 1923 to 1956 and its return to Moroccan sovereignty"
+            ]
+          },
+          {
+            "id": "tangier-frus-1956",
+            "title": "FRUS 1955–1957, Africa, Volume XVIII, Document 200",
+            "url": "https://history.state.gov/historicaldocuments/frus1955-57v18/d200",
+            "publisher": "U.S. Department of State, Office of the Historian",
+            "checkedOn": "2026-10-06",
+            "access": "Official full page read during focused correction audit",
+            "supports": [
+              "The Tangier convention was signed on 18 December 1923; the final declaration and protocol were signed on 29 October 1956."
+            ]
+          }
+        ],
+        "editorialNotes": [
+          {
+            "zh": "疆域源的2条记录标为1912—1957年；本篇依据1923年公约和1956年最终安排确定叙述范围。原始边界记录及其日期保持原样，便于对照。",
+            "en": "The two boundary records are dated 1912–1957. This overview instead uses the 1923 convention and the final 1956 settlement to define its focus; the original geometry dates remain available for comparison."
+          }
+        ],
+        "license": "CC BY-SA 4.0 for the linked Wikipedia articles; original bilingual synthesis by this project.",
+        "verification": "Focused corrections on 2026-10-06: overview scope, cited field revisions and source notes checked against the added official sources. Other retained claims have not received a new full scholarly audit.",
+        "facts": [
+          {
+            "key": "founded",
+            "value": {
+              "zh": "1923年协议设立国际共管。",
+              "en": "International administration was established by agreement in 1923."
+            },
+            "sourceIds": [
+              "q3497642-enwiki",
+              "q3497642-wikidata"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          },
+          {
+            "key": "return",
+            "value": {
+              "zh": "1956年回归摩洛哥主权。",
+              "en": "It returned to Moroccan sovereignty in 1956."
+            },
+            "sourceIds": [
+              "q3497642-enwiki",
+              "q3497642-wikidata"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          }
+        ],
+        "binding": "Exact sourceNames AND matching verifiedWikidata AND exact record ID AND the map year inside scope; never bind by fuzzy name.",
+        "recordIds": [
+          "clio-12289",
+          "clio-13126"
+        ],
+        "recordIdsOverlappingScope": [
+          "clio-12289",
+          "clio-13126"
+        ],
+        "eventKeywords": [
+          "Tangier",
+          "丹吉尔国际区"
+        ],
+        "summary": {
+          "zh": "丹吉尔国际区是摩洛哥境内由国际共管的地区，英国、法国和西班牙于1923年签订有关其国际管理的公约，由多国委员会与管理者治理，实行自由贸易与货币自由兑换。它成为国际金融与谍报活动的重要地点，二战期间一度被西班牙占领；1956年摩洛哥独立后，该区于同年回归摩洛哥主权。\n\n经济以自由贸易、转口贸易、金融服务与旅游业为基础，丹吉尔港是地中海与大西洋之间的转运节点，免税与货币自由政策吸引国际商业，走私与投机活动亦见于记载。\n\n丹吉尔国际区时期多元社群并存，阿拉伯、西班牙、法国与国际侨民共处，咖啡馆与文学沙龙活跃，建筑融合摩尔与欧洲风格，音乐与报刊文化具有国际色彩。"
+        },
+        "zhCharacterCount": 246
+      }
+    },
+    {
+      "qid": "Q962",
+      "id": "overview-q962",
+      "changes": [
+        {
+          "path": "/editorialNotes",
+          "oldValue": [
+            {
+              "zh": "本站疆域数据仅收录该政体 3 条记录（公元1961 年至公元2024 年），覆盖很薄，叙述以所列维基百科条目为主要依据，不能据本站疆域记录推断其疆域变化。",
+              "en": "This atlas holds only 3 territory records for this polity (1961 CE to 2024 CE), a thin coverage: the essay rests mainly on the listed Wikipedia articles and the territory records here cannot support claims about territorial change."
+            }
+          ],
+          "newValue": [
+            {
+              "zh": "疆域源在1961—2024年间收录3条记录，正文则从1960年独立展开。阿波美王宫的达荷美传统与今尼日利亚贝宁城的贝宁王国分开记述。",
+              "en": "The source holds three boundary records dated 1961–2024, while the overview begins with independence in 1960. Dahomey’s Abomey court heritage is kept distinct from the Kingdom of Benin centred on Benin City in present-day Nigeria."
+            }
+          ]
+        },
+        {
+          "path": "/facts",
+          "oldValue": [
+            {
+              "key": "independence",
+              "value": {
+                "zh": "1960年脱离法国独立，旧称达荷美。",
+                "en": "It became independent from France in 1960, formerly as Dahomey."
+              },
+              "sourceIds": [
+                "q962-enwiki",
+                "q962-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            },
+            {
+              "key": "transition",
+              "value": {
+                "zh": "1990年全国会议后转向多党制。",
+                "en": "It moved to multi-party politics after a national conference in 1990."
+              },
+              "sourceIds": [
+                "q962-enwiki",
+                "q962-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            }
+          ],
+          "newValue": [
+            {
+              "key": "independence",
+              "value": {
+                "zh": "1960年脱离法国独立，旧称达荷美。",
+                "en": "It became independent from France in 1960, formerly as Dahomey."
+              },
+              "sourceIds": [
+                "q962-enwiki",
+                "q962-zhwiki",
+                "benin-recognition"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            },
+            {
+              "key": "transition",
+              "value": {
+                "zh": "1990年全国会议后转向多党制。",
+                "en": "It moved to multi-party politics after a national conference in 1990."
+              },
+              "sourceIds": [
+                "q962-enwiki",
+                "q962-zhwiki"
+              ],
+              "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+            }
+          ]
+        },
+        {
+          "path": "/scope/note",
+          "oldValue": null,
+          "newValue": {
+            "zh": "本篇从1960年达荷美独立讲起，涵盖后来的贝宁共和国；2024年是本篇资料截止年。",
+            "en": "This overview begins with Dahomey’s independence in 1960 and includes the later Republic of Benin. Its coverage ends in 2024."
+          }
+        },
+        {
+          "path": "/scope/start",
+          "oldValue": 1961,
+          "newValue": 1960
+        },
+        {
+          "path": "/sections/culture/en",
+          "oldValue": "Benin is made up of Fon, Yoruba and Bariba communities among others, French is official while Fon and Yoruba are widely spoken, the palaces of Abomey and Vodun tradition are cultural markers, and its sculpture and bronze casting are famous in West Africa.",
+          "newValue": "The royal palaces at Abomey preserve the court heritage of Dahomey. Earthen walls, courtyards and coloured reliefs express Aja-Fon traditions. The palaces combined political decision-making, craft production and storage of royal treasures. Museum displays and continuing ceremonies keep this heritage present in Benin’s cultural life."
+        },
+        {
+          "path": "/sections/culture/sourceIds",
+          "oldValue": [
+            "q962-enwiki",
+            "q962-zhwiki"
+          ],
+          "newValue": [
+            "benin-abomey"
+          ]
+        },
+        {
+          "path": "/sections/culture/zh",
+          "oldValue": "贝宁有丰族、约鲁巴、巴里巴等族群，法语为官方语言而丰语与约鲁巴语广泛使用，阿波美王宫与伏都教传统是其文化标志，雕塑与青铜工艺享誉西非。",
+          "newValue": "阿波美王宫保存了达荷美的宫廷文化遗产。土墙、院落和彩色浮雕体现阿贾—丰文化传统，宫殿曾兼具决策、工艺制作和珍宝保存的功能。今日博物馆与传统仪式让这段历史继续进入贝宁的公共文化生活。"
+        },
+        {
+          "path": "/sections/events/en",
+          "oldValue": "Key moments are independence in 1960, the military takeover and socialist period from 1972, the national conference of 1990 that introduced multi-party politics and the changes of ruling party and elections since then, which have made the country a frequently cited example of political transition in the region.",
+          "newValue": "Key moments are independence in 1960, the military takeover and socialist period from 1972, the national conference of 1990 that introduced multi-party politics and the changes of ruling party and elections since then."
+        },
+        {
+          "path": "/sections/politics/en",
+          "oldValue": "Benin, officially the Republic of Benin and formerly known as Dahomey, is a country in West Africa, bordered by Togo to the west, Nigeria to the east and Burkina Faso and Niger to the north, with the Gulf of Guinea to the south and Porto-Novo as its capital. It became independent from France in 1960 and, after a period of military rule and socialist government from 1972 to 1990, moved to multi-party politics through a national conference in 1990; it has since seen several changes of ruling party and is regarded as one of the smoother political transitions in West Africa.",
+          "newValue": "Benin, officially the Republic of Benin and formerly known as Dahomey, is a country in West Africa, bordered by Togo to the west, Nigeria to the east and Burkina Faso and Niger to the north, with the Gulf of Guinea to the south and Porto-Novo as its capital. It became independent from France in 1960 and, after a period of military rule and socialist government from 1972 to 1990, moved to multi-party politics through a national conference in 1990; it has since seen several changes of ruling party."
+        },
+        {
+          "path": "/sections/politics/sourceIds",
+          "oldValue": [
+            "q962-enwiki",
+            "q962-zhwiki"
+          ],
+          "newValue": [
+            "q962-enwiki",
+            "q962-zhwiki",
+            "benin-recognition"
+          ]
+        },
+        {
+          "path": "/sections/politics/zh",
+          "oldValue": "贝宁共和国是西非国家，西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔，南临几内亚湾，首都为波多诺伏。1960年脱离法国独立，旧称达荷美，1972至1990年经历军人执政与社会主义时期，1990年通过全国会议转向多党制，此后多次实现政党轮替，被看作西非政治转型较为平稳的国家。",
+          "newValue": "贝宁共和国是西非国家，西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔，南临几内亚湾，首都为波多诺伏。1960年脱离法国独立，旧称达荷美，1972至1990年经历军人执政与社会主义时期，1990年通过全国会议转向多党制，此后多次实现政党轮替。"
+        },
+        {
+          "path": "/sources",
+          "oldValue": [
+            {
+              "id": "q962-enwiki",
+              "title": "Benin",
+              "url": "https://en.wikipedia.org/wiki/Benin",
+              "publisher": "Wikipedia",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API; pageprops.wikibase_item equals Q962",
+              "supports": [
+                "Benin, officially the Republic of Benin and formerly known as Dahomey, as a country in West Africa",
+                "Its borders with Togo to the west, Nigeria to the east, Burkina Faso and Niger to the north"
+              ]
+            },
+            {
+              "id": "q962-zhwiki",
+              "title": "贝宁",
+              "url": "https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%AE%81",
+              "publisher": "维基百科",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API (variant=zh-cn); pageprops.wikibase_item or hand-read introduction confirms the polity",
+              "supports": [
+                "贝宁正式称贝宁共和国，旧称达荷美，是西非国家",
+                "西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔"
+              ]
+            }
+          ],
+          "newValue": [
+            {
+              "id": "q962-enwiki",
+              "title": "Benin",
+              "url": "https://en.wikipedia.org/wiki/Benin",
+              "publisher": "Wikipedia",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API; pageprops.wikibase_item equals Q962",
+              "supports": [
+                "Benin, officially the Republic of Benin and formerly known as Dahomey, as a country in West Africa",
+                "Its borders with Togo to the west, Nigeria to the east, Burkina Faso and Niger to the north"
+              ]
+            },
+            {
+              "id": "q962-zhwiki",
+              "title": "贝宁",
+              "url": "https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%AE%81",
+              "publisher": "维基百科",
+              "checkedOn": "2026-10-03",
+              "access": "read via MediaWiki extract API (variant=zh-cn); pageprops.wikibase_item or hand-read introduction confirms the polity",
+              "supports": [
+                "贝宁正式称贝宁共和国，旧称达荷美，是西非国家",
+                "西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔"
+              ]
+            },
+            {
+              "id": "benin-recognition",
+              "title": "Benin (Dahomey): U.S. History of Recognition",
+              "url": "https://history.state.gov/countries/benin/1000",
+              "publisher": "U.S. Department of State, Office of the Historian",
+              "checkedOn": "2026-10-06",
+              "access": "Official full page read during focused correction audit",
+              "supports": [
+                "Dahomey proclaimed independence on 1 August 1960 and changed its name to Benin in 1975."
+              ]
+            },
+            {
+              "id": "benin-abomey",
+              "title": "Royal Palaces of Abomey",
+              "url": "https://whc.unesco.org/en/list/323",
+              "publisher": "UNESCO World Heritage Centre",
+              "checkedOn": "2026-10-06",
+              "access": "Official full page read during focused correction audit",
+              "supports": [
+                "Aja-Fon court culture, earthen walls and polychrome bas-reliefs; royal palaces preserve the heritage of Dahomey in present-day Benin."
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/summary/zh",
+          "oldValue": "贝宁共和国是西非国家，西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔，南临几内亚湾，首都为波多诺伏。1960年脱离法国独立，旧称达荷美，1972至1990年经历军人执政与社会主义时期，1990年通过全国会议转向多党制，此后多次实现政党轮替，被看作西非政治转型较为平稳的国家。\n\n经济以农业、转口贸易与港口服务为基础，棉花是主要出口农产品，科托努港是内陆邻国的重要出海口，磷酸盐与水泥等产业提供收入，非正规贸易活跃。\n\n贝宁有丰族、约鲁巴、巴里巴等族群，法语为官方语言而丰语与约鲁巴语广泛使用，阿波美王宫与伏都教传统是其文化标志，雕塑与青铜工艺享誉西非。",
+          "newValue": "贝宁共和国是西非国家，西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔，南临几内亚湾，首都为波多诺伏。1960年脱离法国独立，旧称达荷美，1972至1990年经历军人执政与社会主义时期，1990年通过全国会议转向多党制，此后多次实现政党轮替。\n\n经济以农业、转口贸易与港口服务为基础，棉花是主要出口农产品，科托努港是内陆邻国的重要出海口，磷酸盐与水泥等产业提供收入，非正规贸易活跃。\n\n阿波美王宫保存了达荷美的宫廷文化遗产。土墙、院落和彩色浮雕体现阿贾—丰文化传统，宫殿曾兼具决策、工艺制作和珍宝保存的功能。今日博物馆与传统仪式让这段历史继续进入贝宁的公共文化生活。"
+        },
+        {
+          "path": "/verification",
+          "oldValue": "Source-guided editorial synthesis read on 2026-10-03; not independently peer reviewed by a historian.",
+          "newValue": "Focused corrections on 2026-10-06: overview scope, cited field revisions and source notes checked against the added official sources. Other retained claims have not received a new full scholarly audit."
+        },
+        {
+          "path": "/zhCharacterCount",
+          "oldValue": 276,
+          "newValue": 238
+        }
+      ],
+      "proposedEntry": {
+        "id": "overview-q962",
+        "qid": "Q962",
+        "sourceNames": [
+          "Republic of Benin"
+        ],
+        "title": {
+          "zh": "贝宁",
+          "en": "Benin"
+        },
+        "scope": {
+          "start": 1960,
+          "end": 2024,
+          "note": {
+            "zh": "本篇从1960年达荷美独立讲起，涵盖后来的贝宁共和国；2024年是本篇资料截止年。",
+            "en": "This overview begins with Dahomey’s independence in 1960 and includes the later Republic of Benin. Its coverage ends in 2024."
+          }
+        },
+        "sections": {
+          "politics": {
+            "zh": "贝宁共和国是西非国家，西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔，南临几内亚湾，首都为波多诺伏。1960年脱离法国独立，旧称达荷美，1972至1990年经历军人执政与社会主义时期，1990年通过全国会议转向多党制，此后多次实现政党轮替。",
+            "en": "Benin, officially the Republic of Benin and formerly known as Dahomey, is a country in West Africa, bordered by Togo to the west, Nigeria to the east and Burkina Faso and Niger to the north, with the Gulf of Guinea to the south and Porto-Novo as its capital. It became independent from France in 1960 and, after a period of military rule and socialist government from 1972 to 1990, moved to multi-party politics through a national conference in 1990; it has since seen several changes of ruling party.",
+            "sourceIds": [
+              "q962-enwiki",
+              "q962-zhwiki",
+              "benin-recognition"
+            ]
+          },
+          "economy": {
+            "zh": "经济以农业、转口贸易与港口服务为基础，棉花是主要出口农产品，科托努港是内陆邻国的重要出海口，磷酸盐与水泥等产业提供收入，非正规贸易活跃。",
+            "en": "The economy rests on farming, re-export trade and port services, with cotton the leading agricultural export, the port of Cotonou an important outlet for landlocked neighbours, phosphates and cement among the industries providing revenue, and informal trade active.",
+            "sourceIds": [
+              "q962-enwiki",
+              "q962-zhwiki"
+            ]
+          },
+          "culture": {
+            "zh": "阿波美王宫保存了达荷美的宫廷文化遗产。土墙、院落和彩色浮雕体现阿贾—丰文化传统，宫殿曾兼具决策、工艺制作和珍宝保存的功能。今日博物馆与传统仪式让这段历史继续进入贝宁的公共文化生活。",
+            "en": "The royal palaces at Abomey preserve the court heritage of Dahomey. Earthen walls, courtyards and coloured reliefs express Aja-Fon traditions. The palaces combined political decision-making, craft production and storage of royal treasures. Museum displays and continuing ceremonies keep this heritage present in Benin’s cultural life.",
+            "sourceIds": [
+              "benin-abomey"
+            ]
+          },
+          "events": {
+            "zh": "关键节点包括1960年独立、1972年军人执政与社会主义时期、1990年全国会议转向多党制，以及此后的多次政党轮替与选举。",
+            "en": "Key moments are independence in 1960, the military takeover and socialist period from 1972, the national conference of 1990 that introduced multi-party politics and the changes of ruling party and elections since then.",
+            "sourceIds": [
+              "q962-enwiki",
+              "q962-zhwiki"
+            ]
+          }
+        },
+        "sources": [
+          {
+            "id": "q962-enwiki",
+            "title": "Benin",
+            "url": "https://en.wikipedia.org/wiki/Benin",
+            "publisher": "Wikipedia",
+            "checkedOn": "2026-10-03",
+            "access": "read via MediaWiki extract API; pageprops.wikibase_item equals Q962",
+            "supports": [
+              "Benin, officially the Republic of Benin and formerly known as Dahomey, as a country in West Africa",
+              "Its borders with Togo to the west, Nigeria to the east, Burkina Faso and Niger to the north"
+            ]
+          },
+          {
+            "id": "q962-zhwiki",
+            "title": "贝宁",
+            "url": "https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%AE%81",
+            "publisher": "维基百科",
+            "checkedOn": "2026-10-03",
+            "access": "read via MediaWiki extract API (variant=zh-cn); pageprops.wikibase_item or hand-read introduction confirms the polity",
+            "supports": [
+              "贝宁正式称贝宁共和国，旧称达荷美，是西非国家",
+              "西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔"
+            ]
+          },
+          {
+            "id": "benin-recognition",
+            "title": "Benin (Dahomey): U.S. History of Recognition",
+            "url": "https://history.state.gov/countries/benin/1000",
+            "publisher": "U.S. Department of State, Office of the Historian",
+            "checkedOn": "2026-10-06",
+            "access": "Official full page read during focused correction audit",
+            "supports": [
+              "Dahomey proclaimed independence on 1 August 1960 and changed its name to Benin in 1975."
+            ]
+          },
+          {
+            "id": "benin-abomey",
+            "title": "Royal Palaces of Abomey",
+            "url": "https://whc.unesco.org/en/list/323",
+            "publisher": "UNESCO World Heritage Centre",
+            "checkedOn": "2026-10-06",
+            "access": "Official full page read during focused correction audit",
+            "supports": [
+              "Aja-Fon court culture, earthen walls and polychrome bas-reliefs; royal palaces preserve the heritage of Dahomey in present-day Benin."
+            ]
+          }
+        ],
+        "editorialNotes": [
+          {
+            "zh": "疆域源在1961—2024年间收录3条记录，正文则从1960年独立展开。阿波美王宫的达荷美传统与今尼日利亚贝宁城的贝宁王国分开记述。",
+            "en": "The source holds three boundary records dated 1961–2024, while the overview begins with independence in 1960. Dahomey’s Abomey court heritage is kept distinct from the Kingdom of Benin centred on Benin City in present-day Nigeria."
+          }
+        ],
+        "license": "CC BY-SA 4.0 for the linked Wikipedia articles; original bilingual synthesis by this project.",
+        "verification": "Focused corrections on 2026-10-06: overview scope, cited field revisions and source notes checked against the added official sources. Other retained claims have not received a new full scholarly audit.",
+        "facts": [
+          {
+            "key": "independence",
+            "value": {
+              "zh": "1960年脱离法国独立，旧称达荷美。",
+              "en": "It became independent from France in 1960, formerly as Dahomey."
+            },
+            "sourceIds": [
+              "q962-enwiki",
+              "q962-zhwiki",
+              "benin-recognition"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          },
+          {
+            "key": "transition",
+            "value": {
+              "zh": "1990年全国会议后转向多党制。",
+              "en": "It moved to multi-party politics after a national conference in 1990."
+            },
+            "sourceIds": [
+              "q962-enwiki",
+              "q962-zhwiki"
+            ],
+            "verification": "Editorial fact checked against the named source; the period is stated in the value or the overview scope."
+          }
+        ],
+        "binding": "Exact sourceNames AND matching verifiedWikidata AND exact record ID AND the map year inside scope; never bind by fuzzy name.",
+        "recordIds": [
+          "clio-13213",
+          "clio-13276",
+          "clio-13642"
+        ],
+        "recordIdsOverlappingScope": [
+          "clio-13213",
+          "clio-13276",
+          "clio-13642"
+        ],
+        "eventKeywords": [
+          "Benin",
+          "贝宁"
+        ],
+        "summary": {
+          "zh": "贝宁共和国是西非国家，西邻多哥，东接尼日利亚，北连布基纳法索与尼日尔，南临几内亚湾，首都为波多诺伏。1960年脱离法国独立，旧称达荷美，1972至1990年经历军人执政与社会主义时期，1990年通过全国会议转向多党制，此后多次实现政党轮替。\n\n经济以农业、转口贸易与港口服务为基础，棉花是主要出口农产品，科托努港是内陆邻国的重要出海口，磷酸盐与水泥等产业提供收入，非正规贸易活跃。\n\n阿波美王宫保存了达荷美的宫廷文化遗产。土墙、院落和彩色浮雕体现阿贾—丰文化传统，宫殿曾兼具决策、工艺制作和珍宝保存的功能。今日博物馆与传统仪式让这段历史继续进入贝宁的公共文化生活。"
+        },
+        "zhCharacterCount": 238
+      }
+    }
+  ],
+  "notFullyResolved": [
+    {
+      "qid": "Q962",
+      "field": "former sections.culture bronze-casting claim",
+      "status": "Existing attribution unsupported by the cited country sources; likely name confusion with Benin Kingdom (Nigeria). Removed conservatively; no claim that no bronze crafts exist anywhere in Republic of Benin.",
+      "evidence": "https://africa.si.edu/exhibition/visionary-viewpoints-africas-arts-museum-insights"
+    },
+    {
+      "qid": "Q156418",
+      "field": "facts.mahele",
+      "status": "The existing formulation that the 1848 Mahele alone made land alienable is oversimplified and needs a separate land-tenure source review. Retained for now; not certified by this focused correction."
+    },
+    {
+      "qid": "Q3497642",
+      "field": "economy/culture paragraphs",
+      "status": "Retained source-linked prose has not been independently rechecked sentence by sentence."
+    },
+    {
+      "qid": "Q962",
+      "field": "economy paragraph",
+      "status": "Phosphate/cement statement requires independent verification; retained pending evidence."
+    }
+  ],
+  "integration": [
+    "Apply by qid+id and assert every oldValue first.",
+    "Mirror changed entry fields in editorial/enrichment-narratives-3.12.json, not only runtime output.",
+    "Rebuild source-backed derived summaries/bindings and gzip with mtime=0.",
+    "Update bytes/hashes manifests; validate sourceId resolution and boundary binding.",
+    "Test overview is hidden outside corrected focus, original boundary record remains inspectable, all modified source links appear."
+  ]
+}

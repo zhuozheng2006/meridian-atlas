@@ -16,7 +16,78 @@ const index=read('data/native/index.json.gz');
 const manifest=JSON.parse(fs.readFileSync(path.join(dist,'data/native/manifest.json')));
 const caseName=process.argv[process.argv.indexOf('--case')+1];
 
+async function bundleCacheRelease({loadNative,nativeGeometry,readJSON,activeRecords,requests,gate,waitUntil},year){
+ const records=activeRecords(catalog,year),slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=year&&year<=p.end);
+ const url=year===1492?'data/native/year-1492.json.gz':'data/native/'+slot[1].file,barrier=gate(url);
+ const first=loadNative(records,year),second=loadNative(records,year);await waitUntil(()=>barrier.reached);
+ assert.equal(requests.filter(r=>r.url===url).length,1,'Two maps must share the pending pack request');
+ barrier.release();await Promise.all([first,second]);assert(records.every(r=>nativeGeometry(r.id)));
+ const geometries=records.map(r=>nativeGeometry(r.id));
+ await loadNative(records,year);assert.equal(requests.filter(r=>r.url===url).length,1,'Exact geometry cache must prevent another pack fetch');
+ // A direct resource read must now fetch again: the resolved pack Promise was
+ // released, while record geometry references remain in the native cache.
+ await readJSON(url);assert.equal(requests.filter(r=>r.url===url).length,2,'Successful pack must leave the generic resource cache');
+ records.forEach((r,i)=>assert.equal(nativeGeometry(r.id),geometries[i]));
+ return {year,sharedPendingRequests:1,nativeCacheHitRequests:0,releasedResolvedResource:true,nativeReferencesPreserved:records.length};
+}
+
 const cases={
+ async bootstrap_cache_release(context){return bundleCacheRelease(context,1492);},
+ async temporal_cache_release(context){return bundleCacheRelease(context,1450);},
+ async persistent_boot_failure_independent_fallback({AtlasMap,activeRecords,nativeGeometry,subject,overrides,requests}){
+  const year=1492,records=activeRecords(catalog,year),url='data/native/year-1492.json.gz';
+  const slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=year&&year<=p.end);
+  overrides.set(url,()=>new Response('unavailable',{status:503}));
+  overrides.set('data/native/'+slot[1].file,()=>new Response('unavailable',{status:503}));
+  const map=subject();map.upgradeDetail=async()=>{};
+  await AtlasMap.prototype.setYear.call(map,catalog,year);assert(!map.geometryKey.endsWith('n'));
+  await AtlasMap.prototype.upgradeDetail.call(map);
+  assert(records.every(r=>nativeGeometry(r.id)));assert(map.geometryKey.endsWith('n'));
+  assert(requests.some(r=>r.url.includes('/geos/')));assert.equal(requests.filter(r=>r.url===url).length,1);
+  return {permanentlyFailedOptionalPacks:2,independentFallbackRecords:records.length,bootstrapAttempts:1};
+ },
+ async bootstrap_validates_all_cached_entries({loadNative,nativeGeometry,activeRecords,overrides,requests}){
+  const year=1492,records=activeRecords(catalog,year),url='data/native/year-1492.json.gz',pack=read(url);
+  const first=records[0],other=records.find(r=>pack.recordIndex[r.id]!==pack.recordIndex[first.id]);
+  delete pack.geometries[pack.recordIndex[other.id]];
+  overrides.set(url,()=>new Response(JSON.stringify(pack)));
+  await loadNative([first],year);assert(nativeGeometry(first.id));assert(!nativeGeometry(other.id));
+  overrides.delete(url);const before=requests.length;
+  await loadNative([other],year);assert(nativeGeometry(other.id));assert(requests.length>before);
+  assert.equal(requests.filter(r=>r.url===url).length,1,'Background recovery must not repeatedly fetch the failed bootstrap');
+  return {unrequestedInvalidGeometryExcluded:true,independentRecoverySucceeded:true};
+ },
+ async slow_pack_waits_without_competing_overview({AtlasMap,subject,requests,gate,waitUntil}){
+  const year=1450,slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=year&&year<=p.end),url='data/native/'+slot[1].file,barrier=gate(url),map=subject();
+  let settled=false;const start=Date.now(),pending=AtlasMap.prototype.setYear.call(map,catalog,year).then(value=>{settled=true;return value;});
+  await waitUntil(()=>barrier.reached);await new Promise(resolve=>setTimeout(resolve,1500));
+  assert(!settled,'A healthy slow pack continues without an arbitrary frame timeout');assert.equal(map.frames.length,0);
+  assert.deepEqual(requests.map(r=>r.url),[url],'Neither the large index nor overview shards compete with the pack');
+  barrier.release();await pending;
+  assert.equal(map.frames.length,1);assert(map.geometryKey.endsWith('n'));assert(map.frames[0].features.every(f=>f.geometry));
+  assert.equal(requests.length,1);
+  return {controlledDelayMs:Date.now()-start,completeFirstFrame:true,nativePackRequests:1,overviewRequests:0,largeIndexRequests:0};
+ },
+ async slow_pack_late_result_after_navigation({AtlasMap,subject,requests,gate,waitUntil}){
+  const year=1450,slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=year&&year<=p.end),url='data/native/'+slot[1].file,barrier=gate(url),map=subject();
+  const old=AtlasMap.prototype.setYear.call(map,catalog,year);await waitUntil(()=>barrier.reached);
+  await new Promise(resolve=>setTimeout(resolve,1500));assert.equal(map.frames.length,0);
+  await AtlasMap.prototype.setYear.call(map,catalog,1666);assert.equal(map.year,1666);const frames=map.frames.length;
+  barrier.release();assert.equal(await old,false);
+  assert.equal(map.year,1666);assert.equal(map.frames.length,frames);assert.equal(requests.filter(r=>r.url===url).length,1);
+  assert(!requests.some(r=>r.url.includes('/overview-')||r.url.endsWith('/index.json.gz')));
+  return {lateNativeRenderCount:0,latestYear:1666,overviewRequests:0};
+ },
+ async temporal_validates_entire_payload({loadNative,nativeGeometry,activeRecords,overrides,requests}){
+  const year=1666,records=activeRecords(catalog,year).slice(0,8),slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=year&&year<=p.end),url='data/native/'+slot[1].file,pack=read(url);
+  const unused=Object.keys(pack.recordIndex).find(id=>!records.some(r=>pack.recordIndex[r.id]===pack.recordIndex[id]));assert(unused);
+  delete pack.geometries[pack.recordIndex[unused]];
+  overrides.set(url,()=>new Response(JSON.stringify(pack)));
+  await loadNative(records,year);assert(records.every(r=>nativeGeometry(r.id)));assert(!nativeGeometry(unused));
+  assert(requests.some(r=>r.url.includes('/geos/')));assert.equal(requests.filter(r=>r.url===url).length,1);
+  return {allPackMappingsValidated:true,independentFallbackRecords:records.length};
+ },
+
  async collision_all({loadNative,nativeGeometry,AtlasMap,requests,subject}){
   const collisions=manifest.simplifiedIdCollisions;
   assert.equal(Object.keys(collisions).length,59);
@@ -54,21 +125,51 @@ const cases={
   for(const r of records){const gid=index.recordIndex[r.id],expected=read('data/native/'+index.geometryIndex[gid])[gid];assert.deepEqual(nativeGeometry(r.id),expected);}
   return {records:records.length,requests:1,bytes:requests[0].bytes,exactIndividualGeometriesCompared:137};
  },
- async arbitrary_files_concurrency({loadNative,nativeGeometry,activeRecords,requests,stats}){
+ async arbitrary_files_concurrency({loadNative,nativeGeometry,activeRecords,requests,stats,overrides}){
+  const slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=1666&&1666<=p.end),failedPack='data/native/'+slot[1].file;overrides.set(failedPack,()=>new Response('unavailable',{status:503}));
   const records=activeRecords(catalog,1666);await loadNative(records,1666);
   const gids=new Set(records.map(r=>index.recordIndex[r.id]));
   const paths=new Set([...gids].map(gid=>'data/native/'+index.geometryIndex[gid]));
-  assert.equal(requests.length,paths.size+1);
+  assert.equal(requests.length,paths.size+2);
   assert.equal(requests.filter(r=>r.url==='data/native/index.json.gz').length,1);
-  assert.deepEqual(new Set(requests.filter(r=>r.url!=='data/native/index.json.gz').map(r=>r.url)),paths);
+  assert.deepEqual(new Set(requests.filter(r=>r.url.includes('/geos/')).map(r=>r.url)),paths);
   assert(stats.maxInFlight<=6);assert(stats.maxInFlight>1);
   for(const r of records)assert(nativeGeometry(r.id));
   const geometryBytes=requests.filter(r=>r.url.includes('/geos/')).reduce((n,r)=>n+r.bytes,0);
   assert.equal(geometryBytes,269168);
   return {records:records.length,geometries:gids.size,requests:requests.length,geometryBytes,maxConcurrent:stats.maxInFlight};
  },
- async mixed_cache_render({loadNative,nativeGeometry,AtlasMap,activeRecords,subject}){
+ async arbitrary_bundle_exact({loadNative,nativeGeometry,activeRecords,requests,stats}){
+  const records=activeRecords(catalog,1666);await loadNative(records,1666);
+  assert.equal(requests.length,1);assert(requests[0].url.includes('/temporal/'));
+  for(const r of records){const gid=index.recordIndex[r.id];assert.deepEqual(nativeGeometry(r.id),read('data/native/'+index.geometryIndex[gid])[gid]);}
+  assert(requests.every(r=>r.priority==='high'));
+  return {records:records.length,requests:1,geometryBytes:requests[0].bytes,largeIndexRequests:0};
+ },
+ async arbitrary_first_frame_exact({AtlasMap,activeRecords,subject,requests}){
+  const map=subject();await AtlasMap.prototype.setYear.call(map,catalog,1450);
+  assert(map.geometryKey.endsWith('n'));assert.equal(map.frames.length,1);assert.equal(map.frames[0].features.length,activeRecords(catalog,1450).length);
+  assert.equal(requests.length,1);assert(requests.every(r=>r.url.startsWith('data/native/')));
+  return {firstFrameComplete:true,overviewRequests:0,requests:1,largeIndexRequests:0};
+ },
+ async failed_bundle_frame_fallback_retry({AtlasMap,activeRecords,subject,overrides,requests}){
+  const slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=1450&&1450<=p.end);const url='data/native/'+slot[1].file;
+  overrides.set(url,()=>new Response('unavailable',{status:503}));const map=subject();map.upgradeDetail=async()=>{};
+  await AtlasMap.prototype.setYear.call(map,catalog,1450);assert.equal(map.frames.at(-1).features.length,activeRecords(catalog,1450).length);assert(!map.geometryKey.endsWith('n'));
+  assert(!requests.some(r=>r.url.includes('/geos/')));assert(requests.some(r=>r.url.includes('/overview-')));
+  overrides.delete(url);await AtlasMap.prototype.setYear.call(map,catalog,1450);assert(map.geometryKey.endsWith('n'));assert.equal(requests.filter(r=>r.url===url).length,2);
+  return {coarseFallback:true,individualRequestsDuringFrame:0,retrySucceeded:true};
+ },
+ async canceled_bundle_first_frame({AtlasMap,subject,gate,waitUntil}){
+  const slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=1450&&1450<=p.end),barrier=gate('data/native/'+slot[1].file),map=subject();
+  const first=AtlasMap.prototype.setYear.call(map,catalog,1450);await waitUntil(()=>barrier.reached);
+  await AtlasMap.prototype.setYear.call(map,catalog,1666);assert.equal(map.frames.length,1);assert.equal(map.year,1666);
+  barrier.release();assert.equal(await first,false);assert.equal(map.frames.length,1);assert.equal(map.year,1666);
+  return {staleFrames:0,latestYear:1666};
+ },
+ async mixed_cache_render({loadNative,nativeGeometry,AtlasMap,activeRecords,subject,overrides}){
   const records=activeRecords(catalog,1666).slice(0,3);
+  const slot=Object.entries(index.temporalBundles).find(([start,p])=>+start<=1666&&1666<=p.end);overrides.set('data/native/'+slot[1].file,()=>new Response('unavailable',{status:503}));
   const map=subject();map.upgradeDetail=async()=>{};
   await AtlasMap.prototype.setYear.call(map,{...catalog,records},1666);
   const coarse=new Map(map.frames.at(-1).features.map(f=>[f.properties.id,f.geometry]));
@@ -157,14 +258,14 @@ if(!process.argv.includes('--case')){
   console.log(`${result.status===0?'PASS':'FAIL'} ${name}${output.detail?' '+JSON.stringify(output.detail):''}`);
   if(result.status!==0)console.log(result.stderr.trim());
  }
- const report={testedUtc:new Date().toISOString(),dist,sourceSha256:Object.fromEntries(['native-geometry.js','map-engine.js'].map(name=>[name,createHash('sha256').update(fs.readFileSync(path.join(dist,name))).digest('hex')])),results};
+ const report={testedUtc:new Date().toISOString(),dist,sourceSha256:Object.fromEntries(['native-geometry.js','native-temporal-index.js','map-engine.js'].map(name=>[name,createHash('sha256').update(fs.readFileSync(path.join(dist,name))).digest('hex')])),results};
  if(process.env.NATIVE_AUDIT_REPORT)fs.writeFileSync(process.env.NATIVE_AUDIT_REPORT,JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify({passed:results.filter(r=>r.passed).length,failed:results.filter(r=>!r.passed).length}));
  process.exitCode=results.some(r=>!r.passed)?1:0;
 }else{
  const requests=[],overrides=new Map(),gates=new Map(),stats={inFlight:0,maxInFlight:0};
- globalThis.fetch=async url=>{
-  url=String(url);const request={url,bytes:0};requests.push(request);
+ globalThis.fetch=async (url,options={})=>{
+  url=String(url);const request={url,bytes:0,priority:options.priority};requests.push(request);
   stats.inFlight++;stats.maxInFlight=Math.max(stats.maxInFlight,stats.inFlight);
   try{
    const barrier=gates.get(url);if(barrier){barrier.reached=true;await barrier.promise;}
@@ -183,7 +284,7 @@ if(!process.argv.includes('--case')){
  const revision=fs.readFileSync(path.join(dist,'map-engine.js'),'utf8').match(/\?v=[a-zA-Z0-9.-]+/)?.[0]||'';
  const {loadNative,nativeGeometry}=await import(pathToFileURL(path.join(dist,'native-geometry.js')).href+revision);
  const {BoundaryController}=await import(pathToFileURL(path.join(dist,'boundary-controller.js')).href+revision);
- const {AtlasMap,activeRecords,color}=await import(pathToFileURL(path.join(dist,'map-engine.js')).href+revision);
+ const {AtlasMap,activeRecords,color,readJSON}=await import(pathToFileURL(path.join(dist,'map-engine.js')).href+revision);
  const subject=(records=[])=>{
   const instance=Object.create(AtlasMap.prototype);const frames=[];
   Object.assign(instance,{request:1,active:records,year:1666,catalog,geometryKey:'o',ready:Promise.resolve(),lang:'bi',destroyed:false,frames,
@@ -192,6 +293,6 @@ if(!process.argv.includes('--case')){
   instance.boundaries=new BoundaryController(instance,{mode:'auto',color});
   return instance;
  };
- try{const detail=await cases[caseName]({loadNative,nativeGeometry,AtlasMap,activeRecords,requests,overrides,stats,subject,gate,waitUntil});console.log(JSON.stringify({detail}));}
+ try{const detail=await cases[caseName]({loadNative,nativeGeometry,readJSON,AtlasMap,activeRecords,requests,overrides,stats,subject,gate,waitUntil});console.log(JSON.stringify({detail}));}
  catch(error){console.error(error.stack);process.exitCode=1;}
 }

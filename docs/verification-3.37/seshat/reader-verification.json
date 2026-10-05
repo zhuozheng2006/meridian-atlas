@@ -1,0 +1,140 @@
+{
+  "method": "No browser automation. Direct source conservation, native-DOM boundary fixtures and request race/failure tests.",
+  "count": 33,
+  "pass": 33,
+  "fail": 0,
+  "results": [
+    {
+      "name": "47,477 original rows are conserved across all 373 PolID shards",
+      "pass": true
+    },
+    {
+      "name": "All 424 pilot observations survive, including the 61 explicitly dated rows",
+      "pass": true
+    },
+    {
+      "name": "A supplied numeric zero date remains explicit and searchable",
+      "pass": true
+    },
+    {
+      "name": "Clearing a loading phase removes its busy state and ignores the late response",
+      "pass": true
+    },
+    {
+      "name": "Source PolID selection is shareable without creating an atlas entity binding",
+      "pass": true
+    },
+    {
+      "name": "26 bilingual priority variables preserve formal-law and specialist definitions",
+      "pass": true
+    },
+    {
+      "name": "Every one of the 135 original variables has a distinct source key and Chinese search label",
+      "pass": true
+    },
+    {
+      "name": "Duration keeps polity source dates separate from ritual hours",
+      "pass": true
+    },
+    {
+      "name": "Evidence, inference, expert unknown and RA-suspected unknown are distinct",
+      "pass": true
+    },
+    {
+      "name": "Zero, missing values, ranges and disagreement preserve original strings",
+      "pass": true
+    },
+    {
+      "name": "Undated records keep source phase context without an invented date or year filter",
+      "pass": true
+    },
+    {
+      "name": "Explicit source dates and single-ended dates stay unchanged",
+      "pass": true
+    },
+    {
+      "name": "Corrupt indexes, duplicate rows and wrong-polity shards fail closed",
+      "pass": true
+    },
+    {
+      "name": "Opening the reader fetches only the 32 KB index, never all observations",
+      "pass": true
+    },
+    {
+      "name": "Chinese phase search finds Ming while original source names stay untouched",
+      "pass": true
+    },
+    {
+      "name": "A phase loads one shard; filters inspect every variable and pagination bounds DOM work",
+      "pass": true
+    },
+    {
+      "name": "Global search can inspect all 47,477 rows with all 373 source identities",
+      "pass": true
+    },
+    {
+      "name": "Filtered download contains untouched original rows, filters and source attribution",
+      "pass": true
+    },
+    {
+      "name": "Index failures expose a working retry without page reload",
+      "pass": true
+    },
+    {
+      "name": "Shard failure is not cached; retry requests the same phase again",
+      "pass": true
+    },
+    {
+      "name": "Rapid phase changes discard late requests even when the loader ignores abort",
+      "pass": true
+    },
+    {
+      "name": "Destroy aborts work and prevents late DOM writes",
+      "pass": true
+    },
+    {
+      "name": "Language changes retain selection and bilingual source/label readability",
+      "pass": true
+    },
+    {
+      "name": "Native keyboard controls are isolated from map arrows without canceling defaults",
+      "pass": true
+    },
+    {
+      "name": "Hostile source strings render as text rather than injected markup",
+      "pass": true
+    },
+    {
+      "name": "Store bounds the phase cache and does not cache failed validation",
+      "pass": true
+    },
+    {
+      "name": "Standalone loader accepts gzip bytes and already-decoded HTTP bodies",
+      "pass": true
+    },
+    {
+      "name": "Lazy view waits for module and styles, and language changes retain initial PolID",
+      "pass": true
+    },
+    {
+      "name": "Lazy view destroyed before import resolves cannot replace the next page",
+      "pass": true
+    },
+    {
+      "name": "Lazy view exposes a working import retry with no external data dependency",
+      "pass": true
+    },
+    {
+      "name": "Stylesheet failure removes the broken element and permits a fresh request",
+      "pass": true
+    },
+    {
+      "name": "Research filters and page survive snapshots, language changes and a Sources round trip",
+      "pass": true
+    },
+    {
+      "name": "Unknown variables and excessive pages normalize after the actual phase loads",
+      "pass": true
+    }
+  ]
+}

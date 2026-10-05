@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-10-05T23:24:43.707Z",
+  "moduleSHA256": "c8258e0ea223e5b8e1c4da7e45eb4ee5c07f5a4eff5e560cd3c39b643b988b59",
+  "passed": 16,
+  "total": 16,
+  "results": [
+    {
+      "name": "single_source_atomic_frame_and_worker_readiness",
+      "passed": true,
+      "detail": {
+        "workerUpdates": 1,
+        "pairedSources": 1,
+        "coarseCoastHidden": true
+      }
+    },
+    {
+      "name": "threshold_does_not_fetch_at_zoom3",
+      "passed": true,
+      "detail": {
+        "requestsAt3": 0,
+        "requestsAt4": 2
+      }
+    },
+    {
+      "name": "pan_inside_coverage_reuses_data_without_source_updates",
+      "passed": true,
+      "detail": {
+        "extraRequests": 0,
+        "extraWorkerUpdates": 0
+      }
+    },
+    {
+      "name": "pan_outside_coverage_restores_complete_coarse_layers_until_new_frame_ready",
+      "passed": true,
+      "detail": {
+        "newFrameCell": 1,
+        "intermediateCoarse": true
+      }
+    },
+    {
+      "name": "old_pending_network_cannot_overwrite_new_view",
+      "passed": true,
+      "detail": {
+        "staleWrites": 0,
+        "currentWrites": 1
+      }
+    },
+    {
+      "name": "motion_during_worker_render_hides_stale_pending_frame",
+      "passed": true,
+      "detail": {
+        "oldWorkerCannotActivate": true
+      }
+    },
+    {
+      "name": "malformed_cell_is_evicted_and_retry_rebuilds_source",
+      "passed": true,
+      "detail": {
+        "badCellRetried": 2,
+        "partialFrameNeverShown": true
+      }
+    },
+    {
+      "name": "one_cell_failure_keeps_entire_view_on_coarse_fallback",
+      "passed": true,
+      "detail": {
+        "partialWorkerFrames": 0
+      }
+    },
+    {
+      "name": "source_error_recovery_recreates_source_and_layers",
+      "passed": true,
+      "detail": {
+        "recreated": true
+      }
+    },
+    {
+      "name": "terrain_off_reference_coast_and_alignment_controls",
+      "passed": true,
+      "detail": {
+        "baseRetained": true,
+        "noDoubleCoast": true
+      }
+    },
+    {
+      "name": "historical_landscape_order_reconciled_after_grid_creation",
+      "passed": true,
+      "detail": {
+        "historicalReconciliations": 4
+      }
+    },
+    {
+      "name": "destroy_cancels_pending_writes_and_removes_listeners",
+      "passed": true,
+      "detail": {
+        "lateWrites": 0
+      }
+    },
+    {
+      "name": "date_line_and_world_copy_selection_uses_both_sides",
+      "passed": true,
+      "detail": {
+        "dateline": true,
+        "worldCopy": true
+      }
+    },
+    {
+      "name": "comparison_maps_share_requests_and_survive_one_destroy",
+      "passed": true,
+      "detail": {
+        "maps": 2,
+        "sharedRequests": 2,
+        "destroyedMapWrites": 0,
+        "survivingMapReady": true
+      }
+    },
+    {
+      "name": "nonfinite_coordinates_cannot_be_committed",
+      "passed": true,
+      "detail": {
+        "invalidCoordinateWrites": 0
+      }
+    },
+    {
+      "name": "persisted_index_all_cell_hashes_and_source_inputs_match",
+      "passed": true,
+      "detail": {
+        "cells": 648,
+        "totalCellBytes": 11501874
+      }
+    }
+  ]
+}

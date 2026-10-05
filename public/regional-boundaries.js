@@ -1,10 +1,10 @@
-import {boundaryNote} from './boundary-notes.js?v=3.10.0-85d6d3916cb1';
-import {readJSON} from './map-engine.js?v=3.10.0-85d6d3916cb1';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.10.0-85d6d3916cb1';
-import {boundaryMode} from './view-state.js?v=3.10.0-85d6d3916cb1';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.10.0-85d6d3916cb1';
-import {historicalYearRange} from './historical-dates.js?v=3.10.0-85d6d3916cb1';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.10.0-85d6d3916cb1';
+import {boundaryNote} from './boundary-notes.js?v=3.37.0-153ba418f166';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.37.0-153ba418f166';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.37.0-153ba418f166';
+import {boundaryMode} from './view-state.js?v=3.37.0-153ba418f166';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.37.0-153ba418f166';
+import {historicalYearRange} from './historical-dates.js?v=3.37.0-153ba418f166';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.37.0-153ba418f166';
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;
@@ -193,20 +193,21 @@ export class RegionalBoundaries{
   const window_=this.ohmWindow,year=this.year;
   if(!window_||!this.eligible||!window_.years.includes(Number(year)))return;
   const key=window_.id+'|'+year;
-  if(this.ohmState==='loading'||this.ohmState==='ready'&&this.ohmKey===key)return;
+  if(this.ohmState==='loading'&&this.ohmRequestKey===key||this.ohmState==='ready'&&this.ohmKey===key)return;
   if(typeof location==='undefined'||!/^https?:$/.test(location.protocol))return;
   // Another window or year answers this view now: drop the previous geometry first, so one
   // window's boundaries are never drawn on top of another's.
   if(this.ohmKey&&this.ohmKey!==key){this.ohmKey=null;this.ohmData=null;this.ohmIds=[];const source=this.map.getSource(OHM_SOURCE);if(source)source.setData({type:'FeatureCollection',features:[]});this.applyFilters();this.visibility();}
-  this.ohmState='loading';
-  readJSON(window_.root+'year-'+year+'.json.gz').then(data=>{
-   if(this.atlas.destroyed){this.ohmState='idle';return;}
+  this.ohmState='loading';this.ohmRequestKey=key;const request=this.ohmRequest=(this.ohmRequest||0)+1;
+  const url=window_.root+'year-'+year+'.json.gz';
+  readJSON(url).then(data=>{
+   if(this.atlas.destroyed||request!==this.ohmRequest)return;
    const current=this.ohmWindow;
-   if(!current||current.id!==window_.id||this.year!==year){this.ohmState='idle';return;}
-   if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw Error('Invalid frozen OHM extract');
+   if(!current||current.id!==window_.id||this.year!==year){this.ohmState='idle';this.ohmRequestKey=null;this.update();return;}
+   if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features)){forgetJSON(url);throw Error('Invalid frozen OHM extract');}
    this.ohmData=data;this.ohmIds=data.features.map(f=>f.properties?.osm_id).filter(id=>Number.isSafeInteger(id)&&id!==0);this.ohmKey=key;
    this.ohmState='ready';this.addOhmLayers();this.applyFilters();this.update();this.settle();
-  }).catch(()=>{if(this.atlas.destroyed)return;this.ohmState=this.year===year&&this.ohmWindow?.id===window_.id?'failed':'idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;if(this.year!==year)return;this.applyFilters();this.visibility();this.setStatus(this.status);this.refreshLabels();});
+  }).catch(()=>{if(this.atlas.destroyed||request!==this.ohmRequest)return;const current=this.year===year&&this.ohmWindow?.id===window_.id;this.ohmState=current?'failed':'idle';this.ohmRequestKey=null;this.ohmData=null;this.ohmIds=[];this.ohmKey=null;if(!current){this.update();return;}this.applyFilters();this.visibility();this.setStatus(this.status);this.refreshLabels();});
  }
  addOhmLayers(){
   if(!this.ohmData)return;
@@ -301,8 +302,9 @@ export class RegionalBoundaries{
   const container=this.map.getContainer(),width=container.clientWidth,height=container.clientHeight,samples=[];
   for(let row=0;row<7;row++)for(let col=0;col<9;col++){
    const x=width*(.06+.88*(col+.5)/9),y=height*(.08+.84*(row+.5)/7);
-   const found=this.map.queryRenderedFeatures([x,y],{layers:this.ohmReady?['land',IDS[0],OHM_LAYERS[0]]:['land',IDS[0]]});
-   samples.push({land:found.some(f=>f.layer?.id==='land'),covered:found.some(f=>f.layer?.id===OHM_LAYERS[0]||f.layer?.id===IDS[0]&&regionalVisible(f.properties,this.year,this.maxLevel)),central:col>=3&&col<=5&&row>=2&&row<=4,quadrant:Number(col>=4)*2+Number(row>=3)});
+   const landLayer=this.atlas.geography?.landLayer||'land';
+   const found=this.map.queryRenderedFeatures([x,y],{layers:this.ohmReady?[landLayer,IDS[0],OHM_LAYERS[0]]:[landLayer,IDS[0]]});
+   samples.push({land:found.some(f=>f.layer?.id===landLayer),covered:found.some(f=>f.layer?.id===OHM_LAYERS[0]||f.layer?.id===IDS[0]&&regionalVisible(f.properties,this.year,this.maxLevel)),central:col>=3&&col<=5&&row>=2&&row<=4,quadrant:Number(col>=4)*2+Number(row>=3)});
   }
   return samples;
  }
@@ -321,7 +323,7 @@ export class RegionalBoundaries{
  }
  setYear(year,lang){
   const previous=this.year;this.year=year;this.lang=lang;this.features=[];this.samples=[];this.closePopup();this.clearLabels();this.setActive(false);
-  if(year!==previous){this.ohmState='idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;this.removeOhmLayers();}
+  if(year!==previous){this.ohmRequest=(this.ohmRequest||0)+1;this.ohmRequestKey=null;this.ohmState='idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;this.removeOhmLayers();}
   this.applyFilters();this.update();
  }
  setMode(mode){this.modeRevision=(this.modeRevision||0)+1;this.mode=boundaryMode(mode);this.closePopup();this.update();this.settle();this.atlas.onBoundaryMode?.(this.mode);this.atlas.boundaries?.setMode(this.mode);}

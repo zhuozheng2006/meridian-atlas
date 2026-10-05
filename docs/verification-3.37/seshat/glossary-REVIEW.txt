@@ -1,0 +1,42 @@
+Seshat 135 变量简体中文候选字典（2026-10-06）
+
+交付
+- additional-variables.json：仅新增 109 项，顶层原变量名是唯一 key。
+- all-variables.json：135 项合并候选；原有 26 项的每个既有字段完全保留。
+- validation.json：47,477 行原数据的集合比对、135/135 中英文名称覆盖、26 项逐字段不变、来源文件 SHA-256。
+- priority-original.json：本次读取的 26 项定义快照。
+- codebook-text.txt：本地官方 100 页 Code Book 的逐页文本提取，供复核。
+
+依据
+使用 work/data-audit-337/seshat-observations.json.gz 与同目录 seshat-codebook-2021.pdf。
+新增 109 项均匹配到实际 PDF 变量标题；translationEvidence.headingMatches 的页数由提取页索引计算，未补造来源页码。
+术语是编者中文翻译，不是官方中文版。原变量名、原值、原始栏目均不改。
+
+接口
+每项保留 source、zh、en（等于原变量名）、domain，并可有 detailZh/detailEn、unit/unitZh/unitEn、codebookPage。
+domain 兼容原 6 个枚举：scale/institutions/economy/transport/knowledge/other。
+category 是更细的可选展示分类，含 key/zh/en；军事与宗教在兼容 domain 上仍为 other，可用 category 展示“军事与防御”“宗教与思想”。
+sourceGroups 是原始 Section/Subsection 组合数组，保留缺失 subsection 为 null，也保留来源原有的分组异常。
+searchTerms 含原英文、中文和中英分类名；原有过滤器检索 d.zh 即已覆盖135项。若要栏目中文也可查，可追加 searchTerms。
+PRIORITY_VARIABLES 建议继续保持已审核26项；新增109项进入 VARIABLE_BY_NAME，不能用 domain!='other' 代替优先变量成员集合，否则会无意扩大“优先变量”。
+
+必须按上下文处理的 Duration
+同一个原始 key 在 General variables 下是编码表起止日期；另在 Warfare variables 下的五种集体仪式栏目表示小时数。故通用名为“时间范围或时长”，全局不设单位。
+contextOverrides 提供 section/subsection 精确匹配：General variables -> 政体编码起止日期；五种仪式 -> 集体仪式时长，hours/小时。
+建议 observationModel 匹配覆盖显示定义后再格式化。原始日期字符串/数值一律保留。
+
+单位
+仅新补4项明确单位：Military levels、Religious levels=levels/级；Long walls=km/千米；scale of supra-cultural interaction=km²/平方千米。
+仪式 Duration 的小时单位仅存在于上下文覆盖。Long walls 可能有 unknown 等原值，单位只能附加到可解析的数值，不能给编码词附单位。
+
+容易误读的术语
+- RA 是编码研究助理姓名，为来源元数据，不是历史人物事实。
+- Bronze/Copper/Iron/Steel 是军事用途；军用动物包含运输用途，不能读作都曾直接参战。
+- Breastplates 依 codebook 是各种材质躯干护甲；Laminar armor 是水平条带式板甲，与小片编缀甲区分。
+- Fiction 包含诗歌；Tokens 指贝壳等天然交换媒介；Articles 同时有日常用途。
+- History 是历史著述是否有证据，不是政体历史全文。
+- 宗教项描述源作者对信仰/观念的编码；如神授合法性、超自然奖惩，不是网站认定超自然事实成立。
+- production of public goods 位于规范性思想体系栏目，保留上下文；不能仅凭标签推断实际公共服务规模。
+- present、unknown、inferred present、数值范围、日期、来源行号均未重写。
+
+只生成了 work 内候选文件，未修改生产数据或代码。

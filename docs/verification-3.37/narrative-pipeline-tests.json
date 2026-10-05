@@ -1,0 +1,115 @@
+{
+  "pass": true,
+  "count": 26,
+  "passed": 26,
+  "baselineCount": 892,
+  "expectedMergedCount": 900,
+  "unselectedEntriesPreserved": 889,
+  "fixtureOnlyRevisions": 3,
+  "results": [
+    {
+      "name": "explicit section citations retain order and subset",
+      "pass": true
+    },
+    {
+      "name": "legacy absent citations inherit all sources",
+      "pass": true
+    },
+    {
+      "name": "reject unknown explicit citations",
+      "pass": true
+    },
+    {
+      "name": "reject empty explicit citations",
+      "pass": true
+    },
+    {
+      "name": "reject null explicit citations",
+      "pass": true
+    },
+    {
+      "name": "reject duplicate explicit citations",
+      "pass": true
+    },
+    {
+      "name": "reject numeric explicit citations",
+      "pass": true
+    },
+    {
+      "name": "reject duplicate declarations",
+      "pass": true
+    },
+    {
+      "name": "explicit scope and bilingual note preserve values",
+      "pass": true
+    },
+    {
+      "name": "legacy scope fallback preserved",
+      "pass": true
+    },
+    {
+      "name": "reject invalid explicit scope instead of fallback",
+      "pass": true
+    },
+    {
+      "name": "reject incomplete scope note",
+      "pass": true
+    },
+    {
+      "name": "selected batch --check validates without writing",
+      "pass": true
+    },
+    {
+      "name": "actual apply: eight additions and three targeted revisions",
+      "pass": true
+    },
+    {
+      "name": "all unselected baseline entries remain structurally identical",
+      "pass": true
+    },
+    {
+      "name": "actual apply retains every explicit section/fact citation, scope and source date",
+      "pass": true
+    },
+    {
+      "name": "same selected batch is idempotent",
+      "pass": true
+    },
+    {
+      "name": "actual apply rejects unknown section citation and makes no partial writes",
+      "pass": true
+    },
+    {
+      "name": "actual apply rejects unknown fact citation and makes no partial writes",
+      "pass": true
+    },
+    {
+      "name": "actual apply rejects empty explicit fact citations and makes no partial writes",
+      "pass": true
+    },
+    {
+      "name": "actual apply rejects duplicate source declarations and makes no partial writes",
+      "pass": true
+    },
+    {
+      "name": "actual apply rejects reversed scope and makes no partial writes",
+      "pass": true
+    },
+    {
+      "name": "actual apply rejects incomplete scope note and makes no partial writes",
+      "pass": true
+    },
+    {
+      "name": "archive builder preserves exact JSON bytes and gzip mtime",
+      "pass": true
+    },
+    {
+      "name": "actual old builder keeps authored scope/note/citations and unrelated editorial entries",
+      "pass": true
+    },
+    {
+      "name": "actual builder rejects unknown fact ID before editorial writes",
+      "pass": true
+    }
+  ]
+}

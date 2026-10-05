@@ -24,7 +24,7 @@ function extract(name){
  }
  throw Error('Unclosed app function '+name);
 }
-const names=['setYear','setCompareYear','closeComparison','boundaryComparisonController','openBoundaryComparison','cancelBoundaryComparison'];
+const names=['setYear','applyYear','ensureAtlas','setCompareYear','closeComparison','boundaryComparisonController','openBoundaryComparison','cancelBoundaryComparison'];
 const negativeControl=process.env.MERIDIAN_OLD_CANCEL==='1';
 const functions=names.map(name=>negativeControl&&name==='cancelBoundaryComparison'?'function cancelBoundaryComparison(){boundaryComparison?.cancel();}':extract(name)).join('\n');
 const declarations=source.slice(source.indexOf('let boundaryComparison='),source.indexOf('const params='));
@@ -48,6 +48,10 @@ function fixture(){
  const state={year:1500,compareYear:1650,compare:true,lang:'en',reference:false,borders:true,selectedSide:'left'};
  ${declarations}
  atlas=left;compareMap=right;catalog={records:[]};events=[];
+ // This suite starts with a loaded pair. The real ensureAtlas early-ready branch
+ // is exercised without entering the unrelated network/WebGL startup path.
+ const atlasReady=true;
+
  const pause=()=>{},renderYear=()=>{$('#yearInput').value=state.year},renderEvents=()=>{},renderBrowse=()=>{},renderRegionalStatus=()=>{},renderLayerLabels=()=>{},saveURL=()=>{},closeDetail=()=>{},notify=()=>{},mapError=(e)=>log.push(['error',e]),text=(a,b)=>b,yr=y=>y,normalizeYear=Number,toggleCompare=()=>{throw Error('Unexpected map creation')};
  ${functions}
  return {state,left,right,open:openBoundaryComparison,close:closeComparison,year:setYear,compareYear:setCompareYear,

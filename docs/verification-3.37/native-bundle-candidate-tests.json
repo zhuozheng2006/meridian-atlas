@@ -1,0 +1,147 @@
+{
+  "testedAt": "2026-10-05T23:02:10.394Z",
+  "results": [
+    {
+      "name": "non_boot_all_records_exact_single_pack",
+      "pass": true,
+      "ms": 19,
+      "details": {
+        "records": 133,
+        "requests": 2
+      }
+    },
+    {
+      "name": "bootstrap_route_unchanged",
+      "pass": true,
+      "ms": 15,
+      "details": {
+        "records": 137,
+        "requests": 1
+      }
+    },
+    {
+      "name": "two_aliases_share_index_and_file",
+      "pass": true,
+      "ms": 6,
+      "details": {
+        "requests": 2
+      }
+    },
+    {
+      "name": "all_native_id_collisions_retain_exact_geometry",
+      "pass": true,
+      "ms": 21,
+      "details": {
+        "records": 149,
+        "groups": 59
+      }
+    },
+    {
+      "name": "http_pack_failure_individual_fallback",
+      "pass": true,
+      "ms": 25,
+      "details": {
+        "records": 122,
+        "requests": 122
+      }
+    },
+    {
+      "name": "bad_pack_alias_does_not_poison_native_cache",
+      "pass": true,
+      "ms": 19,
+      "details": {
+        "records": 133,
+        "invalidPackEvicted": true
+      }
+    },
+    {
+      "name": "cancel_after_index_dispatches_no_pack",
+      "pass": true,
+      "ms": 3,
+      "details": {
+        "requests": 1
+      }
+    },
+    {
+      "name": "stale_inflight_pack_cached_but_no_new_dispatch",
+      "pass": true,
+      "ms": 13,
+      "details": {
+        "cachedExactRecords": 133,
+        "requests": 2,
+        "note": "AtlasMap still owns sequence render guard"
+      }
+    },
+    {
+      "name": "canceled_pack_error_does_not_start_fallback",
+      "pass": true,
+      "ms": 5,
+      "details": {
+        "requests": 2
+      }
+    },
+    {
+      "name": "new_year_same_pack_fills_correct_active_records",
+      "pass": true,
+      "ms": 28,
+      "details": {
+        "years": [
+          1450,
+          1451,
+          1452
+        ],
+        "requests": 2
+      }
+    },
+    {
+      "name": "first_frame_pack_failure_returns_without_individual_dispatch",
+      "pass": true,
+      "ms": 19,
+      "details": {
+        "firstFrameIndividualRequests": 0,
+        "subsequentUpgradeIndividualFallback": true,
+        "failedBundleNotRetriedImmediately": true
+      }
+    },
+    {
+      "name": "first_frame_success_exact_without_overview",
+      "pass": true,
+      "ms": 19,
+      "details": {
+        "records": 128,
+        "requests": 2
+      }
+    },
+    {
+      "name": "first_frame_bad_pack_evicted_then_next_first_frame_retries",
+      "pass": true,
+      "ms": 15,
+      "details": {
+        "malformedPackEvicted": true,
+        "retrySucceeded": true
+      }
+    },
+    {
+      "name": "first_frame_no_bundle_metadata_returns_without_geometry_dispatch",
+      "pass": true,
+      "ms": 3,
+      "details": {
+        "requests": 1,
+        "readyForLegacyOverviewFallback": true
+      }
+    },
+    {
+      "name": "controlled_latency_native_wave_comparison",
+      "pass": true,
+      "ms": 704,
+      "details": {
+        "latencyPerMockRequestMs": 25,
+        "oldRequests": 132,
+        "newRequests": 2,
+        "oldMs": 606,
+        "newMs": 73,
+        "note": "Node mocked I/O, not a browser/network benchmark"
+      }
+    }
+  ]
+}

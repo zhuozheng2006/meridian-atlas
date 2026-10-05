@@ -24,7 +24,7 @@ assert.deepEqual(actualPhysical,Object.keys(physical).sort());
 console.log(`PASS All ${actualPhysical.length} physical assets match the current release inventory`);
 
 const native=json('data/native/manifest.json');
-const pieces=[...native.shards,native.index,native.geometryAudit,...Object.values(native.bootstrap)];
+const pieces=[...native.shards,native.index,native.geometryAudit,...Object.values(native.bootstrap),...(native.temporalBundles||[])];
 for(const meta of pieces){
  const compressed=read('data/native/'+meta.file);assert.equal(compressed.length,meta.gzipBytes,meta.file);assert.equal(digest(compressed),meta.gzipSha256,meta.file);
  const raw=zlib.gunzipSync(compressed);assert.equal(raw.length,meta.bytes,meta.file);assert.equal(digest(raw),meta.sha256,meta.file);

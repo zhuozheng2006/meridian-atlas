@@ -1,0 +1,76 @@
+Seshat research archive integration — 2026-10-06
+
+Entry
+Sources → 社会与制度资料 / Societies & institutions.
+Shareable hash: #view=research&lang=bi&seshat=CnMing%2A
+All-record search hash: #view=research&lang=bi&seshat=%40all
+The source PolID is kept independently of map entities and QIDs.
+
+Shipped data and meaning
+47,477 untouched canonical-sheet records, 373 unique PolIDs, 444 polity metadata rows,
+135 variables. 1,446 rows supply Date.From and/or Date.To; 46,031 do not.
+No-date rows keep their original source phase context and are never filtered by map year.
+The reviewed first pilot is preserved in full: 424 rows including 61 explicitly dated rows.
+The workbook includes administrative/coding metadata (for example RA names); record totals
+must not be presented as a count of independently verified historical facts.
+
+Dictionary
+All 135 original variables have Simplified Chinese display/search labels; source English names
+and source values are unchanged. The priority selection remains exactly the original 26 variables.
+Duration is interpreted by Section/Subsection: coding-table dates vs ritual duration in hours.
+Units are shown only with numeric values. Present/absent/inferred/unknown/suspected unknown,
+uncertain/disputed/range/list and missing fields remain distinct.
+The workbook does not contain every statement's rationale and bibliography. Source workbook
+row numbers and the original codebook are provided; no per-row scholarly references invented.
+
+Loading and footprint
+The opening index is 31,947 gzip bytes. Selecting one phase fetches a 1,124–3,239 byte shard.
+Cross-phase search fetches 555,186 gzip bytes only when selected.
+373 phase shards total 949,966 bytes. Successful phase cache holds up to 8 phases.
+381 production data/source files total 17,530,001 bytes, of which 15,839,102 bytes are original
+workbook, codebook PDF, README and LICENSE. Original files are linked, not loaded at startup.
+
+Files
+public/research-view.js: small lazy entry, module/style retry and lifecycle protection.
+public/research-reader.js: DOM reader, paginated full search, raw source download.
+public/research-definitions.js + public/research-vocabulary.js: 135-variable dictionary/model.
+public/research-polity-names.js: 308 reviewed Chinese phase display labels; 65 original-name fallbacks.
+public/research-reader.css: compact desktop fields, mobile wrapping, keyboard focus treatment.
+public/data/seshat/: source-preserving index, per-PolID records, full search, provenance/sources.
+public/app.js: research view lifecycle, source PolID hash, Sources button, language preservation.
+public/source-reader.js: live Seshat counts, source row, corrected old overview-method prose.
+
+Provenance
+Source repository: https://github.com/seshatdb/Equinox_Data
+Workbook: Equinox_on_GitHub_June9_2022.xlsx, sheet Equinox2020_CanonDat (not imputed worksheets).
+Workbook SHA256: 48c7fbd00b6ebca4405d171e1d8e4fb2ea74a2fcd3edd0762e699e7d472f0556
+Codebook: https://seshatdatabank.info/sitefiles/code-book-4.20.2021.pdf
+README states CC BY-NC-SA without a version; LICENSE contains CC0 1.0. Both exact source files
+are included, the conflict is documented, and the dataset has not been relabeled as CC0.
+NGA/World Region are research sampling contexts, not polity boundaries or capital coordinates.
+
+Independent verification
+node scripts/validate-seshat-research.mjs
+Runs preservation, full-index/search, source-dates, filter, export, failed-request retry,
+async selection, teardown, labels/keyboard, source-string safety and lazy-entry fixtures.
+The reader suite passes 33/33 checks; phase-name helpers pass 9/9 separate checks.
+No browser automation is performed by this script; real-browser layout testing is separate.
+python3 scripts/build-seshat-research.py
+Rebuilds the data from the bundled XLSX using only Python standard library into /tmp/seshat-rebuild.
+All resulting data files were compared byte for byte with public/data/seshat and matched.
+Canonical source-row hash before and after: b89f11c0648ad7bfa186926b5071a34f8e8a7ca5172f778c4005eb0f04963bdf
+
+No package changes, full-suite run, asset stamp, commit or publication performed by this work unit.
+
+Startup and share state follow-up
+- Research routes do not request MapLibre, core map catalog/events or create WebGL canvases.
+- Default map routes preload catalog/renderer in parallel; first map navigation initializes once.
+- Source view and research view can be visited without constructing a map.
+- Research URL keys: seshat, srDomain, srVariable, srQ, srFind, srPage. Whitelist, limits, defaults
+  and actual variable validation apply. Snapshots survive Sources round trips and language changes.
+- Map-only buttons are disabled while the renderer is unavailable; returning to an existing map
+  applies the current language. Stale original place-link loads cannot steal a later navigation.
+- Number formatting is display-only. Workbook values, raw fields and downloads are untouched.
+- Added node scripts/validate-research-routing.mjs: 13/13 direct app-function checks, including
+  rejected WebGL, delayed renderer/deep links, repeated initialization and URL state validation.
+- Map runtime helper has its own 11/11 checks; browser cold-route verification remains separate.

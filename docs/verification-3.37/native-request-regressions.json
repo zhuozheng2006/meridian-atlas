@@ -1,0 +1,213 @@
+{
+  "testedUtc": "2026-10-05T23:30:06.122Z",
+  "dist": "/Users/zane/Documents/Codex/2026-10-02/new-chat/work/native-lookup-337/cache-release-stage/public",
+  "sourceSha256": {
+    "native-geometry.js": "096a76ea032ab3d5c102a8184f8f4c586bd444df597936636a30a6a9fb2c83a9",
+    "native-temporal-index.js": "b35dc4f892c5f492e3caf14d1c30060512ff923abce2ff0c52272535841dddc5",
+    "map-engine.js": "991e8b8fe9a6508057715dcecdd4709da3883b8f98b4b402fba30c45a8c7bc53"
+  },
+  "results": [
+    {
+      "name": "bootstrap_cache_release",
+      "passed": true,
+      "detail": {
+        "year": 1492,
+        "sharedPendingRequests": 1,
+        "nativeCacheHitRequests": 0,
+        "releasedResolvedResource": true,
+        "nativeReferencesPreserved": 136
+      }
+    },
+    {
+      "name": "temporal_cache_release",
+      "passed": true,
+      "detail": {
+        "year": 1450,
+        "sharedPendingRequests": 1,
+        "nativeCacheHitRequests": 0,
+        "releasedResolvedResource": true,
+        "nativeReferencesPreserved": 133
+      }
+    },
+    {
+      "name": "persistent_boot_failure_independent_fallback",
+      "passed": true,
+      "detail": {
+        "permanentlyFailedOptionalPacks": 2,
+        "independentFallbackRecords": 136,
+        "bootstrapAttempts": 1
+      }
+    },
+    {
+      "name": "bootstrap_validates_all_cached_entries",
+      "passed": true,
+      "detail": {
+        "unrequestedInvalidGeometryExcluded": true,
+        "independentRecoverySucceeded": true
+      }
+    },
+    {
+      "name": "slow_pack_waits_without_competing_overview",
+      "passed": true,
+      "detail": {
+        "controlledDelayMs": 1547,
+        "completeFirstFrame": true,
+        "nativePackRequests": 1,
+        "overviewRequests": 0,
+        "largeIndexRequests": 0
+      }
+    },
+    {
+      "name": "slow_pack_late_result_after_navigation",
+      "passed": true,
+      "detail": {
+        "lateNativeRenderCount": 0,
+        "latestYear": 1666,
+        "overviewRequests": 0
+      }
+    },
+    {
+      "name": "temporal_validates_entire_payload",
+      "passed": true,
+      "detail": {
+        "allPackMappingsValidated": true,
+        "independentFallbackRecords": 8
+      }
+    },
+    {
+      "name": "collision_all",
+      "passed": true,
+      "detail": {
+        "collisionGroups": 59,
+        "records": 149,
+        "networkRequests": 121
+      }
+    },
+    {
+      "name": "boot_no_index",
+      "passed": true,
+      "detail": {
+        "records": 136,
+        "requests": 1,
+        "bytes": 150207
+      }
+    },
+    {
+      "name": "alps_1500_boot_no_index",
+      "passed": true,
+      "detail": {
+        "records": 137,
+        "requests": 1,
+        "bytes": 151086,
+        "exactIndividualGeometriesCompared": 137
+      }
+    },
+    {
+      "name": "arbitrary_files_concurrency",
+      "passed": true,
+      "detail": {
+        "records": 122,
+        "geometries": 120,
+        "requests": 122,
+        "geometryBytes": 269168,
+        "maxConcurrent": 6
+      }
+    },
+    {
+      "name": "arbitrary_bundle_exact",
+      "passed": true,
+      "detail": {
+        "records": 122,
+        "requests": 1,
+        "geometryBytes": 226236,
+        "largeIndexRequests": 0
+      }
+    },
+    {
+      "name": "arbitrary_first_frame_exact",
+      "passed": true,
+      "detail": {
+        "firstFrameComplete": true,
+        "overviewRequests": 0,
+        "requests": 1,
+        "largeIndexRequests": 0
+      }
+    },
+    {
+      "name": "failed_bundle_frame_fallback_retry",
+      "passed": true,
+      "detail": {
+        "coarseFallback": true,
+        "individualRequestsDuringFrame": 0,
+        "retrySucceeded": true
+      }
+    },
+    {
+      "name": "canceled_bundle_first_frame",
+      "passed": true,
+      "detail": {
+        "staleFrames": 0,
+        "latestYear": 1666
+      }
+    },
+    {
+      "name": "mixed_cache_render",
+      "passed": true,
+      "detail": {
+        "records": 3,
+        "partialFallbackRetained": true,
+        "completeCachePreventsRedundantSetData": true
+      }
+    },
+    {
+      "name": "failed_boot_fallback_retry",
+      "passed": true,
+      "detail": {
+        "fallbackRendered": true,
+        "retryNativeRendered": true
+      }
+    },
+    {
+      "name": "canceled_upgrade_next_sequence",
+      "passed": true,
+      "detail": {
+        "staleUpgradeRenderCount": 0,
+        "currentUpgradeRenderCount": 1
+      }
+    },
+    {
+      "name": "destroyed_upgrade",
+      "passed": true,
+      "detail": {
+        "destroyedRenderCount": 0,
+        "inFlightCachePreserved": true
+      }
+    },
+    {
+      "name": "zero_year",
+      "passed": true,
+      "detail": {
+        "zeroYearShowsNoTerritories": true,
+        "requests": 0,
+        "note": "Engine empties the map; UI is responsible for rejecting a user-selected year zero."
+      }
+    },
+    {
+      "name": "shared_file_cache",
+      "passed": true,
+      "detail": {
+        "recordAliases": 2,
+        "sharedIndexRequests": 1,
+        "sharedGeometryRequests": 1
+      }
+    },
+    {
+      "name": "missing_geometry_recovery",
+      "passed": true,
+      "detail": {
+        "malformedPayloadRejected": true,
+        "retrySucceeded": true
+      }
+    }
+  ]
+}

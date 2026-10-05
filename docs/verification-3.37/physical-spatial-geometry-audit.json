@@ -1,0 +1,74 @@
+{
+  "status": "pass",
+  "runtimeSourceManifest": {
+    "sourceSHA256": "83f9e467daf93281f2c913565a7fe902d244b4a3646d062be019665a9058a020",
+    "files": [
+      {
+        "file": "data/physical/land-10m.json.gz",
+        "sha256": "e4e4c274f1492fdeac01c9f0f9b542dc0e264c7387ac64d4cbbced748f8c8c30",
+        "features": 10
+      },
+      {
+        "file": "data/physical/rivers-10m.json.gz",
+        "sha256": "45cdb40c9f169f6fb08ad0d04f8d49404459ddae5c86fdd08d2b2d45e0caef69",
+        "features": 1455
+      },
+      {
+        "file": "data/physical/lakes-10m.json.gz",
+        "sha256": "afbeccef564f53b51610c18b0e58b44fb79e759876cd3050f941eb99aa187914",
+        "features": 1355
+      }
+    ]
+  },
+  "cells": 648,
+  "sourceCoordinateSimplification": false,
+  "sourceCoordinateRounding": false,
+  "validPersistedGeometry": true,
+  "closedRingsChecked": 17241,
+  "perCell": {
+    "maxMissingAreaSquareDegrees": 0,
+    "maxOverlapAreaSquareDegrees": 0,
+    "maxLandDifferenceAreaSquareDegrees": 0
+  },
+  "global": {
+    "landSymmetricDifferenceAreaSquareDegrees": 2.0354342491455737e-13,
+    "oceanSymmetricDifferenceAreaSquareDegrees": 2.0354342491455737e-13,
+    "uncoveredWorldAreaSquareDegrees": 0.0,
+    "landOceanOverlapAreaSquareDegrees": 0.0
+  },
+  "coast": {
+    "everyCellTopologyExactlyEqualsClippedOriginalCoast": true,
+    "negativeControlOutlineClippedPolygonsRejected": true,
+    "negativeControlFalseCoastLengthDegrees": 8152.831669471862
+  },
+  "layers": {
+    "rivers": {
+      "sourceFeatures": 1455,
+      "reassembledNonEmptyFeatures": 1454,
+      "propertiesEqualSource": true,
+      "maxDifference": 0,
+      "maxHausdorffDegrees": 7.105427357601002e-15,
+      "sourceInteriorRings": 0
+    },
+    "lakes": {
+      "sourceFeatures": 1355,
+      "reassembledNonEmptyFeatures": 1355,
+      "propertiesEqualSource": true,
+      "maxDifference": 1.6516193794557932e-15,
+      "maxHausdorffDegrees": 7.105427357601002e-15,
+      "sourceInteriorRings": 233
+    }
+  },
+  "classification": {
+    "points": 12028,
+    "dateLineSidesExplicitSamples": 28,
+    "mismatches": 0,
+    "landHolePointsCoveredByWater": 1
+  },
+  "elapsedSeconds": 27.644,
+  "limits": [
+    "No browser/pixel seam verification performed.",
+    "Land is a contemporary physical reference; historical geometry is not clipped or modified.",
+    "1e-8-degree tolerance only applies to floating-line topology audit; serialized values are not modified."
+  ]
+}

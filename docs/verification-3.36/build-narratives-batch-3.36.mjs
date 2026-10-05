@@ -14,6 +14,7 @@
 import {readFile,readdir,writeFile} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {citationRegistry,citationIds,narrativeScope,verifiedChineseTitle} from '../../scripts/places/narrative-metadata.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const checkOnly=process.argv.includes('--check');
@@ -47,8 +48,12 @@ const yearText=(year,lang)=>{
  if(year<0)return lang==='zh'?'公元前'+Math.abs(year)+' 年':Math.abs(year)+' BCE';
  return lang==='zh'?'公元'+year+' 年':String(year)+' CE';
 };
-const coverageNote=(plan,lang)=>{
+const coverageNote=(plan,lang,explicitScope)=>{
  const n=plan.recordCount,from=plan.scope.start,to=plan.scope.end;
+ if(explicitScope){
+  if(lang==='zh')return '本站疆域数据收录 '+n+' 条对应记录，范围为'+yearText(from,'zh')+'至'+yearText(to,'zh')+'；本篇显示范围为'+yearText(explicitScope.start,'zh')+'至'+yearText(explicitScope.end,'zh')+'，两者分别记录。';
+  return 'The atlas holds '+n+' corresponding map records from '+yearText(from,'en')+' to '+yearText(to,'en')+'. This narrative is shown from '+yearText(explicitScope.start,'en')+' to '+yearText(explicitScope.end,'en')+', set independently from the map-record window.';
+ }
  if(lang==='zh'){
   if(plan.thin)return '本站疆域数据仅收录该政体 '+n+' 条记录（'+yearText(from,'zh')+'至'+yearText(to,'zh')+'），覆盖很薄，叙述以所列维基百科条目为主要依据，不能据本站疆域记录推断其疆域变化。';
   return '本站疆域数据收录该政体 '+n+' 条记录，年份范围为'+yearText(from,'zh')+'至'+yearText(to,'zh')+'，本条目断代与这些记录一致；叙述依据所列维基百科条目。';
@@ -70,7 +75,7 @@ for(const plan of chosen.entries){
  if(!extract.enIdentityMatch)fail(where+': the English article does not carry this QID (pageprops identity check)');
  // A Chinese citation is used only when the Chinese article was read and confirmed to document
  // the same polity; where it was not, the entry needs an authored extra source instead.
- const zhTitle=extract.zhAccepted?extract.zhTitle:null;
+ const zhTitle=verifiedChineseTitle(extract);
  if(!source.titleZh||!source.titleEn)fail(where+': title missing');
  for(const key of SECTION_KEYS){
   const section=source.sections?.[key];
@@ -94,9 +99,12 @@ for(const plan of chosen.entries){
   if(!item.id||!item.url?.startsWith('https://')||!item.publisher||!item.checkedOn)fail(where+': incomplete extra source '+(item.id||''));
   if(!Array.isArray(item.supports)||!item.supports.length)fail(where+': extra source '+(item.id||'')+' needs a supports list');
  }
- const notes=[coverageNote(plan,'zh')];
+ let scope;
+ try{scope=narrativeScope(source,plan.scope,where)}catch(error){fail(error.message);continue}
+ const explicitScope=Object.prototype.hasOwnProperty.call(source,'scope')?scope:null;
+ const notes=[coverageNote(plan,'zh',explicitScope)];
  if(source.scopeNoteZh)notes.push(source.scopeNoteZh);
- const notesEn=[coverageNote(plan,'en')];
+ const notesEn=[coverageNote(plan,'en',explicitScope)];
  if(source.scopeNoteEn)notesEn.push(source.scopeNoteEn);
  const wikiUrl=(host,title)=>'https://'+host+'/wiki/'+encodeURIComponent(String(title).replace(/ /g,'_'));
  // The two citations are generated from the articles actually read in this session, so a
@@ -109,20 +117,26 @@ for(const plan of chosen.entries){
  ];
  if(sources.length<2)fail(where+': fewer than two citations');
  for(const item of sources)if(!item.title||!item.url?.startsWith('https://')||!item.checkedOn||!Array.isArray(item.supports)||!item.supports.length)fail(where+': incomplete citation '+item.id);
+ let sections,facts;
+ try{
+  const known=citationRegistry(sources,where);
+  sections=Object.fromEntries(SECTION_KEYS.map(key=>[key,{zh:source.sections[key].zh,en:source.sections[key].en,sourceIds:citationIds(source.sections[key],known,where+': '+key)}]));
+  facts=source.facts.map(fact=>({key:fact.key,value:fact.value,sourceIds:citationIds(fact,known,where+': fact '+fact.key)}));
+ }catch(error){fail(error.message);continue}
  const built={
   qid:plan.qid,
   sourceNames:plan.sourceNames,
   title:{zh:source.titleZh,en:source.titleEn},
-  scope:plan.scope,
+  scope,
   eventKeywords:source.eventKeywords||[source.titleEn],
   sources,
-  sections:Object.fromEntries(SECTION_KEYS.map(key=>[key,{zh:source.sections[key].zh,en:source.sections[key].en}])),
-  facts:source.facts.map(fact=>({key:fact.key,value:fact.value})),
+  sections,
+  facts,
   editorialNotes:[{zh:notes.join(' '),en:notesEn.join(' ')}]
  };
  entries.push(built);
  stats.push({qid:plan.qid,part:source.part,titleZh:source.titleZh,titleEn:source.titleEn,region:plan.regionReviewed,regionBox:plan.regionBox,era:plan.era,
-  scope:plan.scope,recordCount:plan.recordCount,spanYears:plan.spanYears,yearsCovered:plan.yearsCovered,areaMax:plan.areaMax,thin:plan.thin,
+  scope,recordCount:plan.recordCount,spanYears:plan.spanYears,yearsCovered:plan.yearsCovered,areaMax:plan.areaMax,thin:plan.thin,
   recordIds:plan.recordIds,sourceNames:plan.sourceNames,evidence:plan.evidence,
   sections:Object.fromEntries(SECTION_KEYS.map(key=>[key,{zh:[...source.sections[key].zh].length,en:source.sections[key].en.trim().split(/\s+/).filter(Boolean).length}])),
   sources:sources.map(item=>item.url),enArticle:extract.enTitle,zhArticle:extract.zhTitle});

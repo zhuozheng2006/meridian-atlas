@@ -1,6 +1,6 @@
-import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.10.0-85d6d3916cb1';
-import {interiorPoint} from './regional-boundaries.js?v=3.10.0-85d6d3916cb1';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.10.0-85d6d3916cb1';
+import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.37.0-153ba418f166';
+import {interiorPoint} from './regional-boundaries.js?v=3.37.0-153ba418f166';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.37.0-153ba418f166';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -30,7 +30,7 @@ export class BoundaryController{
  async setMode(mode){
   this.mode=mode;const token=++this.generation,year=this.atlas.year,request=this.atlas.request;
   if(!this.atlas.catalog)return;this.loading=true;this.atlas.regional?.setStatus('loading');
-  try{const frame=await this.prepare(year,()=>this.atlas.prepareOverview(year));if(this.atlas.destroyed||token!==this.generation||year!==this.atlas.year||request!==this.atlas.request||mode!==this.mode)return;
+  try{const frame=await this.prepare(year,()=>this.atlas.prepareOverview(year,()=>!this.atlas.destroyed&&token===this.generation&&request===this.atlas.request&&mode===this.mode));if(this.atlas.destroyed||token!==this.generation||year!==this.atlas.year||request!==this.atlas.request||mode!==this.mode)return;
    this.commit(frame);this.atlas.regional?.update();this.atlas.refreshLabels();this.atlas.upgradeDetail();
   }catch(e){if(token===this.generation&&!this.atlas.destroyed){this.loading=false;this.reason='error';this.atlas.regional?.setStatus('error');}}
  }

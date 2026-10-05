@@ -1,0 +1,41 @@
+{
+  "assetRevision": "3.37.0-153ba418f166",
+  "environment": "Codex in-app browser, local preview 127.0.0.1:8767",
+  "checks": {
+    "coldResearchNoMapLibreOrCoreMapData": true,
+    "coldResearchNoWebGLCanvas": true,
+    "mingPhaseIndexBytes": 31947,
+    "mingPhaseShardBytes": 3056,
+    "chinesePhaseSearch": true,
+    "variableAndQueryFilters": true,
+    "refreshRestoresFilters": true,
+    "returnFromSourcesRestoresFilters": true,
+    "refreshRestoresSecondPage": true,
+    "numericScientificNotationReadable": true,
+    "sourceJSONExportMatchesOriginalRow2220": true,
+    "firstAtlasNavigationCreatesOneMapAndOneRendererRequest": true,
+    "comparisonCreatesSecondMap": true,
+    "researchLanguageChangeUpdatesBothExistingMaps": true,
+    "arrowRightLeftMap1492To1502RightMapStays1900": true,
+    "arrowRightLeavesBothCamerasUnchanged": true,
+    "defaultAtlasHALCAndPhysicalGridReady": true,
+    "mobile390pxDocumentWidth390px": true,
+    "mobileControlWidths": [
+      339,
+      339,
+      339,
+      339,
+      339
+    ],
+    "observedConsoleErrors": [],
+    "researchSkipLinkFocusesMainAndPreservesURL": true
+  },
+  "notes": [
+    "Network byte figures describe named data resources, not the entire page.",
+    "Resource arrival times are localhost observations, not public-site load benchmarks.",
+    "The browser download event callback timed out; the actual downloaded file was found and its source row independently compared.",
+    "Viewport override was reset after mobile inspection.",
+    "The final small accessibility change was browser-tested after the main route/grid checks; it changes the skip-link and text-view landmark only.",
+    "Temporary network throttling and disabled-cache settings were restored after inspection."
+  ]
+}

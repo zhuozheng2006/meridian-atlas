@@ -1,10 +1,10 @@
-import {LakeLayer} from './lakes.js?v=3.10.0-85d6d3916cb1';
-import {readJSON,EMPTY} from './map-engine.js?v=3.10.0-85d6d3916cb1';
+import {PhysicalGrid} from './physical-grid.js?v=3.37.0-153ba418f166';
+import {LakeLayer} from './lakes.js?v=3.37.0-153ba418f166';
+import {readJSON,EMPTY} from './map-engine.js?v=3.37.0-153ba418f166';
 
 // #region compact-geometry
 // Physical layers ship as compact payloads: integer coordinates quantised to 1e-5 deg
-// (half a step = 5e-6 deg ~ 0.55 m, below the source's own accuracy and below one screen
-// pixel at every zoom the atlas uses) and delta-encoded along each ring. The wire format
+// (half a step = 5e-6 deg, about 0.55 m at the equator) and delta-encoded along each ring. The wire format
 // is still gzipped JSON read through readJSON(), and plain GeoJSON passes through
 // untouched so the fixtures in scripts/validate-geography.mjs and any un-migrated asset
 // keep working. scripts/build-compact-physical.mjs encodes the shipped files and audits
@@ -31,6 +31,8 @@ function compactGeometry(payload){
 // Physical geography is a contemporary reference. Historical claims live in
 // the separate, dated territory and settlement datasets.
 export class Geography {
+ get landLayer(){return this.spatial?.active?'physical-grid-land':'land';}
+ get coastWaterLayer(){return this.spatial?.active&&this.coastAligned&&!this.fineCoastVisible?'physical-grid-mask':'coastal-water';}
  get fineCoastVisible(){return !!this.referenceReady&&!this.failed.has('geographic-reference')&&this.map.getZoom()>=8&&(this.coastAligned||this.reference);}
  constructor(atlas){this.atlas=atlas;this.map=atlas.map;this.enabled=true;this.reference=false;this.coastAligned=true;this.status='local';this.failed=new Set();this.localLoaded=new Set();this.localLoading=new Set();this.localErrors=new Set();this.terrainReady=false;this.seenRemote=new Set();}
  async init(){
@@ -46,6 +48,7 @@ export class Geography {
   map.addSource('coastal-water',{type:'geojson',data:EMPTY,tolerance:0,maxzoom:14});
   map.addLayer({id:'coastal-water',type:'fill',source:'coastal-water',paint:{'fill-color':'#163246','fill-antialias':false}});
   map.moveLayer('coast');
+  this.spatial=new PhysicalGrid(this);
   map.addControl(new maplibregl.ScaleControl({maxWidth:110,unit:'metric'}),'bottom-left');
   map.on('moveend',()=>{this.loadLocal();this.detail();this.reconcileRemote();});
   map.on('idle',()=>this.reconcileRemote());
@@ -67,7 +70,7 @@ export class Geography {
    if(e.sourceId==='terrain-dem'&&e.tile.dem&&this.enabled&&map.getZoom()>=5){map.setPaintProperty('relief','raster-opacity',['interpolate',['linear'],['zoom'],4,.82,5,.55,6,0]);this.terrainReady=true;this.syncStatus();}
    if(e.sourceId==='geographic-reference'&&map.getZoom()>=5){this.referenceReady=true;this.referenceVisibility(this.reference);}
   });
-  await this.loadLocal();this.detail();this.lakes.update();
+  this.detail();this.lakes.update();this.spatial.update();await this.loadLocal();
  }
  reconcileRemote(){
   if(this.atlas.destroyed)return;
@@ -77,15 +80,9 @@ export class Geography {
  }
  async loadLocal(){
   if(this.atlas.destroyed)return;
-  const zoom=this.map.getZoom(),fine=zoom>=2.5;
-  // The 10 m water set is 6.7 MB (rivers 2.1 + lakes 1.3 + ocean mask 3.4). Below
-  // WATER_ZOOM the overview water is already loaded and the river/lake opacity is at
-  // most 0.55, so fetching those megabytes early spends them on a view dominated by
-  // the 10 m coastline. Land stays at 2.5: the coastline is the edge the user zooms
-  // to read. scripts/validate-geography.mjs locks this in (zoom 3 must not request
-  // rivers-10m/lakes-10m, zoom 4 must).
-  const WATER_ZOOM=4;
-  const names=(fine?['land',...(zoom>=WATER_ZOOM?['rivers','lakes','ocean']:['water-overview','ocean-overview'])]:['land-overview','water-overview','ocean-overview']).filter(n=>!this.localLoaded.has(n)&&!this.localLoading.has(n));
+  // Keep a lightweight, complete world below the viewport's detailed grid.
+  // Fine geography is fetched spatially, never as four global multi-MB files.
+  const names=['land-overview','water-overview','ocean-overview'].filter(n=>!this.localLoaded.has(n)&&!this.localLoading.has(n));
   const results=await Promise.allSettled(names.map(async name=>{this.localLoading.add(name);try{
    const url=name==='land-overview'?'data/land-50m.json.gz':name==='water-overview'?'data/physical/physical-overview.json.gz':name==='ocean'?'data/physical/modern-ocean-mask.json.gz':name==='ocean-overview'?'data/physical/modern-ocean-mask-overview.json.gz':`data/physical/${name}-10m.json.gz`;
    const data=compactGeometry(await readJSON(url));if(this.atlas.destroyed)return;
@@ -102,9 +99,9 @@ export class Geography {
  syncStatus(){
   if(this.atlas.destroyed)return;
   const loaded=this.localLoaded,errors=this.localErrors;
-  const groups=this.map.getZoom()>=2.5?[['land'],['rivers'],['lakes'],['ocean']]:[['land','land-overview'],['rivers','water-overview'],['lakes','water-overview'],['ocean','ocean-overview']];
-  const partial=groups.some(group=>!group.some(n=>loaded.has(n))&&group.some(n=>errors.has(n)));
-  this.status=this.failed.size?'fallback':partial||this.lakes?.status==='error'?'partial':this.terrainReady&&this.enabled&&this.map.getZoom()>=5?'fine':'local';this.report();
+  const groups=[['land','land-overview'],['rivers','water-overview'],['lakes','water-overview'],['ocean','ocean-overview']];
+  const partial=!this.spatial?.active&&groups.some(group=>!group.some(n=>loaded.has(n))&&group.some(n=>errors.has(n)));
+  this.status=this.failed.size?'fallback':partial||this.lakes?.status==='error'||this.spatial?.eligible&&this.spatial.failed?'partial':this.terrainReady&&this.enabled&&this.map.getZoom()>=5?'fine':'local';this.report();
  }
  report(){if(!this.atlas.destroyed)this.map.getContainer().dispatchEvent(new CustomEvent('geography-status',{bubbles:true,detail:{status:this.status,reference:this.reference}}));}
  detail(){
@@ -120,7 +117,7 @@ export class Geography {
  alignCoast(v){this.coastAligned=v;this.map.setLayoutProperty('coastal-water','visibility',v?'visible':'none');if(v)this.detail();this.referenceVisibility(this.reference);this.reconcileRemote();}
  retry(){
   for(const[id,layers]of [['terrain-dem',['terrain-shade']],['geographic-reference',['reference-base','reference-ocean','reference-natural-rivers','reference-water','reference-waterway','reference-roads','reference-buildings']]])if(this.failed.has(id)){this.seenRemote.delete(id);for(const layer of layers)if(this.map.getLayer(layer))this.map.removeLayer(layer);if(this.map.getSource(id))this.map.removeSource(id);}
-  this.failed.clear();this.status='local';this.lakes?.update();this.loadLocal();this.detail();if(this.reference)this.setReference(true);this.report();
+  this.failed.clear();this.status='local';if(this.spatial?.failed)this.spatial.retry();else this.spatial?.update();this.lakes?.update();this.loadLocal();this.detail();if(this.reference)this.setReference(true);this.report();
  }
  setReference(v){
   this.reference=v;this.lakes?.update();
@@ -156,6 +153,8 @@ export class Geography {
   this.map.setPaintProperty('coast','line-opacity',fineCoast?['step',['zoom'],.55,8,0]:.55);
   this.map.setPaintProperty('physical-rivers','line-opacity',natural&&this.referenceReady?['interpolate',['linear'],['zoom'],1,.08,3,.55,8,.85,9,0]:fine?['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85,8,0]:['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85]);
   this.map.setPaintProperty('physical-lakes','fill-opacity',this.lakes?.ready&&this.lakes.enabled?0:fine?['interpolate',['linear'],['zoom'],1,.25,3,.8,7,.8,8,0]:['interpolate',['linear'],['zoom'],1,.25,3,.8]);
+  this.spatial?.visibility();
   this.atlas.regional?.halc?.landscape?.reconcileOrder();
  }
+ destroy(){this.spatial?.destroy();this.lakes?.destroy();}
 }
