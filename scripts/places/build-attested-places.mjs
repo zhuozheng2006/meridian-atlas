@@ -20,6 +20,8 @@ const ROUND=value=>Math.round(value*10000)/10000;
 const haversine=(a,b)=>{const toRad=d=>d*Math.PI/180;const dLat=toRad(b[1]-a[1]),dLon=toRad(b[0]-a[0]);const s=Math.sin(dLat/2)**2+Math.cos(toRad(a[1]))*Math.cos(toRad(b[1]))*Math.sin(dLon/2)**2;return ROUND(6371*2*Math.asin(Math.sqrt(s)))};
 const disk=async file=>JSON.parse(gunzipSync(await readFile(resolve(root,file))));
 const editorial=JSON.parse(await readFile(resolve(root,'editorial/attested-places.json'),'utf8'));
+const supplemental=editorial.supplementalEvidenceFile?JSON.parse(await readFile(resolve(root,editorial.supplementalEvidenceFile),'utf8')):null;
+const supplementalById=new Map((supplemental?.entries||[]).map(entry=>[entry.id,entry]));
 const index=await disk('public/data/places/historical-settlements-index.json.gz');
 const urban=await disk('public/data/places/urban-observations.json.gz');
 const capitals=await disk('public/data/places/historical-capitals.json.gz');
@@ -69,15 +71,30 @@ for(const record of editorial.entries){
  for(const required of ['coordinate-provenance','period-source-anchored','no-continuous-occupation','no-identity-merge','display-window-null'])if(!checkIds.includes(required))fail(where+': missing review check '+required);
  for(const check of record.review?.checks||[])if(check.passed!==true||!check.statementZh||!check.statementEn)fail(where+': incomplete check '+check.id);
  // Cross-check against the reviewed handoff research where it is available.
- const candidate=handoffById.get(record.handoffCandidateId||'');
- if(candidate&&handoff){
+ const candidate=record.researchCandidateId?supplementalById.get(record.researchCandidateId):handoffById.get(record.handoffCandidateId||'');
+ if(record.researchCandidateId&&!candidate)fail(where+': supplemental research candidate missing');
+ if(candidate){
   if(JSON.stringify(candidate.coordinates)!==JSON.stringify(record.location.coordinates))fail(where+': coordinates differ from handoff '+JSON.stringify(candidate.coordinates));
   if(candidate.dateQuote!==record.period.dateQuote)fail(where+': dateQuote differs from handoff "'+candidate.dateQuote+'"');
   if(String(candidate.sourcePropertyId)!==String(record.sources[0]?.propertyId))fail(where+': property id differs from handoff');
+  if(record.researchCandidateId){
+   if(candidate.recordId!==record.id)fail(where+': supplemental record id mismatch');
+   if(candidate.url!==record.sources[0]?.url||candidate.coordinateUrl!==record.sources[0]?.coordinateUrl)fail(where+': supplemental source URL mismatch');
+   if(candidate.sourceComponentId!==(record.sources[0]?.sourceComponentId??null))fail(where+': supplemental component id mismatch');
+   if(candidate.sourcePageReadOn!==record.sources[0]?.readOn)fail(where+': source read date mismatch');
+   if(candidate.sourceDMS!==record.location.sourceDMS)fail(where+': coordinate DMS mismatch');
+   if(JSON.stringify(candidate.sourceRange)!==JSON.stringify(record.period.sourceRange))fail(where+': supplemental source range mismatch');
+  }
  }
  records.push(record);
 }
 if(new Set(records.map(record=>record.id)).size!==records.length)fail('duplicate record ids');
+// Supplemental research stays independent of the original handoff ledger.
+const supplementalLedger=editorial.supplementalReviewLedger||[];
+if(JSON.stringify([...supplementalById.keys()].sort())!==JSON.stringify(supplementalLedger.map(row=>row.candidateId).sort()))fail('supplemental review ledger does not cover its evidence catalog exactly once');
+for(const row of supplementalLedger){
+ if(row.decision!=='integrated'||!records.some(record=>record.id===row.recordId&&record.researchCandidateId===row.candidateId))fail('invalid supplemental integration '+row.candidateId);
+}
 // Every handoff candidate must be accounted for exactly once in the ledger.
 if(handoff){
  const ids=(handoff.entries||[]).map(entry=>entry.id).sort();
@@ -119,8 +136,8 @@ for(const item of editorial.enhancements||[]){
  enhancements.push({...item,existingRecords:existing});
 }
 if(problems.length){console.error('FAIL build-attested-places\n'+problems.join('\n'));process.exit(1)}
-const built={schemaVersion:1,builtAt:process.env.ATTESTED_BUILT_AT||'2026-10-03T00:00:00+00:00',layer:'attested-places',policy:editorial.policy,
- counts:{records:records.length,enhancements:enhancements.length,deferred:(editorial.deferred||[]).length,reviewedCandidates:(editorial.reviewLedger||[]).length},
+const built={schemaVersion:1,builtAt:process.env.ATTESTED_BUILT_AT||(editorial.updatedOn?editorial.updatedOn+'T00:00:00+00:00':'2026-10-03T00:00:00+00:00'),layer:'attested-places',policy:editorial.policy,
+ counts:{records:records.length,enhancements:enhancements.length,deferred:(editorial.deferred||[]).length,reviewedCandidates:(editorial.reviewLedger||[]).length+supplementalLedger.length},
  regions:records.reduce((all,record)=>{all[record.region]=(all[record.region]||0)+1;return all},{}),
  records:records.map(record=>({...record,review:{...record.review,nearbyExistingRecords:nearby.find(item=>item.recordId===record.id)?.resolved||[]}})),
  enhancements,
@@ -135,8 +152,11 @@ const report={generatedAt:new Date().toISOString(),records:records.length,enhanc
  nearbyUnresolved:nearby.flatMap(item=>item.resolved).filter(item=>!item.found).map(item=>item.id),
  distanceChecks:nearby.flatMap(item=>item.resolved).filter(item=>item.found&&item.distanceDeltaKm!==null&&item.distanceDeltaKm>0.2).map(item=>({recordId:item.id,recorded:item.recordedDistanceKm,recomputed:item.distanceKm})),
  enhancementExistingRecords:enhancements.flatMap(item=>item.existingRecords.map(record=>record.id))};
-await mkdir(resolve(root,'docs/verification-3.10'),{recursive:true});
-await writeFile(resolve(root,'docs/verification-3.10/content-attested-places-build.json'),JSON.stringify(report,null,2)+'\n');
+const release=JSON.parse(await readFile(resolve(root,'package.json'),'utf8')).version.split('.').slice(0,2).join('.');
+const reportPath=resolve(root,process.env.ATTESTED_BUILD_REPORT||`docs/verification-${release}/content-attested-places-build.json`);
+if(checkOnly&&!gzip.equals(await readFile(resolve(root,'public/data/places/attested-places.json.gz'))))throw Error('Stale attested-place archive; run the builder.');
+await mkdir(dirname(reportPath),{recursive:true});
+await writeFile(reportPath,JSON.stringify(report,null,2)+'\n');
 if(checkOnly){console.log(JSON.stringify({result:'checked',...report},null,2));process.exit(0)}
 await writeFile(resolve(root,'public/data/places/attested-places.json.gz'),gzip);
 console.log(JSON.stringify({result:'built',out:'public/data/places/attested-places.json.gz',...report,gzipBytes:gzip.length},null,2));

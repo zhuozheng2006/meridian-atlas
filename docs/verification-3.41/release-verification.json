@@ -1,0 +1,40 @@
+{
+  "version": "3.41.0",
+  "assetRevision": "3.41.0-ded029edf830",
+  "fullTestExitCode": 0,
+  "buildExitCode": 0,
+  "httpTests": {
+    "passed": 13,
+    "total": 13,
+    "scope": "temporary loopback server"
+  },
+  "targeted": {
+    "polarisReader": 33,
+    "cityReader": 21,
+    "cityReturn": 18,
+    "halcSelection": 24,
+    "halcSharedBuckets": 5,
+    "attestedPlaces": 13
+  },
+  "productionChangedAfterFullTest": false,
+  "postTestChange": "Corrected two report environment variable names and reran the two suites; documentation and evidence only otherwise.",
+  "browser": [
+    "HALC highlighted fid 564, switched to 565, closed with zero source-loading events.",
+    "Mali reading association restored on reload, 1/1 exact linked rows; zero canvas and no map JS/data.",
+    "390px mobile reading library and English language switch; no horizontal document overflow.",
+    "Si Thep and Sambor source-specific attribution and century labels.",
+    "Rome city-year 100 to 80 preserves reader; unsupported 1980 leaves year80.",
+    "Local Polaris source workbook returned200 and expected byte count and SHA256."
+  ],
+  "publication": {
+    "uploaded": false,
+    "deployed": false,
+    "lastConfirmedOnlineSiteVersion": 21,
+    "reason": "Unanswered destination/payload confirmation after automatic approval rejection."
+  },
+  "remaining": [
+    "HALC source-loaded to subsequent rendered lines was1066.5ms in final observation; controlled first-paint profile remains.",
+    "Historical boundary geometry gaps remain, including centralEurope1500.",
+    "Reading coverage9/626 phases;257 name fallbacks;17 coding definitions pending."
+  ]
+}

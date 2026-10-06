@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.40.0-38fd52f4926e';
-import {placeWindow} from './view-state.js?v=3.40.0-38fd52f4926e';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.41.0-ded029edf830';
+import {placeWindow} from './view-state.js?v=3.41.0-ded029edf830';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -11,7 +11,7 @@ export function attestedPlaces(layer){
  // otherwise callers that compare cached place lists stop matching by identity.
  if(attestedCache.has(layer))return attestedCache.get(layer);
  const list=(layer.records||[]).filter(r=>r.period&&Number.isFinite(r.period.start)&&Number.isFinite(r.period.end)&&r.location?.coordinates?.length===2).map(r=>({
-  id:r.id,kind:'attested-site',name:r.nameEn,nameZh:r.nameZh,displayName:r.nameEn,displayNameZh:r.nameZh,
+  id:r.id,kind:'attested-site',source:'attested-sites',name:r.nameEn,nameZh:r.nameZh,displayName:r.nameEn,displayNameZh:r.nameZh,
   otherNames:r.aliases||[],region:r.region,coordinates:r.location.coordinates,
   periods:[[r.period.start,r.period.end]],
   sourceUrl:r.sources?.[0]?.url,referenceCount:(r.sources||[]).length,

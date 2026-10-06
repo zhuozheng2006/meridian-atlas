@@ -1,4 +1,4 @@
-import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.40.0-38fd52f4926e';
+import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.41.0-ded029edf830';
 const VIEWS=new Set(['atlas','polities','stories','library','sources','research']);
 const TAB_LABELS={atlas:['地图','Atlas'],polities:['文明','Polities'],stories:['专题','Journeys'],library:['年表','Chronicle'],sources:['资料','Sources']};
 // This shell owns only a cold research visit. The normal app takes over once a
@@ -60,7 +60,7 @@ export function mountResearchShell({doc=document,win=window,loadApplication,open
  own($('#language'),'change',event=>{language=event.target.value;if(!['zh','en','bi'].includes(language))language='bi';save();paintHeader();if(reader)reader.setLanguage(language);else pending();});
  own($('#helpBtn'),'click',()=>$('#helpDialog').showModal());own($('.dialog-close'),'click',()=>$('#helpDialog').close());
  own($('.skip-link'),'click',event=>{event.preventDefault();host.focus();});
- listen(doc,'keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key?.toLowerCase()==='k'&&!$('#helpDialog').open){event.preventDefault();const input=$('#contentView .research-field-query input:not(:disabled)')||$('#contentView .research-field-polity-search input');input?.focus();input?.select();}});
+ listen(doc,'keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key?.toLowerCase()==='k'&&!$('#helpDialog').open){event.preventDefault();const input=$('#contentView .research-reading-library[open] input[type="search"]')||$('#contentView .research-field-query input:not(:disabled)')||$('#contentView .research-field-polity-search input');input?.focus();input?.select();}});
  listen(win,'hashchange',()=>{if(win.location.hash.includes('='))win.location.reload();});
  mountReader();return {ready:reader.ready,navigate,getSnapshot:()=>reader?.getSnapshot()||snapshot,getState:()=>({view:currentView,language,pending:!reader&&!failure&&!dead,failed:failure,destroyed:dead}),destroy(){if(dead)return;dead=true;sequence++;detach();}};
 }

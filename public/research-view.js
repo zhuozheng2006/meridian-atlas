@@ -1,7 +1,7 @@
 // Small URL state and lazy entry point; neither the map nor the full archives
 // are imported merely to select a research version.
 const RESEARCH_DOMAINS=new Set(['priority','all','scale','institutions','economy','transport','knowledge','warfare','religion','general','metadata','other','crisis']);
-const RESEARCH_KEYS={dataset:'srDataset',polityId:'seshat',domain:'srDomain',variable:'srVariable',query:'srQ',polityQuery:'srFind',page:'srPage'};
+const RESEARCH_KEYS={dataset:'srDataset',polityId:'seshat',domain:'srDomain',variable:'srVariable',query:'srQ',polityQuery:'srFind',page:'srPage',readingId:'srReading'};
 const DATASETS=new Set(['equinox','polaris-2026']);
 const cleanResearchText=(value,limit)=>typeof value==='string'?value.replace(/[\u0000-\u001f\u007f]/g,'').slice(0,limit):'';
 export function normalizeResearchState(value={}){
@@ -10,7 +10,8 @@ export function normalizeResearchState(value={}){
  const polityId=typeof value.polityId==='string'&&pattern.test(value.polityId)?value.polityId:'';
  const page=typeof value.page==='number'?value.page:/^\d{1,5}$/.test(String(value.page??''))?Number(value.page):0;
  const domain=RESEARCH_DOMAINS.has(value.domain)&&!(dataset==='equinox'&&value.domain==='crisis')?value.domain:dataset==='equinox'?'priority':'all';
- return {dataset,polityId,domain,variable:cleanResearchText(value.variable,120)||'all',query:cleanResearchText(value.query,200),polityQuery:cleanResearchText(value.polityQuery,120),page:Number.isInteger(page)&&page>=0&&page<=10000?page:0};
+ const readingId=dataset==='polaris-2026'&&typeof value.readingId==='string'&&/^[A-Za-z0-9_-]{1,160}$/.test(value.readingId)?value.readingId:'';
+ return {dataset,polityId,domain,variable:cleanResearchText(value.variable,120)||'all',query:cleanResearchText(value.query,200),polityQuery:cleanResearchText(value.polityQuery,120),page:Number.isInteger(page)&&page>=0&&page<=10000?page:0,...(readingId?{readingId}:{})};
 }
 export function parseResearchState(params){return normalizeResearchState(Object.fromEntries(Object.entries(RESEARCH_KEYS).map(([key,param])=>[key,params.get(param)])));}
 export function writeResearchState(params,value){const state=normalizeResearchState(value),defaults=normalizeResearchState();for(const [key,param]of Object.entries(RESEARCH_KEYS)){params.delete(param);if(state[key]!==defaults[key])params.set(param,String(state[key]));}return params;}

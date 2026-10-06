@@ -48,8 +48,8 @@ try{
   h.tilesReady();await tick(h);assert(h.halc.active&&h.halc.regions.hasFrame);
  });
  await test('Pan/zoom loading retains committed frame, detail ink, selection and local dossier',async h=>{
-  await both(h);h.openRecord(1);await tick(h);const features=h.halc.features,popup=h.halc.popup,selection=structuredClone(h.map.getLayer('halc-selected').filter),opacity=structuredClone(h.map.getLayer('halc-edges').paint['line-opacity']);
-  h.beginViewportLoad();await tick(h);updating(h);assert.equal(h.halc.features,features);assert.equal(h.halc.popup,popup);assert.equal(String(h.halc.selectedId),'1');assert.deepEqual(h.map.getLayer('halc-selected').filter,selection);assert.equal(ink(h),'visible');assert.deepEqual(h.map.getLayer('halc-edges').paint['line-opacity'],opacity);
+  await both(h);h.openRecord(1);await tick(h);const features=h.halc.features,popup=h.halc.popup,selection=h.map.getFeatureState({source:'halc-boundaries',sourceLayer:'halc_localities',id:1}),opacity=structuredClone(h.map.getLayer('halc-edges').paint['line-opacity']);
+  h.beginViewportLoad();await tick(h);updating(h);assert.equal(h.halc.features,features);assert.equal(h.halc.popup,popup);assert.equal(String(h.halc.selectedId),'1');assert.deepEqual(h.map.getFeatureState({source:'halc-boundaries',sourceLayer:'halc_localities',id:1}),selection);assert.equal(selection.halcSelected,true);assert.equal(ink(h),'visible');assert.deepEqual(h.map.getLayer('halc-edges').paint['line-opacity'],opacity);
  });
  await test('Pending idles do zero source queries, style writes and anchor calculations',async h=>{
   await both(h);h.enableLabels();h.beginViewportLoad();assert.equal(h.markerCount(),0);const counts=workCounter(h);

@@ -42,7 +42,8 @@ function harness(side = 'left') {
   };
   let saves = 0, closes = 0;
   const context = {
-    placeReturn: origin, atlas: left, compareMap: right, detailNavigation: 10,
+    placeReturn: origin, atlas: left, compareMap: right, detailNavigation: 10, pause() {},
+    setYear: async year => {left.year = year; return true;}, setCompareYear: async year => {right.year = year; return true;},
     polityReader: {seq: 3, interaction: 5, tab: 'overview', citiesReady: null},
     closeDetail() {closes++;}, saveURL() {saves++;},
     $(selector) {
@@ -131,9 +132,21 @@ async function main() {
     assert.equal(usedCapturedPromise, true); assert.equal(h.body.scrollTop, 4000);
   });
 
-  await check('An already changed year closes the obsolete return before reopening', async () => {
-    const h = harness(); h.map.year = 1501; await h.run();
-    assert.equal(h.closes, 1); assert.equal(h.opens.length, 0); assert.equal(h.focus.length, 0);
+  await check('Returning after a city year jump restores the original polity year before opening', async () => {
+    const h = harness(); h.map.year = 1501; const run = h.run(); h.finish(); await run;
+    assert.equal(h.map.year, 1500); assert.equal(h.closes, 0); assert.equal(h.opens.length, 1); assert.equal(h.focus.length, 1);
+  });
+
+  await check('A failed origin-year load leaves the city reader open', async () => {
+    const h = harness(); h.map.year = 1501; h.context.setYear = async () => false; await h.run();
+    assert.equal(h.map.year, 1501); assert.equal(h.opens.length, 0); assert.equal(h.closes, 0); assert.equal(h.context.placeReturn, h.origin);
+  });
+
+  await check('A later city navigation cancels a delayed origin-year return', async () => {
+    const h = harness(), waiting = deferred(); h.map.year = 1501;
+    h.context.setYear = async year => {await waiting.promise; h.map.year = year; return true;};
+    const run = h.run(); h.context.detailNavigation++; waiting.resolve(); await run;
+    assert.equal(h.opens.length, 0); assert.equal(h.focus.length, 0);
   });
 
   await check('A removed comparison map does not reopen or restore focus', async () => {

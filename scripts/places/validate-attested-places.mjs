@@ -19,6 +19,7 @@ const disk=async file=>JSON.parse(gunzipSync(await readFile(resolve(root,file)))
 const raw=await readFile(resolve(root,'public/data/places/attested-places.json.gz'));
 const data=JSON.parse(gunzipSync(raw));
 const editorial=JSON.parse(await readFile(resolve(root,'editorial/attested-places.json'),'utf8'));
+const supplemental=editorial.supplementalEvidenceFile?JSON.parse(await readFile(resolve(root,editorial.supplementalEvidenceFile),'utf8')):null;
 const index=await disk('public/data/places/historical-settlements-index.json.gz');
 const urban=await disk('public/data/places/urban-observations.json.gz');
 const capitals=await disk('public/data/places/historical-capitals.json.gz');
@@ -38,17 +39,19 @@ await check('The shipped layer is a deterministic gzip with a zeroed mtime',()=>
  assert.equal(raw[4],0);assert.equal(raw[5],0);assert.equal(raw[6],0);assert.equal(raw[7],0);assert.equal(raw[9],255);
  assert.equal(data.layer,'attested-places');
 });
-await check('Twelve site records, two enhancements and four documented deferrals ship together',()=>{
- assert.equal(data.records.length,12);assert.equal(data.enhancements.length,2);assert.equal(data.deferred.length,4);
- assert.deepEqual(data.counts,{records:12,enhancements:2,deferred:4,reviewedCandidates:18});
- assert.equal(new Set(data.records.map(record=>record.id)).size,12);
+await check('Fourteen site records, two enhancements and four documented deferrals ship together',()=>{
+ assert.equal(data.records.length,14);assert.equal(data.enhancements.length,2);assert.equal(data.deferred.length,4);
+ assert.deepEqual(data.counts,{records:14,enhancements:2,deferred:4,reviewedCandidates:20});
+ assert.equal(new Set(data.records.map(record=>record.id)).size,14);
  for(const record of data.records){assert.match(record.id,/^attested:[a-z0-9-]+$/);assert.equal(record.kind,'attested-site');counters.records++}
 });
 await check('The review ledger accounts for every reviewed candidate exactly once',()=>{
- const ledger=editorial.reviewLedger;
- assert.equal(ledger.length,18);assert.equal(new Set(ledger.map(row=>row.candidateId)).size,18);
+ assert.equal(editorial.reviewLedger.length,18,'original handoff ledger stays intact');
+ assert.equal(editorial.supplementalReviewLedger.length,2);
+ const ledger=[...editorial.reviewLedger,...editorial.supplementalReviewLedger];
+ assert.equal(ledger.length,20);assert.equal(new Set(ledger.map(row=>row.candidateId)).size,20);
  const decisions=ledger.reduce((all,row)=>{all[row.decision]=(all[row.decision]||0)+1;return all},{});
- assert.deepEqual(decisions,{integrated:12,enhancement:2,deferred:4});
+ assert.deepEqual(decisions,{integrated:14,enhancement:2,deferred:4});
  counters.decisions=ledger.length;
  for(const row of ledger.filter(row=>row.decision==='integrated'))assert(data.records.some(record=>record.id===row.recordId),row.recordId);
  for(const row of ledger.filter(row=>row.decision==='enhancement'))assert(data.enhancements.some(item=>item.id===row.recordId),row.recordId);
@@ -76,7 +79,8 @@ await check('Every shipped record keeps its authored bilingual text, period and 
   for(const lang of ['zh','en'])assert(record.significance[lang]?.trim().length>10,record.id+' significance '+lang);
   const required=['coordinate-provenance','period-source-anchored','no-continuous-occupation','no-identity-merge','display-window-null'];
   for(const id of required){const found=(record.review.checks||[]).find(item=>item.id===id);assert(found&&found.passed===true,record.id+' '+id)}
-  assert(record.review.reviewedOn==='2026-10-03',record.id);
+  assert.equal(record.review.reviewedOn,source.review.reviewedOn,record.id);
+  assert.match(record.review.reviewedOn,/^\d{4}-\d{2}-\d{2}$/);
   assert.equal(record.review.candidateReviewStatus,authored.get(record.id).review.candidateReviewStatus);
  }
 });
@@ -88,18 +92,51 @@ await check('Periods never escape their verbatim source range and open ends are 
   assert(Number.isInteger(record.period.start)&&Number.isInteger(record.period.end)&&record.period.start!==0&&record.period.end!==0,record.id);
  }
 });
-await check('UNESCO quotes, coordinates and property ids match the reviewed handoff file',()=>{
- if(!handoff){results[results.length-1].note='handoff file absent; provenance checked against the edited source only';return}
- const byId=new Map(handoff.entries.map(entry=>[entry.id,entry]));
+await check('UNESCO quotes, coordinates and property ids match their reviewed evidence',()=>{
+ const byId=new Map((handoff?.entries||[]).map(entry=>[entry.id,entry]));
+ const newById=new Map((supplemental?.entries||[]).map(entry=>[entry.id,entry]));
  for(const record of data.records){
   const authored=editorial.entries.find(item=>item.id===record.id);
-  const candidate=byId.get(authored.handoffCandidateId);assert(candidate,record.id+' has no handoff candidate id');
+  const candidate=authored.researchCandidateId?newById.get(authored.researchCandidateId):byId.get(authored.handoffCandidateId);
+  if(!candidate&&!authored.researchCandidateId&&!handoff)continue;
+  assert(candidate,record.id+' has no reviewed candidate');
   assert.equal(candidate.dateQuote,record.period.dateQuote,record.id+' date quote');
   assert.deepEqual(candidate.coordinates,record.location.coordinates,record.id+' coordinates');
   assert.equal(String(candidate.sourcePropertyId),record.sources[0].propertyId,record.id+' property id');
   assert.equal(candidate.sourcePageReadOn,record.sources[0].readOn,record.id+' read date');
   assert(record.sources[0].url.startsWith('https://whc.unesco.org/en/list/'),record.id);
   counters.sources+=record.sources.length;
+ }
+});
+await check('New city evidence snapshots, DMS conversion and activity periods remain independently verifiable',async()=>{
+ assert(supplemental);assert.equal(supplemental.entries.length,2);
+ const evidenceRoot=dirname(resolve(root,editorial.supplementalEvidenceFile));
+ for(const snapshot of supplemental.snapshots){
+  const bytes=await readFile(resolve(evidenceRoot,snapshot.path));
+  assert.equal(bytes.length,snapshot.bytes,snapshot.path);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),snapshot.sha256,snapshot.path);
+  assert(snapshot.representation.includes('not original HTML'),snapshot.path);
+ }
+ const expected=[['si-thep',[101+9/60+4.01/3600,15+27/60+56.94/3600],501,1000,'1662','1662-001'],['sambor-prei-kuk',[105+2/60+35/3600,12+52/60+21/3600],601,1100,'1532',null]];
+ for(const [id,coordinates,start,end,property,component] of expected){
+  const evidence=supplemental.entries.find(item=>item.id===id);assert(evidence,id);
+  const record=data.records.find(item=>item.id===evidence.recordId);assert(record,id);
+  assert.deepEqual(record.location.coordinates,coordinates,id+' DMS conversion');
+  assert.deepEqual([record.period.start,record.period.end],[start,end],id+' activity period');
+  assert.equal(evidence.sourcePropertyId,property);assert.equal(evidence.sourceComponentId,component);
+  assert.equal(record.sources[0].sourceComponentId??null,component);
+  assert.equal(record.sources[0].url,evidence.url);assert.equal(record.sources[0].coordinateUrl,evidence.coordinateUrl);
+  assert.equal(evidence.sourceDMS,record.location.sourceDMS);assert.deepEqual(evidence.sourceRange,record.period.sourceRange);
+  assert.equal(record.review.reviewedOn,'2026-10-06');
+ }
+ const temple=data.records.find(item=>item.id==='attested:sambor-prei-kuk');
+ assert(temple.period.dateQuote.includes('repairs and modifications'));
+ assert(temple.period.interpretationEn.includes('repairs and modifications'));
+ assert(temple.location.coordinateMeaningEn.includes('temple-zone'));
+ assert(!temple.period.dateQuote.includes('capital'));
+ const claims=JSON.parse(await readFile(resolve(evidenceRoot,'claim-evidence.json'),'utf8'));
+ for(const evidence of supplemental.entries){
+  for(const claim of ['period','coordinates'])assert(claims.some(row=>row.recordId===evidence.recordId&&row.claim===claim&&row.relation==='direct-evidence'));
  }
 });
 await check('No attested record is merged into, or duplicates, an existing place record',()=>{

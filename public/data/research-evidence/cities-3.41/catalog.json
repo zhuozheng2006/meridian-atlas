@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-06",
+  "publisher": "UNESCO World Heritage Centre",
+  "method": "Primary listing descriptions and coordinate tables were acquired through the web retrieval tool. Raw HTML requests returned 403 and were not bypassed. Exact retrieved representations are retained with SHA-256; they are not described as original HTML. Numeric CE century bounds are 100*(firstCentury-1)+1 through 100*lastCentury.",
+  "snapshots": [
+    {
+      "path": "raw/unesco-web-retrieval.json",
+      "representation": "Web tool extracted page text and retrieval metadata; not original HTML bytes.",
+      "retrievedOn": "2026-10-06",
+      "bytes": 35830,
+      "sha256": "bc5c127a834efe9920a03d2a127c78357fecf013218ad9007b1f7c39f42e9e1b"
+    },
+    {
+      "path": "raw/unesco-sambor-web-retrieval.json",
+      "representation": "Web tool extracted page text and retrieval metadata; not original HTML bytes.",
+      "retrievedOn": "2026-10-06",
+      "bytes": 19493,
+      "sha256": "9fd9474fcadf09e60303f61db92e8620ff60463b38202a37730d95fe5337abfd"
+    }
+  ],
+  "entries": [
+    {
+      "id": "si-thep",
+      "recordId": "attested:si-thep",
+      "sourcePropertyId": "1662",
+      "sourceComponentId": "1662-001",
+      "sourcePageReadOn": "2026-10-06",
+      "url": "https://whc.unesco.org/en/list/1662/",
+      "coordinateUrl": "https://whc.unesco.org/en/list/1662/maps/",
+      "coordinates": [
+        101.1511138888889,
+        15.465816666666665
+      ],
+      "sourceDMS": "N15 27 56.94 E101 9 4.01",
+      "dateQuote": "from the 6th to the 10th centuries",
+      "sourceRange": {
+        "from": 501,
+        "to": 1000,
+        "kind": "ce-centuries"
+      },
+      "interpretation": {
+        "zh": "来源以6—10世纪概括古城与关联古迹所体现的陀罗钵地文化时期；年份按整世纪转换，用于筛选这一阶段。建城、弃城及逐年居住情况另需考证。",
+        "en": "UNESCO dates the Dvaravati cultural phase represented by the town and associated monuments to the sixth through tenth centuries. The numeric bounds convert those centuries for filtering; foundation, abandonment and annual occupation require separate evidence."
+      },
+      "coordinateMeaning": {
+        "zh": "UNESCO 1662-001 古城组成部分的代表点。",
+        "en": "UNESCO reference point for the ancient-town component 1662-001."
+      }
+    },
+    {
+      "id": "sambor-prei-kuk",
+      "recordId": "attested:sambor-prei-kuk",
+      "sourcePropertyId": "1532",
+      "sourceComponentId": null,
+      "sourcePageReadOn": "2026-10-06",
+      "url": "https://whc.unesco.org/en/list/1532/",
+      "coordinateUrl": "https://whc.unesco.org/en/list/1532/",
+      "coordinates": [
+        105.04305555555555,
+        12.8725
+      ],
+      "sourceDMS": "N12 52 21 E105 2 35",
+      "dateQuote": "repairs and modifications carried out from the 7th to the 11th century",
+      "sourceRange": {
+        "from": 601,
+        "to": 1100,
+        "kind": "ce-centuries"
+      },
+      "interpretation": {
+        "zh": "筛选范围对应来源记载的7—11世纪寺庙修缮与改建活动。伊奢那补罗作为真腊都城的早期背景另述于正文；两种年代含义分别保留。",
+        "en": "The filter range represents the seventh–eleventh-century repairs and modifications documented for the temples. The earlier Chenla-capital context of Ishanapura is described separately in the narrative."
+      },
+      "coordinateMeaning": {
+        "zh": "UNESCO 寺区遗产代表点；带护城河的古城遗迹位于寺区以西。",
+        "en": "UNESCO reference point for the temple-zone property; the moated city remains lie to its west."
+      }
+    }
+  ]
+}

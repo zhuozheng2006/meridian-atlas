@@ -1,0 +1,115 @@
+{
+  "method": "Actual candidate module functions with complete pinned file fixtures; browser fetch transport simulated, no UI/browser test.",
+  "passed": 27,
+  "total": 27,
+  "tests": [
+    {
+      "name": "Cold store reads only one index and selected phase; cache reuse makes no second request",
+      "passed": true
+    },
+    {
+      "name": "All seven empty phases load their original raw metadata",
+      "passed": true
+    },
+    {
+      "name": "Original phase IDs with spaces are preserved and resolved through index files",
+      "passed": true
+    },
+    {
+      "name": "Phase summaries preserve source zero year and missing NGA without assigning map geography",
+      "passed": true
+    },
+    {
+      "name": "A supplied file path on a polity object is ignored; traversal and external index files are rejected",
+      "passed": true
+    },
+    {
+      "name": "Wrong versions, duplicate phase IDs, altered totals and missing source headers fail closed",
+      "passed": true
+    },
+    {
+      "name": "Source identity uses sheet+row, rejecting duplicates, renamed variables and coerced booleans",
+      "passed": true
+    },
+    {
+      "name": "Transport validates raw gzip and HTTP-decoded JSON against pinned hashes",
+      "passed": true
+    },
+    {
+      "name": "HTTP errors, caller cancellation, invalid JSON and request timeout remain retryable",
+      "passed": true
+    },
+    {
+      "name": "A bad shard is not cached, and a retry reloads its valid original",
+      "passed": true
+    },
+    {
+      "name": "An aborted read cannot populate cache when its loader ignores abort",
+      "passed": true
+    },
+    {
+      "name": "Clearing a store invalidates an in-flight response and allows a fresh read",
+      "passed": true
+    },
+    {
+      "name": "Synchronous cache invalidation obsoletes all public operations suspended on a cached index",
+      "passed": true
+    },
+    {
+      "name": "Clearing between verified transport and caller continuation cannot repopulate any cache",
+      "passed": true
+    },
+    {
+      "name": "Versioned stores have independent bounded phase caches",
+      "passed": true
+    },
+    {
+      "name": "Crisis cards retain coded outcomes, null flags and beyond-phase dates",
+      "passed": true
+    },
+    {
+      "name": "Full-search source integrity rejects duplicate source rows even if count matches",
+      "passed": true
+    },
+    {
+      "name": "Source values and numeric endpoint comparisons preserve precision and do not infer ranges",
+      "passed": true
+    },
+    {
+      "name": "Undated rows retain null dates and phase context regardless of a map-year filter",
+      "passed": true
+    },
+    {
+      "name": "Record exports retain exact original rows, cell types, IDs and snapshot provenance",
+      "passed": true
+    },
+    {
+      "name": "Domain and variable search request only relevant source sheets and retain one page",
+      "passed": true
+    },
+    {
+      "name": "Crisis search is one lazy source sheet; requested page and filtered downloads agree",
+      "passed": true
+    },
+    {
+      "name": "Cancelled progressive searches do not return partial success or continue to more sheets",
+      "passed": true
+    },
+    {
+      "name": "Failed multi-sheet search rejects; retry completes and search LRU stays bounded",
+      "passed": true
+    },
+    {
+      "name": "Only supported domains/variables and bounded query text enter filtering",
+      "passed": true
+    },
+    {
+      "name": "All six search sheets remain searchable, with full count and bounded retained page/cache",
+      "passed": true
+    },
+    {
+      "name": "Every preserved anomaly renders as source context without changing raw dates or endpoints",
+      "passed": true
+    }
+  ]
+}

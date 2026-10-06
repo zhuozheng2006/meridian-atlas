@@ -1,16 +1,17 @@
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.40.0-38fd52f4926e';
-import {HalcLandscape} from './halc-landscape.js?v=3.40.0-38fd52f4926e';
-import {readJSON} from './map-engine.js?v=3.40.0-38fd52f4926e';
-import {HalcRegions} from './halc-regions.js?v=3.40.0-38fd52f4926e';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.41.0-ded029edf830';
+import {HalcLandscape} from './halc-landscape.js?v=3.41.0-ded029edf830';
+import {readJSON} from './map-engine.js?v=3.41.0-ded029edf830';
+import {HalcRegions} from './halc-regions.js?v=3.41.0-ded029edf830';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
-export const HALC_LAYERS=['halc-wash','halc-edges','halc-selected','halc-independent-edges'];
+export const HALC_LAYERS=['halc-wash','halc-edges','halc-selected','halc-independent-edges','halc-independent-selected'];
 const ROOT='data/halc/',SOURCE_URL='https://doi.org/10.34894/BTKFHV';
 const t=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 const label=(entry,lang)=>entry?.[lang==='en'?'en':'zh']||entry?.en;
-const fid=value=>Number.isSafeInteger(Number(value))&&Number(value)>0&&Number(value)<=14865?Number(value):null;
+const fid=value=>{if(typeof value!=='number'&&(typeof value!=='string'||!/^\d+$/.test(value)))return null;const id=Number(value);return Number.isSafeInteger(id)&&id>0&&id<=14865?id:null;};
+const selectionTarget=id=>({source:HALC_SOURCE,sourceLayer:'halc_localities',id});
 export function halcInView(bounds){
  if(!bounds)return false;
  const west=bounds.getWest(),east=bounds.getEast(),south=bounds.getSouth(),north=bounds.getNorth();
@@ -38,7 +39,9 @@ export function halcLayers(){
   {...base,id:HALC_LAYERS[0],type:'fill',paint:{'fill-color':'#b3aa85','fill-opacity':0}},
   {...base,id:HALC_LAYERS[1],type:'line',filter:['!',independentUnit],layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','TYPE'],8],'#638b94','#66604f'],'line-width':['interpolate',['linear'],['zoom'],6,.3,8,.5,11,.8,15,1.1],'line-opacity':0,'line-blur':.1}},
   {...base,id:HALC_LAYERS[3],type:'line',filter:independentUnit,layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','TYPE'],8],'#638b94','#66604f'],'line-width':['interpolate',['linear'],['zoom'],6,.3,8,.5,11,.8,15,1.1],'line-opacity':0,'line-blur':.1}},
-  {...base,id:HALC_LAYERS[2],type:'line',filter:['==',['get','fid'],0],layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':'#a96926','line-width':['interpolate',['linear'],['zoom'],6,1.5,12,2.3],'line-opacity':0}}
+  // Match each base layer's fixed filter/layout to reuse its geometry bucket.
+  // Paint differs, so both selection passes stay above the regional outlines.
+  ...[[HALC_LAYERS[2],['!',independentUnit]],[HALC_LAYERS[4],independentUnit]].map(([id,filter])=>({...base,id,type:'line',filter,layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':['case',['boolean',['feature-state','halcSelected'],false],'#a96926','rgba(169,105,38,0)'],'line-width':['interpolate',['linear'],['zoom'],6,1.5,12,2.3],'line-opacity':0}}))
  ];
 }
 export class HalcBoundaries{
@@ -81,7 +84,7 @@ export class HalcBoundaries{
    this.metaRequest=this.load(ROOT+'labels.json').then(data=>{if(this.dead)return;this.labels=data;this.paint();this.requestRender();}).catch(e=>{if(this.dead)return;this.failed=true;this.lastError=String(e.message||e);this.reason='error';this.setActive(false);this.visibility();this.notify();}).finally(()=>{this.metaRequest=null;});
   }
   if(this.map.getSource(HALC_SOURCE))return;
-  this.map.addSource(HALC_SOURCE,{type:'vector',tiles:[new URL(ROOT+'tiles/{z}/{x}/{y}.pbf',location.href).href.replaceAll('%7B','{').replaceAll('%7D','}')],bounds:HALC_BOUNDS,minzoom:6,maxzoom:10,attribution:'Rombert Stapel · <a href="https://doi.org/10.34894/BTKFHV" target="_blank" rel="noopener">HALC v15</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>'});
+  this.map.addSource(HALC_SOURCE,{type:'vector',tiles:[new URL(ROOT+'tiles/{z}/{x}/{y}.pbf',location.href).href.replaceAll('%7B','{').replaceAll('%7D','}')],bounds:HALC_BOUNDS,minzoom:6,maxzoom:10,promoteId:{halc_localities:'fid'},attribution:'Rombert Stapel · <a href="https://doi.org/10.34894/BTKFHV" target="_blank" rel="noopener">HALC v15</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>'});
   for(const layer of halcLayers())this.map.addLayer(layer,'boundary');this.paint();
  }
  paint(){
@@ -99,7 +102,7 @@ export class HalcBoundaries{
   for(const id of HALC_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible?'visible':'none');
   if(this.map.getLayer(HALC_LAYERS[0])){this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity',this.active?.24:0);}
   for(const [id,independent]of [[HALC_LAYERS[1],false],[HALC_LAYERS[3],true]])if(this.map.getLayer(id)){this.map.setPaintProperty(id,'line-opacity-transition',{duration:0});this.map.setPaintProperty(id,'line-opacity',this.active?halcLineOpacity(regional,independent):0);}
-  if(this.map.getLayer(HALC_LAYERS[2])){this.map.setPaintProperty(HALC_LAYERS[2],'line-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[2],'line-opacity',this.active?1:0);}
+  for(const id of [HALC_LAYERS[2],HALC_LAYERS[4]])if(this.map.getLayer(id)){this.map.setPaintProperty(id,'line-opacity-transition',{duration:0});this.map.setPaintProperty(id,'line-opacity',this.active?1:0);}
  }
  setActive(value){
   if(!value){this.clearLabels();this.regions?.update();}
@@ -150,15 +153,22 @@ export class HalcBoundaries{
   }
   this.labelBoxes=boxes;this.atlas.labelBoxes=boxes;this.atlas.places?.refresh();
  }
+ // Stable source fids identify every clipped tile fragment of one locality.
+ // Only this owned feature-state key changes; selection never reparses a tile.
+ highlight(id){
+  if(this.highlightedId===id)return;
+  if(this.map.getSource(HALC_SOURCE)){if(this.highlightedId)this.map.removeFeatureState(selectionTarget(this.highlightedId),'halcSelected');if(id)this.map.setFeatureState(selectionTarget(id),{halcSelected:true});}
+  this.highlightedId=id;
+ }
  clearSelection(){
   ++this.seq;this.pendingId=null;const id=this.selectedId;this.selectedId=null;const popup=this.popup;this.popup=null;if(popup)popup.remove();
-  if(this.map.getLayer(HALC_LAYERS[2]))this.map.setFilter(HALC_LAYERS[2],['==',['get','fid'],0]);if(id)this.atlas.onBoundarySelection?.(null,'halc:'+id);
+  this.highlight(null);if(id)this.atlas.onBoundarySelection?.(null,'halc:'+id);
  }
  restore(value){const id=fid(String(value).replace(/^halc:/,''));if(id&&this.eligible){this.pendingId=id;this.update();}}
  async openRecord(value,point=this.map.getCenter()){
   const id=fid(value);if(!id||!this.eligible||!this.active)return;
   this.owner.closePopup();const token=++this.seq,node=make('section'),feature=this.features.find(f=>+f.properties.fid===id);
-  node.append(make('small','HALC · 1500','historical-eyebrow'),make('h3',feature?halcName(feature.properties,this.labels,this.lang):'HALC '+id),make('p',t(this.lang,'正在读取这条地方记录…','Loading this local record…')));this.owner.popupAt(node,point);const popup=this.owner.popup;this.popup=popup;this.selectedId=id;this.map.setFilter(HALC_LAYERS[2],['==',['get','fid'],id]);this.atlas.onBoundarySelection?.('halc:'+id);
+  node.append(make('small','HALC · 1500','historical-eyebrow'),make('h3',feature?halcName(feature.properties,this.labels,this.lang):'HALC '+id),make('p',t(this.lang,'正在读取这条地方记录…','Loading this local record…')));this.owner.popupAt(node,point);const popup=this.owner.popup;this.popup=popup;this.selectedId=id;this.highlight(id);this.atlas.onBoundarySelection?.('halc:'+id);
   popup.getElement().classList.add('halc-popup');popup.on('close',()=>{if(this.popup===popup)this.clearSelection();});
   try{
    const [shard,bibliography]=await Promise.all([this.load(ROOT+'details/shard-'+String(Math.floor(id/256)).padStart(3,'0')+'.json.gz'),this.load(ROOT+'metadata/bibliography.json').catch(()=>({}))]);

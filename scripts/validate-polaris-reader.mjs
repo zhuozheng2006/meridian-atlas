@@ -6,6 +6,9 @@ import path from 'node:path';
 import {mountResearchReader} from '../public/polaris-reader.js';
 import {PolarisStore,SNAPSHOT} from '../public/polaris-store.js';
 import {filterObservations} from '../public/polaris-adapter.js';
+import {READING_CATALOG} from '../public/research-reading-data.js';
+import {searchReadings,readingRows} from '../public/research-reading-library.js';
+import {parseResearchState,writeResearchState} from '../public/research-view.js';
 const root=fileURLToPath(new URL('../',import.meta.url)),dir=path.join(root,'public/data/seshat-polaris-2026'),base='https://atlas.test/data/seshat-polaris-2026/';
 const gz=file=>JSON.parse(gunzipSync(fs.readFileSync(path.join(dir,file)))),index=gz('index.json.gz'),ming=index.polities.find(p=>p.id==='cn_ming_dyn'),inca=index.polities.find(p=>p.id==='pe_inca_emp'),first=gz(ming.file),second=gz(inca.file);
 const disk=async url=>gz(new URL(url).pathname.split('/seshat-polaris-2026/')[1]);
@@ -18,7 +21,7 @@ class Node{
  focus(){this.ownerDocument.activeElement=this;}setSelectionRange(a,b){this.selectionStart=a;this.selectionEnd=b;}scrollIntoView(){}remove(){if(this.parentNode)this.parentNode.children=this.parentNode.children.filter(x=>x!==this);}
 }
 function dom(mobile=false){const doc={defaultView:{matchMedia:()=>({matches:mobile})},createElement:tag=>new Node(tag,doc)};doc.body=doc.createElement('body');return {doc,host:doc.createElement('div')};}
-const walk=node=>[node,...node.children.flatMap(walk)],find=(host,cls)=>walk(host).find(n=>n.className?.split(' ').includes(cls)),field=(host,key)=>walk(host).find(n=>n.id?.endsWith('-'+key)),buttons=host=>walk(host).filter(n=>n.tagName==='button');
+const walk=node=>[node,...node.children.flatMap(walk)],find=(host,cls)=>walk(host).find(n=>n.className?.split(' ').includes(cls)),field=(host,key)=>walk(host).find(n=>n.id?.endsWith('-'+key)&&(key.startsWith('library-')||!n.id.includes('-library-'))),buttons=host=>walk(host).filter(n=>n.tagName==='button');
 const pause=ms=>new Promise(r=>setTimeout(r,ms)),until=async condition=>{for(let i=0;i<200;i++){if(condition())return;await pause(2);}throw Error('Test condition did not settle');};
 const checks=[];async function test(name,fn){try{await fn();checks.push({name,passed:true});console.log('PASS '+name);}catch(e){checks.push({name,passed:false,error:e.stack});console.error('FAIL '+name+'\n'+e.stack);}}
 function open(options={},mobile=false){const {host,doc}=dom(mobile),reader=mountResearchReader(host,{dataBaseUrl:base,readJSON:disk,...options});return {host,doc,reader};}
@@ -48,5 +51,56 @@ await test('Crisis renders all 21 raw string outcomes without boolean coercion',
 await test('Explicit cross-version comparison delegates the exact reviewed phase pair',async()=>{const calls=[],{host,reader}=open({initialState:{polityId:ming.id},onVersionRequest:(...a)=>calls.push(a)});await reader.ready;const box=find(host,'research-phase-compare');assert(box);await buttons(box).at(-1).fire('click');assert.deepEqual(calls,[['equinox','CnMing*']]);reader.destroy();});
 await test('An export failure can retry, and a changed selection cancels a stale global export',async()=>{let tries=0;const firstReader=open({initialState:{polityId:ming.id},download:()=>{if(++tries===1)throw Error('disk');}});await firstReader.reader.ready;await find(firstReader.host,'research-actions').children[0].fire('click');assert.match(find(firstReader.host,'research-actions').textContent,/retry|重试/);await find(firstReader.host,'research-actions').children[0].fire('click');assert.equal(tries,2);firstReader.reader.destroy();let resolve,signal,downloads=0;const store={base:new URL(base),loadIndex:async()=>index,loadPolity:async()=>second,search:async()=>({rows:first.observations.slice(0,1),total:1}),collectSearch:(f,o)=>{signal=o.signal;return new Promise(r=>resolve=r);}};const {host,reader}=open({store,initialState:{polityId:'@all'},download:()=>downloads++});await reader.ready;const pending=find(host,'research-actions').children[0].fire('click');await until(()=>resolve);await reader.selectPolity(inca.id);assert(signal.aborted);resolve({rows:first.observations});await pending;assert.equal(downloads,0);reader.destroy();});
 await test('Destroy during index read prevents all later DOM and selection writes',async()=>{let finish;const {host,reader}=open({readJSON:()=>new Promise(r=>finish=r)});reader.destroy();finish(index);await reader.ready;assert.equal(host.children.length,0);assert.equal(reader.getState().destroyed,true);});
+
+await test('Reading library exposes all nine curated phases and searches bilingual subjects without reading shards',async()=>{
+ const calls=[],{host,reader}=open({lang:'zh',readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
+ const library=find(host,'research-reading-library');assert(library.open);assert.match(library.textContent,/25 条导读.*9 个研究阶段.*10 份来源/);
+ const select=field(host,'library-phase'),query=field(host,'library-query');assert.equal(select.children.length,10);assert.equal(find(host,'research-library-grid').children.length,6);
+ query.value='马里';await query.fire('input');assert.equal(find(host,'research-library-grid').children.length,2);assert.match(library.textContent,/盐块/);
+ assert.equal(searchReadings('population','kh_angkor_2',new Map(index.polities.map(p=>[p.id,p]))).length,1);assert.equal(calls.length,1);reader.destroy();
+});
+await test('All 25 deep links show and export precisely their linked typed source rows',async()=>{
+ for(const c of READING_CATALOG.cards){let payload;const calls=[],{host,reader}=open({lang:'zh',initialState:{polityId:c.phaseId,readingId:c.id,query:'stale',domain:'crisis',page:8},download:p=>payload=p,readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
+  const p=index.polities.find(p=>p.id===c.phaseId),raw=gz(p.file),expected=raw.observations.filter(r=>c.targetRowIds.includes(r.id));
+  assert.equal(reader.getSnapshot().readingId,c.id);assert.equal(reader.getState().filteredCount,c.targetRowIds.length);assert.equal(reader.getSnapshot().query,'');assert.equal(reader.getSnapshot().page,0);
+  assert.equal(walk(host).filter(n=>n.className==='research-reading-card').length,1);assert.equal(find(host,'research-readings').open,true);assert.equal(calls.length,2);assert(calls[1].endsWith(p.file));
+  await find(host,'research-actions').children[0].fire('click');assert.deepEqual(payload.observations,expected);assert.deepEqual(payload.readingAssociation.targetRowIds,c.targetRowIds);assert.equal(payload.readingAssociation.sourceLineageEstablished,false);
+  const url=writeResearchState(new URLSearchParams('view=research'),reader.getSnapshot());assert.equal(parseResearchState(url).readingId,c.id);reader.setLanguage('en');assert.equal(reader.getSnapshot().readingId,c.id);assert.match(find(host,'research-reading-selection').textContent,/Located/);reader.destroy();
+ }
+});
+await test('Library click clears conflicting filters, opens the exact source phase, and focuses the context',async()=>{
+ const {host,doc,reader}=open({initialState:{polityId:'@all',domain:'crisis',page:3,polityQuery:'Rome'}});await reader.ready;
+ const query=field(host,'library-query');query.value='mali salt';await query.fire('input');const card=find(host,'research-library-grid').children[0];assert(card);
+ await buttons(card)[0].fire('click');assert.equal(reader.getState().polityId,'ml_mali_emp');assert.equal(reader.getState().filteredCount,1);assert.equal(reader.getSnapshot().polityQuery,'');assert.equal(doc.activeElement,find(host,'research-context'));assert(!find(host,'research-reading-library').open);
+ await buttons(find(host,'research-reading-selection'))[0].fire('click');assert.equal(reader.getSnapshot().readingId,undefined);assert(reader.getState().filteredCount>1);reader.destroy();
+});
+await test('Reading scope clears on manual phase and variable changes and survives a failed fetch retry',async()=>{
+ const id=READING_CATALOG.cards.find(c=>c.phaseId==='ml_mali_emp').id;let attempts=0;
+ const {host,reader}=open({initialState:{readingId:id},readJSON:async u=>{if(!String(u).endsWith('index.json.gz')&&++attempts===1)throw Error('offline');return disk(u);}});await reader.ready;assert.equal(reader.getState().error,'polity');assert.equal(reader.getSnapshot().readingId,id);
+ await buttons(find(host,'research-results'))[0].fire('click');assert.equal(reader.getState().filteredCount,2);
+ field(host,'variable').value='judge';await field(host,'variable').fire('change');assert.equal(reader.getSnapshot().readingId,undefined);
+ await reader.selectReading(id);await reader.selectPolity('cn_ming_dyn');assert.equal(reader.getSnapshot().readingId,undefined);assert.equal(reader.getState().recordCount,143);reader.destroy();
+});
+await test('Unknown, mismatched and cross-version reading routes never substitute another card',async()=>{
+ for(const readingId of ['unknown-reading',READING_CATALOG.cards.find(c=>c.phaseId==='ml_mali_emp').id]){const {host,reader}=open({lang:'zh',initialState:{polityId:ming.id,readingId}});await reader.ready;assert.equal(reader.getSnapshot().readingId,undefined);assert.equal(reader.getState().polityId,ming.id);assert.match(find(host,'research-context').textContent,/导读链接与当前资料不匹配/);reader.destroy();}
+ assert.equal(parseResearchState(new URLSearchParams('srDataset=equinox&srReading=mali-salt-money--ml_mali_emp')).readingId,undefined);
+ assert.equal(parseResearchState(new URLSearchParams('srDataset=polaris-2026&srReading=%3Cscript%3E')).readingId,undefined);
+});
+await test('Exact source identities reject a same-row-number substitute and surface missing associations',async()=>{
+ const c=READING_CATALOG.cards.find(c=>c.targetRowIds.length>0&&c.phaseId===ming.id),raw=gz(ming.file),matched=readingRows(raw.observations,c),wrong=structuredClone(matched[0]);wrong.id='sha256:WRONG:'+wrong.sourceSheet+':'+wrong.sourceRow;
+ const {host,reader}=fixtureReader([wrong,...matched.slice(1)],{lang:'zh',initialState:{polityId:ming.id,readingId:c.id}});await reader.ready;assert.equal(reader.getState().filteredCount,c.targetRowIds.length-1);assert.match(find(host,'research-reading-selection').textContent,/部分关联记录未找到/);reader.destroy();
+});
+await test('A late reading fetch cannot overwrite a later phase selection',async()=>{
+ const c=READING_CATALOG.cards.find(c=>c.phaseId===ming.id);let finish;
+ const {reader}=open({readJSON:async u=>String(u).endsWith(ming.file)?new Promise(r=>finish=r):disk(u)});await reader.ready;
+ const previous=reader.selectReading(c.id);await until(()=>finish);await reader.selectPolity(inca.id);finish(first);await previous;assert.equal(reader.getSnapshot().polityId,inca.id);assert.equal(reader.getSnapshot().readingId,undefined);assert.equal(reader.getState().recordCount,145);reader.destroy();
+});
+
+
+await test('Reading-library language changes retain search, phase, page, folding and input focus',async()=>{
+ const {host,doc,reader}=open({lang:'zh'});await reader.ready;const q=field(host,'library-query');q.value='Angkor';await q.fire('input');q.focus();q.setSelectionRange(1,4);reader.setLanguage('en');
+ assert.equal(field(host,'library-query').value,'Angkor');assert.equal(find(host,'research-reading-library').open,true);assert.equal(doc.activeElement,field(host,'library-query'));assert.equal(doc.activeElement.selectionStart,1);assert.equal(doc.activeElement.selectionEnd,4);assert.equal(find(host,'research-library-grid').children.length,3);reader.destroy();
+});
+
 console.log(JSON.stringify({checks:checks.length,passed:checks.filter(r=>r.passed).length,failed:checks.filter(r=>!r.passed).length}));if(checks.some(r=>!r.passed))process.exitCode=1;
 if(process.env.POLARIS_READER_REPORT)fs.writeFileSync(process.env.POLARIS_READER_REPORT,JSON.stringify({method:'Real store/adapter/renderer with local shipped data and controllable native-DOM boundary fixtures; no browser automation.',checks},null,2)+'\n');

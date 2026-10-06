@@ -1,0 +1,113 @@
+PASS A left city milestone keeps the same dated city, reader and origin
+PASS A left population-row click preserves origin and actual observation year
+PASS An external left year change still dismisses the old city
+PASS A failed left year load retains current city and reading origin
+PASS A right city milestone keeps the same dated city, reader and origin
+PASS A right population-row click preserves origin and actual observation year
+PASS An external right year change still dismisses the old city
+PASS A failed right year load retains current city and reading origin
+PASS Invalid, absent or non-integer dates leave the current map and archive unchanged
+PASS A dated-location gap prevents navigation even inside the overall attestation period
+PASS A population gap obeys the selected exact-year window rather than reusing an old row
+PASS Late city-year loading cannot reopen a reader after close
+PASS Late city-year loading cannot reopen a reader after leave
+PASS Late city-year loading cannot reopen a reader after replace-map
+PASS Late city-year loading cannot reopen a reader after destroy-map
+PASS A newer city jump defeats the older jump even when both finish
+PASS The real asynchronous reader keeps the Records tab and scroll through a city jump
+PASS Every shipped attested site retains its own publishers, links and license attribution
+PASS attested:si-thep displays its source centuries in both languages without rewriting raw years
+PASS attested:sambor-prei-kuk displays its source centuries in both languages without rewriting raw years
+PASS Urban, ancient-place and capital attributions remain source-specific
+{
+  "suite": "city reader navigation and source attribution",
+  "passed": 21,
+  "total": 21,
+  "attestedSites": 14,
+  "results": [
+    {
+      "name": "A left city milestone keeps the same dated city, reader and origin",
+      "passed": true
+    },
+    {
+      "name": "A left population-row click preserves origin and actual observation year",
+      "passed": true
+    },
+    {
+      "name": "An external left year change still dismisses the old city",
+      "passed": true
+    },
+    {
+      "name": "A failed left year load retains current city and reading origin",
+      "passed": true
+    },
+    {
+      "name": "A right city milestone keeps the same dated city, reader and origin",
+      "passed": true
+    },
+    {
+      "name": "A right population-row click preserves origin and actual observation year",
+      "passed": true
+    },
+    {
+      "name": "An external right year change still dismisses the old city",
+      "passed": true
+    },
+    {
+      "name": "A failed right year load retains current city and reading origin",
+      "passed": true
+    },
+    {
+      "name": "Invalid, absent or non-integer dates leave the current map and archive unchanged",
+      "passed": true
+    },
+    {
+      "name": "A dated-location gap prevents navigation even inside the overall attestation period",
+      "passed": true
+    },
+    {
+      "name": "A population gap obeys the selected exact-year window rather than reusing an old row",
+      "passed": true
+    },
+    {
+      "name": "Late city-year loading cannot reopen a reader after close",
+      "passed": true
+    },
+    {
+      "name": "Late city-year loading cannot reopen a reader after leave",
+      "passed": true
+    },
+    {
+      "name": "Late city-year loading cannot reopen a reader after replace-map",
+      "passed": true
+    },
+    {
+      "name": "Late city-year loading cannot reopen a reader after destroy-map",
+      "passed": true
+    },
+    {
+      "name": "A newer city jump defeats the older jump even when both finish",
+      "passed": true
+    },
+    {
+      "name": "The real asynchronous reader keeps the Records tab and scroll through a city jump",
+      "passed": true
+    },
+    {
+      "name": "Every shipped attested site retains its own publishers, links and license attribution",
+      "passed": true
+    },
+    {
+      "name": "attested:si-thep displays its source centuries in both languages without rewriting raw years",
+      "passed": true
+    },
+    {
+      "name": "attested:sambor-prei-kuk displays its source centuries in both languages without rewriting raw years",
+      "passed": true
+    },
+    {
+      "name": "Urban, ancient-place and capital attributions remain source-specific",
+      "passed": true
+    }
+  ]
+}

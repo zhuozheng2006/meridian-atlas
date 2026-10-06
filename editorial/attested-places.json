@@ -3,13 +3,13 @@
  "title": "经纬纪 3.10 有据可查遗址层（attested places）编辑底稿",
  "authoredOn": "2026-10-02",
  "origin": "Reviewed handoff research: 经纬纪-AI交接/研究资料/全球覆盖审查/settlement-candidates.json (18 candidates read 2026-10-03) with UNESCO World Heritage listing pages as the primary source.",
- "licenceNote": "UNESCO listing descriptions are CC BY-SA IGO 3.0. This file stores short factual notes and original bilingual synthesis only; no source prose, photographs or maps are redistributed. Linked nomination documents and images require separate clearance.",
+ "licenceNote": "UNESCO listing descriptions are CC BY-SA IGO 3.0. Entries contain original bilingual factual synthesis. Short source passages and the exact web-retrieved text representation are preserved in the accompanying evidence archive; no photographs or maps are reproduced.",
  "policy": {
   "layer": "Independent layer parallel to the existing Pleiades, Chandler and Modelski records; nothing here overwrites or merges into them.",
   "display": "Show a record only in years inside period.start..period.end. Never interpolate across gaps. A non-null displayHorizon is an alignment limit, not a source-stated end date.",
   "identity": "Proximity and shared modern names never establish historical identity; nearbyExistingRecords are review prompts only.",
   "coordinates": "Representative points with accuracyMeters=null; not suitable for boundary drawing or metre-level placement.",
-  "sources": "Every record cites at least one institutional source with a read date; quotes are copied verbatim from the reviewed research file."
+  "sources": "Every record cites an institutional source and a read date. Source wording and coordinates are cross-checked against the original handoff research or the versioned in-repository evidence catalog."
  },
  "entries": [
   {
@@ -1569,6 +1569,245 @@
     ]
    },
    "handoffCandidateId": "levuka"
+  },
+  {
+   "kind": "attested-site",
+   "region": "southeast-asia",
+   "continuousOccupationAsserted": false,
+   "displayWindow": null,
+   "nearbyExistingRecords": [],
+   "id": "attested:si-thep",
+   "nameZh": "西贴古城",
+   "nameEn": "Si Thep",
+   "aliases": [
+    "Sri Thep",
+    "西贴",
+    "西贴古镇"
+   ],
+   "sources": [
+    {
+     "id": "si-thep-unesco",
+     "publisher": "UNESCO World Heritage Centre",
+     "title": "The Ancient Town of Si Thep and its Associated Dvaravati Monuments",
+     "url": "https://whc.unesco.org/en/list/1662/",
+     "license": "CC BY-SA IGO 3.0 (listing description); original bilingual factual synthesis; source excerpts retained in the evidence archive.",
+     "readOn": "2026-10-06",
+     "propertyId": "1662",
+     "coordinateUrl": "https://whc.unesco.org/en/list/1662/maps/",
+     "evidenceCatalog": "data/research-evidence/cities-3.41/catalog.json",
+     "sourceComponentId": "1662-001"
+    }
+   ],
+   "location": {
+    "coordinates": [
+     101.1511138888889,
+     15.465816666666665
+    ],
+    "sourceDMS": "N15 27 56.94 E101 9 4.01",
+    "representativePoint": true,
+    "accuracyMeters": null,
+    "coordinateMeaningZh": "UNESCO 1662-001 古城组成部分的代表点。",
+    "coordinateMeaningEn": "UNESCO reference point for the ancient-town component 1662-001."
+   },
+   "period": {
+    "start": 501,
+    "end": 1000,
+    "precision": "centuries",
+    "dateQuote": "from the 6th to the 10th centuries",
+    "sourceRange": {
+     "from": 501,
+     "to": 1000,
+     "kind": "ce-centuries"
+    },
+    "displayHorizon": null,
+    "interpretationZh": "来源以6—10世纪概括古城与关联古迹所体现的陀罗钵地文化时期；年份按整世纪转换，用于筛选这一阶段。建城、弃城及逐年居住情况另需考证。",
+    "interpretationEn": "UNESCO dates the Dvaravati cultural phase represented by the town and associated monuments to the sixth through tenth centuries. The numeric bounds convert those centuries for filtering; foundation, abandonment and annual occupation require separate evidence."
+   },
+   "scope": {
+    "spatial": {
+     "zh": "此点对应护城河环绕的内城与外城；考巴生和考塔莫拉洞穴属于同一系列遗产中的另外两个组成部分。",
+     "en": "This point represents the moated Inner and Outer Town. Khao Klang Nok and Khao Thamorrat Cave are separate components of the same serial property."
+    },
+    "temporal": {
+     "zh": "展示6—10世纪的陀罗钵地文化阶段，2023年列入遗产名录属于现代保护史。",
+     "en": "The displayed phase is the sixth–tenth-century Dvaravati cultural period. Inscription in 2023 belongs to modern heritage history."
+    }
+   },
+   "narrative": {
+    "setting": {
+     "zh": "西贴位于今泰国中部。护城河环绕的内城与外城构成双城布局，城市与周围宗教古迹共同保存了陀罗钵地时期的规划、水利和居住活动痕迹。",
+     "en": "Si Thep lies in present-day central Thailand. Its moated Inner and Outer Town form a distinctive twin-town layout. The town and nearby religious monuments preserve evidence of Dvaravati planning, water infrastructure and successive layers of inhabitation."
+    },
+    "development": {
+     "zh": "6—10世纪，来自印度的宗教与艺术传统在当地形成新的表达。印度教、上座部佛教和大乘佛教并存，寺院、洞窟与雕刻展现了多种传统之间的交流。",
+     "en": "Between the sixth and tenth centuries, religious and artistic traditions from India acquired local forms. Hinduism, Theravada Buddhism and Mahayana Buddhism coexisted. The town, monuments and cave monastery reveal these exchanges through their architecture, sculpture and religious spaces."
+    },
+    "legacy": {
+     "zh": "西贴艺术流派以独特的雕塑姿态和表现身体动态的方式著称，并影响泰国其他地区的艺术与建筑。结合古城、考巴生和考塔莫拉洞穴阅读，可以观察城市空间与宗教生活的联系。",
+     "en": "The Si Thep School of Art developed distinctive sculpture, including standing figures that express bodily movement, and influenced art and architecture elsewhere in Thailand. Studying the town alongside Khao Klang Nok and Khao Thamorrat Cave connects urban space with religious life."
+    }
+   },
+   "significance": {
+    "zh": "通过双城布局与多种宗教遗存，认识陀罗钵地时期东南亚城市和艺术交流。",
+    "en": "The twin-town layout and diverse religious remains illuminate Dvaravati urban life and artistic exchange in Southeast Asia."
+   },
+   "review": {
+    "reviewedOn": "2026-10-06",
+    "candidateReviewStatus": "component-coordinate-and-cultural-period-verified",
+    "checks": [
+     {
+      "id": "coordinate-provenance",
+      "statementZh": "代表点已与 UNESCO 遗产或组成部分坐标逐项核对。",
+      "statementEn": "The reference point was checked against the UNESCO property or component coordinates.",
+      "passed": true
+     },
+     {
+      "id": "period-source-anchored",
+      "statementZh": "筛选年代依照来源给出的世纪范围，具体历史含义见年代说明。",
+      "statementEn": "The filter period follows the source-stated centuries; its historical meaning is recorded in the period interpretation.",
+      "passed": true
+     },
+     {
+      "id": "no-continuous-occupation",
+      "statementZh": "该范围概括有据可查的历史活动，并未逐年证实连续居住。",
+      "statementEn": "The range describes the attested historical activity and does not establish continuous annual occupation.",
+      "passed": true
+     },
+     {
+      "id": "no-identity-merge",
+      "statementZh": "已审查现有记录名称和近邻位置，保留独立遗址身份。",
+      "statementEn": "Existing names and nearby points were reviewed; the site retains a separate identity.",
+      "passed": true
+     },
+     {
+      "id": "display-window-null",
+      "statementZh": "额外显示窗口保持为空。",
+      "statementEn": "No additional display window is applied.",
+      "passed": true
+     }
+    ]
+   },
+   "researchCandidateId": "si-thep"
+  },
+  {
+   "kind": "attested-site",
+   "region": "southeast-asia",
+   "continuousOccupationAsserted": false,
+   "displayWindow": null,
+   "nearbyExistingRecords": [],
+   "id": "attested:sambor-prei-kuk",
+   "nameZh": "三波坡雷古（伊奢那补罗）",
+   "nameEn": "Sambor Prei Kuk (Ishanapura)",
+   "aliases": [
+    "Sambor Prei Kuk",
+    "Ishanapura",
+    "Isanapura",
+    "伊奢那补罗",
+    "三波坡雷古"
+   ],
+   "sources": [
+    {
+     "id": "sambor-prei-kuk-unesco",
+     "publisher": "UNESCO World Heritage Centre",
+     "title": "Temple Zone of Sambor Prei Kuk, Archaeological Site of Ancient Ishanapura",
+     "url": "https://whc.unesco.org/en/list/1532/",
+     "license": "CC BY-SA IGO 3.0 (listing description); original bilingual factual synthesis; source excerpts retained in the evidence archive.",
+     "readOn": "2026-10-06",
+     "propertyId": "1532",
+     "coordinateUrl": "https://whc.unesco.org/en/list/1532/",
+     "evidenceCatalog": "data/research-evidence/cities-3.41/catalog.json"
+    }
+   ],
+   "location": {
+    "coordinates": [
+     105.04305555555555,
+     12.8725
+    ],
+    "sourceDMS": "N12 52 21 E105 2 35",
+    "representativePoint": true,
+    "accuracyMeters": null,
+    "coordinateMeaningZh": "UNESCO 寺区遗产代表点；带护城河的古城遗迹位于寺区以西。",
+    "coordinateMeaningEn": "UNESCO reference point for the temple-zone property; the moated city remains lie to its west."
+   },
+   "period": {
+    "start": 601,
+    "end": 1100,
+    "precision": "centuries",
+    "dateQuote": "repairs and modifications carried out from the 7th to the 11th century",
+    "sourceRange": {
+     "from": 601,
+     "to": 1100,
+     "kind": "ce-centuries"
+    },
+    "displayHorizon": null,
+    "interpretationZh": "筛选范围对应来源记载的7—11世纪寺庙修缮与改建活动。伊奢那补罗作为真腊都城的早期背景另述于正文；两种年代含义分别保留。",
+    "interpretationEn": "The filter range represents the seventh–eleventh-century repairs and modifications documented for the temples. The earlier Chenla-capital context of Ishanapura is described separately in the narrative."
+   },
+   "scope": {
+    "spatial": {
+     "zh": "地图定位于伊奢那补罗遗址东侧的寺区，古城、土堤通道和水系作为关联历史空间说明。",
+     "en": "The map point locates the temple zone east of the Ishanapura city remains. The city, earthen causeways and water system provide its wider historical setting."
+    },
+    "temporal": {
+     "zh": "地图展示寺区7—11世纪的修缮与改建阶段；6世纪末至7世纪初的都城背景依据来源文字保留。",
+     "en": "The map displays the seventh–eleventh-century phase of temple repairs and modifications; the source wording for the late-sixth- and early-seventh-century capital context is retained separately."
+    }
+   },
+   "narrative": {
+    "setting": {
+     "zh": "三波坡雷古寺区属于古伊奢那补罗遗址，位于带护城河的古城以东。土堤通道将寺区与森河及可能的古港联系起来，水渠和堤坝构成了周围景观的重要部分。",
+     "en": "The Sambor Prei Kuk temple zone belongs to ancient Ishanapura and lies east of its moated city remains. Earthen causeways connect the temples with the Stung Sen River and a possible harbour, while canals and dykes form part of the surrounding landscape."
+    },
+    "development": {
+     "zh": "UNESCO将遗址与真腊都城伊奢那补罗联系起来，并将真腊的繁盛背景概括为6世纪末至7世纪初。此后寺庙在7—11世纪经历修缮和改建，保存了不同时期的宗教活动痕迹。",
+     "en": "UNESCO identifies the site with Ishanapura, the Chenla capital, in the context of Chenla flourishing in the late sixth and early seventh centuries. The temples later underwent repairs and modifications from the seventh to the eleventh century, the phase used for this record’s map filter."
+    },
+    "legacy": {
+     "zh": "砖塔、砂岩装饰和八角形寺庙体现了吴哥之前的建筑传统。梵文与古高棉文铭文记录寺庙活动、君主和其他人物，为理解宗教生活与政治组织提供了具体线索。",
+     "en": "Brick towers, sandstone details and octagonal temples preserve an architectural tradition preceding Angkor. Sanskrit and Old Khmer inscriptions record temple activities, kings and other individuals, offering evidence for religious and political life. The site’s art and architecture helped shape later Khmer forms."
+    }
+   },
+   "significance": {
+    "zh": "把吴哥之前的建筑、铭文和水利遗存联系起来，阅读真腊时期的城市与宗教空间。",
+    "en": "Architecture, inscriptions and hydraulic remains connect the pre-Angkor city with the religious and political life of the Chenla period."
+   },
+   "review": {
+    "reviewedOn": "2026-10-06",
+    "candidateReviewStatus": "property-coordinate-and-temple-activity-period-verified",
+    "checks": [
+     {
+      "id": "coordinate-provenance",
+      "statementZh": "代表点已与 UNESCO 遗产或组成部分坐标逐项核对。",
+      "statementEn": "The reference point was checked against the UNESCO property or component coordinates.",
+      "passed": true
+     },
+     {
+      "id": "period-source-anchored",
+      "statementZh": "筛选年代依照来源给出的世纪范围，具体历史含义见年代说明。",
+      "statementEn": "The filter period follows the source-stated centuries; its historical meaning is recorded in the period interpretation.",
+      "passed": true
+     },
+     {
+      "id": "no-continuous-occupation",
+      "statementZh": "该范围概括有据可查的历史活动，并未逐年证实连续居住。",
+      "statementEn": "The range describes the attested historical activity and does not establish continuous annual occupation.",
+      "passed": true
+     },
+     {
+      "id": "no-identity-merge",
+      "statementZh": "已审查现有记录名称和近邻位置，保留独立遗址身份。",
+      "statementEn": "Existing names and nearby points were reviewed; the site retains a separate identity.",
+      "passed": true
+     },
+     {
+      "id": "display-window-null",
+      "statementZh": "额外显示窗口保持为空。",
+      "statementEn": "No additional display window is applied.",
+      "passed": true
+     }
+    ]
+   },
+   "researchCandidateId": "sambor-prei-kuk"
   }
  ],
  "enhancements": [
@@ -1821,6 +2060,20 @@
    "candidateId": "roi-mata-residence",
    "decision": "deferred",
    "recordId": null
+  }
+ ],
+ "updatedOn": "2026-10-06",
+ "supplementalEvidenceFile": "public/data/research-evidence/cities-3.41/catalog.json",
+ "supplementalReviewLedger": [
+  {
+   "candidateId": "si-thep",
+   "decision": "integrated",
+   "recordId": "attested:si-thep"
+  },
+  {
+   "candidateId": "sambor-prei-kuk",
+   "decision": "integrated",
+   "recordId": "attested:sambor-prei-kuk"
   }
  ]
 }
