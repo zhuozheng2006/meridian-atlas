@@ -12,21 +12,22 @@
 - 发布包及截图：同一任务目录的 `outputs/meridian-3.44/`；验证副本在 `docs/verification-3.44/`。
 - 生成：`npm run prepare:assets`；完整自检：`npm test`；传输检查：`npm run test:http`；构建：`npm run build`。
 
-## 发布状态与待办
+## 发布记录
 
-**截至本交接写入，本轮没有push、上传或部署。** 原站点为 `https://meridian-world-history.zhuozheng2006.chatgpt.site`，项目ID `appgprj_6abed10c25288191b15cf376ca0c8c66`，线上最后确认仍为 **Site version21**。原访问范围为仅所有者，保持不变。3.37—3.44为尚未上线的本地累计更新。
+用户在后续消息明确要求“现在把网站上线，我已经开放了权限”，本次上传授权已取得。原站点为 `https://meridian-world-history.zhuozheng2006.chatgpt.site`，项目ID `appgprj_6abed10c25288191b15cf376ca0c8c66`；保持仅所有者可访问。此前审批等待已解除；不得再把它作为当前阻塞。
 
-用户已经要求上线；本次官方发布工作流仍遭自动审批拒绝，原因是要求进一步明确确认具体代码和资料载荷发送到外部站点及源码存储。拒绝发生在命令执行前。不能绕过拒绝改用另一上传路径。较早涉及3.37及约128MB的未答问题不能充作此次授权。
+3.44原始产品提交为 `5e01954eb45098996c351be0f1ecc39ea051d300`，已经推送至该站点原私有仓库。首次部署上传在创建版本前被256MiB解压后大小限制拒绝：原归档包含295,192,385字节文件内容，另有Mac元数据和tar块开销；压缩包大小248MiB本身不足以保证可上传。该尝试没有成功上线。
 
-当前可供确认的发布内容是：3.44项目源码、随附历史资料及构建包；目标是原Sites站点及 `https://git.chatgpt-team.site` 上该项目绑定的私有源码仓库（main）。构建包已经由官方打包工具生成并核验：
+本次上线修复复用已有R2静态对象分发，仅将258个 `data/native/temporal/pack-NNN.json.gz` 从构建静态目录移入站点现有对象存储，原 `public/`、客户端网址、压缩字节、年份与坐标完全保留。构建从native原manifest的 `gzipBytes/gzipSha256` 核对每份载荷，Worker及上传器继续只接受严格列入清单的路径与哈希。先部署有限时间导入构建、完成全部云端回读，再部署默认关闭导入的最终构建。
 
-- 位置：`/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/meridian-3.44/site-3.44-review.tar.gz`
-- 大小：**260,050,179 B（248.00 MiB）**；34,790个归档条目。
-- SHA-256：`bdd80a922648c45536e1e671891ccb0ed0763e9360b5a946f455df2342dbd462`。
-- 含构建Worker、带最终资源戳的HTML及新增资料；路径检查未发现Git目录或凭据文件。
-- 清单：`verification-3.44/review-package.json`。此包在本地，尚未传输。
+- 新静态清单：298文件、192,900,639字节；其中新增年代包64,539,958字节。
+- 新静态revision：`930410cff3a1e9f6d2732a05525434035e1fe8170cb035bb1e7264bbdc22ce5d`。
+- 湖泊清单及命名空间不变：2,551文件，revision `9c6c5ea6ce8ae32936efbe41`。
+- 官方工作流设置 `COPYFILE_DISABLE=1`，不打包Mac AppleDouble文件；未删除任何网站内容。
+- Worker原16项行为测试以新增native路径fixture重跑通过，覆盖导入、原URL读取、HEAD/ETag、关闭、错误恢复和完整回读。
+- 此次只修改部署构建/分发，前端资源戳仍为 `3.44.0-3fda80a72ecc`，上一轮桌面/手机及性能证据继续适用。
 
-取得所需具体审批后，使用Sites官方工作流获取新的短期写凭据、打开既有源码绑定、推送确切提交并打包，再调用原站点私有保存部署工具，等待原生状态为succeeded。不要新建站点或扩大分享范围。此前取得的凭据已过期，不要记录或输出令牌。若本轮未获审批，明确报告本地完成、线上未更新，并按用户要求暂停。实际部署结果另以 `docs/verification-3.44/publication.json` 为准（存在时）。
+最终部署结果以 `verification-3.44/publication.json`、云端逐项SHA回读以 `verification-3.44/static-storage-audit.json` 为准。只有原生Sites状态succeeded且数据回读完成后才报告上线完成。发布完成后继续遵守用户停止要求，不启动新功能或资料工作。
 
 ## 详图加载优化
 
@@ -93,7 +94,7 @@ Chrome桌面/390×844手机实测：法显39块、7个目录项；关联段落19
 - `npm run build`：退出0，见 `build.log`；Worker在 `dist/server/index.js`，静态目录 `dist/client`。
 - 静态存储revision：`2e585c28468d61e271eb4a63656c2d84eaa87b024478d6bd3015ec3ba6840b30`；40文件、128,360,681字节。
 - 湖泊存储revision：`9c6c5ea6ce8ae32936efbe41`；2,551文件、243,358,114字节。与部署gzip包大小口径不同。
-- 官方本地打包和归档清点通过，尚待本次发布的具体审批。后续仅文档修改不会改变已经构建的产品字节。
+- 原本地打包和归档清点通过，但首次上传遇到解压大小上限，见上方发布记录及本次分发修复。
 
 ## 暂停后留给下次的事项
 

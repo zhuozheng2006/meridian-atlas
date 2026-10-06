@@ -21,6 +21,11 @@ const cshapes=JSON.parse(fs.readFileSync(path.join(source,'data/cshapes/manifest
 for(const f of Object.values(cshapes.packs)){if(!/^decade-\d+\.json\.gz$/.test(f.file))throw Error('Invalid CShapes pack path');addStatic('data/cshapes/'+f.file,{bytes:f.bytes,sha256:f.sha256});}
 const seshat=JSON.parse(fs.readFileSync(path.join(source,'data/seshat/provenance.json')));
 const pdf='data/seshat/sources/code-book-4.20.2021.pdf';addStatic(pdf,{bytes:fs.statSync(path.join(source,pdf)).size,sha256:seshat.codebookSha256});
+const native=JSON.parse(fs.readFileSync(path.join(source,'data/native/manifest.json')));
+for(const f of native.temporalBundles){
+ if(!/^temporal\/pack-\d{3}\.json\.gz$/.test(f.file))throw Error('Invalid native temporal path');
+ addStatic('data/native/'+f.file,{bytes:f.gzipBytes,sha256:f.gzipSha256});
+}
 staticFiles.sort((a,b)=>a.file.localeCompare(b.file));
 const staticManifest={schemaVersion:1,revision:digest(JSON.stringify(staticFiles)),bytes:staticFiles.reduce((n,f)=>n+f.bytes,0),files:staticFiles};
 for(const f of files){const b=fs.readFileSync(path.join(source,'data/lakes',f.file));if(b.length!==f.bytes||crypto.createHash('sha256').update(b).digest('hex')!==f.sha256)throw Error('Invalid lake storage asset: '+f.file);}

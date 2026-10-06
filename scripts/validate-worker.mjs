@@ -22,7 +22,7 @@ await test('Final builds disable every import route while keeping lake reads',as
 await test('Cross-origin browser imports and expired import windows are rejected',async()=>{assert.equal((await worker.fetch(req('/__atlas-import/status',{headers:{Origin:'https://other.example'}}),env)).status,403);const expired=createAtlasWorker(manifest,{importUntil:Date.now()-1});assert.equal((await expired.fetch(req('/__atlas-import/status'),env)).status,404);});
 await test('Missing storage and missing public assets return a recoverable unavailable state',async()=>{assert.equal((await worker.fetch(req('/data/lakes/0000.bin.gz'),{})).status,503);assert.equal((await worker.fetch(req('/'),{})).status,503);});
 
-const samples=[['data/ohm-eastasia/year-1500.json.gz',Buffer.from([31,139,8,0,1,2,3])],['data/cshapes/decade-2000.json.gz',Buffer.from([31,139,8,0,4,5,6])],['data/seshat/sources/code-book-4.20.2021.pdf',Buffer.from('%PDF-1.7\nverified source')]];
+const samples=[['data/native/temporal/pack-000.json.gz',Buffer.from([31,139,8,0,7,8,9])],['data/ohm-eastasia/year-1500.json.gz',Buffer.from([31,139,8,0,1,2,3])],['data/cshapes/decade-2000.json.gz',Buffer.from([31,139,8,0,4,5,6])],['data/seshat/sources/code-book-4.20.2021.pdf',Buffer.from('%PDF-1.7\nverified source')]];
 const staticFiles=samples.map(([file,data])=>{const sha256=createHash('sha256').update(data).digest('hex');return {file,bytes:data.length,sha256,key:'atlas-static/sha256/'+sha256,contentType:file.endsWith('.pdf')?'application/pdf':'application/octet-stream'};}).sort((a,b)=>a.file.localeCompare(b.file));
 const staticManifest={schemaVersion:1,revision:createHash('sha256').update(JSON.stringify(staticFiles)).digest('hex'),bytes:staticFiles.reduce((n,f)=>n+f.bytes,0),files:staticFiles};
 const sw=createAtlasWorker(manifest,{importUntil:Date.now()+60000,staticManifest}),sf=createAtlasWorker(manifest,{staticManifest});
@@ -69,8 +69,8 @@ await test('Static uploader retries transport/HTTP failures, preserves private h
  const reads=[],delays=[];let calls=0;
  const fetchImpl=async(url,opts)=>{assert.equal(opts.redirect,'error');assert.equal(opts.headers['OAI-Sites-Authorization'],'Bearer fixture-only');calls++;if(calls===1)throw Error('simulated reset');if(calls===2)return new Response('busy',{status:503});if(new URL(url).pathname.startsWith('/data/'))reads.push(new URL(url).pathname);return sw.fetch(new Request(url,opts),env);};
  const result=await uploadStatic({origin:'https://atlas.example',token:'fixture-only',manifest:staticManifest,publicDir:dir,fetchImpl,delay:async n=>delays.push(n)});
- assert.deepEqual(delays,[1000,2000]);assert.equal(result.uploadedFiles,3);assert.equal(result.readBackFiles.length,3);assert.deepEqual(reads.sort(),staticFiles.map(f=>'/'+f.file).sort());assert.equal(result.allReadBackHashesVerified,true);assert(!JSON.stringify(result).includes('fixture-only'));
- const result2=await uploadStatic({origin:'https://atlas.example',token:'fixture-only',manifest:staticManifest,publicDir:dir,fetchImpl,delay:async()=>{}});assert.equal(result2.uploadedFiles,0);assert.equal(result2.readBackFiles.length,3);
+ assert.deepEqual(delays,[1000,2000]);assert.equal(result.uploadedFiles,samples.length);assert.equal(result.readBackFiles.length,samples.length);assert.deepEqual(reads.sort(),staticFiles.map(f=>'/'+f.file).sort());assert.equal(result.allReadBackHashesVerified,true);assert(!JSON.stringify(result).includes('fixture-only'));
+ const result2=await uploadStatic({origin:'https://atlas.example',token:'fixture-only',manifest:staticManifest,publicDir:dir,fetchImpl,delay:async()=>{}});assert.equal(result2.uploadedFiles,0);assert.equal(result2.readBackFiles.length,samples.length);
  await assert.rejects(()=>uploadStatic({origin:'https://atlas.example',token:'fixture-only',manifest:{...staticManifest,revision:'stale'},publicDir:dir,fetchImpl}),/manifest identity/);
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
