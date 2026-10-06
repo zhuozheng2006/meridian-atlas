@@ -1,11 +1,11 @@
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.39.0-733d3fc8d4c0';
-import {HalcLandscape} from './halc-landscape.js?v=3.39.0-733d3fc8d4c0';
-import {readJSON} from './map-engine.js?v=3.39.0-733d3fc8d4c0';
-import {HalcRegions} from './halc-regions.js?v=3.39.0-733d3fc8d4c0';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.40.0-38fd52f4926e';
+import {HalcLandscape} from './halc-landscape.js?v=3.40.0-38fd52f4926e';
+import {readJSON} from './map-engine.js?v=3.40.0-38fd52f4926e';
+import {HalcRegions} from './halc-regions.js?v=3.40.0-38fd52f4926e';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
-export const HALC_LAYERS=['halc-wash','halc-edges','halc-selected'];
+export const HALC_LAYERS=['halc-wash','halc-edges','halc-selected','halc-independent-edges'];
 const ROOT='data/halc/',SOURCE_URL='https://doi.org/10.34894/BTKFHV';
 const t=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -30,23 +30,40 @@ export function halcName(p,labels,lang){
  const alias=labels?.localityNameLabels?.find(x=>Object.entries(x.expected).every(([key,value])=>Object.hasOwn(p,key)&&p[key]===value));
  return label(alias?.label,lang)||p.NAME||p.SHORT_ID||String(p.fid);
 }
+const independentUnit=['in',';XX;',['concat',';',['coalesce',['get','ADM1'],''],';']];
+export function halcLineOpacity(regional,independent=false){return regional?['interpolate',['linear'],['zoom'],6,independent?.5:.015,8,independent?.6:.1,11,.45,15,.65]:['interpolate',['linear'],['zoom'],6,.04,8,.16,11,.5,15,.65];}
 export function halcLayers(){
  const base={source:HALC_SOURCE,'source-layer':'halc_localities',minzoom:6};
  return [
   {...base,id:HALC_LAYERS[0],type:'fill',paint:{'fill-color':'#b3aa85','fill-opacity':0}},
-  {...base,id:HALC_LAYERS[1],type:'line',layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','TYPE'],8],'#638b94','#66604f'],'line-width':['interpolate',['linear'],['zoom'],6,.3,8,.5,11,.8,15,1.1],'line-opacity':['interpolate',['linear'],['zoom'],6,.04,8,.16,11,.5,15,.65],'line-blur':.1}},
-  {...base,id:HALC_LAYERS[2],type:'line',filter:['==',['get','fid'],0],layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':'#a96926','line-width':['interpolate',['linear'],['zoom'],6,1.5,12,2.3],'line-opacity':1}}
+  {...base,id:HALC_LAYERS[1],type:'line',filter:['!',independentUnit],layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','TYPE'],8],'#638b94','#66604f'],'line-width':['interpolate',['linear'],['zoom'],6,.3,8,.5,11,.8,15,1.1],'line-opacity':0,'line-blur':.1}},
+  {...base,id:HALC_LAYERS[3],type:'line',filter:independentUnit,layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','TYPE'],8],'#638b94','#66604f'],'line-width':['interpolate',['linear'],['zoom'],6,.3,8,.5,11,.8,15,1.1],'line-opacity':0,'line-blur':.1}},
+  {...base,id:HALC_LAYERS[2],type:'line',filter:['==',['get','fid'],0],layout:{visibility:'none','line-join':'round','line-cap':'round'},paint:{'line-color':'#a96926','line-width':['interpolate',['linear'],['zoom'],6,1.5,12,2.3],'line-opacity':0}}
  ];
 }
 export class HalcBoundaries{
  constructor(owner,{load=readJSON,anchor}={}){
-  this.owner=owner;this.atlas=owner.atlas;this.map=owner.map;this.load=load;this.anchor=anchor;this.active=false;this.failed=false;this.reason='disabled';this.features=[];this.markers=[];this.seq=0;this.dead=false;this.listeners=[];this.sourceEpoch=0;this.featureEpoch=0;
+  this.owner=owner;this.atlas=owner.atlas;this.map=owner.map;this.load=load;this.anchor=anchor;this.active=false;this.failed=false;this.reason='disabled';this.features=[];this.markers=[];this.seq=0;this.dead=false;this.listeners=[];this.sourceEpoch=0;this.featureEpoch=0;this.renderedKey=null;this.renderPending=false;this.seenContent=false;
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
   on('idle',()=>this.settle());
-  on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;if(!this.eligible||!this.active)return;this.beginUpdate();});
+  on('sourcedata',e=>{if(e.sourceId!==HALC_SOURCE)return;if(e.tile?.state==='loaded'||e.sourceDataType==='content')this.seenContent=true;if(this.seenContent&&e.isSourceLoaded)this.requestRender();});
+  on('render',()=>this.afterRender());
+  on('movestart',()=>{this.renderedKey=null;this.renderPending=false;});
+  on('moveend',()=>this.requestRender());
+  on('resize',()=>this.requestRender());
+  on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;this.renderedKey=null;if(!this.eligible||!this.active)return;this.beginUpdate();});
   on('error',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.failed=true;this.lastError=String(e.error?.message||'HALC source error');this.reason='error';this.features=[];this.clearSelection();this.setActive(false);this.visibility();this.notify();});
   this.regions=new HalcRegions(this,HALC_BOUNDS);
   this.landscape=new HalcLandscape(this);
+ }
+ // Tile completion and rendered pixels are separate phases. Queries run only
+ // after a render for this source epoch and camera, never after unrelated idle.
+ frameKey(){return this.viewportKey()+':'+this.sourceEpoch;}
+ requestRender(){if(this.dead||!this.eligible||this.failed)return;if(this.active&&this.renderedKey!==this.frameKey())this.beginUpdate();this.renderPending=true;this.map.triggerRepaint?.();}
+ afterRender(){
+  if(!this.renderPending||this.dead||!this.eligible||this.failed||this.map.isMoving())return;
+  if(!this.seenContent||!this.map.getSource(HALC_SOURCE)||!this.map.isSourceLoaded(HALC_SOURCE))return;
+  this.renderPending=false;this.renderedKey=this.frameKey();this.settle();
  }
  get lang(){return this.owner.lang;}
  get eligibility(){return halcEligibility({mode:this.owner.mode,year:this.owner.year,borders:this.atlas.showBorders,modern:this.owner.modern,zoom:this.map.getZoom(),bounds:this.map.getBounds?.(),destroyed:this.dead||this.atlas.destroyed});}
@@ -61,7 +78,7 @@ export class HalcBoundaries{
  }
  ensure(){
   if(!this.metaRequest&&!this.labels){
-   this.metaRequest=this.load(ROOT+'labels.json').then(data=>{if(this.dead)return;this.labels=data;this.paint();this.settle();}).catch(e=>{if(this.dead)return;this.failed=true;this.lastError=String(e.message||e);this.reason='error';this.setActive(false);this.visibility();this.notify();}).finally(()=>{this.metaRequest=null;});
+   this.metaRequest=this.load(ROOT+'labels.json').then(data=>{if(this.dead)return;this.labels=data;this.paint();this.requestRender();}).catch(e=>{if(this.dead)return;this.failed=true;this.lastError=String(e.message||e);this.reason='error';this.setActive(false);this.visibility();this.notify();}).finally(()=>{this.metaRequest=null;});
   }
   if(this.map.getSource(HALC_SOURCE))return;
   this.map.addSource(HALC_SOURCE,{type:'vector',tiles:[new URL(ROOT+'tiles/{z}/{x}/{y}.pbf',location.href).href.replaceAll('%7B','{').replaceAll('%7D','}')],bounds:HALC_BOUNDS,minzoom:6,maxzoom:10,attribution:'Rombert Stapel · <a href="https://doi.org/10.34894/BTKFHV" target="_blank" rel="noopener">HALC v15</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>'});
@@ -71,15 +88,18 @@ export class HalcBoundaries{
   if(!this.map.getLayer(HALC_LAYERS[0])||!this.labels)return;
   const palette=['#b49b74','#85a195','#a698a2','#aeb079','#859eaa','#b18f79','#99a87b','#8d9db1'],expression=['match',['get','ADM1']];
   for(const code of new Set([...Object.keys(this.labels.ADM1||{}),...Object.keys(this.labels.ADM1Composites||{})])){let h=0;for(const c of code)h=(h*31+c.charCodeAt(0))>>>0;expression.push(code,code==='XX'?'#aaa58d':palette[h%palette.length]);}
-  expression.push('#aaa58d');this.map.setPaintProperty(HALC_LAYERS[0],'fill-color',['case',['==',['get','TYPE'],8],'#78969b',expression]);
+  expression.push('#aaa58d');this.map.setPaintProperty(HALC_LAYERS[0],'fill-color',['case',['==',['get','TYPE'],8],'rgba(120,150,155,0.20833333333333334)',expression]);
  }
  visibility(){
   this.regions?.visibility();this.landscape?.reconcileOrder();
   const visible=this.eligible&&!this.failed;
   const regional=!!this.regions?.hasFrame&&!this.regions?.failed,key=visible+':'+this.active+':'+regional;if(key===this.visibilityKey)return;this.visibilityKey=key;
-  for(const id of HALC_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible&&(id===HALC_LAYERS[0]||this.active)?'visible':'none');
-  if(this.map.getLayer(HALC_LAYERS[0])){this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity',this.active?['case',['==',['get','TYPE'],8],.05,.24]:0);}
-  if(this.map.getLayer(HALC_LAYERS[1])){const independent=['in',';XX;',['concat',';',['coalesce',['get','ADM1'],''],';']];this.map.setPaintProperty(HALC_LAYERS[1],'line-opacity',regional?['interpolate',['linear'],['zoom'],6,['case',independent,.5,.015],8,['case',independent,.6,.1],11,.45,15,.65]:['interpolate',['linear'],['zoom'],6,.04,8,.16,11,.5,15,.65]);}
+  // Keep all eligible buckets built before the first takeover. Changing layout
+  // visibility or a data-driven paint expression reparses every vector tile.
+  for(const id of HALC_LAYERS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible?'visible':'none');
+  if(this.map.getLayer(HALC_LAYERS[0])){this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[0],'fill-opacity',this.active?.24:0);}
+  for(const [id,independent]of [[HALC_LAYERS[1],false],[HALC_LAYERS[3],true]])if(this.map.getLayer(id)){this.map.setPaintProperty(id,'line-opacity-transition',{duration:0});this.map.setPaintProperty(id,'line-opacity',this.active?halcLineOpacity(regional,independent):0);}
+  if(this.map.getLayer(HALC_LAYERS[2])){this.map.setPaintProperty(HALC_LAYERS[2],'line-opacity-transition',{duration:0});this.map.setPaintProperty(HALC_LAYERS[2],'line-opacity',this.active?1:0);}
  }
  setActive(value){
   if(!value){this.clearLabels();this.regions?.update();}
@@ -87,15 +107,15 @@ export class HalcBoundaries{
  }
  update(){
   if(this.dead)return;const reason=this.eligibility;this.regions.update();this.landscape.update();
-  if(reason){this.reason=reason;this.features=[];this.scanKey=null;this.clearSelection();this.setActive(false);this.clearLabels();this.visibility();this.notify();return;}
+  if(reason){this.renderedKey=null;this.renderPending=false;this.reason=reason;this.features=[];this.scanKey=null;this.clearSelection();this.setActive(false);this.clearLabels();this.visibility();this.notify();return;}
   if(this.failed){this.reason='error';this.setActive(false);this.visibility();this.notify();return;}
-  if(this.active&&!this.map.isSourceLoaded(HALC_SOURCE))this.beginUpdate();
-  if(!this.active)this.reason='loading';this.ensure();this.regions.ensure();this.visibility();this.notify();this.settle();
+  if(this.active&&(!this.map.isSourceLoaded(HALC_SOURCE)||this.renderedKey!==this.frameKey()))this.beginUpdate();
+  if(!this.active)this.reason='loading';this.ensure();this.regions.ensure();this.visibility();this.notify();if(this.renderedKey!==this.frameKey())this.requestRender();this.settle();
  }
  settle(){
   if(!this.eligible||this.failed||!this.labels||this.settling||this.map.isMoving()||!this.map.getSource(HALC_SOURCE)||!this.map.isSourceLoaded(HALC_SOURCE))return;
   this.regions.settle();this.visibility();
-  const key=this.viewportKey()+':'+this.sourceEpoch;
+  const key=this.frameKey();if(this.renderedKey!==key)return;
   if(key===this.scanKey){this.refreshLabels();if(this.active&&this.pendingId){const id=this.pendingId;this.pendingId=null;this.openRecord(id);}return;}
   this.settling=true;
   try{
@@ -173,6 +193,6 @@ export class HalcBoundaries{
   for(const [key,zh,en]of [['record','区划资料','Record'],['environment','地理环境','Environment'],['sources','来源依据','Sources'],['raw','原始字段','Original fields']]){const b=make('button',translate(zh,en));b.dataset.tab=key;b.id='halc-tab-'+this.atlas.container+'-'+r.fid+'-'+key;b.setAttribute('role','tab');b.setAttribute('aria-controls',panel.id);b.onclick=()=>show(key);b.onkeydown=e=>{const buttons=[...tabs.children],i=buttons.indexOf(b);let target;if(e.key==='ArrowRight')target=buttons[(i+1)%buttons.length];if(e.key==='ArrowLeft')target=buttons[(i+buttons.length-1)%buttons.length];if(e.key==='Home')target=buttons[0];if(e.key==='End')target=buttons.at(-1);if(target){e.preventDefault();e.stopPropagation();target.click();target.focus();}};tabs.append(b);}node.append(tabs,panel);show('record');
  }
  retryRegions(){this.regions.retry();this.regions.ensure();this.visibilityKey=null;this.visibility();this.refreshLabels();this.notify();}
- retry(){this.clearSelection();this.regions.retry();this.failed=false;this.lastError=null;this.visibilityKey=null;this.scanKey=null;this.sourceEpoch++;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}
- destroy(){this.dead=true;this.landscape.destroy();this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
+ retry(){this.clearSelection();this.regions.retry();this.failed=false;this.lastError=null;this.visibilityKey=null;this.scanKey=null;this.sourceEpoch++;this.seenContent=false;this.renderedKey=null;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}
+ destroy(){this.dead=true;this.renderPending=false;this.renderedKey=null;this.landscape.destroy();this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }

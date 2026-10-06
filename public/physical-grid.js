@@ -1,5 +1,5 @@
-import {readJSON,forgetJSON,EMPTY} from './map-engine.js?v=3.39.0-733d3fc8d4c0';
-import {intersectsLakeBounds,containsLakeBounds,lakeViewport} from './lakes.js?v=3.39.0-733d3fc8d4c0';
+import {readJSON,forgetJSON,EMPTY} from './map-engine.js?v=3.40.0-38fd52f4926e';
+import {intersectsLakeBounds,containsLakeBounds,lakeViewport} from './lakes.js?v=3.40.0-38fd52f4926e';
 
 export const PHYSICAL_GRID_SOURCE='physical-grid';
 export const PHYSICAL_GRID_MIN_ZOOM=4;

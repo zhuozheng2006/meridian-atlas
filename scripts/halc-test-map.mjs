@@ -21,7 +21,9 @@ export class HalcFakeMap{
  getBounds(){const b=this.inside?[4.4,50.5,5.8,52.0]:[110,25,115,30];return {getWest:()=>b[0],getSouth:()=>b[1],getEast:()=>b[2],getNorth:()=>b[3],contains:p=>{const a=Array.isArray(p)?p:[p.lng,p.lat];return a[0]>=b[0]&&a[0]<=b[2]&&a[1]>=b[1]&&a[1]<=b[3];}};}
  getCenter(){return this.inside?{lng:5.1,lat:51.25}:{lng:112.5,lat:27.5};}
  queryRenderedFeatures(pointOrOptions,options){const layers=(options||pointOrOptions)?.layers;if(!layers)return this.rendered;return layers.flatMap(id=>this.renderedByLayer.has(id)?this.renderedByLayer.get(id):this.rendered);}
- sourceReady(id){const s=this.sources.get(id);if(s)s.loaded=true;this.emit('sourcedata',{sourceId:id,isSourceLoaded:true});this.emit('idle');}
+ sourceReadyWithoutIdle(id){const s=this.sources.get(id);if(s)s.loaded=true;this.emit('sourcedata',{sourceId:id,isSourceLoaded:true,sourceDataType:'content',tile:{state:'loaded'}});}
+ renderFrame(){this.emit('render');}
+ sourceReady(id){this.sourceReadyWithoutIdle(id);this.renderFrame();this.emit('idle');}
  sourceError(id){this.emit('error',{sourceId:id,error:Error('Synthetic HALC tile failure')});}
 }
 

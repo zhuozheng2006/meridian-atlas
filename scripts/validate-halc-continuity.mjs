@@ -18,7 +18,7 @@ const createElement=document.createElement;
 document.createElement=tag=>{const n=createElement(tag);n.value='';n.scrollTop=0;return n;};
 const initial={mode:'halc',year:1500,zoom:7,borders:true,modern:false,inside:true};
 const tick=async h=>{await h.settle();await h.settle();};
-const ink=(h,id='halc-region-edges')=>h.map.getLayer(id)?.layout?.visibility;
+const ink=(h,id='halc-region-edges')=>{const l=h.map.getLayer(id);return l?.layout?.visibility==='none'||l?.paint?.['line-opacity']===0?'none':'visible';};
 async function make(patch={}){const h=await createHarness({...initial,...patch});await tick(h);return h;}
 async function both(h){h.tilesReady();h.groupReady();await tick(h);assert(h.halc.active&&h.halc.regions.ready&&h.halc.regions.hasFrame);}
 function updating(h){assert.equal(h.halc.active,true);assert.equal(h.halc.reason,'updating');assert.equal(h.snapshot().visibleSource,'halc');assert.equal(ink(h,'halc-edges'),'visible');assert(!/visible units|条可见/.test(h.halc.title()),'Stale visible-count claim during an incomplete frame');}
@@ -94,7 +94,7 @@ try{
  for(const [name,away,back]of [['year',{year:1492},{year:1500}],['mode',{mode:'overview'},{mode:'halc'}],['borders',{borders:false},{borders:true}],['modern reference',{modern:true},{modern:false}],['zoom',{zoom:5},{zoom:7}],['coverage',{inside:false},{inside:true}]]){
   await test('Leaving '+name+' clears continuous frames and rejects late data/dossiers',async h=>{
    await both(h);const gate=h.deferRecord(1);h.openRecord(1);await tick(h);h.beginViewportLoad();h.beginGroupLoad();h.set(away);hardOff(h);gate.resolve();h.tilesReady();h.groupReady();await tick(h);hardOff(h);
-   h.set(back);await tick(h);assert(h.halc.active&&h.halc.regions.ready&&h.halc.regions.hasFrame);assert.equal(h.halc.reason,'ready');assert.equal(h.snapshot().popupId,null);
+   h.set(back);assert.equal(h.halc.active,false,'Returning must wait for a rendered frame');h.map.renderFrame();await tick(h);assert(h.halc.active&&h.halc.regions.ready&&h.halc.regions.hasFrame);assert.equal(h.halc.reason,'ready');assert.equal(h.snapshot().popupId,null);
   });
  }
  await test('Main source error clears all continuous frame state and rejects late readiness',async h=>{

@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-06T09:30:45.112Z",
+  "method": "Executes production bundled MapLibre 5.6.2 Style.addLayer, real StyleLayer paint expression compiler/evaluator, setPaintProperty, setLayoutProperty, and _updateLayer, attached to actual HALC controller mutations. Source workers/GPU are replaced; no pixel or wall-time claim.",
+  "maplibreSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "pass": 13,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Actual bundled MapLibre confirms layout visibility change reloads vector source",
+      "pass": true
+    },
+    {
+      "name": "Actual bundled MapLibre confirms old data-driven opacity activation reloads source",
+      "pass": true
+    },
+    {
+      "name": "Eligible initial layers have built layout buckets and zero visible ink",
+      "pass": true
+    },
+    {
+      "name": "Initial locality takeover after render does not reload any vector source",
+      "pass": true
+    },
+    {
+      "name": "Late group completion preserves source buckets and local detail frame",
+      "pass": true
+    },
+    {
+      "name": "Group-first then locality activation also causes zero reparsing",
+      "pass": true
+    },
+    {
+      "name": "Water and land fill retain the original effective opacity",
+      "pass": true
+    },
+    {
+      "name": "Local and independent line opacity retains all original zoom stops without group outlines",
+      "pass": true
+    },
+    {
+      "name": "Grouped line hierarchy retains every zoom stop and independent-unit emphasis",
+      "pass": true
+    },
+    {
+      "name": "Ordinary and XX-composite fixed filters partition each locality exactly once",
+      "pass": true
+    },
+    {
+      "name": "Empty loaded viewport keeps all eligible ink invisible without reparsing",
+      "pass": true
+    },
+    {
+      "name": "Unchanged ready render and idle retain zero source/style reparses",
+      "pass": true
+    },
+    {
+      "name": "Leaving eligibility still hides every layer and rejects late render",
+      "pass": true
+    }
+  ]
+}

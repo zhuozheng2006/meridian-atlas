@@ -1,0 +1,173 @@
+{
+  "reviewedAt": "2026-10-06T09:18:34.221865+00:00",
+  "productionDirectory": "/Users/zane/meridian_atlas/world-history-atlas/public/data/research-evidence/readings-3.40",
+  "status": "pass",
+  "sourceAndClaimChecks": [
+    {
+      "check": "source-byte-fidelity",
+      "id": "thapar-asoka-1997",
+      "passed": true,
+      "bytes": 565153,
+      "sha256": "d8a7628683a731866359d9f245073fc89a3420670ea676a6f350e5c4e878d5b4"
+    },
+    {
+      "check": "source-byte-fidelity",
+      "id": "ibn-battuta-gibb-fordham",
+      "passed": true,
+      "bytes": 225583,
+      "sha256": "a334156f1d44d7f3ef51fd953ce90634cafe6306023327c791822e639d5c0fdf"
+    },
+    {
+      "check": "source-byte-fidelity",
+      "id": "klassen-angkor-2021",
+      "passed": true,
+      "bytes": 733856,
+      "sha256": "d6b52dbedfa967ab6fdf8986330620092c78f8b5de5ea5af19659bb57b2428a9"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "maurya-official-tours--in_mauryan_emp",
+      "passed": true,
+      "sourceRows": [
+        "2399"
+      ],
+      "relation": "comparative-reading"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "maurya-roads-wells--in_mauryan_emp",
+      "passed": true,
+      "sourceRows": [
+        "9378",
+        "10731"
+      ],
+      "relation": "direct-evidence"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "maurya-inscriptions--in_mauryan_emp",
+      "passed": true,
+      "sourceRows": [
+        "13341",
+        "13923"
+      ],
+      "relation": "direct-evidence"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "mali-qadi-court--ml_mali_emp",
+      "passed": true,
+      "sourceRows": [
+        "2482",
+        "7681"
+      ],
+      "relation": "comparative-reading"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "mali-salt-money--ml_mali_emp",
+      "passed": true,
+      "sourceRows": [
+        "19966"
+      ],
+      "relation": "direct-evidence"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "angkor-classical-population--kh_angkor_2",
+      "passed": true,
+      "sourceRows": [
+        "1393"
+      ],
+      "relation": "comparative-reading"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "angkor-late-population--kh_angkor_3",
+      "passed": true,
+      "sourceRows": [
+        "808",
+        "1396"
+      ],
+      "relation": "comparative-reading"
+    },
+    {
+      "check": "claim-target-locator-fidelity",
+      "id": "angkor-water-landscape--kh_angkor_3",
+      "passed": true,
+      "sourceRows": [
+        "9018",
+        "10819"
+      ],
+      "relation": "comparative-reading"
+    }
+  ],
+  "generatedCatalog": {
+    "cardsEqual": true,
+    "cardCount": 25,
+    "phaseCount": 9,
+    "sourceCount": 10,
+    "sourceManifests": [
+      "./data/research-evidence/readings-3.39/sources.json",
+      "./data/research-evidence/readings-3.40/sources.json"
+    ],
+    "allCardsFrozen": true,
+    "oldCardsUnchanged": true
+  },
+  "candidateComparisons": [
+    {
+      "productionFile": "catalog.json",
+      "candidateFile": "candidate-catalog.json",
+      "parsedEqual": true,
+      "byteEqual": true,
+      "productionSha256": "0bbdfefcb7cc52d93d0911360edbe90e80052300923a94ace619c538236d7d5c"
+    },
+    {
+      "productionFile": "sources.json",
+      "candidateFile": "candidate-sources.json",
+      "parsedEqual": true,
+      "byteEqual": true,
+      "productionSha256": "29d23e37598837ac2a963115dd2032b9920794c3961def9c0bcb32bbe10ad1ed"
+    },
+    {
+      "productionFile": "claim-evidence.json",
+      "candidateFile": "claim-evidence.json",
+      "parsedEqual": true,
+      "byteEqual": true,
+      "productionSha256": "6547f33c0297a5ac718fde7b2e731f813b803b7af3c96b199cc85ecea1b5d78e"
+    },
+    {
+      "productionFile": "coverage-audit.json",
+      "candidateFile": "coverage-audit.json",
+      "parsedEqual": true,
+      "byteEqual": true,
+      "productionSha256": "75e89c09b8d01bf24230e2cdd7cfb1da505ab6ae1b360772718cfdf41330abc1"
+    }
+  ],
+  "independentSemanticReview": {
+    "passed": true,
+    "reviewedAspects": [
+      "Chinese dhamma officers translated as 教化官员 rather than judicial officials",
+      "Mali qadi encounter and administrative counts remain comparative",
+      "Mali commodity-money card links article only, not coinage or market buildings",
+      "Angkor urban-region and whole-polity populations stay separate",
+      "Numerical estimates and source/phase periods remain unchanged",
+      "Complete author lists and source identities retained",
+      "PDF locators reflect visually inspected pages; HTML locators do not claim narrower print pages than source supplies"
+    ]
+  },
+  "findings": [
+    {
+      "id": "angkor-period-locator-visibility",
+      "severity": "suggestion",
+      "blockingDataIssue": false,
+      "file": "public/research-reading-guide.js",
+      "detail": "readingLocator renders table but not locator.rows. The Classical Angkor card holds exact source periods 1113–1180 and 1181–1300 in rows, which are therefore absent from its visible source locator. The latter crosses the phase boundary at 1220.",
+      "recommendation": "Render locator.rows or explicitly add both periods and overlap to the card scope; do not manufacture a 1220 population.",
+      "resolved": true,
+      "resolution": "Root added locator.rows rendering; independent invocation verifies both original date ranges appear in bilingual locator.",
+      "verifiedOutput": "PDF 第 1、4、6 页 · PDF pages 1, 4, 6 · 书页 1、4、6 · printed pages 1, 4, 6 · Table 1 · 表中行： · Table rows: Period 4: 1113–1180; Period 5: 1181–1300"
+    }
+  ],
+  "productionWrites": false
+}
