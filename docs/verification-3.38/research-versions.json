@@ -1,0 +1,38 @@
+{
+  "passed": 8,
+  "total": 8,
+  "results": [
+    {
+      "name": "Old links remain Equinox and do not gain a new dataset parameter",
+      "passed": true
+    },
+    {
+      "name": "Polaris source IDs including spaces and the long reconstruction ID round trip",
+      "passed": true
+    },
+    {
+      "name": "Unknown editions, traversal IDs and controls normalize without guessing a source phase",
+      "passed": true
+    },
+    {
+      "name": "Only the chosen version module loads and switching resets source-specific state",
+      "passed": true
+    },
+    {
+      "name": "A late version import cannot mount over the selected version",
+      "passed": true
+    },
+    {
+      "name": "A failed edition remains switchable and an explicit comparison keeps its selected ID",
+      "passed": true
+    },
+    {
+      "name": "Five comparison pairs retain the exact source periods and record counts",
+      "passed": true
+    },
+    {
+      "name": "Comparison rendering is descriptive and navigation occurs only on explicit click",
+      "passed": true
+    }
+  ]
+}

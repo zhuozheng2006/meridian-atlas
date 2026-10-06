@@ -1,0 +1,58 @@
+{
+  "status": "review-complete-findings-fixed",
+  "productionCodeChangedByReviewer": false,
+  "filesReviewed": [
+    "public/polaris-store.js",
+    "public/polaris-adapter.js",
+    "public/polaris-contract.js",
+    "public/polaris-vocabulary.js",
+    "public/polaris-polity-names.js",
+    "public/research-view.js",
+    "public/research-phase-comparison.js",
+    "public/polaris-reader.js"
+  ],
+  "snapshot": "polaris-2026-cf60c9f76eed",
+  "findings": [
+    {
+      "id": "cache-generation-boundary",
+      "severity": "P2",
+      "status": "fixed-independently-verified",
+      "affectedFile": "public/polaris-store.js",
+      "trigger": "Start an operation on a cached index, then call clearCaches before the await continuation.",
+      "fix": "Capture the operation epoch at public entry and check it across asynchronous boundaries.",
+      "verification": "cache-fix-check.json",
+      "passed": 5,
+      "total": 5
+    },
+    {
+      "id": "global-restored-page-bounds",
+      "severity": "P2",
+      "status": "fixed-independently-verified",
+      "affectedFile": "public/polaris-reader.js",
+      "trigger": "Restore @all with page 9999 accepted by URL state.",
+      "fix": "Bound the first offset to the verified archive total, then clamp again to the actual hit count.",
+      "verification": "high-page-fix-check.json",
+      "passed": 6,
+      "total": 6
+    }
+  ],
+  "finalProductionValidators": {
+    "store": {
+      "passed": 27,
+      "total": 27,
+      "report": "store-final-verification.json"
+    },
+    "reader": {
+      "passed": 25,
+      "total": 25,
+      "report": "reader-final-verification.json"
+    }
+  },
+  "independentDataVerification": "semantic-crosscheck.json",
+  "limitations": [
+    "No browser layout/accessibility claim.",
+    "No new external historical bibliography verification.",
+    "Separate importer XML audit and full-site checks are outside this report."
+  ],
+  "temporaryAbsolutePathScriptsCopied": false
+}

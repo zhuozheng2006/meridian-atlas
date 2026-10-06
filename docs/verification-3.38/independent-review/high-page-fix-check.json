@@ -1,0 +1,86 @@
+{
+  "method": "Independent actual-reader/store checks with shipped archive and minimal DOM boundary fixtures; no browser layout claim",
+  "checks": 6,
+  "passed": 6,
+  "results": [
+    {
+      "case": {
+        "domain": "all",
+        "query": "",
+        "page": 9999
+      },
+      "page": 2401,
+      "total": 57631,
+      "visible": 7,
+      "offsets": [
+        57624
+      ],
+      "exportRows": null
+    },
+    {
+      "case": {
+        "domain": "crisis",
+        "query": "",
+        "page": 9999
+      },
+      "page": 6,
+      "total": 166,
+      "visible": 22,
+      "offsets": [
+        57624,
+        144
+      ],
+      "exportRows": 166
+    },
+    {
+      "case": {
+        "domain": "crisis",
+        "query": "cn_ming_dyn",
+        "page": 9999
+      },
+      "page": 0,
+      "total": 1,
+      "visible": 1,
+      "offsets": [
+        57624,
+        0
+      ],
+      "exportRows": null
+    },
+    {
+      "case": {
+        "domain": "crisis",
+        "query": "impossible-source-query-638291",
+        "page": 9999
+      },
+      "page": 0,
+      "total": 0,
+      "visible": 0,
+      "offsets": [
+        57624,
+        0
+      ],
+      "exportRows": null
+    },
+    {
+      "case": {
+        "domain": "crisis",
+        "query": "",
+        "page": 3
+      },
+      "page": 3,
+      "total": 166,
+      "visible": 24,
+      "offsets": [
+        72
+      ],
+      "exportRows": null
+    },
+    {
+      "case": "selection changed during corrected second search",
+      "aborted": true,
+      "finalPhase": "cn_ming_dyn",
+      "finalRows": 143
+    }
+  ]
+}

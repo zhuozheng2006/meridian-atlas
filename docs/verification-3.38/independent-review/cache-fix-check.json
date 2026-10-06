@@ -1,0 +1,35 @@
+{
+  "checks": 5,
+  "passed": 5,
+  "results": [
+    {
+      "case": "loadPolity synchronously cleared after cached index await",
+      "cancelled": true,
+      "cachesEmpty": true,
+      "freshRetryRows": 143
+    },
+    {
+      "case": "loadSearchSheet synchronously cleared after cached index await",
+      "cancelled": true,
+      "cachesEmpty": true,
+      "freshRetryRows": 143
+    },
+    {
+      "case": "search synchronously cleared after cached index await",
+      "cancelled": true,
+      "cachesEmpty": true,
+      "freshRetryRows": 143
+    },
+    {
+      "case": "collectSearch synchronously cleared after cached index await",
+      "cancelled": true,
+      "cachesEmpty": true,
+      "freshRetryRows": 143
+    },
+    {
+      "case": "index cleared after _read resolves but before loadIndex continuation",
+      "cancelled": true,
+      "cachesEmpty": true
+    }
+  ]
+}

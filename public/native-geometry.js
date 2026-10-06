@@ -1,6 +1,6 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.37.0-153ba418f166';
-import {nativeTemporalBundles} from './native-temporal-index.js?v=3.37.0-153ba418f166';
-const native=new Map(),failedBundles=new Set();
+import {readJSON,forgetJSON} from './map-engine.js?v=3.38.0-5683ed6448eb';
+import {nativeTemporalBundles} from './native-temporal-index.js?v=3.38.0-5683ed6448eb';
+const native=new Map(),failedBundles=new Set(),pendingBundles=new Map(),loadedBundles=new Set();
 const bootYears=new Set([-3400,-221,1,500,1000,1492,1500,1750,1914,1945,1991,2024]);
 export const hasNativeBootstrap=year=>bootYears.has(year);
 export const nativeGeometry=id=>native.get(id);
@@ -20,19 +20,44 @@ function validPack(p,records){
  return entries.length>0&&geometries.length>0&&geometries.every(validGeometry)&&
   records.every(r=>Object.hasOwn(p.recordIndex,r.id))&&entries.every(([,gid])=>typeof gid==='string'&&Object.hasOwn(p.geometries,gid));
 }
+function frameBundle(year){
+ if(!Number.isInteger(year)||year===0)return null;
+ if(bootYears.has(year))return {url:`data/native/year-${year}.json.gz`,valid:p=>p?.year===year};
+ const slot=nativeTemporalBundles.find(([start,end])=>start<=year&&year<=end);
+ if(!slot)return null;
+ const[start,end,file]=slot;return {url:'data/native/'+file,valid:p=>p?.version===1&&p.start===start&&p.end===end};
+}
+async function cacheBundle(bundle,records=[]){
+ const {url}=bundle;let pending=pendingBundles.get(url);
+ if(!pending&&!loadedBundles.has(url)){
+  pending=(async()=>{
+   try{
+    const pack=await checkedJSON(url,p=>bundle.valid(p)&&validPack(p,[]));
+    for(const[id,gid]of Object.entries(pack.recordIndex))native.set(id,pack.geometries[gid]);
+    loadedBundles.add(url);failedBundles.delete(url);
+   }catch(error){failedBundles.add(url);throw error;}
+   finally{forgetJSON(url);pendingBundles.delete(url);}
+  })();pendingBundles.set(url,pending);
+ }
+ if(pending)await pending;
+ // Prefetch has no catalog yet. The actual frame must still prove its complete
+ // record coverage, including aliases; a valid but incomplete pack is not a frame.
+ if(!records.every(r=>native.has(r.id))){loadedBundles.delete(url);failedBundles.add(url);throw Error('Incomplete territory resource: '+url);}
+}
+// Warm exactly the selected year's one small pack while the catalog/renderer load.
+// Cancellation never aborts a shared fetch used by another map. Late valid data may
+// enter the geometry cache; only AtlasMap's current request may commit a frame.
+export async function prefetchNativeFrame(year,keepGoing=()=>true){
+ const bundle=frameBundle(year);if(!bundle||!keepGoing())return false;
+ try{await cacheBundle(bundle);return keepGoing();}catch{return false;}
+}
 export async function loadNative(records,year,keepGoing=()=>true,{bundlesOnly=false}={}){
  if(records.every(r=>native.has(r.id))||!keepGoing())return native;
  if(bootYears.has(year)){
   const url=`data/native/year-${year}.json.gz`;
   if(bundlesOnly||!failedBundles.has(url)){
    try{
-    const pack=await checkedJSON(url,p=>p?.year===year&&validPack(p,records));
-    // Validate everything cached, including records outside a caller's subset.
-    for(const [id,gid]of Object.entries(pack.recordIndex))native.set(id,pack.geometries[gid]);
-    // Native records now own the geometry references. Release the resolved pack
-    // so playback does not retain duplicate geometry through every period bundle.
-    forgetJSON(url);
-    failedBundles.delete(url);
+    await cacheBundle({url,valid:p=>p?.year===year},records);
    }catch{
     failedBundles.add(url);
     if(bundlesOnly)return native;
@@ -49,13 +74,7 @@ export async function loadNative(records,year,keepGoing=()=>true,{bundlesOnly=fa
   if(slot&&(bundlesOnly||missing.length>=8)&&missing.every(r=>r.type==='POLITY'&&r.start<=year&&year<=r.end)&&(bundlesOnly||!failedBundles.has('data/native/'+slot[2]))){
    const[start,end,file]=slot,url='data/native/'+file;
    try{
-    const pack=await checkedJSON(url,p=>p?.version===1&&p.start===start&&p.end===end&&validPack(p,missing));
-    // Safe to cache a stale fetch; AtlasMap's sequence check prevents stale rendering.
-    for(const[id,gid]of Object.entries(pack.recordIndex))native.set(id,pack.geometries[gid]);
-    // Native records now own the geometry references. Release the resolved pack
-    // so playback does not retain duplicate geometry through every period bundle.
-    forgetJSON(url);
-    failedBundles.delete(url);
+    await cacheBundle({url,valid:p=>p?.version===1&&p.start===start&&p.end===end},missing);
    }catch{
     failedBundles.add(url);
     // First-frame callers can immediately fall back to the old overview. A following

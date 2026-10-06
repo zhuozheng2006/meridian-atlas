@@ -1,0 +1,4647 @@
+{
+  "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+  "sourceBytes": 2899093,
+  "polityIdDuplicates": {},
+  "polityNumberDuplicates": {},
+  "variableIdDuplicates": {},
+  "sheetAudits": {
+    "Variables": {
+      "rowCount": 173,
+      "fieldTypes": {
+        "variable_name": {
+          "str": 173
+        },
+        "section": {
+          "str": 173
+        },
+        "sheet_name": {
+          "str": 173
+        },
+        "api_variable_name": {
+          "str": 173
+        },
+        "equinox_variable_name": {
+          "str": 173
+        },
+        "old_variable_name": {
+          "str": 173
+        }
+      },
+      "dates": {},
+      "bothDatesNull": null
+    },
+    "Polities": {
+      "rowCount": 626,
+      "fieldTypes": {
+        "polity_number": {
+          "int": 626
+        },
+        "polity_id": {
+          "str": 626
+        },
+        "long_name": {
+          "str": 626
+        },
+        "seshat_region": {
+          "str": 626
+        },
+        "homeNGA": {
+          "str": 375,
+          "null": 251
+        },
+        "start_year": {
+          "int": 626
+        },
+        "end_year": {
+          "int": 626
+        }
+      },
+      "dates": {
+        "start_year": {
+          "null": 0,
+          "zero": 0,
+          "negative": 199,
+          "nonNumericNonNull": 0
+        },
+        "end_year": {
+          "null": 0,
+          "zero": 1,
+          "negative": 172,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": null
+    },
+    "General": {
+      "rowCount": 7239,
+      "fieldTypes": {
+        "seshat_region": {
+          "str": 7239
+        },
+        "polity_number": {
+          "int": 7239
+        },
+        "polity_id": {
+          "str": 7239
+        },
+        "section": {
+          "str": 7239
+        },
+        "variable_name": {
+          "str": 7239
+        },
+        "value_from": {
+          "str": 7025,
+          "null": 82,
+          "int": 132
+        },
+        "value_to": {
+          "null": 7107,
+          "int": 132
+        },
+        "year_from": {
+          "null": 7150,
+          "int": 89
+        },
+        "year_to": {
+          "null": 7150,
+          "int": 89
+        },
+        "is_disputed": {
+          "bool": 7233,
+          "null": 6
+        },
+        "is_uncertain": {
+          "bool": 7233,
+          "null": 6
+        }
+      },
+      "dates": {
+        "year_from": {
+          "null": 7150,
+          "zero": 0,
+          "negative": 5,
+          "nonNumericNonNull": 0
+        },
+        "year_to": {
+          "null": 7150,
+          "zero": 0,
+          "negative": 5,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": 7150
+    },
+    "Social complexity": {
+      "rowCount": 26033,
+      "fieldTypes": {
+        "seshat_region": {
+          "str": 26033
+        },
+        "polity_number": {
+          "int": 26033
+        },
+        "polity_id": {
+          "str": 26033
+        },
+        "section": {
+          "str": 26033
+        },
+        "variable_name": {
+          "str": 26033
+        },
+        "value_from": {
+          "int": 3299,
+          "null": 1578,
+          "str": 21156
+        },
+        "value_to": {
+          "int": 3295,
+          "null": 22738
+        },
+        "year_from": {
+          "int": 1632,
+          "null": 24401
+        },
+        "year_to": {
+          "int": 1626,
+          "null": 24407
+        },
+        "is_disputed": {
+          "bool": 26033
+        },
+        "is_uncertain": {
+          "bool": 26033
+        }
+      },
+      "dates": {
+        "year_from": {
+          "null": 24401,
+          "zero": 2,
+          "negative": 235,
+          "nonNumericNonNull": 0
+        },
+        "year_to": {
+          "null": 24407,
+          "zero": 0,
+          "negative": 229,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": 24401
+    },
+    "Warfare": {
+      "rowCount": 17536,
+      "fieldTypes": {
+        "seshat_region": {
+          "str": 17536
+        },
+        "polity_number": {
+          "int": 17536
+        },
+        "polity_id": {
+          "str": 17536
+        },
+        "section": {
+          "str": 17536
+        },
+        "variable_name": {
+          "str": 17536
+        },
+        "value_from": {
+          "null": 208,
+          "int": 65,
+          "str": 17263
+        },
+        "value_to": {
+          "null": 17531,
+          "int": 5
+        },
+        "year_from": {
+          "null": 17236,
+          "int": 300
+        },
+        "year_to": {
+          "null": 17238,
+          "int": 298
+        },
+        "is_disputed": {
+          "bool": 17536
+        },
+        "is_uncertain": {
+          "bool": 17536
+        }
+      },
+      "dates": {
+        "year_from": {
+          "null": 17236,
+          "zero": 0,
+          "negative": 136,
+          "nonNumericNonNull": 0
+        },
+        "year_to": {
+          "null": 17238,
+          "zero": 0,
+          "negative": 119,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": 17236
+    },
+    "Luxury goods": {
+      "rowCount": 1191,
+      "fieldTypes": {
+        "seshat_region": {
+          "str": 1191
+        },
+        "polity_number": {
+          "int": 1191
+        },
+        "polity_id": {
+          "str": 1191
+        },
+        "section": {
+          "str": 1191
+        },
+        "variable_name": {
+          "str": 1191
+        },
+        "value_from": {
+          "str": 1184,
+          "null": 7
+        },
+        "value_to": {
+          "null": 1191
+        },
+        "year_from": {
+          "null": 1055,
+          "int": 136
+        },
+        "year_to": {
+          "null": 1055,
+          "int": 136
+        },
+        "is_disputed": {
+          "bool": 1191
+        },
+        "is_uncertain": {
+          "bool": 1191
+        }
+      },
+      "dates": {
+        "year_from": {
+          "null": 1055,
+          "zero": 0,
+          "negative": 2,
+          "nonNumericNonNull": 0
+        },
+        "year_to": {
+          "null": 1055,
+          "zero": 2,
+          "negative": 0,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": 1055
+    },
+    "Religion": {
+      "rowCount": 5466,
+      "fieldTypes": {
+        "seshat_region": {
+          "str": 5466
+        },
+        "polity_number": {
+          "int": 5466
+        },
+        "polity_id": {
+          "str": 5466
+        },
+        "section": {
+          "str": 5466
+        },
+        "variable_name": {
+          "str": 5466
+        },
+        "value_from": {
+          "str": 5466
+        },
+        "value_to": {
+          "null": 5466
+        },
+        "year_from": {
+          "null": 4984,
+          "int": 482
+        },
+        "year_to": {
+          "null": 4984,
+          "int": 482
+        },
+        "is_disputed": {
+          "bool": 5466
+        },
+        "is_uncertain": {
+          "bool": 5466
+        }
+      },
+      "dates": {
+        "year_from": {
+          "null": 4984,
+          "zero": 0,
+          "negative": 182,
+          "nonNumericNonNull": 0
+        },
+        "year_to": {
+          "null": 4984,
+          "zero": 0,
+          "negative": 169,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": 4984
+    },
+    "CrisisDB - Crisis consequences": {
+      "rowCount": 166,
+      "fieldTypes": {
+        "seshat_region": {
+          "str": 166
+        },
+        "polity_number": {
+          "int": 166
+        },
+        "polity_id": {
+          "str": 166
+        },
+        "section": {
+          "str": 166
+        },
+        "variable_name": {
+          "str": 166
+        },
+        "other_polity_id": {
+          "str": 46,
+          "null": 120
+        },
+        "other_polity_number": {
+          "int": 46,
+          "null": 120
+        },
+        "decline": {
+          "str": 166
+        },
+        "collapse": {
+          "str": 166
+        },
+        "epidemic": {
+          "str": 166
+        },
+        "downward_mobility": {
+          "str": 166
+        },
+        "extermination": {
+          "str": 166
+        },
+        "uprising": {
+          "str": 166
+        },
+        "revolution": {
+          "str": 166
+        },
+        "successful_revolution": {
+          "str": 166
+        },
+        "civil_war": {
+          "str": 166
+        },
+        "century_plus": {
+          "str": 166
+        },
+        "fragmentation": {
+          "str": 166
+        },
+        "capital": {
+          "str": 166
+        },
+        "conquest": {
+          "str": 166
+        },
+        "assassination": {
+          "str": 166
+        },
+        "depose": {
+          "str": 166
+        },
+        "constitution": {
+          "str": 166
+        },
+        "labor": {
+          "str": 166
+        },
+        "unfree_labor": {
+          "str": 166
+        },
+        "suffrage": {
+          "str": 166
+        },
+        "public_goods": {
+          "str": 166
+        },
+        "religion": {
+          "str": 166
+        },
+        "year_from": {
+          "int": 166
+        },
+        "year_to": {
+          "int": 166
+        },
+        "is_disputed": {
+          "null": 140,
+          "bool": 26
+        },
+        "is_uncertain": {
+          "null": 143,
+          "bool": 23
+        }
+      },
+      "dates": {
+        "year_from": {
+          "null": 0,
+          "zero": 0,
+          "negative": 35,
+          "nonNumericNonNull": 0
+        },
+        "year_to": {
+          "null": 0,
+          "zero": 0,
+          "negative": 33,
+          "nonNumericNonNull": 0
+        }
+      },
+      "bothDatesNull": 0
+    }
+  },
+  "missingPolityReferences": [],
+  "inconsistentPolityIdNumber": [],
+  "absentOtherPolityReferences": [
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 4
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 5
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 8
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 10
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 12
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 13
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 14
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 15
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 16
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 17
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 18
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 19
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 20
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 21
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 23
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 25
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 26
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 27
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 28
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 29
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 30
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 31
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 32
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 33
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 36
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 38
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 39
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 41
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 42
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 43
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 45
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 47
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 48
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 49
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 50
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 51
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 52
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 53
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 54
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 55
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 56
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 58
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 62
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 63
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 65
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 66
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 67
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 68
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 69
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 70
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 71
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 72
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 73
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 77
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 79
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 80
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 81
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 82
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 85
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 86
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 87
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 88
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 89
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 90
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 92
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 93
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 94
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 95
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 97
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 98
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 99
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 101
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 102
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 104
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 105
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 106
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 107
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 108
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 109
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 111
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 112
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 114
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 115
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 116
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 118
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 119
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 122
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 123
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 124
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 125
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 126
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 127
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 128
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 130
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 131
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 133
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 134
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 135
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 136
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 138
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 139
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 140
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 142
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 143
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 144
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 145
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 146
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 149
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 150
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 151
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 153
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 154
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 157
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 158
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 159
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 160
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 161
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 162
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 163
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 165
+    }
+  ],
+  "partialOtherPolityReferences": [],
+  "missingOtherPolityReferences": [],
+  "inconsistentOtherPolityIdNumber": [],
+  "unknownVariables": [],
+  "variableSheetMismatches": [],
+  "variableSectionMismatches": [],
+  "invertedYearRanges": [],
+  "partiallyDatedRows": [
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 351,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 76,
+      "polity_id": "tr_byzantine_emp_3",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 1115000,
+      "value_to": 1115000,
+      "year_from": 1080,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 486,
+      "seshat_region": "Central Europe",
+      "polity_number": 284,
+      "polity_id": "hu_avar_khaganate",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 1200000,
+      "value_to": 1200000,
+      "year_from": 600,
+      "year_to": null,
+      "is_disputed": true,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1067,
+      "seshat_region": "Eastern Europe",
+      "polity_number": 601,
+      "polity_id": "ru_soviet_union",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 262084654,
+      "value_to": 286730817,
+      "year_from": 1989,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1394,
+      "seshat_region": "Mainland Southeast Asia",
+      "polity_number": 40,
+      "polity_id": "kh_angkor_1",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 300000,
+      "value_to": 300000,
+      "year_from": 802,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1479,
+      "seshat_region": "Mississippi Basin",
+      "polity_number": 30,
+      "polity_id": "us_early_illinois_confederation",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 2000,
+      "value_to": 3000,
+      "year_from": 1640,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 10812,
+      "seshat_region": "Northeast Asia",
+      "polity_number": 145,
+      "polity_id": "jp_kofun",
+      "section": "sc",
+      "variable_name": "road",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": 500,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 15,
+      "seshat_region": "North China",
+      "polity_number": 258,
+      "polity_id": "cn_northern_wei_dyn",
+      "section": "wf",
+      "variable_name": "long_wall",
+      "value_from": 1073,
+      "value_to": null,
+      "year_from": 423,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 16,
+      "seshat_region": "North China",
+      "polity_number": 258,
+      "polity_id": "cn_northern_wei_dyn",
+      "section": "wf",
+      "variable_name": "long_wall",
+      "value_from": 681,
+      "value_to": null,
+      "year_from": 446,
+      "year_to": null,
+      "is_disputed": false,
+      "is_uncertain": false
+    }
+  ],
+  "invertedNumericValueRanges": [
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 3,
+      "seshat_region": "Afghanistan",
+      "polity_number": 137,
+      "polity_id": "af_durrani_emp",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 1790000,
+      "value_to": 490000,
+      "year_from": 1800,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 33,
+      "seshat_region": "North China",
+      "polity_number": 425,
+      "polity_id": "cn_northern_song_dyn",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 3033000,
+      "value_to": 2900000,
+      "year_from": 1000,
+      "year_to": 1000,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 34,
+      "seshat_region": "North China",
+      "polity_number": 425,
+      "polity_id": "cn_northern_song_dyn",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 2367000,
+      "value_to": 2233000,
+      "year_from": 1100,
+      "year_to": 1100,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 80,
+      "seshat_region": "North China",
+      "polity_number": 268,
+      "polity_id": "cn_yuan_dyn",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 24000000,
+      "value_to": 11000000,
+      "year_from": 1300,
+      "year_to": 1300,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 229,
+      "seshat_region": "Iran",
+      "polity_number": 108,
+      "polity_id": "ir_seleucid_emp",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 2300000,
+      "value_to": 475000,
+      "year_from": -200,
+      "year_to": -147,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 904,
+      "seshat_region": "Mississippi Basin",
+      "polity_number": 30,
+      "polity_id": "us_early_illinois_confederation",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 600,
+      "value_to": 300,
+      "year_from": 1800,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 954,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 72,
+      "polity_id": "tr_east_roman_emp",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 15000000,
+      "value_to": 12500000,
+      "year_from": 600,
+      "year_to": 600,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1537,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 72,
+      "polity_id": "tr_east_roman_emp",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 250000,
+      "value_to": 150000,
+      "year_from": 600,
+      "year_to": 600,
+      "is_disputed": false,
+      "is_uncertain": false
+    }
+  ],
+  "observationOutsidePolityInterval": [
+    {
+      "sheet": "General",
+      "_xlsxRow": 2457,
+      "seshat_region": "Southern Europe",
+      "polity_number": 188,
+      "polity_id": "it_st_peter_rep_1",
+      "section": "general",
+      "variable_name": "polity_suprapolity_relations",
+      "value_from": "nominal allegiance",
+      "value_to": null,
+      "year_from": 711,
+      "year_to": 866,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "General",
+      "_xlsxRow": 3726,
+      "seshat_region": "Turkestan",
+      "polity_number": 295,
+      "polity_id": "tm_khwarezmid_emp",
+      "section": "general",
+      "variable_name": "polity_capital",
+      "value_from": "Gurganj",
+      "value_to": null,
+      "year_from": 1077,
+      "year_to": 1212,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 473,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 506,
+      "polity_id": "gr_macedonian_emp",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 10000,
+      "value_to": 10000,
+      "year_from": -359,
+      "year_to": -359,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 475,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 506,
+      "polity_id": "gr_macedonian_emp",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 4400000,
+      "value_to": 4400000,
+      "year_from": -300,
+      "year_to": -300,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 477,
+      "seshat_region": "Eastern Europe",
+      "polity_number": 337,
+      "polity_id": "ru_moskva_rurik_dyn",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 1240000,
+      "value_to": 1240000,
+      "year_from": 1478,
+      "year_to": 1478,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 519,
+      "seshat_region": "Southern Europe",
+      "polity_number": 326,
+      "polity_id": "it_sicily_k_2",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 30000,
+      "value_to": 30000,
+      "year_from": 1130,
+      "year_to": 1130,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 520,
+      "seshat_region": "Southern Europe",
+      "polity_number": 326,
+      "polity_id": "it_sicily_k_2",
+      "section": "sc",
+      "variable_name": "polity_territory",
+      "value_from": 104004,
+      "value_to": 104004,
+      "year_from": 1144,
+      "year_to": 1144,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 727,
+      "seshat_region": "Mesopotamia",
+      "polity_number": 106,
+      "polity_id": "iq_neo_assyrian_emp",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 5000000,
+      "value_to": 7000000,
+      "year_from": 670,
+      "year_to": 670,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 904,
+      "seshat_region": "Mississippi Basin",
+      "polity_number": 30,
+      "polity_id": "us_early_illinois_confederation",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 600,
+      "value_to": 300,
+      "year_from": 1800,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1013,
+      "seshat_region": "West Africa",
+      "polity_number": 671,
+      "polity_id": "ni_dahomey_k",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": null,
+      "value_to": null,
+      "year_from": 1600,
+      "year_to": 1699,
+      "is_disputed": false,
+      "is_uncertain": true
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1014,
+      "seshat_region": "West Africa",
+      "polity_number": 671,
+      "polity_id": "ni_dahomey_k",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 136000,
+      "value_to": 214000,
+      "year_from": 1700,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": true
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1076,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 506,
+      "polity_id": "gr_macedonian_emp",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 1000000,
+      "value_to": 1000000,
+      "year_from": -359,
+      "year_to": -336,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1077,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 506,
+      "polity_id": "gr_macedonian_emp",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 20000000,
+      "value_to": 20000000,
+      "year_from": -321,
+      "year_to": -294,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1081,
+      "seshat_region": "Eastern Europe",
+      "polity_number": 337,
+      "polity_id": "ru_moskva_rurik_dyn",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 5870000,
+      "value_to": 5870000,
+      "year_from": 1400,
+      "year_to": 1400,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1362,
+      "seshat_region": "Southern Europe",
+      "polity_number": 183,
+      "polity_id": "it_roman_rep_2",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 400000,
+      "value_to": 400000,
+      "year_from": -100,
+      "year_to": -100,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1616,
+      "seshat_region": "West Africa",
+      "polity_number": 671,
+      "polity_id": "ni_dahomey_k",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": null,
+      "value_to": null,
+      "year_from": 1600,
+      "year_to": 1699,
+      "is_disputed": false,
+      "is_uncertain": true
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1623,
+      "seshat_region": "West Africa",
+      "polity_number": 671,
+      "polity_id": "ni_dahomey_k",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 30000,
+      "value_to": 30000,
+      "year_from": 1700,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": true
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1663,
+      "seshat_region": "Western Europe",
+      "polity_number": 566,
+      "polity_id": "fr_france_napoleonic",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 750000,
+      "value_to": 750000,
+      "year_from": 1815,
+      "year_to": 1815,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1685,
+      "seshat_region": "North China",
+      "polity_number": 250,
+      "polity_id": "cn_qin_emp",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 200000,
+      "value_to": 200000,
+      "year_from": -200,
+      "year_to": -200,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1686,
+      "seshat_region": "North China",
+      "polity_number": 250,
+      "polity_id": "cn_qin_emp",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 200000,
+      "value_to": 200000,
+      "year_from": -100,
+      "year_to": -100,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 2748,
+      "seshat_region": "West Africa",
+      "polity_number": 671,
+      "polity_id": "ni_dahomey_k",
+      "section": "sc",
+      "variable_name": "administrative_level",
+      "value_from": null,
+      "value_to": null,
+      "year_from": 1600,
+      "year_to": 1699,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 2749,
+      "seshat_region": "West Africa",
+      "polity_number": 671,
+      "polity_id": "ni_dahomey_k",
+      "section": "sc",
+      "variable_name": "administrative_level",
+      "value_from": 3,
+      "value_to": 6,
+      "year_from": 1700,
+      "year_to": 1799,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 2784,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 506,
+      "polity_id": "gr_macedonian_emp",
+      "section": "sc",
+      "variable_name": "administrative_level",
+      "value_from": 3,
+      "value_to": 3,
+      "year_from": -359,
+      "year_to": -330,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 2785,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 506,
+      "polity_id": "gr_macedonian_emp",
+      "section": "sc",
+      "variable_name": "administrative_level",
+      "value_from": 5,
+      "value_to": 5,
+      "year_from": -330,
+      "year_to": -294,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 9604,
+      "seshat_region": "Southern Europe",
+      "polity_number": 709,
+      "polity_id": "pt_portuguese_emp_2",
+      "section": "sc",
+      "variable_name": "drinking_water_supply_system",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1707,
+      "year_to": 1807,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 12156,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "port",
+      "value_from": "IA",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1850,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 13652,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "written_record",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 14235,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "script",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 14287,
+      "seshat_region": "East Africa",
+      "polity_number": 710,
+      "polity_id": "tz_tana",
+      "section": "sc",
+      "variable_name": "script",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": 1400,
+      "year_to": 1499,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 15122,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "phonetic_alphabetic_writing",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 15597,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "lists_tables_and_classification",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 16119,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "calendar",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 16649,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "sacred_text",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 17209,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "religious_literature",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 17716,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "practical_literature",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 18669,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "philosophy",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 19140,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "scientific_literature",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 19631,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "fiction",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1859,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 20128,
+      "seshat_region": "East Africa",
+      "polity_number": 683,
+      "polity_id": "ug_buganda_k_2",
+      "section": "sc",
+      "variable_name": "article",
+      "value_from": "IA",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1879,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 21389,
+      "seshat_region": "Southern Europe",
+      "polity_number": 709,
+      "polity_id": "pt_portuguese_emp_2",
+      "section": "sc",
+      "variable_name": "foreign_coin",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": 1751,
+      "year_to": 1807,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 21955,
+      "seshat_region": "Maritime Southeast Asia",
+      "polity_number": 383,
+      "polity_id": "my_malacca_sultanate",
+      "section": "sc",
+      "variable_name": "indigenous_coin",
+      "value_from": "IA",
+      "value_to": null,
+      "year_from": 1395,
+      "year_to": 1444,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 1487,
+      "seshat_region": "North India",
+      "polity_number": 384,
+      "polity_id": "in_mahajanapada",
+      "section": "wf",
+      "variable_name": "steel",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": -450,
+      "year_to": -300,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 1874,
+      "seshat_region": "Mesopotamia",
+      "polity_number": 474,
+      "polity_id": "iq_uruk",
+      "section": "wf",
+      "variable_name": "javelin",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": -4200,
+      "year_to": -3501,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 2985,
+      "seshat_region": "Mesopotamia",
+      "polity_number": 474,
+      "polity_id": "iq_uruk",
+      "section": "wf",
+      "variable_name": "self_bow",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": -4200,
+      "year_to": -3501,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4515,
+      "seshat_region": "Mongolia",
+      "polity_number": 267,
+      "polity_id": "mn_mongol_emp",
+      "section": "wf",
+      "variable_name": "sling_siege_engine",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1206,
+      "year_to": 1271,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4516,
+      "seshat_region": "Mongolia",
+      "polity_number": 267,
+      "polity_id": "mn_mongol_emp",
+      "section": "wf",
+      "variable_name": "sling_siege_engine",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1272,
+      "year_to": 1368,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4871,
+      "seshat_region": "Mongolia",
+      "polity_number": 267,
+      "polity_id": "mn_mongol_emp",
+      "section": "wf",
+      "variable_name": "gunpowder_siege_artillery",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1206,
+      "year_to": 1273,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4872,
+      "seshat_region": "Mongolia",
+      "polity_number": 267,
+      "polity_id": "mn_mongol_emp",
+      "section": "wf",
+      "variable_name": "gunpowder_siege_artillery",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1274,
+      "year_to": 1368,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4946,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 173,
+      "polity_id": "tr_ottoman_emirate",
+      "section": "wf",
+      "variable_name": "gunpowder_siege_artillery",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1290,
+      "year_to": 1387,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4947,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 173,
+      "polity_id": "tr_ottoman_emirate",
+      "section": "wf",
+      "variable_name": "gunpowder_siege_artillery",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1388,
+      "year_to": 1413,
+      "is_disputed": false,
+      "is_uncertain": true
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 4948,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 173,
+      "polity_id": "tr_ottoman_emirate",
+      "section": "wf",
+      "variable_name": "gunpowder_siege_artillery",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1388,
+      "year_to": 1413,
+      "is_disputed": false,
+      "is_uncertain": true
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 5450,
+      "seshat_region": "Maritime Southeast Asia",
+      "polity_number": 46,
+      "polity_id": "id_buni",
+      "section": "wf",
+      "variable_name": "war_club",
+      "value_from": "SU",
+      "value_to": null,
+      "year_from": -500,
+      "year_to": 149,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 5809,
+      "seshat_region": "Maritime Southeast Asia",
+      "polity_number": 46,
+      "polity_id": "id_buni",
+      "section": "wf",
+      "variable_name": "battle_axe",
+      "value_from": "SU",
+      "value_to": null,
+      "year_from": -500,
+      "year_to": 149,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 6228,
+      "seshat_region": "Mesopotamia",
+      "polity_number": 474,
+      "polity_id": "iq_uruk",
+      "section": "wf",
+      "variable_name": "dagger",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": -4200,
+      "year_to": -3501,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 8245,
+      "seshat_region": "North China",
+      "polity_number": 421,
+      "polity_id": "cn_erlitou",
+      "section": "wf",
+      "variable_name": "horse",
+      "value_from": "IA",
+      "value_to": null,
+      "year_from": -1650,
+      "year_to": -1300,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 8246,
+      "seshat_region": "North China",
+      "polity_number": 421,
+      "polity_id": "cn_erlitou",
+      "section": "wf",
+      "variable_name": "horse",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": -1300,
+      "year_to": -1250,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 8924,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 173,
+      "polity_id": "tr_ottoman_emirate",
+      "section": "wf",
+      "variable_name": "camel",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1290,
+      "year_to": 1325,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 13481,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 173,
+      "polity_id": "tr_ottoman_emirate",
+      "section": "wf",
+      "variable_name": "specialized_military_vessel",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1290,
+      "year_to": 1308,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 13482,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 173,
+      "polity_id": "tr_ottoman_emirate",
+      "section": "wf",
+      "variable_name": "specialized_military_vessel",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1308,
+      "year_to": 1413,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 13793,
+      "seshat_region": "Andes",
+      "polity_number": 78,
+      "polity_id": "pe_cuzco_2",
+      "section": "wf",
+      "variable_name": "settlements_in_a_defensive_position",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 400,
+      "year_to": 500,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 15808,
+      "seshat_region": "West Africa",
+      "polity_number": 114,
+      "polity_id": "gh_ashanti_emp",
+      "section": "wf",
+      "variable_name": "stone_walls_mortared",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1875,
+      "year_to": 1897,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 16174,
+      "seshat_region": "West Africa",
+      "polity_number": 114,
+      "polity_id": "gh_ashanti_emp",
+      "section": "wf",
+      "variable_name": "fortified_camp",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 1875,
+      "year_to": 1897,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Warfare",
+      "_xlsxRow": 16361,
+      "seshat_region": "Andes",
+      "polity_number": 78,
+      "polity_id": "pe_cuzco_2",
+      "section": "wf",
+      "variable_name": "fortified_camp",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": 400,
+      "year_to": 500,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 114,
+      "seshat_region": "West Africa",
+      "polity_number": 674,
+      "polity_id": "se_cayor_k",
+      "section": "ec",
+      "variable_name": "lux_precious_metal",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1890,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 115,
+      "seshat_region": "West Africa",
+      "polity_number": 681,
+      "polity_id": "se_great_fulo_emp",
+      "section": "ec",
+      "variable_name": "lux_precious_metal",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1890,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 117,
+      "seshat_region": "West Africa",
+      "polity_number": 682,
+      "polity_id": "se_jolof_k",
+      "section": "ec",
+      "variable_name": "lux_precious_metal",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1890,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 118,
+      "seshat_region": "West Africa",
+      "polity_number": 675,
+      "polity_id": "se_saloum_k",
+      "section": "ec",
+      "variable_name": "lux_precious_metal",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1890,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 119,
+      "seshat_region": "West Africa",
+      "polity_number": 677,
+      "polity_id": "se_sine_k",
+      "section": "ec",
+      "variable_name": "lux_precious_metal",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1890,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 120,
+      "seshat_region": "West Africa",
+      "polity_number": 678,
+      "polity_id": "se_waalo_k",
+      "section": "ec",
+      "variable_name": "lux_precious_metal",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1700,
+      "year_to": 1890,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 265,
+      "seshat_region": "West Africa",
+      "polity_number": 675,
+      "polity_id": "se_saloum_k",
+      "section": "ec",
+      "variable_name": "luxury_fabrics",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1701,
+      "year_to": 1864,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 493,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "ec",
+      "variable_name": "luxury_spices_incense_and_dyes",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": 1,
+      "year_to": 203,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 607,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "ec",
+      "variable_name": "luxury_drink_alcohol",
+      "value_from": "IP",
+      "value_to": null,
+      "year_from": 1,
+      "year_to": 203,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 747,
+      "seshat_region": "East Africa",
+      "polity_number": 694,
+      "polity_id": "rw_bugesera_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1801,
+      "year_to": 1897,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 748,
+      "seshat_region": "East Africa",
+      "polity_number": 692,
+      "polity_id": "rw_gisaka_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1801,
+      "year_to": 1897,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 749,
+      "seshat_region": "East Africa",
+      "polity_number": 691,
+      "polity_id": "rw_mubari_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1801,
+      "year_to": 1897,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 750,
+      "seshat_region": "East Africa",
+      "polity_number": 689,
+      "polity_id": "rw_ndorwa_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1801,
+      "year_to": 1897,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 773,
+      "seshat_region": "East Africa",
+      "polity_number": 694,
+      "polity_id": "rw_bugesera_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1650,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 774,
+      "seshat_region": "East Africa",
+      "polity_number": 692,
+      "polity_id": "rw_gisaka_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1650,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 775,
+      "seshat_region": "East Africa",
+      "polity_number": 691,
+      "polity_id": "rw_mubari_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1650,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 776,
+      "seshat_region": "East Africa",
+      "polity_number": 689,
+      "polity_id": "rw_ndorwa_k",
+      "section": "ec",
+      "variable_name": "luxury_glass_goods",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1650,
+      "year_to": 1800,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Religion",
+      "_xlsxRow": 78,
+      "seshat_region": "West Africa",
+      "polity_number": 667,
+      "polity_id": "ni_igala_k",
+      "section": "rt",
+      "variable_name": "sync_rel_pra_ind_beli",
+      "value_from": "unknown",
+      "value_to": null,
+      "year_from": 1500,
+      "year_to": 1799,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Religion",
+      "_xlsxRow": 135,
+      "seshat_region": "East Africa",
+      "polity_number": 210,
+      "polity_id": "et_aksum_emp_2",
+      "section": "rt",
+      "variable_name": "sync_rel_pra_ind_beli",
+      "value_from": "present",
+      "value_to": null,
+      "year_from": 300,
+      "year_to": 500,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Religion",
+      "_xlsxRow": 5273,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "rt",
+      "variable_name": "human_sacrifice",
+      "value_from": "A",
+      "value_to": null,
+      "year_from": -100,
+      "year_to": 203,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Religion",
+      "_xlsxRow": 5307,
+      "seshat_region": "Mongolia",
+      "polity_number": 267,
+      "polity_id": "mn_mongol_emp",
+      "section": "rt",
+      "variable_name": "human_sacrifice",
+      "value_from": "P",
+      "value_to": null,
+      "year_from": 1206,
+      "year_to": 1367,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 3,
+      "seshat_region": "Andes",
+      "polity_number": 560,
+      "polity_id": "bo_tiwanaku_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "bo_titicaca_early_pacajes",
+      "other_polity_number": 580,
+      "decline": "IP",
+      "collapse": "P",
+      "epidemic": "A",
+      "downward_mobility": "SU",
+      "extermination": "SU",
+      "uprising": "SU",
+      "revolution": "SU",
+      "successful_revolution": "SU",
+      "civil_war": "SU",
+      "century_plus": "SU",
+      "fragmentation": "A",
+      "capital": "IP",
+      "conquest": "A",
+      "assassination": "SU",
+      "depose": "SU",
+      "constitution": "SU",
+      "labor": "SU",
+      "unfree_labor": "SU",
+      "suffrage": "SU",
+      "public_goods": "SU",
+      "religion": "SU",
+      "year_from": 1000,
+      "year_to": 1150,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 10,
+      "seshat_region": "Andes",
+      "polity_number": 80,
+      "polity_id": "pe_wari_emp",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "P",
+      "collapse": "P",
+      "epidemic": "IP",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "IP",
+      "revolution": "IA",
+      "successful_revolution": "A",
+      "civil_war": "IP",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "SU",
+      "constitution": "SU",
+      "labor": "SU",
+      "unfree_labor": "SU",
+      "suffrage": "SU",
+      "public_goods": "SU",
+      "religion": "SU",
+      "year_from": 640,
+      "year_to": 660,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 26,
+      "seshat_region": "North China",
+      "polity_number": 269,
+      "polity_id": "cn_ming_dyn",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "P",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "P",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1644,
+      "year_to": 1683,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 29,
+      "seshat_region": "Western Europe",
+      "polity_number": 566,
+      "polity_id": "fr_france_napoleonic",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "P",
+      "successful_revolution": "P",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "P",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "P",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1870,
+      "year_to": 1871,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 35,
+      "seshat_region": "Southern Europe",
+      "polity_number": 570,
+      "polity_id": "es_spanish_emp_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "mx_mexico_1",
+      "other_polity_number": 569,
+      "decline": "SU",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "P",
+      "successful_revolution": "P",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1810,
+      "year_to": 1821,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 37,
+      "seshat_region": "Eastern Europe",
+      "polity_number": 571,
+      "polity_id": "ru_romanov_dyn_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "ru_soviet_union",
+      "other_polity_number": 601,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "P",
+      "uprising": "P",
+      "revolution": "P",
+      "successful_revolution": "P",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "P",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "P",
+      "year_from": 1917,
+      "year_to": 1923,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 41,
+      "seshat_region": "Amazonia",
+      "polity_number": 196,
+      "polity_id": "ec_shuar_1",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "P",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1809,
+      "year_to": 1831,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 42,
+      "seshat_region": "Central Europe",
+      "polity_number": 567,
+      "polity_id": "at_habsburg_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "P",
+      "successful_revolution": "P",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1918,
+      "year_to": 1938,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 63,
+      "seshat_region": "Maritime Southeast Asia",
+      "polity_number": 154,
+      "polity_id": "id_iban_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "P",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1838,
+      "year_to": 1858,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 64,
+      "seshat_region": "Polynesia",
+      "polity_number": 20,
+      "polity_id": "us_kamehameha_k",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "us_hawaii_k",
+      "other_polity_number": 21,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1819,
+      "year_to": 1820,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 70,
+      "seshat_region": "Northeast Africa",
+      "polity_number": 367,
+      "polity_id": "eg_ayyubid_sultanate",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1193,
+      "year_to": 1260,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 74,
+      "seshat_region": "Iran",
+      "polity_number": 364,
+      "polity_id": "ir_seljuk_sultanate",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "iq_abbasid_cal_2",
+      "other_polity_number": 484,
+      "decline": "SU",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1140,
+      "year_to": 1190,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 78,
+      "seshat_region": "West Africa",
+      "polity_number": 224,
+      "polity_id": "mr_wagadu_3",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "ml_mali_emp",
+      "other_polity_number": 229,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "P",
+      "fragmentation": "A",
+      "capital": "P",
+      "conquest": "P",
+      "assassination": "SU",
+      "depose": "SU",
+      "constitution": "SU",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "P",
+      "year_from": 1050,
+      "year_to": 1203,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 84,
+      "seshat_region": "Mongolia",
+      "polity_number": 283,
+      "polity_id": "mn_turk_khaganate_1",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "mn_turk_khaganate_2",
+      "other_polity_number": 440,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "SU",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "IA",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 583,
+      "year_to": 700,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 85,
+      "seshat_region": "Eastern Europe",
+      "polity_number": 271,
+      "polity_id": "ua_skythian_k_3",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "IP",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": -339,
+      "year_to": -200,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 86,
+      "seshat_region": "Polynesia",
+      "polity_number": 18,
+      "polity_id": "us_hawaii_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1550,
+      "year_to": 1590,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 88,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 68,
+      "polity_id": "gr_crete_classical",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "P",
+      "fragmentation": "A",
+      "capital": "IA",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": -450,
+      "year_to": -250,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 90,
+      "seshat_region": "Andes",
+      "polity_number": 80,
+      "polity_id": "pe_wari_emp",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "P",
+      "collapse": "P",
+      "epidemic": "A",
+      "downward_mobility": "IA",
+      "extermination": "IA",
+      "uprising": "IA",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "IA",
+      "century_plus": "IA",
+      "fragmentation": "IA",
+      "capital": "IA",
+      "conquest": "IA",
+      "assassination": "IA",
+      "depose": "IA",
+      "constitution": "IA",
+      "labor": "IA",
+      "unfree_labor": "IA",
+      "suffrage": "IA",
+      "public_goods": "IA",
+      "religion": "IA",
+      "year_from": 900,
+      "year_to": 1100,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 95,
+      "seshat_region": "Anatolia-Caucasus",
+      "polity_number": 162,
+      "polity_id": "tr_hatti_old_k",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "IP",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": -1500,
+      "year_to": -1430,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 96,
+      "seshat_region": "Iran",
+      "polity_number": 107,
+      "polity_id": "ir_achaemenid_emp",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "gr_macedonian_emp",
+      "other_polity_number": 506,
+      "decline": "IA",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "P",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": -331,
+      "year_to": -275,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 99,
+      "seshat_region": "Mesopotamia",
+      "polity_number": 106,
+      "polity_id": "iq_neo_assyrian_emp",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "IA",
+      "collapse": "IA",
+      "epidemic": "A",
+      "downward_mobility": "P",
+      "extermination": "P",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "SU",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": -627,
+      "year_to": -608,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 101,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "SU",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 225,
+      "year_to": 225,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 113,
+      "seshat_region": "Western Europe",
+      "polity_number": 459,
+      "polity_id": "fr_valois_k_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "fr_bourbon_k_1",
+      "other_polity_number": 460,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "P",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "P",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1562,
+      "year_to": 1598,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 119,
+      "seshat_region": "Western Europe",
+      "polity_number": 333,
+      "polity_id": "fr_valois_k_1",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "P",
+      "collapse": "P",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "P",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "P",
+      "fragmentation": "P",
+      "capital": "P",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "P",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1337,
+      "year_to": 1453,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 120,
+      "seshat_region": "Andes",
+      "polity_number": 83,
+      "polity_id": "pe_inca_emp",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "es_spanish_emp_1",
+      "other_polity_number": 84,
+      "decline": "P",
+      "collapse": "P",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "P",
+      "conquest": "P",
+      "assassination": "P",
+      "depose": "A",
+      "constitution": "P",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1528,
+      "year_to": 1570,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 127,
+      "seshat_region": "Southeastern Europe",
+      "polity_number": 69,
+      "polity_id": "gr_crete_hellenistic",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "P",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": -74,
+      "year_to": -63,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 129,
+      "seshat_region": "Iran",
+      "polity_number": 130,
+      "polity_id": "ir_sassanid_emp_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "sa_rashidun_dyn",
+      "other_polity_number": 358,
+      "decline": "P",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "IP",
+      "conquest": "P",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 633,
+      "year_to": 654,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 138,
+      "seshat_region": "East Coast",
+      "polity_number": 575,
+      "polity_id": "us_united_states_of_america_reconstruction",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "A",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "A",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "A",
+      "labor": "P",
+      "unfree_labor": "A",
+      "suffrage": "P",
+      "public_goods": "P",
+      "religion": "A",
+      "year_from": 1890,
+      "year_to": 1935,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 140,
+      "seshat_region": "North China",
+      "polity_number": 258,
+      "polity_id": "cn_northern_wei_dyn",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "SU",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 523,
+      "year_to": 535,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 152,
+      "seshat_region": "Western North America",
+      "polity_number": 576,
+      "polity_id": "us_chaco_bonito_3",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "us_chaco_mcelmo",
+      "other_polity_number": 583,
+      "decline": "IP",
+      "collapse": "A",
+      "epidemic": "SU",
+      "downward_mobility": "SU",
+      "extermination": "SU",
+      "uprising": "SU",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "SU",
+      "century_plus": "P",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "SU",
+      "assassination": "SU",
+      "depose": "SU",
+      "constitution": "SU",
+      "labor": "SU",
+      "unfree_labor": "SU",
+      "suffrage": "SU",
+      "public_goods": "SU",
+      "religion": "SU",
+      "year_from": 1140,
+      "year_to": 1300,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 156,
+      "seshat_region": "Maghreb",
+      "polity_number": 578,
+      "polity_id": "mo_alawi_dyn_1",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "mo_alawi_dyn_2",
+      "other_polity_number": 585,
+      "decline": "A",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "A",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1727,
+      "year_to": 1757,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 165,
+      "seshat_region": "Western Europe",
+      "polity_number": 579,
+      "polity_id": "gb_england_plantagenet",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": null,
+      "other_polity_number": null,
+      "decline": "IP",
+      "collapse": "A",
+      "epidemic": "P",
+      "downward_mobility": "P",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "A",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "P",
+      "depose": "P",
+      "constitution": "A",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1455,
+      "year_to": 1487,
+      "is_disputed": null,
+      "is_uncertain": null
+    },
+    {
+      "sheet": "CrisisDB - Crisis consequences",
+      "_xlsxRow": 167,
+      "seshat_region": "Central Europe",
+      "polity_number": 799,
+      "polity_id": "de_empire_2",
+      "section": "crisisdb-cc",
+      "variable_name": "crisis-consequences",
+      "other_polity_id": "de_empire_3",
+      "other_polity_number": 800,
+      "decline": "IA",
+      "collapse": "A",
+      "epidemic": "A",
+      "downward_mobility": "IP",
+      "extermination": "A",
+      "uprising": "P",
+      "revolution": "A",
+      "successful_revolution": "A",
+      "civil_war": "P",
+      "century_plus": "A",
+      "fragmentation": "P",
+      "capital": "A",
+      "conquest": "A",
+      "assassination": "A",
+      "depose": "A",
+      "constitution": "IP",
+      "labor": "A",
+      "unfree_labor": "A",
+      "suffrage": "A",
+      "public_goods": "A",
+      "religion": "A",
+      "year_from": 1254,
+      "year_to": 1273,
+      "is_disputed": false,
+      "is_uncertain": false
+    }
+  ],
+  "datesThatAreZero": [
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 963,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "sc",
+      "variable_name": "polity_population",
+      "value_from": 7250000,
+      "value_to": 8250000,
+      "year_from": 0,
+      "year_to": 100,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Social complexity",
+      "_xlsxRow": 1426,
+      "seshat_region": "Mexico",
+      "polity_number": 11,
+      "polity_id": "mx_basin_of_mexico_6",
+      "section": "sc",
+      "variable_name": "population_of_the_largest_settlement",
+      "value_from": 40000,
+      "value_to": 60000,
+      "year_from": 0,
+      "year_to": 99,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 567,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "ec",
+      "variable_name": "luxury_spices_incense_and_dyes",
+      "value_from": "SU",
+      "value_to": null,
+      "year_from": -100,
+      "year_to": 0,
+      "is_disputed": false,
+      "is_uncertain": false
+    },
+    {
+      "sheet": "Luxury goods",
+      "_xlsxRow": 669,
+      "seshat_region": "Southern India",
+      "polity_number": 89,
+      "polity_id": "in_satavahana_emp",
+      "section": "ec",
+      "variable_name": "luxury_drink_alcohol",
+      "value_from": "SU",
+      "value_to": null,
+      "year_from": -100,
+      "year_to": 0,
+      "is_disputed": false,
+      "is_uncertain": false
+    }
+  ],
+  "actualVariableCount": 173,
+  "variablesWithoutObservations": [],
+  "observationsPerVariable": {
+    "polity_original_name": 488,
+    "polity_alternative_name": 1306,
+    "polity_degree_of_centralization": 488,
+    "polity_suprapolity_relations": 361,
+    "polity_utm_zone": 487,
+    "polity_capital": 615,
+    "polity_language": 620,
+    "polity_linguistic_family": 512,
+    "polity_language_genus": 42,
+    "polity_religion_genus": 129,
+    "polity_religion_family": 137,
+    "polity_religion": 44,
+    "polity_relationship_to_preceding_entity": 366,
+    "polity_preceding_entity": 443,
+    "polity_succeeding_entity": 450,
+    "polity_supracultural_entity": 270,
+    "polity_scale_of_supracultural_interaction": 132,
+    "polity_alternate_religion_genus": 43,
+    "polity_alternate_religion_family": 33,
+    "polity_alternate_religion": 106,
+    "polity_religious_tradition": 167,
+    "polity_territory": 606,
+    "polity_population": 577,
+    "population_of_the_largest_settlement": 577,
+    "settlement_hierarchy": 563,
+    "administrative_level": 570,
+    "religious_level": 445,
+    "military_level": 448,
+    "professional_military_officer": 472,
+    "professional_soldier": 499,
+    "professional_priesthood": 463,
+    "full_time_bureaucrat": 492,
+    "examination_system": 385,
+    "merit_promotion": 398,
+    "specialized_government_building": 478,
+    "formal_legal_code": 509,
+    "judge": 471,
+    "court": 435,
+    "professional_lawyer": 413,
+    "irrigation_system": 467,
+    "drinking_water_supply_system": 398,
+    "market": 500,
+    "food_storage_site": 446,
+    "road": 465,
+    "bridge": 372,
+    "canal": 367,
+    "port": 447,
+    "mines_or_quarry": 365,
+    "mnemonic_device": 243,
+    "nonwritten_record": 339,
+    "written_record": 583,
+    "script": 577,
+    "non_phonetic_writing": 349,
+    "phonetic_alphabetic_writing": 495,
+    "lists_tables_and_classification": 482,
+    "calendar": 530,
+    "sacred_text": 545,
+    "religious_literature": 560,
+    "practical_literature": 499,
+    "history": 488,
+    "philosophy": 460,
+    "scientific_literature": 481,
+    "fiction": 498,
+    "article": 465,
+    "token": 394,
+    "precious_metal": 398,
+    "foreign_coin": 447,
+    "indigenous_coin": 520,
+    "paper_currency": 458,
+    "courier": 409,
+    "postal_station": 387,
+    "general_postal_service": 386,
+    "communal_building": 132,
+    "utilitarian_public_building": 161,
+    "symbolic_building": 126,
+    "entertainment_building": 86,
+    "knowledge_or_information_building": 127,
+    "other_utilitarian_public_building": 10,
+    "special_purpose_site": 105,
+    "ceremonial_site": 105,
+    "burial_site": 102,
+    "trading_emporia": 95,
+    "enclosure": 67,
+    "length_measurement_system": 125,
+    "area_measurement_system": 112,
+    "volume_measurement_system": 125,
+    "weight_measurement_system": 139,
+    "time_measurement_system": 111,
+    "geometrical_measurement_system": 88,
+    "other_measurement_system": 25,
+    "debt_and_credit_structure": 96,
+    "store_of_wealth": 73,
+    "source_of_support": 108,
+    "occupational_complexity": 75,
+    "special_purpose_house": 69,
+    "other_special_purpose_site": 29,
+    "largest_communication_distance": 73,
+    "fastest_individual_communication": 48,
+    "long_wall": 273,
+    "copper": 338,
+    "bronze": 363,
+    "iron": 378,
+    "steel": 375,
+    "javelin": 373,
+    "atlatl": 365,
+    "sling": 368,
+    "self_bow": 374,
+    "composite_bow": 369,
+    "crossbow": 349,
+    "tension_siege_engine": 344,
+    "sling_siege_engine": 353,
+    "gunpowder_siege_artillery": 362,
+    "handheld_firearm": 364,
+    "war_club": 362,
+    "battle_axe": 364,
+    "dagger": 372,
+    "sword": 375,
+    "spear": 375,
+    "polearm": 349,
+    "dog": 333,
+    "donkey": 354,
+    "horse": 375,
+    "camel": 362,
+    "elephant": 344,
+    "wood_bark_etc": 337,
+    "leather_cloth": 354,
+    "shield": 374,
+    "helmet": 375,
+    "breastplate": 362,
+    "limb_protection": 367,
+    "scaled_armor": 351,
+    "laminar_armor": 347,
+    "plate_armor": 358,
+    "small_vessels_canoes_etc": 333,
+    "merchant_ships_pressed_into_service": 314,
+    "specialized_military_vessel": 333,
+    "settlements_in_a_defensive_position": 361,
+    "wooden_palisade": 369,
+    "earth_rampart": 368,
+    "ditch": 366,
+    "moat": 370,
+    "stone_walls_non_mortared": 363,
+    "stone_walls_mortared": 372,
+    "fortified_camp": 360,
+    "complex_fortification": 367,
+    "modern_fortification": 368,
+    "chainmail": 354,
+    "lux_precious_metal": 159,
+    "luxury_fabrics": 153,
+    "luxury_manufactured_goods": 138,
+    "luxury_spices_incense_and_dyes": 116,
+    "luxury_drink_alcohol": 112,
+    "luxury_glass_goods": 98,
+    "lux_fine_ceramic_wares": 109,
+    "lux_precious_stone": 121,
+    "lux_statuary": 81,
+    "luxury_food": 102,
+    "other_luxury_personal_items": 2,
+    "sync_rel_pra_ind_beli": 264,
+    "religious_fragmentation": 128,
+    "moralizing_supernatural_punishment_and_reward": 440,
+    "moralizing_supernatural_concern_is_primary": 436,
+    "moralizing_enforcement_is_certain": 436,
+    "moralizing_enforcement_is_broad": 442,
+    "moralizing_enforcement_is_targeted": 442,
+    "moralizing_enforcement_of_rulers": 429,
+    "moralizing_religion_adopted_by_elites": 397,
+    "moralizing_religion_adopted_by_commoners": 399,
+    "moralizing_enforcement_in_afterlife": 426,
+    "moralizing_enforcement_in_this_life": 429,
+    "moralizing_enforcement_is_agentic": 442,
+    "human_sacrifice": 356,
+    "crisis-consequences": 166
+  },
+  "crisisFields": {
+    "seshat_region": [
+      {
+        "type": "str",
+        "raw": "Mississippi Basin",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Andes",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "Western North America",
+        "count": 2
+      },
+      {
+        "type": "str",
+        "raw": "Mainland Southeast Asia",
+        "count": 4
+      },
+      {
+        "type": "str",
+        "raw": "Mexico",
+        "count": 6
+      },
+      {
+        "type": "str",
+        "raw": "North China",
+        "count": 20
+      },
+      {
+        "type": "str",
+        "raw": "Southern Europe",
+        "count": 8
+      },
+      {
+        "type": "str",
+        "raw": "Anatolia-Caucasus",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "East Coast",
+        "count": 4
+      },
+      {
+        "type": "str",
+        "raw": "Western Europe",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "Eastern South Asia",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "South China",
+        "count": 2
+      },
+      {
+        "type": "str",
+        "raw": "West Africa",
+        "count": 6
+      },
+      {
+        "type": "str",
+        "raw": "Central Europe",
+        "count": 9
+      },
+      {
+        "type": "str",
+        "raw": "Northeast Africa",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "Northeast Asia",
+        "count": 8
+      },
+      {
+        "type": "str",
+        "raw": "Iran",
+        "count": 10
+      },
+      {
+        "type": "str",
+        "raw": "Eastern Europe",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "Levant",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "Amazonia",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Polynesia",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "Mesopotamia",
+        "count": 2
+      },
+      {
+        "type": "str",
+        "raw": "New Guinea",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Maritime Southeast Asia",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "Northern Europe",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "Mongolia",
+        "count": 6
+      },
+      {
+        "type": "str",
+        "raw": "Turkestan",
+        "count": 4
+      },
+      {
+        "type": "str",
+        "raw": "Afghanistan",
+        "count": 2
+      },
+      {
+        "type": "str",
+        "raw": "Southeastern Europe",
+        "count": 2
+      },
+      {
+        "type": "str",
+        "raw": "North India",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "Southern India",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Arabia",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Pontic-Caspian",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Siberia",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "Maghreb",
+        "count": 1
+      }
+    ],
+    "section": [
+      {
+        "type": "str",
+        "raw": "crisisdb-cc",
+        "count": 166
+      }
+    ],
+    "variable_name": [
+      {
+        "type": "str",
+        "raw": "crisis-consequences",
+        "count": 166
+      }
+    ],
+    "decline": [
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 39
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 14
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 67
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 42
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 4
+      }
+    ],
+    "collapse": [
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 6
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 157
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "epidemic": [
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 120
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 2
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 32
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "downward_mobility": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 85
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 63
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "extermination": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 131
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 20
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 1
+      }
+    ],
+    "uprising": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 80
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 8
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 76
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "revolution": [
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 7
+      },
+      {
+        "type": "str",
+        "raw": "DIS",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 22
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 123
+      }
+    ],
+    "successful_revolution": [
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 144
+      },
+      {
+        "type": "str",
+        "raw": "DIS",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 14
+      }
+    ],
+    "civil_war": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 73
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 7
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 81
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "century_plus": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 152
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 10
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "fragmentation": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 106
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 58
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 1
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "capital": [
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 16
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 121
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 24
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "conquest": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 96
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 64
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "assassination": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 92
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 16
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 57
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 1
+      }
+    ],
+    "depose": [
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 20
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 71
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 67
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 3
+      }
+    ],
+    "constitution": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 108
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 12
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 39
+      },
+      {
+        "type": "str",
+        "raw": "IP",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "labor": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 149
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 4
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "unfree_labor": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 150
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 3
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "suffrage": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 149
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 4
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "public_goods": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 148
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 5
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "religion": [
+      {
+        "type": "str",
+        "raw": "A",
+        "count": 147
+      },
+      {
+        "type": "str",
+        "raw": "SU",
+        "count": 11
+      },
+      {
+        "type": "str",
+        "raw": "P",
+        "count": 6
+      },
+      {
+        "type": "str",
+        "raw": "IA",
+        "count": 2
+      }
+    ],
+    "is_disputed": [
+      {
+        "type": "null",
+        "raw": null,
+        "count": 140
+      },
+      {
+        "type": "bool",
+        "raw": false,
+        "count": 26
+      }
+    ],
+    "is_uncertain": [
+      {
+        "type": "null",
+        "raw": null,
+        "count": 143
+      },
+      {
+        "type": "bool",
+        "raw": false,
+        "count": 23
+      }
+    ]
+  },
+  "valueRangeSemantics": {
+    "sourceEvidence": "Pinned builder notebook copies *_from and *_to columns for range variables; other coded variables use value_from plus null value_to.",
+    "runtimeInterpretation": "Do not treat the two values as temporal start/end values; year_from/year_to carry the time interval.",
+    "limitation": "Workbook has no per-variable definition or confidence-level field. Neither probability/confidence interval nor shared unit can be inferred globally.",
+    "crisisException": "CrisisDB has explicit outcome columns and no value_from/value_to columns."
+  }
+}

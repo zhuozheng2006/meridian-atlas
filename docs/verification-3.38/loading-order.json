@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-06T00:25:26.152961+00:00",
+  "scope": "3.38 P0 local loading-order implementation; no browser or deployment verification",
+  "checks": {
+    "native": {
+      "passed": 29,
+      "total": 29
+    },
+    "pointLayerGate": {
+      "passed": 8,
+      "total": 8,
+      "shippedPointResourceRequests": 6
+    },
+    "researchRouting": {
+      "passed": 15,
+      "total": 15
+    },
+    "viewState": {
+      "passed": 69,
+      "total": 69
+    },
+    "boundaryAppRaces": {
+      "passed": 5,
+      "total": 5
+    },
+    "interactions": {
+      "passed": 9,
+      "total": 9
+    },
+    "placeReturn": {
+      "passed": 16,
+      "total": 16
+    },
+    "syntax": true,
+    "diffWhitespace": true
+  },
+  "contracts": [
+    "Research/Sources do not trigger native prefetch or map core data",
+    "Bootstrap/temporal prefetch requests one selected pack only; no full native index or per-file prefetch",
+    "Concurrent maps and prefetch share the same pending pack; cancellation does not abort another consumer",
+    "All geometry/aliases/time metadata checked; actual frame independently requires current record coverage",
+    "Invalid/missing packs do not permanently poison retries; valid overview fallback remains available",
+    "Only an actual current successful territory commit enables point layers, once per map",
+    "CShapes and valid overview commits also release the point-layer gate",
+    "Initial failure followed by successful retry initializes layers",
+    "Late old-year and destroyed/removed comparison maps do not initialize or replace current point layers"
+  ],
+  "remaining": [
+    "Browser first-paint versus resource completion measurement",
+    "Production/network/device benchmarks; no new version deployed"
+  ],
+  "notes": [
+    "No geometry/data files changed in this task.",
+    "Map-engine commit contract remained unchanged.",
+    "Point-layer tests use the real application handler and real classes; only renderer/network boundary is mocked against local shipped files.",
+    "The old view-state VM fixture needed a no-op for the newly imported prefetch function; native behavior is independently tested with actual native module imports."
+  ],
+  "implementationCheckpointSHA256": {
+    "public/app.js": "6b83404968c3935e0d628d5ba6feaf2b0dc786c61720087d51fa8fc6c24122bd",
+    "public/native-geometry.js": "c088960deb6255e35d550a3f669c0bc1fbb12118af31844b9b41fe139432ab1e",
+    "scripts/validate-native.mjs": "40137cec64809aeaf8c9d9fe5233515b4e4aa9d0d57e56446dc809c4fd7e2d7f",
+    "scripts/validate-point-layer-gate.mjs": "f0ae9c642ae618a7309a9f80d72f0c12d05ff439f76bb46d690cc3ae23211f70",
+    "scripts/validate-research-routing.mjs": "88fff45bf763f72413d41ec233344ef78193d2a4fcc9dd0f5865e06bf2d3ce69",
+    "scripts/validate-view-state.cjs": "bf7aa93dc2e754728d1a621450263a3f3748cc3732c8320b0541ffbec1da852b"
+  },
+  "finalSourceSHA256": {
+    "public/app.js": "a2a14ce989d09e22e209dbdd6fd04c5b43d2ae57d9b37111aa6fcb52db557ce3",
+    "public/native-geometry.js": "18a37e12aefbcbe1c786f611d764bbc8fe48aa5729c76805b83806c60af10696",
+    "scripts/validate-native.mjs": "40137cec64809aeaf8c9d9fe5233515b4e4aa9d0d57e56446dc809c4fd7e2d7f",
+    "scripts/validate-point-layer-gate.mjs": "f0ae9c642ae618a7309a9f80d72f0c12d05ff439f76bb46d690cc3ae23211f70",
+    "scripts/validate-research-routing.mjs": "88fff45bf763f72413d41ec233344ef78193d2a4fcc9dd0f5865e06bf2d3ce69",
+    "scripts/validate-view-state.cjs": "bf7aa93dc2e754728d1a621450263a3f3748cc3732c8320b0541ffbec1da852b"
+  },
+  "finalAssetRevision": "3.38.0-5683ed6448eb",
+  "finalVerification": {
+    "npmTestExitCode": 0,
+    "log": "final-test.log",
+    "browserResourceTiming": "browser-native-finalstamp-4mbps.json"
+  }
+}

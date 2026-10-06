@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-06T00:49:09.002097+00:00",
+  "assetRevision": "3.38.0-5683ed6448eb",
+  "origin": "http://127.0.0.1:8767/",
+  "browser": "Codex in-app browser",
+  "scope": "Actual UI and browser resource observations; automated fixture coverage is separate",
+  "checks": {
+    "coldResearchDataRequests": [
+      "index.json.gz (58058 B)",
+      "polities/p049.json.gz (4313 B)"
+    ],
+    "coldResearchCanvases": 0,
+    "mingPopulationFilteredRows": 3,
+    "explicitMingComparison": "Polaris 1368..1644,143 rows -> Equinox 1368..1643,153 source rows",
+    "languageAndSourcesReturn": "Crisis166 selection retained across English and Sources round trip",
+    "highPageRecovery": "@all/crisis/page9999 -> page6,166rows,page7/7",
+    "crisisLazySearch": "only search/s5.json.gz (9968 B); 24 cards,21 coded outcomes each",
+    "actualExportReadback": "polaris/browser-download.json",
+    "mobile": {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "filtersInitiallyClosed": true,
+      "phaseMetadataPreNoHorizontalOverflow": true,
+      "versionSelectContrastFixed": true
+    },
+    "keyboard": {
+      "inputArrowRight": "1450 unchanged; center [9,48],bearing0 unchanged",
+      "mapArrowRight": "1450 ->1460; center [9,48],bearing0 unchanged"
+    },
+    "comparison": "1460 main and1900 comparison both pointLayersBound=true",
+    "zoom4": "physical-spatial index and27 viewport cells observed; detail visible; main loading hidden",
+    "applicationConsoleErrorsAtFinalMapCheck": []
+  },
+  "restoredTestState": {
+    "networkThrottling": false,
+    "cacheDisabled": false,
+    "viewportOverride": false
+  },
+  "screenshots": [
+    "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/meridian-3.38/research-desktop.png",
+    "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/meridian-3.38/research-records.png",
+    "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/meridian-3.38/research-mobile.png",
+    "/Users/zane/Documents/Codex/2026-10-02/new-chat/outputs/meridian-3.38/map-regional.png"
+  ],
+  "remaining": [
+    "Real mobile hardware memory and long-task profiling",
+    "Production resource/visual verification after authorized publication",
+    "Research source workbook lacks per-record arguments and bibliography"
+  ]
+}
