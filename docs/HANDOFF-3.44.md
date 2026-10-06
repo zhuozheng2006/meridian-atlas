@@ -27,6 +27,8 @@
 - Worker原16项行为测试以新增native路径fixture重跑通过，覆盖导入、原URL读取、HEAD/ETag、关闭、错误恢复和完整回读。
 - 此次只修改部署构建/分发，前端资源戳仍为 `3.44.0-3fda80a72ecc`，上一轮桌面/手机及性能证据继续适用。
 
+云端数据已于2026-10-06 20:49（Asia/Shanghai）完成：298/298文件上传，全部原URL完整回读SHA一致，共192,900,639字节。默认最终构建已确认 `importUntil=0`。
+
 最终部署结果以 `verification-3.44/publication.json`、云端逐项SHA回读以 `verification-3.44/static-storage-audit.json` 为准。只有原生Sites状态succeeded且数据回读完成后才报告上线完成。发布完成后继续遵守用户停止要求，不启动新功能或资料工作。
 
 ## 详图加载优化
