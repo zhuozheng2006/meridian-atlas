@@ -1,0 +1,42 @@
+{
+  "SSP": {
+    "zh": "疑有待核",
+    "en": "Suspected",
+    "role": "confidence-tag-not-an-observed-Polaris-value",
+    "sourceRefs": [
+      {
+        "repositoryPath": "seshat/apps/core/models.py",
+        "startLine": 133,
+        "endLine": 140,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/models.py#L133-L140",
+        "localFile": "raw/seshat--apps--core--models.py",
+        "sha256": "27ad824bf08745cec2b851fdeca5982f6cbaa5c1a62d139b91b8e80b3c0d295d",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/all_datatypes.html",
+        "startLine": 229,
+        "endLine": 231,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/all_datatypes.html#L229-L231",
+        "localFile": "raw/seshat--apps--core--templates--core--all_datatypes.html",
+        "sha256": "41601705463e248a117a87c48a8bc24416afc594ddfe431f80068499db5a06ee",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "applicableTo": "unknown / blank numeric value under current protocol",
+    "mustNotApplyTo": [
+      "A",
+      "P"
+    ]
+  },
+  "SU": {
+    "role": "combined-code",
+    "zh": "疑为资料不足，待复核",
+    "en": "Suspected unknown"
+  },
+  "notes": [
+    "SSP is absent as a raw value in the 19-code Polaris snapshot inventory.",
+    "SA and SP remain preserved legacy combinations; do not silently replace them with SU.",
+    "The year_from-ignore instruction in this protocol is explicitly about power_transition. Do not apply it to Crisis consequences."
+  ]
+}

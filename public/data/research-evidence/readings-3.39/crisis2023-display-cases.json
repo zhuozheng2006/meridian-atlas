@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "crisis-2023-github",
+  "sourceSha256": "9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368",
+  "sourceFile": "raw/crisis2023-github.csv",
+  "sourceRecordCount": 169,
+  "sourceUndecodableByteCount": 74,
+  "displayEncoding": "UTF-8; invalid source bytes rendered as [0xNN]",
+  "encodingNoteZh": "\u539f\u59cb\u6587\u4ef6\u6709\u5c11\u91cf\u7f16\u7801\u6b8b\u7f3a\uff0c\u663e\u793a\u65f6\u7528 [0xNN] \u6807\u51fa\u5bf9\u5e94\u5b57\u8282\uff1b\u5b8c\u6574\u6587\u4ef6\u53ca\u5b57\u6bb5\u5b57\u8282\u4e00\u5e76\u4fdd\u7559\u3002",
+  "encodingNoteEn": "A few source bytes have incomplete text encoding. They appear as [0xNN]; the original file and field bytes are preserved.",
+  "cases": [
+    {
+      "sourceRecordId": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:16",
+      "csvRecordNumberWithHeader": 16,
+      "caseNameZh": "\u660e\u672b\u5371\u673a",
+      "caseNameEn": "Ming fall",
+      "relatedPolarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:26",
+      "relationship": "related-earlier-source-narrative",
+      "sameSourceRecordProven": false,
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "sourceContext": {
+        "Polity.Name": "Ming Dynasty",
+        "Polity.Date.From": "1368",
+        "Polity.Date.To": "1643",
+        "Crisis.Case": "Fall of the Ming Dynasty",
+        "Crisis.Period": "XVII c"
+      },
+      "sourceCodes": {
+        "decline": "1",
+        "collapse": "0",
+        "epidemic": "1",
+        "downw.mob": "0",
+        "extermination": "0",
+        "uprising": "1",
+        "civil.war": "1",
+        "century.plus": "0",
+        "fragmentation": "0",
+        "capital": "1",
+        "conquest": "1",
+        "assassin": "0",
+        "depose": "1",
+        "Severity": "7"
+      },
+      "fields": {
+        "Notes": {
+          "text": "The Battle of Shanhai Pass on 27th May 1644 was the decisive battle that led to the eventual fall of the Ming Dyansty and the beginning of the Qing dynasty rule in China. The conquest of the entire of China by the Qing took several decades until the supression of the Three Feudatories rebellion in 1683 when the south was finally captured. Epidemic plague ravaged the country in the 1640s which was closely followed by a severe famine. These disasters led to a massive population decline, with some cities such as Hangzhou suffering up to a 50% loss of its people. Peasant rebellions became rife in the 1640s and in 1644 rebels breached the walls of Bejing, leading the emperor to commit suicide. The Little Ice Age is likely to have contributed to the Ming fall as it caused droughts and famine across China in what was the coldest and driest period of 1660-1680. Revolution: unsuccessful revolution involving non-soldiers, supressed by Manchu who then took over",
+          "decodedFieldBytesBase64": "VGhlIEJhdHRsZSBvZiBTaGFuaGFpIFBhc3Mgb24gMjd0aCBNYXkgMTY0NCB3YXMgdGhlIGRlY2lzaXZlIGJhdHRsZSB0aGF0IGxlZCB0byB0aGUgZXZlbnR1YWwgZmFsbCBvZiB0aGUgTWluZyBEeWFuc3R5IGFuZCB0aGUgYmVnaW5uaW5nIG9mIHRoZSBRaW5nIGR5bmFzdHkgcnVsZSBpbiBDaGluYS4gVGhlIGNvbnF1ZXN0IG9mIHRoZSBlbnRpcmUgb2YgQ2hpbmEgYnkgdGhlIFFpbmcgdG9vayBzZXZlcmFsIGRlY2FkZXMgdW50aWwgdGhlIHN1cHJlc3Npb24gb2YgdGhlIFRocmVlIEZldWRhdG9yaWVzIHJlYmVsbGlvbiBpbiAxNjgzIHdoZW4gdGhlIHNvdXRoIHdhcyBmaW5hbGx5IGNhcHR1cmVkLiBFcGlkZW1pYyBwbGFndWUgcmF2YWdlZCB0aGUgY291bnRyeSBpbiB0aGUgMTY0MHMgd2hpY2ggd2FzIGNsb3NlbHkgZm9sbG93ZWQgYnkgYSBzZXZlcmUgZmFtaW5lLiBUaGVzZSBkaXNhc3RlcnMgbGVkIHRvIGEgbWFzc2l2ZSBwb3B1bGF0aW9uIGRlY2xpbmUsIHdpdGggc29tZSBjaXRpZXMgc3VjaCBhcyBIYW5nemhvdSBzdWZmZXJpbmcgdXAgdG8gYSA1MCUgbG9zcyBvZiBpdHMgcGVvcGxlLiBQZWFzYW50IHJlYmVsbGlvbnMgYmVjYW1lIHJpZmUgaW4gdGhlIDE2NDBzIGFuZCBpbiAxNjQ0IHJlYmVscyBicmVhY2hlZCB0aGUgd2FsbHMgb2YgQmVqaW5nLCBsZWFkaW5nIHRoZSBlbXBlcm9yIHRvIGNvbW1pdCBzdWljaWRlLiBUaGUgTGl0dGxlIEljZSBBZ2UgaXMgbGlrZWx5IHRvIGhhdmUgY29udHJpYnV0ZWQgdG8gdGhlIE1pbmcgZmFsbCBhcyBpdCBjYXVzZWQgZHJvdWdodHMgYW5kIGZhbWluZSBhY3Jvc3MgQ2hpbmEgaW4gd2hhdCB3YXMgdGhlIGNvbGRlc3QgYW5kIGRyaWVzdCBwZXJpb2Qgb2YgMTY2MC0xNjgwLiBSZXZvbHV0aW9uOiB1bnN1Y2Nlc3NmdWwgcmV2b2x1dGlvbiBpbnZvbHZpbmcgbm9uLXNvbGRpZXJzLCBzdXByZXNzZWQgYnkgTWFuY2h1IHdobyB0aGVuIHRvb2sgb3Zlcg==",
+          "decodedFieldBytes": 964,
+          "decodedFieldSha256": "f4760677e7ff227b5565d2d7329fec86423f002d1c0341ce9f437fa6f8bab05f",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        },
+        "References": {
+          "text": "Xiao, Lingbo, Xiuqi Fang, Jingyun Zheng, and Wanyi Zhao. Famine, Migration and War: Comparison of Climate Change Impacts and Social Responses in North China between the Late Ming and Late Qing Dynasties. Holocene 25, no. 6 (June 2015) $ Smith, Richard J. (2015). The Qing Dynasty and Traditional Chinese Culture. Rowman & Littlefield. $ Brook, Timothy (1999). The Confusions of Pleasure: Commerce and Culture in Ming China (illustrated, reprint ed.). University of California Press.",
+          "decodedFieldBytesBase64": "WGlhbywgTGluZ2JvLCBYaXVxaSBGYW5nLCBKaW5neXVuIFpoZW5nLCBhbmQgV2FueWkgWmhhby4gRmFtaW5lLCBNaWdyYXRpb24gYW5kIFdhcjogQ29tcGFyaXNvbiBvZiBDbGltYXRlIENoYW5nZSBJbXBhY3RzIGFuZCBTb2NpYWwgUmVzcG9uc2VzIGluIE5vcnRoIENoaW5hIGJldHdlZW4gdGhlIExhdGUgTWluZyBhbmQgTGF0ZSBRaW5nIER5bmFzdGllcy4gSG9sb2NlbmUgMjUsIG5vLiA2IChKdW5lIDIwMTUpICQgU21pdGgsIFJpY2hhcmQgSi4gKDIwMTUpLiBUaGUgUWluZyBEeW5hc3R5IGFuZCBUcmFkaXRpb25hbCBDaGluZXNlIEN1bHR1cmUuIFJvd21hbiAmIExpdHRsZWZpZWxkLiAkIEJyb29rLCBUaW1vdGh5ICgxOTk5KS4gVGhlIENvbmZ1c2lvbnMgb2YgUGxlYXN1cmU6IENvbW1lcmNlIGFuZCBDdWx0dXJlIGluIE1pbmcgQ2hpbmEgKGlsbHVzdHJhdGVkLCByZXByaW50IGVkLikuIFVuaXZlcnNpdHkgb2YgQ2FsaWZvcm5pYSBQcmVzcy4=",
+          "decodedFieldBytes": 482,
+          "decodedFieldSha256": "3eed239a1a4fe9f392a961c20a1235181587ffe2f717b1eb953d7ee14063b91f",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        }
+      }
+    },
+    {
+      "sourceRecordId": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:92",
+      "csvRecordNumberWithHeader": 92,
+      "caseNameZh": "\u7f57\u9a6c\u7b49\u7ea7\u6597\u4e89",
+      "caseNameEn": "Conflict of the Orders",
+      "relatedPolarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:11",
+      "relationship": "related-earlier-source-narrative",
+      "sameSourceRecordProven": false,
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "sourceContext": {
+        "Polity.Name": "Early Republican Rome",
+        "Polity.Date.From": "-509",
+        "Polity.Date.To": "-265",
+        "Crisis.Case": "Crisis of the Orders",
+        "Crisis.Period": "IV-III c bce"
+      },
+      "sourceCodes": {
+        "decline": "0",
+        "collapse": "0",
+        "epidemic": "0",
+        "downw.mob": "0",
+        "extermination": "0",
+        "uprising": "1",
+        "civil.war": "0",
+        "century.plus": "1",
+        "fragmentation": "0",
+        "capital": "0",
+        "conquest": "0",
+        "assassin": "0",
+        "depose": "0",
+        "Severity": "2"
+      },
+      "fields": {
+        "Notes": {
+          "text": "The Conflict of the Orders pitted Rome's wealthy elite, who enjoyed nearly all of the prestige and power of political office as well as controlling most of the city's agricultural land, against the poorer members of society (plebeians), mainly small-scale or tenant farmers who had contributed to Roman territorial expansion by serving as soldiers during the wars of the early Republic. The 'secessio plebis' which saw the plebian classes leave the city in protest against the patrician classes who could then not fend for themselves and were forced to negotiate with the commoners. In 494 BCE, the plebeians went on strike, refusing to march to war against a coalition of tribes from central Italy. A settlement was reached when Rome's aristocrats extended to the plebeians the right to vote for certain magistrates, known as the Tribunes of the Plebs (essentially the 'people's magistrates'). This was an important office charged with looking after the needs of Rome's poorer citizens, who held veto powers against decisions made in the Senate. Tensions between the aristocrats and the plebeians lingered throughout the 4th century BCE and after another series of wars against the neighbouring tribes of the Aequi, the Volsci, the Latins, and the Veii, the commoners demanded further rights. The tribuni militum consulari potestate (consular tribunate) emerged briefly during this time of disruption (to be abolished 367 BCE). This was an elected office that could be held both by members of the powerful families and the Roman citizens. In 287 BCE the Hortensian Law was passed to ensure that resolutions passed by the plebian council were final and did not have to be ratified by the patricians. This bought an end to total Patrician rule in the Roman Republic.",
+          "decodedFieldBytesBase64": "VGhlIENvbmZsaWN0IG9mIHRoZSBPcmRlcnMgcGl0dGVkIFJvbWUncyB3ZWFsdGh5IGVsaXRlLCB3aG8gZW5qb3llZCBuZWFybHkgYWxsIG9mIHRoZSBwcmVzdGlnZSBhbmQgcG93ZXIgb2YgcG9saXRpY2FsIG9mZmljZSBhcyB3ZWxsIGFzIGNvbnRyb2xsaW5nIG1vc3Qgb2YgdGhlIGNpdHkncyBhZ3JpY3VsdHVyYWwgbGFuZCwgYWdhaW5zdCB0aGUgcG9vcmVyIG1lbWJlcnMgb2Ygc29jaWV0eSAocGxlYmVpYW5zKSwgbWFpbmx5IHNtYWxsLXNjYWxlIG9yIHRlbmFudCBmYXJtZXJzIHdobyBoYWQgY29udHJpYnV0ZWQgdG8gUm9tYW4gdGVycml0b3JpYWwgZXhwYW5zaW9uIGJ5IHNlcnZpbmcgYXMgc29sZGllcnMgZHVyaW5nIHRoZSB3YXJzIG9mIHRoZSBlYXJseSBSZXB1YmxpYy4gVGhlICdzZWNlc3NpbyBwbGViaXMnIHdoaWNoIHNhdyB0aGUgcGxlYmlhbiBjbGFzc2VzIGxlYXZlIHRoZSBjaXR5IGluIHByb3Rlc3QgYWdhaW5zdCB0aGUgcGF0cmljaWFuIGNsYXNzZXMgd2hvIGNvdWxkIHRoZW4gbm90IGZlbmQgZm9yIHRoZW1zZWx2ZXMgYW5kIHdlcmUgZm9yY2VkIHRvIG5lZ290aWF0ZSB3aXRoIHRoZSBjb21tb25lcnMuIEluIDQ5NCBCQ0UsIHRoZSBwbGViZWlhbnMgd2VudCBvbiBzdHJpa2UsIHJlZnVzaW5nIHRvIG1hcmNoIHRvIHdhciBhZ2FpbnN0IGEgY29hbGl0aW9uIG9mIHRyaWJlcyBmcm9tIGNlbnRyYWwgSXRhbHkuIEEgc2V0dGxlbWVudCB3YXMgcmVhY2hlZCB3aGVuIFJvbWUncyBhcmlzdG9jcmF0cyBleHRlbmRlZCB0byB0aGUgcGxlYmVpYW5zIHRoZSByaWdodCB0byB2b3RlIGZvciBjZXJ0YWluIG1hZ2lzdHJhdGVzLCBrbm93biBhcyB0aGUgVHJpYnVuZXMgb2YgdGhlIFBsZWJzIChlc3NlbnRpYWxseSB0aGUgJ3Blb3BsZSdzIG1hZ2lzdHJhdGVzJykuIFRoaXMgd2FzIGFuIGltcG9ydGFudCBvZmZpY2UgY2hhcmdlZCB3aXRoIGxvb2tpbmcgYWZ0ZXIgdGhlIG5lZWRzIG9mIFJvbWUncyBwb29yZXIgY2l0aXplbnMsIHdobyBoZWxkIHZldG8gcG93ZXJzIGFnYWluc3QgZGVjaXNpb25zIG1hZGUgaW4gdGhlIFNlbmF0ZS4gVGVuc2lvbnMgYmV0d2VlbiB0aGUgYXJpc3RvY3JhdHMgYW5kIHRoZSBwbGViZWlhbnMgbGluZ2VyZWQgdGhyb3VnaG91dCB0aGUgNHRoIGNlbnR1cnkgQkNFIGFuZCBhZnRlciBhbm90aGVyIHNlcmllcyBvZiB3YXJzIGFnYWluc3QgdGhlIG5laWdoYm91cmluZyB0cmliZXMgb2YgdGhlIEFlcXVpLCB0aGUgVm9sc2NpLCB0aGUgTGF0aW5zLCBhbmQgdGhlIFZlaWksIHRoZSBjb21tb25lcnMgZGVtYW5kZWQgZnVydGhlciByaWdodHMuIFRoZSB0cmlidW5pIG1pbGl0dW0gY29uc3VsYXJpIHBvdGVzdGF0ZSAoY29uc3VsYXIgdHJpYnVuYXRlKSBlbWVyZ2VkIGJyaWVmbHkgZHVyaW5nIHRoaXMgdGltZSBvZiBkaXNydXB0aW9uICh0byBiZSBhYm9saXNoZWQgMzY3IEJDRSkuIFRoaXMgd2FzIGFuIGVsZWN0ZWQgb2ZmaWNlIHRoYXQgY291bGQgYmUgaGVsZCBib3RoIGJ5IG1lbWJlcnMgb2YgdGhlIHBvd2VyZnVsIGZhbWlsaWVzIGFuZCB0aGUgUm9tYW4gY2l0aXplbnMuIEluIDI4NyBCQ0UgdGhlIEhvcnRlbnNpYW4gTGF3IHdhcyBwYXNzZWQgdG8gZW5zdXJlIHRoYXQgcmVzb2x1dGlvbnMgcGFzc2VkIGJ5IHRoZSBwbGViaWFuIGNvdW5jaWwgd2VyZSBmaW5hbCBhbmQgZGlkIG5vdCBoYXZlIHRvIGJlIHJhdGlmaWVkIGJ5IHRoZSBwYXRyaWNpYW5zLiBUaGlzIGJvdWdodCBhbiBlbmQgdG8gdG90YWwgUGF0cmljaWFuIHJ1bGUgaW4gdGhlIFJvbWFuIFJlcHVibGljLg==",
+          "decodedFieldBytes": 1765,
+          "decodedFieldSha256": "86da21551d9b4f67e55f3d21b22714e85df037d6b8b388782a1e3754aa949789",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        },
+        "References": {
+          "text": "Hans Beck, Antonio Dupl[0x87], Martin Jehne and Francisco Pina Polo. 2011. 'The Republic and Its Highest Office: Some Introductory Remarks on the Roman Consulate', in Consuls and Res Publica: Holding High Office in the Roman Republic, edited by Hans Beck, Antonio Dupl[0x87], Martin Jehne and Francisco Pina Polo, 1-16. Cambridge: Cambridge University Press. $ Kurt A. Raaflaub. 2005. 'The Conflict of the Orders in Archaic Rome: A Comprehensive and Comparative Approach', in Social Struggles in Archaic Rome, edited by Kurt A. Raaflaub, 1-46. Malden, MA: Blackwell Publishing. $ Oakley, Stephen P. The Early Republic. Flower, Harriet I. 2004. The Cambridge Companion to the Roman Republic. Cambridge University Press. 17-19. $ Abbott, Frank Frost (1901). A History and Description of Roman Political Institutions. Elibron Classics. 41-48 | Goldstone, Jack A.\u00a0Revolutions: A Very Short Introduction. OUP USA, 2014.",
+          "decodedFieldBytesBase64": "SGFucyBCZWNrLCBBbnRvbmlvIER1cGyHLCBNYXJ0aW4gSmVobmUgYW5kIEZyYW5jaXNjbyBQaW5hIFBvbG8uIDIwMTEuICdUaGUgUmVwdWJsaWMgYW5kIEl0cyBIaWdoZXN0IE9mZmljZTogU29tZSBJbnRyb2R1Y3RvcnkgUmVtYXJrcyBvbiB0aGUgUm9tYW4gQ29uc3VsYXRlJywgaW4gQ29uc3VscyBhbmQgUmVzIFB1YmxpY2E6IEhvbGRpbmcgSGlnaCBPZmZpY2UgaW4gdGhlIFJvbWFuIFJlcHVibGljLCBlZGl0ZWQgYnkgSGFucyBCZWNrLCBBbnRvbmlvIER1cGyHLCBNYXJ0aW4gSmVobmUgYW5kIEZyYW5jaXNjbyBQaW5hIFBvbG8sIDEtMTYuIENhbWJyaWRnZTogQ2FtYnJpZGdlIFVuaXZlcnNpdHkgUHJlc3MuICQgS3VydCBBLiBSYWFmbGF1Yi4gMjAwNS4gJ1RoZSBDb25mbGljdCBvZiB0aGUgT3JkZXJzIGluIEFyY2hhaWMgUm9tZTogQSBDb21wcmVoZW5zaXZlIGFuZCBDb21wYXJhdGl2ZSBBcHByb2FjaCcsIGluIFNvY2lhbCBTdHJ1Z2dsZXMgaW4gQXJjaGFpYyBSb21lLCBlZGl0ZWQgYnkgS3VydCBBLiBSYWFmbGF1YiwgMS00Ni4gTWFsZGVuLCBNQTogQmxhY2t3ZWxsIFB1Ymxpc2hpbmcuICQgT2FrbGV5LCBTdGVwaGVuIFAuIFRoZSBFYXJseSBSZXB1YmxpYy4gRmxvd2VyLCBIYXJyaWV0IEkuIDIwMDQuIFRoZSBDYW1icmlkZ2UgQ29tcGFuaW9uIHRvIHRoZSBSb21hbiBSZXB1YmxpYy4gQ2FtYnJpZGdlIFVuaXZlcnNpdHkgUHJlc3MuIDE3LTE5LiAkIEFiYm90dCwgRnJhbmsgRnJvc3QgKDE5MDEpLiBBIEhpc3RvcnkgYW5kIERlc2NyaXB0aW9uIG9mIFJvbWFuIFBvbGl0aWNhbCBJbnN0aXR1dGlvbnMuIEVsaWJyb24gQ2xhc3NpY3MuIDQxLTQ4IHwgR29sZHN0b25lLCBKYWNrIEEuwqBSZXZvbHV0aW9uczogQSBWZXJ5IFNob3J0IEludHJvZHVjdGlvbi4gT1VQIFVTQSwgMjAxNC4=",
+          "decodedFieldBytes": 905,
+          "decodedFieldSha256": "cb9b5ea5bfb7a43576fd88a773a96115b342f0649799a24f573437d27aa79ab5",
+          "undecodableByteCount": 2,
+          "undecodableBytes": [
+            {
+              "unicodeCodePointOffset": 23,
+              "fieldByteOffset": 23,
+              "displayCodePointOffset": 23,
+              "byteHex": "87"
+            },
+            {
+              "unicodeCodePointOffset": 263,
+              "fieldByteOffset": 263,
+              "displayCodePointOffset": 268,
+              "byteHex": "87"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sourceRecordId": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:93",
+      "csvRecordNumberWithHeader": 93,
+      "caseNameZh": "\u7f57\u9a6c\u5171\u548c\u56fd\u5411\u5e1d\u56fd\u8fc7\u6e21",
+      "caseNameEn": "Roman transition to empire",
+      "relatedPolarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:148",
+      "relationship": "related-earlier-source-narrative",
+      "sameSourceRecordProven": false,
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "sourceContext": {
+        "Polity.Name": "Roman Republic-Principate",
+        "Polity.Date.From": "-133",
+        "Polity.Date.To": "-29",
+        "Crisis.Case": "Rome's transition from republic to empire",
+        "Crisis.Period": "I bce"
+      },
+      "sourceCodes": {
+        "decline": "1.inf",
+        "collapse": "0",
+        "epidemic": "0",
+        "downw.mob": "1",
+        "extermination": "1",
+        "uprising": "0",
+        "civil.war": "1",
+        "century.plus": "0",
+        "fragmentation": "0",
+        "capital": "0",
+        "conquest": "0",
+        "assassin": "0",
+        "depose": "1.inf",
+        "Severity": "5"
+      },
+      "fields": {
+        "Notes": {
+          "text": "The period of civil war, and with it republican government at Rome, effectively ended in 31 BCE when Octavian (who was granted the name Augustus in 27 BCE) defeated Mark Antony and the Egyptian army led by the Ptolemaic Queen Cleopatra at the battle of Actium. They both fled to Alexandria and later committed suicide. This secured Octavian's position as the sole ruler of both Roman and Egyptian territories and he was soon declared Pharoah. In the weeks and months following his victory Augustus executed all of Mark Anthony's supporters and began passing laws which although gave the oputward appearance of maintaining a Republic, in fact granted even more power and authority to himself. In 27 BCE he was named Augustus by the Senate and made the first Roman Emperor, officially transitioning the Republic into the Roman Empire. The population at the dawn of empire was around 30 million people, with Italy itself supporting between 5 and 10 million, thus apparently experiencing population growth despite the repeated bouts of civil war. \"In the last phase, the first century BC, the population declined as a result of constant civil wars, a high urbanization index, and, during later stages, massive state-sponsored population transfers\" (Turchin and Nefedov 2009: 181). Ruler assassination: Julius Caesar, for example (Scarre 1995: 8-9). Massive elite downward mobility and extermination: \"The direct effect of sociopolitical instability [during the last century BCE] was the physical liquidation of a portion of the elite\" (Turchin and Nefedov 2009: 206).",
+          "decodedFieldBytesBase64": "VGhlIHBlcmlvZCBvZiBjaXZpbCB3YXIsIGFuZCB3aXRoIGl0IHJlcHVibGljYW4gZ292ZXJubWVudCBhdCBSb21lLCBlZmZlY3RpdmVseSBlbmRlZCBpbiAzMSBCQ0Ugd2hlbiBPY3RhdmlhbiAod2hvIHdhcyBncmFudGVkIHRoZSBuYW1lIEF1Z3VzdHVzIGluIDI3IEJDRSkgZGVmZWF0ZWQgTWFyayBBbnRvbnkgYW5kIHRoZSBFZ3lwdGlhbiBhcm15IGxlZCBieSB0aGUgUHRvbGVtYWljIFF1ZWVuIENsZW9wYXRyYSBhdCB0aGUgYmF0dGxlIG9mIEFjdGl1bS4gVGhleSBib3RoIGZsZWQgdG8gQWxleGFuZHJpYSBhbmQgbGF0ZXIgY29tbWl0dGVkIHN1aWNpZGUuIFRoaXMgc2VjdXJlZCBPY3RhdmlhbidzIHBvc2l0aW9uIGFzIHRoZSBzb2xlIHJ1bGVyIG9mIGJvdGggUm9tYW4gYW5kIEVneXB0aWFuIHRlcnJpdG9yaWVzIGFuZCBoZSB3YXMgc29vbiBkZWNsYXJlZCBQaGFyb2FoLiBJbiB0aGUgd2Vla3MgYW5kIG1vbnRocyBmb2xsb3dpbmcgaGlzIHZpY3RvcnkgQXVndXN0dXMgZXhlY3V0ZWQgYWxsIG9mIE1hcmsgQW50aG9ueSdzIHN1cHBvcnRlcnMgYW5kIGJlZ2FuIHBhc3NpbmcgbGF3cyB3aGljaCBhbHRob3VnaCBnYXZlIHRoZSBvcHV0d2FyZCBhcHBlYXJhbmNlIG9mIG1haW50YWluaW5nIGEgUmVwdWJsaWMsIGluIGZhY3QgZ3JhbnRlZCBldmVuIG1vcmUgcG93ZXIgYW5kIGF1dGhvcml0eSB0byBoaW1zZWxmLiBJbiAyNyBCQ0UgaGUgd2FzIG5hbWVkIEF1Z3VzdHVzIGJ5IHRoZSBTZW5hdGUgYW5kIG1hZGUgdGhlIGZpcnN0IFJvbWFuIEVtcGVyb3IsIG9mZmljaWFsbHkgdHJhbnNpdGlvbmluZyB0aGUgUmVwdWJsaWMgaW50byB0aGUgUm9tYW4gRW1waXJlLiBUaGUgcG9wdWxhdGlvbiBhdCB0aGUgZGF3biBvZiBlbXBpcmUgd2FzIGFyb3VuZCAzMCBtaWxsaW9uIHBlb3BsZSwgd2l0aCBJdGFseSBpdHNlbGYgc3VwcG9ydGluZyBiZXR3ZWVuIDUgYW5kIDEwIG1pbGxpb24sIHRodXMgYXBwYXJlbnRseSBleHBlcmllbmNpbmcgcG9wdWxhdGlvbiBncm93dGggZGVzcGl0ZSB0aGUgcmVwZWF0ZWQgYm91dHMgb2YgY2l2aWwgd2FyLiAiSW4gdGhlIGxhc3QgcGhhc2UsIHRoZSBmaXJzdCBjZW50dXJ5IEJDLCB0aGUgcG9wdWxhdGlvbiBkZWNsaW5lZCBhcyBhIHJlc3VsdCBvZiBjb25zdGFudCBjaXZpbCB3YXJzLCBhIGhpZ2ggdXJiYW5pemF0aW9uIGluZGV4LCBhbmQsIGR1cmluZyBsYXRlciBzdGFnZXMsIG1hc3NpdmUgc3RhdGUtc3BvbnNvcmVkIHBvcHVsYXRpb24gdHJhbnNmZXJzIiAoVHVyY2hpbiBhbmQgTmVmZWRvdiAyMDA5OiAxODEpLiBSdWxlciBhc3Nhc3NpbmF0aW9uOiBKdWxpdXMgQ2Flc2FyLCBmb3IgZXhhbXBsZSAoU2NhcnJlIDE5OTU6IDgtOSkuIE1hc3NpdmUgZWxpdGUgZG93bndhcmQgbW9iaWxpdHkgYW5kIGV4dGVybWluYXRpb246ICJUaGUgZGlyZWN0IGVmZmVjdCBvZiBzb2Npb3BvbGl0aWNhbCBpbnN0YWJpbGl0eSBbZHVyaW5nIHRoZSBsYXN0IGNlbnR1cnkgQkNFXSB3YXMgdGhlIHBoeXNpY2FsIGxpcXVpZGF0aW9uIG9mIGEgcG9ydGlvbiBvZiB0aGUgZWxpdGUiIChUdXJjaGluIGFuZCBOZWZlZG92IDIwMDk6IDIwNiku",
+          "decodedFieldBytes": 1563,
+          "decodedFieldSha256": "7c44c5f65c8a913a66b3451e25f80d862bb4f9f8f295f9600ebcb400d0ba3457",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        },
+        "References": {
+          "text": "Scarre 1995: Scarre, Chris. 1995. Chronicle of the Roman Emperors: The Reign-by-Reign Record of the Rulers of Imperial Rome. London: Thames and Hudson. $ Turchin and Nefedov 2009: Turchin, Peter, and Sergey Nefedov. 2009. Secular Cycles. Princeton: Princeton University Press.",
+          "decodedFieldBytesBase64": "U2NhcnJlIDE5OTU6IFNjYXJyZSwgQ2hyaXMuIDE5OTUuIENocm9uaWNsZSBvZiB0aGUgUm9tYW4gRW1wZXJvcnM6IFRoZSBSZWlnbi1ieS1SZWlnbiBSZWNvcmQgb2YgdGhlIFJ1bGVycyBvZiBJbXBlcmlhbCBSb21lLiBMb25kb246IFRoYW1lcyBhbmQgSHVkc29uLiAkIFR1cmNoaW4gYW5kIE5lZmVkb3YgMjAwOTogVHVyY2hpbiwgUGV0ZXIsIGFuZCBTZXJnZXkgTmVmZWRvdi4gMjAwOS4gU2VjdWxhciBDeWNsZXMuIFByaW5jZXRvbjogUHJpbmNldG9uIFVuaXZlcnNpdHkgUHJlc3Mu",
+          "decodedFieldBytes": 276,
+          "decodedFieldSha256": "fbaf98517dd74fea639895144a27cef22074c68b4ad3d08c45439c6ce7d1f29b",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        }
+      }
+    },
+    {
+      "sourceRecordId": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:127",
+      "csvRecordNumberWithHeader": 127,
+      "caseNameZh": "\u5370\u52a0\u8870\u9000\u3001\u5185\u6218\u4e0e\u5f81\u670d",
+      "caseNameEn": "Inca decline and conquest",
+      "relatedPolarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:120",
+      "relationship": "related-earlier-source-narrative",
+      "sameSourceRecordProven": false,
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "sourceContext": {
+        "Polity.Name": "Inca Empire",
+        "Polity.Date.From": "1400",
+        "Polity.Date.To": "1531",
+        "Crisis.Case": "Inca decline and civil war",
+        "Crisis.Period": "XVI c"
+      },
+      "sourceCodes": {
+        "decline": "1",
+        "collapse": "1",
+        "epidemic": "1",
+        "downw.mob": "1",
+        "extermination": "0",
+        "uprising": "0",
+        "civil.war": "1",
+        "century.plus": "0",
+        "fragmentation": "0",
+        "capital": "1",
+        "conquest": "1",
+        "assassin": "1",
+        "depose": "0",
+        "Severity": "8"
+      },
+      "fields": {
+        "Notes": {
+          "text": "Inca decline, civil war, Spanish conquest. Population collapse, in large part due to introduction of smallpox, measles and other diseases (Cook 2004: 62, 114). Estimates for the pre- and postconquest population of Peru vary, but Cook (2004: 114) argues for a figure of 9 million before the Spanish arrival, falling to 1 million within 50 years and 600,000 by 1620. Civil war between the Inca nobility (Rowe 2015). Elite downward mobility but not extermination: Spanish officials replaced Andean nobles in many areas, but because the European population was initially low, the Spanish relied on indigenous elite to rule the population (Covey 2020: 351-2, 418; Nair 2007: 53). Ruler assassinated: Atahuallpa executed on Pizzarro's orders (Covey 2020: 253). The Inca Empire collpased abruptly at the beginning of the sixteenth century. Smallpox, introduced by European invaders, was already raging throughout the empire. When the Sapa Inka, Huayna Khapaq, died of smallpox in 1528, his sons both claimed the throne, throwing the empire into civil war. Many elites died due to the epidemic and so there was chaos, competition and internal conflicts between them. Many potential candidates for Inca were often put in place by their mothers, the elite 'chosen women' of the court. This also led to these individuals seeking military support and making deals with the Spaniards who arrived in 1532, which led to further conflicts and outbreaks of smallpox. The Inca empire had been so weakened by disease and war, that they were conquered in just a few years.",
+          "decodedFieldBytesBase64": "SW5jYSBkZWNsaW5lLCBjaXZpbCB3YXIsIFNwYW5pc2ggY29ucXVlc3QuIFBvcHVsYXRpb24gY29sbGFwc2UsIGluIGxhcmdlIHBhcnQgZHVlIHRvIGludHJvZHVjdGlvbiBvZiBzbWFsbHBveCwgbWVhc2xlcyBhbmQgb3RoZXIgZGlzZWFzZXMgKENvb2sgMjAwNDogNjIsIDExNCkuIEVzdGltYXRlcyBmb3IgdGhlIHByZS0gYW5kIHBvc3Rjb25xdWVzdCBwb3B1bGF0aW9uIG9mIFBlcnUgdmFyeSwgYnV0IENvb2sgKDIwMDQ6IDExNCkgYXJndWVzIGZvciBhIGZpZ3VyZSBvZiA5IG1pbGxpb24gYmVmb3JlIHRoZSBTcGFuaXNoIGFycml2YWwsIGZhbGxpbmcgdG8gMSBtaWxsaW9uIHdpdGhpbiA1MCB5ZWFycyBhbmQgNjAwLDAwMCBieSAxNjIwLiBDaXZpbCB3YXIgYmV0d2VlbiB0aGUgSW5jYSBub2JpbGl0eSAoUm93ZSAyMDE1KS4gRWxpdGUgZG93bndhcmQgbW9iaWxpdHkgYnV0IG5vdCBleHRlcm1pbmF0aW9uOiBTcGFuaXNoIG9mZmljaWFscyByZXBsYWNlZCBBbmRlYW4gbm9ibGVzIGluIG1hbnkgYXJlYXMsIGJ1dCBiZWNhdXNlIHRoZSBFdXJvcGVhbiBwb3B1bGF0aW9uIHdhcyBpbml0aWFsbHkgbG93LCB0aGUgU3BhbmlzaCByZWxpZWQgb24gaW5kaWdlbm91cyBlbGl0ZSB0byBydWxlIHRoZSBwb3B1bGF0aW9uIChDb3ZleSAyMDIwOiAzNTEtMiwgNDE4OyBOYWlyIDIwMDc6IDUzKS4gUnVsZXIgYXNzYXNzaW5hdGVkOiBBdGFodWFsbHBhIGV4ZWN1dGVkIG9uIFBpenphcnJvJ3Mgb3JkZXJzIChDb3ZleSAyMDIwOiAyNTMpLiBUaGUgSW5jYSBFbXBpcmUgY29sbHBhc2VkIGFicnVwdGx5IGF0IHRoZSBiZWdpbm5pbmcgb2YgdGhlIHNpeHRlZW50aCBjZW50dXJ5LiBTbWFsbHBveCwgaW50cm9kdWNlZCBieSBFdXJvcGVhbiBpbnZhZGVycywgd2FzIGFscmVhZHkgcmFnaW5nIHRocm91Z2hvdXQgdGhlIGVtcGlyZS4gV2hlbiB0aGUgU2FwYSBJbmthLCBIdWF5bmEgS2hhcGFxLCBkaWVkIG9mIHNtYWxscG94IGluIDE1MjgsIGhpcyBzb25zIGJvdGggY2xhaW1lZCB0aGUgdGhyb25lLCB0aHJvd2luZyB0aGUgZW1waXJlIGludG8gY2l2aWwgd2FyLiBNYW55IGVsaXRlcyBkaWVkIGR1ZSB0byB0aGUgZXBpZGVtaWMgYW5kIHNvIHRoZXJlIHdhcyBjaGFvcywgY29tcGV0aXRpb24gYW5kIGludGVybmFsIGNvbmZsaWN0cyBiZXR3ZWVuIHRoZW0uIE1hbnkgcG90ZW50aWFsIGNhbmRpZGF0ZXMgZm9yIEluY2Egd2VyZSBvZnRlbiBwdXQgaW4gcGxhY2UgYnkgdGhlaXIgbW90aGVycywgdGhlIGVsaXRlICdjaG9zZW4gd29tZW4nIG9mIHRoZSBjb3VydC4gVGhpcyBhbHNvIGxlZCB0byB0aGVzZSBpbmRpdmlkdWFscyBzZWVraW5nIG1pbGl0YXJ5IHN1cHBvcnQgYW5kIG1ha2luZyBkZWFscyB3aXRoIHRoZSBTcGFuaWFyZHMgd2hvIGFycml2ZWQgaW4gMTUzMiwgd2hpY2ggbGVkIHRvIGZ1cnRoZXIgY29uZmxpY3RzIGFuZCBvdXRicmVha3Mgb2Ygc21hbGxwb3guIFRoZSBJbmNhIGVtcGlyZSBoYWQgYmVlbiBzbyB3ZWFrZW5lZCBieSBkaXNlYXNlIGFuZCB3YXIsIHRoYXQgdGhleSB3ZXJlIGNvbnF1ZXJlZCBpbiBqdXN0IGEgZmV3IHllYXJzLg==",
+          "decodedFieldBytes": 1552,
+          "decodedFieldSha256": "a9ae249db74a64485fce9e8b834c8c22276453d418d268db448957da42540ea9",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        },
+        "References": {
+          "text": "Personal Communication with Alan Covey 19/09/22",
+          "decodedFieldBytesBase64": "UGVyc29uYWwgQ29tbXVuaWNhdGlvbiB3aXRoIEFsYW4gQ292ZXkgMTkvMDkvMjI=",
+          "decodedFieldBytes": 47,
+          "decodedFieldSha256": "456955dd52199cd1f18d9d1a053b7c5faa3d5910308099837c11ebb90a5c442c",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        }
+      }
+    },
+    {
+      "sourceRecordId": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:128",
+      "csvRecordNumberWithHeader": 128,
+      "caseNameZh": "\u5370\u52a0\u7ee7\u627f\u5371\u673a",
+      "caseNameEn": "Inca succession crisis",
+      "relatedPolarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:121",
+      "relationship": "related-earlier-source-narrative",
+      "sameSourceRecordProven": false,
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "sourceContext": {
+        "Polity.Name": "Inca Empire",
+        "Polity.Date.From": "1400",
+        "Polity.Date.To": "1531",
+        "Crisis.Case": "Inca succession crisis'",
+        "Crisis.Period": "XV c"
+      },
+      "sourceCodes": {
+        "decline": "0",
+        "collapse": "0",
+        "epidemic": "0",
+        "downw.mob": "0",
+        "extermination": "0",
+        "uprising": "1",
+        "civil.war": "0",
+        "century.plus": "0",
+        "fragmentation": "0",
+        "capital": "0",
+        "conquest": "0",
+        "assassin": "0",
+        "depose": "0",
+        "Severity": "1"
+      },
+      "fields": {
+        "Notes": {
+          "text": "After the 9th Inca dies in 1470 there are a series of rebellions. The 1490 succession crisis is seen as an 'episode' rather than a full blown 'war' by scholars, largely confined to turmoil among the ruling family and other powerful elite families. ",
+          "decodedFieldBytesBase64": "QWZ0ZXIgdGhlIDl0aCBJbmNhIGRpZXMgaW4gMTQ3MCB0aGVyZSBhcmUgYSBzZXJpZXMgb2YgcmViZWxsaW9ucy4gVGhlIDE0OTAgc3VjY2Vzc2lvbiBjcmlzaXMgaXMgc2VlbiBhcyBhbiAnZXBpc29kZScgcmF0aGVyIHRoYW4gYSBmdWxsIGJsb3duICd3YXInIGJ5IHNjaG9sYXJzLCBsYXJnZWx5IGNvbmZpbmVkIHRvIHR1cm1vaWwgYW1vbmcgdGhlIHJ1bGluZyBmYW1pbHkgYW5kIG90aGVyIHBvd2VyZnVsIGVsaXRlIGZhbWlsaWVzLiA=",
+          "decodedFieldBytes": 248,
+          "decodedFieldSha256": "4bb9a2f8e9626cab8d97f6ca6f588c7c20b95f4576de3a67b62b4299b9994414",
+          "undecodableByteCount": 0,
+          "undecodableBytes": []
+        },
+        "References": {
+          "text": "Cook, Noble David. 2004. Demographic Collapse: Indian Peru, 1520-1620. Cambridge: Cambridge University Press. $ Covey 2020: Covey, R. Alan. 2020. Inca Apocalypse: The Spanish Conquest and the Transformation of the Andean World. Oxford: Oxford University Press. $ Nair 2007: Nair, Stella. 2007. [0xE2]Witnessing the In-Visibility of Inca Architecture in Colonial Peru. Buildings & Landscapes: Journal of the Vernacular Architecture Forum 14: 50-65. $ Rowe 2006: Rowe, John H. [0xE2]The Inca Civil War and the Establishment of Spanish Power in Peru. [0x84]awpa Pacha 28 (1): 1-9. https://doi.org/10.1179/naw.2006.28.1.002. $ personal communication with Alan Covey 19/09/22.",
+          "decodedFieldBytesBase64": "Q29vaywgTm9ibGUgRGF2aWQuIDIwMDQuIERlbW9ncmFwaGljIENvbGxhcHNlOiBJbmRpYW4gUGVydSwgMTUyMC0xNjIwLiBDYW1icmlkZ2U6IENhbWJyaWRnZSBVbml2ZXJzaXR5IFByZXNzLiAkIENvdmV5IDIwMjA6IENvdmV5LCBSLiBBbGFuLiAyMDIwLiBJbmNhIEFwb2NhbHlwc2U6IFRoZSBTcGFuaXNoIENvbnF1ZXN0IGFuZCB0aGUgVHJhbnNmb3JtYXRpb24gb2YgdGhlIEFuZGVhbiBXb3JsZC4gT3hmb3JkOiBPeGZvcmQgVW5pdmVyc2l0eSBQcmVzcy4gJCBOYWlyIDIwMDc6IE5haXIsIFN0ZWxsYS4gMjAwNy4g4ldpdG5lc3NpbmcgdGhlIEluLVZpc2liaWxpdHkgb2YgSW5jYSBBcmNoaXRlY3R1cmUgaW4gQ29sb25pYWwgUGVydS4gQnVpbGRpbmdzICYgTGFuZHNjYXBlczogSm91cm5hbCBvZiB0aGUgVmVybmFjdWxhciBBcmNoaXRlY3R1cmUgRm9ydW0gMTQ6IDUwLTY1LiAkIFJvd2UgMjAwNjogUm93ZSwgSm9obiBILiDiVGhlIEluY2EgQ2l2aWwgV2FyIGFuZCB0aGUgRXN0YWJsaXNobWVudCBvZiBTcGFuaXNoIFBvd2VyIGluIFBlcnUuIIRhd3BhIFBhY2hhIDI4ICgxKTogMS05LiBodHRwczovL2RvaS5vcmcvMTAuMTE3OS9uYXcuMjAwNi4yOC4xLjAwMi4gJCBwZXJzb25hbCBjb21tdW5pY2F0aW9uIHdpdGggQWxhbiBDb3ZleSAxOS8wOS8yMi4=",
+          "decodedFieldBytes": 656,
+          "decodedFieldSha256": "480cab9e5ddc20c680a07643a9e2242bff013ea84d0b42a1408a2884d05187cb",
+          "undecodableByteCount": 3,
+          "undecodableBytes": [
+            {
+              "unicodeCodePointOffset": 294,
+              "fieldByteOffset": 294,
+              "displayCodePointOffset": 294,
+              "byteHex": "E2"
+            },
+            {
+              "unicodeCodePointOffset": 470,
+              "fieldByteOffset": 470,
+              "displayCodePointOffset": 475,
+              "byteHex": "E2"
+            },
+            {
+              "unicodeCodePointOffset": 538,
+              "fieldByteOffset": 538,
+              "displayCodePointOffset": 548,
+              "byteHex": "84"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

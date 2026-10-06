@@ -1,0 +1,523 @@
+[
+  {
+    "id": "polity_linguistic_family",
+    "sourceName": "polity_linguistic_family",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 9,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "语系",
+    "en": "Polity linguistic family",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "classification-system-supported",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 2022,
+        "endLine": 2039,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L2022-L2039",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/old_codebook.html",
+        "startLine": 466,
+        "endLine": 470,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/old_codebook.html#L466-L470",
+        "localFile": "raw/seshat--apps--core--templates--core--old_codebook.html",
+        "sha256": "eec6e190d5505ef105df5f3f2b36ea7e0a3d337d96e6145eb27a37b963357b12",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "definitionZh": "语言、语系与 genus 分类参照 WALS；保留来源分类名称。",
+    "definitionEn": "Language, family and genus names follow WALS classification."
+  },
+  {
+    "id": "polity_language_genus",
+    "sourceName": "polity_language_genus",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 10,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "语族（genus）",
+    "en": "Polity language genus",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "classification-system-supported",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 2154,
+        "endLine": 2171,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L2154-L2171",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/old_codebook.html",
+        "startLine": 466,
+        "endLine": 470,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/old_codebook.html#L466-L470",
+        "localFile": "raw/seshat--apps--core--templates--core--old_codebook.html",
+        "sha256": "eec6e190d5505ef105df5f3f2b36ea7e0a3d337d96e6145eb27a37b963357b12",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "definitionZh": "语言、语系与 genus 分类参照 WALS；保留来源分类名称。",
+    "definitionEn": "Language, family and genus names follow WALS classification."
+  },
+  {
+    "id": "polity_religion_genus",
+    "sourceName": "polity_religion_genus",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 11,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "宗教类别（genus）",
+    "en": "Polity religion genus",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 2286,
+        "endLine": 2303,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L2286-L2303",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "polity_religion_family",
+    "sourceName": "polity_religion_family",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 12,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "宗教分支（family）",
+    "en": "Polity religion family",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 2418,
+        "endLine": 2435,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L2418-L2435",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "polity_religion",
+    "sourceName": "polity_religion",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 13,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "宗教",
+    "en": "Polity religion",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 2549,
+        "endLine": 2566,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L2549-L2566",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "polity_alternate_religion_genus",
+    "sourceName": "polity_alternate_religion_genus",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 19,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "其他宗教类别（genus）",
+    "en": "Polity alternate religion genus",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 3406,
+        "endLine": 3423,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L3406-L3423",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "polity_alternate_religion_family",
+    "sourceName": "polity_alternate_religion_family",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 20,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "其他宗教分支（family）",
+    "en": "Polity alternate religion family",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 3538,
+        "endLine": 3555,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L3538-L3555",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "polity_alternate_religion",
+    "sourceName": "polity_alternate_religion",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 21,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "其他宗教",
+    "en": "Polity alternate religion",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 3670,
+        "endLine": 3687,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L3670-L3687",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "polity_religious_tradition",
+    "sourceName": "polity_religious_tradition",
+    "sheet": "General",
+    "section": "general",
+    "sourceVariableRow": 22,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "宗教传统",
+    "en": "Polity religious tradition",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/general/models.py",
+        "startLine": 4012,
+        "endLine": 4029,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/general/models.py#L4012-L4029",
+        "localFile": "raw/seshat--apps--general--models.py",
+        "sha256": "b1177c79ba3de9fca59885b518864c626db3cb00bfc4464145471905093beb08",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "other_utilitarian_public_building",
+    "sourceName": "other_utilitarian_public_building",
+    "sheet": "Social complexity",
+    "section": "sc",
+    "sourceVariableRow": 79,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "其他实用性公共建筑",
+    "en": "Other utilitarian public building",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/sc/models.py",
+        "startLine": 5638,
+        "endLine": 5655,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/sc/models.py#L5638-L5655",
+        "localFile": "raw/seshat--apps--sc--models.py",
+        "sha256": "efb8527ca29cb461384e6bad63422030a3bec2141eb440030ebc1198a5663d25",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "occupational_complexity",
+    "sourceName": "occupational_complexity",
+    "sheet": "Social complexity",
+    "section": "sc",
+    "sourceVariableRow": 95,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "职业分工程度",
+    "en": "Occupational complexity",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/sc/models.py",
+        "startLine": 7156,
+        "endLine": 7173,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/sc/models.py#L7156-L7173",
+        "localFile": "raw/seshat--apps--sc--models.py",
+        "sha256": "efb8527ca29cb461384e6bad63422030a3bec2141eb440030ebc1198a5663d25",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/old_codebook.html",
+        "startLine": 508,
+        "endLine": 512,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/old_codebook.html#L508-L512",
+        "localFile": "raw/seshat--apps--core--templates--core--old_codebook.html",
+        "sha256": "eec6e190d5505ef105df5f3f2b36ea7e0a3d337d96e6145eb27a37b963357b12",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "当前模型使用存在/缺失代码，旧代码本该标题下没有具体判据；不要显示成连续复杂度指数。",
+    "noteEn": "The model uses categorical codes; no scalar complexity index is established."
+  },
+  {
+    "id": "lux_fine_ceramic_wares",
+    "sourceName": "lux_fine_ceramic_wares",
+    "sheet": "Luxury goods",
+    "section": "ec",
+    "sourceVariableRow": 155,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "精制陶瓷器",
+    "en": "Lux fine ceramic wares",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/ec/models.py",
+        "startLine": 496,
+        "endLine": 506,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/ec/models.py#L496-L506",
+        "localFile": "raw/seshat--apps--ec--models.py",
+        "sha256": "2d4c2eee8ff5173c96c6692344f698a07cd2996f2628d2e7597b2c2b72c7c399",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "other_luxury_personal_items",
+    "sourceName": "other_luxury_personal_items",
+    "sheet": "Luxury goods",
+    "section": "ec",
+    "sourceVariableRow": 159,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "其他个人奢侈用品",
+    "en": "Other luxury personal items",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/ec/models.py",
+        "startLine": 548,
+        "endLine": 558,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/ec/models.py#L548-L558",
+        "localFile": "raw/seshat--apps--ec--models.py",
+        "sha256": "2d4c2eee8ff5173c96c6692344f698a07cd2996f2628d2e7597b2c2b72c7c399",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "sync_rel_pra_ind_beli",
+    "sourceName": "sync_rel_pra_ind_beli",
+    "sheet": "Religion",
+    "section": "rt",
+    "sourceVariableRow": 160,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "信徒个人层面的宗教实践混融",
+    "en": "Syncretism of religious practices among individual believers",
+    "labelStatus": "expanded-label-confirmed",
+    "definitionStatus": "label-scope-confirmed-criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/rt/models.py",
+        "startLine": 554,
+        "endLine": 571,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/rt/models.py#L554-L571",
+        "localFile": "raw/seshat--apps--rt--models.py",
+        "sha256": "cc82f2fe512c581dd5334434e97a5ea9da19726373c8beb0c9d6bd747cbf0e48",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "官方模型把 sync 展开为 Syncretism；不是“同步性”。编码判据仍未取得。",
+    "noteEn": "The official model expands sync as Syncretism. Detailed coding criteria remain unverified."
+  },
+  {
+    "id": "religious_fragmentation",
+    "sourceName": "religious_fragmentation",
+    "sheet": "Religion",
+    "section": "rt",
+    "sourceVariableRow": 161,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "宗教分化",
+    "en": "Religious fragmentation",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/rt/models.py",
+        "startLine": 667,
+        "endLine": 684,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/rt/models.py#L667-L684",
+        "localFile": "raw/seshat--apps--rt--models.py",
+        "sha256": "cc82f2fe512c581dd5334434e97a5ea9da19726373c8beb0c9d6bd747cbf0e48",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "moralizing_supernatural_punishment_and_reward",
+    "sourceName": "moralizing_supernatural_punishment_and_reward",
+    "sheet": "Religion",
+    "section": "rt",
+    "sourceVariableRow": 162,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "超自然力量的道德奖惩",
+    "en": "Moralizing supernatural punishment and reward",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/rt/models.py",
+        "startLine": 2478,
+        "endLine": 2495,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/rt/models.py#L2478-L2495",
+        "localFile": "raw/seshat--apps--rt--models.py",
+        "sha256": "cc82f2fe512c581dd5334434e97a5ea9da19726373c8beb0c9d6bd747cbf0e48",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "模型确认字段名与类型；本轮没有取得足以界定新版编码判据的说明，保留现有译名。",
+    "noteEn": "The model confirms the name and type; detailed current coding criteria remain unverified."
+  },
+  {
+    "id": "human_sacrifice",
+    "sourceName": "human_sacrifice",
+    "sheet": "Religion",
+    "section": "rt",
+    "sourceVariableRow": 173,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "人祭",
+    "en": "Human sacrifice",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "criteria-not-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 1007,
+        "endLine": 1024,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L1007-L1024",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/old_codebook.html",
+        "startLine": 1471,
+        "endLine": 1474,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/old_codebook.html#L1471-L1474",
+        "localFile": "raw/seshat--apps--core--templates--core--old_codebook.html",
+        "sha256": "eec6e190d5505ef105df5f3f2b36ea7e0a3d337d96e6145eb27a37b963357b12",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "noteZh": "旧代码本有概念说明，但给出的是 0—5 分级；当前模型为存在/缺失。概念可供阅读，不能把旧分级规则套到当前记录。",
+    "noteEn": "The legacy codebook describes a 0–5 scale; the current field is categorical. Do not transfer the old coding scale."
+  },
+  {
+    "id": "crisis-consequences",
+    "sourceName": "crisis-consequences",
+    "sheet": "CrisisDB - Crisis consequences",
+    "section": "crisisdb-cc",
+    "sourceVariableRow": 174,
+    "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "zh": "危机后果",
+    "en": "Crisis consequences",
+    "labelStatus": "source-identifier-supported",
+    "definitionStatus": "multi-field-definitions-established",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 700,
+        "endLine": 717,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L700-L717",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "preserveSourceValues": true,
+    "allowRecordMerge": false,
+    "definitionFile": "crisis-field-candidates.json"
+  }
+]

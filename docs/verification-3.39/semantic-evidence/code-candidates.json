@@ -1,0 +1,339 @@
+[
+  {
+    "raw": "A",
+    "snapshotOccurrenceCount": 12268,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "来源编码为未见该特征",
+    "en": "Coded absent",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 74,
+        "endLine": 82,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L74-L82",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": false
+  },
+  {
+    "raw": "A~P",
+    "snapshotOccurrenceCount": 115,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "从不存在到存在的过渡期",
+    "en": "Transition from absent to present",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/all_datatypes.html",
+        "startLine": 169,
+        "endLine": 180,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/all_datatypes.html#L169-L180",
+        "localFile": "raw/seshat--apps--core--templates--core--all_datatypes.html",
+        "sha256": "41601705463e248a117a87c48a8bc24416afc594ddfe431f80068499db5a06ee",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": true,
+    "noteZh": "过渡方向有明确定义；实际出现或消失的精确时间仍不确定。",
+    "noteEn": "Direction is defined; the exact time of appearance or disappearance remains uncertain."
+  },
+  {
+    "raw": "DIS",
+    "snapshotOccurrenceCount": 16,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "存在争议",
+    "en": "Disputed source coding",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 74,
+        "endLine": 82,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L74-L82",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": true
+  },
+  {
+    "raw": "IA",
+    "snapshotOccurrenceCount": 3311,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "来源推定未见该特征",
+    "en": "Inferred absent",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 74,
+        "endLine": 82,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L74-L82",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": false
+  },
+  {
+    "raw": "IP",
+    "snapshotOccurrenceCount": 5137,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "来源推定存在该特征",
+    "en": "Inferred present",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 74,
+        "endLine": 82,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L74-L82",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": false
+  },
+  {
+    "raw": "IU",
+    "snapshotOccurrenceCount": 1,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "IFR 标签与 unknown 的组合",
+    "priorEvidence": "builder-IFR-plus-unknown; do-not-promote-to-known-fact",
+    "changeRecommended": false
+  },
+  {
+    "raw": "NO_VALUE_ON_WIKI",
+    "snapshotOccurrenceCount": 90,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "来源占位标记，缺少原值",
+    "priorEvidence": "literal-source-sentinel; not-history-fact",
+    "changeRecommended": false
+  },
+  {
+    "raw": "P",
+    "snapshotOccurrenceCount": 15761,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "来源编码为存在该特征",
+    "en": "Coded present",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 74,
+        "endLine": 82,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L74-L82",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": false
+  },
+  {
+    "raw": "P~A",
+    "snapshotOccurrenceCount": 14,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "从存在到不存在的过渡期",
+    "en": "Transition from present to absent",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/all_datatypes.html",
+        "startLine": 169,
+        "endLine": 180,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/all_datatypes.html#L169-L180",
+        "localFile": "raw/seshat--apps--core--templates--core--all_datatypes.html",
+        "sha256": "41601705463e248a117a87c48a8bc24416afc594ddfe431f80068499db5a06ee",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": true,
+    "noteZh": "过渡方向有明确定义；实际出现或消失的精确时间仍不确定。",
+    "noteEn": "Direction is defined; the exact time of appearance or disappearance remains uncertain."
+  },
+  {
+    "raw": "SA",
+    "snapshotOccurrenceCount": 6,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "legacy-export-combination-provisional",
+    "existingZh": "SSP 标签与 absent 的组合",
+    "priorEvidence": "builder-SSP-plus-absent; keep-prefix",
+    "changeRecommended": false,
+    "noteZh": "快照实际存在，但当前官方协议规定 SSP 只用于 unknown。构建函数可以机械生成 S+A/S+P；保留原值，不把它升级为当前协议认可的确定状态。",
+    "noteEn": "Present in this snapshot; the current protocol limits SSP to unknown. Preserve these legacy export combinations.",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/all_datatypes.html",
+        "startLine": 229,
+        "endLine": 231,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/all_datatypes.html#L229-L231",
+        "localFile": "raw/seshat--apps--core--templates--core--all_datatypes.html",
+        "sha256": "41601705463e248a117a87c48a8bc24416afc594ddfe431f80068499db5a06ee",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/models.py",
+        "startLine": 133,
+        "endLine": 140,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/models.py#L133-L140",
+        "localFile": "raw/seshat--apps--core--models.py",
+        "sha256": "27ad824bf08745cec2b851fdeca5982f6cbaa5c1a62d139b91b8e80b3c0d295d",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ]
+  },
+  {
+    "raw": "SP",
+    "snapshotOccurrenceCount": 3,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "legacy-export-combination-provisional",
+    "existingZh": "SSP 标签与 present 的组合",
+    "priorEvidence": "builder-SSP-plus-present; keep-prefix",
+    "changeRecommended": false,
+    "noteZh": "快照实际存在，但当前官方协议规定 SSP 只用于 unknown。构建函数可以机械生成 S+A/S+P；保留原值，不把它升级为当前协议认可的确定状态。",
+    "noteEn": "Present in this snapshot; the current protocol limits SSP to unknown. Preserve these legacy export combinations.",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/all_datatypes.html",
+        "startLine": 229,
+        "endLine": 231,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/all_datatypes.html#L229-L231",
+        "localFile": "raw/seshat--apps--core--templates--core--all_datatypes.html",
+        "sha256": "41601705463e248a117a87c48a8bc24416afc594ddfe431f80068499db5a06ee",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      },
+      {
+        "repositoryPath": "seshat/apps/core/models.py",
+        "startLine": 133,
+        "endLine": 140,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/models.py#L133-L140",
+        "localFile": "raw/seshat--apps--core--models.py",
+        "sha256": "27ad824bf08745cec2b851fdeca5982f6cbaa5c1a62d139b91b8e80b3c0d295d",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ]
+  },
+  {
+    "raw": "SU",
+    "snapshotOccurrenceCount": 6583,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "疑为资料不足，待复核",
+    "en": "Suspected unknown",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/core/templates/core/all_datatypes.html",
+        "startLine": 477,
+        "endLine": 484,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/core/templates/core/all_datatypes.html#L477-L484",
+        "localFile": "raw/seshat--apps--core--templates--core--all_datatypes.html",
+        "sha256": "41601705463e248a117a87c48a8bc24416afc594ddfe431f80068499db5a06ee",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": true
+  },
+  {
+    "raw": "U",
+    "snapshotOccurrenceCount": 335,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "zh": "来源编码为未知",
+    "en": "Unknown",
+    "status": "source-explicit",
+    "evidence": [
+      {
+        "repositoryPath": "seshat/apps/crisisdb/models.py",
+        "startLine": 74,
+        "endLine": 82,
+        "url": "https://github.com/Seshat-Global-History-Databank/seshat/blob/1f847d95e224860115a3dc358165380fe5487bcd/seshat/apps/crisisdb/models.py#L74-L82",
+        "localFile": "raw/seshat--apps--crisisdb--models.py",
+        "sha256": "0dd5a4d793e6ab8ce98c4ef4abec5a06d7d9144ff569d08c0c4aa4243b2cbf51",
+        "commit": "1f847d95e224860115a3dc358165380fe5487bcd"
+      }
+    ],
+    "changeRecommended": false
+  },
+  {
+    "raw": "absent",
+    "snapshotOccurrenceCount": 1070,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "来源编码为未见该特征",
+    "priorEvidence": "literal-absent; Religion export retains spelled-out codes",
+    "changeRecommended": false
+  },
+  {
+    "raw": "not applicable",
+    "snapshotOccurrenceCount": 9,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "该变量不适用",
+    "priorEvidence": "2021-codebook-p9",
+    "changeRecommended": false
+  },
+  {
+    "raw": "present",
+    "snapshotOccurrenceCount": 2962,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "来源编码为存在该特征",
+    "priorEvidence": "literal-present; Religion export retains spelled-out codes",
+    "changeRecommended": false
+  },
+  {
+    "raw": "suspected unknown",
+    "snapshotOccurrenceCount": 18,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "疑为资料不足，尚待确认",
+    "priorEvidence": "2021-codebook-p9",
+    "changeRecommended": false
+  },
+  {
+    "raw": "uncoded",
+    "snapshotOccurrenceCount": 18,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "来源尚未编码",
+    "priorEvidence": "literal-uncoded; not-absence",
+    "changeRecommended": false
+  },
+  {
+    "raw": "unknown",
+    "snapshotOccurrenceCount": 998,
+    "preserveRaw": true,
+    "allowBooleanCollapse": false,
+    "status": "keep-existing-reviewed-display",
+    "existingZh": "来源编码为未知",
+    "priorEvidence": "literal-unknown; not-absence",
+    "changeRecommended": false
+  }
+]

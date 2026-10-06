@@ -1,18 +1,18 @@
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.38.0-5683ed6448eb';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.38.0-5683ed6448eb';
-import {cityNarrative} from './city-narratives.js?v=3.38.0-5683ed6448eb';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.38.0-5683ed6448eb';
-import {sourcesHTML} from './source-reader.js?v=3.38.0-5683ed6448eb';
-import {loadMapLibre} from './map-runtime.js?v=3.38.0-5683ed6448eb';
-import {prefetchNativeFrame} from './native-geometry.js?v=3.38.0-5683ed6448eb';
-import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.38.0-5683ed6448eb';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.38.0-5683ed6448eb';
-import {BattleLayer,loadBattles} from './battles.js?v=3.38.0-5683ed6448eb';
-import {AtrocityLayer,loadAtrocities} from './atrocities.js?v=3.38.0-5683ed6448eb';
-import {bindTimeline} from './timeline-controls.js?v=3.38.0-5683ed6448eb';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.38.0-5683ed6448eb';
-import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.38.0-5683ed6448eb';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.38.0-5683ed6448eb';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.39.0-733d3fc8d4c0';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.39.0-733d3fc8d4c0';
+import {cityNarrative} from './city-narratives.js?v=3.39.0-733d3fc8d4c0';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.39.0-733d3fc8d4c0';
+import {sourcesHTML} from './source-reader.js?v=3.39.0-733d3fc8d4c0';
+import {loadMapLibre} from './map-runtime.js?v=3.39.0-733d3fc8d4c0';
+import {prefetchNativeFrame} from './native-geometry.js?v=3.39.0-733d3fc8d4c0';
+import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.39.0-733d3fc8d4c0';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.39.0-733d3fc8d4c0';
+import {BattleLayer,loadBattles} from './battles.js?v=3.39.0-733d3fc8d4c0';
+import {AtrocityLayer,loadAtrocities} from './atrocities.js?v=3.39.0-733d3fc8d4c0';
+import {bindTimeline} from './timeline-controls.js?v=3.39.0-733d3fc8d4c0';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.39.0-733d3fc8d4c0';
+import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.39.0-733d3fc8d4c0';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.39.0-733d3fc8d4c0';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -23,12 +23,17 @@ const CATS={'all':['所有主题','All themes'],'politics':['政治与国家','S
 const COLORS={politics:'#c6a16d',war:'#d38372',culture:'#b499c6',science:'#75bcca',trade:'#86b29b',society:'#dfbd6e',religion:'#9ea1d2',disaster:'#aaaca6'};
 const ERAS=[[-48000,'早期人类','Early humanity'],[-10000,'农业起源','Agriculture'],[-3400,'早期国家','Early states'],[-1200,'青铜与铁器','Bronze & iron'],[-500,'古典时代','Classical'],[500,'中古世界','Medieval'],[1000,'区域网络','Regional networks'],[1450,'全球相遇','Global encounters'],[1750,'工业与革命','Industry & revolution'],[1914,'世界大战','World wars'],[1945,'战后世界','Postwar'],[1991,'当代','Contemporary']];
 const STOPS=[[-70000,0],[-10000,.10],[-3400,.22],[-1,.40],[1000,.55],[1500,.68],[1800,.80],[2026,1]];
-const state={year:1492,lang:'bi',span:50,placeWindow:50,borderCurves:true,region:'all',category:'all',search:'',allTime:false,view:'atlas',selected:null,selectedPolity:null,selectedSide:'left',projection:'globe',compare:false,compareYear:1900,borders:true,events:true,labels:true,terrain:true,cities:true,reference:false,coast:true,streets:true,boundaryMode:'auto',compareBoundaryMode:'auto',selectedPlace:null,selectedBoundary:null,story:null,storyIndex:0,browse:true};
+const DEFAULT_STATE={year:1492,lang:'bi',span:50,placeWindow:50,borderCurves:true,region:'all',category:'all',search:'',allTime:false,view:'atlas',selected:null,selectedPolity:null,selectedSide:'left',projection:'globe',compare:false,compareYear:1900,borders:true,events:true,labels:true,terrain:true,cities:true,reference:false,coast:true,streets:true,boundaryMode:'auto',compareBoundaryMode:'auto',selectedPlace:null,selectedBoundary:null,story:null,storyIndex:0,browse:true};
+const state={...DEFAULT_STATE};
 let boundaryComparison=null,applyingBoundaryComparison=false,boundaryComparisonLoad=null;
 let pendingYear=null,pendingCompareYear=null,compareGeneration=0,detailFocus=null,detailNavigation=0,placeReturn=null,readerReturnBrowse=true,polityReader,politySearch='',catalog,events=[],coverage=[],atlas,compareMap,playing=false,playTimer=null,updateId=0,libSearch='';
 const params=new URLSearchParams(location.hash.slice(1));
 let researchView=null,researchSnapshot=parseResearchState(params),viewRevision=0,coreDataPromise=null,atlasBootPromise=null,atlasReady=false,mapURLRestored=false;
-const savedCamera=decodeCamera(params.get('camera'));let restoringView=!!savedCamera;
+let savedCamera=decodeCamera(params.get('camera')),restoringView=!!savedCamera;
+function restoreStartupState(){
+ for(const key of Object.keys(state))delete state[key];Object.assign(state,DEFAULT_STATE);
+ const latest=new URLSearchParams(location.hash.slice(1));for(const key of [...params.keys()])params.delete(key);for(const [key,value]of latest)params.set(key,value);
+ researchSnapshot=parseResearchState(params);savedCamera=decodeCamera(params.get('camera'));restoringView=!!savedCamera;
 for(const key of ['year','span','compareYear'])if(params.has(key)&&Number.isFinite(Number(params.get(key))))state[key]=Number(params.get(key));
 if(params.has('step')&&[1,10,50,100].includes(+params.get('step')))state.step=+params.get('step');
 // The shipped markup marks the ten-year step as the default; keep the rebuilt select
@@ -41,9 +46,11 @@ state.allTime=params.get('all')==='1';state.search=params.get('q')||'';if(['glob
 for(const k of ['borders','events','labels','terrain','cities','coast','streets','battles','atrocities'])if(params.has(k))state[k]=params.get(k)!=='0';
 if(state.battles===undefined)state.battles=true;if(state.atrocities===undefined)state.atrocities=false;state.reference=params.get('reference')==='1';
 state.boundaryMode=boundaryMode(params.get('boundaries')||(params.get('regional')==='0'?'overview':'auto'));state.compareBoundaryMode=boundaryMode(params.get('boundaries2')||state.boundaryMode);
+ state.year=normalizeYear(state.year);state.span=[0,10,50,100,250].includes(state.span)?state.span:50;state.compareYear=normalizeYear(state.compareYear);
+}
 const yr=y=>formatYear(y,state.lang==='en'?'en':'zh');
 function normalizeYear(value){let y=Math.round(Number(value));if(!Number.isFinite(y))y=1492;return Math.max(-70000,Math.min(2026,y===0?1:y));}
-state.year=normalizeYear(state.year);state.span=[0,10,50,100,250].includes(state.span)?state.span:50;state.compareYear=normalizeYear(state.compareYear);
+restoreStartupState();
 function scaled(y){let a=STOPS[0],b=STOPS[1];for(let i=1;i<STOPS.length;i++){if(y<=STOPS[i][0]){a=STOPS[i-1];b=STOPS[i];break;}a=STOPS[i-1];b=STOPS[i];}return (a[1]+(y-a[0])/(b[0]-a[0])*(b[1]-a[1]))*10000;}
 function unscaled(v){const f=v/10000;for(let i=1;i<STOPS.length;i++){if(f<=STOPS[i][1]){const a=STOPS[i-1],b=STOPS[i];return normalizeYear(a[0]+(f-a[1])/(b[1]-a[1])*(b[0]-a[0]));}}return 2026;}
 function saveURL(){const p=new URLSearchParams({year:state.year,lang:state.lang,span:state.span,step:state.step||DEFAULT_STEP});if(state.placeWindow!==50)p.set('placeWindow',state.placeWindow);if(!state.borderCurves)p.set('borderCurves','0');if(state.region!=='all')p.set('region',state.region);if(state.category!=='all')p.set('category',state.category);if(state.selected){p.set('event',state.selected.id);if(state.selectedSide==='right')p.set('side','right');}if(state.compare){p.set('compare','1');p.set('compareYear',state.compareYear);}if(state.allTime)p.set('all','1');if(state.search)p.set('q',state.search);p.set('projection',state.projection);if(!state.browse)p.set('browse','0');if(state.selectedPolity){p.set('polity',state.selectedPolity.id);if(state.selectedSide==='right')p.set('side','right');}if(state.selectedPlace){p.set('place',state.selectedPlace.id);if(state.selectedSide==='right')p.set('side','right');}if(state.atrocities)p.set('atrocities','1');for(const k of ['borders','events','labels','terrain','cities','coast','streets','battles'])if(!state[k])p.set(k,'0');if(state.boundaryMode!=='auto')p.set('boundaries',state.boundaryMode);if(state.compare&&state.compareBoundaryMode!==state.boundaryMode)p.set('boundaries2',state.compareBoundaryMode);if(state.selectedBoundary){p.set('boundary',state.selectedBoundary.id);if(state.selectedBoundary.side==='right')p.set('side','right');}if(state.reference)p.set('reference','1');if(state.view!=='atlas')p.set('view',state.view);if(state.view==='research'||state.view==='sources')writeResearchState(p,researchView?.getSnapshot()||researchSnapshot);if(!mapURLRestored)for(const key of ['compare','compareYear','event','polity','place','boundary','side'])if(params.has(key)&&!p.has(key))p.set(key,params.get(key));const camera=restoringView?params.get('camera'):encodeCamera(atlas?.map);if(camera)p.set('camera',camera);history.replaceState(null,'','#'+p);}
@@ -512,6 +519,12 @@ async function init(){
  const view=['stories','library','sources','polities','research'].includes(params.get('view'))?params.get('view'):'atlas';await showView(view);
 }
 
-init();
-
-addEventListener('hashchange',()=>{if(location.hash.includes('='))location.reload();});
+// Controlled application entry: importing this module never renders or binds UI.
+let applicationController=null;
+export function startApplication(){
+ if(applicationController)return applicationController;
+ restoreStartupState();applicationController={ready:null,navigate:showView};
+ applicationController.ready=init();
+ addEventListener('hashchange',()=>{if(location.hash.includes('='))location.reload();});
+ return applicationController;
+}

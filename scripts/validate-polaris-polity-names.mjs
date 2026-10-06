@@ -6,6 +6,11 @@ import {polarisPolityName as name, polarisPolitySearchText as search, polarisPol
 const index = JSON.parse(gunzipSync(await readFile(new URL('../public/data/seshat-polaris-2026/index.json.gz', import.meta.url))));
 const reviewed = JSON.parse(await readFile(new URL('../docs/verification-3.38/polaris/polaris-names-polity-names.json', import.meta.url), 'utf8'));
 const byId = new Map(reviewed.map(row => [row.polity_id, row]));
+const qinReview = JSON.parse(await readFile(new URL('../docs/verification-3.39/semantic-evidence/polity-name-candidates.json', import.meta.url), 'utf8'))[0];
+assert.equal(qinReview.polity_id, 'cn_qin_emp');
+assert.equal(qinReview.allowDateCorrection, false);
+assert.equal(qinReview.allowIdentityMerge, false);
+byId.set(qinReview.polity_id, {...byId.get(qinReview.polity_id), zh:qinReview.zh, status:'complete', note:qinReview.noteZh});
 const originalIndex = JSON.stringify(index);
 let translated = 0;
 for (const polity of index.polities) {
@@ -24,7 +29,7 @@ for (const polity of index.polities) {
     assert.equal(note(polity, 'bi'), `${note(polity, 'zh')} ${note(polity, 'en')}`);
   }
 }
-assert.equal(translated, 368);
+assert.equal(translated, 369);
 assert.equal(JSON.stringify(index), originalIndex, 'display/search must not change the source index');
 const ming = index.polities.find(p => p.id === 'cn_ming_dyn');
 assert.equal(name(ming), '明朝');
@@ -53,10 +58,21 @@ const malacca = index.polities.filter(p => p.names[0] === 'Malacca Sultanate');
 assert.equal(malacca.length, 2);
 assert.equal(name(malacca.find(p => p.id.endsWith('22222'))), 'Malacca Sultanate');
 assert.equal(name(malacca.find(p => !p.id.endsWith('22222'))), '马六甲苏丹国');
-assert.equal(name(index.polities.find(p => p.id === 'cn_qin_emp')), 'Qin Empire');
-assert.ok(search(index.polities.find(p => p.id === 'cn_qin_emp')).includes('秦'));
+const qin = index.polities.find(p => p.id === 'cn_qin_emp');
+assert.equal(name(qin), '秦帝国');
+assert.equal(name(qin, 'en'), 'Qin Empire');
+assert.ok(search(qin).includes('秦'));
+assert.equal(qin.periods[0].startRaw, '-338');
+assert.equal(qin.periods[0].endRaw, '-207');
+assert.equal(qin.periods[0].sourceRow, '234');
+assert.equal(qin.sourceNumber, '250');
+assert.equal(note(qin, 'en'), qinReview.noteEn);
+const independentlyRedatedQin = structuredClone(qin);
+independentlyRedatedQin.periods[0].startRaw = '-221';
+assert.equal(name(independentlyRedatedQin), 'Qin Empire');
+assert.equal(note(independentlyRedatedQin), '');
 assert.equal(name({id:'__proto__',names:['Literal source']}), 'Literal source');
 assert.equal(name(null), '');
 assert.equal(note(null), '');
-console.log(JSON.stringify({passed:true, phases:626, translated, fallback:258, mismatchRegressions:mismatches.length,
+console.log(JSON.stringify({passed:true, phases:626, translated, fallback:257, mismatchRegressions:mismatches.length+1,
   checked:'actual source index, bilingual notes, source authority, row/number/period/region binding, immutable display'}, null, 2));

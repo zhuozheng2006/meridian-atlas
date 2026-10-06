@@ -1,0 +1,815 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368",
+  "polarisSourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+  "cases": [
+    {
+      "caseNameZh": "\u660e\u672b\u5371\u673a",
+      "caseNameEn": "Ming fall",
+      "olderRecord": {
+        "id": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:16",
+        "csvRecordNumberWithHeader": 16,
+        "raw": {
+          "Polity.Name": "Ming Dynasty",
+          "Polity.Date.From": "1368",
+          "Polity.Date.To": "1643",
+          "Crisis.Case": "Fall of the Ming Dynasty",
+          "Crisis.Period": "XVII c",
+          "decline": "1",
+          "collapse": "0",
+          "epidemic": "1",
+          "downw.mob": "0",
+          "extermination": "0",
+          "uprising": "1",
+          "civil.war": "1",
+          "century.plus": "0",
+          "fragmentation": "0",
+          "capital": "1",
+          "conquest": "1",
+          "assassin": "0",
+          "depose": "1",
+          "Severity": "7",
+          "Notes": "The Battle of Shanhai Pass on 27th May 1644 was the decisive battle that led to the eventual fall of the Ming Dyansty and the beginning of the Qing dynasty rule in China. The conquest of the entire of China by the Qing took several decades until the supression of the Three Feudatories rebellion in 1683 when the south was finally captured. Epidemic plague ravaged the country in the 1640s which was closely followed by a severe famine. These disasters led to a massive population decline, with some cities such as Hangzhou suffering up to a 50% loss of its people. Peasant rebellions became rife in the 1640s and in 1644 rebels breached the walls of Bejing, leading the emperor to commit suicide. The Little Ice Age is likely to have contributed to the Ming fall as it caused droughts and famine across China in what was the coldest and driest period of 1660-1680. Revolution: unsuccessful revolution involving non-soldiers, supressed by Manchu who then took over",
+          "References": "Xiao, Lingbo, Xiuqi Fang, Jingyun Zheng, and Wanyi Zhao. Famine, Migration and War: Comparison of Climate Change Impacts and Social Responses in North China between the Late Ming and Late Qing Dynasties. Holocene 25, no. 6 (June 2015) $ Smith, Richard J. (2015). The Qing Dynasty and Traditional Chinese Culture. Rowman & Littlefield. $ Brook, Timothy (1999). The Confusions of Pleasure: Commerce and Culture in Ming China (illustrated, reprint ed.). University of California Press.",
+          " ": ""
+        }
+      },
+      "polarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:26",
+      "polarisRawDates": [
+        "1644",
+        "1683"
+      ],
+      "relationship": "related-earlier-source-narrative",
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "pairingBasis": "Manual comparison of polity name, case narrative and event dates; no stable shared row identifier exists.",
+      "sameSourceRecordProven": false,
+      "fieldComparisons": [
+        {
+          "olderField": "decline",
+          "newerField": "decline",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "collapse",
+          "newerField": "collapse",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "epidemic",
+          "newerField": "epidemic",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "downw.mob",
+          "newerField": "downward_mobility",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "extermination",
+          "newerField": "extermination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "uprising",
+          "newerField": "uprising",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "civil.war",
+          "newerField": "civil_war",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "century.plus",
+          "newerField": "century_plus",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "fragmentation",
+          "newerField": "fragmentation",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "capital",
+          "newerField": "capital",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "conquest",
+          "newerField": "conquest",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "assassin",
+          "newerField": "assassination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "depose",
+          "newerField": "depose",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        }
+      ],
+      "newFieldsNotInOlder": [
+        "constitution",
+        "labor",
+        "public_goods",
+        "religion",
+        "revolution",
+        "successful_revolution",
+        "suffrage",
+        "unfree_labor"
+      ],
+      "comparisonWarning": "0/1 vs A/P translation is for review only; dates, missingness and newer variables are never reconstructed from the older file.",
+      "reviewFlags": [
+        "The old note combines suppression of the Three Feudatories and 1683; chronology needs independent checking before narrative reuse.",
+        "Bibliography has no specific pages for the Ming case."
+      ]
+    },
+    {
+      "caseNameZh": "\u7f57\u9a6c\u7b49\u7ea7\u6597\u4e89",
+      "caseNameEn": "Conflict of the Orders",
+      "olderRecord": {
+        "id": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:92",
+        "csvRecordNumberWithHeader": 92,
+        "raw": {
+          "Polity.Name": "Early Republican Rome",
+          "Polity.Date.From": "-509",
+          "Polity.Date.To": "-265",
+          "Crisis.Case": "Crisis of the Orders",
+          "Crisis.Period": "IV-III c bce",
+          "decline": "0",
+          "collapse": "0",
+          "epidemic": "0",
+          "downw.mob": "0",
+          "extermination": "0",
+          "uprising": "1",
+          "civil.war": "0",
+          "century.plus": "1",
+          "fragmentation": "0",
+          "capital": "0",
+          "conquest": "0",
+          "assassin": "0",
+          "depose": "0",
+          "Severity": "2",
+          "Notes": "The Conflict of the Orders pitted Rome's wealthy elite, who enjoyed nearly all of the prestige and power of political office as well as controlling most of the city's agricultural land, against the poorer members of society (plebeians), mainly small-scale or tenant farmers who had contributed to Roman territorial expansion by serving as soldiers during the wars of the early Republic. The 'secessio plebis' which saw the plebian classes leave the city in protest against the patrician classes who could then not fend for themselves and were forced to negotiate with the commoners. In 494 BCE, the plebeians went on strike, refusing to march to war against a coalition of tribes from central Italy. A settlement was reached when Rome's aristocrats extended to the plebeians the right to vote for certain magistrates, known as the Tribunes of the Plebs (essentially the 'people's magistrates'). This was an important office charged with looking after the needs of Rome's poorer citizens, who held veto powers against decisions made in the Senate. Tensions between the aristocrats and the plebeians lingered throughout the 4th century BCE and after another series of wars against the neighbouring tribes of the Aequi, the Volsci, the Latins, and the Veii, the commoners demanded further rights. The tribuni militum consulari potestate (consular tribunate) emerged briefly during this time of disruption (to be abolished 367 BCE). This was an elected office that could be held both by members of the powerful families and the Roman citizens. In 287 BCE the Hortensian Law was passed to ensure that resolutions passed by the plebian council were final and did not have to be ratified by the patricians. This bought an end to total Patrician rule in the Roman Republic.",
+          "References": "Hans Beck, Antonio Dupl\udc87, Martin Jehne and Francisco Pina Polo. 2011. 'The Republic and Its Highest Office: Some Introductory Remarks on the Roman Consulate', in Consuls and Res Publica: Holding High Office in the Roman Republic, edited by Hans Beck, Antonio Dupl\udc87, Martin Jehne and Francisco Pina Polo, 1-16. Cambridge: Cambridge University Press. $ Kurt A. Raaflaub. 2005. 'The Conflict of the Orders in Archaic Rome: A Comprehensive and Comparative Approach', in Social Struggles in Archaic Rome, edited by Kurt A. Raaflaub, 1-46. Malden, MA: Blackwell Publishing. $ Oakley, Stephen P. The Early Republic. Flower, Harriet I. 2004. The Cambridge Companion to the Roman Republic. Cambridge University Press. 17-19. $ Abbott, Frank Frost (1901). A History and Description of Roman Political Institutions. Elibron Classics. 41-48 | Goldstone, Jack A.\u00a0Revolutions: A Very Short Introduction. OUP USA, 2014.",
+          " ": ""
+        }
+      },
+      "polarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:11",
+      "polarisRawDates": [
+        "-494",
+        "-287"
+      ],
+      "relationship": "related-earlier-source-narrative",
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "pairingBasis": "Manual comparison of polity name, case narrative and event dates; no stable shared row identifier exists.",
+      "sameSourceRecordProven": false,
+      "fieldComparisons": [
+        {
+          "olderField": "decline",
+          "newerField": "decline",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "collapse",
+          "newerField": "collapse",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "epidemic",
+          "newerField": "epidemic",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "downw.mob",
+          "newerField": "downward_mobility",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "extermination",
+          "newerField": "extermination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "uprising",
+          "newerField": "uprising",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "civil.war",
+          "newerField": "civil_war",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "century.plus",
+          "newerField": "century_plus",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "fragmentation",
+          "newerField": "fragmentation",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "capital",
+          "newerField": "capital",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "conquest",
+          "newerField": "conquest",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "assassin",
+          "newerField": "assassination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "depose",
+          "newerField": "depose",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        }
+      ],
+      "newFieldsNotInOlder": [
+        "constitution",
+        "labor",
+        "public_goods",
+        "religion",
+        "revolution",
+        "successful_revolution",
+        "suffrage",
+        "unfree_labor"
+      ],
+      "comparisonWarning": "0/1 vs A/P translation is for review only; dates, missingness and newer variables are never reconstructed from the older file."
+    },
+    {
+      "caseNameZh": "\u7f57\u9a6c\u5171\u548c\u56fd\u5411\u5e1d\u56fd\u8fc7\u6e21",
+      "caseNameEn": "Roman transition to empire",
+      "olderRecord": {
+        "id": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:93",
+        "csvRecordNumberWithHeader": 93,
+        "raw": {
+          "Polity.Name": "Roman Republic-Principate",
+          "Polity.Date.From": "-133",
+          "Polity.Date.To": "-29",
+          "Crisis.Case": "Rome's transition from republic to empire",
+          "Crisis.Period": "I bce",
+          "decline": "1.inf",
+          "collapse": "0",
+          "epidemic": "0",
+          "downw.mob": "1",
+          "extermination": "1",
+          "uprising": "0",
+          "civil.war": "1",
+          "century.plus": "0",
+          "fragmentation": "0",
+          "capital": "0",
+          "conquest": "0",
+          "assassin": "0",
+          "depose": "1.inf",
+          "Severity": "5",
+          "Notes": "The period of civil war, and with it republican government at Rome, effectively ended in 31 BCE when Octavian (who was granted the name Augustus in 27 BCE) defeated Mark Antony and the Egyptian army led by the Ptolemaic Queen Cleopatra at the battle of Actium. They both fled to Alexandria and later committed suicide. This secured Octavian's position as the sole ruler of both Roman and Egyptian territories and he was soon declared Pharoah. In the weeks and months following his victory Augustus executed all of Mark Anthony's supporters and began passing laws which although gave the oputward appearance of maintaining a Republic, in fact granted even more power and authority to himself. In 27 BCE he was named Augustus by the Senate and made the first Roman Emperor, officially transitioning the Republic into the Roman Empire. The population at the dawn of empire was around 30 million people, with Italy itself supporting between 5 and 10 million, thus apparently experiencing population growth despite the repeated bouts of civil war. \"In the last phase, the first century BC, the population declined as a result of constant civil wars, a high urbanization index, and, during later stages, massive state-sponsored population transfers\" (Turchin and Nefedov 2009: 181). Ruler assassination: Julius Caesar, for example (Scarre 1995: 8-9). Massive elite downward mobility and extermination: \"The direct effect of sociopolitical instability [during the last century BCE] was the physical liquidation of a portion of the elite\" (Turchin and Nefedov 2009: 206).",
+          "References": "Scarre 1995: Scarre, Chris. 1995. Chronicle of the Roman Emperors: The Reign-by-Reign Record of the Rulers of Imperial Rome. London: Thames and Hudson. $ Turchin and Nefedov 2009: Turchin, Peter, and Sergey Nefedov. 2009. Secular Cycles. Princeton: Princeton University Press.",
+          " ": ""
+        }
+      },
+      "polarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:148",
+      "polarisRawDates": [
+        "-44",
+        "-31"
+      ],
+      "relationship": "related-earlier-source-narrative",
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "pairingBasis": "Manual comparison of polity name, case narrative and event dates; no stable shared row identifier exists.",
+      "sameSourceRecordProven": false,
+      "fieldComparisons": [
+        {
+          "olderField": "decline",
+          "newerField": "decline",
+          "olderRaw": "1.inf",
+          "newerRaw": "IP",
+          "comparisonOnlySemanticCandidate": "IP",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "collapse",
+          "newerField": "collapse",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "epidemic",
+          "newerField": "epidemic",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "downw.mob",
+          "newerField": "downward_mobility",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "extermination",
+          "newerField": "extermination",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "uprising",
+          "newerField": "uprising",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "civil.war",
+          "newerField": "civil_war",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "century.plus",
+          "newerField": "century_plus",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "fragmentation",
+          "newerField": "fragmentation",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "capital",
+          "newerField": "capital",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "conquest",
+          "newerField": "conquest",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "assassin",
+          "newerField": "assassination",
+          "olderRaw": "0",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": false
+        },
+        {
+          "olderField": "depose",
+          "newerField": "depose",
+          "olderRaw": "1.inf",
+          "newerRaw": "IP",
+          "comparisonOnlySemanticCandidate": "IP",
+          "candidateAgrees": true
+        }
+      ],
+      "newFieldsNotInOlder": [
+        "constitution",
+        "labor",
+        "public_goods",
+        "religion",
+        "revolution",
+        "successful_revolution",
+        "suffrage",
+        "unfree_labor"
+      ],
+      "comparisonWarning": "0/1 vs A/P translation is for review only; dates, missingness and newer variables are never reconstructed from the older file.",
+      "reviewFlags": [
+        "Older assassin=0 contradicts its own Caesar-assassination note and differs from Polaris assassination=P.",
+        "Older notes estimate about 30m at dawn of empire; this is not a sourced justification of both Polaris 25m\u201335m endpoints."
+      ]
+    },
+    {
+      "caseNameZh": "\u5370\u52a0\u8870\u9000\u3001\u5185\u6218\u4e0e\u5f81\u670d",
+      "caseNameEn": "Inca decline and conquest",
+      "olderRecord": {
+        "id": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:127",
+        "csvRecordNumberWithHeader": 127,
+        "raw": {
+          "Polity.Name": "Inca Empire",
+          "Polity.Date.From": "1400",
+          "Polity.Date.To": "1531",
+          "Crisis.Case": "Inca decline and civil war",
+          "Crisis.Period": "XVI c",
+          "decline": "1",
+          "collapse": "1",
+          "epidemic": "1",
+          "downw.mob": "1",
+          "extermination": "0",
+          "uprising": "0",
+          "civil.war": "1",
+          "century.plus": "0",
+          "fragmentation": "0",
+          "capital": "1",
+          "conquest": "1",
+          "assassin": "1",
+          "depose": "0",
+          "Severity": "8",
+          "Notes": "Inca decline, civil war, Spanish conquest. Population collapse, in large part due to introduction of smallpox, measles and other diseases (Cook 2004: 62, 114). Estimates for the pre- and postconquest population of Peru vary, but Cook (2004: 114) argues for a figure of 9 million before the Spanish arrival, falling to 1 million within 50 years and 600,000 by 1620. Civil war between the Inca nobility (Rowe 2015). Elite downward mobility but not extermination: Spanish officials replaced Andean nobles in many areas, but because the European population was initially low, the Spanish relied on indigenous elite to rule the population (Covey 2020: 351-2, 418; Nair 2007: 53). Ruler assassinated: Atahuallpa executed on Pizzarro's orders (Covey 2020: 253). The Inca Empire collpased abruptly at the beginning of the sixteenth century. Smallpox, introduced by European invaders, was already raging throughout the empire. When the Sapa Inka, Huayna Khapaq, died of smallpox in 1528, his sons both claimed the throne, throwing the empire into civil war. Many elites died due to the epidemic and so there was chaos, competition and internal conflicts between them. Many potential candidates for Inca were often put in place by their mothers, the elite 'chosen women' of the court. This also led to these individuals seeking military support and making deals with the Spaniards who arrived in 1532, which led to further conflicts and outbreaks of smallpox. The Inca empire had been so weakened by disease and war, that they were conquered in just a few years.",
+          "References": "Personal Communication with Alan Covey 19/09/22",
+          " ": ""
+        }
+      },
+      "polarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:120",
+      "polarisRawDates": [
+        "1528",
+        "1570"
+      ],
+      "relationship": "related-earlier-source-narrative",
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "pairingBasis": "Manual comparison of polity name, case narrative and event dates; no stable shared row identifier exists.",
+      "sameSourceRecordProven": false,
+      "fieldComparisons": [
+        {
+          "olderField": "decline",
+          "newerField": "decline",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "collapse",
+          "newerField": "collapse",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "epidemic",
+          "newerField": "epidemic",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "downw.mob",
+          "newerField": "downward_mobility",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "extermination",
+          "newerField": "extermination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "uprising",
+          "newerField": "uprising",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "civil.war",
+          "newerField": "civil_war",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "century.plus",
+          "newerField": "century_plus",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "fragmentation",
+          "newerField": "fragmentation",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "capital",
+          "newerField": "capital",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "conquest",
+          "newerField": "conquest",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "assassin",
+          "newerField": "assassination",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "depose",
+          "newerField": "depose",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        }
+      ],
+      "newFieldsNotInOlder": [
+        "constitution",
+        "labor",
+        "public_goods",
+        "religion",
+        "revolution",
+        "successful_revolution",
+        "suffrage",
+        "unfree_labor"
+      ],
+      "comparisonWarning": "0/1 vs A/P translation is for review only; dates, missingness and newer variables are never reconstructed from the older file.",
+      "reviewFlags": [
+        "References field contains only personal communication; Notes contain separate book/page references. No public transcript acquired.",
+        "Notes cite Rowe 2015, while adjacent case bibliography lists Rowe 2006.",
+        "Peru 9m is not a whole-Inca-empire estimate."
+      ]
+    },
+    {
+      "caseNameZh": "\u5370\u52a0\u7ee7\u627f\u5371\u673a",
+      "caseNameEn": "Inca succession crisis",
+      "olderRecord": {
+        "id": "sha256:9f7b50a31f249bc0421c96dd958519b6e4d8aa3af56aaceb6aa1215fafc04368:csv-record:128",
+        "csvRecordNumberWithHeader": 128,
+        "raw": {
+          "Polity.Name": "Inca Empire",
+          "Polity.Date.From": "1400",
+          "Polity.Date.To": "1531",
+          "Crisis.Case": "Inca succession crisis'",
+          "Crisis.Period": "XV c",
+          "decline": "0",
+          "collapse": "0",
+          "epidemic": "0",
+          "downw.mob": "0",
+          "extermination": "0",
+          "uprising": "1",
+          "civil.war": "0",
+          "century.plus": "0",
+          "fragmentation": "0",
+          "capital": "0",
+          "conquest": "0",
+          "assassin": "0",
+          "depose": "0",
+          "Severity": "1",
+          "Notes": "After the 9th Inca dies in 1470 there are a series of rebellions. The 1490 succession crisis is seen as an 'episode' rather than a full blown 'war' by scholars, largely confined to turmoil among the ruling family and other powerful elite families. ",
+          "References": "Cook, Noble David. 2004. Demographic Collapse: Indian Peru, 1520-1620. Cambridge: Cambridge University Press. $ Covey 2020: Covey, R. Alan. 2020. Inca Apocalypse: The Spanish Conquest and the Transformation of the Andean World. Oxford: Oxford University Press. $ Nair 2007: Nair, Stella. 2007. \udce2Witnessing the In-Visibility of Inca Architecture in Colonial Peru. Buildings & Landscapes: Journal of the Vernacular Architecture Forum 14: 50-65. $ Rowe 2006: Rowe, John H. \udce2The Inca Civil War and the Establishment of Spanish Power in Peru. \udc84awpa Pacha 28 (1): 1-9. https://doi.org/10.1179/naw.2006.28.1.002. $ personal communication with Alan Covey 19/09/22.",
+          " ": ""
+        }
+      },
+      "polarisRowId": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:CrisisDB - Crisis consequences:121",
+      "polarisRawDates": [
+        "1470",
+        "1500"
+      ],
+      "relationship": "related-earlier-source-narrative",
+      "allowRecordMerge": false,
+      "allowRawRewrite": false,
+      "pairingBasis": "Manual comparison of polity name, case narrative and event dates; no stable shared row identifier exists.",
+      "sameSourceRecordProven": false,
+      "fieldComparisons": [
+        {
+          "olderField": "decline",
+          "newerField": "decline",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "collapse",
+          "newerField": "collapse",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "epidemic",
+          "newerField": "epidemic",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "downw.mob",
+          "newerField": "downward_mobility",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "extermination",
+          "newerField": "extermination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "uprising",
+          "newerField": "uprising",
+          "olderRaw": "1",
+          "newerRaw": "P",
+          "comparisonOnlySemanticCandidate": "P",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "civil.war",
+          "newerField": "civil_war",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "century.plus",
+          "newerField": "century_plus",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "fragmentation",
+          "newerField": "fragmentation",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "capital",
+          "newerField": "capital",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "conquest",
+          "newerField": "conquest",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "assassin",
+          "newerField": "assassination",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        },
+        {
+          "olderField": "depose",
+          "newerField": "depose",
+          "olderRaw": "0",
+          "newerRaw": "A",
+          "comparisonOnlySemanticCandidate": "A",
+          "candidateAgrees": true
+        }
+      ],
+      "newFieldsNotInOlder": [
+        "constitution",
+        "labor",
+        "public_goods",
+        "religion",
+        "revolution",
+        "successful_revolution",
+        "suffrage",
+        "unfree_labor"
+      ],
+      "comparisonWarning": "0/1 vs A/P translation is for review only; dates, missingness and newer variables are never reconstructed from the older file."
+    }
+  ]
+}

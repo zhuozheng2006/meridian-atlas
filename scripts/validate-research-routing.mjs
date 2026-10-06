@@ -7,7 +7,7 @@ import {parseResearchState,writeResearchState,normalizeResearchState} from '../p
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..'),source=await readFile(root+'/public/app.js','utf8');
 const view=source.slice(source.indexOf('async function showView(view)'),source.indexOf('\nconst STORIES'));
 const skipLink=source.slice(source.indexOf('function renderSkipLink()'),source.indexOf('\nfunction renderLanguage()'));
-const boot=source.slice(source.indexOf('// Lazy atlas startup:'),source.indexOf('\ninit();'));
+const boot=source.slice(source.indexOf('// Lazy atlas startup:'),source.indexOf('\n// Controlled application entry:'));
 function environment(hash,overrides={}){
  const nodes=new Map(),metrics={mapRequests:0,constructions:0,core:[],prefetch:[],mounts:0,destroys:0,errors:[],bindings:0};
  const node=id=>{if(!nodes.has(id))nodes.set(id,{id,hidden:false,children:[],classList:{toggle(){},add(){},remove(){}},replaceChildren(...x){this.children=x;},append(...x){this.children.push(...x);},setAttribute(){},focus(){}});return nodes.get(id);};

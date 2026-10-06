@@ -43,22 +43,22 @@ await check('DOM append failures are rejected, cleaned up and can retry',async()
 const startup=fs.readFileSync(new URL('../public/startup.js',import.meta.url),'utf8');
 async function boot(hash,{fail=false}={}){
  // Only replace the ES-module transport boundary; execute the shipped route and URL logic.
- const marker='import(runtimeURL.href)';assert.equal(startup.split(marker).length,2);
- let imports=0,loads=0,url;const hints=[],elements=new Map(),element=id=>{if(!elements.has(id))elements.set(id,{});return elements.get(id);};
- const sandbox={URL,URLSearchParams,location:{href:'https://atlas.example/sub/index.html'+hash,hash},document:{currentScript:{src:'https://atlas.example/sub/startup.js?v=3.37-test'},getElementById:element,createElement:tag=>({tagName:tag}),head:{append:node=>hints.push(node)}},loadRuntimeForTest:async value=>{imports++;url=value;return {loadMapLibre:async()=>{loads++;if(fail)throw Error('offline');}};}};
- vm.runInNewContext(startup.replace(marker,'loadRuntimeForTest(runtimeURL.href)'),sandbox);await tick();return {imports,loads,url,elements,hints};
+ const marker='import(runtimeURL.href)',appMarker='import(appURL.href)';assert.equal(startup.split(marker).length,2);assert.equal(startup.split(appMarker).length,2);
+ let imports=0,appImports=0,loads=0,url;const hints=[],elements=new Map(),element=id=>{if(!elements.has(id))elements.set(id,{});return elements.get(id);};
+ const sandbox={URL,URLSearchParams,location:{href:'https://atlas.example/sub/index.html'+hash,hash},document:{currentScript:{src:'https://atlas.example/sub/startup.js?v=3.37-test'},getElementById:element,createElement:tag=>({tagName:tag}),head:{append:node=>hints.push(node)}},loadAppForTest:async()=>{appImports++;return {};},loadRuntimeForTest:async value=>{imports++;url=value;return {loadMapLibre:async()=>{loads++;if(fail)throw Error('offline');}};}};
+ vm.runInNewContext(startup.replace(marker,'loadRuntimeForTest(runtimeURL.href)').replace(appMarker,'loadAppForTest(appURL.href)'),sandbox);await tick();return {imports,appImports,loads,url,elements,hints};
 }
 await check('research deep links do not even request the renderer loader',async()=>{
- for(const hash of ['#view=research','#view=research&lang=zh&seshat=CnMing%2A','#lang=en&view=research&year=1450']){const result=await boot(hash);assert.equal(result.imports,0);assert.equal(result.loads,0);assert.equal(result.hints.length,0);}
+ for(const hash of ['#view=research','#view=research&lang=zh&seshat=CnMing%2A','#lang=en&view=research&year=1450']){const result=await boot(hash);assert.equal(result.imports,0);assert.equal(result.appImports,0);assert.equal(result.loads,0);assert.equal(result.hints.length,0);}
 });
 await check('default map route starts optional async renderer load with the stamped module URL',async()=>{
- const r=await boot('#year=1450');assert.equal(r.imports,1);assert.equal(r.loads,1);assert.equal(r.url,'https://atlas.example/sub/map-runtime.js?v=3.37-test');assert.equal(r.hints.length,1);assert.equal(r.hints[0].href,'https://atlas.example/sub/data/fast/catalog.json.gz');
+ const r=await boot('#year=1450');assert.equal(r.imports,1);assert.equal(r.appImports,1);assert.equal(r.loads,1);assert.equal(r.url,'https://atlas.example/sub/map-runtime.js?v=3.37-test');assert.equal(r.hints.length,1);assert.equal(r.hints[0].href,'https://atlas.example/sub/data/fast/catalog.json.gz');
  await boot('',{fail:true});
 });
 await check('HTML has no unconditional renderer preload or synchronous script',()=>{
  const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
  assert(!/<link\b[^>]*href=["']assets\/maplibre-gl\.js/i.test(html));assert(!/<script\b[^>]*src=["']assets\/maplibre-gl\.js/i.test(html));
  assert(!/<link\b[^>]*rel=["']preload["'][^>]*href=["']data\/fast\/catalog\.json\.gz/.test(html));
- assert.match(html,/<script\b[^>]*src=["']startup\.js/);assert.match(html,/<script\b[^>]*type="module"[^>]*src=["']app\.js/);
+ assert.match(html,/<script\b[^>]*src=["']startup\.js/);assert.match(html,/<script\b[^>]*type="module"[^>]*src=["']entry\.js/);
 });
 console.log(JSON.stringify({ok:true,checks,method:'Injected DOM/network/time fixtures and startup transport-boundary fixture; no browser automation.'}));

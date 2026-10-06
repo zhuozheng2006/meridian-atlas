@@ -38,3 +38,18 @@
 @media(max-width:700px){.research-version-bar{display:block;margin-bottom:14px;padding-bottom:12px}.research-version-bar p{margin-top:8px;font-size:12px}.research-version-bar select{width:100%}.research-advanced-controls{grid-template-columns:1fr}.research-filter-panel>summary{font-size:13px}}
 
 .research-version-bar select option{color:#243d40;background:#f7f5ea}
+
+/* Reading leads sit alongside the selected phase, with exact source locators. */
+.research-readings{margin:14px 0 4px;border-top:1px solid var(--research-line);padding-top:6px}
+.research-reading-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:12px 0}
+.research-reading-card{padding:18px;border:1px solid var(--research-line);border-radius:8px;min-width:0;background:#a8a88d08}
+.research-reading-kind{font-size:11px;letter-spacing:.06em;color:var(--research-muted)}
+.seshat-research-reader .research-reading-card h4{font-family:var(--serif,Georgia,serif);font-size:18px;line-height:1.65;margin:4px 0 8px}
+.seshat-research-reader .research-reading-card p{font-size:14px;line-height:1.8;margin:8px 0;color:var(--research-ink)}
+.seshat-research-reader .research-reading-card .research-reading-byline,.seshat-research-reader .research-reading-card .research-reading-locator{font-size:12px;color:var(--research-muted)}
+.seshat-research-reader .research-reading-card .research-reading-scope{font-size:13px;border-left:2px solid #b39a66;padding-left:10px;color:var(--research-muted)}
+.research-reading-card .research-source-links{font-size:13px;margin:12px 0 0;gap:8px 16px}
+.research-reading-card .research-reading-provenance{margin-top:8px}.research-reading-card .research-reading-provenance p{font-size:11px;overflow-wrap:anywhere}
+.research-crisis-definitions dt{font-weight:600;margin-top:16px;font-size:14px}.research-crisis-definitions dd{margin:5px 0 12px;max-width:90ch;font-size:14px;line-height:1.9}.research-crisis-definitions dd>a{display:block;width:max-content;max-width:100%;font-size:12px;margin-top:4px}
+@container(max-width:700px){.research-reading-list{grid-template-columns:1fr}.research-reading-card{padding:14px}}
+@media(max-width:700px){.research-reading-list{grid-template-columns:1fr}.research-reading-card{padding:14px}}
