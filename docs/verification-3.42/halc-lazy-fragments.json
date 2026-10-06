@@ -1,0 +1,69 @@
+{
+  "method": "Production halcVisibleUnits/indexFeatures/openFeature/regionalAnchor; actual shipped MapLibre rendered Feature geometry getter and MVT parser in an isolated runtime; bounded real 432-feature tile. No browser latency or memory claim.",
+  "bundleSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "tile": {
+    "path": "6/32/20.pbf",
+    "bytes": 97536,
+    "sha256": "ed591808a2654a25c49979192957cce7dc6ad13d6d16a4d2d52e6d8d8ababf47",
+    "features": 432
+  },
+  "optionalFullViewportRun": false,
+  "pass": 9,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "Actual MapLibre rendered Feature keeps geometry on its prototype until read",
+      "pass": true,
+      "geometryReads": 2,
+      "geometryConversions": 1
+    },
+    {
+      "name": "A real 432-feature tile groups and sorts without geographic coordinate conversion",
+      "pass": true,
+      "geometryReads": 0,
+      "geometryConversions": 0
+    },
+    {
+      "name": "Metadata-only directory, spread and HALC openFeature routing read zero fragment geometry",
+      "pass": true,
+      "geometryReads": 0,
+      "geometryConversions": 0
+    },
+    {
+      "name": "Duplicate tile fragments retain the original order and exact geometry references",
+      "pass": true,
+      "geometryReads": 5,
+      "geometryConversions": 2
+    },
+    {
+      "name": "JSON materialization equals the eager implementation byte-for-byte on real tile geometry",
+      "pass": true,
+      "geometryReads": 864,
+      "geometryConversions": 864
+    },
+    {
+      "name": "Interior anchors with and without clipping exactly match eager coordinates and scores",
+      "pass": true,
+      "geometryReads": 16,
+      "geometryConversions": 16
+    },
+    {
+      "name": "Grouping caches are isolated between source/view generations and preserve older readers",
+      "pass": true,
+      "geometryReads": 3,
+      "geometryConversions": 2
+    },
+    {
+      "name": "Invalid and prefix-like identities never enter the visible registry",
+      "pass": true,
+      "geometryReads": 0,
+      "geometryConversions": 0
+    },
+    {
+      "name": "Actual HALC settle reuses one lazy registry per frame and drops it safely on exit/re-entry",
+      "pass": true,
+      "geometryReads": 1,
+      "geometryConversions": 1
+    }
+  ]
+}

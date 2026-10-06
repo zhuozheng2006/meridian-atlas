@@ -1,0 +1,16 @@
+PASS Repeated unchanged idle does zero queries, anchor computations and style writes
+PASS Atlas label refresh restores cached collision boxes without recreating markers
+PASS Changed viewport rescans once then returns to idle cache
+PASS Resize invalidates viewport and collision caches
+PASS Bearing and pitch participate in the view cache key
+PASS Language updates labels without a geometry query
+PASS Changed overlay blockers invalidate cached marker placement
+PASS Label hide and show cannot reuse an empty marker cache
+PASS New source load invalidates same-fid geometry and cached labels
+PASS Returning from mode reactivates the unchanged viewport
+PASS Returning from year reactivates the unchanged viewport
+PASS Returning from modern reference reactivates the unchanged viewport
+PASS Returning from border visibility reactivates the unchanged viewport
+PASS Source readiness fallback without a loading event cannot strand the scan cache
+PASS Retry recreates visible source layers instead of reusing old visibility state
+15/15 HALC cache checks passed

@@ -1,5 +1,6 @@
-import {READING_CATALOG} from './research-reading-data.js?v=3.41.0-ded029edf830';
-import {label,variableOptions} from './polaris-adapter.js?v=3.41.0-ded029edf830';
+import {READING_CATALOG} from './research-reading-data.js?v=3.42.0-6de1d2485233';
+import {label,variableOptions} from './polaris-adapter.js?v=3.42.0-6de1d2485233';
+import {mountSavedText} from './research-original-reader.js?v=3.42.0-6de1d2485233';
 const RELATIONS=Object.freeze({'direct-evidence':{zh:'原典与史料',en:'Primary text & evidence'},'comparative-reading':{zh:'比较阅读',en:'Comparative reading'},'earlier-coded-version':{zh:'早期编码资料',en:'Earlier coded source'}});
 export function readingsForPhase(phaseId,{domain='all',variable='all'}={},catalog=READING_CATALOG){
  const allowed=new Set(variableOptions(domain).map(v=>v.id));return catalog.cards.filter(c=>c.phaseId===phaseId&&c.variableIds.some(id=>allowed.has(id)&&(variable==='all'||id===variable)));
@@ -27,6 +28,7 @@ export function mountReadingGuide(doc,{phaseId,filters={},lang='bi',open=false,o
   card.append(el('p',readingLocator(item.locator,lang),'research-reading-locator'));
   const actions=el('div','','research-source-links');if(item.localURL){const local=new URL(item.localURL,import.meta.url);if(item.locator.pdfPages?.length)local.hash='page='+item.locator.pdfPages[0];actions.append(link(item.localURL.endsWith('.pdf')?t('阅读已保存原文','Read saved original'):t('下载来源文件','Download source file'),local.href));}
   actions.append(link(t('来源网站','Source website'),item.landingURL||item.url));if(item.doi)actions.append(link('DOI','https://doi.org/'+item.doi));if(onSelectReading&&!filters.readingId){const related=el('button',t(`查看关联的 ${item.targetRowIds.length} 条记录`,`View ${item.targetRowIds.length} linked records`));related.type='button';related.addEventListener('click',()=>onSelectReading(item.id));actions.append(related);}card.append(actions);
+  const saved=mountSavedText(doc,{item,lang});if(saved)card.append(saved);
   const provenance=el('details','','research-reading-provenance');provenance.append(el('summary',t('版本与核对信息','Version & review details')),el('p',t('作者与编译者：','Authors, translators & editors: ')+item.authors.join(' · ')),el('p',t('来源版本：','Source version: ')+item.sourceSnapshot),el('p','SHA-256: '+item.sourceSha256),el('p',t('相关工作簿原行：','Related workbook rows: ')+item.targetRowIds.map(id=>id.slice(id.indexOf(':',7)+1)).join('; ')));
   if(item.sourceRecordId)provenance.append(el('p',item.sourceRecordId));if(item.conflicts?.length){const differences=el('div','','research-reading-differences');differences.append(el('h5',t('对读时留意','Points to compare')));for(const conflict of item.conflicts){differences.append(el('p',t(conflict.noteZh,conflict.noteEn)));if(conflict.kind==='code-difference')differences.append(el('p',t('旧版','Earlier version')+' '+conflict.olderField+': '+conflict.olderValue+' · Polaris '+conflict.polarisField+': '+conflict.polarisValue));}provenance.append(differences);}card.append(provenance);list.append(card);
  }

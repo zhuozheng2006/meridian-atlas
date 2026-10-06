@@ -1,0 +1,68 @@
+{
+  "testedAt": "2026-10-06T10:42:14.536Z",
+  "data": "public/data/places/attested-places.json.gz",
+  "dataSha256": "b44b5575890ff3819051763b6719396fcce1117a920329206e1174c92bca6e68",
+  "counts": {
+    "records": 14,
+    "checks": 13,
+    "bilingualParts": 84,
+    "sources": 14,
+    "decisions": 20
+  },
+  "handoffAvailable": true,
+  "checks": [
+    {
+      "name": "The shipped layer is a deterministic gzip with a zeroed mtime",
+      "passed": true
+    },
+    {
+      "name": "Fourteen site records, two enhancements and four documented deferrals ship together",
+      "passed": true
+    },
+    {
+      "name": "The review ledger accounts for every reviewed candidate exactly once",
+      "passed": true
+    },
+    {
+      "name": "Every shipped record keeps its authored bilingual text, period and review checks",
+      "passed": true
+    },
+    {
+      "name": "Periods never escape their verbatim source range and open ends are declared",
+      "passed": true
+    },
+    {
+      "name": "UNESCO quotes, coordinates and property ids match their reviewed evidence",
+      "passed": true
+    },
+    {
+      "name": "New city evidence snapshots, DMS conversion and activity periods remain independently verifiable",
+      "passed": true
+    },
+    {
+      "name": "No attested record is merged into, or duplicates, an existing place record",
+      "passed": true
+    },
+    {
+      "name": "Resolved nearby records carry recomputed distances that match the research file",
+      "passed": true
+    },
+    {
+      "name": "Enhancement entries attach to real records without overwriting coordinates or observations",
+      "passed": true
+    },
+    {
+      "name": "Deferred candidates keep their reasons and never appear as shipped points",
+      "passed": true
+    },
+    {
+      "name": "Chinese text is simplified across the layer",
+      "passed": true
+    },
+    {
+      "name": "Read semantics for the integration layer are shipped with the data",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

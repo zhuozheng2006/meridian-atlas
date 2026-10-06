@@ -1,7 +1,7 @@
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.41.0-ded029edf830';
-import {HalcLandscape} from './halc-landscape.js?v=3.41.0-ded029edf830';
-import {readJSON} from './map-engine.js?v=3.41.0-ded029edf830';
-import {HalcRegions} from './halc-regions.js?v=3.41.0-ded029edf830';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.42.0-6de1d2485233';
+import {HalcLandscape} from './halc-landscape.js?v=3.42.0-6de1d2485233';
+import {readJSON} from './map-engine.js?v=3.42.0-6de1d2485233';
+import {HalcRegions} from './halc-regions.js?v=3.42.0-6de1d2485233';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -12,6 +12,23 @@ const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)e
 const label=(entry,lang)=>entry?.[lang==='en'?'en':'zh']||entry?.en;
 const fid=value=>{if(typeof value!=='number'&&(typeof value!=='string'||!/^\d+$/.test(value)))return null;const id=Number(value);return Number.isSafeInteger(id)&&id>0&&id<=14865?id:null;};
 const selectionTarget=id=>({source:HALC_SOURCE,sourceLayer:'halc_localities',id});
+// MapLibre keeps rendered-feature coordinates lazy. Keep that property for
+// visible-unit listings: only label anchoring or an explicit geometry reader
+// needs to convert a tile fragment into geographic coordinates.
+export function halcVisibleUnits(rendered){
+ const units=new Map();
+ for(const feature of rendered){
+  const id=fid(feature.properties.fid);if(!id)continue;
+  if(!units.has(id))units.set(id,{...feature,fragments:[]});
+  const fragments=units.get(id).fragments,index=fragments.length;
+  Object.defineProperty(fragments,index,{enumerable:true,configurable:true,get(){
+   const geometry=feature.geometry;
+   Object.defineProperty(fragments,index,{value:geometry,enumerable:true,configurable:true,writable:true});
+   return geometry;
+  }});
+ }
+ return [...units.values()].sort((a,b)=>a.properties.fid-b.properties.fid);
+}
 export function halcInView(bounds){
  if(!bounds)return false;
  const west=bounds.getWest(),east=bounds.getEast(),south=bounds.getSouth(),north=bounds.getNorth();
@@ -122,8 +139,7 @@ export class HalcBoundaries{
   if(key===this.scanKey){this.refreshLabels();if(this.active&&this.pendingId){const id=this.pendingId;this.pendingId=null;this.openRecord(id);}return;}
   this.settling=true;
   try{
-   const units=new Map();for(const f of this.map.queryRenderedFeatures({layers:[HALC_LAYERS[0]]})){const id=fid(f.properties.fid);if(!id)continue;if(!units.has(id))units.set(id,{...f,fragments:[]});units.get(id).fragments.push(f.geometry);}
-   this.features=[...units.values()].sort((a,b)=>a.properties.fid-b.properties.fid);this.scanKey=key;this.featureEpoch++;this.reason=this.features.length?'ready':'empty';this.setActive(!!this.features.length);this.refreshLabels();this.notify();
+   this.features=halcVisibleUnits(this.map.queryRenderedFeatures({layers:[HALC_LAYERS[0]]}));this.scanKey=key;this.featureEpoch++;this.reason=this.features.length?'ready':'empty';this.setActive(!!this.features.length);this.refreshLabels();this.notify();
    if(this.active&&this.pendingId){const id=this.pendingId;this.pendingId=null;this.openRecord(id);}
   }finally{this.settling=false;}
  }

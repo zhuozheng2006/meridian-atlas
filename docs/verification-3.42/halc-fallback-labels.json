@@ -1,0 +1,128 @@
+{
+  "method": "Actual production halcVisibleUnits + HalcBoundaries settle/refreshLabels + HalcRegions source-order handling + regionalAnchor; shipped MapLibre lazy Feature and two real local/regional MVT tiles. Map event bus, screen projection, DOM/Marker and render/GPU boundary are deterministic test doubles. Eager control replaces the candidate grouping with the exact prior grouping before activation. No speed claim.",
+  "bundleSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "tilePath": "6/32/20.pbf",
+  "localTile": {
+    "bytes": 97536,
+    "sha256": "ed591808a2654a25c49979192957cce7dc6ad13d6d16a4d2d52e6d8d8ababf47",
+    "features": 432
+  },
+  "regionTile": {
+    "bytes": 12372,
+    "sha256": "2c1f6591b41d407af7471399b2f6c1eb82330b4f8d23c1e3befa56291aaf6461",
+    "features": 2
+  },
+  "conditions": "active && !loading && showLabels && anchor; zoom<8 and regions.ready===false chooses locality candidates. All candidates passing TYPE!=8, nonempty ADM1, ADM1!=XX and no semicolon are anchored before marker limit/name collision filtering, materializing all their fragment geometry.",
+  "limitations": [
+    "The viewport query returns this bounded real tile through the map fixture; viewport clipping is not independently retested.",
+    "Projection is a deterministic geographic-to-screen transform, not actual MapLibre projection or browser pixels.",
+    "Label equivalence and exact geometry are verified; CPU/GPU memory, browser latency, worldwide completeness and all source-order permutations are not claimed.",
+    "Fallback intentionally retains its eager demand for every qualifying candidate; the test does not require a speedup in that path."
+  ],
+  "pass": 8,
+  "fail": 0,
+  "observations": {
+    "localFirst": {
+      "tileFeatures": 432,
+      "visibleUnits": 432,
+      "qualifyingLabelCandidates": 401,
+      "geometryFragmentsDecoded": 401,
+      "displayedLabels": [
+        {
+          "text": "Holland",
+          "point": [
+            5.443296359496664,
+            53.42217810341536
+          ],
+          "aria": "Holland",
+          "title": "Browse local units with this attribution",
+          "width": "100px",
+          "target": {
+            "halcGroup": "HO"
+          }
+        },
+        {
+          "text": "Frisia",
+          "point": [
+            5.538983989348779,
+            52.835430269049716
+          ],
+          "aria": "Frisia",
+          "title": "Browse local units with this attribution",
+          "width": "88px",
+          "target": {
+            "halcGroup": "FS"
+          }
+        }
+      ]
+    },
+    "eagerLocalGeometryConversions": 432,
+    "exactGeometrySha256": "06c28e77e1afe457b2b1da8d9684a6549f36165473df2a298e0ff68d2eaf42e6",
+    "afterRegions": {
+      "displayedLabels": [
+        {
+          "text": "Holland",
+          "point": [
+            5.0858832509571394,
+            52.693595090792954
+          ],
+          "aria": "Holland",
+          "title": "Browse local units with this attribution",
+          "width": "100px",
+          "target": {
+            "halcGroup": "HO"
+          }
+        },
+        {
+          "text": "Frisia",
+          "point": [
+            5.499613782492743,
+            53.06874497523848
+          ],
+          "aria": "Frisia",
+          "title": "Browse local units with this attribution",
+          "width": "88px",
+          "target": {
+            "halcGroup": "FS"
+          }
+        }
+      ],
+      "regionGeometryConversions": 2
+    },
+    "regionFirstLocalGeometryConversions": 0
+  },
+  "checks": [
+    {
+      "name": "Locality content renders before region data and anchors every qualifying fallback candidate",
+      "pass": true
+    },
+    {
+      "name": "Fallback marker names, anchors, order, sizes and group actions exactly equal eager grouping",
+      "pass": true
+    },
+    {
+      "name": "Unused locality fragments stay lazy until explicitly serialized, with exact geometry preservation",
+      "pass": true
+    },
+    {
+      "name": "Repeated refresh in the same view performs neither additional anchors nor geometry reads",
+      "pass": true
+    },
+    {
+      "name": "Late real region tiles replace the fallback label set without changing the locality registry",
+      "pass": true
+    },
+    {
+      "name": "Region-first arrival uses regional anchors and leaves every locality geometry fragment lazy",
+      "pass": true
+    },
+    {
+      "name": "With labels hidden, locality-first arrival stays lazy; enabling labels activates the same fallback",
+      "pass": true
+    },
+    {
+      "name": "Explicit region-source failure preserves the original locality fallback labels",
+      "pass": true
+    }
+  ]
+}

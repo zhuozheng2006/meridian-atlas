@@ -1,0 +1,1471 @@
+{
+  "auditedOn": "2026-10-06",
+  "repository": "/Users/zane/meridian_atlas/world-history-atlas",
+  "evidenceDirectory": "/Users/zane/meridian_atlas/world-history-atlas/docs/verification-3.42/phase-names",
+  "passed": true,
+  "checksPassed": 181,
+  "checksTotal": 181,
+  "errors": [],
+  "observations": [
+    {
+      "severity": "information",
+      "finding": "Manifest intentionally covers referenced source representations, not every copied working artifact. This audit inventories every file independently.",
+      "unreferencedRawFiles": [
+        "raw/china-sources-search.json"
+      ]
+    },
+    {
+      "severity": "information",
+      "finding": "Only indian-ocean-page-5-pdfium.png is the successful page proof. Native/Poppler images are failed rendering attempts and their logs correctly record missing Adobe-GB1 handling.",
+      "productionImpact": false
+    }
+  ],
+  "counts": {
+    "filesInventoried": 30,
+    "manifestFiles": 7,
+    "manifestBytes": 533633,
+    "sources": 10,
+    "candidates": 14,
+    "deferred": 93
+  },
+  "sourceChecks": [
+    {
+      "id": "unesco-kakatiya",
+      "snapshot": "raw/unesco-names.json",
+      "locator": "English description and Chinese heading/description; retrieved lines 19–21",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "unesco-chola",
+      "snapshot": "raw/unesco-names.json",
+      "locator": "English description and Chinese heading/description; retrieved lines 16–18",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "song-bai-2013",
+      "snapshot": "raw/indian-ocean-seapower.pdf",
+      "locator": "PDF page 5, printed page 21, footnote 1",
+      "quotePresent": true,
+      "representation": "original-pdf-bytes",
+      "sourceBytesPresent": true
+    },
+    {
+      "id": "mfa-uganda",
+      "snapshot": "raw/oyo-buganda-asante-passages.json",
+      "locator": "简况, retrieved line 195",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "unesco-buganda",
+      "snapshot": "raw/yoruba-buganda-pallava.json",
+      "locator": "English description and Chinese description; retrieved lines 16–18",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "embassy-nigeria-culture",
+      "snapshot": "raw/china-sources-open.json",
+      "locator": "（三）文化 / 1、尼文化简况; retrieved lines 61–66",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "jiang-yoruba-2015",
+      "snapshot": "raw/oyo-buganda-asante-passages.json",
+      "locator": "PDF page 2, printed page 55, paragraph on multiple Yoruba polities; retrieved lines 185–189",
+      "quotePresent": true,
+      "representation": "web-extracted-pdf-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "mfa-freetown",
+      "snapshot": "raw/china-source-passages.json",
+      "locator": "首都, retrieved line 189",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "yu-akan-2026",
+      "snapshot": "raw/china-source-passages.json",
+      "locator": "“母亲非洲”的象征; retrieved line 114",
+      "quotePresent": true,
+      "representation": "web-extracted-text",
+      "sourceBytesPresent": false
+    },
+    {
+      "id": "unesco-asante",
+      "snapshot": "raw/nok-asante-search.json",
+      "locator": "Chinese description and parallel English/French descriptions in the accessible source result",
+      "quotePresent": true,
+      "representation": "web-search-extracted-page-text",
+      "sourceBytesPresent": false
+    }
+  ],
+  "candidateChecks": [
+    {
+      "polity_id": "in_kakatiya_dyn",
+      "zh": "卡卡提亚王朝",
+      "sourceName": "Kakatiya Dynasty",
+      "sourceRow": "334",
+      "period": [
+        "1175",
+        "1324"
+      ],
+      "sourceIds": [
+        "unesco-kakatiya"
+      ],
+      "auditNotes": [
+        "UNESCO dates 1123–1323 and the pinned phase dates 1175–1324 differ. This is a vocabulary patch, not a date adjudication."
+      ]
+    },
+    {
+      "polity_id": "in_cholas_1",
+      "zh": "朱罗 · 早期",
+      "sourceName": "Early Cholas",
+      "sourceRow": "591",
+      "period": [
+        "-300",
+        "300"
+      ],
+      "sourceIds": [
+        "unesco-chola",
+        "song-bai-2013"
+      ],
+      "auditNotes": []
+    },
+    {
+      "polity_id": "in_pandya_emp_1",
+      "zh": "潘迪亚 · 早期",
+      "sourceName": "Early Pandyas",
+      "sourceRow": "593",
+      "period": [
+        "-300",
+        "300"
+      ],
+      "sourceIds": [
+        "song-bai-2013"
+      ],
+      "auditNotes": [
+        "Early Pandyas, Pandya Dynasty, and Pandya Empire retain distinct titles and source bindings."
+      ]
+    },
+    {
+      "polity_id": "in_pandya_emp_2",
+      "zh": "潘迪亚王朝",
+      "sourceName": "Pandya Dynasty",
+      "sourceRow": "590",
+      "period": [
+        "590",
+        "915"
+      ],
+      "sourceIds": [
+        "song-bai-2013"
+      ],
+      "auditNotes": [
+        "Early Pandyas, Pandya Dynasty, and Pandya Empire retain distinct titles and source bindings."
+      ]
+    },
+    {
+      "polity_id": "in_pandya_emp_3",
+      "zh": "潘迪亚帝国",
+      "sourceName": "Pandya Empire",
+      "sourceRow": "520",
+      "period": [
+        "1216",
+        "1323"
+      ],
+      "sourceIds": [
+        "song-bai-2013"
+      ],
+      "auditNotes": [
+        "Early Pandyas, Pandya Dynasty, and Pandya Empire retain distinct titles and source bindings."
+      ]
+    },
+    {
+      "polity_id": "in_pallava_emp_2",
+      "zh": "帕拉瓦帝国后期",
+      "sourceName": "Late Pallava Empire",
+      "sourceRow": "595",
+      "period": [
+        "300",
+        "890"
+      ],
+      "sourceIds": [
+        "song-bai-2013"
+      ],
+      "auditNotes": []
+    },
+    {
+      "polity_id": "ug_buganda_k_1",
+      "zh": "布干达 I",
+      "sourceName": "Buganda I",
+      "sourceRow": "578",
+      "period": [
+        "1408",
+        "1716"
+      ],
+      "sourceIds": [
+        "mfa-uganda",
+        "unesco-buganda"
+      ],
+      "auditNotes": [
+        "Roman numerals are source phase labels, not dynastic names."
+      ]
+    },
+    {
+      "polity_id": "ug_buganda_k_2",
+      "zh": "布干达 II",
+      "sourceName": "Buganda II",
+      "sourceRow": "576",
+      "period": [
+        "1717",
+        "1894"
+      ],
+      "sourceIds": [
+        "mfa-uganda",
+        "unesco-buganda"
+      ],
+      "auditNotes": [
+        "Roman numerals are source phase labels, not dynastic names."
+      ]
+    },
+    {
+      "polity_id": "ni_nok_1",
+      "zh": "诺克文化 · 中晚期",
+      "sourceName": "Middle and Late Nok",
+      "sourceRow": "505",
+      "period": [
+        "-1500",
+        "-901"
+      ],
+      "sourceIds": [
+        "embassy-nigeria-culture"
+      ],
+      "auditNotes": [
+        "Two different source IDs share the exact source title Middle and Late Nok. The same Chinese title is intentional; neither phases nor raw dates (including source year 0) are merged or corrected."
+      ]
+    },
+    {
+      "polity_id": "ni_nok_2",
+      "zh": "诺克文化 · 中晚期",
+      "sourceName": "Middle and Late Nok",
+      "sourceRow": "508",
+      "period": [
+        "-900",
+        "0"
+      ],
+      "sourceIds": [
+        "embassy-nigeria-culture"
+      ],
+      "auditNotes": [
+        "Two different source IDs share the exact source title Middle and Late Nok. The same Chinese title is intentional; neither phases nor raw dates (including source year 0) are merged or corrected."
+      ]
+    },
+    {
+      "polity_id": "ni_yoruba_classic",
+      "zh": "伊费 · 古典时期",
+      "sourceName": "Classical Ife",
+      "sourceRow": "549",
+      "period": [
+        "1000",
+        "1400"
+      ],
+      "sourceIds": [
+        "embassy-nigeria-culture"
+      ],
+      "auditNotes": []
+    },
+    {
+      "polity_id": "ni_oyo_emp_1",
+      "zh": "奥约",
+      "sourceName": "Oyo",
+      "sourceRow": "556",
+      "period": [
+        "1300",
+        "1535"
+      ],
+      "sourceIds": [
+        "jiang-yoruba-2015"
+      ],
+      "auditNotes": []
+    },
+    {
+      "polity_id": "si_freetown_1",
+      "zh": "弗里敦",
+      "sourceName": "Freetown",
+      "sourceRow": "502",
+      "period": [
+        "1787",
+        "1808"
+      ],
+      "sourceIds": [
+        "mfa-freetown"
+      ],
+      "auditNotes": []
+    },
+    {
+      "polity_id": "gh_akan",
+      "zh": "阿坎 · 前阿散蒂时期",
+      "sourceName": "Akan - Pre-Ashanti",
+      "sourceRow": "109",
+      "period": [
+        "1501",
+        "1701"
+      ],
+      "sourceIds": [
+        "yu-akan-2026",
+        "unesco-asante"
+      ],
+      "auditNotes": [
+        "Akan is an ethnonym/research-area label; the display does not add Kingdom or Empire. Pre-Ashanti is translated literally from the source phase title."
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "manifest:raw/china-source-passages.json",
+      "passed": true,
+      "detail": {
+        "path": "raw/china-source-passages.json",
+        "bytes": 27157,
+        "sha256": "d95160d97d565fed39e886955b639657a993238814b5f249074b92591ab12714"
+      }
+    },
+    {
+      "name": "manifest:raw/china-sources-open.json",
+      "passed": true,
+      "detail": {
+        "path": "raw/china-sources-open.json",
+        "bytes": 13253,
+        "sha256": "9368d9a36a3e799b013f5ad4b9a44d3b07317110a603218cc5c08db2f644a895"
+      }
+    },
+    {
+      "name": "manifest:raw/indian-ocean-seapower.pdf",
+      "passed": true,
+      "detail": {
+        "path": "raw/indian-ocean-seapower.pdf",
+        "bytes": 373089,
+        "sha256": "634c3c579153f66c3da481e9fd0e5993c3c0d1bbbebf5da9e966d46695197898"
+      }
+    },
+    {
+      "name": "manifest:raw/nok-asante-search.json",
+      "passed": true,
+      "detail": {
+        "path": "raw/nok-asante-search.json",
+        "bytes": 30143,
+        "sha256": "c280c4468fdf11fa1e13a47fe61e6dd21a2dbacd43234208028aadf12dc152bd"
+      }
+    },
+    {
+      "name": "manifest:raw/oyo-buganda-asante-passages.json",
+      "passed": true,
+      "detail": {
+        "path": "raw/oyo-buganda-asante-passages.json",
+        "bytes": 23046,
+        "sha256": "5eaff40b6a19d1fa41133e8423da6634552663131c78e4339d2c0c6e393b3175"
+      }
+    },
+    {
+      "name": "manifest:raw/unesco-names.json",
+      "passed": true,
+      "detail": {
+        "path": "raw/unesco-names.json",
+        "bytes": 36029,
+        "sha256": "2a8963afd9c14c3765d7dec996deb7f9ea0607b3a61409dd1b91f3c13e773aff"
+      }
+    },
+    {
+      "name": "manifest:raw/yoruba-buganda-pallava.json",
+      "passed": true,
+      "detail": {
+        "path": "raw/yoruba-buganda-pallava.json",
+        "bytes": 30916,
+        "sha256": "a9bcf0759c3f4b7c6433eb799e51b05f53e988fc8e7d59d8fea4d09c37f51349"
+      }
+    },
+    {
+      "name": "manifest-total-bytes",
+      "passed": true,
+      "detail": 533633
+    },
+    {
+      "name": "manifest-source-count",
+      "passed": true,
+      "detail": 10
+    },
+    {
+      "name": "manifest-covers-all-referenced-snapshots",
+      "passed": true,
+      "detail": [
+        "raw/china-source-passages.json",
+        "raw/china-sources-open.json",
+        "raw/indian-ocean-seapower.pdf",
+        "raw/nok-asante-search.json",
+        "raw/oyo-buganda-asante-passages.json",
+        "raw/unesco-names.json",
+        "raw/yoruba-buganda-pallava.json"
+      ]
+    },
+    {
+      "name": "source-ids-unique",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-hash:unesco-kakatiya",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:unesco-kakatiya",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:unesco-kakatiya",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:unesco-kakatiya",
+      "passed": true,
+      "detail": {
+        "quote": "卡卡提亚王朝",
+        "locator": "English description and Chinese heading/description; retrieved lines 19–21"
+      }
+    },
+    {
+      "name": "source-hash:unesco-chola",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:unesco-chola",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:unesco-chola",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:unesco-chola",
+      "passed": true,
+      "detail": {
+        "quote": "朱罗王朝",
+        "locator": "English description and Chinese heading/description; retrieved lines 16–18"
+      }
+    },
+    {
+      "name": "source-hash:song-bai-2013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pdf-pages:song-bai-2013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:song-bai-2013",
+      "passed": true,
+      "detail": {
+        "quote": "帕拉瓦、朱罗和潘迪亚三个王朝",
+        "locator": "PDF page 5, printed page 21, footnote 1"
+      }
+    },
+    {
+      "name": "source-hash:mfa-uganda",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:mfa-uganda",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:mfa-uganda",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:mfa-uganda",
+      "passed": true,
+      "detail": {
+        "quote": "布干达王国",
+        "locator": "简况, retrieved line 195"
+      }
+    },
+    {
+      "name": "source-hash:unesco-buganda",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:unesco-buganda",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:unesco-buganda",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:unesco-buganda",
+      "passed": true,
+      "detail": {
+        "quote": "巴干达王国",
+        "locator": "English description and Chinese description; retrieved lines 16–18"
+      }
+    },
+    {
+      "name": "source-hash:embassy-nigeria-culture",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:embassy-nigeria-culture",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:embassy-nigeria-culture",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:embassy-nigeria-culture",
+      "passed": true,
+      "detail": {
+        "quote": "诺克文化、伊费文化",
+        "locator": "（三）文化 / 1、尼文化简况; retrieved lines 61–66"
+      }
+    },
+    {
+      "name": "source-hash:jiang-yoruba-2015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:jiang-yoruba-2015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:jiang-yoruba-2015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:jiang-yoruba-2015",
+      "passed": true,
+      "detail": {
+        "quote": "奥约",
+        "locator": "PDF page 2, printed page 55, paragraph on multiple Yoruba polities; retrieved lines 185–189"
+      }
+    },
+    {
+      "name": "source-hash:mfa-freetown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:mfa-freetown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:mfa-freetown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:mfa-freetown",
+      "passed": true,
+      "detail": {
+        "quote": "弗里敦（Freetown）",
+        "locator": "首都, retrieved line 189"
+      }
+    },
+    {
+      "name": "source-hash:yu-akan-2026",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:yu-akan-2026",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:yu-akan-2026",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:yu-akan-2026",
+      "passed": true,
+      "detail": {
+        "quote": "阿坎人（Akan）",
+        "locator": "“母亲非洲”的象征; retrieved line 114"
+      }
+    },
+    {
+      "name": "source-hash:unesco-asante",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "representation-label:unesco-asante",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-url-in-retrieval:unesco-asante",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "quote-present:unesco-asante",
+      "passed": true,
+      "detail": {
+        "quote": "阿散蒂(Asante)",
+        "locator": "Chinese description and parallel English/French descriptions in the accessible source result"
+      }
+    },
+    {
+      "name": "candidate-unique-count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:in_kakatiya_dyn",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:in_cholas_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:in_pandya_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:in_pandya_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:in_pandya_emp_3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:in_pallava_emp_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:ug_buganda_k_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:ug_buganda_k_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:ni_nok_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:ni_nok_2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:ni_yoruba_classic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:ni_oyo_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:si_freetown_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-runtime-tuple:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-binding:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-name-and-date-preservation:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline-untranslated:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot-hash-binding:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-coverage:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-source-urls:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lexical-evidence-scope:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified-name:gh_akan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "priority-coverage-accounting",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "region-counts",
+      "passed": true,
+      "detail": {
+        "Southern India": 6,
+        "East Africa": 2,
+        "West Africa": 6
+      }
+    },
+    {
+      "name": "global-coverage-arithmetic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "visual-proof-file-present",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "fileInventory": [
+    {
+      "path": "REPORT.md",
+      "bytes": 4273,
+      "sha256": "925e5b02e0a987a615da79bd099f536416231ce841efa8044d5f39a61816723a"
+    },
+    {
+      "path": "baseline-107.json",
+      "bytes": 78500,
+      "sha256": "e575333b099ee018c8c93765b92753e6016e956b8b0f28a2474a80f57447db51"
+    },
+    {
+      "path": "coverage.json",
+      "bytes": 663,
+      "sha256": "7b4440874d9128635290e40e292f0839d8af44a42d6408a4c0bdf6ba1e0e47db"
+    },
+    {
+      "path": "deferred.json",
+      "bytes": 14066,
+      "sha256": "f9133d055329f474932e2dc11ace9e79898278bca36e97c1dca8badff6d0df2b"
+    },
+    {
+      "path": "downloads.json",
+      "bytes": 885,
+      "sha256": "baadf91c47c57f65e40e2dda1581bf0a22ca2c6fc4c19f74a5779f55fb136d22"
+    },
+    {
+      "path": "indian-ocean-page-5-native.png",
+      "bytes": 132111,
+      "sha256": "ce651cc7b8053676d68f96075640e1beabf892a6ab77b94bdb9ceaf0b4cbf9ed"
+    },
+    {
+      "path": "indian-ocean-page-5-pdfium.png",
+      "bytes": 534969,
+      "sha256": "12c459630240ca05d8e40655a2289530c1f82f1e08c4e707a11e15e17e559bcd"
+    },
+    {
+      "path": "indian-ocean-page-5-verified.png",
+      "bytes": 44532,
+      "sha256": "f20dff31765be6942a20ed3ca95af99667e65f6cfba7f4b5f709b5991596f766"
+    },
+    {
+      "path": "indian-ocean-page-5.png",
+      "bytes": 34838,
+      "sha256": "09543d838e470ce2adfe1aa82a8ec7c302d220fb94502c437dc9acca5bae74eb"
+    },
+    {
+      "path": "indian-ocean-pages.json",
+      "bytes": 42801,
+      "sha256": "5ba9608ca86502c9be865d4a9ca8cd6478914199529729913fcc516c0181c003"
+    },
+    {
+      "path": "indian-ocean-singlepage.pdf",
+      "bytes": 66682,
+      "sha256": "04ab3e74bcfeebf3f8649a184f3bb67c3c49696d8759351a2c00764254efaebd"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 1275,
+      "sha256": "7d7c2dcc484cd8982c9a31a06636c2e92acec3767088aa041388621813b796cd"
+    },
+    {
+      "path": "polaris-polity-names.patch",
+      "bytes": 2528,
+      "sha256": "d7f93795cb94d5dcb12e0dc65dc78b3224c998ffd575a9fd468182bf9b4df725"
+    },
+    {
+      "path": "polity-name-candidates.json",
+      "bytes": 25924,
+      "sha256": "2ceb6271f6349714eb7bbac2c80244b4c0357e2369049c8603b872d4e9f2a687"
+    },
+    {
+      "path": "prepare.py",
+      "bytes": 12667,
+      "sha256": "4c1fbb084365dfa9c3b6c62f04244fb8689686a51d37bf444b928447f16813c4"
+    },
+    {
+      "path": "raw/china-source-passages.json",
+      "bytes": 27157,
+      "sha256": "d95160d97d565fed39e886955b639657a993238814b5f249074b92591ab12714"
+    },
+    {
+      "path": "raw/china-sources-open.json",
+      "bytes": 13253,
+      "sha256": "9368d9a36a3e799b013f5ad4b9a44d3b07317110a603218cc5c08db2f644a895"
+    },
+    {
+      "path": "raw/china-sources-search.json",
+      "bytes": 26455,
+      "sha256": "cc197e734e4d74ef3659669c2c50b0f4bd0546be499169459b4b8a663308a35d"
+    },
+    {
+      "path": "raw/indian-ocean-seapower.pdf",
+      "bytes": 373089,
+      "sha256": "634c3c579153f66c3da481e9fd0e5993c3c0d1bbbebf5da9e966d46695197898"
+    },
+    {
+      "path": "raw/nok-asante-search.json",
+      "bytes": 30143,
+      "sha256": "c280c4468fdf11fa1e13a47fe61e6dd21a2dbacd43234208028aadf12dc152bd"
+    },
+    {
+      "path": "raw/oyo-buganda-asante-passages.json",
+      "bytes": 23046,
+      "sha256": "5eaff40b6a19d1fa41133e8423da6634552663131c78e4339d2c0c6e393b3175"
+    },
+    {
+      "path": "raw/unesco-names.json",
+      "bytes": 36029,
+      "sha256": "2a8963afd9c14c3765d7dec996deb7f9ea0607b3a61409dd1b91f3c13e773aff"
+    },
+    {
+      "path": "raw/yoruba-buganda-pallava.json",
+      "bytes": 30916,
+      "sha256": "a9bcf0759c3f4b7c6433eb799e51b05f53e988fc8e7d59d8fea4d09c37f51349"
+    },
+    {
+      "path": "render-verified.log",
+      "bytes": 6940,
+      "sha256": "f634cf354eeaba9766976bf18d0d82be4ae1bfa009e29da390a211454a6e8b56"
+    },
+    {
+      "path": "render.log",
+      "bytes": 6940,
+      "sha256": "f634cf354eeaba9766976bf18d0d82be4ae1bfa009e29da390a211454a6e8b56"
+    },
+    {
+      "path": "runtime-rows-patch.json",
+      "bytes": 3316,
+      "sha256": "52d6bd7742de7f4d992bf5f88c165912b4ab14b03b8bdfc1ccf269a395c0781b"
+    },
+    {
+      "path": "runtime-verification.json",
+      "bytes": 205,
+      "sha256": "076dbcd2bfa4de09645deb9596da380c7cfaa88c4193be1cca268a2cc0114e96"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 8616,
+      "sha256": "1b84ad6e4bee81a4c7b4a7954dbd5d4f753113974795939aa01ded2e8597a04f"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 209,
+      "sha256": "5cd03e84d928197c70dd7103520694d2c8c39d3bcfe7cd49693f4334dac29c95"
+    },
+    {
+      "path": "verify-runtime-work-snapshot.mjs.txt",
+      "bytes": 2256,
+      "sha256": "a4124f73963d5c9b39a9a1b97eb4c6e5337d85c4c1d30e5226e28b28baf9badc"
+    }
+  ],
+  "reusableSteps": [
+    "Run this script with the bundled Python and pypdf: scripts/validate-phase-name-evidence-342.py REPO_ROOT REPORT_JSON. It writes only REPORT_JSON.",
+    "Check every referenced snapshot against both manifest.json and sources.json bytes/SHA-256.",
+    "Match each short source quotation in the saved retrieved text or the designated original PDF pages, allowing only Unicode compatibility normalization and whitespace removal.",
+    "Bind all 14 candidate tuples to the real Polaris index names, sourceNumber, row, dates, region and sampling area; preserve raw source identity and chronology.",
+    "Run node scripts/validate-polaris-polity-names.mjs from REPO_ROOT for the actual integrated display module and its negative binding regressions."
+  ],
+  "productionFilesModified": false,
+  "networkUsed": false
+}

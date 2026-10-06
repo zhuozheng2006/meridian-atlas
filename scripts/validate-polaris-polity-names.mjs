@@ -11,6 +11,8 @@ assert.equal(qinReview.polity_id, 'cn_qin_emp');
 assert.equal(qinReview.allowDateCorrection, false);
 assert.equal(qinReview.allowIdentityMerge, false);
 byId.set(qinReview.polity_id, {...byId.get(qinReview.polity_id), zh:qinReview.zh, status:'complete', note:qinReview.noteZh});
+const names342=JSON.parse(await readFile(new URL('../docs/verification-3.42/phase-names/polity-name-candidates.json',import.meta.url),'utf8'));
+for(const row of names342){assert.equal(row.allowDateCorrection,false);assert.equal(row.allowIdentityMerge,false);byId.set(row.polity_id,{...byId.get(row.polity_id),zh:row.zh,status:'complete',note:row.noteZh});}
 const originalIndex = JSON.stringify(index);
 let translated = 0;
 for (const polity of index.polities) {
@@ -29,7 +31,7 @@ for (const polity of index.polities) {
     assert.equal(note(polity, 'bi'), `${note(polity, 'zh')} ${note(polity, 'en')}`);
   }
 }
-assert.equal(translated, 369);
+assert.equal(translated, 383);
 assert.equal(JSON.stringify(index), originalIndex, 'display/search must not change the source index');
 const ming = index.polities.find(p => p.id === 'cn_ming_dyn');
 assert.equal(name(ming), '明朝');
@@ -54,6 +56,7 @@ for (const mutate of mismatches) {
   assert.equal(note(changed), '');
   assert.ok(!search(changed).includes('明朝'));
 }
+for(const row of names342){const p=index.polities.find(p=>p.id===row.polity_id);assert.equal(name(p),row.zh);assert.equal(name(p,'en'),row.sourceName);for(const mutate of mismatches){const altered=structuredClone(p);mutate(altered);assert.equal(name(altered),altered.names.join(' / '));}}
 const malacca = index.polities.filter(p => p.names[0] === 'Malacca Sultanate');
 assert.equal(malacca.length, 2);
 assert.equal(name(malacca.find(p => p.id.endsWith('22222'))), 'Malacca Sultanate');
@@ -74,5 +77,5 @@ assert.equal(note(independentlyRedatedQin), '');
 assert.equal(name({id:'__proto__',names:['Literal source']}), 'Literal source');
 assert.equal(name(null), '');
 assert.equal(note(null), '');
-console.log(JSON.stringify({passed:true, phases:626, translated, fallback:257, mismatchRegressions:mismatches.length+1,
+console.log(JSON.stringify({passed:true, phases:626, translated, fallback:243, mismatchRegressions:mismatches.length*(names342.length+1)+1, reviewedNames342:names342.length,
   checked:'actual source index, bilingual notes, source authority, row/number/period/region binding, immutable display'}, null, 2));
