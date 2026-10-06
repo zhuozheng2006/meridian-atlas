@@ -46,3 +46,9 @@ The exact workbook is retained and the standard-library builder reproduces the p
 Research deep links initialize independently: no MapLibre script, WebGL canvas, territory catalog or event file is required. Cold Ming research loaded a 31,947-byte index and a 3,056-byte shard in the observed browser session. The first Atlas navigation then starts the renderer once. Startup failure remains retryable, and stale initial place restoration cannot override subsequent navigation.
 
 The source phase, field, variable, queries and zero-based page are preserved in the URL and when returning from Sources. Large numeric strings are formatted without floating-point conversion; raw rows and exports remain unchanged. Keyboard skip links reach the current main view without destroying the research URL. `browser-checks.json` records the observed local flows and their limits.
+
+## Packaging follow-up
+
+The first complete static archive exceeded Sites'256MiB input limit before a version was saved. The final build moves40 exact large assets into the existing private R2 bucket while preserving the complete portable `public/` tree and legacy lake keys. See `../DATA-STORAGE-v3.37.md`; runtime import/read behavior and upload recovery are verified in the expanded `scripts/validate-worker.mjs`. Actual upload and deployment records belong in the release metadata, not inferred from build success.
+
+`browser-native-finalstamp-4mbps.json` adds a fresh cold-load observation for the final frontend stamp. The1450 pack ran from3500.6 to6948.4ms in that navigation; places, physical masks and relief requested at the same time still compete for bandwidth. This is a next-iteration scheduling target, not an A/B speed claim or first-paint measurement.

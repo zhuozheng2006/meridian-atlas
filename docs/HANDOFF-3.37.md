@@ -39,7 +39,7 @@ npm run build
 
 - `prepare:assets` 重建 enrichment 压缩档案、统一全部脚本样式的 `?v=`，会修改很多文件；并行编辑时不要抢跑。
 - `npm test` 是 `package.json` 中的全量校验链，应保留真正退出码。不能用管道尾部命令成功来替代测试成功。
-- `npm run build` 会重建 `dist/client` 与 `dist/server/index.js`，并生成湖泊存储清单；**构建成功不等于已发布**。
+- `npm run build` 会重建 `dist/client` 与 `dist/server/index.js`，并生成湖泊与大型静态数据存储清单；**构建成功不等于已发布**。
 - `.json.gz` 使用确定性压缩。若同名 `.json` 存在，两者必须语义一致；清单的 bytes 与 SHA-256 必须随资源更新。
 - 本会话的真实浏览器验证使用 `cua_repl`。旧 CDP／Playwright 驱动仍在仓库，仅保留为历史材料；不要把它们在本会话重新作为 UI 操作入口。
 
@@ -282,3 +282,11 @@ python scripts/cartography/audit-physical-spatial.py --source /tmp/atlas-physica
 ## 后续资料候选（尚未并入当前版本）
 
 正常取得了官方固定版本 Polaris-2026 工作簿：626 政体、173 变量、57,631 条观察。它仍没有逐条编码论证或书目，部分阶段边界和变量映射与 Equinox 不同。下一批先做独立版本管线与语义核对，不覆盖当前原值。研究包位于 `/Users/zane/Documents/Codex/2026-10-02/new-chat/work/seshat-evidence-next/FINDINGS.md`，包含下载哈希、完整 schema、697 条目标样本及无法访问接口的边界。官方 API 仓库中的 LLM 实验 CSV 已明确排除为历史来源。
+
+## 发布体积与存储拆分补充
+
+首次3.37完整静态包为356.63MiB，超过Sites的256MiB上传限制，未创建成功的线上版本。随后扩展既有私人R2分发：OHM年份快照、CShapes年代包和Seshat编码手册共40个文件、128,360,681字节使用逐文件SHA键；完整原件仍在`public/`，本地运行方式不变。湖泊原revision与存储键保持不变。
+
+`scripts/upload-static.mjs`只从隐藏交互输入读取官方Sites服务凭据，先验证所有本地文件，上传后逐一下载全部40项核对字节与SHA。并发上限2，避免大型几何包导入占满Worker内存。临时导入版本使用有限时间窗口，最终`npm run build`默认为0并关闭两组导入路由。最终发布必须以成功部署及完整存储回读记录为准；本段不表示云端导入已经完成。详见`DATA-STORAGE-v3.37.md`。
+
+最终前端版本`3.37.0-153ba418f166`另做了一次4Mbps冷启动抽查，原始记录见`verification-3.37/browser-native-finalstamp-4mbps.json`。1450原始坐标包的资源开始/结束约为3500.6/6948.4ms，没有旧概览或完整native索引请求；同期地点、物理遮罩和地形仍争用带宽。此数值只是该资源的到达时序，不能称为首屏绘制耗时或线上性能；下一轮应继续改善关键疆域与可选图层的下载顺序。
