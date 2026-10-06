@@ -1,0 +1,64 @@
+{
+  "method": "Feature-detected task transport; controlled native postTask promise+AbortSignal emulator and timer queues, integrated with otherwise byte-identical production exact-anchor job/slice logic. Node default/global detection also exercised. Not native Chrome timing.",
+  "pass": 14,
+  "fail": 0,
+  "unhandledRejections": 0,
+  "checks": [
+    {
+      "name": "Supported environment posts an asynchronous user-visible task with an AbortSignal and no timer",
+      "pass": true
+    },
+    {
+      "name": "Native cancellation aborts its promise and a forced late callback is inert",
+      "pass": true
+    },
+    {
+      "name": "No native API and no AbortController independently use cancellable Node-compatible timers",
+      "pass": true
+    },
+    {
+      "name": "Synchronous native scheduling failure falls back once and remains cancellable",
+      "pass": true
+    },
+    {
+      "name": "Native rejection before callback falls back once without unhandled rejection",
+      "pass": true
+    },
+    {
+      "name": "Cancel after native rejection cancels its fallback task too",
+      "pass": true
+    },
+    {
+      "name": "An AbortError not caused by our cancellation cannot silently strand the job",
+      "pass": true
+    },
+    {
+      "name": "Callback exceptions are reported as task errors and never invoke callback twice",
+      "pass": true
+    },
+    {
+      "name": "A returned callback rejection is reported once and never treated as native scheduling failure",
+      "pass": true
+    },
+    {
+      "name": "Exact scheduler retains identical complete results and slice boundaries with native and timer scheduling",
+      "pass": true
+    },
+    {
+      "name": "Native pending generation is aborted on supersede and cannot commit after the new result",
+      "pass": true
+    },
+    {
+      "name": "Native destroy and failed context both leave no commits or unhandled abort promises",
+      "pass": true
+    },
+    {
+      "name": "Production default feature-detects global scheduler rather than requiring injection",
+      "pass": true
+    },
+    {
+      "name": "No unhandled promise rejection occurred in any cancellation, failure or callback case",
+      "pass": true
+    }
+  ]
+}

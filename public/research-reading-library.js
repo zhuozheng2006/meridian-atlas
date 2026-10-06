@@ -1,7 +1,7 @@
-import {READING_CATALOG} from './research-reading-data.js?v=3.42.0-6de1d2485233';
-import {label} from './polaris-adapter.js?v=3.42.0-6de1d2485233';
-import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=3.42.0-6de1d2485233';
-import {polarisPolityName,polarisPolitySearchText} from './polaris-polity-names.js?v=3.42.0-6de1d2485233';
+import {READING_CATALOG} from './research-reading-data.js?v=3.43.0-6a6bc23b738e';
+import {label} from './polaris-adapter.js?v=3.43.0-6a6bc23b738e';
+import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=3.43.0-6a6bc23b738e';
+import {polarisPolityName,polarisPolitySearchText} from './polaris-polity-names.js?v=3.43.0-6a6bc23b738e';
 
 const PAGE_SIZE=6;
 export function readingForId(id,phaseId,catalog=READING_CATALOG){
@@ -15,7 +15,7 @@ export function searchReadings(query='',phaseId='',phases=new Map(),catalog=READ
  const words=query.normalize('NFKC').toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
  return catalog.cards.filter(card=>{
   if(phaseId&&card.phaseId!==phaseId)return false;
-  const phase=phases.get(card.phaseId),terms=[card.id,card.phaseId,card.titleZh,card.titleEn,card.summaryZh,card.summaryEn,...card.authors,String(card.year),phase?polarisPolitySearchText(phase):'',...card.variableIds.flatMap(id=>[id,POLARIS_VARIABLES[id]?.zh,POLARIS_VARIABLES[id]?.en])].filter(Boolean).join(' ').normalize('NFKC').toLocaleLowerCase();
+  const phase=phases.get(card.phaseId),terms=[card.id,card.phaseId,card.titleZh,card.titleEn,card.summaryZh,card.summaryEn,...card.authors,card.year===null?'':String(card.year),phase?polarisPolitySearchText(phase):'',...card.variableIds.flatMap(id=>[id,POLARIS_VARIABLES[id]?.zh,POLARIS_VARIABLES[id]?.en])].filter(Boolean).join(' ').normalize('NFKC').toLocaleLowerCase();
   return words.every(word=>terms.includes(word));
  });
 }

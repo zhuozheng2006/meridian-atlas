@@ -54,12 +54,12 @@ await test('Destroy during index read prevents all later DOM and selection write
 
 await test('Reading library exposes all nine curated phases and searches bilingual subjects without reading shards',async()=>{
  const calls=[],{host,reader}=open({lang:'zh',readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
- const library=find(host,'research-reading-library');assert(library.open);assert.match(library.textContent,/25 条导读.*9 个研究阶段.*10 份来源/);
- const select=field(host,'library-phase'),query=field(host,'library-query');assert.equal(select.children.length,10);assert.equal(find(host,'research-library-grid').children.length,6);
+ const library=find(host,'research-reading-library');assert(library.open);assert.match(library.textContent,/30 条导读.*11 个研究阶段.*12 份来源/);
+ const select=field(host,'library-phase'),query=field(host,'library-query');assert.equal(select.children.length,12);assert.equal(find(host,'research-library-grid').children.length,6);
  query.value='马里';await query.fire('input');assert.equal(find(host,'research-library-grid').children.length,2);assert.match(library.textContent,/盐块/);
  assert.equal(searchReadings('population','kh_angkor_2',new Map(index.polities.map(p=>[p.id,p]))).length,1);assert.equal(calls.length,1);reader.destroy();
 });
-await test('All 25 deep links show and export precisely their linked typed source rows',async()=>{
+await test('All 30 deep links show and export precisely their linked typed source rows',async()=>{
  for(const c of READING_CATALOG.cards){let payload;const calls=[],{host,reader}=open({lang:'zh',initialState:{polityId:c.phaseId,readingId:c.id,query:'stale',domain:'crisis',page:8},download:p=>payload=p,readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
   const p=index.polities.find(p=>p.id===c.phaseId),raw=gz(p.file),expected=raw.observations.filter(r=>c.targetRowIds.includes(r.id));
   assert.equal(reader.getSnapshot().readingId,c.id);assert.equal(reader.getState().filteredCount,c.targetRowIds.length);assert.equal(reader.getSnapshot().query,'');assert.equal(reader.getSnapshot().page,0);

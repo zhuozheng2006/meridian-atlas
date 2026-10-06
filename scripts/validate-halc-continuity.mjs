@@ -1,3 +1,4 @@
+import {finishLabelJobs} from './halc-label-oracle.mjs';
 import assert from 'node:assert/strict';
 import {existsSync} from 'node:fs';
 import {readFile,writeFile} from 'node:fs/promises';
@@ -52,18 +53,18 @@ try{
   h.beginViewportLoad();await tick(h);updating(h);assert.equal(h.halc.features,features);assert.equal(h.halc.popup,popup);assert.equal(String(h.halc.selectedId),'1');assert.deepEqual(h.map.getFeatureState({source:'halc-boundaries',sourceLayer:'halc_localities',id:1}),selection);assert.equal(selection.halcSelected,true);assert.equal(ink(h),'visible');assert.deepEqual(h.map.getLayer('halc-edges').paint['line-opacity'],opacity);
  });
  await test('Pending idles do zero source queries, style writes and anchor calculations',async h=>{
-  await both(h);h.enableLabels();h.beginViewportLoad();assert.equal(h.markerCount(),0);const counts=workCounter(h);
+  await both(h);h.enableLabels();await finishLabelJobs(h.halc);h.beginViewportLoad();assert.equal(h.markerCount(),0);const counts=workCounter(h);
   for(let i=0;i<8;i++)h.map.emit('idle');assert.deepEqual(counts,{query:0,style:0,anchor:0});updating(h);assert.equal(h.markerCount(),0);
  });
  await test('Explicit label refresh while main loading cannot recreate stale labels',async h=>{
-  await both(h);h.enableLabels();assert(h.markerCount());h.beginViewportLoad();h.halc.refreshLabels();assert.equal(h.markerCount(),0);updating(h);
+  await both(h);h.enableLabels();await finishLabelJobs(h.halc);assert(h.markerCount());h.beginViewportLoad();h.halc.refreshLabels();assert.equal(h.markerCount(),0);updating(h);
  });
  await test('A missing loading event still preserves frame but invalidates completion and labels',async h=>{
-  await both(h);h.enableLabels();const features=h.halc.features;h.map.getSource('halc-boundaries').loaded=false;h.halc.update();updating(h);assert.equal(h.halc.features,features);assert.equal(h.markerCount(),0);
-  h.map.rendered=[h.map.rendered[1]];h.map.sourceReady('halc-boundaries');await tick(h);assert.equal(h.halc.reason,'ready');assert.deepEqual(h.halc.features.map(f=>f.properties.fid),[2]);assert(h.markerCount());
+  await both(h);h.enableLabels();await finishLabelJobs(h.halc);const features=h.halc.features;h.map.getSource('halc-boundaries').loaded=false;h.halc.update();updating(h);assert.equal(h.halc.features,features);assert.equal(h.markerCount(),0);
+  h.map.rendered=[h.map.rendered[1]];h.map.sourceReady('halc-boundaries');await tick(h);assert.equal(h.halc.reason,'ready');assert.deepEqual(h.halc.features.map(f=>f.properties.fid),[2]);await finishLabelJobs(h.halc);assert(h.markerCount());
  });
  await test('Group loading retains committed group ink and stable local-opacity hierarchy',async h=>{
-  await both(h);h.enableGroupLabels();const opacity=structuredClone(h.map.getLayer('halc-edges').paint['line-opacity']);h.beginGroupLoad();assert.equal(h.halc.regions.ready,false);assert(h.halc.regions.hasFrame);assert.equal(h.halc.regions.features.length,0);assert.equal(ink(h),'visible');assert.equal(h.markerCount(),0);assert.deepEqual(h.map.getLayer('halc-edges').paint['line-opacity'],opacity);
+  await both(h);h.enableGroupLabels();await finishLabelJobs(h.halc);const opacity=structuredClone(h.map.getLayer('halc-edges').paint['line-opacity']);h.beginGroupLoad();assert.equal(h.halc.regions.ready,false);assert(h.halc.regions.hasFrame);assert.equal(h.halc.regions.features.length,0);assert.equal(ink(h),'visible');assert.equal(h.markerCount(),0);assert.deepEqual(h.map.getLayer('halc-edges').paint['line-opacity'],opacity);
  });
  await test('Repeated group-loading events retain ink without style or geometry work',async h=>{
   await both(h);h.beginGroupLoad();const counts=workCounter(h);for(let i=0;i<8;i++)h.beginGroupLoad();assert.deepEqual(counts,{query:0,style:0,anchor:0});assert(h.halc.regions.hasFrame);assert.equal(h.halc.regions.ready,false);assert.equal(ink(h),'visible');

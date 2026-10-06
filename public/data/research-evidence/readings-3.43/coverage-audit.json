@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "baseline": {
+    "cards": 25,
+    "phases": 9,
+    "sources": 10
+  },
+  "additions": {
+    "cards": 5,
+    "phases": 2,
+    "sources": 2,
+    "phaseIds": [
+      "iq_babylonia_1",
+      "jp_asuka"
+    ],
+    "originalBytes": 231324,
+    "targetRows": 7
+  },
+  "beforeReadingCounts": {
+    "iq_babylonia_1": 0,
+    "jp_asuka": 0
+  },
+  "phaseBindings": {
+    "iq_babylonia_1": {
+      "bytes": 2261,
+      "crisisCount": 0,
+      "decodedBytes": 48408,
+      "explicitDateCount": 0,
+      "file": "polities/p250.json.gz",
+      "id": "iq_babylonia_1",
+      "names": [
+        "Amorite Babylonia"
+      ],
+      "periods": [
+        {
+          "endRaw": "-1600",
+          "sourceRow": "402",
+          "sourceSheet": "Polities",
+          "startRaw": "-2000"
+        }
+      ],
+      "recordCount": 69,
+      "regions": [
+        "Mesopotamia"
+      ],
+      "samplingAreas": [
+        "Southern Mesopotamia"
+      ],
+      "sha256": "1082ad2ea91f1a9001592416e2095575bd1fec8ed99e8164869b58bc685b1f56",
+      "sourceNumber": "479",
+      "variableCount": 66
+    },
+    "jp_asuka": {
+      "bytes": 3990,
+      "crisisCount": 1,
+      "decodedBytes": 93008,
+      "explicitDateCount": 6,
+      "file": "polities/p325.json.gz",
+      "id": "jp_asuka",
+      "names": [
+        "Asuka"
+      ],
+      "periods": [
+        {
+          "endRaw": "710",
+          "sourceRow": "142",
+          "sourceSheet": "Polities",
+          "startRaw": "538"
+        }
+      ],
+      "recordCount": 133,
+      "regions": [
+        "Northeast Asia"
+      ],
+      "samplingAreas": [
+        "Kansai"
+      ],
+      "sha256": "25ab1486cc0be21dad61e12a0326688fba212819df83574464ea05bda6975659",
+      "sourceNumber": "146",
+      "variableCount": 124
+    }
+  },
+  "observationCountChange": 0,
+  "limitations": [
+    "New sources are independent reading associations, not demonstrated Polaris coding sources.",
+    "The entire primary-text wording is not newly translated into Chinese; the five guides are bilingual.",
+    "Both sources are translations of normative texts; ordinary practice and phase-wide institutional continuity require additional evidence.",
+    "The date of King’s translation is unspecified on the saved page; year is null.",
+    "The Columbia PDF is a documentary excerpt, not the complete 1997 book or an autograph of a seventh-century edict."
+  ]
+}

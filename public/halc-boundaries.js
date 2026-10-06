@@ -1,7 +1,8 @@
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.42.0-6de1d2485233';
-import {HalcLandscape} from './halc-landscape.js?v=3.42.0-6de1d2485233';
-import {readJSON} from './map-engine.js?v=3.42.0-6de1d2485233';
-import {HalcRegions} from './halc-regions.js?v=3.42.0-6de1d2485233';
+import {createExactLabelScheduler} from './halc-label-scheduler.js?v=3.43.0-6a6bc23b738e';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.43.0-6a6bc23b738e';
+import {HalcLandscape} from './halc-landscape.js?v=3.43.0-6a6bc23b738e';
+import {readJSON} from './map-engine.js?v=3.43.0-6a6bc23b738e';
+import {HalcRegions} from './halc-regions.js?v=3.43.0-6a6bc23b738e';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -64,11 +65,12 @@ export function halcLayers(){
 export class HalcBoundaries{
  constructor(owner,{load=readJSON,anchor}={}){
   this.owner=owner;this.atlas=owner.atlas;this.map=owner.map;this.load=load;this.anchor=anchor;this.active=false;this.failed=false;this.reason='disabled';this.features=[];this.markers=[];this.seq=0;this.dead=false;this.listeners=[];this.sourceEpoch=0;this.featureEpoch=0;this.renderedKey=null;this.renderPending=false;this.seenContent=false;
+  this.labelScheduler=createExactLabelScheduler({anchor:(f,box)=>this.anchor(f,box)});
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
   on('idle',()=>this.settle());
   on('sourcedata',e=>{if(e.sourceId!==HALC_SOURCE)return;if(e.tile?.state==='loaded'||e.sourceDataType==='content')this.seenContent=true;if(this.seenContent&&e.isSourceLoaded)this.requestRender();});
   on('render',()=>this.afterRender());
-  on('movestart',()=>{this.renderedKey=null;this.renderPending=false;});
+  on('movestart',()=>{this.renderedKey=null;this.renderPending=false;this.labelScheduler.invalidate('camera-moving');});
   on('moveend',()=>this.requestRender());
   on('resize',()=>this.requestRender());
   on('sourcedataloading',e=>{if(e.sourceId!==HALC_SOURCE||this.dead)return;this.sourceEpoch++;this.renderedKey=null;if(!this.eligible||!this.active)return;this.beginUpdate();});
@@ -149,16 +151,34 @@ export class HalcBoundaries{
  openGroup(code){this.owner.openIndex({halcGroup:code});}
  openHit(feature,point){const p=feature.properties;if(!this.loading&&this.map.getZoom()<8&&p.TYPE!==8&&p.ADM1&&!p.ADM1.split(';').includes('XX'))this.openGroup(p.ADM1);else this.openRecord(p.fid,point);}
  indexFeatures(){return this.features.map(f=>({...f,properties:{...f.properties,archive:'halc',record_id:'HALC-'+f.properties.fid,name:halcName(f.properties,this.labels,this.lang),name_en:f.properties.NAME,start_date:'1500',end_date:'1500'}}));}
- clearLabels(){for(const marker of this.markers)marker.remove();this.markers=[];this.labelKey=null;this.labelBoxes=null;}
- refreshLabels(){
-  if(!this.active||this.loading||!this.atlas.showLabels||!this.anchor){this.clearLabels();return;}
+ removeLabels(){for(const marker of this.markers)marker.remove();this.markers=[];this.labelKey=null;this.labelBoxes=null;}
+ clearLabels(){this.labelScheduler.invalidate('labels-cleared');this.removeLabels();}
+ labelContext(){
   const bounds=this.map.getBounds(),box=[bounds.getWest(),bounds.getSouth(),bounds.getEast(),bounds.getNorth()],root=this.map.getContainer().getBoundingClientRect();
   const boxes=[...document.querySelectorAll('.map-heading,.map-tools,.compare-heading,.map-legend,.layer-panel,.event-marker,.regional-controls,.lake-label')].filter(el=>el.getClientRects().length).map(el=>el.getBoundingClientRect());
   const key=[this.featureEpoch,this.regions.revision,this.viewportKey(),this.lang,root.left,root.top,...boxes.flatMap(b=>[b.left,b.top,b.right,b.bottom])].join(':');
-  if(key===this.labelKey){this.atlas.labelBoxes=this.labelBoxes;return;}this.clearLabels();this.labelKey=key;
-  const overlaps=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top,names=new Set(),local=this.map.getZoom()>=8;
+  return {box,root,boxes,key,local:this.map.getZoom()>=8};
+ }
+ refreshLabels(){
+  if(this.dead||!this.eligible||!this.active||this.loading||!this.atlas.showLabels||!this.anchor){this.clearLabels();return;}
+  // Keep the currently drawn labels available to other point-layer collision
+  // tests while exact anchors for the next view are computed in small slices.
+  this.atlas.labelBoxes=this.labelBoxes;
+  if(this.map.isMoving()){this.labelScheduler.invalidate('camera-moving');return;}
+  const context=this.labelContext(),{key,box,local}=context;
+  if(key===this.labelKey||key===this.labelScheduler.getState().pendingKey)return;
+  const isCurrent=()=>!this.dead&&this.eligible&&this.active&&!this.loading&&this.atlas.showLabels&&!this.map.isMoving()&&key===this.labelContext().key;
   const candidates=!local&&this.regions.ready?this.regions.features:this.features;
-  const ranked=candidates.filter(f=>f.properties.TYPE!==8&&(local||f.properties.ADM1&&f.properties.ADM1!=='XX'&&!f.properties.ADM1.includes(';'))).map(f=>({f,anchor:this.anchor(f,box[0]<box[2]?box:null)})).filter(x=>x.anchor).sort((a,b)=>b.anchor.score-a.anchor.score);
+  const request=this.labelScheduler.request({key,box:box[0]<box[2]?box:null,
+   features:candidates.filter(f=>f.properties.TYPE!==8&&(local||f.properties.ADM1&&f.properties.ADM1!=='XX'&&!f.properties.ADM1.includes(';'))),isCurrent,
+   onReady:(ranked,{stats})=>{if(!isCurrent())return;this.labelJobStats=stats;this.placeLabels(ranked,context);},
+   onError:error=>{this.labelError=String(error?.message||error);}});
+  this.labelJob=request;this.labelJobStats=request.stats;
+  if(request.status==='ready'&&isCurrent())this.placeLabels(request.ranked,context);
+ }
+ placeLabels(ranked,{key,root,boxes,local}){
+  this.removeLabels();this.labelKey=key;
+  const overlaps=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top,names=new Set();
   for(const {f,anchor}of ranked){
    if(this.markers.length>=12)break;const p=f.properties,name=local||p.ADM1==='XX'?halcName(p,this.labels,this.lang):halcMembership(p.ADM1,'ADM1',this.labels,this.lang);if(!name||names.has(name))continue;
    const english=local?halcName(p,this.labels,'en'):halcMembership(p.ADM1,'ADM1',this.labels,'en'),bilingual=this.lang==='bi'&&english!==name;
@@ -220,5 +240,5 @@ export class HalcBoundaries{
  }
  retryRegions(){this.regions.retry();this.regions.ensure();this.visibilityKey=null;this.visibility();this.refreshLabels();this.notify();}
  retry(){this.clearSelection();this.regions.retry();this.failed=false;this.lastError=null;this.visibilityKey=null;this.scanKey=null;this.sourceEpoch++;this.seenContent=false;this.renderedKey=null;for(const id of [...HALC_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_SOURCE))this.map.removeSource(HALC_SOURCE);this.setActive(false);this.update();}
- destroy(){this.dead=true;this.renderPending=false;this.renderedKey=null;this.landscape.destroy();this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
+ destroy(){this.dead=true;this.labelScheduler.destroy();this.renderPending=false;this.renderedKey=null;this.landscape.destroy();this.regions.destroy();this.clearSelection();this.clearLabels();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }

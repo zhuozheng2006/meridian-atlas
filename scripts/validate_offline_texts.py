@@ -156,4 +156,4 @@ class OfflineTexts(unittest.TestCase):
 if __name__=='__main__':
     suite=unittest.defaultTestLoader.loadTestsFromTestCase(OfflineTexts);result=unittest.TextTestRunner(verbosity=2).run(suite)
     summary={'tests':result.testsRun,'passed':result.testsRun-len(result.errors)-len(result.failures),'failures':[name for name,_ in result.failures],'errors':[name for name,_ in result.errors],'skipped':len(result.skipped),'sources':len(DOCS),'blocks':sum(d['counts']['blocks'] for d in DOCS.values()),'sourceFilesUnchanged':all(extract.sha(raw_for(sid))==SPECS[sid]['sha256'] for sid in SPECS)}
-    (REPO/'docs/verification-3.42/offline-text-verification.json').write_text(json.dumps(summary,indent=2,default=str)+'\n');raise SystemExit(0 if result.wasSuccessful() else 1)
+    (REPO/'docs/verification-3.43/offline-text-verification.json').write_text(json.dumps(summary,indent=2,default=str)+'\n');raise SystemExit(0 if result.wasSuccessful() else 1)

@@ -73,7 +73,7 @@ add('Moving an active view into pending tiles does not advertise a complete read
 });
 
 add('Failed active source removes its own map labels before overview fallback',async make=>{
- const h=await make({...eligibleState});try{await tick(h);h.tilesReady();await tick(h);h.enableLabels();assert(h.markerCount()>0,'Fixture did not exercise actual marker creation');h.tileError();await tick(h);hidden(h);assert.equal(h.markerCount(),0,'Stale HALC labels remain over overview');}finally{h.destroy();}
+ const h=await make({...eligibleState});try{await tick(h);h.tilesReady();await tick(h);h.enableLabels();await h.halc.labelJob?.promise;assert(h.markerCount()>0,'Fixture did not exercise actual marker creation');h.tileError();await tick(h);hidden(h);assert.equal(h.markerCount(),0,'Stale HALC labels remain over overview');}finally{h.destroy();}
 });
 
 for(const [label,patch]of [

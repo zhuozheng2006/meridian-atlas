@@ -11,7 +11,7 @@ export class HalcRegions{
   on('movestart',()=>{this.renderedKey=null;this.renderPending=false;});
   on('moveend',()=>this.requestRender());
   on('resize',()=>this.requestRender());
-  on('error',e=>{if(e.sourceId!==HALC_REGION_SOURCE)return;this.failed=true;this.ready=false;this.hasFrame=false;this.features=[];this.revision++;this.visibility();parent.visibility();parent.refreshLabels();parent.notify();});
+  on('error',e=>{if(e.sourceId!==HALC_REGION_SOURCE)return;this.failed=true;this.ready=false;this.hasFrame=false;this.features=[];this.revision++;this.visibility();parent.visibility();parent.clearLabels();parent.refreshLabels();parent.notify();});
  }
  // Groups may finish after locality tiles; settle their own rendered revision.
  frameKey(){return this.parent.viewportKey()+':'+this.epoch;}
