@@ -1,0 +1,59 @@
+{
+  "status": "reviewed-with-one-finding-resolved",
+  "scope": "Five frozen 3.44 cards only; no new source acquisition, production edits, upload or browser use.",
+  "catalogSha256": "edf568703b76efe1e040ed2c3563e924e4368f7a1241c7124b34ba79e76977c9",
+  "sourceManifestSha256": "5d4d41dde137c611ef412a00b3b1df8aca509093611fa16336eb187feb41217a",
+  "claimEvidenceSha256": "8144de16649552554c83b2f6a6975527edbc8162d4d2cec51f4f4af9db8885bb",
+  "mechanicalIndependent": {
+    "passed": 54,
+    "total": 54,
+    "cards": 5,
+    "sources": 3,
+    "uniquePolarisRows": 8,
+    "rowAssociations": 9
+  },
+  "findings": [
+    {
+      "id": "penalty-condition",
+      "status": "resolved-and-reread",
+      "before": "Tax/punishment summary generalized rebellion/amputation, omitting repeated attempts and right-hand qualification.",
+      "after": "Candidate author tightened both Chinese and English summary to preserve those qualifications; exact saved text and current catalog reread."
+    }
+  ],
+  "semanticChecks": [
+    {
+      "card": "gupta-faxian-tax-penalties--in_gupta_emp",
+      "verdict": "pass",
+      "basis": "Travel report clearly separated from a formal law code; adjacent punishment passages read together. Gupta phase is chronological/geographic reading context, not a named empire-wide survey; P/null observation dates retained."
+    },
+    {
+      "card": "gupta-faxian-monastic-deeds--in_gupta_emp",
+      "verdict": "pass",
+      "basis": "Chinese iron deeds and English broader metal plates are explicitly distinguished. Describes recorded endowments in the account, not acquired surviving original deeds or a dynasty-wide dated land grant."
+    },
+    {
+      "card": "gupta-faxian-vinaya-manuscripts--in_gupta_emp",
+      "verdict": "pass",
+      "basis": "Oral transmission, manuscript acquisition and the narrated three-year study/transcription interval match chapter 36. Duration is not converted into specific years or a general literacy indicator."
+    },
+    {
+      "card": "aztec-cortes-market-justice--mx_aztec_emp",
+      "verdict": "pass",
+      "basis": "Market divisions, adjudicators and measure inspection are directly locatable. Comparative relation avoids inferring professional/full-time judges. Claimed crowd and Spanish comparisons are not imported as population or territorial observations."
+    },
+    {
+      "card": "aztec-cortes-tribute-records--mx_aztec_emp",
+      "verdict": "pass",
+      "basis": "The passage supports paper records and its descriptive terms. Mnemonic/nonwritten P and written A remain exact original coding; the card asks a classification comparison and does not rewrite the source value."
+    }
+  ],
+  "editionChecks": {
+    "faxian": "UCSD Jordan teaching revision of Legge 1886, not an unchanged 1886 transcription; mechanical simplified Chinese is documented.",
+    "cortes": "Thatcher 1907 anthology selection and Arkenberg modernization; no invented individual translator or substitution of MacNutt 1908."
+  },
+  "limits": [
+    "Reviewed acquired source text and selected byte anchors; did not independently establish workbook bibliography lineage.",
+    "No claim of a complete Gupta or Aztec history; only these five selected readings and eight exact existing rows were checked.",
+    "Offline full-document extraction has separate source-agent coverage tests; this review checks semantic claims and cited original rows/anchors."
+  ]
+}

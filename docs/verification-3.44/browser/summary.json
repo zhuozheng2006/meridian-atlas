@@ -1,0 +1,115 @@
+{
+  "trials": [
+    {
+      "file": "baseline-browser.json",
+      "view": {
+        "center": {
+          "lat": 51.3,
+          "lng": 4.8
+        },
+        "height": 543,
+        "width": 1512,
+        "zoom": 6.3
+      },
+      "localitiesReadyMs": 3434.600000023842,
+      "regionsReadyMs": 3699.800000011921,
+      "labelsReadyMs": 3778.200000047684,
+      "landscapeReadyMs": 7113,
+      "labels": [
+        "佛兰德斯",
+        "布拉班特",
+        "阿图瓦",
+        "海尔勒",
+        "荷兰",
+        "埃诺",
+        "列日",
+        "克莱沃",
+        "乌得勒支",
+        "那慕尔",
+        "布洛涅",
+        "泽兰"
+      ]
+    },
+    {
+      "file": "two-workers-eager-browser.json",
+      "view": {
+        "center": {
+          "lat": 51.3,
+          "lng": 4.8
+        },
+        "height": 543,
+        "width": 1512,
+        "zoom": 6.3
+      },
+      "localitiesReadyMs": 2490.800000011921,
+      "regionsReadyMs": 2658,
+      "labelsReadyMs": 2785.900000035763,
+      "landscapeReadyMs": 4616.699999988079,
+      "labels": [
+        "佛兰德斯",
+        "布拉班特",
+        "阿图瓦",
+        "海尔勒",
+        "荷兰",
+        "埃诺",
+        "列日",
+        "克莱沃",
+        "乌得勒支",
+        "那慕尔",
+        "布洛涅",
+        "泽兰"
+      ]
+    },
+    {
+      "file": "two-workers-lazy-browser.json",
+      "view": {
+        "center": {
+          "lat": 51.3,
+          "lng": 4.8
+        },
+        "height": 543,
+        "width": 1512,
+        "zoom": 6.3
+      },
+      "localitiesReadyMs": 2118.5,
+      "regionsReadyMs": 1010.6999999880792,
+      "labelsReadyMs": 2308.7999999523163,
+      "landscapeReadyMs": 4119.5,
+      "labels": [
+        "佛兰德斯",
+        "布拉班特",
+        "阿图瓦",
+        "海尔勒",
+        "荷兰",
+        "埃诺",
+        "列日",
+        "克莱沃",
+        "乌得勒支",
+        "那慕尔",
+        "布洛涅",
+        "泽兰"
+      ]
+    }
+  ],
+  "sameLabels": true,
+  "method": "One sequential fresh-page run per configuration; local server with ordinary warm HTTP cache, new MapLibre pool each time. Starts at fully loaded z4.5 overview then jumps to z6.3, center [4.8,51.3], 1512x543 map. rAF records live controller readiness, not a pixel-visible frame timestamp. No cold-network/general-device or median claim. Main-target Network capture does not include worker PBF requests.",
+  "reader": {
+    "asset": "3.44.0-3fda80a72ecc",
+    "faxianBlocks": 39,
+    "faxianOptions": 7,
+    "faxianInitialSelection": "faxian-legge-jordan-ucsd-16--segment-19",
+    "cortesBlocks": 26,
+    "cortesOptions": 4,
+    "cortesInitialSelection": "cortes-second-letter-thatcher-fordham-1907--b0016",
+    "researchCanvasCount": 0,
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "mobilePageWidth": 390,
+    "mobileBodyWidth": 311.203125,
+    "mobileBodyOverflow": 0,
+    "mobileJumpSelectedAndFocused": "faxian-legge-jordan-ucsd-16--segment-20",
+    "resizeNote": "Desktop-to-mobile reflow changes the currently visible paragraph; segment navigation remains correct. Rotation position persistence was not changed in this release."
+  }
+}

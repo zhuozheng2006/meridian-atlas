@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "baseline": {
+    "cards": 30,
+    "phases": 11,
+    "sources": 12
+  },
+  "additions": {
+    "cards": 5,
+    "phases": 2,
+    "sources": 3,
+    "works": 2,
+    "phaseIds": [
+      "in_gupta_emp",
+      "mx_aztec_emp"
+    ],
+    "originalSourceBytes": 74407,
+    "savedOriginalFiles": 6,
+    "savedOriginalBytes": 98601,
+    "targetRows": 8
+  },
+  "after": {
+    "cards": 35,
+    "phases": 13,
+    "sources": 15
+  },
+  "beforeReadingCounts": {
+    "in_gupta_emp": 0,
+    "mx_aztec_emp": 0
+  },
+  "phaseBindings": {
+    "in_gupta_emp": {
+      "bytes": 3110,
+      "crisisCount": 0,
+      "decodedBytes": 74133,
+      "explicitDateCount": 3,
+      "file": "polities/p213.json.gz",
+      "id": "in_gupta_emp",
+      "names": [
+        "Gupta Empire"
+      ],
+      "periods": [
+        {
+          "endRaw": "550",
+          "sourceRow": "321",
+          "sourceSheet": "Polities",
+          "startRaw": "320"
+        }
+      ],
+      "recordCount": 107,
+      "regions": [
+        "North India"
+      ],
+      "samplingAreas": [
+        "Middle Ganga"
+      ],
+      "sha256": "2fdb8f8860a6abd00417381b5cd6891bdc5cda81d574b6e7538f42a2395babd6",
+      "sourceNumber": "388",
+      "variableCount": 105
+    },
+    "mx_aztec_emp": {
+      "bytes": 3009,
+      "crisisCount": 1,
+      "decodedBytes": 64278,
+      "explicitDateCount": 1,
+      "file": "polities/p394.json.gz",
+      "id": "mx_aztec_emp",
+      "names": [
+        "Aztec Empire"
+      ],
+      "periods": [
+        {
+          "endRaw": "1526",
+          "sourceRow": "14",
+          "sourceSheet": "Polities",
+          "startRaw": "1427"
+        }
+      ],
+      "recordCount": 92,
+      "regions": [
+        "Mexico"
+      ],
+      "samplingAreas": [
+        "Basin of Mexico"
+      ],
+      "sha256": "4acbd814991f1bdf87e5fd5562564e365c32d7bc5a2f44e700f6a88466842c53",
+      "sourceNumber": "16",
+      "variableCount": 91
+    }
+  },
+  "observationCountChange": 0,
+  "limitations": [
+    "Two works are represented by three source entries because two Faxian chapters have separate immutable payloads.",
+    "All five guides are bilingual; this batch does not newly translate the complete originals.",
+    "These sources are independent reading aids, not proven Polaris coding sources.",
+    "Neither travel account is a statistical survey; whole-phase continuity, population totals and exact territorial geometry are not established.",
+    "UCSD source bodies require the explicitly linked JavaScript data files; original chapter HTML alone contains no body.",
+    "Both scholarly teaching editions revise older translations; their edition metadata and revision roles are retained."
+  ]
+}

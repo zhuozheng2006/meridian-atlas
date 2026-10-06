@@ -1,0 +1,65 @@
+{
+  "generated": "2026-10-06T11:51:10.463Z",
+  "method": "Current production renderer + local shipped signed source data + deterministic DOM lifecycle/geometry; no browser layout, performance or computed-style claim.",
+  "files": {
+    "public/research-original-reader.js": "6a9f8500470d04f35123a6e5d825c22729bd08c52e9c9e5cd4d2024470bbdc18",
+    "public/research-reading-guide.js": "a3a47a30a864587ba9c22837c4323604d8e5ff904e80d6c585ac4343a3da938e",
+    "public/polaris-reader.js": "bf4986f85266a3f7f7fe1ab98ffb5c1dc12eb61c0dc0df47e4d656eca6c9cc0d"
+  },
+  "total": 13,
+  "passed": 13,
+  "results": [
+    {
+      "name": "Never-opened originals remain cold across language, export, pagination and phase return",
+      "passed": true
+    },
+    {
+      "name": "Language switch reuses exact original DOM, selected chapter, provenance, paragraph position and internal focus",
+      "passed": true
+    },
+    {
+      "name": "Both export renders retain the original view and do not steal focus from download controls",
+      "passed": true
+    },
+    {
+      "name": "142-row phase pagination and Mali to Ming to Mali retain only the same card state",
+      "passed": true
+    },
+    {
+      "name": "Two Mali cards share source identity but keep independent open and paragraph positions",
+      "passed": true
+    },
+    {
+      "name": "Language switch while original fetch is pending, then another card, blocks stale DOM and focus writes",
+      "passed": true
+    },
+    {
+      "name": "Closed surrounding details survives language rebuild and reopens at the saved paragraph",
+      "passed": true
+    },
+    {
+      "name": "Outer collapse during fetch plus language rebuild postpones late text until the new outer guide opens",
+      "passed": true
+    },
+    {
+      "name": "Destroy during original fetch leaves no body, focus or host writes after late completion",
+      "passed": true
+    },
+    {
+      "name": "Registry restores source paragraph plus block offset after reflow and after LRU recreation",
+      "passed": true
+    },
+    {
+      "name": "Native scroll reset after DOM reattachment cannot overwrite the saved paragraph before rapid second render",
+      "passed": true
+    },
+    {
+      "name": "LRU eviction during an unrestored reattachment keeps the previous source-block snapshot",
+      "passed": true
+    },
+    {
+      "name": "Snapshots require exact card, original source and derived-document identity before reopening",
+      "passed": true
+    }
+  ]
+}

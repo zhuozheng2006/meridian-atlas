@@ -1,13 +1,15 @@
-import {SAVED_TEXTS} from './research-original-text-data.js?v=3.43.0-6a6bc23b738e';
+import {SAVED_TEXTS} from './research-original-text-data.js?v=3.44.0-3fda80a72ecc';
 const inflight=new Map();
 export function savedTextFor(item){return SAVED_TEXTS.documents.find(entry=>entry.sourceId===item.sourceId&&entry.source.sha256===item.sourceSha256&&entry.readingIds.includes(item.id))||null;}
 export async function loadSavedText(entry,{fetcher=fetch,cryptoAPI=globalThis.crypto}={}){
- const key=entry.file+':'+entry.sha256;
+ const collection=entry.collection||'reading-texts-3.43';
+ if(!/^(reading-texts-3\.43|readings-3\.44\/offline)$/.test(collection))throw Error('Unknown saved-text collection');
+ const key=collection+':'+entry.file+':'+entry.sha256;
  if(inflight.has(key))return inflight.get(key);
  const pending=(async()=>{
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
   try{
-   const url=new URL('./data/research-evidence/reading-texts-3.43/'+entry.file,import.meta.url);
+   const url=new URL('./data/research-evidence/'+collection+'/'+entry.file,import.meta.url);
    const response=await fetcher(url.href,{signal:controller.signal});if(!response.ok)throw Error('Saved text unavailable');
    const bytes=await response.arrayBuffer();if(bytes.byteLength!==entry.bytes)throw Error('Saved text length mismatch');
    const hash=[...new Uint8Array(await cryptoAPI.subtle.digest('SHA-256',bytes))].map(v=>v.toString(16).padStart(2,'0')).join('');

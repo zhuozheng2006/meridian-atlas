@@ -1,6 +1,22 @@
 // Display groups follow complete source ADM1 strings; they are not states.
 export const HALC_REGION_SOURCE='halc-regions';
 export const HALC_REGION_LAYERS=['halc-region-query','halc-region-edges'];
+// Keep MapLibre's geometry conversion lazy until an exact anchor or reader
+// requests a fragment. Group keys and fragment order match the source query.
+export function halcVisibleRegions(rendered){
+ const groups=new Map();
+ for(const feature of rendered){
+  const id=feature.properties.gid;if(!id)continue;
+  if(!groups.has(id))groups.set(id,{...feature,fragments:[]});
+  const fragments=groups.get(id).fragments,index=fragments.length;
+  Object.defineProperty(fragments,index,{enumerable:true,configurable:true,get(){
+   const geometry=feature.geometry;
+   Object.defineProperty(fragments,index,{value:geometry,enumerable:true,configurable:true,writable:true});
+   return geometry;
+  }});
+ }
+ return [...groups.values()];
+}
 export class HalcRegions{
  constructor(parent,bounds){
   this.parent=parent;this.map=parent.map;this.bounds=bounds;this.features=[];this.epoch=0;this.revision=0;this.ready=false;this.hasFrame=false;this.failed=false;this.listeners=[];this.renderedKey=null;this.renderPending=false;this.seenContent=false;
@@ -42,8 +58,7 @@ export class HalcRegions{
   if(!this.parent.eligible||this.parent.failed||this.failed||!this.map.getSource(HALC_REGION_SOURCE)||this.map.isMoving())return;
   if(!this.map.isSourceLoaded(HALC_REGION_SOURCE)){this.scanKey=null;if(this.ready){this.ready=false;this.features=[];this.revision++;this.visibility();}return;}
   const key=this.frameKey();if(this.renderedKey!==key||key===this.scanKey)return;
-  const groups=new Map();for(const f of this.map.queryRenderedFeatures({layers:[HALC_REGION_LAYERS[0]]})){const id=f.properties.gid;if(!id)continue;if(!groups.has(id))groups.set(id,{...f,fragments:[]});groups.get(id).fragments.push(f.geometry);}
-  this.features=[...groups.values()];this.scanKey=key;this.ready=true;this.hasFrame=true;this.revision++;this.visibility();
+  this.features=halcVisibleRegions(this.map.queryRenderedFeatures({layers:[HALC_REGION_LAYERS[0]]}));this.scanKey=key;this.ready=true;this.hasFrame=true;this.revision++;this.visibility();
  }
  retry(){this.seenContent=false;this.renderedKey=null;this.renderPending=false;this.failed=false;this.ready=false;this.hasFrame=false;this.features=[];this.scanKey=null;this.visibilityKey=null;this.epoch++;this.revision++;for(const id of [...HALC_REGION_LAYERS].reverse())if(this.map.getLayer(id))this.map.removeLayer(id);if(this.map.getSource(HALC_REGION_SOURCE))this.map.removeSource(HALC_REGION_SOURCE);}
  destroy(){this.renderPending=false;this.renderedKey=null;for(const [event,fn]of this.listeners)this.map.off(event,fn);}

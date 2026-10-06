@@ -1,0 +1,9 @@
+# Map worker configuration review
+
+Reviewed current `public/map-runtime.js` and the bundled renderer's exported `getWorkerCount`/`setWorkerCount`. The bundled setter only assigns the library worker count. The change configures before resolving the loader promise, including the already-loaded fast path. Atlas map construction awaits that loader, so this ordering covers the project's owned initial map path.
+
+No confirmed correctness defect found within that contract. A per-library WeakSet avoids repeated configuration, existing defaults at or above two are preserved, insufficient/unknown core count does not increase the pool, and a reported positive device-memory value below 4 GB blocks the increase. Browsers with sufficient cores but no device-memory API remain eligible, matching the root's stated policy. The comment saying “unknown devices” is therefore broader than the actual policy; “low-core/low-memory devices or unknown core count” would be more exact.
+
+`validate-map-worker-configuration.mjs` imports the actual production functions and passes **17/17** cases. It covers numeric thresholds, small and unknown devices, missing optional APIs, at-least-two defaults, one-time and independent library configuration, concurrent loads, and both ready/script-completion paths configuring before caller map construction. `map-worker-configuration.json` records the tested module SHA.
+
+The fixture validates policy and ordering, not the existence of two running browser workers, CPU utilization, memory use or speed. The real bundled browser worker pool and first-view timings remain root's browser validation. Earlier one-worker measurements versus later two-worker reloads should be reported with their cache state and timing method; unless controlled alternating runs are available, they are observational comparisons rather than a complete causal A/B result.

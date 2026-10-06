@@ -1,0 +1,96 @@
+PASS north small tile: zero-decode grouping, full anchors and exact complete geometry preservation
+PASS largest center tile: zero-decode grouping, full anchors and exact complete geometry preservation
+PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anchors and exact complete geometry preservation
+{
+  "pass": 3,
+  "fail": 0,
+  "timings": [
+    {
+      "name": "north small tile",
+      "fragments": 2,
+      "groups": 2,
+      "points": 2752,
+      "qualifyingGroups": 2,
+      "eagerGroupMs": 1.3754160000000013,
+      "lazyGroupMs": 0.03133300000000361,
+      "eagerColdGeometry": 2,
+      "lazyColdBeforeLabels": 0,
+      "labelColdGeometry": 2,
+      "labelGeometryReads": 2,
+      "remainingUndecodedBeforeFullSerialization": 0,
+      "allFragmentsAfterSerialization": 2,
+      "labels": {
+        "candidates": 2,
+        "computed": 2,
+        "retained": 2,
+        "slices": 1,
+        "workMs": 1.4918750000000003,
+        "maxSliceMs": 1.4918750000000003,
+        "maxAnchorMs": 1.2070830000000043,
+        "sortMs": 0.01029100000000227,
+        "canceled": false,
+        "elapsedMs": 1.668416999999998
+      },
+      "exactGeometrySha256": "ddf24d2234e5ba5731c322a01a1cfb2a39e273b107895f6a1460fd64aa76a65a",
+      "geometryJsonBytes": 105721
+    },
+    {
+      "name": "largest center tile",
+      "fragments": 103,
+      "groups": 103,
+      "points": 168321,
+      "qualifyingGroups": 35,
+      "eagerGroupMs": 65.529541,
+      "lazyGroupMs": 0.07508299999999224,
+      "eagerColdGeometry": 103,
+      "lazyColdBeforeLabels": 0,
+      "labelColdGeometry": 35,
+      "labelGeometryReads": 35,
+      "remainingUndecodedBeforeFullSerialization": 68,
+      "allFragmentsAfterSerialization": 103,
+      "labels": {
+        "candidates": 35,
+        "computed": 35,
+        "retained": 35,
+        "slices": 9,
+        "workMs": 52.276792,
+        "maxSliceMs": 9.415834000000018,
+        "maxAnchorMs": 5.452750000000009,
+        "sortMs": 0.010166999999995596,
+        "canceled": false,
+        "elapsedMs": 61.680417000000006
+      },
+      "exactGeometrySha256": "7cf388df5726ec849379f83a0c0e3d3dda82b0e875218b3ba42b40f32b0bb6ee",
+      "geometryJsonBytes": 6459321
+    },
+    {
+      "name": "all six z6 tiles, exact cross-tile grouping",
+      "fragments": 185,
+      "groups": 152,
+      "points": 253101,
+      "qualifyingGroups": 54,
+      "eagerGroupMs": 89.35454099999998,
+      "lazyGroupMs": 0.10470800000001645,
+      "eagerColdGeometry": 185,
+      "lazyColdBeforeLabels": 0,
+      "labelColdGeometry": 75,
+      "labelGeometryReads": 75,
+      "remainingUndecodedBeforeFullSerialization": 110,
+      "allFragmentsAfterSerialization": 185,
+      "labels": {
+        "candidates": 54,
+        "computed": 54,
+        "retained": 54,
+        "slices": 15,
+        "workMs": 79.38687299999981,
+        "maxSliceMs": 9.335541999999975,
+        "maxAnchorMs": 7.563750000000027,
+        "sortMs": 0.017791000000045187,
+        "canceled": false,
+        "elapsedMs": 94.35029100000003
+      },
+      "exactGeometrySha256": "099c6c377fd24bc20ce5d8cefa088737ab400a42d34974cfbdb621e4b5c47643",
+      "geometryJsonBytes": 9714132
+    }
+  ]
+}

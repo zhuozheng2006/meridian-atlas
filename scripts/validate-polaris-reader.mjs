@@ -52,14 +52,14 @@ await test('Explicit cross-version comparison delegates the exact reviewed phase
 await test('An export failure can retry, and a changed selection cancels a stale global export',async()=>{let tries=0;const firstReader=open({initialState:{polityId:ming.id},download:()=>{if(++tries===1)throw Error('disk');}});await firstReader.reader.ready;await find(firstReader.host,'research-actions').children[0].fire('click');assert.match(find(firstReader.host,'research-actions').textContent,/retry|重试/);await find(firstReader.host,'research-actions').children[0].fire('click');assert.equal(tries,2);firstReader.reader.destroy();let resolve,signal,downloads=0;const store={base:new URL(base),loadIndex:async()=>index,loadPolity:async()=>second,search:async()=>({rows:first.observations.slice(0,1),total:1}),collectSearch:(f,o)=>{signal=o.signal;return new Promise(r=>resolve=r);}};const {host,reader}=open({store,initialState:{polityId:'@all'},download:()=>downloads++});await reader.ready;const pending=find(host,'research-actions').children[0].fire('click');await until(()=>resolve);await reader.selectPolity(inca.id);assert(signal.aborted);resolve({rows:first.observations});await pending;assert.equal(downloads,0);reader.destroy();});
 await test('Destroy during index read prevents all later DOM and selection writes',async()=>{let finish;const {host,reader}=open({readJSON:()=>new Promise(r=>finish=r)});reader.destroy();finish(index);await reader.ready;assert.equal(host.children.length,0);assert.equal(reader.getState().destroyed,true);});
 
-await test('Reading library exposes all nine curated phases and searches bilingual subjects without reading shards',async()=>{
+await test('Reading library exposes all thirteen curated phases and searches bilingual subjects without reading shards',async()=>{
  const calls=[],{host,reader}=open({lang:'zh',readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
- const library=find(host,'research-reading-library');assert(library.open);assert.match(library.textContent,/30 条导读.*11 个研究阶段.*12 份来源/);
- const select=field(host,'library-phase'),query=field(host,'library-query');assert.equal(select.children.length,12);assert.equal(find(host,'research-library-grid').children.length,6);
+ const library=find(host,'research-reading-library');assert(library.open);assert.match(library.textContent,/35 条导读.*13 个研究阶段.*15 份来源/);
+ const select=field(host,'library-phase'),query=field(host,'library-query');assert.equal(select.children.length,14);assert.equal(find(host,'research-library-grid').children.length,6);
  query.value='马里';await query.fire('input');assert.equal(find(host,'research-library-grid').children.length,2);assert.match(library.textContent,/盐块/);
  assert.equal(searchReadings('population','kh_angkor_2',new Map(index.polities.map(p=>[p.id,p]))).length,1);assert.equal(calls.length,1);reader.destroy();
 });
-await test('All 30 deep links show and export precisely their linked typed source rows',async()=>{
+await test('All 35 deep links show and export precisely their linked typed source rows',async()=>{
  for(const c of READING_CATALOG.cards){let payload;const calls=[],{host,reader}=open({lang:'zh',initialState:{polityId:c.phaseId,readingId:c.id,query:'stale',domain:'crisis',page:8},download:p=>payload=p,readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
   const p=index.polities.find(p=>p.id===c.phaseId),raw=gz(p.file),expected=raw.observations.filter(r=>c.targetRowIds.includes(r.id));
   assert.equal(reader.getSnapshot().readingId,c.id);assert.equal(reader.getState().filteredCount,c.targetRowIds.length);assert.equal(reader.getSnapshot().query,'');assert.equal(reader.getSnapshot().page,0);

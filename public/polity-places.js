@@ -1,6 +1,6 @@
-import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=3.43.0-6a6bc23b738e';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=3.43.0-6a6bc23b738e';
-import {readJSON} from './map-engine.js?v=3.43.0-6a6bc23b738e';
+import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=3.44.0-3fda80a72ecc';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=3.44.0-3fda80a72ecc';
+import {readJSON} from './map-engine.js?v=3.44.0-3fda80a72ecc';
 
 const validPoint=p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(p[0])&&Number.isFinite(p[1])&&Math.abs(p[1])<=90;
 function prepareRing(input){

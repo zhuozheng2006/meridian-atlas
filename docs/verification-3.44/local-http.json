@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-10-06T11:56:06Z",
+  "method": "Actual local HTTP server, GET/HEAD headers, gzip decode and source byte equality. No deployed response or browser MVT rendering claimed. Range requests retain SimpleHTTPRequestHandler full-200 behavior.",
+  "pass": 13,
+  "fail": 0,
+  "measure": {
+    "file": "/data/halc/tiles/6/32/21.pbf",
+    "originalBytes": 2274292,
+    "gzipBytes": 1157115,
+    "decodedSha256": "73f95a1f85f9c94f4e187921e57cef60b70bb91acc77b78f2a08b2c9114b0a77",
+    "reductionPercent": 49.122,
+    "httpStatus": 200
+  },
+  "results": [
+    {
+      "name": "PBF gzip response preserves every decoded byte, MIME and wire length",
+      "pass": true
+    },
+    {
+      "name": "HEAD uses the same compressed representation headers and no body",
+      "pass": true
+    },
+    {
+      "name": "Identity returns original PBF bytes with negotiated Vary",
+      "pass": true
+    },
+    {
+      "name": "No accepted encoding returns original bytes",
+      "pass": true
+    },
+    {
+      "name": "Explicit gzip q=0 overrides wildcard",
+      "pass": true
+    },
+    {
+      "name": "Malformed gzip quality refuses compression",
+      "pass": true
+    },
+    {
+      "name": "Wildcard support and case-insensitive gzip quality are parsed",
+      "pass": true
+    },
+    {
+      "name": "Range requests keep the base server identity behavior",
+      "pass": true
+    },
+    {
+      "name": "Tiny empty MVT stays uncompressed and parseable",
+      "pass": true
+    },
+    {
+      "name": "Existing .gz archives are never double-encoded",
+      "pass": true
+    },
+    {
+      "name": "Identity HEAD has original length and no body",
+      "pass": true
+    },
+    {
+      "name": "Existing HTML compression remains byte-exact",
+      "pass": true
+    },
+    {
+      "name": "Compression cache invalidates a changed file",
+      "pass": true
+    }
+  ]
+}
