@@ -1,0 +1,56 @@
+{
+  "stamp": "3.46.0-082c97964103",
+  "method": "Read-only final main repository review and independent re-reading/calculation of parent-generated Chrome artifacts. No browser operation.",
+  "files": {
+    "public/halc-landscape.js": {
+      "bytes": 15461,
+      "sha256": "b229cdd559fa3ed2b96b1bd8635dec61a8634071ee150514a4e0da5032da423c"
+    },
+    "public/halc-landscape-client.js": {
+      "bytes": 2884,
+      "sha256": "e16fa3fdb56fa8971ce3d54c2adec524e50ab159ff47c0375f7869aa92189156"
+    },
+    "public/lakes.js": {
+      "bytes": 11024,
+      "sha256": "146e67bfcbe00d64ed8b9c66607953f963ffd51900cab371eb440adf962205c5"
+    },
+    "public/assets/maplibre-gl.js": {
+      "bytes": 937511,
+      "sha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c"
+    }
+  },
+  "externalArtifacts": {
+    "browser/ab-summary.json": {
+      "bytes": 18629,
+      "sha256": "2c9faca8bd27c063ca1249cae410bbc7d9d2c610e6a32b1660e76a1517190085"
+    },
+    "browser/source-error-fallback.json": {
+      "bytes": 74064,
+      "sha256": "71fa73cebc4e585fbaaf21de72f860ab4d296c497b76c65e8a7d6df9782fe5be"
+    },
+    "browser/getdata.json": {
+      "bytes": 444,
+      "sha256": "8a02b15efc960d20390b3fd838e25258b575538d75099a85f4be0727dc43a85d"
+    },
+    "browser/style-reload.json": {
+      "bytes": 252,
+      "sha256": "8caa9d0bb8b7862fedc4fc840e762048e647902bf1ae2ff56123fff5007378df"
+    },
+    "global-load-audit/browser-evidence-summary.json": {
+      "bytes": 1496,
+      "sha256": "ecbd761102a4eb5758b70d07759db6404de6090ab735a153d389ee93b0d97ecd"
+    }
+  },
+  "findings": "No substantive blocking issue found in final watchSource/retry/destroy/deviceMemory/lake own-readiness review.",
+  "limits": [
+    "No browser run by this reviewer",
+    "No forced-GC retention comparison",
+    "No low-memory mobile measurement",
+    "CSP absence reported by parent, not independently fetched"
+  ],
+  "independentlyComputedBrowserMedians": {
+    "oldJSON": 4514.899999976158,
+    "dataURL": 3888.100000023842,
+    "reductionPercent": 13.882920993945081
+  }
+}

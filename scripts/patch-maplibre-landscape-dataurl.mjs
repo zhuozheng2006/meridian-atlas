@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const base=new URL('../',import.meta.url),manifest=JSON.parse(await fs.readFile(new URL('scripts/vendor/maplibre/maplibre-landscape-dataurl-patch.json',base))),source=await fs.readFile(new URL('scripts/vendor/maplibre/maplibre-gl-5.6.2.upstream.js',base));
+const hash=value=>createHash('sha256').update(value).digest('hex');
+assert.equal(hash(source),manifest.originalSha256,'The preserved original vendor file has changed');assert.equal(source.length,manifest.originalBytes);
+const text=source.toString('utf8');assert.equal(text.split(manifest.match).length,2,'The vendor patch must match exactly once');const result=Buffer.from(text.replace(manifest.match,manifest.replacement));assert.equal(hash(result),manifest.patchedSha256);assert.equal(result.length,manifest.patchedBytes);
+const target=new URL('public/assets/maplibre-gl.js',base);
+if(process.argv.includes('--check'))assert.deepEqual(await fs.readFile(target),result,'The shipped vendor file differs from the exact recorded one-site patch');else await fs.writeFile(target,result);
+console.log(JSON.stringify({mode:process.argv.includes('--check')?'checked':'patched',sha256:hash(result),bytes:result.length,replacements:1}));

@@ -1,0 +1,1 @@
+The original isolated fixture linked public/data to the main checkout. That duplicate data tree is intentionally omitted from this evidence archive; all originals remain in the project public/data directory. Use the installed scripts/validate-lakes.mjs for the current release.

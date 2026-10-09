@@ -1,0 +1,14 @@
+{
+  "version": "5.6.2",
+  "upstream": "https://github.com/maplibre/maplibre-gl-js/blob/v5.6.2/src/source/geojson_worker_source.ts",
+  "license": "https://github.com/maplibre/maplibre-gl-js/blob/v5.6.2/LICENSE.txt",
+  "originalSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "patchedSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c",
+  "originalBytes": 937395,
+  "patchedBytes": 937511,
+  "match": "this.loaded={};const s={data:i};",
+  "replacement": "this.loaded={};const s={data:\"halc-landscape\"===t.source&&t.request&&t.request.url.startsWith(\"data:application/geo+json;base64,\")?t.request.url:i};",
+  "replacements": 1,
+  "scope": "LD response only when source ID is halc-landscape and request URL has the exact data:application/geo+json;base64, prefix. All other requests and updateData retain original behavior. _pendingData, GD/getData, winding, filters and geometry indexing are unchanged.",
+  "reason": "Keep synchronous serialized styles self-contained while avoiding the automatic full geometry object structured clone in the dedicated landscape source LD response. No Blob routing patch is applied."
+}

@@ -1,0 +1,106 @@
+{
+  "productFiles": [
+    "public/halc-landscape.js",
+    "public/halc-landscape-client.js",
+    "public/halc-landscape-worker.js",
+    "public/halc-landscape-prepare.js",
+    "public/assets/maplibre-gl.js",
+    "public/halc-boundaries.js"
+  ],
+  "files": [
+    {
+      "path": "public/halc-landscape.js",
+      "bytes": 15439,
+      "sha256": "8abd472dad6ba1c3a8f2988e2b4fc04697ba1a61b6a9ba69fa18561fdd99d9bf"
+    },
+    {
+      "path": "public/halc-landscape-client.js",
+      "bytes": 2884,
+      "sha256": "e16fa3fdb56fa8971ce3d54c2adec524e50ab159ff47c0375f7869aa92189156"
+    },
+    {
+      "path": "public/halc-landscape-worker.js",
+      "bytes": 905,
+      "sha256": "7124da5d17d982c200277158a993c644329356e5427270959e67a79c8be04660"
+    },
+    {
+      "path": "public/halc-landscape-prepare.js",
+      "bytes": 5516,
+      "sha256": "9de264bb9dea295ff4c4025c890197a41bdb984e91693c2216b4afbc08e6fe6b"
+    },
+    {
+      "path": "public/assets/maplibre-gl.js",
+      "bytes": 937511,
+      "sha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c"
+    },
+    {
+      "path": "scripts/patch-maplibre-landscape-dataurl.mjs",
+      "bytes": 1302,
+      "sha256": "fdd93c7594b71c225bcc5d6eb73babaf9986ae76e44de486217162468c353b51"
+    },
+    {
+      "path": "scripts/vendor/maplibre/maplibre-landscape-dataurl-patch.json",
+      "bytes": 1174,
+      "sha256": "1ad71934c67155f376f92617fa975cfff982399416d8627efd7c9bc9e28fe75a"
+    },
+    {
+      "path": "scripts/vendor/maplibre/maplibre-gl-5.6.2.upstream.js",
+      "bytes": 937395,
+      "sha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2"
+    },
+    {
+      "path": "scripts/test-support/maplibre-runtime.mjs",
+      "bytes": 3156,
+      "sha256": "10b188d013f9513c4d9cacbe89c8c394ea356b1dabca01463bcb70060a94dacf"
+    },
+    {
+      "path": "scripts/test-support/halc-landscape-web-worker.mjs",
+      "bytes": 852,
+      "sha256": "b176919bece5f00b6f20e7f4aa17efa66471ace013698088960b19ca4f32b4e4"
+    },
+    {
+      "path": "scripts/validate-maplibre-landscape-dataurl.mjs",
+      "bytes": 9457,
+      "sha256": "99826d29a2c955d44bd52ee677c62aba52357174df4df43520acd9487099a215"
+    },
+    {
+      "path": "scripts/validate-halc-landscape-real-data.mjs",
+      "bytes": 6598,
+      "sha256": "839172d7c81fe4b10e428fdbec4a15903cc2e13263aecfb010dc2939767d26dd"
+    },
+    {
+      "path": "scripts/validate-halc-landscape-worker.mjs",
+      "bytes": 10956,
+      "sha256": "6d825d795f2c6c390225c4d858c5e83d78efe18ef1f1f4e7b62cda965667c90e"
+    },
+    {
+      "path": "scripts/validate-halc-landscape.mjs",
+      "bytes": 28697,
+      "sha256": "e8b227fd24a9bdc8235181f896a570100a910ded59ba1670a53cb79694849a22"
+    },
+    {
+      "path": "scripts/validate-halc-landscape-assets.mjs",
+      "bytes": 3589,
+      "sha256": "00b65ba42b527abc35bcaf09e0cbdab4724354384f3f28d62a9cb7fa3558331e"
+    },
+    {
+      "path": "public/halc-boundaries.js",
+      "bytes": 27999,
+      "sha256": "0f7e1ecd441a47f9f6c3c6d2cf29c5f8cfb4e4d68849ed8a455cd0af4148cc01"
+    },
+    {
+      "path": "scripts/validate-halc-label-context-recovery.mjs",
+      "bytes": 6511,
+      "sha256": "37faf99c590f35b4abb2c0019d95bb111a0fc260ddd2f50c8de13a4f90787bc5"
+    }
+  ],
+  "verificationDistinctPasses": 67,
+  "notYetRunHere": [
+    "stamped full-project assets test",
+    "actual Chrome/UI/render/CSP/low-memory device verification (root owns browser)"
+  ],
+  "labelExistingRegressionPasses": {
+    "lifecycle": 13,
+    "exactSchedulerAndRealMVT": 22
+  }
+}

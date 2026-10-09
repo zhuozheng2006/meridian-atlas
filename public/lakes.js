@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.45.0-833939da7758';
+import {decodeLakeArchive} from './lake-codec.js?v=3.46.0-dce023e2071a';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -54,19 +54,28 @@ let indexPromise;
 function lakeIndex(){return indexPromise??=(fetchLakeJSON('data/lakes/index.json.gz').then(data=>{if(data.schemaVersion!==1||!Array.isArray(data.shards))throw Error('Invalid lake index');return data;}).catch(e=>{indexPromise=null;throw e;}));}
 export class LakeLayer {
  constructor(geography,{getIndex=lakeIndex,getShard=s=>cache.get(s)}={}){
-  this.geo=geography;this.map=geography.map;this.atlas=geography.atlas;this.getIndex=getIndex;this.getShard=getShard;this.seq=0;this.ready=false;this.status='overview';this.count=0;this.renderSeq=-1;this.labels=[];this.named=[];this.labelKey='';
+  this.geo=geography;this.map=geography.map;this.atlas=geography.atlas;this.getIndex=getIndex;this.getShard=getShard;this.seq=0;this.ready=false;this.status='overview';this.count=0;this.renderSeq=-1;this.contentSeq=-1;this.renderPending=false;this.dead=false;this.labels=[];this.named=[];this.labelKey='';
   this.map.addSource('lake-detail',{type:'geojson',data:EMPTY_LAKES,tolerance:0,maxzoom:14,attribution:'<a href="https://www.hydrosheds.org/products/hydrolakes" target="_blank" rel="noopener">HydroLAKES · Messager et al. (2016) · CC BY 4.0</a>'});
   this.map.addLayer({id:'lake-detail',type:'fill',source:'lake-detail',minzoom:4,paint:{'fill-color':'#466b7d','fill-opacity':0,'fill-antialias':true}},'boundary');
   this.start=()=>{++this.seq;};
   this.move=()=>{if(this.ready&&(!containsLakeBounds(this.coverage,lakeViewport(this.map))||this.coverageTier!==lakeTier(this.map.getZoom()))){this.ready=false;this.sync();}};
   this.end=()=>this.update();this.idle=()=>this.reconcile();
-  this.error=e=>{if(e.sourceId==='lake-detail'&&!this.atlas.destroyed){this.ready=false;this.status='error';this.sync();}};
-  this.map.on('movestart',this.start);this.map.on('move',this.move);this.map.on('moveend',this.end);this.map.on('idle',this.idle);this.map.on('error',this.error);
+  this.data=e=>{
+   if(e.sourceId!=='lake-detail'||this.dead||this.atlas.destroyed)return;
+   // A queued setData keeps GeoJSONSource.loaded() false even while the older
+   // update emits content. Only the completed current submission opens this gate.
+   if(e.sourceDataType==='content'&&this.status==='rendering'&&this.renderSeq===this.seq&&this.map.getSource('lake-detail')?.loaded())this.contentSeq=this.renderSeq;
+   if(this.contentSeq===this.renderSeq&&e.isSourceLoaded){this.renderPending=true;this.map.triggerRepaint();}
+  };
+  this.render=()=>{if(!this.renderPending)return;this.renderPending=false;this.reconcile();};
+  this.error=e=>{if(e.sourceId==='lake-detail'&&!this.dead&&!this.atlas.destroyed){this.ready=false;this.status='error';this.sync();}};
+  this.map.on('movestart',this.start);this.map.on('move',this.move);this.map.on('moveend',this.end);this.map.on('idle',this.idle);this.map.on('error',this.error);this.map.on('sourcedata',this.data);this.map.on('render',this.render);
  }
- get enabled(){return this.geo.enabled&&!this.geo.reference&&lakeTier(this.map.getZoom())>0;}
- sync(){if(this.atlas.destroyed)return;this.map.setPaintProperty('lake-detail','fill-opacity',this.enabled&&this.ready?1:0);this.geo.referenceVisibility(this.geo.reference);this.geo.syncStatus();this.refreshLabels();}
- reconcile(){this.refreshLabels();if(this.atlas.destroyed||!this.enabled||this.ready||this.status!=='rendering'||this.renderSeq!==this.seq)return;if(this.map.isSourceLoaded('lake-detail')){this.ready=true;this.status='ready';this.sync();}}
+ get enabled(){return !this.dead&&this.geo.enabled&&!this.geo.reference&&lakeTier(this.map.getZoom())>0;}
+ sync(){if(this.dead||this.atlas.destroyed)return;this.map.setPaintProperty('lake-detail','fill-opacity',this.enabled&&this.ready?1:0);this.geo.referenceVisibility(this.geo.reference);this.geo.syncStatus();this.refreshLabels();}
+ reconcile(){this.refreshLabels();if(this.dead||this.atlas.destroyed||!this.enabled||this.ready||this.status!=='rendering'||this.renderSeq!==this.seq||this.contentSeq!==this.renderSeq||this.map.isMoving?.()||this.coverageTier!==lakeTier(this.map.getZoom())||!containsLakeBounds(this.coverage,lakeViewport(this.map)))return;if(this.map.isSourceLoaded('lake-detail')){this.ready=true;this.status='ready';this.sync();}}
  async update(){
+  if(this.dead||this.atlas.destroyed)return;
   if(this.enabled&&this.ready&&this.coverageTier===lakeTier(this.map.getZoom())&&containsLakeBounds(this.coverage,lakeViewport(this.map))){this.refreshLabels();return;}
   const seq=++this.seq;this.ready=false;
   if(!this.enabled){this.status='overview';this.sync();return;}
@@ -80,14 +89,14 @@ export class LakeLayer {
    });
    const outcomes=await Promise.allSettled(workers);if(!current())return;
    if(outcomes.some(o=>o.status==='rejected'))throw Error('Lake detail temporarily unavailable');
-   this.named=features.filter(f=>index.names?.[f.id]).map(f=>({id:f.id,bbox:f.bbox,area:f.properties.area,...index.names[f.id]}));this.coverage=bounds;this.coverageTier=lakeTier(zoom);this.count=features.length;this.status='rendering';this.renderSeq=seq;
+   this.named=features.filter(f=>index.names?.[f.id]).map(f=>({id:f.id,bbox:f.bbox,area:f.properties.area,...index.names[f.id]}));this.coverage=bounds;this.coverageTier=lakeTier(zoom);this.count=features.length;this.status='rendering';this.renderSeq=seq;this.contentSeq=-1;this.renderPending=false;
    this.map.getSource('lake-detail').setData({type:'FeatureCollection',features});
-   // MapLibre 5.6 setData returns the source, not a completion promise. Wait
-   // for idle + sourceLoaded before replacing the usable overview.
+   // Source content plus loaded viewport tiles is enough; an unrelated DEM or
+   // regional request must not hold ready lakes behind the map's global idle.
   }catch{if(current()){this.status='error';this.sync();}}
  }
  refreshLabels(){
-  if(this.atlas.destroyed)return;
+  if(this.dead||this.atlas.destroyed)return;
   const lang=this.atlas.lang||'bi',visible=this.ready&&this.enabled&&this.atlas.showLabels!==false;
   const blockers=visible&&this.named.length?[...document.querySelectorAll('.map-heading,.map-tools,.layer-panel,.place-marker,.polity-label,.event-marker')].filter(el=>{const style=getComputedStyle(el);return el.getClientRects().length&&style.visibility!=='hidden'&&Number(style.opacity)>.05;}).map(el=>el.getBoundingClientRect()):[];
   const landscape=this.atlas.regional?.halc?.landscape;
@@ -108,5 +117,5 @@ export class LakeLayer {
    this.labels.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(n.center).addTo(this.map));placed.push(box);
   }
  }
- destroy(){++this.seq;for(const marker of this.labels)marker.remove();this.labels=[];for(const [event,fn]of [['movestart',this.start],['move',this.move],['moveend',this.end],['idle',this.idle],['error',this.error]])this.map.off(event,fn);}
+ destroy(){this.dead=true;++this.seq;this.renderPending=false;for(const marker of this.labels)marker.remove();this.labels=[];for(const [event,fn]of [['movestart',this.start],['move',this.move],['moveend',this.end],['idle',this.idle],['error',this.error],['sourcedata',this.data],['render',this.render]])this.map.off(event,fn);}
 }

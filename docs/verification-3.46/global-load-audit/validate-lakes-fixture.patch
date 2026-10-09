@@ -1,0 +1,15 @@
+--- a/scripts/validate-lakes.mjs
++++ b/scripts/validate-lakes.mjs
+@@ -24,10 +24,10 @@
+ function environment(options={}){
+  const events={},writes=[],paints=[];let zoom=10,bounds=[135,35,136,36],loaded=false;
+  const atlas={destroyed:false};
+- const map={getZoom:()=>zoom,getBounds:()=>({getWest:()=>bounds[0],getSouth:()=>bounds[1],getEast:()=>bounds[2],getNorth:()=>bounds[3]}),addSource(){},addLayer(){},on:(t,f)=>(events[t]??=[]).push(f),off:(t,f)=>events[t]=events[t].filter(x=>x!==f),getSource:()=>({setData:d=>{loaded=false;writes.push(d);}}),isSourceLoaded:()=>loaded,setPaintProperty:(...args)=>paints.push(args)};
++ const map={getZoom:()=>zoom,getBounds:()=>({getWest:()=>bounds[0],getSouth:()=>bounds[1],getEast:()=>bounds[2],getNorth:()=>bounds[3]}),addSource(){},addLayer(){},triggerRepaint(){},on:(t,f)=>(events[t]??=[]).push(f),off:(t,f)=>events[t]=events[t].filter(x=>x!==f),getSource:()=>({loaded:()=>loaded,setData:d=>{loaded=false;writes.push(d);}}),isSourceLoaded:()=>loaded,setPaintProperty:(...args)=>paints.push(args)};
+  const geo={map,atlas,enabled:true,reference:false,referenceVisibility(){},syncStatus(){}};
+  const layer=new LakeLayer(geo,{getIndex:async()=>index,getShard:async()=>data,...options});
+- return {layer,map,geo,atlas,writes,paints,emit:(t,d)=>{for(const f of events[t]||[])f(d);},zoom:v=>zoom=v,bounds:v=>bounds=v,loaded:v=>loaded=v};
++ return {layer,map,geo,atlas,writes,paints,emit:(t,d)=>{for(const f of events[t]||[])f(d);},zoom:v=>zoom=v,bounds:v=>bounds=v,loaded:v=>{loaded=v;if(v)for(const f of events.sourcedata||[])f({sourceId:'lake-detail',sourceDataType:'content',isSourceLoaded:true});}};
+ }
+ await test('Area tiers change only at declared zoom thresholds',()=>assert.deepEqual([3.99,4,5.99,6,8.99,9,14].map(lakeTier),[0,4,4,6,6,9,9]));
+ await test('Spatial selection includes date-line crossings and repeated world copies',()=>{

@@ -1,0 +1,201 @@
+{
+  "scope": "Read-only local file and selection arithmetic. Illustrative rectangles are NOT captured browser viewports; no timing or hosted transfer claim.",
+  "headAtAuditStart": "a5cc8779de597ffd1838aecdc1097218f505c72f",
+  "year": 1492,
+  "catalogRecords": 13765,
+  "activePolities": 136,
+  "nativeGeometries": 131,
+  "nativeRecordMappings": 136,
+  "activeNativeComplete": true,
+  "nativeUniqueGeometryVertices": 12847,
+  "nativeDisplayedVerticesIncludingAliases": 14537,
+  "temporalFallback1492": {
+    "start": 1492,
+    "end": 1496,
+    "url": "data/native/temporal/pack-081.json.gz"
+  },
+  "assets": [
+    {
+      "path": "data/fast/catalog.json.gz",
+      "fileBytes": 602739,
+      "decodedBytes": 4816003,
+      "sha256": "35be1763146b78201fd0b748fe235d3f981bcb404475c8fca4483be6e161f4a9"
+    },
+    {
+      "path": "data/events.json.gz",
+      "fileBytes": 446517,
+      "decodedBytes": 1470967,
+      "sha256": "65b2ab2ea090ae73de701220d20dbb078e996dc26352394dd7cc642cfbdcf4d3"
+    },
+    {
+      "path": "data/native/year-1492.json.gz",
+      "fileBytes": 150207,
+      "decodedBytes": 506889,
+      "sha256": "32c671845e7635a5fafc0ef98a5f12c07639b04613959b1e6ce6799aa2236525"
+    },
+    {
+      "path": "data/fast/year-1492.json.gz",
+      "fileBytes": 79710,
+      "decodedBytes": 253023,
+      "sha256": "22b4914d72c37fd90952e0178b9d33028599cae29c8e21c6644559c7d051c97f"
+    },
+    {
+      "path": "data/land.geojson",
+      "fileBytes": 138160,
+      "decodedBytes": 138160,
+      "sha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9"
+    },
+    {
+      "path": "data/land-50m.json.gz",
+      "fileBytes": 527552,
+      "decodedBytes": 1570749,
+      "sha256": "b1d976d6b827375c0412a7750f2d4b78641250153f44d359cc675a168e5dd22c"
+    },
+    {
+      "path": "data/physical/physical-overview.json.gz",
+      "fileBytes": 80465,
+      "decodedBytes": 211516,
+      "sha256": "cf14f3f0df28f2bf2b0fa603f69c2ac4126ce87c1b0e6451b753d59577483dd6"
+    },
+    {
+      "path": "data/physical/modern-ocean-mask-overview.json.gz",
+      "fileBytes": 453272,
+      "decodedBytes": 1036266,
+      "sha256": "e1728b595070ffd6e1fb5ab7ebd4ab0cfc4c7d91656f5e5cafb0d320ee92fea3"
+    },
+    {
+      "path": "data/physical-spatial/index.json.gz",
+      "fileBytes": 36043,
+      "decodedBytes": 135839,
+      "sha256": "768635e247f89b29803b4dbb0aef4a4eea33f9780760fa72c40e2eaefad184ed"
+    },
+    {
+      "path": "data/lakes/index.json.gz",
+      "fileBytes": 131739,
+      "decodedBytes": 440784,
+      "sha256": "862f827a2130957761800693e0ea188d645d81cb5ba4b09e6268796d1e6767cd"
+    },
+    {
+      "path": "data/native/temporal/pack-081.json.gz",
+      "fileBytes": 150238,
+      "decodedBytes": 506913,
+      "sha256": "45e6b0ad28ab6c04030bb13ccbdd9ae6a4af2afc885c5694e889c11f7ad2d38c"
+    }
+  ],
+  "illustrativeSpatialSelections": [
+    {
+      "name": "Northeast Africa and the Red Sea",
+      "illustrativeBoundsNotBrowserViewport": [
+        20,
+        5,
+        45,
+        30
+      ],
+      "paddedBounds": [
+        15.0,
+        0.0,
+        50.0,
+        35.0
+      ],
+      "gridCells": 25,
+      "gridGzipFileBytes": 693164,
+      "gridFeaturesBeforeSetData": 330,
+      "lakesByTier": [
+        {
+          "tier": 4,
+          "shards": 8,
+          "gzipFileBytes": 295451,
+          "archivedVerticesBeforeFeatureViewportFilter": 79739
+        },
+        {
+          "tier": 6,
+          "shards": 23,
+          "gzipFileBytes": 457068,
+          "archivedVerticesBeforeFeatureViewportFilter": 122246
+        },
+        {
+          "tier": 9,
+          "shards": 39,
+          "gzipFileBytes": 838194,
+          "archivedVerticesBeforeFeatureViewportFilter": 206915
+        }
+      ]
+    },
+    {
+      "name": "Europe excluding a HALC-specific focus",
+      "illustrativeBoundsNotBrowserViewport": [
+        0,
+        40,
+        25,
+        60
+      ],
+      "paddedBounds": [
+        -5.0,
+        36.0,
+        30.0,
+        64.0
+      ],
+      "gridCells": 20,
+      "gridGzipFileBytes": 1643577,
+      "gridFeaturesBeforeSetData": 580,
+      "lakesByTier": [
+        {
+          "tier": 4,
+          "shards": 18,
+          "gzipFileBytes": 1279838,
+          "archivedVerticesBeforeFeatureViewportFilter": 361736
+        },
+        {
+          "tier": 6,
+          "shards": 44,
+          "gzipFileBytes": 3305219,
+          "archivedVerticesBeforeFeatureViewportFilter": 913248
+        },
+        {
+          "tier": 9,
+          "shards": 103,
+          "gzipFileBytes": 10437226,
+          "archivedVerticesBeforeFeatureViewportFilter": 2602334
+        }
+      ]
+    },
+    {
+      "name": "Mainland and maritime Southeast Asia",
+      "illustrativeBoundsNotBrowserViewport": [
+        100,
+        -5,
+        125,
+        20
+      ],
+      "paddedBounds": [
+        95.0,
+        -10.0,
+        130.0,
+        25.0
+      ],
+      "gridCells": 25,
+      "gridGzipFileBytes": 1391690,
+      "gridFeaturesBeforeSetData": 237,
+      "lakesByTier": [
+        {
+          "tier": 4,
+          "shards": 10,
+          "gzipFileBytes": 58217,
+          "archivedVerticesBeforeFeatureViewportFilter": 15437
+        },
+        {
+          "tier": 6,
+          "shards": 25,
+          "gzipFileBytes": 298293,
+          "archivedVerticesBeforeFeatureViewportFilter": 78707
+        },
+        {
+          "tier": 9,
+          "shards": 44,
+          "gzipFileBytes": 1596400,
+          "archivedVerticesBeforeFeatureViewportFilter": 365220
+        }
+      ]
+    }
+  ]
+}

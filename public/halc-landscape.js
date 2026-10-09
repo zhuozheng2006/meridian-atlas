@@ -1,10 +1,13 @@
-import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.45.0-833939da7758';
-import {forgetJSON} from './map-engine.js?v=3.45.0-833939da7758';
+import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.46.0-dce023e2071a';
+import {acquireLandscapeWorker} from './halc-landscape-client.js?v=3.46.0-dce023e2071a';
+import {readJSON} from './map-engine.js?v=3.46.0-dce023e2071a';
+import {forgetJSON} from './map-engine.js?v=3.46.0-dce023e2071a';
 
 export const LANDSCAPE_SOURCE='halc-landscape';
 export const LANDSCAPE_BOUNDS=[-.2635517291765086,47.49069922359204,8.90256801566143,54.129438097120065];
 const ROOT='data/halc-landscape/',EMPTY={type:'FeatureCollection',features:[]};
 const classes=new Map(HALC_LANDSCAPE_CLASSES.map(c=>[c.code,c]));
+const handledSourceErrors=new WeakSet();
 const t=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 export function landscapeIntersects(a,b){
@@ -30,22 +33,41 @@ export function mergeLandscapeOrder(base,current){
  for(let i=0;i<current.length;i++){const id=current[i];if(result.includes(id))continue;const next=current.slice(i+1).find(n=>result.includes(n));result.splice(next?result.indexOf(next):result.length,0,id);}return result;
 }
 export class HalcLandscape{
- constructor(parent,{load=parent.load}={}){
-  this.parent=parent;this.owner=parent.owner;this.atlas=parent.atlas;this.map=parent.map;this.seq=0;this.revision=0;this.features=[];this.status='off';this.active=false;this.failed=false;this.dead=false;this.listeners=[];
+ constructor(parent,{load=parent.load,prepareWorker=load===readJSON?acquireLandscapeWorker:()=>null}={}){
+  this.parent=parent;this.owner=parent.owner;this.atlas=parent.atlas;this.map=parent.map;this.seq=0;this.revision=0;this.features=[];this.status='off';this.active=false;this.failed=false;this.dead=false;this.listeners=[];this.prepareWorker=prepareWorker;this.preparation=null;
   if(!caches.has(load))caches.set(load,new LandscapeCache(load));this.cache=caches.get(load);
   this.button=make('button',null,'regional-landscape');this.button.hidden=true;this.button.onclick=()=>this.openGuide();this.owner.controls?.append(this.button);
   const on=(event,fn)=>{this.map.on(event,fn);this.listeners.push([event,fn]);};
   on('idle',()=>{this.settle();if(this.labelRefreshPending){this.labelRefreshPending=false;this.revision++;this.report();}});
-  on('sourcedata',e=>{if(e.sourceId===LANDSCAPE_SOURCE&&e.isSourceLoaded)this.settle();});
-  on('error',e=>{if(e.sourceId===LANDSCAPE_SOURCE&&!this.dead)this.fail();});
+  on('sourcedata',e=>{if(e.sourceId===LANDSCAPE_SOURCE&&e.isSourceLoaded){this.settle();}});
+  on('error',e=>{if(e.sourceId===LANDSCAPE_SOURCE&&!handledSourceErrors.has(e)&&this.eligible){const source=this.map.getSource(LANDSCAPE_SOURCE);if(e.source&&source&&e.source.data!==source.serialize().data)return;this.fail();}});
  }
  get lang(){return this.owner.lang;}
  get eligible(){if(this.dead||this.atlas.destroyed||this.owner.mode!=='halc'||this.owner.year!==1500)return false;return landscapeEligibility({mode:this.owner.mode,year:this.owner.year,borders:this.atlas.showBorders,modern:this.owner.modern||this.atlas.geography?.reference,terrain:this.atlas.geography?.enabled,zoom:this.map.getZoom(),bounds:viewport(this.map),destroyed:false});}
  ensure(){
-  if(this.map.getSource(LANDSCAPE_SOURCE))return;
+  if(this.map.getSource(LANDSCAPE_SOURCE)){this.watchSource(this.map.getSource(LANDSCAPE_SOURCE));return;}
   this.map.addSource(LANDSCAPE_SOURCE,{type:'geojson',data:EMPTY,tolerance:0,maxzoom:14,attribution:'Rombert Stapel · <a href="https://doi.org/10.34894/BTKFHV" target="_blank" rel="noopener">HALC v15 · Landscape 1500</a> · CC BY-SA 4.0'});
+  this.watchSource(this.map.getSource(LANDSCAPE_SOURCE));
   const colors=['match',['get','LANDSCAPE'],0,'#c2c4a2',1,'#d3bd82',2,'#93aaa0',3,'#8d9e7b',4,'#a997a2',7,'#86acb7',8,'#588b9f',9,'#3c6f8b','#c2c4a2'];
   this.map.addLayer({id:LANDSCAPE_SOURCE,type:'fill',source:LANDSCAPE_SOURCE,minzoom:6,layout:{visibility:'none'},paint:{'fill-color':colors,'fill-opacity':1,'fill-antialias':true}});
+ }
+ unwatchSource(){this.errorSource?.off('error',this.sourceErrorListener);this.errorSource=null;this.sourceErrorListener=null;}
+ watchSource(source){
+  if(this.errorSource===source)return;
+  this.unwatchSource();this.errorSource=source;
+  this.sourceErrorListener=event=>{
+   handledSourceErrors.add(event);
+   if(!this.eligible||this.map.getSource(LANDSCAPE_SOURCE)!==source||this.pending&&this.pending.seq!==this.seq)return;
+   // MapLibre clears its in-flight flag before firing an error, but a queued
+   // newer setData still makes loaded() false. Its old error cannot fail the new view.
+   if(!source.loaded())return;
+   if(this.pending?.transport==='data-url'){
+    this.preparation?.destroy();this.preparation=null;this.prepareWorker=null;
+    this.fallbackReason='data-url-source-error';this.retry();return;
+   }
+   this.fail();
+  };
+  source.on('error',this.sourceErrorListener);
  }
  report(){
   this.button.hidden=!this.eligible;this.button.textContent=t(this.lang,this.failed?'地貌未载入':this.status==='loading'?'地貌载入中…':'地貌 · 1500',this.failed?'Landscape unavailable':this.status==='loading'?'Loading landscape…':'Landscape · 1500');
@@ -70,16 +92,21 @@ export class HalcLandscape{
   if(this.map.getLayer(LANDSCAPE_SOURCE)&&this.visible!==visible){this.map.setLayoutProperty(LANDSCAPE_SOURCE,'visibility',visible?'visible':'none');this.visible=visible;this.revision++;}
   this.reconcileOrder();this.report();
  }
- fail(){++this.seq;this.failed=true;this.active=false;this.pending=null;this.features=[];this.requestKey=null;this.status='error';this.visibility();}
+ fail(){++this.seq;this.preparation?.cancel();this.failed=true;this.active=false;this.pending=null;this.features=[];this.requestKey=null;this.status='error';this.visibility();}
  async update(){
   if(this.dead)return;
-  if(!this.eligible){++this.seq;this.pending=null;this.requestKey=null;this.active=false;this.features=[];this.status='off';this.visibility();return;}
+  if(!this.eligible){++this.seq;this.preparation?.cancel();this.pending=null;this.requestKey=null;this.active=false;this.features=[];this.status='off';this.visibility();return;}
   if(this.failed){this.visibility();return;}
   const bounds=viewport(this.map);let east=bounds[2];while(east<bounds[0])east+=360;const dx=(east-bounds[0])*.2,dy=(bounds[3]-bounds[1])*.2,padded=[bounds[0]-dx,bounds[1]-dy,east+dx,bounds[3]+dy];
   const key=bounds.join(':');if(key===this.requestKey){this.visibility();return;}this.requestKey=key;
   const seq=++this.seq,current=()=>!this.dead&&!this.atlas.destroyed&&seq===this.seq&&this.eligible;
-  this.status=this.active?'updating':'loading';this.report();
+  this.preparationMetrics=null;this.status=this.active?'updating':'loading';this.report();
   try{
+   this.preparation??=this.prepareWorker?.();
+   if(this.preparation){
+    try{const result=await this.preparation.prepare(padded);if(!current())return;this.ensure();this.pending={seq,features:result.records,transport:'data-url'};this.status=this.active?'updating':'rendering';this.preparationMetrics=result.metrics;this.map.getSource(LANDSCAPE_SOURCE).setData(result.dataURL);this.report();return;}
+    catch(error){if(!current())return;if(error.code!=='landscape-worker-unavailable')throw error;this.preparation.destroy();this.preparation=null;this.prepareWorker=null;}
+   }
    const index=await this.cache.get('index.json.gz');if(!current())return;
    if(index.schemaVersion!==1||index.snapshotYear!==1500||!Array.isArray(index.shards)){this.cache.forget('index.json.gz');throw Error('Invalid landscape snapshot');}
    const shards=selectLandscapeShards(index,padded),features=[];let cursor=0;
@@ -116,6 +143,6 @@ export class HalcLandscape{
   }
   const note=make('details');note.append(make('summary',t(lang,'来源与地图说明','Sources & map notes')),make('p',t(lang,'地貌面保留原始坐标、分类与重叠记录，仅用于1500年。覆盖区以外沿用现代地理参照；山地高程来自现代测量。地方档案的分类面积与本图层分别保留各自记录。','Landscape polygons retain source coordinates, classes and overlaps and appear only in 1500. Outside their coverage the map uses contemporary geography; elevation is contemporary. Local area statistics and these polygons retain their separate source records.')));const link=make('a','Rombert Stapel · HALC v15 · CC BY-SA 4.0 ↗');link.href='https://doi.org/10.34894/BTKFHV';link.target='_blank';link.rel='noopener noreferrer';note.append(link);node.append(note);owner.popupAt(node,this.map.getCenter(),true);owner.popup?.getElement().classList.add('halc-popup');
  }
- retry(){if(this.dead||this.atlas.destroyed)return;this.failed=false;this.requestKey=null;this.active=false;this.pending=null;this.visibility();if(this.map.getLayer(LANDSCAPE_SOURCE))this.map.removeLayer(LANDSCAPE_SOURCE);if(this.map.getSource(LANDSCAPE_SOURCE))this.map.removeSource(LANDSCAPE_SOURCE);this.visible=null;this.update();}
- destroy(){this.dead=true;++this.seq;this.active=false;this.pending=null;for(const [event,fn]of this.listeners)this.map.off(event,fn);this.button.remove();}
+ retry(){if(this.dead||this.atlas.destroyed)return;this.unwatchSource();this.failed=false;this.requestKey=null;this.active=false;this.pending=null;this.visibility();if(this.map.getLayer(LANDSCAPE_SOURCE))this.map.removeLayer(LANDSCAPE_SOURCE);if(this.map.getSource(LANDSCAPE_SOURCE))this.map.removeSource(LANDSCAPE_SOURCE);this.visible=null;this.update();}
+ destroy(){this.preparation?.destroy();this.unwatchSource();this.dead=true;++this.seq;this.active=false;this.pending=null;for(const [event,fn]of this.listeners)this.map.off(event,fn);this.button.remove();}
 }

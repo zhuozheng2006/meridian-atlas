@@ -1,0 +1,14 @@
+{
+  "generated": "2026-10-09T20:49:37.216Z",
+  "moduleSha256": "c0649ef527d26a70b190b530fdd4a082490daa7f843ad2bebeba0f5ea8c68316",
+  "method": "Actual HalcBoundaries and scheduler via existing project adapter, deterministic task queue and DOM/map boundaries. Layout changes are made without emitting render/idle; first high-zoom recovery, sliced cancellation, request ownership, bounded recovery and exit guards are exercised. No browser timing/pixel claim.",
+  "passed": 0,
+  "total": 1,
+  "checks": [
+    {
+      "name": "First high-zoom labels recover a layout-only context cancellation before any anchor, with no subsequent map render or idle",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected \"actual\" not to be reference-equal to \"expected\":\n\n{\n  generation: 1,\n  key: '1:1:4.4:50.5:5.8:52:6.3:0:0:1200:800:en:0:0',\n  promise: Promise {\n    null\n  },\n  stats: {\n    cancelReason: 'context-changed',\n    canceled: true,\n    candidates: 1,\n    computed: 0,\n    elapsedMs: 0,\n    maxAnchorMs: 0,\n    maxSliceMs: 0,\n    retained: 0,\n    slices: 0,\n    sortMs: 0,\n    workMs: 0\n  },\n  status: 'pending'\n}\n\n    at test.zoom (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-346/landscape-candidate/scripts/validate-halc-label-context-recovery.mjs:22:341)\n    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-346/landscape-candidate/scripts/validate-halc-label-context-recovery.mjs:20:173)\n    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-346/landscape-candidate/scripts/validate-halc-label-context-recovery.mjs:22:2"
+    }
+  ]
+}

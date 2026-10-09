@@ -1,8 +1,8 @@
-import {createExactLabelScheduler} from './halc-label-scheduler.js?v=3.45.0-833939da7758';
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.45.0-833939da7758';
-import {HalcLandscape} from './halc-landscape.js?v=3.45.0-833939da7758';
-import {readJSON} from './map-engine.js?v=3.45.0-833939da7758';
-import {HalcRegions} from './halc-regions.js?v=3.45.0-833939da7758';
+import {createExactLabelScheduler} from './halc-label-scheduler.js?v=3.46.0-dce023e2071a';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.46.0-dce023e2071a';
+import {HalcLandscape} from './halc-landscape.js?v=3.46.0-dce023e2071a';
+import {readJSON} from './map-engine.js?v=3.46.0-dce023e2071a';
+import {HalcRegions} from './halc-regions.js?v=3.46.0-dce023e2071a';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -159,7 +159,7 @@ export class HalcBoundaries{
   const key=[this.featureEpoch,this.regions.revision,this.viewportKey(),this.lang,root.left,root.top,...boxes.flatMap(b=>[b.left,b.top,b.right,b.bottom])].join(':');
   return {box,root,boxes,key,local:this.map.getZoom()>=8};
  }
- refreshLabels(){
+ refreshLabels(recoveryAttempt=0){
   if(this.dead||!this.eligible||!this.active||this.loading||!this.atlas.showLabels||!this.anchor){this.clearLabels();return;}
   // Keep the currently drawn labels available to other point-layer collision
   // tests while exact anchors for the next view are computed in small slices.
@@ -174,6 +174,14 @@ export class HalcBoundaries{
    onReady:(ranked,{stats})=>{if(!isCurrent())return;this.labelJobStats=stats;this.placeLabels(ranked,context);},
    onError:error=>{this.labelError=String(error?.message||error);}});
   this.labelJob=request;this.labelJobStats=request.stats;
+  // Collision boxes may settle after the map's last idle (for example when
+  // first-view lake/event labels appear). Recover the current canceled job from
+  // that latest context without polling or waiting for another camera event.
+  if(request.status==='pending')request.promise.then(()=>{
+   if(request!==this.labelJob||request.stats.cancelReason!=='context-changed'||recoveryAttempt>=3)return;
+   if(this.dead||!this.eligible||!this.active||this.loading||!this.atlas.showLabels||!this.anchor||this.map.isMoving())return;
+   this.refreshLabels(recoveryAttempt+1);
+  });
   if(request.status==='ready'&&isCurrent())this.placeLabels(request.ranked,context);
  }
  placeLabels(ranked,{key,root,boxes,local}){
