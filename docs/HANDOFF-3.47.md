@@ -67,4 +67,10 @@ Rice原PDF共12页、218564字节，SHA df55e208beeb2c853ae4f86d2000de24692f167e
 
 ## 发布
 
-正在按官方Sites流程保存源码、打包和发布。以本文件后续记录及 `verification-3.47/publication.json` 为最终结果；发布前文字不构成已经上线的证明。
+已于2026-10-10 05:19（Asia/Shanghai）发布，原生状态 **succeeded**。Sites版本26，产品3.47.0，资源戳3.47.0-6485bddcb9a4，发布源码 **78815ca6945c415f3cf376a51982b6c2ac38adc1**。网址：https://meridian-world-history.zhuozheng2006.chatgpt.site 。
+
+压缩包195603006字节，SHA-256 6620245d07d54a7f292f7a84cc594ac925e53c35ac3cb8cecca537444e2c126e；展开文件229050422字节、tar末偏移260014592、17180项、AppleDouble为0，低于256MiB上限。13份关键部署文件逐字节核对通过。
+
+线上首页返回当前资源戳；8份JavaScript原地址响应与发布源码完全相同，MIME均text/javascript。新增有据遗址gzip与证据catalog原地址回读也逐字节一致。首页有托管层包装，未把其整体字节算入一致数。页面渲染证据来自本机Chrome，线上证据是发布成功与HTTP回读，两者范围分别记录。完整结果见publication.json、archive-audit.json和deployed-modules.json。
+
+已请求在Codex打开新版城市入口，应用返回queued（当前线程未显示时稍后打开）。任务继续保持进行中。
