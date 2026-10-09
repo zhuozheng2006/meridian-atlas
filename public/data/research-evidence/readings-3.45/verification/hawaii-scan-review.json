@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "method": "All eight original PDF pages rendered with pdftoppm at 110 dpi and visually read. Compared with complete UNL transcript, including source headings, neighboring clauses and signatures. This is a human-style visual review record, not automated historical validation.",
+  "reviewedDate": "2026-10-10",
+  "sourcePdf": {
+    "file": "raw/hawaii-1840-constitution-archives.pdf",
+    "sha256": "0354abffc27ab85aa48c5aa8af68d93d2d07e24223ede60dfdc988006678da06",
+    "bytes": 472891,
+    "pageCount": 8,
+    "textLayer": "Absent; pypdf extraction returned no text on all eight pages."
+  },
+  "transcript": {
+    "file": "raw/hawaii-1840-unl.html.txt",
+    "sha256": "acbdc3c536b310536b7955d4f078a8bd9513fe0940283cc00979feee6d150492"
+  },
+  "pages": [
+    {
+      "pdfPage": 1,
+      "printedPage": null,
+      "renderFile": "verification/hawaii-1.png",
+      "renderSha256": "6da314c835b909cb3b91f21d2cafa53d5c35d4f68dd5a8af1e0f433e5200fc9b",
+      "visuallyReviewed": true,
+      "content": "Declaration of rights and protection of persons, land and property; no folio visible."
+    },
+    {
+      "pdfPage": 2,
+      "printedPage": "10",
+      "renderFile": "verification/hawaii-2.png",
+      "renderSha256": "0586ddad39b380911e1f57da0729d86e8703d0ed1d77b443a45f115c28ac4203",
+      "visuallyReviewed": true,
+      "content": "Printed p. 10: constitutional principles, trial, impartial adjudication, opening dynastic exposition."
+    },
+    {
+      "pdfPage": 3,
+      "printedPage": "11",
+      "renderFile": "verification/hawaii-3.png",
+      "renderSha256": "9e8fa63fb67d359bcf8b9d61ad92e0e590758c108638b1309422413319650eab",
+      "visuallyReviewed": true,
+      "content": "Printed p. 11: dynastic succession, royal prerogatives, premier office and its history."
+    },
+    {
+      "pdfPage": 4,
+      "printedPage": "12",
+      "renderFile": "verification/hawaii-4.png",
+      "renderSha256": "5a07e3c05476fecdd4f3f560c9b5d34f05c9fef5afd3c30d0de3420e47a28fc7",
+      "visuallyReviewed": true,
+      "content": "Printed p. 12: premier coordination and governors; four island governorships and duties."
+    },
+    {
+      "pdfPage": 5,
+      "printedPage": "13",
+      "renderFile": "verification/hawaii-5.png",
+      "renderSha256": "56ceb10274ecb9504742d82165b2c7a96f4d71136d60819e138b245e78ca54a0",
+      "visuallyReviewed": true,
+      "content": "Printed p. 13: nobles, annually chosen representatives, separate/joint meetings, secretaries and decision books."
+    },
+    {
+      "pdfPage": 6,
+      "printedPage": "14",
+      "renderFile": "verification/hawaii-6.png",
+      "renderSha256": "38d8bf3bfeb604b4848760e431739ddf88fb2b31049ab22c4c4bbcca28bc6a75",
+      "visuallyReviewed": true,
+      "content": "Printed p. 14: majority approval and royal/premier signatures; tax officers, notice of taxes, collection route and labor, beginning land-dispute process."
+    },
+    {
+      "pdfPage": 7,
+      "printedPage": "15",
+      "renderFile": "verification/hawaii-7.png",
+      "renderSha256": "fe3428d9e06fdc5bb4bcd85ff55dcf13674207e69410e515ff684ec73ceb6f32",
+      "visuallyReviewed": true,
+      "content": "Printed p. 15: tax appeal continuation; local judges, six-person Supreme Court, final hearings, constitutional amendment provisions."
+    },
+    {
+      "pdfPage": 8,
+      "printedPage": "16",
+      "renderFile": "verification/hawaii-8.png",
+      "renderSha256": "25c77a387f0f0adfeccecb3a97347e98fc5d50448d46e27b4715120e7e920c08",
+      "visuallyReviewed": true,
+      "content": "Printed p. 16: amendment continuation, assent, date 8 October 1840, Honolulu, and both signatures."
+    }
+  ],
+  "differences": [
+    {
+      "pdfPage": 2,
+      "printedPage": "10",
+      "scan": "Paragraph beginning No man or chief has no V. prefix.",
+      "transcript": "Adds V. before No man or chief.",
+      "action": "Preserve digital transcript and disclose variant."
+    },
+    {
+      "pdfPage": 2,
+      "printedPage": "10",
+      "scan": "Kamehameha I. in the common ownership paragraph.",
+      "transcript": "Kamehemeha I. in the same paragraph.",
+      "action": "Preserve original transcription spelling; no implication for guide claims."
+    },
+    {
+      "pdfPage": 4,
+      "printedPage": "12",
+      "scan": "special interests without a full stop after special, across page 11–12.",
+      "transcript": "special. interests with inserted full stop.",
+      "action": "Preserve transcript punctuation."
+    },
+    {
+      "pdfPage": 5,
+      "printedPage": "13",
+      "scan": "These persons shall have part in the councils of the kingdom.",
+      "transcript": "persons shall have part in the councils of the kingdom. (These omitted.)",
+      "action": "Preserve transcript; no substantive legislative claim depends on this omission."
+    },
+    {
+      "pdfPage": 8,
+      "printedPage": "16",
+      "scan": "Signatures printed KAMEHAMEHA III. / KEKAULUOHI.",
+      "transcript": "Uses title case Kamehameha III. / Kekauluohi.",
+      "action": "Preserve transcript casing."
+    }
+  ],
+  "conclusion": "Guide claims about record books, bilateral legislative approval and signatures, appointment and duties of tax officers, appeal routes and the six-person Supreme Court are supported by both acquired witnesses. Review does not establish implementation or the bibliographic lineage of Polaris coding."
+}

@@ -184,7 +184,7 @@ check('deterministic-rebuild-and-frozen-original',deterministic)
 report={'passed':all(c['passed'] for c in checks),'checksPassed':sum(c['passed'] for c in checks),'checksTotal':len(checks),'checks':checks,'counts':doc['counts'],
         'missingNumberPolicy':'Numbers absent from this exact saved page are retained as gaps; no claim that every law in a modern critical edition is absent.',
         'sourceSha256':sha(raw),'wholeSelectedTextSha256':sha(expected.encode())}
-(REPO/'docs/verification-3.44/hammurabi-coverage.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+(REPO/'docs/verification-3.45/hammurabi-coverage.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['passed','checksPassed','checksTotal','counts']},ensure_ascii=False))
 for c in checks:
     if not c['passed']:print(c)

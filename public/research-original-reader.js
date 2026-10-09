@@ -1,9 +1,9 @@
-import {SAVED_TEXTS} from './research-original-text-data.js?v=3.44.0-3fda80a72ecc';
+import {SAVED_TEXTS} from './research-original-text-data.js?v=3.45.0-833939da7758';
 const inflight=new Map();
 export function savedTextFor(item){return SAVED_TEXTS.documents.find(entry=>entry.sourceId===item.sourceId&&entry.source.sha256===item.sourceSha256&&entry.readingIds.includes(item.id))||null;}
 export async function loadSavedText(entry,{fetcher=fetch,cryptoAPI=globalThis.crypto}={}){
  const collection=entry.collection||'reading-texts-3.43';
- if(!/^(reading-texts-3\.43|readings-3\.44\/offline)$/.test(collection))throw Error('Unknown saved-text collection');
+ if(!/^(reading-texts-3\.43|readings-3\.(44|45)\/offline)$/.test(collection))throw Error('Unknown saved-text collection');
  const key=collection+':'+entry.file+':'+entry.sha256;
  if(inflight.has(key))return inflight.get(key);
  const pending=(async()=>{
@@ -55,6 +55,26 @@ export function mountSavedText(doc,{item,lang='bi',load=loadSavedText,initialSta
  let position=seed?.position||null,selected=seed?.selected||'',provenanceOpen=seed?.provenanceOpen===true;
  const watchedAncestors=new Map(),expanded=()=>panel.open&&!panel.closest?.('details:not([open])');
  const frame=fn=>(doc.defaultView?.requestAnimationFrame||((fn)=>setTimeout(fn,0)))(fn);
+ let layout=null,resizeObserver=null,observing=false,pendingRestore=null,writtenScrollTop=null;
+ const visible=()=>!dead&&expanded()&&panel.isConnected!==false&&body;
+ const dimensions=()=>{const rect=body.getBoundingClientRect();return {width:rect.width,height:rect.height};};
+ const changed=(size)=>layout&&(size.width!==layout.width||size.height!==layout.height);
+ function cancelRestore(){pendingRestore=null;}
+ // Text nodes are created from one source block each. A character anchor keeps
+ // the same line in view when wrapping changes, including within long paragraphs.
+ function characterRect(node,index){const text=node.firstChild;if(!text||text.nodeType!==3||!doc.createRange||!Number.isInteger(index)||index<0||index>=text.length)return null;const range=doc.createRange();range.setStart(text,index);range.setEnd(text,index+1);const rect=range.getBoundingClientRect();return rect.height>0?rect:null;}
+ function textPosition(node,top){const text=node.firstChild;if(!text||text.nodeType!==3||!text.length||!doc.createRange)return null;let lo=0,hi=text.length-1;
+  while(lo<hi){const mid=Math.floor((lo+hi)/2),rect=characterRect(node,mid);if(!rect)return null;if(rect.bottom<=top)lo=mid+1;else hi=mid;}
+  const rect=characterRect(node,lo);return rect?{textOffset:lo,textOffsetY:top-rect.top}:null;
+ }
+ function observeLayout(){if(observing||!body)return;observing=true;const Observer=doc.defaultView?.ResizeObserver;if(Observer){resizeObserver??=new Observer(layoutChanged);resizeObserver.observe(body);}else doc.defaultView?.addEventListener?.('resize',layoutChanged);}
+ function stopObserving(){observing=false;resizeObserver?.disconnect();doc.defaultView?.removeEventListener?.('resize',layoutChanged);cancelRestore();}
+ function layoutChanged(){if(!visible()||!positioned)return;const size=dimensions();if(size.height>0&&changed(size))restorePosition({reflow:true});}
+ function userScrollIntent(event){if(event.type==='keydown'&&!['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' ','Spacebar'].includes(event.key))return;if(event.defaultPrevented||!visible())return;
+  // A deliberate gesture wins over a pending automatic restore. Record using
+  // the new layout, then let the browser perform its normal scrolling action.
+  cancelRestore();writtenScrollTop=null;layout=dimensions();positioned=true;rememberPosition();observeLayout();
+ }
  function watchAncestors(){const current=new Set();for(let node=panel.parentElement||panel.parentNode;node;node=node.parentElement||node.parentNode)if(node.tagName?.toLowerCase()==='details')current.add(node);
   for(const [node,handler]of watchedAncestors)if(!current.has(node)){node.removeEventListener?.('toggle',handler);watchedAncestors.delete(node);}
   for(const node of current)if(!watchedAncestors.has(node)){node.addEventListener('toggle',visibilityChanged);watchedAncestors.set(node,visibilityChanged);}
@@ -62,19 +82,29 @@ export function mountSavedText(doc,{item,lang='bi',load=loadSavedText,initialSta
  function rememberPosition(){
   if(!body||!positioned||!expanded()||panel.isConnected===false)return;
   const rect=body.getBoundingClientRect();if(rect.height===0||!ordered.length)return;
+  if(changed(rect)){restorePosition({reflow:true});return;}layout={width:rect.width,height:rect.height};
+  // Keep the exact text anchor through repeated resizes. The new line can start
+  // earlier in the paragraph; recapturing our own scroll would drift backwards.
+  if(writtenScrollTop!==null&&body.scrollTop===writtenScrollTop)return;writtenScrollTop=null;
   const top=rect.top+body.clientTop+16;let lo=0,hi=ordered.length-1;
   while(lo<hi){const mid=Math.ceil((lo+hi)/2);if(ordered[mid].getBoundingClientRect().top<=top)lo=mid;else hi=mid-1;}
   const node=ordered[lo],offset=top-node.getBoundingClientRect().top;
-  if(Number.isFinite(offset))position={blockId:node.dataset.sourceBlock,offset};
+  const nodeRect=node.getBoundingClientRect();
+  if(Number.isFinite(offset))position={blockId:node.dataset.sourceBlock,offset,relativeOffset:nodeRect.height>0?offset/nodeRect.height:0,...(offset>=0&&offset<nodeRect.height?textPosition(node,top):null)};
  }
  function snapshot(){rememberPosition();if(select)selected=select.value;if(provenance)provenanceOpen=provenance.open;return {...identity,open:panel.open,position:position?{...position}:null,selected,provenanceOpen};}
- function jump(id,{focus=true,offset=0}={}){const node=nodes.get(id);if(!body||!node)return false;const nodeRect=node.getBoundingClientRect(),bodyRect=body.getBoundingClientRect();const within=Number.isFinite(offset)?Math.max(-16,Math.min(offset,Number.isFinite(nodeRect.height)?Math.max(0,nodeRect.height-1):offset)):0;
-  body.scrollTop+=nodeRect.top-bodyRect.top-body.clientTop-16+within;positioned=true;rememberPosition();if(focus)node.focus({preventScroll:true});return true;
+ function jump(id,{focus=true,offset=0,textOffset,textOffsetY,relativeOffset,reflow=false}={}){const node=nodes.get(id);if(!visible()||!node)return false;cancelRestore();writtenScrollTop=null;const nodeRect=node.getBoundingClientRect(),bodyRect=body.getBoundingClientRect(),textRect=characterRect(node,textOffset);
+  if(reflow&&!textRect&&Number.isFinite(relativeOffset))offset=relativeOffset*nodeRect.height;
+  const within=Number.isFinite(offset)?Math.max(-16,Math.min(offset,Number.isFinite(nodeRect.height)?Math.max(0,nodeRect.height-1):offset)):0;
+  const target=textRect&&Number.isFinite(textOffsetY)?textRect.top+textOffsetY:nodeRect.top+within;
+  const requested=body.scrollTop+target-bodyRect.top-body.clientTop-16;
+  layout={width:bodyRect.width,height:bodyRect.height};body.scrollTop=requested;positioned=true;
+  if(textRect&&Number.isFinite(textOffsetY)&&Math.abs(body.scrollTop-requested)<1)position={blockId:id,offset:target-nodeRect.top,relativeOffset:nodeRect.height>0?(target-nodeRect.top)/nodeRect.height:0,textOffset,textOffsetY};else rememberPosition();writtenScrollTop=body.scrollTop;observeLayout();if(focus)node.focus({preventScroll:true});return true;
  }
- function restorePosition(){const token=generation;frame(()=>{if(dead||token!==generation||!expanded()||panel.isConnected===false||!body)return;const restore=position&&nodes.has(position.blockId)?position:null,target=restore?.blockId||anchors[0]?.blockId||ordered[0]?.dataset.sourceBlock;
-   if(target)jump(target,{focus:false,offset:restore?.offset||0});if(selected&&nodes.has(selected))select.value=selected;else if(target){select.value=anchors[0]?.blockId||target;selected=select.value;}
+ function restorePosition({reflow=false}={}){if(pendingRestore)return;const task={generation,position:position?{...position}:null};pendingRestore=task;positioned=false;frame(()=>{if(pendingRestore!==task)return;pendingRestore=null;if(!visible()||task.generation!==generation)return;const restore=task.position&&nodes.has(task.position.blockId)?task.position:null,target=restore?.blockId||anchors[0]?.blockId||ordered[0]?.dataset.sourceBlock;
+   if(target)jump(target,{...restore,focus:false,reflow});if(selected&&nodes.has(selected))select.value=selected;else if(target){select.value=anchors[0]?.blockId||target;selected=select.value;}observeLayout();
   });}
- function visibilityChanged(){if(dead)return;if(expanded())return start();generation++;loading=false;positioned=false;}
+ function visibilityChanged(){if(dead)return;if(expanded())return start();generation++;loading=false;positioned=false;stopObserving();}
  function clear(){content.replaceChildren();texts=new Map([[summary,{zh:'阅读已保存原文',en:'Read saved text'}]]);}
  function render(data){
   clear();const tools=el('div','','research-original-tools'),label=el('label');select=el('select');label.append(local('span','原文目录','Contents'),select);aria(select,'原文目录','Contents');tools.append(label);
@@ -85,6 +115,7 @@ export function mountSavedText(doc,{item,lang='bi',load=loadSavedText,initialSta
   anchors=data.readingAnchors.find(a=>a.readingId===item.id)?.anchors||[];
   for(const anchor of anchors){const button=anchor.anchorBasis==='source-clause-number'?local('button','法条 '+anchor.clauseNumber,'Law '+anchor.clauseNumber):el('button',anchor.sourceHeading);button.type='button';button.addEventListener('click',()=>{selected=anchor.blockId;select.value=selected;jump(selected);});related.append(button);}if(anchors.length)tools.append(related);content.append(tools,body);
   body.addEventListener('scroll',rememberPosition,{passive:true});
+  for(const type of ['wheel','touchstart','pointerdown','keydown'])body.addEventListener(type,userScrollIntent,{passive:true});
   provenance=el('details','','research-original-provenance');provenance.open=provenanceOpen;provenance.append(local('summary','文本整理与出处','Text preparation & provenance'),local('p','原文的段落、注释与书目信息保留；移除了网页导航，统一空白与换行。原始文件可通过上方链接下载。','Source paragraphs, notes and bibliography are retained. Site navigation is removed and whitespace normalized. The original file remains available above.'),el('p','SHA-256: '+data.source.sha256));content.append(provenance);restorePosition();
  }
  async function start(){
@@ -97,9 +128,9 @@ export function mountSavedText(doc,{item,lang='bi',load=loadSavedText,initialSta
  panel.addEventListener('toggle',()=>{watchAncestors();return visibilityChanged();});
  controllers.set(panel,{
   snapshot,
-  detach(){positioned=false;for(const [node,handler]of watchedAncestors)node.removeEventListener?.('toggle',handler);watchedAncestors.clear();panel.remove?.();},
+  detach(){positioned=false;stopObserving();for(const [node,handler]of watchedAncestors)node.removeEventListener?.('toggle',handler);watchedAncestors.clear();panel.remove?.();},
   setLanguage(value){language=value;for(const [node,{zh,en,attribute}]of texts)if(attribute)node.setAttribute?.(attribute,t(zh,en));else node.textContent=t(zh,en);},
   resume(){watchAncestors();if(loaded&&expanded())restorePosition();else void start();},
-  destroy(){dead=true;generation++;for(const [node,handler]of watchedAncestors)node.removeEventListener?.('toggle',handler);watchedAncestors.clear();}
+  destroy(){dead=true;generation++;stopObserving();for(const [node,handler]of watchedAncestors)node.removeEventListener?.('toggle',handler);watchedAncestors.clear();}
  });return panel;
 }

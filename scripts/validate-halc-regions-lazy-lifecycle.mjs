@@ -7,7 +7,7 @@ import {pathToFileURL,fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 const root=process.env.ATLAS_REPO||fileURLToPath(new URL('../',import.meta.url));
 const candidate=process.env.HALC_REGIONS_MODULE||path.join(root,'public/halc-regions.js');
-const output=process.env.HALC_REGIONS_AUDIT_REPORT||path.join(root,'docs/verification-3.44/regions-lazy-lifecycle.json');
+const output=process.env.HALC_REGIONS_AUDIT_REPORT||path.join(root,'docs/verification-3.45/regions-lazy-lifecycle.json');
 const {HalcRegions,halcVisibleRegions}=await import(pathToFileURL(candidate));
 const {HALC_BOUNDS}=await import(pathToFileURL(path.join(root,'public/halc-boundaries.js')));
 const {regionalAnchor}=await import(pathToFileURL(path.join(root,'public/regional-boundaries.js')));

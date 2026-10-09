@@ -1,0 +1,2263 @@
+{
+  "scope": "Independent saved-file review: workbook XML vs copied typed rows; full selected HTML text vs all extracted blocks; source file/fragment identities; real source prose and all eight PDF renders reviewed separately. This is not live HTTP validation or historical implementation proof.",
+  "files": {
+    "catalog.json": "5087c3cf2380fbdb14c13fd10ad67fdecfc1115ea305a316e0d5e85a1614754a",
+    "claim-evidence.json": "6758a127f3d2059901bebe4558f9e44464149a67d4acae40488d04ecf62f367b",
+    "sources.json": "a77847887c58b41b722eedb8f774688080c8fadb59ccc3d3a964f9d52dfe93e3",
+    "offline/index.json": "6f29dd07f5115f102d91df7f240ca4d512f3de3f011597c886d2ad7f5f79648f"
+  },
+  "counts": {
+    "checks": 372,
+    "passed": 372,
+    "uniqueRows": 11,
+    "documents": 2,
+    "newBlocks": 139
+  },
+  "checks": [
+    {
+      "name": "original-file:raw/periplus-fordham.html.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original-file:raw/hawaii-1840-constitution-archives.pdf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original-file:raw/hawaii-1840-university.html.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original-file:raw/hawaii-1840-unl.html.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original-byte-total",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "workbook-identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "phase-bind:aksum-periplus-port-hinterland--et_aksum_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target-ids:aksum-periplus-port-hinterland--et_aksum_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:9726",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:11868",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Polities:201",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:9726",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:11868",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "variables:aksum-periplus-port-hinterland--et_aksum_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-anchor:aksum-periplus-port-hinterland--et_aksum_emp_1",
+      "passed": true,
+      "detail": {
+        "actualLines": [
+          212,
+          227
+        ]
+      }
+    },
+    {
+      "name": "phase-bind:aksum-periplus-goods-exchange--et_aksum_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target-ids:aksum-periplus-goods-exchange--et_aksum_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:19813",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:21066",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Polities:201",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:19813",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:21066",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "variables:aksum-periplus-goods-exchange--et_aksum_emp_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-anchor:aksum-periplus-goods-exchange--et_aksum_emp_1",
+      "passed": true,
+      "detail": {
+        "actualLines": [
+          235,
+          251
+        ]
+      }
+    },
+    {
+      "name": "phase-bind:hawaii-constitution-legislation-records--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target-ids:hawaii-constitution-legislation-records--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:7375",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:13677",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Polities:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:7375",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:13677",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "variables:hawaii-constitution-legislation-records--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-anchor:hawaii-constitution-legislation-records--us_hawaii_k",
+      "passed": true,
+      "detail": {
+        "actualLines": [
+          162,
+          174
+        ]
+      }
+    },
+    {
+      "name": "phase-bind:hawaii-constitution-tax-administration--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target-ids:hawaii-constitution-tax-administration--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:2769",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:5707",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:5708",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Polities:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:2769",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:5707",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:5708",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "variables:hawaii-constitution-tax-administration--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-anchor:hawaii-constitution-tax-administration--us_hawaii_k",
+      "passed": true,
+      "detail": {
+        "actualLines": [
+          176,
+          186
+        ]
+      }
+    },
+    {
+      "name": "phase-bind:hawaii-constitution-courts-appeals--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target-ids:hawaii-constitution-courts-appeals--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:7853",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:8304",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xlsx-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Polities:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:7853",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shard-row:sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:8304",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "variables:hawaii-constitution-courts-appeals--us_hawaii_k",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source-anchor:hawaii-constitution-courts-appeals--us_hawaii_k",
+      "passed": true,
+      "detail": {
+        "actualLines": [
+          186,
+          200
+        ]
+      }
+    },
+    {
+      "name": "eleven-unique-targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "two-1840-rows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "other-nine-rows-remain-undated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offline-file:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offline-raw-identity:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "region-sha:12847",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete-selected-html-text:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": {
+        "normalizedCharacters": 46221,
+        "method": "Independent HTMLParser; concatenate inline data directly and add boundaries only at HTML paragraph/heading/BR tags; normalize whitespace once."
+      }
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0001:12893",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0002:12979",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0003:13075",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0004:13211",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0005:13585",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0006:14010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0007:14519",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0008:16060",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0009:16551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0010:18047",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0011:19161",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0012:19878",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0013:20297",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0014:20873",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0015:21296",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0016",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0016:22045",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0017",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0017:22623",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0018",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0018:23316",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0019",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0019:24661",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0020",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0020:25464",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0021",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0021:25987",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0022",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0022:26337",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0023",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0023:26883",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0024",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0024:28047",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0025",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0025:28551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0026",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0026:28767",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0027",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0027:29055",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0028",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0028:30227",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0029",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0029:31000",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0030",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0030:31856",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0031",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0031:32774",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0032",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0032:33415",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0033",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0033:34198",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0034",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0034:35661",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0035",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0035:36208",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0036",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0036:37158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0037",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0037:38022",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0038",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0038:38315",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0039",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0039:39024",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0040",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0040:39752",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0041",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0041:40347",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0042",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0042:41423",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0043",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0043:42146",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0044",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0044:43511",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0045",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0045:44485",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0046",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0046:45001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0047",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0047:45964",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0048",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0048:46601",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0049",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0049:47232",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0050",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0050:48384",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0051",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0051:49037",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0052",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0052:49635",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0053",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0053:50681",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0054",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0054:51186",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0055",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0055:51891",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0056",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0056:52259",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0057",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0057:52786",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0058",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0058:53360",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0059",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0059:53911",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0060",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0060:54974",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0061",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0061:56036",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0062",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0062:56596",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0063",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0063:57099",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0064",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0064:57890",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0065",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0065:58316",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0066",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0066:58929",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0067",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0067:59864",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0068",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0068:60475",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0069",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0069:61652",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0070",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0070:61921",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0071",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:61972",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:61989",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:61994",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:62004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:62120",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:62140",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:62145",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0071:62225",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0072",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0072:62314",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0072:62377",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0072:62421",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:periplus-schoff-fordham-1912--b0073",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0073:63001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0073:63030",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:periplus-schoff-fordham-1912--b0073:63034",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique-blocks-toc:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "every-reading-anchor-navigable:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "txt-exact:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "periplus-1-through-66",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "declared-block-count:periplus-schoff-fordham-1912",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offline-file:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offline-raw-identity:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "region-sha:8553",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "region-sha:8700",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete-selected-html-text:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": {
+        "normalizedCharacters": 18623,
+        "method": "Independent HTMLParser; concatenate inline data directly and add boundaries only at HTML paragraph/heading/BR tags; normalize whitespace once."
+      }
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0001:8577",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0002:8735",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0003:8798",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0004:9005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0005:9283",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0006:9903",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0007:9948",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0008:10271",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0009:10773",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0010:10991",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0011:11014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0012:11509",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0013:11551",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0014:11789",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0015:12044",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0016",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0016:12381",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0017",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0017:12730",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0018",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0018:13222",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0019",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0019:13301",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0020",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0020:13886",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0021",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0021:14204",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0022",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0022:14493",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0023",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0023:14528",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0024",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0024:15030",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0025",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0025:15242",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0026",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0026:15450",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0027",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0027:15714",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0028",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0028:15762",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0029",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0029:16391",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0030",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0030:16846",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0031",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0031:16944",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0032",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0032:17305",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0033",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0033:17325",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0034",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0034:17591",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0035",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0035:18151",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0036",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0036:18264",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0037",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0037:19052",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0038",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0038:19336",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0039",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0039:19362",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0040",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0040:20103",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0041",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0041:20379",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0042",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0042:20633",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0043",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0043:20678",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0044",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0044:21135",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0045",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0045:21193",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0046",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0046:21340",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0047",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0047:21561",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0048",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0048:21856",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0049",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0049:22397",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0050",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0050:22697",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0051",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0051:22735",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0052",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0052:22944",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0053",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0053:23268",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0054",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0054:24220",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0055",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0055:24588",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0056",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0056:25517",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0057",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0057:25541",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0058",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0058:25903",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0059",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0059:26530",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0060",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0060:26562",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0061",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0061:26749",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0062",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0062:27267",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0063",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0063:27309",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0064",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0064:27602",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0065",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0065:27962",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "block-sha:hawaii-1840-constitution-unl-1842--b0066",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0066:28150",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0066:28158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0066:28164",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0066:28180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "span-sha:hawaii-1840-constitution-unl-1842--b0066:28186",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique-blocks-toc:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "every-reading-anchor-navigable:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "txt-exact:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "declared-block-count:hawaii-1840-constitution-unl-1842",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "coverage-before",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "coverage-after",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new-phases-previously-uncovered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "polaris-phase-denominator",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new-documents-139-blocks",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "rawRows": [
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:9726",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "et_aksum_emp_1",
+        "polity_number": "208",
+        "section": "sc",
+        "seshat_region": "East Africa",
+        "value_from": "IP",
+        "value_to": null,
+        "variable_name": "market",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "9726",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:11868",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "et_aksum_emp_1",
+        "polity_number": "208",
+        "section": "sc",
+        "seshat_region": "East Africa",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "port",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "11868",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:19813",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "et_aksum_emp_1",
+        "polity_number": "208",
+        "section": "sc",
+        "seshat_region": "East Africa",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "article",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "19813",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:21066",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "et_aksum_emp_1",
+        "polity_number": "208",
+        "section": "sc",
+        "seshat_region": "East Africa",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "foreign_coin",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "21066",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:7375",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "formal_legal_code",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "7375",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:13677",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "written_record",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "13677",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "n",
+        "value_to": "n",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:2769",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "4",
+        "value_to": "4",
+        "variable_name": "administrative_level",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "2769",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "n",
+        "year_to": "n"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:5707",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "SA",
+        "value_to": null,
+        "variable_name": "full_time_bureaucrat",
+        "year_from": "1820",
+        "year_to": "1840"
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "5707",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "n",
+        "year_to": "n"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:5708",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "full_time_bureaucrat",
+        "year_from": "1840",
+        "year_to": "1898"
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "5708",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:7853",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "judge",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "7853",
+      "sourceSheet": "Social complexity"
+    },
+    {
+      "cellTypes": {
+        "is_disputed": "b",
+        "is_uncertain": "b",
+        "polity_id": "inlineStr",
+        "polity_number": "n",
+        "section": "inlineStr",
+        "seshat_region": "inlineStr",
+        "value_from": "inlineStr",
+        "value_to": "inlineStr",
+        "variable_name": "inlineStr",
+        "year_from": "inlineStr",
+        "year_to": "inlineStr"
+      },
+      "id": "sha256:cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41:Social complexity:8304",
+      "raw": {
+        "is_disputed": "0",
+        "is_uncertain": "0",
+        "polity_id": "us_hawaii_k",
+        "polity_number": "21",
+        "section": "sc",
+        "seshat_region": "Polynesia",
+        "value_from": "P",
+        "value_to": null,
+        "variable_name": "court",
+        "year_from": null,
+        "year_to": null
+      },
+      "recordKind": "coded-observation",
+      "sourceRow": "8304",
+      "sourceSheet": "Social complexity"
+    }
+  ]
+}

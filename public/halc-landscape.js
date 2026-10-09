@@ -1,5 +1,5 @@
-import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.44.0-3fda80a72ecc';
-import {forgetJSON} from './map-engine.js?v=3.44.0-3fda80a72ecc';
+import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.45.0-833939da7758';
+import {forgetJSON} from './map-engine.js?v=3.45.0-833939da7758';
 
 export const LANDSCAPE_SOURCE='halc-landscape';
 export const LANDSCAPE_BOUNDS=[-.2635517291765086,47.49069922359204,8.90256801566143,54.129438097120065];

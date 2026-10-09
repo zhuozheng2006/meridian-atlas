@@ -1,0 +1,163 @@
+{
+  "passed": true,
+  "checksPassed": 13,
+  "checksTotal": 13,
+  "checks": [
+    {
+      "name": "pinned-source-and-output-manifest",
+      "passed": true,
+      "detail": {
+        "originalBytes": 74531,
+        "derivedBytes": 398614,
+        "derivedSha256": "e85048e3a17b4ba74929e59ae1feba037b7d706c65d6a7f54be7856baa411225"
+      }
+    },
+    {
+      "name": "every-block-reconstructs-from-original-utf8-bytes",
+      "passed": true,
+      "detail": {
+        "sourceSpansVerified": 537
+      }
+    },
+    {
+      "name": "independent-full-visible-article-and-notice-coverage",
+      "passed": true,
+      "detail": {
+        "normalizedCharacters": 61477,
+        "normalizedSha256": "c9c11c01027cc7f3ec3921ec91358055ec092718a870d91afd8b213727a9659a",
+        "omittedCharacters": 0,
+        "extraCharacters": 0
+      }
+    },
+    {
+      "name": "source-spans-are-monotone-and-inside-reviewed-regions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all-247-existing-law-paragraphs-with-exact-number-gaps",
+      "passed": true,
+      "detail": {
+        "lawParagraphs": 247,
+        "first": 1,
+        "last": 282,
+        "absentNumbers": [
+          13,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99
+        ],
+        "numberOrderPreserved": true
+      }
+    },
+    {
+      "name": "source-lacunae-and-undotted-229-not-repaired",
+      "passed": true,
+      "detail": {
+        "preservedCases": [
+          65,
+          100,
+          229,
+          262
+        ]
+      }
+    },
+    {
+      "name": "complete-prologue-epilogue-translator-and-footer-notice",
+      "passed": true,
+      "detail": {
+        "prologueParagraphs": 3,
+        "epilogueParagraphs": 7,
+        "translatorPreserved": true,
+        "copyrightPreserved": true
+      }
+    },
+    {
+      "name": "toc-and-16-related-entrypoints-bind-real-source-prefix-bytes",
+      "passed": true,
+      "detail": {
+        "originalHeadings": 4,
+        "clauseEntries": 247,
+        "readingRoutes": 3,
+        "preciseClauseEntrypoints": 16
+      }
+    },
+    {
+      "name": "all-valid-links-retained-and-malformed-link-text-preserved",
+      "passed": true,
+      "detail": {
+        "retainedValidLinks": 134,
+        "malformedSourceAnchorsWithoutHref": 1,
+        "malformedAnchorTextRetained": "Nergal"
+      }
+    },
+    {
+      "name": "site-navigation-excluded-without-dropping-article",
+      "passed": true,
+      "detail": {
+        "siteNavigationExcluded": true,
+        "originalHTMLExecuted": false
+      }
+    },
+    {
+      "name": "negative-control-missing-229-detected",
+      "passed": true,
+      "detail": "Dropping the unusually numbered law is detected"
+    },
+    {
+      "name": "negative-control-silent-rewrite-detected",
+      "passed": true,
+      "detail": "Changing original punctuation/content is detected"
+    },
+    {
+      "name": "deterministic-rebuild-and-frozen-original",
+      "passed": true,
+      "detail": {
+        "rebuildByteIdentical": true,
+        "originalUnchanged": true
+      }
+    }
+  ],
+  "counts": {
+    "blocks": 262,
+    "headings": 4,
+    "sourceNotes": 1,
+    "characters": 61216,
+    "numberedLaws": 247,
+    "tocEntries": 251
+  },
+  "missingNumberPolicy": "Numbers absent from this exact saved page are retained as gaps; no claim that every law in a modern critical edition is absent.",
+  "sourceSha256": "93410a95441d28fd498df423ec7860ae5ee821df3811989bb469838075c9eb12",
+  "wholeSelectedTextSha256": "c9c11c01027cc7f3ec3921ec91358055ec092718a870d91afd8b213727a9659a"
+}

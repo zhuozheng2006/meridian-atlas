@@ -1,0 +1,271 @@
+{
+  "method": "Actual shipped MapLibre v5.6.2 Feature geometry getter and MVT parser; exact production regionalAnchor and label scheduler. Production halcVisibleRegions vs exact preceding eager loop. Bounded one cold grouping per side and one full exact label pass per view; no browser, tile request, GPU or queryRenderedFeatures latency claim.",
+  "bundleSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "checks": [
+    {
+      "name": "north small tile: zero-decode grouping, full anchors and exact complete geometry preservation",
+      "pass": true
+    },
+    {
+      "name": "largest center tile: zero-decode grouping, full anchors and exact complete geometry preservation",
+      "pass": true
+    },
+    {
+      "name": "all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anchors and exact complete geometry preservation",
+      "pass": true
+    }
+  ],
+  "pass": 3,
+  "fail": 0,
+  "tiles": [
+    {
+      "file": "6/32/20.pbf",
+      "z": 6,
+      "x": 32,
+      "y": 20,
+      "sha256": "2c1f6591b41d407af7471399b2f6c1eb82330b4f8d23c1e3befa56291aaf6461",
+      "bytes": 12372,
+      "features": 2
+    },
+    {
+      "file": "6/32/21.pbf",
+      "z": 6,
+      "x": 32,
+      "y": 21,
+      "sha256": "66e3144cd930211598c6bebf4fb4e10efa28c1b17d7db8148bb6b19300422ac0",
+      "bytes": 586341,
+      "features": 103
+    },
+    {
+      "file": "6/32/22.pbf",
+      "z": 6,
+      "x": 32,
+      "y": 22,
+      "sha256": "731ee4c2daa6b6dfdf9bffa362fbee6793b90be06d79ba4574109425518cadb8",
+      "bytes": 47,
+      "features": 0
+    },
+    {
+      "file": "6/33/20.pbf",
+      "z": 6,
+      "x": 33,
+      "y": 20,
+      "sha256": "27cebc7604164e0c0cf5c157d692e3dcda14c238942a404bd9cec78d2993d477",
+      "bytes": 42494,
+      "features": 14
+    },
+    {
+      "file": "6/33/21.pbf",
+      "z": 6,
+      "x": 33,
+      "y": 21,
+      "sha256": "1daae17cf56851b5a519f8a52ca93a82152e11710a02c5a0c7528cf9c65290ea",
+      "bytes": 261072,
+      "features": 65
+    },
+    {
+      "file": "6/33/22.pbf",
+      "z": 6,
+      "x": 33,
+      "y": 22,
+      "sha256": "4ee57d0c8158cb9d824ba0a9d19c8ee1f55765e41152e4905fe61e48e694120a",
+      "bytes": 490,
+      "features": 1
+    }
+  ],
+  "timings": [
+    {
+      "name": "north small tile",
+      "fragments": 2,
+      "groups": 2,
+      "points": 2752,
+      "qualifyingGroups": 2,
+      "eagerGroupMs": 1.3996250000000003,
+      "lazyGroupMs": 0.028082999999995195,
+      "eagerColdGeometry": 2,
+      "lazyColdBeforeLabels": 0,
+      "labelColdGeometry": 2,
+      "labelGeometryReads": 2,
+      "remainingUndecodedBeforeFullSerialization": 0,
+      "allFragmentsAfterSerialization": 2,
+      "labels": {
+        "candidates": 2,
+        "computed": 2,
+        "retained": 2,
+        "slices": 1,
+        "workMs": 1.4994999999999976,
+        "maxSliceMs": 1.4994999999999976,
+        "maxAnchorMs": 1.1893749999999983,
+        "sortMs": 0.006000000000000227,
+        "canceled": false,
+        "elapsedMs": 2.864542
+      },
+      "exactGeometrySha256": "ddf24d2234e5ba5731c322a01a1cfb2a39e273b107895f6a1460fd64aa76a65a",
+      "geometryJsonBytes": 105721
+    },
+    {
+      "name": "largest center tile",
+      "fragments": 103,
+      "groups": 103,
+      "points": 168321,
+      "qualifyingGroups": 35,
+      "eagerGroupMs": 64.917959,
+      "lazyGroupMs": 0.07529200000000458,
+      "eagerColdGeometry": 103,
+      "lazyColdBeforeLabels": 0,
+      "labelColdGeometry": 35,
+      "labelGeometryReads": 35,
+      "remainingUndecodedBeforeFullSerialization": 68,
+      "allFragmentsAfterSerialization": 103,
+      "labels": {
+        "candidates": 35,
+        "computed": 35,
+        "retained": 35,
+        "slices": 9,
+        "workMs": 50.07683300000002,
+        "maxSliceMs": 7.254792000000009,
+        "maxAnchorMs": 5.5674999999999955,
+        "sortMs": 0.007792000000023336,
+        "canceled": false,
+        "elapsedMs": 60.420666
+      },
+      "exactGeometrySha256": "7cf388df5726ec849379f83a0c0e3d3dda82b0e875218b3ba42b40f32b0bb6ee",
+      "geometryJsonBytes": 6459321
+    },
+    {
+      "name": "all six z6 tiles, exact cross-tile grouping",
+      "fragments": 185,
+      "groups": 152,
+      "points": 253101,
+      "qualifyingGroups": 54,
+      "eagerGroupMs": 73.57095799999999,
+      "lazyGroupMs": 0.11516700000004221,
+      "eagerColdGeometry": 185,
+      "lazyColdBeforeLabels": 0,
+      "labelColdGeometry": 75,
+      "labelGeometryReads": 75,
+      "remainingUndecodedBeforeFullSerialization": 110,
+      "allFragmentsAfterSerialization": 185,
+      "labels": {
+        "candidates": 54,
+        "computed": 54,
+        "retained": 54,
+        "slices": 14,
+        "workMs": 79.67421000000002,
+        "maxSliceMs": 9.619957999999997,
+        "maxAnchorMs": 7.440750000000037,
+        "sortMs": 0.013333000000045558,
+        "canceled": false,
+        "elapsedMs": 96.05516599999999
+      },
+      "exactGeometrySha256": "099c6c377fd24bc20ce5d8cefa088737ab400a42d34974cfbdb621e4b5c47643",
+      "geometryJsonBytes": 9714132
+    }
+  ],
+  "payload": [
+    {
+      "dataset": "halc",
+      "file": "6/32/20.pbf",
+      "rawBytes": 97536,
+      "gzipBytes": 51471,
+      "gzipMs": 4.541458000000034,
+      "sha256": "ed591808a2654a25c49979192957cce7dc6ad13d6d16a4d2d52e6d8d8ababf47"
+    },
+    {
+      "dataset": "halc",
+      "file": "6/32/21.pbf",
+      "rawBytes": 2274292,
+      "gzipBytes": 1157115,
+      "gzipMs": 107.50904200000002,
+      "sha256": "73f95a1f85f9c94f4e187921e57cef60b70bb91acc77b78f2a08b2c9114b0a77"
+    },
+    {
+      "dataset": "halc",
+      "file": "6/32/22.pbf",
+      "rawBytes": 24,
+      "gzipBytes": 44,
+      "gzipMs": 0.047541000000023814,
+      "sha256": "03e522a17adb08a9989759f66e73ad54cdf678ae6d64ee69a17917ded0e59e60"
+    },
+    {
+      "dataset": "halc",
+      "file": "6/33/20.pbf",
+      "rawBytes": 377358,
+      "gzipBytes": 193478,
+      "gzipMs": 18.004332999999974,
+      "sha256": "e1e41513f1467de23643037d276aa63c004904acd12b37a087cc2d6de1964bf4"
+    },
+    {
+      "dataset": "halc",
+      "file": "6/33/21.pbf",
+      "rawBytes": 1006657,
+      "gzipBytes": 470263,
+      "gzipMs": 53.605958999999984,
+      "sha256": "a6c58a433ecee79b39b36fc869f2fe89619f223f7dc7506e9aa8c1e3d96db974"
+    },
+    {
+      "dataset": "halc",
+      "file": "6/33/22.pbf",
+      "rawBytes": 7381,
+      "gzipBytes": 3482,
+      "gzipMs": 0.29512499999998454,
+      "sha256": "5e38ce5a26140b2c2c09b121d7abf2e97f7f1e7d495365f52464ece4a53cdcdc"
+    },
+    {
+      "dataset": "halc-regions",
+      "file": "6/32/20.pbf",
+      "rawBytes": 12372,
+      "gzipBytes": 7416,
+      "gzipMs": 0.29929199999992306,
+      "sha256": "2c1f6591b41d407af7471399b2f6c1eb82330b4f8d23c1e3befa56291aaf6461"
+    },
+    {
+      "dataset": "halc-regions",
+      "file": "6/32/21.pbf",
+      "rawBytes": 586341,
+      "gzipBytes": 286489,
+      "gzipMs": 31.50395800000001,
+      "sha256": "66e3144cd930211598c6bebf4fb4e10efa28c1b17d7db8148bb6b19300422ac0"
+    },
+    {
+      "dataset": "halc-regions",
+      "file": "6/32/22.pbf",
+      "rawBytes": 47,
+      "gzipBytes": 54,
+      "gzipMs": 0.022958999999900698,
+      "sha256": "731ee4c2daa6b6dfdf9bffa362fbee6793b90be06d79ba4574109425518cadb8"
+    },
+    {
+      "dataset": "halc-regions",
+      "file": "6/33/20.pbf",
+      "rawBytes": 42494,
+      "gzipBytes": 18586,
+      "gzipMs": 1.426417000000015,
+      "sha256": "27cebc7604164e0c0cf5c157d692e3dcda14c238942a404bd9cec78d2993d477"
+    },
+    {
+      "dataset": "halc-regions",
+      "file": "6/33/21.pbf",
+      "rawBytes": 261072,
+      "gzipBytes": 120725,
+      "gzipMs": 15.367166999999995,
+      "sha256": "1daae17cf56851b5a519f8a52ca93a82152e11710a02c5a0c7528cf9c65290ea"
+    },
+    {
+      "dataset": "halc-regions",
+      "file": "6/33/22.pbf",
+      "rawBytes": 490,
+      "gzipBytes": 405,
+      "gzipMs": 0.05270899999993617,
+      "sha256": "4ee57d0c8158cb9d824ba0a9d19c8ee1f55765e41152e4905fe61e48e694120a"
+    }
+  ],
+  "limits": [
+    "Full z6 tile membership is larger than a specific rendered viewport; no features are truncated.",
+    "Cold eager grouping runs before cold lazy grouping; JIT/GC/system load affect timings.",
+    "Low-zoom selected group geometries are deferred into existing exact-label slices; a large single region anchor is indivisible and can exceed budget.",
+    "Regions excluded from low-zoom single-attribution labels, all high-zoom region shapes and all labels-hidden region shapes need no conversion until explicitly read.",
+    "QRF still performs its full original query; this patch does not reduce network, worker parsing or GPU geometry.",
+    "Payload gzip sizes are deterministic level-6 local compression observations, not verified hosted wire transfer or measured network times."
+  ]
+}

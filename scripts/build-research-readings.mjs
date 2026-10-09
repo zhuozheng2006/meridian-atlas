@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 const root=new URL('../public/',import.meta.url),output=new URL('research-reading-data.js',root);
-const collections=['readings-3.39','readings-3.40','readings-3.43','readings-3.44'].map(name=>JSON.parse(fs.readFileSync(new URL('data/research-evidence/'+name+'/catalog.json',root),'utf8')));
+const collections=['readings-3.39','readings-3.40','readings-3.43','readings-3.44','readings-3.45'].map(name=>JSON.parse(fs.readFileSync(new URL('data/research-evidence/'+name+'/catalog.json',root),'utf8')));
 const [base]=collections,ids=new Set();
 for(const collection of collections){
  if(collection.datasetId!==base.datasetId||collection.sourceSha256!==base.sourceSha256||collection.version!==base.version)throw Error('Reading collections refer to different observation snapshots');

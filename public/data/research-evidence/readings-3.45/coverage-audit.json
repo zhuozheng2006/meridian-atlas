@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "baseline": {
+    "cards": 35,
+    "phases": 13,
+    "sources": 15
+  },
+  "additions": {
+    "cards": 5,
+    "phases": 2,
+    "sources": 2,
+    "works": 2,
+    "phaseIds": [
+      "et_aksum_emp_1",
+      "us_hawaii_k"
+    ],
+    "originalSourceBytes": 113314,
+    "savedOriginalFiles": 4,
+    "savedOriginalBytes": 624755,
+    "targetRows": 11
+  },
+  "after": {
+    "cards": 40,
+    "phases": 15,
+    "sources": 17
+  },
+  "beforeReadingCounts": {
+    "et_aksum_emp_1": 0,
+    "us_hawaii_k": 0
+  },
+  "phaseBindings": {
+    "et_aksum_emp_1": {
+      "bytes": 2741,
+      "crisisCount": 0,
+      "decodedBytes": 63346,
+      "explicitDateCount": 8,
+      "file": "polities/p116.json.gz",
+      "id": "et_aksum_emp_1",
+      "names": [
+        "Axum I"
+      ],
+      "periods": [
+        {
+          "endRaw": "349",
+          "sourceRow": "201",
+          "sourceSheet": "Polities",
+          "startRaw": "-149"
+        }
+      ],
+      "recordCount": 90,
+      "regions": [
+        "East Africa"
+      ],
+      "samplingAreas": [
+        "Yemeni Coastal Plain"
+      ],
+      "sha256": "0025c8d1c39a3b233d4deac1ecb67d682f09708b806d619bab6c25cc8b0dbaf6",
+      "sourceNumber": "208",
+      "variableCount": 77
+    },
+    "us_hawaii_k": {
+      "bytes": 2903,
+      "crisisCount": 1,
+      "decodedBytes": 57769,
+      "explicitDateCount": 16,
+      "file": "polities/p588.json.gz",
+      "id": "us_hawaii_k",
+      "names": [
+        "Kingdom of Hawaii - Post-Kamehameha Period"
+      ],
+      "periods": [
+        {
+          "endRaw": "1898",
+          "sourceRow": "19",
+          "sourceSheet": "Polities",
+          "startRaw": "1820"
+        }
+      ],
+      "recordCount": 81,
+      "regions": [
+        "Polynesia"
+      ],
+      "samplingAreas": [
+        "Big Island Hawaii"
+      ],
+      "sha256": "14c46c78809fd9cd210d70bff393bb81d8ea77edf87d0cdf442e58324ab3bd87",
+      "sourceNumber": "21",
+      "variableCount": 73
+    }
+  },
+  "observationCountChange": 0,
+  "limitations": [
+    "Two new phases improve East Africa and Polynesia coverage but only 15 of 626 Polaris phases then have guides.",
+    "Both complete acquired text bodies are English; guides are bilingual, not full new Chinese translations.",
+    "Primary texts are independent readings, not established Polaris coding sources.",
+    "The constitutional transcript and scan have documented editorial differences; neither is silently rewritten.",
+    "No new precise borders or statistical observations are inferred from these narrative and normative texts."
+  ]
+}

@@ -6,7 +6,7 @@ import {pathToFileURL,fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 const root=process.env.ATLAS_REPO||fileURLToPath(new URL('../',import.meta.url)),file=path.join(root,'public/map-runtime.js');
 const {configureMapWorkers,createMapLibreLoader}=await import(pathToFileURL(file));
-const out=process.env.MAP_WORKER_AUDIT_REPORT||path.join(root,'docs/verification-3.44/map-worker-configuration.json'),results=[];
+const out=process.env.MAP_WORKER_AUDIT_REPORT||path.join(root,'docs/verification-3.45/map-worker-configuration.json'),results=[];
 function library(count=1){const log=[],lib={Map:class{constructor(){log.push(['Map',count]);}},getWorkerCount(){log.push(['get',count]);return count;},setWorkerCount(value){log.push(['set',value]);count=value;}};return {lib,log,count:()=>count};}
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS '+name);}catch(error){results.push({name,passed:false,error:error.stack});console.error('FAIL '+name+'\n'+error.stack);}}
 for(const [name,navigator,expected] of [

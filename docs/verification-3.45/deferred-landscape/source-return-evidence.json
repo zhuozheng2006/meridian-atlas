@@ -1,0 +1,98 @@
+{
+  "bundleFile": "public/assets/maplibre-gl.js",
+  "sha256": "97f8143aff93963c028c2aca8e98ccb9770ad3682bc44b0785bc060d6100ad82",
+  "version": "5.6.2 + recorded native-blob routing fix",
+  "scope": "Read only; no experimental vendor patch created. This evidence predates root restoring map code for the selected 3.45 release.",
+  "mainSourceDataFieldOccurrences": 4,
+  "snippets": [
+    {
+      "meaning": "workerLoadResponse",
+      "characterOffset": 399472,
+      "exactSource": "this.loaded={};const s={data:i};"
+    },
+    {
+      "meaning": "workerAsyncGetData",
+      "characterOffset": 399703,
+      "exactSource": "getData(){return e._(this,void 0,void 0,(function*(){return this._pendingData}))}"
+    },
+    {
+      "meaning": "mainResponseAssignment",
+      "characterOffset": 445257,
+      "exactSource": "this._data=e.data;"
+    },
+    {
+      "meaning": "mainSerialize",
+      "characterOffset": 447097,
+      "exactSource": "serialize(){return t.e({},this._options,{type:this.type,data:this._data})}"
+    },
+    {
+      "meaning": "mainAsyncGetData",
+      "characterOffset": 443029,
+      "exactSource": "getData(){return t._(this,void 0,void 0,(function*(){const e=t.e({type:this.type},this.workerOptions);return this.actor.sendAsync({type:\"GD\",data:e})}))}"
+    },
+    {
+      "meaning": "workerGDHandler",
+      "characterOffset": 402836,
+      "exactSource": "this.actor.registerMessageHandler(\"GD\",((e,t)=>this._getWorkerSource(e,t.type,t.source).getData()))"
+    },
+    {
+      "meaning": "mapGetStyle",
+      "characterOffset": 909840,
+      "exactSource": "getStyle(){if(this.style)return this.style.serialize()}"
+    },
+    {
+      "meaning": "sourceCacheSerialize",
+      "characterOffset": 470011,
+      "exactSource": "serialize(){return this._source.serialize()}"
+    },
+    {
+      "meaning": "styleSerializeSources",
+      "characterOffset": 695921,
+      "exactSource": "serialize(){if(!this._loaded)return;const e=t.bN(this.sourceCaches,(e=>e.serialize()))"
+    },
+    {
+      "meaning": "sourceEventPayload",
+      "characterOffset": 689717,
+      "exactSource": "r.setEventedParent(this,(()=>({isSourceLoaded:r.loaded(),source:r.serialize(),sourceId:e})))"
+    },
+    {
+      "meaning": "validationUsesSerializedStyle",
+      "characterOffset": 701175,
+      "exactSource": "style:this.serialize(),value:o,styleSpec:t.v"
+    }
+  ],
+  "controllerGetStyleSites": [
+    "public/halc-landscape.js:reconcileOrder",
+    "public/halc-landscape.js:applyOrder"
+  ],
+  "rootBrowserObservations": {
+    "origin": "Reported by root from its actual Chrome runs; this subagent did not operate the browser or independently remeasure.",
+    "view": "1512x543, [4.8,51.3], zoom4.5→6.3",
+    "sameFinalContent": {
+      "units": 12455,
+      "regions": 133,
+      "landscapePolygons": 2884,
+      "labels": 12
+    },
+    "baselineLandscapeReadyMs": [
+      2723,
+      4271,
+      4773
+    ],
+    "candidateLandscapeReadyMs": [
+      4521,
+      4259,
+      3971
+    ],
+    "baselineMedianMs": 4271,
+    "candidateMedianMs": 4259,
+    "candidateLateLongTaskMs": [
+      496,
+      352,
+      453
+    ],
+    "candidateMainLandscapeJSONStringifyCalls": 0,
+    "candidateMainLandscapeResponseJSONCalls": 0,
+    "interpretation": "No clear overall latency improvement; larger single late main-thread tasks. Full object return is a confirmed mechanism, but a browser attribution trace is still needed to isolate clone versus GC/other work."
+  }
+}

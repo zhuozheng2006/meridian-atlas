@@ -12,8 +12,8 @@ with tempfile.TemporaryDirectory() as temp:
     for f in pathlib.Path(temp).glob('*.json'):
         if f.read_bytes()!=(root/'reading-texts-3.43'/f.name).read_bytes():raise ValueError('Stale preceding reading document: '+f.name)
 entries=[];ids=set();reading_ids=set()
-cards={c['id']:c for collection in ['readings-3.39','readings-3.40','readings-3.43','readings-3.44'] for c in json.loads((root/collection/'catalog.json').read_text())['cards']}
-for collection in ['reading-texts-3.43','readings-3.44/offline']:
+cards={c['id']:c for collection in ['readings-3.39','readings-3.40','readings-3.43','readings-3.44','readings-3.45'] for c in json.loads((root/collection/'catalog.json').read_text())['cards']}
+for collection in ['reading-texts-3.43','readings-3.44/offline','readings-3.45/offline']:
     for entry in json.loads((root/collection/'index.json').read_text())['documents']:
         file=entry['file']
         if pathlib.PurePosixPath(file).name!=file or not file.endswith('.json'):raise ValueError('Unsafe reading file')

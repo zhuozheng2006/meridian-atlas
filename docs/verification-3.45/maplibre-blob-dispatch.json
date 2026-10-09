@@ -1,0 +1,46 @@
+{
+  "generated": "2026-10-09T20:24:05.667Z",
+  "method": "Actual original and patched shared request helper from bundled MapLibre 5.6.2 in WorkerGlobalScope VM, with native Request/Response/AbortController and observed fetch/GR/XHR boundary doubles. Fetch scope and route logic are tested; no actual browser worker, CORS or pixel claim.",
+  "originalSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "patchedSha256": "97f8143aff93963c028c2aca8e98ccb9770ad3682bc44b0785bc060d6100ad82",
+  "passed": 9,
+  "total": 9,
+  "checks": [
+    {
+      "name": "Actual upstream WorkerScope forwards both blob:http and blob:https to main, while the precise patched helper fetches/parses them inside the worker",
+      "pass": true
+    },
+    {
+      "name": "Ordinary HTTP and HTTPS fetch routes, Accept header and referrer are unchanged",
+      "pass": true
+    },
+    {
+      "name": "Existing file URLs still select XHR instead of worker fetch or main dispatch",
+      "pass": true
+    },
+    {
+      "name": "Registered custom protocols still invoke their local handler, including abort-controller identity",
+      "pass": true
+    },
+    {
+      "name": "Unregistered custom protocols still forward GR with the same controller and global dispatcher",
+      "pass": true
+    },
+    {
+      "name": "Native blob path carries the abort signal and refuses data aborted after body parsing",
+      "pass": true
+    },
+    {
+      "name": "Blob fetch failures preserve MapLibre AJAXError status=0 and never retry through main",
+      "pass": true
+    },
+    {
+      "name": "Invalid Blob JSON fails during worker parsing and 404 retains the normal error status",
+      "pass": true
+    },
+    {
+      "name": "Without fetch support native Blob requests retain the existing queued main-thread compatibility fallback",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+PASS Never-opened originals remain cold across language, export, pagination and phase return
+PASS Language switch reuses exact original DOM, selected chapter, provenance, paragraph position and internal focus
+PASS Both export renders retain the original view and do not steal focus from download controls
+PASS 142-row phase pagination and Mali to Ming to Mali retain only the same card state
+PASS Two Mali cards share source identity but keep independent open and paragraph positions
+PASS Language switch while original fetch is pending, then another card, blocks stale DOM and focus writes
+PASS Closed surrounding details survives language rebuild and reopens at the saved paragraph
+PASS Outer collapse during fetch plus language rebuild postpones late text until the new outer guide opens
+PASS Destroy during original fetch leaves no body, focus or host writes after late completion
+PASS Registry restores source paragraph plus block offset after reflow and after LRU recreation
+PASS Native scroll reset after DOM reattachment cannot overwrite the saved paragraph before rapid second render
+PASS LRU eviction during an unrestored reattachment keeps the previous source-block snapshot
+PASS Snapshots require exact card, original source and derived-document identity before reopening
+FAIL Width reflow preserves the actual source paragraph and character within a long paragraph without changing focus or contents
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+47605 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:69:356
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:69:1
+FAIL Repeated width changes and native programmatic scroll events keep the same character anchor without cumulative line drift
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+47605 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:70:252
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:70:1
+FAIL Native scroll arriving before ResizeObserver cannot replace the previous-layout text anchor
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+47605 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:71:256
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:71:1
+FAIL Several width changes coalesce into one restoration using the final geometry
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+47605 !== 106843
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:72:256
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:72:1
+PASS A contents selection supersedes pending automatic restoration and keeps its intended focus
+PASS A related-passage button supersedes pending resize restoration
+PASS Wheel, touch, scrollbar pointer and scroll keys supersede a pending resize restore
+PASS Input arriving before ResizeObserver respects the user-selected new position
+FAIL Unrelated or already handled keys leave the queued resize restoration intact
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+47605 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:77:278
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:77:1
+FAIL Closing and reopening the source while resize is queued retains its character and reconnects one observer
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+97061 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:78:342
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:78:1
+FAIL A hidden surrounding guide can change width without recording zero geometry or stealing outside focus
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+97061 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:79:385
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:79:1
+FAIL Language reattachment during queued resize keeps the exact source character and original DOM
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+47605 !== 97129
+
+    at assertTextAnchor (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:68:53)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:80:323
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:80:1
+PASS Destroy invalidates queued frames, disconnects observation and blocks a late observer delivery
+PASS Viewport-height-only changes keep the paragraph position
+FAIL Without DOM Range, live reflow keeps a proportional paragraph offset and original registry semantics still work
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+25861 !== 51738
+
+    at assertPosition (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:50:82)
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:83:283
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:83:1
+FAIL Without ResizeObserver, the window-resize fallback restores position and removes listeners on destruction
+TypeError: Cannot read properties of undefined (reading 'size')
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:84:324
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:84:1
+FAIL Selecting a section before the first restore frame still starts resize observation
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 1
+
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:85:364
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:85:1
+FAIL User scrolling before the reattachment restore reconnects observation and supersedes saved position
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 1
+
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:86:310
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:86:1
+PASS At the end of a document, viewport growth accepts native clamping and saves the achievable position for the next resize
+FAIL An empty Range rectangle falls back to the same source paragraph instead of inventing a character position
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 47605
+- 97155.11111111111
+
+    at file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:88:443
+    at async test (file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:51:51)
+    at async file:///Users/zane/Documents/Codex/2026-10-02/new-chat/work/release-345/reader-candidate/scripts/validate-reader-continuity.mjs:88:1
+PASS Rapid repeated language reattachment cannot let old frames overwrite a later explicit directory choice
+{"total":34,"passed":21}

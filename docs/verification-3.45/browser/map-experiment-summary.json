@@ -1,0 +1,54 @@
+{
+  "includedInRelease": false,
+  "reason": "Overall readiness not improved; longer late main-thread tasks. Preserve baseline map pending further work.",
+  "baselineMedianMs": 4271.3,
+  "candidateMedianMs": 4259,
+  "trials": [
+    {
+      "trial": 1,
+      "landscapeReadyMs": 4521.200000047684,
+      "mainStringifyCount": 0,
+      "mainParseCount": 0,
+      "longTasksMs": [
+        53,
+        274,
+        496
+      ],
+      "counts": {
+        "units": 12455,
+        "regions": 133,
+        "landscapeFeatures": 2884
+      }
+    },
+    {
+      "trial": 2,
+      "landscapeReadyMs": 4259,
+      "mainStringifyCount": 0,
+      "mainParseCount": 0,
+      "longTasksMs": [
+        238,
+        352
+      ],
+      "counts": {
+        "units": 12455,
+        "regions": 133,
+        "landscapeFeatures": 2884
+      }
+    },
+    {
+      "trial": 3,
+      "landscapeReadyMs": 3971,
+      "mainStringifyCount": 0,
+      "mainParseCount": 0,
+      "longTasksMs": [
+        228,
+        453
+      ],
+      "counts": {
+        "units": 12455,
+        "regions": 133,
+        "landscapeFeatures": 2884
+      }
+    }
+  ]
+}

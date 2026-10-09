@@ -1,0 +1,123 @@
+{
+  "checkedAt": "2026-10-09T20:24:02.217Z",
+  "modulePath": "/Users/zane/meridian_atlas/world-history-atlas/public/halc-landscape.js",
+  "moduleSha256": "139e68be2059c26ee89e5a6b314caa43540ff967816d4be01b6cb71a003172ea",
+  "moduleStableDuringRun": true,
+  "runtime": "Actual HalcLandscape and LandscapeCache classes; fake DOM/map transport only. One retry test also uses actual readJSON over mocked fetch + real gzip decoding.",
+  "passed": 28,
+  "total": 28,
+  "results": [
+    {
+      "name": "Every ineligible date/mode/modern/terrain/borders/zoom/view/destroyed context does zero network or source writes",
+      "passed": true
+    },
+    {
+      "name": "Source readiness gates first visibility and settled features",
+      "passed": true
+    },
+    {
+      "name": "Same context retains the rendered frame while a new viewport loads and renders",
+      "passed": true
+    },
+    {
+      "name": "Closing/changing date during late shard data prevents all late source/style writes",
+      "passed": true
+    },
+    {
+      "name": "An old viewport request cannot replace a newer settled frame",
+      "passed": true
+    },
+    {
+      "name": "A network-rejected shard is evicted and explicit retry can load it",
+      "passed": true
+    },
+    {
+      "name": "A semantically invalid cached shard is evicted for explicit retry",
+      "passed": true
+    },
+    {
+      "name": "A semantically invalid cached index is evicted for explicit retry",
+      "passed": true
+    },
+    {
+      "name": "Separate maps may share immutable requests while rendering readiness remains independent",
+      "passed": true
+    },
+    {
+      "name": "A failure in one map/source does not poison another map with the same loader",
+      "passed": true
+    },
+    {
+      "name": "A GPU/source error is recoverable by recreating the source on explicit retry",
+      "passed": true
+    },
+    {
+      "name": "Semantic retry also evicts the actual readJSON parsed-response cache",
+      "passed": true
+    },
+    {
+      "name": "Different loaders never share cached content",
+      "passed": true
+    },
+    {
+      "name": "Coverage tests the actual rendered point and does not assume the archive bbox is filled",
+      "passed": true
+    },
+    {
+      "name": "Turning terrain/borders/modern/mode/date off immediately hides and restores original layer order",
+      "passed": true
+    },
+    {
+      "name": "Late reference insertion reconciles once, is idempotent, and remains ordered after exit",
+      "passed": true
+    },
+    {
+      "name": "Repeated unchanged updates and idle produce no network or map style writes",
+      "passed": true
+    },
+    {
+      "name": "Destroy removes listeners and late data/retry/idle cannot write to the map",
+      "passed": true
+    },
+    {
+      "name": "Destroy after a rendered frame makes later retry and reconciliation strict no-ops",
+      "passed": true
+    },
+    {
+      "name": "Worker branch sends a Blob URL while panel metadata retains exact ID/order/properties and waits for source readiness",
+      "passed": true
+    },
+    {
+      "name": "Superseding two enqueued Blob frames preserves both URLs until final source readiness, then settles only the latest metadata",
+      "passed": true
+    },
+    {
+      "name": "Leaving the eligible year cancels pending worker preparation and never allocates a stale Blob",
+      "passed": true
+    },
+    {
+      "name": "An already queued Blob remains readable while source loads after year exit and is reclaimed on completion without showing stale geography",
+      "passed": true
+    },
+    {
+      "name": "Worker availability failure falls back once to the existing data path; later views do not restart a broken worker",
+      "passed": true
+    },
+    {
+      "name": "Ordinary worker data errors preserve the explicit-retry experience rather than silently retrying via the main thread",
+      "passed": true
+    },
+    {
+      "name": "Destroy reclaims already-created Blob URLs, releases its worker lease once and ignores pending source events",
+      "passed": true
+    },
+    {
+      "name": "A custom parent loader cannot be silently bypassed by the automatic Worker path",
+      "passed": true
+    },
+    {
+      "name": "Guide uses metadata fields only and displays original dates, quality, bibliography, remarks and overlap order",
+      "passed": true
+    }
+  ]
+}
