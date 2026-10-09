@@ -49,4 +49,8 @@ HydroLAKES当前请求的内容和视野瓦片已完成时，在下一次渲染�
 
 最终完整npm test已成功；已验证30项地貌生命周期、12项准备Worker、6项实数据、9项真实MapLibre接口、3项模块资产、16项湖泊就绪、10项标签恢复；原本地HTTP检查13/13和构建通过。
 
-发布待完成；在部署原生状态succeeded后记录最终commit、资源戳、版本与时间，不以构建成功替代上线成功。
+已于2026-10-10 04:55（Asia/Shanghai）上线，原生状态 **succeeded**。产品3.46.0、Sites版本25、资源戳3.46.0-dce023e2071a，发布源码791dc5f28fef63841fcda3ab0cca67901ec1bdb6。网址：https://meridian-world-history.zhuozheng2006.chatgpt.site 。
+
+压缩包195559453字节，SHA-256 c472dfab558fada5b503f159062f9d3534011ef4e63927dcd37240407776714b，展开文件228899454字节、tar末偏移259838976、17166项、AppleDouble为0。关键构建文件逐字节对照通过。线上首页返回当前资源戳；8份JavaScript原地址回读与发布源码逐字节相同，MIME均text/javascript。首页由托管层包装，整体字节不同，不将它计入脚本的逐字节通过数。完整发布结果及回读在publication.json、archive-audit.json和deployed-modules.json。
+
+一次自动审批把打开项目时的旧commit视为待发布commit而拒绝打包；随后检查官方helper源码，证明它先保存并核对新提交、推送后才打包，以此证据重试通过。实际发布只使用helper返回的791dc5f完整SHA与该次生成的archive，未更改审批保护或访问范围。
