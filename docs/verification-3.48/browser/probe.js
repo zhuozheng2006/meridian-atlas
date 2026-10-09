@@ -1,0 +1,23 @@
+(()=>{
+ const zero=performance.now(),rows=[],tasks=[],resources=[],maps=[],restores=[];
+ const mark=(type,values={})=>rows.push({type,t:performance.now(),...values});
+ const obs=new PerformanceObserver(list=>{for(const e of list.getEntries())tasks.push({start:e.startTime,ms:e.duration});});obs.observe({type:'longtask',buffered:true});
+ const ro=new PerformanceObserver(list=>{for(const e of list.getEntries())if(e.name.startsWith(location.origin))resources.push({url:e.name.slice(location.origin.length),start:e.startTime,end:e.responseEnd,ms:e.duration,transfer:e.transferSize,encoded:e.encodedBodySize,decoded:e.decodedBodySize,initiator:e.initiatorType});});ro.observe({type:'resource',buffered:true});
+ const wrap=(object,key,fn)=>{const old=object[key];object[key]=fn(old);restores.push(()=>object[key]=old);};
+ wrap(JSON,'stringify',old=>function(value,...args){const match=value?.type==='FeatureCollection'&&value.features?.some(f=>f.properties?._atlasBoundaryLine===true);const start=performance.now(),s=old.call(this,value,...args);if(match)mark('large-stringify',{start,ms:performance.now()-start,chars:s.length,features:value.features.length});return s;});
+ function attach(a){
+  if(maps.some(m=>m.atlas===a))return;
+  const item={atlas:a,ready:false,rendered:false,started:false,any:false};maps.push(item);mark('atlas-exposed',{id:a.container});
+  for(const method of ['prepareOverview','setYear','displayTerritories'])if(typeof a[method]==='function')wrap(a,method,old=>function(...args){const start=performance.now();mark(method+'-start',{id:a.container,year:method==='setYear'?args[1]:a.year});let value;try{value=old.apply(this,args);}catch(e){mark(method+'-error',{error:String(e)});throw e;}const record=()=>mark(method+'-end',{id:a.container,start,ms:performance.now()-start,year:a.year,features:a.rawTerritories?.features?.length});if(value?.then)value.then(record,()=>mark(method+'-error'));else record();return value;});
+  const bind=()=>{const s=a.map.getSource('polities');if(!s||s.__qa348)return;s.__qa348=true;wrap(s,'setData',old=>function(data,...args){const start=performance.now();item.started=true;item.ready=false;item.rendered=false;mark('polities-submit',{id:a.container,kind:typeof data,chars:typeof data==='string'?data.length:null,features:data?.features?.length});const value=old.call(this,data,...args);mark('setData-return',{start,ms:performance.now()-start});return value;});};
+  const event=e=>{bind();if(e.sourceId==='polities')mark('polities-'+e.type,{id:a.container,kind:e.sourceDataType,loaded:a.map.isSourceLoaded('polities')});};
+  a.map.on('sourcedataloading',event);a.map.on('sourcedata',event);
+  a.map.on('load',()=>{mark('map-load',{id:a.container});bind();});
+  a.map.on('render',()=>{bind();if(item.started&&!item.any&&a.rawTerritories?.features?.length){const start=performance.now(),features=a.map.queryRenderedFeatures({layers:['territories']});if(features.length){item.any=true;mark('first-queryable-territories',{id:a.container,year:a.year,features:features.length,queryMs:performance.now()-start});}}if(item.started&&!item.ready&&a.rawTerritories?.features?.length&&a.map.isSourceLoaded('polities')){item.ready=true;mark('polities-ready-render',{id:a.container,year:a.year});}if(item.ready&&!item.rendered){const features=a.map.queryRenderedFeatures({layers:['territories']});if(features.length){item.rendered=true;mark('visible-territories',{id:a.container,year:a.year,features:features.length});}}});
+  a.map.on('idle',()=>mark('map-idle',{id:a.container}));bind();
+ }
+ let exposed;
+ Object.defineProperty(window,'__meridian',{configurable:true,get:()=>exposed,set(value){exposed=value;let instances=value.instances||[];Object.defineProperty(value,'instances',{configurable:true,get:()=>instances,set(next){instances=next;for(const a of instances)attach(a);}});for(const a of instances)attach(a);}});
+ window.__qa348={mark,result(){return {zero,now:performance.now(),rows,tasks,resources,view:{width:innerWidth,height:innerHeight},maps:maps.map(({atlas:a,ready,rendered})=>({id:a.container,year:a.year,ready,rendered,rawFeatures:a.rawTerritories?.features?.length,cache:a.territoryFrames?.getStats(),center:a.map.getCenter(),zoom:a.map.getZoom(),width:a.map.getContainer().clientWidth,height:a.map.getContainer().clientHeight})),navigation:performance.getEntriesByType('navigation').map(e=>e.toJSON())};},stop(){obs.disconnect();ro.disconnect();restores.reverse().forEach(f=>f());}};
+ mark('probe-start');document.addEventListener('DOMContentLoaded',()=>mark('dom-ready'),{once:true});addEventListener('load',()=>mark('window-load'),{once:true});
+})();

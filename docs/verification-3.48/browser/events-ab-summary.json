@@ -1,0 +1,116 @@
+{
+  "conditions": {
+    "localPreview": true,
+    "year": 1492,
+    "globeCamera": [
+      25,
+      18,
+      1.54,
+      0,
+      0
+    ],
+    "viewport": [
+      1512,
+      827
+    ],
+    "map": [
+      1512,
+      599
+    ],
+    "latencyMs": 80,
+    "downloadBytesPerSecond": 500000,
+    "uploadBytesPerSecond": 125000,
+    "cacheDisabled": true,
+    "order": [
+      "gated1",
+      "independent1",
+      "gated2",
+      "independent2",
+      "gated3",
+      "independent3"
+    ]
+  },
+  "control": "Same 3.48 bundle; preview-only gate toggles ensureCoreData vs ensureCatalogData before constructing map. No geometry-worker candidate.",
+  "metrics": {
+    "gated": {
+      "trials": [
+        {
+          "file": "events-gated-1.json",
+          "catalog-ready": 3351.2999999523163,
+          "events-ready": 3970.399999976158,
+          "map-constructor-start": 3972.5,
+          "first-queryable-territories": 5556.100000023842,
+          "polities-ready-render": 5826.5,
+          "visible-territories": 5830.100000023842
+        },
+        {
+          "file": "events-gated-2.json",
+          "catalog-ready": 3394.399999976158,
+          "events-ready": 3982.599999904633,
+          "map-constructor-start": 3984.299999952316,
+          "first-queryable-territories": 5315.799999952316,
+          "polities-ready-render": 5519.599999904633,
+          "visible-territories": 5522.599999904633
+        },
+        {
+          "file": "events-gated-3.json",
+          "catalog-ready": 3358.399999976158,
+          "events-ready": 3984.799999952316,
+          "map-constructor-start": 3986.899999976158,
+          "first-queryable-territories": 5316.100000023842,
+          "polities-ready-render": 5512.200000047684,
+          "visible-territories": 5515.200000047684
+        }
+      ],
+      "medians": {
+        "map-constructor-start": 3984.299999952316,
+        "first-queryable-territories": 5316.100000023842,
+        "polities-ready-render": 5519.599999904633,
+        "visible-territories": 5522.599999904633
+      }
+    },
+    "independent": {
+      "trials": [
+        {
+          "file": "events-independent-1.json",
+          "catalog-ready": 3413.3000000715256,
+          "events-ready": null,
+          "map-constructor-start": 3413.7000000476837,
+          "first-queryable-territories": 4749.600000023842,
+          "polities-ready-render": 4962.200000047684,
+          "visible-territories": 4964.900000095367
+        },
+        {
+          "file": "events-independent-2.json",
+          "catalog-ready": 3467.2999999523163,
+          "events-ready": null,
+          "map-constructor-start": 3467.5,
+          "first-queryable-territories": 4757.399999976158,
+          "polities-ready-render": 4978.899999976158,
+          "visible-territories": 4981.699999928474
+        },
+        {
+          "file": "events-independent-3.json",
+          "catalog-ready": 3943.099999904633,
+          "events-ready": null,
+          "map-constructor-start": 3943.399999976158,
+          "first-queryable-territories": 5171.5,
+          "polities-ready-render": 5396,
+          "visible-territories": 5399
+        }
+      ],
+      "medians": {
+        "map-constructor-start": 3467.5,
+        "first-queryable-territories": 4757.399999976158,
+        "polities-ready-render": 4978.899999976158,
+        "visible-territories": 4981.699999928474
+      }
+    }
+  },
+  "limits": [
+    "Render/query milestones, not physical first pixel or global map idle.",
+    "Third independent navigation had a later DOM-ready milestone (852.5 ms vs about 300 ms).",
+    "Independent event index arrives after first map; explicit loading state remains until then."
+  ],
+  "sourceReadyRenderMedianSavedMs": 540.6999999284744
+}

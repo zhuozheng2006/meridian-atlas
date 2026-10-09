@@ -50,9 +50,9 @@ function fixture(){
  atlas=left;compareMap=right;catalog={records:[]};events=[];
  // This suite starts with a loaded pair. The real ensureAtlas early-ready branch
  // is exercised without entering the unrelated network/WebGL startup path.
- const atlasReady=true;
+ const atlasReady=true;let pendingInitialEvent=null,displayedPolityCount=null;
 
- const pause=()=>{},renderYear=()=>{$('#yearInput').value=state.year},renderEvents=()=>{},renderBrowse=()=>{},renderRegionalStatus=()=>{},renderLayerLabels=()=>{},saveURL=()=>{},closeDetail=()=>{},notify=()=>{},mapError=(e)=>log.push(['error',e]),text=(a,b)=>b,yr=y=>y,normalizeYear=Number,toggleCompare=()=>{throw Error('Unexpected map creation')};
+ const renderDatasetStatus=()=>{},pause=()=>{},renderYear=()=>{$('#yearInput').value=state.year},renderEvents=()=>{},renderBrowse=()=>{},renderRegionalStatus=()=>{},renderLayerLabels=()=>{},saveURL=()=>{},closeDetail=()=>{},notify=()=>{},mapError=(e)=>log.push(['error',e]),text=(a,b)=>b,yr=y=>y,normalizeYear=Number,toggleCompare=()=>{throw Error('Unexpected map creation')};
  ${functions}
  return {state,left,right,open:openBoundaryComparison,close:closeComparison,year:setYear,compareYear:setCompareYear,
   cancel:()=>{if(typeof cancelBoundaryComparison==='function')cancelBoundaryComparison();else boundaryComparison?.cancel()},

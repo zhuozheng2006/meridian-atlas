@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-10-09T22:07:20.955Z",
+  "method": "Production MapLibre v5.6.2 private StyleLayerIndex and WorkerTile.parse exposed in an isolated runtime; original source parser/grouping/bucket code, real shipped PBF, fixed subdivision granularity 1. No network or GPU; isolated parse timings are observations, not browser latency claims.",
+  "maplibreSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c",
+  "tile": {
+    "path": "6/32/20.pbf",
+    "bytes": 97536,
+    "features": 432,
+    "sha256": "ed591808a2654a25c49979192957cce7dc6ad13d6d16a4d2d52e6d8d8ababf47"
+  },
+  "preceding": {
+    "lineBuckets": 3,
+    "lineVertices": 344574,
+    "parseMs": 203.77133299999997
+  },
+  "candidate": {
+    "lineBuckets": 2,
+    "lineVertices": 172287,
+    "parseMs": 165.361791,
+    "ordinary": {
+      "vertices": 168548,
+      "triangles": 167242,
+      "vertexSha256": "ca20df1c9ea94160164d4df53ce461f0d906160ba850fac200d720dfd0d03058",
+      "indexSha256": "d6563b8a4f4c64c3f6af1abc52086e711b268aed4b9072bc6cefbc837de10726"
+    },
+    "independent": {
+      "vertices": 3739,
+      "triangles": 3693,
+      "vertexSha256": "2884fe4d2108a0c43bce6be4f69822a66edb0c4a3e6e60c19f24c55056cbe504",
+      "indexSha256": "0649de8f39e0ce3727e983ceb86db7a9039495c03b5087958cbf944d8ac74dd0"
+    }
+  },
+  "pass": 5,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "Real worker groups ordinary and independent selected layers with their respective base layers",
+      "pass": true
+    },
+    {
+      "name": "Real populated bucket objects and geometry arrays are identical for each base/selection pair",
+      "pass": true
+    },
+    {
+      "name": "Sharing leaves every ordinary and independent geometry vertex and triangle byte unchanged",
+      "pass": true
+    },
+    {
+      "name": "Every shipped tile feature matches exactly one selected layer, including XX composites",
+      "pass": true
+    },
+    {
+      "name": "Both selected passes retain original color, width, opacity and state dependency",
+      "pass": true
+    }
+  ]
+}

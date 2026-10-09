@@ -1,6 +1,7 @@
-import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=3.47.0-6485bddcb9a4';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=3.47.0-6485bddcb9a4';
-import {readJSON} from './map-engine.js?v=3.47.0-6485bddcb9a4';
+import {polityEntityAllowed} from './polity-names.js?v=3.48.0-58fa2842faf4';
+import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=3.48.0-58fa2842faf4';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=3.48.0-58fa2842faf4';
+import {readJSON} from './map-engine.js?v=3.48.0-58fa2842faf4';
 
 const validPoint=p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(p[0])&&Number.isFinite(p[1])&&Math.abs(p[1])<=90;
 function prepareRing(input){
@@ -36,7 +37,7 @@ export function selectedPolityPlace(place,record,year,prepared,window=50){
  // Capital relationships identify a polity explicitly. Other dated place
  // records are geographical matches, not assertions of political membership.
  if(active.kind==='dated-capital'){
-  if(!record.capitalBindingVerified||!record.verifiedWikidata||record.nameTranslationStatus==='ambiguous_source_period'||active.polityQid!==record.verifiedWikidata)return null;
+  if(!polityEntityAllowed(record,year)||!record.capitalBindingVerified||!record.verifiedWikidata||record.nameTranslationStatus==='ambiguous_source_period'||active.polityQid!==record.verifiedWikidata)return null;
   return {...active,association:'capital-relationship'};
  }
  return territoryContains(prepared,active.coordinates)?{...active,association:'within-source-outline'}:null;

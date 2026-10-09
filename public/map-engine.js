@@ -1,18 +1,19 @@
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.47.0-6485bddcb9a4';
-import {boundaryMesh} from './boundary-mesh.js?v=3.47.0-6485bddcb9a4';
-import {curvedBorders} from './border-curves.js?v=3.47.0-6485bddcb9a4';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.47.0-6485bddcb9a4';
-import {BoundaryController} from './boundary-controller.js?v=3.47.0-6485bddcb9a4';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.47.0-6485bddcb9a4';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.47.0-6485bddcb9a4';
-import {Geography} from './geography.js?v=3.47.0-6485bddcb9a4';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.47.0-6485bddcb9a4';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.48.0-58fa2842faf4';
+import {boundaryMesh} from './boundary-mesh.js?v=3.48.0-58fa2842faf4';
+import {curvedBorders} from './border-curves.js?v=3.48.0-58fa2842faf4';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.48.0-58fa2842faf4';
+import {BoundaryController} from './boundary-controller.js?v=3.48.0-58fa2842faf4';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.48.0-58fa2842faf4';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.48.0-58fa2842faf4';
+import {Geography} from './geography.js?v=3.48.0-58fa2842faf4';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.48.0-58fa2842faf4';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-export const polityName=(r,lang)=>lang==='en'?r.name:(r.zhName||r.name);
+import {polityName} from './polity-names.js?v=3.48.0-58fa2842faf4';
+export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
 const resources=new Map();
@@ -133,15 +134,15 @@ export class AtlasMap{
    if(this.labels.length>=Math.min(30,6+Math.floor(zoom)*5))break;
    if(r.area<8000/Math.max(1,zoom))continue;
    if(this.map.getProjection().type==='globe'&&zoom<2.5){const c=this.map.getCenter(),rad=Math.PI/180;const dot=Math.sin(c.lat*rad)*Math.sin(anchor[1]*rad)+Math.cos(c.lat*rad)*Math.cos(anchor[1]*rad)*Math.cos((anchor[0]-c.lng)*rad);if(dot<.15)continue;}
-   const p=this.map.project(anchor),name=polityName(r,this.lang);
-   const bilingual=this.lang==='bi'&&r.zhName&&zoom>=2.3;
-   const w=Math.min(164,Math.max(context.measureText(name).width,bilingual?context.measureText(r.name).width*.82:0)+16),h=bilingual?42:25;
+   const p=this.map.project(anchor),name=polityName(r,this.lang,this.year),englishName=polityName(r,'en',this.year);
+   const bilingual=this.lang==='bi'&&name!==englishName&&zoom>=2.3;
+   const w=Math.min(164,Math.max(context.measureText(name).width,bilingual?context.measureText(englishName).width*.82:0)+16),h=bilingual?42:25;
    const box={left:origin.left+p.x-w/2,right:origin.left+p.x+w/2,top:origin.top+p.y-h/2,bottom:origin.top+p.y+h/2};
    if(box.left<origin.left+12||box.right>origin.right-12||box.top<origin.top+12||box.bottom>origin.bottom-28)continue;
    if(blockers.some(b=>overlap(box,b))||placed.some(b=>overlap(box,b)))continue;
    this.labelBoxes.push(box);placed.push({...box,left:box.left-10,right:box.right+10,top:box.top-7,bottom:box.bottom+7});
    const el=document.createElement('div');el.className='polity-label';el.textContent=name;
-   if(bilingual){const en=document.createElement('span');en.textContent=r.name;el.append(en);}
+   if(bilingual){const en=document.createElement('span');en.textContent=englishName;el.append(en);}
    this.labels.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(anchor).addTo(this.map));
   }
   this.places?.refresh();

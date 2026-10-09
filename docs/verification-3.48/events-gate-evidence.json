@@ -1,0 +1,26 @@
+{
+  "commit": "9a9ded84f1a89dde4544ecaf93fd8458180775f4",
+  "method": "Unchanged production functions with deferred I/O and map/UI boundary stubs",
+  "cases": [
+    {
+      "name": "catalog and renderer ready but events unresolved",
+      "mapConstructedBeforeEvents": false,
+      "mapConstructedAfterEvents": true
+    },
+    {
+      "name": "events failure prevents map despite catalog and renderer ready",
+      "mapConstructed": false,
+      "retryPromisesReset": true
+    },
+    {
+      "name": "navigation leaves atlas during blocked boot",
+      "mapConstructed": false,
+      "guardPreserved": true
+    }
+  ],
+  "notMeasured": [
+    "browser network timings",
+    "first visible map frame",
+    "render or GPU work"
+  ]
+}
