@@ -1,0 +1,18 @@
+
+> meridian-world-history-atlas@3.47.0 test:http
+> python3 scripts/validate-local-http.py
+
+PASS PBF gzip response preserves every decoded byte, MIME and wire length
+PASS HEAD uses the same compressed representation headers and no body
+PASS Identity returns original PBF bytes with negotiated Vary
+PASS No accepted encoding returns original bytes
+PASS Explicit gzip q=0 overrides wildcard
+PASS Malformed gzip quality refuses compression
+PASS Wildcard support and case-insensitive gzip quality are parsed
+PASS Range requests keep the base server identity behavior
+PASS Tiny empty MVT stays uncompressed and parseable
+PASS Existing .gz archives are never double-encoded
+PASS Identity HEAD has original length and no body
+PASS Existing HTML compression remains byte-exact
+PASS Compression cache invalidates a changed file
+13/13 local HTTP checks passed

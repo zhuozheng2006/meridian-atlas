@@ -1,11 +1,12 @@
-import {boundaryMesh} from './boundary-mesh.js?v=3.46.0-dce023e2071a';
-import {curvedBorders} from './border-curves.js?v=3.46.0-dce023e2071a';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.46.0-dce023e2071a';
-import {BoundaryController} from './boundary-controller.js?v=3.46.0-dce023e2071a';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.46.0-dce023e2071a';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.46.0-dce023e2071a';
-import {Geography} from './geography.js?v=3.46.0-dce023e2071a';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.46.0-dce023e2071a';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.47.0-6485bddcb9a4';
+import {boundaryMesh} from './boundary-mesh.js?v=3.47.0-6485bddcb9a4';
+import {curvedBorders} from './border-curves.js?v=3.47.0-6485bddcb9a4';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.47.0-6485bddcb9a4';
+import {BoundaryController} from './boundary-controller.js?v=3.47.0-6485bddcb9a4';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.47.0-6485bddcb9a4';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.47.0-6485bddcb9a4';
+import {Geography} from './geography.js?v=3.47.0-6485bddcb9a4';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.47.0-6485bddcb9a4';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
@@ -94,11 +95,16 @@ export class AtlasMap{
  }
  displayTerritories(data){
   this.rawTerritories=data;
-  const country=this.boundaries?.isCountry,display=this.smoothBorders&&!country?curvedBorders(data):data;
-  const lines=country?{type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'MultiLineString',coordinates:display.features.flatMap(f=>f.geometry?.type==='Polygon'?f.geometry.coordinates:f.geometry?.type==='MultiPolygon'?f.geometry.coordinates.flat():[])}}]}:boundaryMesh(display);
-  // One worker frame keeps polygons, boundary lines and selection in step.
-  this.map.getSource('polities').setData({...display,features:[...display.features,...lines.features.map(f=>({...f,properties:{_atlasBoundaryLine:true}}))]});
+  const country=this.boundaries?.isCountry,mode=country?'country':this.smoothBorders?'curved':'raw';
+  this.territoryFrames??=new TerritoryFrameCache();
+  this.territoryFrames.submit(data,mode,this.map.getSource('polities'),raw=>{
+   const display=this.smoothBorders&&!country?curvedBorders(raw):raw;
+   const lines=country?{type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'MultiLineString',coordinates:display.features.flatMap(f=>f.geometry?.type==='Polygon'?f.geometry.coordinates:f.geometry?.type==='MultiPolygon'?f.geometry.coordinates.flat():[])}}]}:boundaryMesh(display);
+   // One worker frame keeps polygons, boundary lines and selection in step.
+   return {...display,features:[...display.features,...lines.features.map(f=>({...f,properties:{_atlasBoundaryLine:true}}))]};
+  });
  }
+
  setBorderCurves(enabled){
   this.smoothBorders=enabled;
   if(this.rawTerritories)this.displayTerritories(this.rawTerritories);
@@ -159,5 +165,5 @@ export class AtlasMap{
  fly(lon,lat,zoom=2.6){this.map.flyTo({center:[lon,lat],zoom:Math.min(18,zoom),duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:650,essential:false});}
  reset(){this.map.flyTo({center:[25,18],zoom:this.map.getProjection().type==='globe'?worldZoom(this.map.getContainer()):.6,duration:650});}
  projection(globe){this.map.setProjection({type:globe?'globe':'mercator'});}
- destroy(){this.destroyed=true;this.boundaries?.destroy();this.historical?.destroy();this.regional?.destroy();this.geography?.destroy();this.places?.destroy();this.markers.forEach(m=>m.remove());this.labels.forEach(m=>m.remove());this.map.remove();}
+ destroy(){this.destroyed=true;this.territoryFrames?.destroy();this.boundaries?.destroy();this.historical?.destroy();this.regional?.destroy();this.geography?.destroy();this.places?.destroy();this.markers.forEach(m=>m.remove());this.labels.forEach(m=>m.remove());this.map.remove();}
 }

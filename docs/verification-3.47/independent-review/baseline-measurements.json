@@ -1,0 +1,75 @@
+{
+  "generated": "2026-10-09T21:00:22.909Z",
+  "repo": "/Users/zane/meridian_atlas/world-history-atlas",
+  "node": "v26.7.0",
+  "method": "Actual AtlasMap.displayTerritories with native source pack and activeRecords/color. setData replaced by capture plus native JSON.stringify only. Counting/hash evidence runs outside elapsed measurement. In-process sequential observations are not a browser or MapLibre benchmark.",
+  "wireBytes": 150207,
+  "decompressedPackBytes": 506889,
+  "rawCollectionJSONBytes": 579124,
+  "rawCoordinateCount": 14537,
+  "activeRecords": 136,
+  "distinctGeometryIds": 131,
+  "originalPackUnchanged": true,
+  "observations": [
+    {
+      "label": "first exact production display, curves enabled",
+      "smooth": true,
+      "elapsedMs": 264.44775000000004,
+      "preparationMs": 242.74195800000007,
+      "stringifyMs": 21.705791999999974,
+      "jsonChars": 18752670,
+      "jsonBytes": 18752670,
+      "features": 137,
+      "coordinateCount": 483064,
+      "sha256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949"
+    },
+    {
+      "label": "same FeatureCollection identity, curves enabled",
+      "smooth": true,
+      "elapsedMs": 19.720083000000045,
+      "preparationMs": 0.02129100000007611,
+      "stringifyMs": 19.69879199999997,
+      "jsonChars": 18752670,
+      "jsonBytes": 18752670,
+      "features": 137,
+      "coordinateCount": 483064,
+      "sha256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949"
+    },
+    {
+      "label": "fresh FeatureCollection, same geometry refs, curves enabled",
+      "smooth": true,
+      "elapsedMs": 272.643041,
+      "preparationMs": 252.2247079999999,
+      "stringifyMs": 20.418333000000075,
+      "jsonChars": 18752670,
+      "jsonBytes": 18752670,
+      "features": 137,
+      "coordinateCount": 483064,
+      "sha256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949"
+    },
+    {
+      "label": "fresh FeatureCollection again, curves enabled",
+      "smooth": true,
+      "elapsedMs": 263.84620799999993,
+      "preparationMs": 241.42220799999984,
+      "stringifyMs": 22.424000000000092,
+      "jsonChars": 18752670,
+      "jsonBytes": 18752670,
+      "features": 137,
+      "coordinateCount": 483064,
+      "sha256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949"
+    },
+    {
+      "label": "fresh collection, existing user curves-off option",
+      "smooth": false,
+      "elapsedMs": 10.179624999999987,
+      "preparationMs": 8.929416999999944,
+      "stringifyMs": 1.2502080000000433,
+      "jsonChars": 974519,
+      "jsonBytes": 974519,
+      "features": 137,
+      "coordinateCount": 24723,
+      "sha256": "30c0565ff0b5a2939d7e45aa4525d0e8210a05ad9493dd8dd5396cb762aeb143"
+    }
+  ]
+}

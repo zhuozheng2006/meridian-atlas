@@ -1,0 +1,149 @@
+{
+  "generated": "2026-10-09T21:13:26.434Z",
+  "method": "Current production renderer + local shipped signed source data + deterministic DOM lifecycle/geometry; no browser layout, performance or computed-style claim.",
+  "files": {
+    "public/research-original-reader.js": "2143aead82d9b4b6da86d24a31efc23fc72e2b2232370ca5145fa607cd2518b7",
+    "public/research-reading-guide.js": "8f7388c6ae6a5953a3af2382140441a731be9cf9534bd68feaeec4aee0205db7",
+    "public/polaris-reader.js": "e44d800508e512e9d472179c9de59fbc0ea684361930eda35c6f7bd32d445e90"
+  },
+  "total": 34,
+  "passed": 34,
+  "results": [
+    {
+      "name": "Never-opened originals remain cold across language, export, pagination and phase return",
+      "passed": true
+    },
+    {
+      "name": "Language switch reuses exact original DOM, selected chapter, provenance, paragraph position and internal focus",
+      "passed": true
+    },
+    {
+      "name": "Both export renders retain the original view and do not steal focus from download controls",
+      "passed": true
+    },
+    {
+      "name": "142-row phase pagination and Mali to Ming to Mali retain only the same card state",
+      "passed": true
+    },
+    {
+      "name": "Two Mali cards share source identity but keep independent open and paragraph positions",
+      "passed": true
+    },
+    {
+      "name": "Language switch while original fetch is pending, then another card, blocks stale DOM and focus writes",
+      "passed": true
+    },
+    {
+      "name": "Closed surrounding details survives language rebuild and reopens at the saved paragraph",
+      "passed": true
+    },
+    {
+      "name": "Outer collapse during fetch plus language rebuild postpones late text until the new outer guide opens",
+      "passed": true
+    },
+    {
+      "name": "Destroy during original fetch leaves no body, focus or host writes after late completion",
+      "passed": true
+    },
+    {
+      "name": "Registry restores source paragraph plus block offset after reflow and after LRU recreation",
+      "passed": true
+    },
+    {
+      "name": "Native scroll reset after DOM reattachment cannot overwrite the saved paragraph before rapid second render",
+      "passed": true
+    },
+    {
+      "name": "LRU eviction during an unrestored reattachment keeps the previous source-block snapshot",
+      "passed": true
+    },
+    {
+      "name": "Snapshots require exact card, original source and derived-document identity before reopening",
+      "passed": true
+    },
+    {
+      "name": "Width reflow preserves the actual source paragraph and character within a long paragraph without changing focus or contents",
+      "passed": true
+    },
+    {
+      "name": "Repeated width changes and native programmatic scroll events keep the same character anchor without cumulative line drift",
+      "passed": true
+    },
+    {
+      "name": "Native scroll arriving before ResizeObserver cannot replace the previous-layout text anchor",
+      "passed": true
+    },
+    {
+      "name": "Several width changes coalesce into one restoration using the final geometry",
+      "passed": true
+    },
+    {
+      "name": "A contents selection supersedes pending automatic restoration and keeps its intended focus",
+      "passed": true
+    },
+    {
+      "name": "A related-passage button supersedes pending resize restoration",
+      "passed": true
+    },
+    {
+      "name": "Wheel, touch, scrollbar pointer and scroll keys supersede a pending resize restore",
+      "passed": true
+    },
+    {
+      "name": "Input arriving before ResizeObserver respects the user-selected new position",
+      "passed": true
+    },
+    {
+      "name": "Unrelated or already handled keys leave the queued resize restoration intact",
+      "passed": true
+    },
+    {
+      "name": "Closing and reopening the source while resize is queued retains its character and reconnects one observer",
+      "passed": true
+    },
+    {
+      "name": "A hidden surrounding guide can change width without recording zero geometry or stealing outside focus",
+      "passed": true
+    },
+    {
+      "name": "Language reattachment during queued resize keeps the exact source character and original DOM",
+      "passed": true
+    },
+    {
+      "name": "Destroy invalidates queued frames, disconnects observation and blocks a late observer delivery",
+      "passed": true
+    },
+    {
+      "name": "Viewport-height-only changes keep the paragraph position",
+      "passed": true
+    },
+    {
+      "name": "Without DOM Range, live reflow keeps a proportional paragraph offset and original registry semantics still work",
+      "passed": true
+    },
+    {
+      "name": "Without ResizeObserver, the window-resize fallback restores position and removes listeners on destruction",
+      "passed": true
+    },
+    {
+      "name": "Selecting a section before the first restore frame still starts resize observation",
+      "passed": true
+    },
+    {
+      "name": "User scrolling before the reattachment restore reconnects observation and supersedes saved position",
+      "passed": true
+    },
+    {
+      "name": "At the end of a document, viewport growth accepts native clamping and saves the achievable position for the next resize",
+      "passed": true
+    },
+    {
+      "name": "An empty Range rectangle falls back to the same source paragraph instead of inventing a character position",
+      "passed": true
+    },
+    {
+      "name": "Rapid repeated language reattachment cannot let old frames overwrite a later explicit directory choice",
+      "passed": true
+    }
+  ]
+}

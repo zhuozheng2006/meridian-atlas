@@ -19,7 +19,9 @@ const disk=async file=>JSON.parse(gunzipSync(await readFile(resolve(root,file)))
 const raw=await readFile(resolve(root,'public/data/places/attested-places.json.gz'));
 const data=JSON.parse(gunzipSync(raw));
 const editorial=JSON.parse(await readFile(resolve(root,'editorial/attested-places.json'),'utf8'));
-const supplemental=editorial.supplementalEvidenceFile?JSON.parse(await readFile(resolve(root,editorial.supplementalEvidenceFile),'utf8')):null;
+const supplementalPaths=[editorial.supplementalEvidenceFile,...(editorial.supplementalEvidenceFiles||[])].filter(Boolean);
+const supplementals=await Promise.all(supplementalPaths.map(async file=>JSON.parse(await readFile(resolve(root,file),'utf8'))));
+const supplemental=supplementals[0];
 const index=await disk('public/data/places/historical-settlements-index.json.gz');
 const urban=await disk('public/data/places/urban-observations.json.gz');
 const capitals=await disk('public/data/places/historical-capitals.json.gz');
@@ -39,19 +41,19 @@ await check('The shipped layer is a deterministic gzip with a zeroed mtime',()=>
  assert.equal(raw[4],0);assert.equal(raw[5],0);assert.equal(raw[6],0);assert.equal(raw[7],0);assert.equal(raw[9],255);
  assert.equal(data.layer,'attested-places');
 });
-await check('Fourteen site records, two enhancements and four documented deferrals ship together',()=>{
- assert.equal(data.records.length,14);assert.equal(data.enhancements.length,2);assert.equal(data.deferred.length,4);
- assert.deepEqual(data.counts,{records:14,enhancements:2,deferred:4,reviewedCandidates:20});
- assert.equal(new Set(data.records.map(record=>record.id)).size,14);
+await check('Seventeen site records, two enhancements and four documented deferrals ship together',()=>{
+ assert.equal(data.records.length,17);assert.equal(data.enhancements.length,2);assert.equal(data.deferred.length,4);
+ assert.deepEqual(data.counts,{records:17,enhancements:2,deferred:4,reviewedCandidates:23});
+ assert.equal(new Set(data.records.map(record=>record.id)).size,17);
  for(const record of data.records){assert.match(record.id,/^attested:[a-z0-9-]+$/);assert.equal(record.kind,'attested-site');counters.records++}
 });
 await check('The review ledger accounts for every reviewed candidate exactly once',()=>{
  assert.equal(editorial.reviewLedger.length,18,'original handoff ledger stays intact');
- assert.equal(editorial.supplementalReviewLedger.length,2);
+ assert.equal(editorial.supplementalReviewLedger.length,5);
  const ledger=[...editorial.reviewLedger,...editorial.supplementalReviewLedger];
- assert.equal(ledger.length,20);assert.equal(new Set(ledger.map(row=>row.candidateId)).size,20);
+ assert.equal(ledger.length,23);assert.equal(new Set(ledger.map(row=>row.candidateId)).size,23);
  const decisions=ledger.reduce((all,row)=>{all[row.decision]=(all[row.decision]||0)+1;return all},{});
- assert.deepEqual(decisions,{integrated:14,enhancement:2,deferred:4});
+ assert.deepEqual(decisions,{integrated:17,enhancement:2,deferred:4});
  counters.decisions=ledger.length;
  for(const row of ledger.filter(row=>row.decision==='integrated'))assert(data.records.some(record=>record.id===row.recordId),row.recordId);
  for(const row of ledger.filter(row=>row.decision==='enhancement'))assert(data.enhancements.some(item=>item.id===row.recordId),row.recordId);
@@ -92,9 +94,9 @@ await check('Periods never escape their verbatim source range and open ends are 
   assert(Number.isInteger(record.period.start)&&Number.isInteger(record.period.end)&&record.period.start!==0&&record.period.end!==0,record.id);
  }
 });
-await check('UNESCO quotes, coordinates and property ids match their reviewed evidence',()=>{
+await check('Institutional date quotes, UNESCO coordinates and property ids match reviewed evidence',()=>{
  const byId=new Map((handoff?.entries||[]).map(entry=>[entry.id,entry]));
- const newById=new Map((supplemental?.entries||[]).map(entry=>[entry.id,entry]));
+ const newById=new Map(supplementals.flatMap(catalog=>catalog.entries||[]).map(entry=>[entry.id,entry]));
  for(const record of data.records){
   const authored=editorial.entries.find(item=>item.id===record.id);
   const candidate=authored.researchCandidateId?newById.get(authored.researchCandidateId):byId.get(authored.handoffCandidateId);

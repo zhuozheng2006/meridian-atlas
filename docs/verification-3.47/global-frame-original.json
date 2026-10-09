@@ -1,0 +1,58 @@
+{
+  "generated": "2026-10-09T21:01:40.811Z",
+  "baseline": {
+    "commit": "25ba64cd5eac5a41b2e4bb6ac38f5fad959bce45",
+    "source": "public/map-engine.js",
+    "fileSHA256": "537bc007d0af40aa7034738eb15792318f71b152683ec6a99de62086f797f7f7",
+    "methodSHA256": "1cddb5a6ed6c8952cc63d567b11cbcfbc983d58c211b9e6bbb49db458a1dbbfe",
+    "scope": "Frozen complete original displayTerritories method; executed with real unmodified border-curves and boundary-mesh."
+  },
+  "method": "Frozen actual 3.46 displayTerritories method with real unmodified portrayal/mesh modules and exact local native 1492 pack. Each call reproduces prepareOverview fresh FeatureCollection wrappers over stable geometry references. setData boundary deliberately measures JSON.stringify, not MapLibre indexing, browser long tasks or networking.",
+  "nativePackGzipBytes": 150207,
+  "nativePackDecompressedUTF8Bytes": 506889,
+  "recordCount": 136,
+  "observations": [
+    {
+      "label": "first frame",
+      "curveCalls": 1,
+      "meshCalls": 1,
+      "setDataCalls": 1,
+      "curveMs": 126.51320800000002,
+      "meshMs": 217.50833300000002,
+      "stringifyMs": 37.58220800000004,
+      "outputUTF8Bytes": 18752670,
+      "outputSHA256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949",
+      "totalMsIncludingStringify": 390.47841700000004,
+      "inputUTF8Bytes": 579124,
+      "originalUnmodified": true
+    },
+    {
+      "label": "same year again",
+      "curveCalls": 1,
+      "meshCalls": 1,
+      "setDataCalls": 1,
+      "curveMs": 109.16595799999999,
+      "meshMs": 244.89816700000006,
+      "stringifyMs": 39.263374999999996,
+      "outputUTF8Bytes": 18752670,
+      "outputSHA256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949",
+      "totalMsIncludingStringify": 400.95158299999997,
+      "inputUTF8Bytes": 579124,
+      "originalUnmodified": true
+    },
+    {
+      "label": "same year language-only refresh",
+      "curveCalls": 1,
+      "meshCalls": 1,
+      "setDataCalls": 1,
+      "curveMs": 119.10683300000005,
+      "meshMs": 193.46016699999996,
+      "stringifyMs": 32.15733299999988,
+      "outputUTF8Bytes": 18752670,
+      "outputSHA256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949",
+      "totalMsIncludingStringify": 352.0653330000001,
+      "inputUTF8Bytes": 579124,
+      "originalUnmodified": true
+    }
+  ]
+}

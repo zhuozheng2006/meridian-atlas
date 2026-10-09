@@ -1,0 +1,49 @@
+{
+  "method": "Actual main/worker MapLibre 5.6.2 and structuredClone Actor adapter; controlled pending operations. No browser/render/performance claim.",
+  "candidateSha256": "e28e96bb026061f4605f07752a2081f7882b7a587ee76afed57c6e5402c91385",
+  "initialVariant": "Current standalone module evaluated with only source.loaded() removed, restoring the reviewed initial skip guard; no product edits.",
+  "scenario": "own setData(A) in flight -> external updateData(add id2) queued -> same frame A submitted again",
+  "results": [
+    {
+      "variant": "baseline-always-submit",
+      "secondSubmitted": true,
+      "finalIds": [
+        1
+      ],
+      "errors": []
+    },
+    {
+      "variant": "initial-candidate-without-loaded-guard",
+      "secondSubmitted": false,
+      "finalIds": [
+        1,
+        2
+      ],
+      "cache": {
+        "builds": 1,
+        "hits": 1,
+        "submissions": 1,
+        "skipped": 1,
+        "invalidations": 0,
+        "retainedFrames": 1
+      },
+      "errors": []
+    },
+    {
+      "variant": "current-candidate",
+      "secondSubmitted": true,
+      "finalIds": [
+        1
+      ],
+      "cache": {
+        "builds": 1,
+        "hits": 1,
+        "submissions": 2,
+        "skipped": 0,
+        "invalidations": 0,
+        "retainedFrames": 1
+      },
+      "errors": []
+    }
+  ]
+}

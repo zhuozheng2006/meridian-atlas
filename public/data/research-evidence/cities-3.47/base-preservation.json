@@ -1,0 +1,2114 @@
+{
+  "baseCommit": "25ba64cd5eac5a41b2e4bb6ac38f5fad959bce45",
+  "baseVersion": "3.46.0",
+  "files": [
+    {
+      "path": "public/data/places/historical-settlements-index.json.gz",
+      "sha256": "eea9daafeb656d366c3ac9b768e74738660d42fe95201aec5800e4bc7ef4bb2e",
+      "bytes": 629588
+    },
+    {
+      "path": "public/data/places/urban-observations.json.gz",
+      "sha256": "ae04314d2b6106b1d3dbf57a33956a66cf6385cf57ec94a7af6aaf055fd1407a",
+      "bytes": 132325
+    },
+    {
+      "path": "public/data/places/historical-capitals.json.gz",
+      "sha256": "ddbdebfe284dd3e26db925e61f2a40200732465f9fe157fdbc39608af84cb5f6",
+      "bytes": 55637
+    },
+    {
+      "path": "public/data/places/modern-cities.json.gz",
+      "sha256": "1f0284be17ec910426094c36dd5192dc52233634832f2e3929304d0baccb244c",
+      "bytes": 337832
+    },
+    {
+      "path": "public/data/places/city-narratives.json.gz",
+      "sha256": "fed62278df92589301fe724f69eb70f40dff054dfcd95efdfde144f7dee44b40",
+      "bytes": 44109
+    },
+    {
+      "path": "public/data/catalog.json.gz",
+      "sha256": "590bc933520245f8bae8256ec1e8f9c04e89f94e60d416a2abd98472e97b50a0",
+      "bytes": 1252656
+    },
+    {
+      "path": "public/data/seshat-polaris-2026/metadata/polities.json.gz",
+      "sha256": "8372b81848a84cda7809c2b5be762bead2106a5a4daaa1adf052acdca87fad58",
+      "bytes": 22952
+    },
+    {
+      "path": "public/data/seshat/index.json.gz",
+      "sha256": "68965817c30c7cdf16e38e17f02667047715f419de12253d31f36fcdcfb932eb",
+      "bytes": 31947
+    },
+    {
+      "path": "public/data/enrichment/narratives.json.gz",
+      "sha256": "43cd8b88bafaed91d021c09f9521c9b316994daaa2bf31c570ee87d124345d72",
+      "bytes": 1273059
+    }
+  ],
+  "oldEntries": [
+    {
+      "id": "attested:liangzhu",
+      "kind": "attested-site",
+      "region": "east-asia",
+      "nameZh": "良渚古城",
+      "nameEn": "Liangzhu City",
+      "aliases": [
+        "良渚遗址"
+      ],
+      "sources": [
+        {
+          "id": "liangzhu-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Liangzhu Archaeological Site",
+          "url": "https://whc.unesco.org/en/list/1592/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1592",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1592/maps/",
+          "sourceComponentId": "1592-004"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          119.990825,
+          30.3955472
+        ],
+        "sourceDMS": "N30 23 43.97 E119 59 26.97",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "世界遗产古城组成部分代表点，由原始度分秒换算，精度未定义。",
+        "coordinateMeaningEn": "Representative point of a listed city component, converted from the original DMS; metric accuracy is undefined."
+      },
+      "period": {
+        "start": -3300,
+        "end": -2300,
+        "precision": "circa",
+        "dateQuote": "ca. 3300-2300 BCE",
+        "sourceRange": {
+          "from": -3300,
+          "to": -2300,
+          "kind": "bce-range"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "考古古城及水利系统所属时期；约前3300—前2300，不表达每年连续占居。",
+        "interpretationEn": "The period of the archaeological city and its water system, c. 3300–2300 BCE; it does not express continuous year-by-year occupation."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "长江下游太湖流域的冲积平原与丘陵之间，包括城墙围绕的古城、外围水利系统和相关台地。",
+          "en": "The lower Yangtze plain and hills around Lake Tai, including the walled city, its outer water system and associated platforms."
+        },
+        "temporal": {
+          "zh": "约前3300—前2300的考古时期。",
+          "en": "The archaeological period c. 3300–2300 BCE."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "良渚古城位于长江下游的河湖平原，城墙、水门与外围堤坝水库共同构成一套聚落与水利体系，玉器作坊和高台墓地分布在城内外。",
+          "en": "Liangzhu stood in the river-and-lake plain of the lower Yangtze, where walls, water gates and outer dams and reservoirs formed one settlement and water-management system, with jade workshops and raised cemeteries inside and outside the city."
+        },
+        "development": {
+          "zh": "约前3300—前2300，稻作农业、玉器工艺与大型公共工程支撑起区域权力中心；莫角山台地以及反山、瑶山墓地显示明显的等级分化，水利系统表明群体能够组织大规模劳动力。",
+          "en": "Between about 3300 and 2300 BCE rice farming, jade working and large public works sustained a regional centre of power. The Mojiaoshan platform and the Fanshan and Yaoshan cemeteries show marked social ranking, while the water system indicates the ability to organise large labour forces."
+        },
+        "legacy": {
+          "zh": "良渚的玉琮、玉璧等器形与纹样进入后世中国早期的礼器传统；古城与水利遗存是理解长江下游文明化进程的关键证据，人口规模与连续占居时间仍待更多测年与考古工作。",
+          "en": "Liangzhu jade cong and bi forms and their motifs entered later Chinese ritual traditions. The city and its waterworks are key evidence for social complexity in the lower Yangtze, while population size and the duration of continuous occupation still await further dating and excavation."
+        }
+      },
+      "significance": {
+        "zh": "良渚以城市、水利和玉器工艺展示了新石器时代长江下游的区域权力中心。",
+        "en": "Liangzhu shows a Neolithic regional centre of power through its city, water management and jade industry."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:548",
+          "name": "Hangzhou",
+          "distanceKm": 23.383,
+          "kind": "urban-observation"
+        },
+        {
+          "id": "modelski-modern:96",
+          "name": "Hangzhou",
+          "distanceKm": 23.386,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "component-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern同名 cities are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "not-modern-hangzhou",
+            "statementZh": "不并入约23公里外的现代杭州人口记录。",
+            "statementEn": "Not merged with the modern Hangzhou population record about 23 km away.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "liangzhu"
+    },
+    {
+      "id": "attested:yinxu",
+      "kind": "attested-site",
+      "region": "east-asia",
+      "nameZh": "殷墟",
+      "nameEn": "Yin Xu",
+      "aliases": [
+        "殷墟宫殿宗庙区"
+      ],
+      "sources": [
+        {
+          "id": "yinxu-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Yin Xu",
+          "url": "https://whc.unesco.org/en/list/1114/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1114",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1114/maps/",
+          "sourceComponentId": "1114-001"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          114.3251619,
+          36.1219781
+        ],
+        "sourceDMS": "N36 7 19.121 E114 19 30.583",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "宫殿宗庙区组成部分代表点，不取现代安阳市中心。",
+        "coordinateMeaningEn": "Representative point of the palace-temple component, not the centre of modern Anyang."
+      },
+      "period": {
+        "start": -1300,
+        "end": -1046,
+        "precision": "range",
+        "dateQuote": "1300 - 1046 BC",
+        "sourceRange": {
+          "from": -1300,
+          "to": -1046,
+          "kind": "bce-range"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "晚商都城时期；坐标为宫殿宗庙区，不取现代安阳市中心。",
+        "interpretationEn": "The late Shang capital period; the coordinate marks the palace-temple area rather than central Anyang."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "洹河两岸的都城遗址，包括宫殿宗庙区、王陵区、手工业作坊与居民点。",
+          "en": "The capital site on both banks of the Huan River, including the palace-temple area, royal tombs, workshops and residential zones."
+        },
+        "temporal": {
+          "zh": "约前1300—前1046的晚商都城时期。",
+          "en": "The late Shang capital period, c. 1300–1046 BCE."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "殷墟位于洹河两岸的冲积平原，宫殿宗庙区、王陵区、手工业作坊与居民点沿河分布，甲骨窖藏集中出土于宫殿区附近。",
+          "en": "Yin Xu lay on the floodplain of the Huan River, where the palace-temple area, royal cemeteries, workshops and dwellings were distributed along the banks, with oracle-bone caches found near the palace quarter."
+        },
+        "development": {
+          "zh": "前1300—前1046年作为晚商都城，青铜铸造、制骨与制陶作坊形成规模，卜辞记录祭祀、战争、田猎与王令，王室与贵族墓葬显示严格的等级秩序。",
+          "en": "As the late Shang capital from about 1300 to 1046 BCE, it supported large bronze-casting, bone- and pottery-working workshops. Divination inscriptions record sacrifice, warfare, hunting and royal commands, while royal and elite tombs show a strict social hierarchy."
+        },
+        "legacy": {
+          "zh": "甲骨文是已知最早的成体系汉字材料之一，殷墟发掘也奠定了中国现代考古学的方法基础；商亡后都邑废弃，遗址的废弃过程与后世村落属于不同历史层次。",
+          "en": "The oracle-bone script is among the earliest known systematic Chinese writing, and excavations at Yin Xu helped establish modern archaeological method in China. The capital was abandoned after the Shang fell; that abandonment and later villages belong to different historical layers."
+        }
+      },
+      "significance": {
+        "zh": "甲骨与都城遗存共同支撑了商代晚期历史的重建。",
+        "en": "Oracle bones and urban remains together underpin the reconstruction of late Shang history."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:74",
+          "name": "Anyang",
+          "distanceKm": 2.5,
+          "kind": "urban-observation"
+        },
+        {
+          "id": "modelski-ancient:152",
+          "name": "Anyang",
+          "distanceKm": 2.8,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "component-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern同名 cities are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "not-modern-anyang",
+            "statementZh": "与安阳人口记录只作近邻提示，不合并身份。",
+            "statementEn": "Anyang population records are listed only as nearby prompts; identities are not merged.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "yinxu"
+    },
+    {
+      "id": "attested:quanzhou",
+      "kind": "attested-site",
+      "region": "east-asia",
+      "nameZh": "泉州古城",
+      "nameEn": "Quanzhou Old City",
+      "aliases": [
+        "刺桐",
+        "Zayton"
+      ],
+      "sources": [
+        {
+          "id": "quanzhou-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Quanzhou: Emporium of the World in Song-Yuan China",
+          "url": "https://whc.unesco.org/en/list/1561/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1561",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1561/maps/",
+          "sourceComponentId": "1561rev-001"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          118.59,
+          24.9056667
+        ],
+        "sourceDMS": "N24 54 20.4 E118 35 24",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "古城组成部分代表点；不把现代泉州市区范围当作宋元港市边界。",
+        "coordinateMeaningEn": "Representative point of the old-city component; the modern municipal extent is not treated as the Song–Yuan port boundary."
+      },
+      "period": {
+        "start": 960,
+        "end": 1368,
+        "precision": "range",
+        "dateQuote": "10th - 14th centuries AD",
+        "sourceRange": {
+          "from": 901,
+          "to": 1400,
+          "kind": "ce-centuries"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "宋元港市繁荣与世界贸易体系时期；不是泉州建城—废弃时间。",
+        "interpretationEn": "The Song–Yuan phase of port prosperity and world trade, not the city's foundation-to-abandonment span."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "福建东南沿海的泉州古城及其港口、桥梁与相关外销手工业生产点。",
+          "en": "The old city of Quanzhou on the southeast Fujian coast, with its harbour, bridges and related export-craft production sites."
+        },
+        "temporal": {
+          "zh": "十至十四世纪，数据以960—1368表达宋元时期。",
+          "en": "The tenth to fourteenth centuries, expressed here as 960–1368 for the Song–Yuan period."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "泉州位于福建东南沿海，港湾、河口与丘陵之间的平原支持港口、桥梁和腹地手工业，府城与城南商业区连成一体。",
+          "en": "Quanzhou stands on the southeast Fujian coast, where harbour, river mouth and coastal plain supported shipping, bridges and hinterland workshops, joining the walled city with the commercial quarters to its south."
+        },
+        "development": {
+          "zh": "十至十四世纪，海外贸易管理、码头、桥梁与宗教建筑共同发展，陶瓷、丝绸、香料和金属器在南北航线转运；阿拉伯、波斯与东南亚商人聚居城南，清净寺、佛寺与天后宫并存。",
+          "en": "From the tenth to the fourteenth century, maritime trade administration, wharves, bridges and religious buildings developed together. Ceramics, silk, aromatics and metalware moved along north–south routes, while Arab, Persian and Southeast Asian merchants settled in the southern quarters beside mosques, Buddhist temples and the Tianhou shrine."
+        },
+        "legacy": {
+          "zh": "泉州的港市格局与多元宗教遗迹记录了宋元中国与印度洋世界的联系；元末战乱与港口条件变化之后贸易地位改变，刺桐等外来名称只在相应时段使用。",
+          "en": "Quanzhou's port layout and multi-confessional monuments record the links between Song–Yuan China and the Indian Ocean world. War and changing harbour conditions later altered its trading position, and foreign names such as Zayton apply only to those centuries."
+        }
+      },
+      "significance": {
+        "zh": "泉州展示了宋元中国与印度洋世界之间的商品、人群与信仰交流。",
+        "en": "Quanzhou shows the exchange of goods, people and beliefs between Song–Yuan China and the Indian Ocean world."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:1457",
+          "name": "Tsinkiang",
+          "distanceKm": 1,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "component-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern同名 cities are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "not-merged-with-tsinkiang",
+            "statementZh": "与约1公里外的Tsinkiang人口记录不合并；该记录的观测年份与对象需另行核验。",
+            "statementEn": "Not merged with the Tsinkiang population record about 1 km away; its observation year and object still require separate verification.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "quanzhou-old-city"
+    },
+    {
+      "id": "attested:bagan",
+      "kind": "attested-site",
+      "region": "southeast-asia",
+      "nameZh": "蒲甘",
+      "nameEn": "Bagan",
+      "aliases": [
+        "Pagan"
+      ],
+      "sources": [
+        {
+          "id": "bagan-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Bagan",
+          "url": "https://whc.unesco.org/en/list/1588/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1588",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1588/maps/",
+          "sourceComponentId": "1588-001"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          94.8844389,
+          21.1488889
+        ],
+        "sourceDMS": "N21 8 56 E94 53 3.98",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "面积最大的组成部分代表点，不宣称古城几何中心。",
+        "coordinateMeaningEn": "Representative point of the largest component; it is not claimed as the geometric centre of the ancient city."
+      },
+      "period": {
+        "start": 1044,
+        "end": 1287,
+        "precision": "range",
+        "dateQuote": "11th – 13th centuries",
+        "sourceRange": {
+          "from": 1001,
+          "to": 1300,
+          "kind": "ce-centuries"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "文明及都城高峰期；1044—1287为已核对的王都繁荣期，不等于城市全部寿命。",
+        "interpretationEn": "The peak of the capital and its civilisation; 1044–1287 is the verified period of royal-capital prosperity, not the city's whole lifespan."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "伊洛瓦底江中游的蒲甘都城景观，包括砖构寺院、城墙与灌溉相关遗存。",
+          "en": "The Bagan capital landscape in the middle Irrawaddy valley, including brick temples, walls and irrigation-related remains."
+        },
+        "temporal": {
+          "zh": "十一至十三世纪，数据以1044—1287表达王都繁荣期。",
+          "en": "The eleventh to thirteenth centuries, expressed here as the 1044–1287 period of royal-capital prosperity."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "蒲甘位于伊洛瓦底江畔的干旱地带，都城、寺院与灌溉系统沿江分布，砖构佛塔和寺院构成主要景观。",
+          "en": "Bagan lies in the dry zone beside the Irrawaddy, where the capital, monasteries and irrigation works were distributed along the river, with brick stupas and temples forming the main landscape."
+        },
+        "development": {
+          "zh": "十一至十三世纪，蒲甘作为政治与宗教中心兴盛，王室和贵族以布施功德营建大量寺院，上座部佛教传统与地方信仰结合，农业与贸易支持城市人口。",
+          "en": "Between the eleventh and thirteenth centuries Bagan flourished as a political and religious centre. Kings and nobles endowed large numbers of monasteries as acts of merit, Theravada traditions combined with local beliefs, and agriculture and trade supported the urban population."
+        },
+        "legacy": {
+          "zh": "蒲甘的寺院群保存了缅甸早期佛教建筑与壁画传统；十三世纪末政治中心地位变化后，寺院与聚落仍长期使用。来源正文称八个组成部分，而地图表列七项，这一差异在数据中保留。",
+          "en": "Bagan's temples preserve early Burmese Buddhist architecture and mural traditions. After political centrality changed at the end of the thirteenth century, monasteries and settlements continued in use. The listing text mentions eight components while the map table lists seven; that discrepancy is retained in the data."
+        }
+      },
+      "significance": {
+        "zh": "蒲甘以寺院景观记录了十一至十三世纪缅甸的政治与宗教中心。",
+        "en": "Bagan records the political and religious centre of eleventh- to thirteenth-century Myanmar through its temple landscape."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:110",
+          "name": "Pagan",
+          "distanceKm": 3.6,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "component-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern同名 cities are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "component-count-discrepancy-preserved",
+            "statementZh": "来源正文与地图表的组成部分数量差异被保留，不擅自补齐。",
+            "statementEn": "The difference between the listing text and the map table on component count is preserved rather than silently resolved.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "bagan"
+    },
+    {
+      "id": "attested:ayutthaya",
+      "kind": "attested-site",
+      "region": "southeast-asia",
+      "nameZh": "阿瑜陀耶",
+      "nameEn": "Ayutthaya",
+      "aliases": [
+        "大城"
+      ],
+      "sources": [
+        {
+          "id": "ayutthaya-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Historic City of Ayutthaya",
+          "url": "https://whc.unesco.org/en/list/576/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "576",
+          "coordinateUrl": "https://whc.unesco.org/en/list/576/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          100.56056,
+          14.34778
+        ],
+        "sourceDMS": "N14 20 52.008 E100 33 38.016",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "历史城区代表点；现代城市范围不构成都城边界。",
+        "coordinateMeaningEn": "Representative point of the historic city; the modern urban extent is not the capital's boundary."
+      },
+      "period": {
+        "start": 1350,
+        "end": 1767,
+        "precision": "circa",
+        "dateQuote": "founded in 1350; 1767",
+        "sourceRange": {
+          "from": 1350,
+          "to": 1767,
+          "kind": "event-years"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "历史城区：1350年前后建立、1767年被焚毁及居民离开；简介写约1350，故保留circa。",
+        "interpretationEn": "The historic city: founded around 1350 and destroyed in 1767 when its inhabitants left; the summary says about 1350, so circa precision is retained."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "昭披耶河、华富里河与巴塞河交汇处的岛屿旧城及其护城河、运河与寺院遗址。",
+          "en": "The island old city where the Chao Phraya, Lopburi and Pa Sak rivers meet, with its moats, canals and temple remains."
+        },
+        "temporal": {
+          "zh": "约1350—1767年的都城时期。",
+          "en": "The capital period from about 1350 to 1767."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "阿瑜陀耶建在三条河流交汇的岛屿上，护城河与运河网络把都城划分为街区，寺院、宫殿与水利设施沿水道布置。",
+          "en": "Ayutthaya was built on an island at the confluence of three rivers, where moats and canals divided the capital into quarters and temples, palaces and waterworks lined the waterways."
+        },
+        "development": {
+          "zh": "约1350年建立后，阿瑜陀耶成为暹罗都城和国际贸易港口，与中国、东南亚、印度、波斯及欧洲商人往来；都城持续营建寺庙与水利工程，1767年被攻陷焚毁，居民离开旧城。",
+          "en": "After its foundation around 1350, Ayutthaya became the Siamese capital and an international port trading with China, Southeast Asia, India, Persia and Europe. Temples and waterworks were continually built until the city was stormed and burned in 1767 and its inhabitants left."
+        },
+        "legacy": {
+          "zh": "旧城的砖构寺院与水利格局记录了前现代东南亚都城的规划方式；此后新都建立，旧城作为遗址保留，其名称与记忆延续至今。",
+          "en": "The brick temples and water layout of the old city record how a premodern Southeast Asian capital was planned. A new capital was later founded, while the old city survives as an archaeological site whose name and memory continue."
+        }
+      },
+      "significance": {
+        "zh": "阿瑜陀耶体现了河流水利、国际贸易与都城权力的结合。",
+        "en": "Ayutthaya embodies the combination of river water management, international trade and capital power."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:103",
+          "name": "Ayutthaya",
+          "distanceKm": 1.2,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern同名 cities are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "separate-from-population-observations",
+            "statementZh": "离散人口观测不用于推导连续占居；1767年为破坏与离开之年，不是人口观测年。",
+            "statementEn": "Discrete population observations are not used to derive continuous occupation; 1767 marks destruction and departure, not a population observation year.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "ayutthaya"
+    },
+    {
+      "id": "attested:dholavira",
+      "kind": "attested-site",
+      "region": "south-asia",
+      "nameZh": "多拉维拉",
+      "nameEn": "Dholavira",
+      "aliases": [
+        "多拉维拉古城"
+      ],
+      "sources": [
+        {
+          "id": "dholavira-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Dholavira: a Harappan City",
+          "url": "https://whc.unesco.org/en/list/1645/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1645",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1645/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          70.2133028,
+          23.8884083
+        ],
+        "sourceDMS": "N23 53 18.27 E70 12 47.89",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "遗产地代表点，由原始度分秒换算。",
+        "coordinateMeaningEn": "Representative point of the property, converted from the original DMS."
+      },
+      "period": {
+        "start": -3000,
+        "end": -1500,
+        "precision": "circa",
+        "dateQuote": "Occupied between ca. 3000-1500 BCE",
+        "sourceRange": {
+          "from": -3000,
+          "to": -1500,
+          "kind": "bce-range"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "古城占居约前3000—前1500；来源正文有一处把地域误写为东南亚，后文为南亚，本条不复制该错误。",
+        "interpretationEn": "The city was occupied between about 3000 and 1500 BCE. The source page contains one typographical slip calling the region Southeast Asia while the rest of the text says South Asia; that error is not copied."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "卡奇荒漠中一座岛屿台地上的印度河文明城市及其水利与城墙遗存。",
+          "en": "An Indus civilisation city on an island in the Rann of Kutch, with its waterworks and walls."
+        },
+        "temporal": {
+          "zh": "约前3000—前1500的占居期。",
+          "en": "The occupation period c. 3000–1500 BCE."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "多拉维拉位于卡奇荒漠的岛屿台地，东侧与北侧有季节性水道，城墙把城堡、中城与下城分隔开。",
+          "en": "Dholavira stands on an island in the Rann of Kutch with seasonal watercourses to its east and north, its walls separating a citadel, a middle town and a lower town."
+        },
+        "development": {
+          "zh": "约前3000—前1500，石砌蓄水池、水井与引水沟把季风降水保存下来；居民制作印章、珠饰与陶器，依靠畜牧、种植和远距离交换维持城市。晚期出现衰退、部分废弃与再利用。",
+          "en": "Between about 3000 and 1500 BCE stone reservoirs, wells and channels stored monsoon rainfall. Residents made seals, beads and pottery and lived from herding, cultivation and long-distance exchange. Decline, partial abandonment and reuse followed in the later phases."
+        },
+        "legacy": {
+          "zh": "多拉维拉的水利系统是印度河文明适应半干旱环境的重要证据；来源页面的地域笔误不进入数据，坐标与年代仍按代表点和占居期保存。",
+          "en": "Dholavira's water system is key evidence of how an Indus civilisation city adapted to a semi-arid setting. The source page's regional slip does not enter the data, and the coordinate and dates remain a representative point and an occupation range."
+        }
+      },
+      "significance": {
+        "zh": "多拉维拉以水利设施展示了印度河文明对干旱环境的适应能力。",
+        "en": "Dholavira's waterworks show how an Indus civilisation city adapted to a semi-arid environment."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "modelski-ancient:36",
+          "name": "Dholavira",
+          "distanceKm": 0.4,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "source-region-typo-not-copied",
+            "statementZh": "来源正文的东南亚笔误未被复制，本条归入南亚。",
+            "statementEn": "The source's Southeast Asia slip is not copied; the record is assigned to South Asia.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "dholavira"
+    },
+    {
+      "id": "attested:hampi",
+      "kind": "attested-site",
+      "region": "south-asia",
+      "nameZh": "亨比",
+      "nameEn": "Hampi",
+      "aliases": [
+        "维查耶纳伽尔"
+      ],
+      "sources": [
+        {
+          "id": "hampi-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Hampi",
+          "url": "https://whc.unesco.org/en/list/241/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "241",
+          "coordinateUrl": "https://whc.unesco.org/en/list/241/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          76.47167,
+          15.31444
+        ],
+        "sourceDMS": "N15 18 51.984 E76 28 18.012",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "遗产地代表点；不延伸为都城全部范围。",
+        "coordinateMeaningEn": "Representative point of the property; it is not extended to the capital's full extent."
+      },
+      "period": {
+        "start": 1336,
+        "end": 1565,
+        "precision": "range",
+        "dateQuote": "between the 14th and 16th centuries; 1565",
+        "sourceRange": {
+          "from": 1301,
+          "to": 1600,
+          "kind": "ce-centuries"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "14—16世纪宫殿、寺庙与都城建设期；1565年遭攻陷，之后受到劫掠与废弃。这不是古城最早存在的年份。",
+        "interpretationEn": "The fourteenth- to sixteenth-century phase of palace, temple and capital construction; the city was taken in 1565 and subsequently sacked and abandoned. This is not the earliest date of settlement at the site."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "通加巴德拉河南岸的花岗岩丘陵与河谷，包括寺庙、集市、王室建筑与灌溉遗存。",
+          "en": "The granite hills and river valley south of the Tungabhadra, including temples, bazaars, royal buildings and irrigation remains."
+        },
+        "temporal": {
+          "zh": "14—16世纪都城时期，数据以1336—1565表达。",
+          "en": "The fourteenth- to sixteenth-century capital phase, expressed here as 1336–1565."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "亨比位于通加巴德拉河南岸的花岗岩丘陵与河谷，寺庙、集市和王室建筑依地形分布，灌溉渠道与水库支持周边农业。",
+          "en": "Hampi lies among granite hills and river valley south of the Tungabhadra, where temples, bazaars and royal buildings follow the terrain and irrigation channels and reservoirs supported farming."
+        },
+        "development": {
+          "zh": "十四至十六世纪，维查耶纳伽尔王国在此建都，都城围绕寺庙与集市扩张，与波斯、葡萄牙及东南亚商人保持贸易联系；1565年塔利科塔战役后都城被攻陷并遭劫掠。",
+          "en": "From the fourteenth to the sixteenth century the Vijayanagara kingdom ruled from Hampi, its capital expanding around temples and bazaars and trading with Persian, Portuguese and Southeast Asian merchants. After the battle of Talikota in 1565 the city was taken and sacked."
+        },
+        "legacy": {
+          "zh": "亨比的建筑与城市布局记录了南印度帝国都城的宗教与商业组织；都城废弃后，地方势力与聚落仍在区域延续，遗址本身在近代成为考古与遗产保护对象。",
+          "en": "Hampi's architecture and urban layout record the religious and commercial organisation of a South Indian imperial capital. After abandonment, regional powers and settlements continued nearby, and the site became an object of archaeology and heritage protection in modern times."
+        }
+      },
+      "significance": {
+        "zh": "亨比显示了南印度帝国都城如何以宗教与商业空间组织权力。",
+        "en": "Hampi shows how a South Indian imperial capital organised power through religious and commercial space."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:1510",
+          "name": "Hospet",
+          "distanceKm": 2.5,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "construction-phase-not-first-settlement",
+            "statementZh": "14—16世纪为都城建设期，不当作遗址最早有人居住的年份。",
+            "statementEn": "The fourteenth-to-sixteenth-century range is the capital construction phase, not the earliest habitation at the site.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "hampi"
+    },
+    {
+      "id": "attested:kilwa",
+      "kind": "attested-site",
+      "region": "africa",
+      "nameZh": "基尔瓦基西瓦尼",
+      "nameEn": "Kilwa Kisiwani",
+      "aliases": [
+        "基尔瓦"
+      ],
+      "sources": [
+        {
+          "id": "kilwa-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Ruins of Kilwa Kisiwani and Ruins of Songo Mnara",
+          "url": "https://whc.unesco.org/en/list/144/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "144",
+          "coordinateUrl": "https://whc.unesco.org/en/list/144/maps/",
+          "sourceComponentId": "144-001"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          39.5227778,
+          -8.9577778
+        ],
+        "sourceDMS": "S8 57 28.00 E39 31 22.00",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "基尔瓦岛遗址组成部分代表点；与松戈姆纳拉是两处遗址，坐标必须分开。",
+        "coordinateMeaningEn": "Representative point of the Kilwa Island component; Songo Mnara is a separate site and the coordinates must stay apart."
+      },
+      "period": {
+        "start": 801,
+        "end": 1900,
+        "precision": "range",
+        "dateQuote": "occupied from the 9th to the 19th century",
+        "sourceRange": {
+          "from": 801,
+          "to": 1900,
+          "kind": "ce-centuries"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "9—19世纪占居，13—14世纪兴盛；与松戈姆纳拉分开，不能把两个岛的年代与坐标合成一个城市。",
+        "interpretationEn": "Occupation from the ninth to the nineteenth century with prosperity in the thirteenth and fourteenth; Songo Mnara is kept separate and the two islands' dates and coordinates are not combined into one city."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "坦桑尼亚南部海岸外的基尔瓦基西瓦尼岛及其石造建筑遗存。",
+          "en": "Kilwa Kisiwani island off the southern Tanzanian coast and its stone-built remains."
+        },
+        "temporal": {
+          "zh": "9—19世纪的占居期，13—14世纪为贸易兴盛期。",
+          "en": "Occupation from the ninth to the nineteenth century, with prosperity in the thirteenth and fourteenth."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "基尔瓦基西瓦尼是坦桑尼亚南部海岸外的一座岛屿，珊瑚礁与港湾提供停泊条件，石造建筑沿岛分布。",
+          "en": "Kilwa Kisiwani is an island off the southern Tanzanian coast where reefs and a harbour offered anchorage, and stone buildings were raised across the island."
+        },
+        "development": {
+          "zh": "九至十九世纪岛上持续有人居住；十三至十四世纪因黄金、象牙和印度洋贸易而兴盛，大清真寺、宫殿与民居使用珊瑚石与石灰砂浆建造，商人与学者往来于斯瓦希里海岸与阿拉伯、波斯和印度港口之间。",
+          "en": "The island was inhabited from the ninth to the nineteenth century and flourished in the thirteenth and fourteenth through gold, ivory and Indian Ocean trade. The great mosque, palaces and houses were built of coral stone and lime mortar, while merchants and scholars moved between the Swahili coast and Arabian, Persian and Indian ports."
+        },
+        "legacy": {
+          "zh": "基尔瓦是斯瓦希里海岸城市网络的代表，其石造建筑反映印度洋贸易带来的财富与伊斯兰建筑传统；相邻的松戈姆纳拉属于同一世界遗产但为另一处遗址，数据分别保存。",
+          "en": "Kilwa represents the Swahili coastal city network, its stone architecture reflecting wealth from Indian Ocean trade and Islamic building traditions. Neighbouring Songo Mnara belongs to the same World Heritage property but is a separate site and is recorded separately."
+        }
+      },
+      "significance": {
+        "zh": "基尔瓦记录了斯瓦希里海岸如何通过印度洋贸易形成城市与建筑传统。",
+        "en": "Kilwa records how the Swahili coast formed urban and architectural traditions through Indian Ocean trade."
+      },
+      "nearbyExistingRecords": [],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "component-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "separate-from-songo-mnara",
+            "statementZh": "与松戈姆纳拉分开保存，不合并年代与坐标。",
+            "statementEn": "Kept separate from Songo Mnara; dates and coordinates are not merged.",
+            "passed": true
+          },
+          {
+            "id": "recorded-coordinate-conflict",
+            "statementZh": "现有 chandler:715 人口记录坐标与本遗址点相距约63公里，属位置/身份冲突候选，未被本条覆盖。",
+            "statementEn": "The existing chandler:715 population record lies about 63 km from this site point and remains a location/identity conflict candidate that this record does not overwrite.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "kilwa-kisiwani"
+    },
+    {
+      "id": "attested:caral",
+      "kind": "attested-site",
+      "region": "americas",
+      "nameZh": "卡拉尔",
+      "nameEn": "Caral-Supe",
+      "aliases": [
+        "卡拉尔—苏佩"
+      ],
+      "sources": [
+        {
+          "id": "caral-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Sacred City of Caral-Supe",
+          "url": "https://whc.unesco.org/en/list/1269/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1269",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1269/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          -77.5213889,
+          -10.8916667
+        ],
+        "sourceDMS": "S10 53 30 W77 31 17",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "遗产地代表点；不代表整个苏佩河谷的聚落分布。",
+        "coordinateMeaningEn": "Representative point of the property; it does not represent settlement distribution across the whole Supe valley."
+      },
+      "period": {
+        "start": -3000,
+        "end": -1800,
+        "precision": "range",
+        "dateQuote": "between the years 3000 to 1800 B.C.",
+        "sourceRange": {
+          "from": -3000,
+          "to": -1800,
+          "kind": "bce-range"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "放射性碳测年支持遗址发展前3000—前1800；不使用五千年的滚动推算日期。",
+        "interpretationEn": "Radiocarbon dating supports development between 3000 and 1800 BCE; no rolling 'five thousand years ago' date is used."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "秘鲁中部海岸苏佩河谷的台地遗址群，包括土石平台、下沉广场与住宅区。",
+          "en": "The platform complex in the Supe valley on the central Peruvian coast, including earth-and-stone platforms, sunken plazas and residential areas."
+        },
+        "temporal": {
+          "zh": "约前3000—前1800的发展期。",
+          "en": "The development period c. 3000–1800 BCE."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "卡拉尔位于秘鲁中部海岸苏佩河谷的干旱台地，土石平台、下沉广场与住宅区沿河谷分布。",
+          "en": "Caral stands on arid terraces in the Supe valley on the central Peruvian coast, where earth-and-stone platforms, sunken plazas and residential areas follow the river."
+        },
+        "development": {
+          "zh": "放射性碳测年支持前3000—前1800的发展期，居民以灌溉农业、渔业和棉花种植为生，建造大型台地与仪式空间；此后中心功能转移，河谷内其他聚落先后兴起。",
+          "en": "Radiocarbon dating supports a development period from about 3000 to 1800 BCE, when inhabitants lived from irrigation farming, fishing and cotton cultivation and built large platforms and ceremonial spaces. The centre's role later shifted as other settlements in the valley rose."
+        },
+        "legacy": {
+          "zh": "卡拉尔是美洲已知最早的复杂社会中心之一，其纪念性建筑和规划显示了在没有陶器与文字条件下的组织能力；数据不使用滚动推算的“五千年”日期，也不把现代同名地点并入。",
+          "en": "Caral is among the earliest known complex social centres in the Americas, its monumental architecture and planning showing organisational capacity without pottery or writing. The data avoids rolling 'five thousand years' phrasing and does not merge modern places of similar name."
+        }
+      },
+      "significance": {
+        "zh": "卡拉尔说明了美洲早期复杂社会在干旱海岸的组织能力。",
+        "en": "Caral shows the organisational capacity of an early complex society on the arid American coast."
+      },
+      "nearbyExistingRecords": [],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "no-rolling-age-date",
+            "statementZh": "不使用滚动的“五千年”式日期，只用测年支持的范围。",
+            "statementEn": "No rolling 'five thousand years' style date; only the radiocarbon-supported range is used.",
+            "passed": true
+          },
+          {
+            "id": "not-sardinian-caralis",
+            "statementZh": "不与撒丁岛的 Caralis 记录做名称模糊匹配。",
+            "statementEn": "No fuzzy name match with the Sardinian Caralis record.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "caral"
+    },
+    {
+      "id": "attested:cahokia",
+      "kind": "attested-site",
+      "region": "americas",
+      "nameZh": "卡霍基亚",
+      "nameEn": "Cahokia",
+      "aliases": [
+        "卡霍基亚土丘"
+      ],
+      "sources": [
+        {
+          "id": "cahokia-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Cahokia Mounds State Historic Site",
+          "url": "https://whc.unesco.org/en/list/198/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "198",
+          "coordinateUrl": "https://whc.unesco.org/en/list/198/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          -90.0613889,
+          38.6586111
+        ],
+        "sourceDMS": "N38 39 31 W90 3 41",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "官方土丘遗址代表点；不把现代都市区范围当作古代聚落边界。",
+        "coordinateMeaningEn": "Official representative point of the mound site; the modern metropolitan extent is not the ancient settlement boundary."
+      },
+      "period": {
+        "start": 800,
+        "end": 1400,
+        "precision": "range",
+        "dateQuote": "800–1400; 1050 and 1150",
+        "sourceRange": {
+          "from": 800,
+          "to": 1400,
+          "kind": "ce-range"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "主要占居800—1400，高峰1050—1150；来源另一处标准段落使用800—1350，两种表述并列保留，不把1400定为精确废弃年。",
+        "interpretationEn": "Principal occupation 800–1400 with a peak in 1050–1150; another criterion paragraph uses 800–1350. Both statements are retained and 1400 is not treated as a precise abandonment year."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "密西西比河冲积平原上的土丘群、广场与相关聚落遗存。",
+          "en": "The mound groups, plazas and related settlement remains on the Mississippi floodplain."
+        },
+        "temporal": {
+          "zh": "约800—1400的主要占居期，1050—1150为高峰。",
+          "en": "The principal occupation c. 800–1400, with a peak in 1050–1150."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "卡霍基亚位于密西西比河冲积平原，土丘群与广场构成仪式核心，僧侣丘等大型土台和木构建筑沿平地展开。",
+          "en": "Cahokia lay on the Mississippi floodplain, where mound groups and plazas formed a ceremonial core and large platforms such as Monks Mound stood with timber buildings across the flatland."
+        },
+        "development": {
+          "zh": "主要占居约800—1400，1050—1150达到高峰；玉米农业、远距离交换与天文观测支持人口聚集，土丘和木栅工程需要集体劳动与长期组织。",
+          "en": "Principal occupation ran from about 800 to 1400 with a peak in 1050–1150. Maize farming, long-distance exchange and astronomical observation supported population concentration, while mound and palisade construction required collective labour and lasting organisation."
+        },
+        "legacy": {
+          "zh": "卡霍基亚显示北美原住民社会的大型聚落组织能力；十四世纪后人口分散，遗址在考古研究和当代原住民社区记忆中被继续使用。来源在占居上限上有800—1400与800—1350两种表述，数据并列保存。",
+          "en": "Cahokia shows the capacity of Native North American societies for large-scale settlement. Population dispersed after the fourteenth century, and the site continues in archaeological research and in the memory of contemporary Indigenous communities. The source gives both 800–1400 and 800–1350 as the upper limit, and both are kept."
+        }
+      },
+      "significance": {
+        "zh": "卡霍基亚展示了北美原住民社会的大型土丘工程与城市组织。",
+        "en": "Cahokia demonstrates large-scale mound engineering and urban organisation in Native North America."
+      },
+      "nearbyExistingRecords": [
+        {
+          "id": "chandler:1336",
+          "name": "Cahokia",
+          "distanceKm": 12.5,
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:245",
+          "name": "Cahokia",
+          "distanceKm": 14.8,
+          "kind": "urban-observation"
+        }
+      ],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "period-wording-discrepancy-preserved",
+            "statementZh": "来源800—1400与800—1350两种表述并列保留。",
+            "statementEn": "Both source statements, 800–1400 and 800–1350, are retained side by side.",
+            "passed": true
+          },
+          {
+            "id": "recorded-coordinate-conflict",
+            "statementZh": "现有 chandler:245 坐标与本遗址点相距约14.8公里，且 otherNames 写作 Missouri（遗址在 Illinois），列入审查队列但不改写原记录。",
+            "statementEn": "The existing chandler:245 coordinate lies about 14.8 km away and its otherNames says Missouri while the site is in Illinois; it is queued for review and not rewritten here.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "cahokia"
+    },
+    {
+      "id": "attested:nan-madol",
+      "kind": "attested-site",
+      "region": "oceania",
+      "nameZh": "南马都尔",
+      "nameEn": "Nan Madol",
+      "aliases": [
+        "南马都尔遗址"
+      ],
+      "sources": [
+        {
+          "id": "nan-madol-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Nan Madol: Ceremonial Centre of Eastern Micronesia",
+          "url": "https://whc.unesco.org/en/list/1503/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1503",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1503/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          158.3308333,
+          6.8397222
+        ],
+        "sourceDMS": "N6 50 23 E158 19 51",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "遗产地代表点；潟湖建筑群的范围不由单点表示。",
+        "coordinateMeaningEn": "Representative point of the property; the lagoon complex's extent is not represented by a single point."
+      },
+      "period": {
+        "start": 1200,
+        "end": 1500,
+        "precision": "range",
+        "dateQuote": "built between 1200 and 1500 CE",
+        "sourceRange": {
+          "from": 1200,
+          "to": 1500,
+          "kind": "ce-range"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "石造宫殿、庙宇、墓葬与居住区的建造期；组织转变时期1200—1500，不延展为全部居住年代。",
+        "interpretationEn": "The construction period of the stone palaces, shrines, tombs and residential islets; 1200–1500 is a phase of organisational change, not the whole habitation history."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "波纳佩岛东南海岸外潟湖中的人工小岛群、水道与相关仪式建筑。",
+          "en": "The artificial islets, channels and associated ceremonial structures in the lagoon off southeast Pohnpei."
+        },
+        "temporal": {
+          "zh": "1200—1500的建造与社会组织阶段。",
+          "en": "The construction and social-organisation phase of 1200–1500."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "南马都尔位于波纳佩岛东南海岸外的潟湖中，玄武岩柱构筑的人工小岛与水道组成建筑群。",
+          "en": "Nan Madol lies in the lagoon off southeast Pohnpei, where artificial islets built of basalt columns are separated by channels."
+        },
+        "development": {
+          "zh": "1200—1500年间营建石造宫殿、仪式空间、墓葬和居住区，工程依靠当地劳动力与海上运输组织；核心区的大型建筑显示权力与仪式活动的集中。",
+          "en": "Between 1200 and 1500 stone palaces, ceremonial spaces, tombs and residential islets were built, the work organised through local labour and sea transport. The large structures of the core area indicate concentrated political and ritual activity."
+        },
+        "legacy": {
+          "zh": "南马都尔记录了密克罗尼西亚的纪念性建筑与海洋社会；建造期不等于全部居住史，欧洲接触后的使用变化需要另行说明。",
+          "en": "Nan Madol records monumental architecture and maritime society in Micronesia. Its construction phase is not the whole history of habitation, and later changes after European contact require separate treatment."
+        }
+      },
+      "significance": {
+        "zh": "南马都尔以人工岛建筑记录了太平洋岛屿社会的仪式权力与工程能力。",
+        "en": "Nan Madol records ritual power and engineering capacity in a Pacific island society through its artificial islets."
+      },
+      "nearbyExistingRecords": [],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "construction-phase-not-habitation",
+            "statementZh": "1200—1500为建造和组织阶段，不当作全部居住史。",
+            "statementEn": "1200–1500 is the construction and organisation phase, not the whole habitation history.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "nan-madol"
+    },
+    {
+      "id": "attested:levuka",
+      "kind": "attested-site",
+      "region": "oceania",
+      "nameZh": "莱武卡历史港镇",
+      "nameEn": "Levuka Historical Port Town",
+      "aliases": [
+        "莱武卡"
+      ],
+      "sources": [
+        {
+          "id": "levuka-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Levuka Historical Port Town",
+          "url": "https://whc.unesco.org/en/list/1399/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "1399",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1399/"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          178.8345333,
+          -17.6833778
+        ],
+        "sourceDMS": "S17 41 0.16 E178 50 4.32",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "遗产地代表点，位于奥瓦劳岛东岸海滨。",
+        "coordinateMeaningEn": "Representative point of the property on the shore of eastern Ovalau."
+      },
+      "period": {
+        "start": 1820,
+        "end": 1900,
+        "precision": "range",
+        "dateQuote": "From the 1820s onwards",
+        "sourceRange": {
+          "from": 1820,
+          "to": null,
+          "kind": "open-ended-from"
+        },
+        "displayHorizon": 1900,
+        "displayHorizonReasonZh": "来源为开放起点，1900仅作为本条阅读阶段的显示上限，用于与全站时间轴对齐，不是来源所记的城市终点。",
+        "displayHorizonReasonEn": "The source has an open starting point; 1900 is only a display horizon aligning the entry with the atlas timeline and is not a source-stated end of the town.",
+        "interpretationZh": "19世纪港镇商业发展期；1820年代起的殖民港口不能写成岛上本地聚落起源。1882年首府迁走，但城镇仍在发展。",
+        "interpretationEn": "The nineteenth-century phase of port-town commerce; the colonial port that began in the 1820s must not be written as the origin of local island settlement. The capital moved away in 1882 but the town continued to develop."
+      },
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "scope": {
+        "spatial": {
+          "zh": "奥瓦劳岛东岸的狭长海滨街区及其木构建筑群。",
+          "en": "The narrow beachfront street and its timber building stock on the east coast of Ovalau."
+        },
+        "temporal": {
+          "zh": "1820年代起的港镇发展阶段，本条以1900为显示上限。",
+          "en": "The port-town phase beginning in the 1820s, with 1900 used here as a display horizon."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "莱武卡位于奥瓦劳岛东岸的狭窄海滨，木构商铺、仓库、教堂与行政建筑沿街排列，背后是陡峭山地。",
+          "en": "Levuka occupies a narrow shore on eastern Ovalau, where timber shops, warehouses, churches and administrative buildings line the street below steep hills."
+        },
+        "development": {
+          "zh": "1820年代起，海滩交易、椰油和航运推动港镇形成，欧洲商人、传教士与斐济社群在此交汇；1874年斐济成为英国殖民地后莱武卡一度作为首府，1882年首府迁往苏瓦。",
+          "en": "From the 1820s beachcomber trade, coconut oil and shipping drove the growth of a port town where European traders, missionaries and Fijian communities met. After Fiji became a British colony in 1874 Levuka served as capital until the seat of government moved to Suva in 1882."
+        },
+        "legacy": {
+          "zh": "莱武卡的街区格局记录了太平洋殖民港镇的形成与低层木构建筑传统；1820年代是港镇发展阶段起点，不能据此推断本地村落起源，1882年也不是城镇发展的终点。",
+          "en": "Levuka's street layout records the making of a Pacific colonial port town and its low-rise timber tradition. The 1820s mark the start of the port-town phase and do not imply the origin of local villages; 1882 was not the end of the town's development."
+        }
+      },
+      "significance": {
+        "zh": "莱武卡展示了太平洋岛屿港镇在殖民接触时期的空间与社会形态。",
+        "en": "Levuka shows the spatial and social form of a Pacific island port town during colonial contact."
+      },
+      "nearbyExistingRecords": [],
+      "review": {
+        "reviewedOn": "2026-10-03",
+        "candidateReviewStatus": "property-coordinate-and-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "坐标取自世界遗产条目所列代表点或组成部分，并保留原始度分秒；不声称古城中心的米级精度。",
+            "statementEn": "The coordinate is the listed property or component representative point with its original DMS retained; no metre-level accuracy for an ancient city centre is claimed.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "展读时段落在来源年代短语所覆盖的范围内，未用其他年代替换。",
+            "statementEn": "The display period lies inside the range covered by the source date phrase and no other dating is substituted.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "不主张逐年连续占居，也不把繁荣期当作城市完整寿命。",
+            "statementEn": "Continuous year-by-year occupation is not asserted, and a peak phase is not treated as the city's whole lifespan.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "与邻近人口记录或同名现代城市只作空间提示，不建立同一身份，不合并坐标与年代。",
+            "statementEn": "Nearby population records or modern cities of the same name are listed as spatial prompts only; no identity, coordinate or period merge is performed.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "未设定显示窗口，年代以世纪或范围表达，不虚构具体月日。",
+            "statementEn": "No display window is set; dates stay at century or range precision and no month or day is invented.",
+            "passed": true
+          },
+          {
+            "id": "port-phase-not-village-origin",
+            "statementZh": "1820年代为港镇阶段起点，不当作本地村落起源；1882年首府迁移不等于城市终点。",
+            "statementEn": "The 1820s are the start of the port-town phase, not the origin of local villages, and the 1882 transfer of the capital is not the town's end.",
+            "passed": true
+          },
+          {
+            "id": "open-ended-horizon-declared",
+            "statementZh": "来源起点开放，显示上限1900已显式声明为对齐用上限。",
+            "statementEn": "The source has an open start; the 1900 display horizon is explicitly declared as an alignment limit.",
+            "passed": true
+          }
+        ]
+      },
+      "handoffCandidateId": "levuka"
+    },
+    {
+      "kind": "attested-site",
+      "region": "southeast-asia",
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "nearbyExistingRecords": [],
+      "id": "attested:si-thep",
+      "nameZh": "西贴古城",
+      "nameEn": "Si Thep",
+      "aliases": [
+        "Sri Thep",
+        "西贴",
+        "西贴古镇"
+      ],
+      "sources": [
+        {
+          "id": "si-thep-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "The Ancient Town of Si Thep and its Associated Dvaravati Monuments",
+          "url": "https://whc.unesco.org/en/list/1662/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original bilingual factual synthesis; source excerpts retained in the evidence archive.",
+          "readOn": "2026-10-06",
+          "propertyId": "1662",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1662/maps/",
+          "evidenceCatalog": "data/research-evidence/cities-3.41/catalog.json",
+          "sourceComponentId": "1662-001"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          101.1511138888889,
+          15.465816666666665
+        ],
+        "sourceDMS": "N15 27 56.94 E101 9 4.01",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "UNESCO 1662-001 古城组成部分的代表点。",
+        "coordinateMeaningEn": "UNESCO reference point for the ancient-town component 1662-001."
+      },
+      "period": {
+        "start": 501,
+        "end": 1000,
+        "precision": "centuries",
+        "dateQuote": "from the 6th to the 10th centuries",
+        "sourceRange": {
+          "from": 501,
+          "to": 1000,
+          "kind": "ce-centuries"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "来源以6—10世纪概括古城与关联古迹所体现的陀罗钵地文化时期；年份按整世纪转换，用于筛选这一阶段。建城、弃城及逐年居住情况另需考证。",
+        "interpretationEn": "UNESCO dates the Dvaravati cultural phase represented by the town and associated monuments to the sixth through tenth centuries. The numeric bounds convert those centuries for filtering; foundation, abandonment and annual occupation require separate evidence."
+      },
+      "scope": {
+        "spatial": {
+          "zh": "此点对应护城河环绕的内城与外城；考巴生和考塔莫拉洞穴属于同一系列遗产中的另外两个组成部分。",
+          "en": "This point represents the moated Inner and Outer Town. Khao Klang Nok and Khao Thamorrat Cave are separate components of the same serial property."
+        },
+        "temporal": {
+          "zh": "展示6—10世纪的陀罗钵地文化阶段，2023年列入遗产名录属于现代保护史。",
+          "en": "The displayed phase is the sixth–tenth-century Dvaravati cultural period. Inscription in 2023 belongs to modern heritage history."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "西贴位于今泰国中部。护城河环绕的内城与外城构成双城布局，城市与周围宗教古迹共同保存了陀罗钵地时期的规划、水利和居住活动痕迹。",
+          "en": "Si Thep lies in present-day central Thailand. Its moated Inner and Outer Town form a distinctive twin-town layout. The town and nearby religious monuments preserve evidence of Dvaravati planning, water infrastructure and successive layers of inhabitation."
+        },
+        "development": {
+          "zh": "6—10世纪，来自印度的宗教与艺术传统在当地形成新的表达。印度教、上座部佛教和大乘佛教并存，寺院、洞窟与雕刻展现了多种传统之间的交流。",
+          "en": "Between the sixth and tenth centuries, religious and artistic traditions from India acquired local forms. Hinduism, Theravada Buddhism and Mahayana Buddhism coexisted. The town, monuments and cave monastery reveal these exchanges through their architecture, sculpture and religious spaces."
+        },
+        "legacy": {
+          "zh": "西贴艺术流派以独特的雕塑姿态和表现身体动态的方式著称，并影响泰国其他地区的艺术与建筑。结合古城、考巴生和考塔莫拉洞穴阅读，可以观察城市空间与宗教生活的联系。",
+          "en": "The Si Thep School of Art developed distinctive sculpture, including standing figures that express bodily movement, and influenced art and architecture elsewhere in Thailand. Studying the town alongside Khao Klang Nok and Khao Thamorrat Cave connects urban space with religious life."
+        }
+      },
+      "significance": {
+        "zh": "通过双城布局与多种宗教遗存，认识陀罗钵地时期东南亚城市和艺术交流。",
+        "en": "The twin-town layout and diverse religious remains illuminate Dvaravati urban life and artistic exchange in Southeast Asia."
+      },
+      "review": {
+        "reviewedOn": "2026-10-06",
+        "candidateReviewStatus": "component-coordinate-and-cultural-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "代表点已与 UNESCO 遗产或组成部分坐标逐项核对。",
+            "statementEn": "The reference point was checked against the UNESCO property or component coordinates.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "筛选年代依照来源给出的世纪范围，具体历史含义见年代说明。",
+            "statementEn": "The filter period follows the source-stated centuries; its historical meaning is recorded in the period interpretation.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "该范围概括有据可查的历史活动，并未逐年证实连续居住。",
+            "statementEn": "The range describes the attested historical activity and does not establish continuous annual occupation.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "已审查现有记录名称和近邻位置，保留独立遗址身份。",
+            "statementEn": "Existing names and nearby points were reviewed; the site retains a separate identity.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "额外显示窗口保持为空。",
+            "statementEn": "No additional display window is applied.",
+            "passed": true
+          }
+        ]
+      },
+      "researchCandidateId": "si-thep"
+    },
+    {
+      "kind": "attested-site",
+      "region": "southeast-asia",
+      "continuousOccupationAsserted": false,
+      "displayWindow": null,
+      "nearbyExistingRecords": [],
+      "id": "attested:sambor-prei-kuk",
+      "nameZh": "三波坡雷古（伊奢那补罗）",
+      "nameEn": "Sambor Prei Kuk (Ishanapura)",
+      "aliases": [
+        "Sambor Prei Kuk",
+        "Ishanapura",
+        "Isanapura",
+        "伊奢那补罗",
+        "三波坡雷古"
+      ],
+      "sources": [
+        {
+          "id": "sambor-prei-kuk-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Temple Zone of Sambor Prei Kuk, Archaeological Site of Ancient Ishanapura",
+          "url": "https://whc.unesco.org/en/list/1532/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original bilingual factual synthesis; source excerpts retained in the evidence archive.",
+          "readOn": "2026-10-06",
+          "propertyId": "1532",
+          "coordinateUrl": "https://whc.unesco.org/en/list/1532/",
+          "evidenceCatalog": "data/research-evidence/cities-3.41/catalog.json"
+        }
+      ],
+      "location": {
+        "coordinates": [
+          105.04305555555555,
+          12.8725
+        ],
+        "sourceDMS": "N12 52 21 E105 2 35",
+        "representativePoint": true,
+        "accuracyMeters": null,
+        "coordinateMeaningZh": "UNESCO 寺区遗产代表点；带护城河的古城遗迹位于寺区以西。",
+        "coordinateMeaningEn": "UNESCO reference point for the temple-zone property; the moated city remains lie to its west."
+      },
+      "period": {
+        "start": 601,
+        "end": 1100,
+        "precision": "centuries",
+        "dateQuote": "repairs and modifications carried out from the 7th to the 11th century",
+        "sourceRange": {
+          "from": 601,
+          "to": 1100,
+          "kind": "ce-centuries"
+        },
+        "displayHorizon": null,
+        "interpretationZh": "筛选范围对应来源记载的7—11世纪寺庙修缮与改建活动。伊奢那补罗作为真腊都城的早期背景另述于正文；两种年代含义分别保留。",
+        "interpretationEn": "The filter range represents the seventh–eleventh-century repairs and modifications documented for the temples. The earlier Chenla-capital context of Ishanapura is described separately in the narrative."
+      },
+      "scope": {
+        "spatial": {
+          "zh": "地图定位于伊奢那补罗遗址东侧的寺区，古城、土堤通道和水系作为关联历史空间说明。",
+          "en": "The map point locates the temple zone east of the Ishanapura city remains. The city, earthen causeways and water system provide its wider historical setting."
+        },
+        "temporal": {
+          "zh": "地图展示寺区7—11世纪的修缮与改建阶段；6世纪末至7世纪初的都城背景依据来源文字保留。",
+          "en": "The map displays the seventh–eleventh-century phase of temple repairs and modifications; the source wording for the late-sixth- and early-seventh-century capital context is retained separately."
+        }
+      },
+      "narrative": {
+        "setting": {
+          "zh": "三波坡雷古寺区属于古伊奢那补罗遗址，位于带护城河的古城以东。土堤通道将寺区与森河及可能的古港联系起来，水渠和堤坝构成了周围景观的重要部分。",
+          "en": "The Sambor Prei Kuk temple zone belongs to ancient Ishanapura and lies east of its moated city remains. Earthen causeways connect the temples with the Stung Sen River and a possible harbour, while canals and dykes form part of the surrounding landscape."
+        },
+        "development": {
+          "zh": "UNESCO将遗址与真腊都城伊奢那补罗联系起来，并将真腊的繁盛背景概括为6世纪末至7世纪初。此后寺庙在7—11世纪经历修缮和改建，保存了不同时期的宗教活动痕迹。",
+          "en": "UNESCO identifies the site with Ishanapura, the Chenla capital, in the context of Chenla flourishing in the late sixth and early seventh centuries. The temples later underwent repairs and modifications from the seventh to the eleventh century, the phase used for this record’s map filter."
+        },
+        "legacy": {
+          "zh": "砖塔、砂岩装饰和八角形寺庙体现了吴哥之前的建筑传统。梵文与古高棉文铭文记录寺庙活动、君主和其他人物，为理解宗教生活与政治组织提供了具体线索。",
+          "en": "Brick towers, sandstone details and octagonal temples preserve an architectural tradition preceding Angkor. Sanskrit and Old Khmer inscriptions record temple activities, kings and other individuals, offering evidence for religious and political life. The site’s art and architecture helped shape later Khmer forms."
+        }
+      },
+      "significance": {
+        "zh": "把吴哥之前的建筑、铭文和水利遗存联系起来，阅读真腊时期的城市与宗教空间。",
+        "en": "Architecture, inscriptions and hydraulic remains connect the pre-Angkor city with the religious and political life of the Chenla period."
+      },
+      "review": {
+        "reviewedOn": "2026-10-06",
+        "candidateReviewStatus": "property-coordinate-and-temple-activity-period-verified",
+        "checks": [
+          {
+            "id": "coordinate-provenance",
+            "statementZh": "代表点已与 UNESCO 遗产或组成部分坐标逐项核对。",
+            "statementEn": "The reference point was checked against the UNESCO property or component coordinates.",
+            "passed": true
+          },
+          {
+            "id": "period-source-anchored",
+            "statementZh": "筛选年代依照来源给出的世纪范围，具体历史含义见年代说明。",
+            "statementEn": "The filter period follows the source-stated centuries; its historical meaning is recorded in the period interpretation.",
+            "passed": true
+          },
+          {
+            "id": "no-continuous-occupation",
+            "statementZh": "该范围概括有据可查的历史活动，并未逐年证实连续居住。",
+            "statementEn": "The range describes the attested historical activity and does not establish continuous annual occupation.",
+            "passed": true
+          },
+          {
+            "id": "no-identity-merge",
+            "statementZh": "已审查现有记录名称和近邻位置，保留独立遗址身份。",
+            "statementEn": "Existing names and nearby points were reviewed; the site retains a separate identity.",
+            "passed": true
+          },
+          {
+            "id": "display-window-null",
+            "statementZh": "额外显示窗口保持为空。",
+            "statementEn": "No additional display window is applied.",
+            "passed": true
+          }
+        ]
+      },
+      "researchCandidateId": "sambor-prei-kuk"
+    }
+  ],
+  "oldReviewLedger": [
+    {
+      "candidateId": "liangzhu",
+      "decision": "integrated",
+      "recordId": "attested:liangzhu"
+    },
+    {
+      "candidateId": "yinxu",
+      "decision": "integrated",
+      "recordId": "attested:yinxu"
+    },
+    {
+      "candidateId": "quanzhou-old-city",
+      "decision": "integrated",
+      "recordId": "attested:quanzhou"
+    },
+    {
+      "candidateId": "bagan",
+      "decision": "integrated",
+      "recordId": "attested:bagan"
+    },
+    {
+      "candidateId": "ayutthaya",
+      "decision": "integrated",
+      "recordId": "attested:ayutthaya"
+    },
+    {
+      "candidateId": "dholavira",
+      "decision": "integrated",
+      "recordId": "attested:dholavira"
+    },
+    {
+      "candidateId": "hampi",
+      "decision": "integrated",
+      "recordId": "attested:hampi"
+    },
+    {
+      "candidateId": "kilwa-kisiwani",
+      "decision": "integrated",
+      "recordId": "attested:kilwa"
+    },
+    {
+      "candidateId": "caral",
+      "decision": "integrated",
+      "recordId": "attested:caral"
+    },
+    {
+      "candidateId": "cahokia",
+      "decision": "integrated",
+      "recordId": "attested:cahokia"
+    },
+    {
+      "candidateId": "nan-madol",
+      "decision": "integrated",
+      "recordId": "attested:nan-madol"
+    },
+    {
+      "candidateId": "levuka",
+      "decision": "integrated",
+      "recordId": "attested:levuka"
+    },
+    {
+      "candidateId": "anuradhapura",
+      "decision": "enhancement",
+      "recordId": "enhancement:anuradhapura"
+    },
+    {
+      "candidateId": "teotihuacan",
+      "decision": "enhancement",
+      "recordId": "enhancement:teotihuacan"
+    },
+    {
+      "candidateId": "sri-ksetra",
+      "decision": "deferred",
+      "recordId": null
+    },
+    {
+      "candidateId": "mapungubwe",
+      "decision": "deferred",
+      "recordId": null
+    },
+    {
+      "candidateId": "mbanza-kongo",
+      "decision": "deferred",
+      "recordId": null
+    },
+    {
+      "candidateId": "roi-mata-residence",
+      "decision": "deferred",
+      "recordId": null
+    }
+  ],
+  "oldSupplementalReviewLedger": [
+    {
+      "candidateId": "si-thep",
+      "decision": "integrated",
+      "recordId": "attested:si-thep"
+    },
+    {
+      "candidateId": "sambor-prei-kuk",
+      "decision": "integrated",
+      "recordId": "attested:sambor-prei-kuk"
+    }
+  ],
+  "oldEnhancements": [
+    {
+      "id": "enhancement:anuradhapura",
+      "kind": "existing-record-enhancement",
+      "region": "south-asia",
+      "nameZh": "阿努拉德普勒",
+      "nameEn": "Anuradhapura",
+      "existingRecordIds": [
+        "chandler:73",
+        "modelski-ancient:12"
+      ],
+      "sources": [
+        {
+          "id": "anuradhapura-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Sacred City of Anuradhapura",
+          "url": "https://whc.unesco.org/en/list/200/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "200",
+          "coordinateUrl": "https://whc.unesco.org/en/list/200/"
+        }
+      ],
+      "attestationPeriod": {
+        "start": -300,
+        "end": 993,
+        "precision": "range",
+        "dateQuote": "3rd century B.C.; 993",
+        "sourceRange": {
+          "from": -300,
+          "to": 993,
+          "kind": "bce-to-ce"
+        },
+        "interpretationZh": "圣城传统自前3世纪延续至993年政治中心转移；这是遗址级时段，不是逐年人口序列。",
+        "interpretationEn": "The sacred-city tradition runs from the third century BCE to the political shift of 993; this is a site-level period, not a year-by-year population series."
+      },
+      "proposedUse": {
+        "zh": "为已有记录补充遗址级展读时段与双语分期说明；现有离散人口观测年保持原样，仅在其观测年显示人口。",
+        "en": "Adds a site-level display period and bilingual phase note to existing records; discrete population observation years stay as they are and populations appear only in those years."
+      },
+      "coordinatePolicy": {
+        "zh": "世界遗产代表点 [80.3833333, 8.3333333] 与 chandler:73 [80.41306, 8.31223]、modelski-ancient:12 [80.383333, 8.35] 分别保存，互不覆盖；构建脚本按现有坐标计算距离并写入报告。",
+        "en": "The World Heritage representative point [80.3833333, 8.3333333], chandler:73 [80.41306, 8.31223] and modelski-ancient:12 [80.383333, 8.35] are kept apart without overwriting; the build script computes their distances and writes them into the report."
+      },
+      "notes": {
+        "zh": "该候选在交接研究中的定位是“已有 Pleiades/人口记录的分期与双语增强”，因此不新增独立地点，避免与既有记录形成重复点。",
+        "en": "The handoff research positions this candidate as a phase and bilingual enhancement of existing records, so no separate point is added and duplicate markers are avoided."
+      },
+      "attestationCoordinate": [
+        80.3833333,
+        8.3333333
+      ]
+    },
+    {
+      "id": "enhancement:teotihuacan",
+      "kind": "existing-record-enhancement",
+      "region": "americas",
+      "nameZh": "特奥蒂瓦坎",
+      "nameEn": "Teotihuacan",
+      "existingRecordIds": [
+        "chandler:1404",
+        "modelski-ancient:128"
+      ],
+      "sources": [
+        {
+          "id": "teotihuacan-unesco",
+          "publisher": "UNESCO World Heritage Centre",
+          "title": "Pre-Hispanic City of Teotihuacan",
+          "url": "https://whc.unesco.org/en/list/414/",
+          "license": "CC BY-SA IGO 3.0 (listing description); original factual synthesis only, no source prose or images reproduced",
+          "readOn": "2026-10-03",
+          "propertyId": "414",
+          "coordinateUrl": "https://whc.unesco.org/en/list/414/"
+        }
+      ],
+      "attestationPeriod": {
+        "start": 1,
+        "end": 700,
+        "precision": "range",
+        "dateQuote": "between the 1st and 7th centuries A.D.",
+        "sourceRange": {
+          "from": 1,
+          "to": 700,
+          "kind": "ce-centuries"
+        },
+        "interpretationZh": "城市建设期约公元1—7世纪；不能称公元1年精确建城。",
+        "interpretationEn": "The urban building phase runs from about the first to the seventh century CE; the city cannot be said to have been founded in the precise year 1."
+      },
+      "proposedUse": {
+        "zh": "为已有记录补充遗址级时段与双语分期说明；现有离散人口观测年与坐标保持原样。",
+        "en": "Adds a site-level period and bilingual phase note to existing records; discrete population observation years and coordinates stay unchanged."
+      },
+      "coordinatePolicy": {
+        "zh": "世界遗产代表点 [-98.84167, 19.69167] 与 chandler:1404、modelski-ancient:128 的 [-98.84606, 19.69291001] 分别保存，互不覆盖；构建脚本计算两者距离。",
+        "en": "The World Heritage representative point [-98.84167, 19.69167] and the [-98.84606, 19.69291001] of chandler:1404 and modelski-ancient:128 are kept apart without overwriting, with distances computed by the build script."
+      },
+      "notes": {
+        "zh": "modelski-ancient:128 的人口观测自前900年起，早于世界遗产条目所述建设期；该序列不被本条裁剪或改写，作为独立的来源序列保留并列入待核验清单。",
+        "en": "modelski-ancient:128 carries population observations from 900 BCE, earlier than the building phase given by the World Heritage listing; that series is neither clipped nor rewritten here and is kept as a separate source series on the review list."
+      },
+      "attestationCoordinate": [
+        -98.84167,
+        19.69167
+      ]
+    }
+  ],
+  "oldDeferred": [
+    {
+      "candidateId": "sri-ksetra",
+      "region": "southeast-asia",
+      "nameZh": "室利差呾罗",
+      "nameEn": "Sri Ksetra",
+      "dateQuote": "between 200 BC and AD 900",
+      "reviewStatus": "needs-individual-city-period",
+      "primaryUrl": "https://whc.unesco.org/en/list/1444/",
+      "reasonZh": "来源年代是骠国三座城址的合计跨度，尚未完成单座城址的年代核验，因此不能用合计跨度直接填入一个地点记录。",
+      "reasonEn": "The source date spans three Pyu cities together and the individual city period has not been verified, so the combined range cannot be written into a single site record.",
+      "nextStepZh": "按 1444-003 组成部分坐标与各城分别的年代证据完成单城拆分后，再作为独立记录整合。",
+      "nextStepEn": "Split the component into individual cities using the 1444-003 component coordinate and per-city dating evidence before integration."
+    },
+    {
+      "candidateId": "mapungubwe",
+      "region": "africa",
+      "nameZh": "马蓬古布韦聚落景观",
+      "nameEn": "Mapungubwe settlement landscape",
+      "dateQuote": "between 900 and 1,300 AD",
+      "reviewStatus": "needs-single-settlement-refinement",
+      "primaryUrl": "https://whc.unesco.org/en/list/1099/",
+      "reasonZh": "900—1300覆盖三处都城构成的聚落景观，不能称单一山丘都城始于900年，需要先完成单城拆分。",
+      "reasonEn": "The 900–1300 range covers a landscape of three capitals; it cannot be stated that a single hilltop capital began in 900, so single-settlement refinement is required first.",
+      "nextStepZh": "分别核对马蓬古布韦山、斯瓦特科普与班巴迪亚纳洛的年代与坐标后再整合。",
+      "nextStepEn": "Verify the dates and coordinates of Mapungubwe Hill, Schroda and Bambandyanalo separately before integration."
+    },
+    {
+      "candidateId": "mbanza-kongo",
+      "region": "africa",
+      "nameZh": "姆班扎刚果",
+      "nameEn": "Mbanza Kongo",
+      "dateQuote": "14th to 19th centuries; 15th century",
+      "reviewStatus": "needs-city-versus-polity-period-review",
+      "primaryUrl": "https://whc.unesco.org/en/list/1511/",
+      "reasonZh": "来源把城市时段与刚果王国时段混在一起，需要分开城市形成期与王国政治史，不能机械复用全王国年代。",
+      "reasonEn": "The source mixes the city's period with that of the Kongo kingdom; the urban formation phase must be separated from the kingdom's political history rather than reusing the kingdom's dates.",
+      "nextStepZh": "以 15 世纪城镇证据界定城市时段，王国年代归入政体叙述；现有 anc-kongo 事件继续承担王国层面叙述。",
+      "nextStepEn": "Define the urban period from the fifteenth-century town evidence, leave kingdom dates to the polity narrative, and keep the existing anc-kongo event at kingdom level."
+    },
+    {
+      "candidateId": "roi-mata-residence",
+      "region": "oceania",
+      "nameZh": "曼加斯：罗伊·马塔居所",
+      "nameEn": "Mangaas, Roi Mata residence",
+      "dateQuote": "early 17th century AD",
+      "reviewStatus": "needs-individual-residence-coordinate",
+      "primaryUrl": "https://whc.unesco.org/en/list/1280/",
+      "reasonZh": "已核对的坐标是遗产地整体代表点，单独居所的坐标尚未验证，不能把整体点标作 Mangaas 居所。",
+      "reasonEn": "The verified coordinate is the representative point of the whole property; the individual residence coordinate is unverified and the site point must not be labelled as the Mangaas residence.",
+      "nextStepZh": "取得组成部分级坐标后再建地点记录；本轮以 v310-roi-mata 事件（representative 定位）说明十七世纪初的酋长权威。",
+      "nextStepEn": "Obtain a component-level coordinate before creating a place record; this round explains early seventeenth-century chiefly authority through the v310-roi-mata event with representative positioning."
+    }
+  ]
+}
