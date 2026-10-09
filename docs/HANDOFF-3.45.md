@@ -6,7 +6,7 @@
 
 用户已明确撤销暂停，要求继续优化、每完成一批可验证工作后上线。旧3.44及暂停交接中的停止要求不再适用。沿用主仓库 `/Users/zane/meridian_atlas/world-history-atlas` 与原仅所有者可访问的站点。此批是阅读体验与原典扩展，不宣称完整世界史或全面超越竞品。
 
-本批代码已通过最终完整自检、传输与构建；部署结果以 `verification-3.45/publication.json` 为准，文件存在且状态succeeded才表示3.45已上线。原网址：https://meridian-world-history.zhuozheng2006.chatgpt.site 。
+本批已于2026-10-10 04:29（Asia/Shanghai）上线，原生部署状态succeeded。发布源码ff0ebe1775bb2eaccf49e4a39a3325225c9de1f3；完整结果见 `verification-3.45/publication.json`。最终完整自检、传输与构建均通过。原网址：https://meridian-world-history.zhuozheng2006.chatgpt.site 。
 
 ## 已合入：阅读位置保持
 
