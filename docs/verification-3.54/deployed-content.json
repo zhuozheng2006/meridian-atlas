@@ -1,0 +1,57 @@
+{
+  "version": "3.54.0",
+  "status": "passed",
+  "checkedAt": "2026-11-11T18:15:59.739Z",
+  "checks": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "method": "asset version (hosting may inject HTML)",
+      "sha256": "90f46c3b3181bd0f41d08b3c64db697c55243e057a1ab7784fcc8ebfe4ea2e3c"
+    },
+    {
+      "file": "country-archive.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "7287e49d9e89da4f974b26058b2084b5b960899dde535a8e9753edb4a235c143"
+    },
+    {
+      "file": "boundary-controller.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "ad944f318249e50a4f6a55e39c4bdc3bdf72d8f633198fac6c6b0c895642a8f8"
+    },
+    {
+      "file": "regional-boundaries.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "8e58ad68415802d0ae0e3bedf7bcb7308caef32bf0c0049a81fe1a577e3cf5d5"
+    },
+    {
+      "file": "map-engine.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "46ed562b6818109097bae268507266b2fe6e8ffc0496fcc43f6c4774e2f591fe"
+    },
+    {
+      "file": "data/ohm-britain/manifest.json",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "239130d917ab3fce1accfe41fa5d2ab152442186e68d7e4a01f8c4d57660cea5"
+    },
+    {
+      "file": "data/ohm-transport/manifest.json",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "c4c3fa649e9e8d32640697668184698bd787c6e0d82c4efdbe84173085b75307"
+    },
+    {
+      "route": "/__atlas-static-import/status",
+      "status": 404
+    },
+    {
+      "route": "/__atlas-import/status",
+      "status": 404
+    }
+  ]
+}
