@@ -1,0 +1,75 @@
+{
+  "scope": "Node controller lifecycle regression using actual shipped MapLibre GeoJSONSource and SourceCache loaded/content behavior; controlled worker and tile transport; not browser or timing evidence",
+  "root": "/Users/zane/meridian_atlas/world-history-atlas",
+  "candidate": "/Users/zane/meridian_atlas/world-history-atlas/public/lakes.js",
+  "sourceSha256": "3dfdf213293bd43a4e0cfde9678d6d41840cbb53171a52e9a21eefb38eacd030",
+  "maplibreSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c",
+  "pass": 16,
+  "fail": 0,
+  "results": [
+    {
+      "name": "Unchanged 3.45 controller reproduces own-source ready yet still hidden until global idle",
+      "passed": true
+    },
+    {
+      "name": "Current own-source content and tiles reveal lakes on render without global idle",
+      "passed": true
+    },
+    {
+      "name": "Metadata and unrelated tiles do not certify current lake content",
+      "passed": true
+    },
+    {
+      "name": "Content before viewport tile completion stays on overview",
+      "passed": true
+    },
+    {
+      "name": "Queued newer setData cannot be certified by older metadata/content or tile events",
+      "passed": true
+    },
+    {
+      "name": "Late tile event cannot commit while a newer GeoJSON worker request runs",
+      "passed": true
+    },
+    {
+      "name": "Movestart invalidates a submitted frame before its own completion",
+      "passed": true
+    },
+    {
+      "name": "A camera still moving cannot activate lake detail",
+      "passed": true
+    },
+    {
+      "name": "A stale viewport or zoom tier cannot activate detail even without a move notification",
+      "passed": true
+    },
+    {
+      "name": "Loaded margin survives a small pan without another setData",
+      "passed": true
+    },
+    {
+      "name": "Source error after content prevents late ready; explicit update can recover",
+      "passed": true
+    },
+    {
+      "name": "Real GeoJSON worker rejection cannot be mistaken for a loaded error cache",
+      "passed": true
+    },
+    {
+      "name": "Disabled geography and modern reference keep late source completion hidden",
+      "passed": true
+    },
+    {
+      "name": "Destroy alone removes new listeners and bars later writes or callbacks",
+      "passed": true
+    },
+    {
+      "name": "Pending network completion after destroy never reaches setData",
+      "passed": true
+    },
+    {
+      "name": "Idle remains a safe completion fallback after own content and cached tiles",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "generated": "2026-11-11T16:23:41.814Z",
+  "baseline": {
+    "commit": "25ba64cd5eac5a41b2e4bb6ac38f5fad959bce45",
+    "source": "public/map-engine.js",
+    "fileSHA256": "537bc007d0af40aa7034738eb15792318f71b152683ec6a99de62086f797f7f7",
+    "methodSHA256": "1cddb5a6ed6c8952cc63d567b11cbcfbc983d58c211b9e6bbb49db458a1dbbfe",
+    "scope": "Frozen complete original displayTerritories method; executed with real unmodified border-curves and boundary-mesh."
+  },
+  "method": "Actual candidate AtlasMap/BoundaryController and unmodified native loader, exact local 1492 pack, frozen original display method oracle, and actual MapLibre 5.6.2 GeoJSONSource/GeoJSONWorkerSource with structured-clone actor boundaries. Native data transport is local file-backed. This is not browser rendering, network latency, or first-load acceleration evidence.",
+  "passed": 14,
+  "total": 14,
+  "checks": [
+    {
+      "name": "A full real 1492 frame is byte-identical to the frozen original, while same-year language commits reuse derivation and skip settled LD",
+      "pass": true
+    },
+    {
+      "name": "Changed properties, feature ordering and replacement geometry references invalidate the one-frame cache",
+      "pass": true
+    },
+    {
+      "name": "Raw, curved and CShapes portrayal remain byte-identical to the old method and never accumulate synthetic features",
+      "pass": true
+    },
+    {
+      "name": "Explicit invalidation rebuilds the existing portrayal WeakMaps even for in-place raw-coordinate edits",
+      "pass": true
+    },
+    {
+      "name": "External setData on the same real source invalidates ownership; same-year display restores the intended frame",
+      "pass": true
+    },
+    {
+      "name": "Style replacement with a new actual source resubmits the existing exact derivation and detaches the retired observer",
+      "pass": true
+    },
+    {
+      "name": "An actual source failure forces a later same-input retry instead of treating the failed submission as loaded",
+      "pass": true
+    },
+    {
+      "name": "Owned A in flight then owned B remains correct through real MapLibre queued _data replacement",
+      "pass": true
+    },
+    {
+      "name": "External A in flight then owned B remains correct through real MapLibre queued _data replacement",
+      "pass": true
+    },
+    {
+      "name": "An external queued updateData diff is superseded by a later same-year frame even while _data still has the owned reference",
+      "pass": true
+    },
+    {
+      "name": "Rapid curve toggles during a real in-flight submission settle on the last exact portrayal",
+      "pass": true
+    },
+    {
+      "name": "Overlapping year requests keep the existing AtlasMap stale-result guard and do not cache an old late frame",
+      "pass": true
+    },
+    {
+      "name": "Dual maps own independent submissions and destroying one releases only its cache and source listeners",
+      "pass": true
+    },
+    {
+      "name": "Source observers detach and explicit invalidation leaves no collection or payload retained",
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "year": 1492,
+      "records": 136,
+      "inputUTF8Bytes": 579124,
+      "derivedUTF8Bytes": 18752670,
+      "derivedSHA256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949",
+      "metrics": [
+        {
+          "lang": "bi",
+          "synchronousMs": 362.72420900000003,
+          "setDataCalls": 1,
+          "cache": {
+            "builds": 1,
+            "hits": 0,
+            "submissions": 1,
+            "skipped": 0,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        },
+        {
+          "lang": "en",
+          "synchronousMs": 0.4484170000000631,
+          "setDataCalls": 0,
+          "cache": {
+            "builds": 1,
+            "hits": 1,
+            "submissions": 1,
+            "skipped": 1,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        },
+        {
+          "lang": "zh",
+          "synchronousMs": 0.27370799999994233,
+          "setDataCalls": 0,
+          "cache": {
+            "builds": 1,
+            "hits": 2,
+            "submissions": 1,
+            "skipped": 2,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        },
+        {
+          "lang": "bi",
+          "synchronousMs": 0.28912500000001273,
+          "setDataCalls": 0,
+          "cache": {
+            "builds": 1,
+            "hits": 3,
+            "submissions": 1,
+            "skipped": 3,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        }
+      ],
+      "sourceInputEqualsFrozenOracle": true,
+      "rawUnchanged": true
+    }
+  ]
+}

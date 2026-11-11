@@ -1,18 +1,18 @@
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.49.0-21169f0d36c4';
-import {boundaryMesh} from './boundary-mesh.js?v=3.49.0-21169f0d36c4';
-import {curvedBorders} from './border-curves.js?v=3.49.0-21169f0d36c4';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.49.0-21169f0d36c4';
-import {BoundaryController} from './boundary-controller.js?v=3.49.0-21169f0d36c4';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.49.0-21169f0d36c4';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.49.0-21169f0d36c4';
-import {Geography} from './geography.js?v=3.49.0-21169f0d36c4';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.49.0-21169f0d36c4';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.50.0-ac226550198f';
+import {boundaryMesh} from './boundary-mesh.js?v=3.50.0-ac226550198f';
+import {curvedBorders,borderChordError} from './border-curves.js?v=3.50.0-ac226550198f';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.50.0-ac226550198f';
+import {BoundaryController} from './boundary-controller.js?v=3.50.0-ac226550198f';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.50.0-ac226550198f';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.50.0-ac226550198f';
+import {Geography} from './geography.js?v=3.50.0-ac226550198f';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.50.0-ac226550198f';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.49.0-21169f0d36c4';
+import {polityName} from './polity-names.js?v=3.50.0-ac226550198f';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
@@ -74,6 +74,7 @@ export class AtlasMap{
   this.map.on('click','territories',e=>{if(this.regional?.detailedActive||this.historical?.hit(e.point))return;const landscape=this.regional?.halc?.landscape?.hit(e.point);if(landscape&&[7,8,9].includes(landscape.properties.LANDSCAPE))return;if(!landscape&&this.geography?.reference&&this.map.getLayer('reference-water')&&this.map.queryRenderedFeatures(e.point,{layers:['reference-water']}).length)return;if(!landscape&&this.geography?.coastAligned&&this.geography.fineCoastVisible&&this.map.getLayer('reference-ocean')&&this.map.queryRenderedFeatures(e.point,{layers:['reference-ocean']}).length)return;const waterLayer=this.geography?.coastWaterLayer||'coastal-water';if(!landscape&&this.geography?.coastAligned&&!this.geography.fineCoastVisible&&this.map.getLayer(waterLayer)&&this.map.queryRenderedFeatures(e.point,{layers:[waterLayer]}).length)return;if(this.showBorders&&e.features?.length){if(this.boundaries?.isCountry){this.boundaries.openRecord(e.features[0].properties.id,e.lngLat);return;}const r=this.recordMap?.get(e.features[0].properties.id);if(r)this.onPolity?.(r);}});
   this.map.on('mousemove',e=>{if(this.regional?.detailedActive)this.map.getCanvas().style.cursor=(this.regional.halc?.active?this.regional.halc.hit(e.point):this.regional.hit(e.point))?'pointer':'';});this.map.on('mouseenter','territories',()=>{if(!this.regional?.detailedActive)this.map.getCanvas().style.cursor='pointer';});this.map.on('mouseleave','territories',()=>this.map.getCanvas().style.cursor='');
   this.map.on('error',e=>{if(!['terrain-dem','geographic-reference','historical-detail','regional-boundaries','halc-boundaries','halc-regions','halc-landscape','relief','physical-grid'].includes(e.sourceId)&&e.error?.message?.includes('Failed to fetch'))onError?.(e.error);});
+  this.map.on('zoomend',()=>{if(this.rawTerritories&&this.smoothBorders&&!this.boundaries?.isCountry&&this.borderTolerance!==borderChordError(this.map.getZoom()))this.displayTerritories(this.rawTerritories);});
   this.map.on('moveend',()=>{this.refreshLabels();this.upgradeLand();if(this.catalog)this.upgradeDetail();});
  }
  async prepareOverview(year,keepGoing=()=>!this.destroyed){
@@ -96,10 +97,11 @@ export class AtlasMap{
  }
  displayTerritories(data){
   this.rawTerritories=data;
-  const country=this.boundaries?.isCountry,mode=country?'country':this.smoothBorders?'curved':'raw';
+  const country=this.boundaries?.isCountry,tolerance=borderChordError(this.map.getZoom?.());this.borderTolerance=tolerance;
+  const mode=country?'country':this.smoothBorders?'curved:'+tolerance:'raw';
   this.territoryFrames??=new TerritoryFrameCache();
   this.territoryFrames.submit(data,mode,this.map.getSource('polities'),raw=>{
-   const display=this.smoothBorders&&!country?curvedBorders(raw):raw;
+   const display=this.smoothBorders&&!country?curvedBorders(raw,tolerance):raw;
    const lines=country?{type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'MultiLineString',coordinates:display.features.flatMap(f=>f.geometry?.type==='Polygon'?f.geometry.coordinates:f.geometry?.type==='MultiPolygon'?f.geometry.coordinates.flat():[])}}]}:boundaryMesh(display);
    // One worker frame keeps polygons, boundary lines and selection in step.
    return {...display,features:[...display.features,...lines.features.map(f=>({...f,properties:{_atlasBoundaryLine:true}}))]};

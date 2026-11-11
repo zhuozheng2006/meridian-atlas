@@ -1,0 +1,58 @@
+{
+  "generated": "2026-11-11T16:23:59.862Z",
+  "module": "public/halc-regions.js",
+  "sha256": "85457964fe91f266f4d0e554a75272299a42523c46ddfd8311d95e67f3aa83d5",
+  "method": "Independent prototype-getter fixtures through production HalcRegions and current production HalcBoundaries/label scheduler. Real source/render/idle/error transitions use the shipped map adapter. No actual MVT, browser/GPU, or speed claim; actual MVT/CPU evidence is a separate performance-agent report.",
+  "total": 12,
+  "passed": 12,
+  "results": [
+    {
+      "name": "Grouping keeps original gid type, truthy gate, first properties and query order without geometry demand",
+      "passed": true
+    },
+    {
+      "name": "One fragment access decodes that fragment once, including reverse access order",
+      "passed": true
+    },
+    {
+      "name": "Serialization preserves every group and fragment exactly against the previous eager algorithm",
+      "passed": true
+    },
+    {
+      "name": "Region-first completion reaches readiness after its render with zero geometry and no premature ink",
+      "passed": true
+    },
+    {
+      "name": "Metadata-only readiness still cannot commit grouped ink or perform a feature query",
+      "passed": true
+    },
+    {
+      "name": "Hidden labels leave region coordinates untouched through both source arrivals and idle reuse",
+      "passed": true
+    },
+    {
+      "name": "High-zoom local labels never materialize otherwise unused region polygons",
+      "passed": true
+    },
+    {
+      "name": "Low-zoom exact regional anchors demand all fragments and retain the original grouped click target",
+      "passed": true
+    },
+    {
+      "name": "New source epoch with the same gid cannot reuse previous geometry or fragment memoization",
+      "passed": true
+    },
+    {
+      "name": "Error before rendered completion prevents new grouped state and leaves healthy local readiness intact",
+      "passed": true
+    },
+    {
+      "name": "Changing year before region render forbids late grouping and requires a fresh eligible frame on return",
+      "passed": true
+    },
+    {
+      "name": "Destroy before source completion removes listeners and prevents late grouping",
+      "passed": true
+    }
+  ]
+}

@@ -11,6 +11,7 @@ import {boundaryMesh} from '../public/boundary-mesh.js';
 import {maplibreRuntime} from './test-support/maplibre-runtime.mjs';
 const base=new URL('../',import.meta.url),root=new URL('public/',base),hash=x=>createHash('sha256').update(x).digest('hex'),checks=[],observations=[];
 const oracleText=await fs.readFile(new URL('scripts/test-support/display-territories-3.46.oracle.txt',base),'utf8'),provenance=JSON.parse(await fs.readFile(new URL('scripts/test-support/display-territories-3.46.oracle.json',base)));assert.equal(hash(oracleText),provenance.methodSHA256);
+// The frozen oracle specifies finest-resolution geometry. Exercise it at zoom 8; lower display levels have their own sampling tests.
 const oracle=vm.runInContext('({'+oracleText+'}).displayTerritories',vm.createContext({curvedBorders,boundaryMesh}));
 const originalFetch=globalThis.fetch,requests=[];globalThis.fetch=async url=>{requests.push(String(url));return new Response(await fs.readFile(new URL(String(url),root)));};
 const runtime=await maplibreRuntime(new URL('assets/maplibre-gl.js',root)),sources=[],atlases=[];
@@ -20,7 +21,7 @@ async function test(name,fn){if(process.env.GLOBAL_FRAME_TEST_FILTER&&!new RegEx
 async function make({country=false,smooth=true}={}){
  const real=await runtime.load(collection([]),{id:'polities'});sources.push(real);let source=real.source;const calls={frames:0,labels:0,events:0,selection:[]};
  const send=source.setData.bind(source);source.setData=data=>{calls.frames++;return send(data)};
- const atlas=Object.create(AtlasMap.prototype);Object.assign(atlas,{smoothBorders:smooth,request:0,year:1492,lang:'bi',catalog:null,ready:Promise.resolve(),active:[],geometryKey:'',destroyed:false,markers:[],labels:[],map:{getSource:()=>source,setPaintProperty(){},setFilter:(...args)=>calls.selection.push(args),getContainer:()=>({dispatchEvent(){calls.events++}}),getZoom:()=>1.54,remove(){}},refreshLabels(){calls.labels++},upgradeLand(){},upgradeDetail(){}});
+ const atlas=Object.create(AtlasMap.prototype);Object.assign(atlas,{smoothBorders:smooth,request:0,year:1492,lang:'bi',catalog:null,ready:Promise.resolve(),active:[],geometryKey:'',destroyed:false,markers:[],labels:[],map:{getSource:()=>source,setPaintProperty(){},setFilter:(...args)=>calls.selection.push(args),getContainer:()=>({dispatchEvent(){calls.events++}}),getZoom:()=>8,remove(){}},refreshLabels(){calls.labels++},upgradeLand(){},upgradeDetail(){}});
  atlas.boundaries=new BoundaryController(atlas,{mode:country?'cshapes':'auto',color});if(country)atlas.boundaries.current={source:'cshapes'};
  atlases.push(atlas);return {atlas,source,real,calls,async settled(){await real.settle();assert.deepEqual(real.errors,[]);},replace(next){source=next.source;}};
 }

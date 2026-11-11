@@ -1,19 +1,19 @@
-import {searchPolityRecords,representativePolityRecord,groupPolityRecords,politySearchText} from './polity-names.js?v=3.49.0-21169f0d36c4';
-import {createBoundaryComparison} from './boundary-comparison.js?v=3.49.0-21169f0d36c4';
-import {boundaryMode,placeWindow} from './view-state.js?v=3.49.0-21169f0d36c4';
-import {cityNarrative} from './city-narratives.js?v=3.49.0-21169f0d36c4';
-import {decodeCamera,encodeCamera} from './view-state.js?v=3.49.0-21169f0d36c4';
-import {sourcesHTML} from './source-reader.js?v=3.49.0-21169f0d36c4';
-import {loadMapLibre} from './map-runtime.js?v=3.49.0-21169f0d36c4';
-import {prefetchNativeFrame} from './native-geometry.js?v=3.49.0-21169f0d36c4';
-import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.49.0-21169f0d36c4';
-import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.49.0-21169f0d36c4';
-import {BattleLayer,loadBattles} from './battles.js?v=3.49.0-21169f0d36c4';
-import {AtrocityLayer,loadAtrocities} from './atrocities.js?v=3.49.0-21169f0d36c4';
-import {bindTimeline} from './timeline-controls.js?v=3.49.0-21169f0d36c4';
-import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.49.0-21169f0d36c4';
-import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.49.0-21169f0d36c4';
-import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.49.0-21169f0d36c4';
+import {searchPolityRecords,representativePolityRecord,groupPolityRecords,politySearchText} from './polity-names.js?v=3.50.0-ac226550198f';
+import {createBoundaryComparison} from './boundary-comparison.js?v=3.50.0-ac226550198f';
+import {boundaryMode,placeWindow} from './view-state.js?v=3.50.0-ac226550198f';
+import {cityNarrative} from './city-narratives.js?v=3.50.0-ac226550198f';
+import {decodeCamera,encodeCamera} from './view-state.js?v=3.50.0-ac226550198f';
+import {sourcesHTML} from './source-reader.js?v=3.50.0-ac226550198f';
+import {loadMapLibre} from './map-runtime.js?v=3.50.0-ac226550198f';
+import {prefetchNativeFrame} from './native-geometry.js?v=3.50.0-ac226550198f';
+import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.50.0-ac226550198f';
+import {PlaceLayer,loadPlaces,searchPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear} from './places.js?v=3.50.0-ac226550198f';
+import {BattleLayer,loadBattles} from './battles.js?v=3.50.0-ac226550198f';
+import {AtrocityLayer,loadAtrocities} from './atrocities.js?v=3.50.0-ac226550198f';
+import {bindTimeline} from './timeline-controls.js?v=3.50.0-ac226550198f';
+import {PolityReader,bindReaderTabs} from './polity-reader.js?v=3.50.0-ac226550198f';
+import {section as noTerritorySection,dossier as noTerritoryDossier} from './no-territory.js?v=3.50.0-ac226550198f';
+import {AtlasMap,readJSON,formatYear,polityName,stepYear,activeRecords,inWindow,wikipediaURL} from './map-engine.js?v=3.50.0-ac226550198f';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DEFAULT_STEP=10;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -76,7 +76,7 @@ function eventStatusHTML(){return `<div class="empty event-load-status" role="st
 function bindEventRetries(host=document){host.querySelectorAll('[data-retry-events]').forEach(button=>button.onclick=()=>{void ensureEventsData().catch(()=>{});});}
 function renderDatasetStatus(){const prefix=displayedPolityCount==null?text('正在读取疆域','Loading territories'):`${displayedPolityCount} ${text('个当年政体','polities in this year')}`;$('#datasetStatus').textContent=prefix+' · '+eventCountText();}
 function renderDensity(){const host=$('#density');host.dataset.status=eventsStatus;if(eventsStatus!=='ready'){host.innerHTML='';return;}const bins=Array(130).fill(0);events.forEach(e=>bins[Math.max(0,Math.min(129,Math.floor(scaled(e.start)/10000*130)))]++);const max=Math.max(1,...bins);host.innerHTML=bins.map(n=>`<i style="height:${n?4+Math.sqrt(n/max)*21:1}px"></i>`).join('');}
-function renderYear(){const era=currentEra();$('#bigYear').textContent=yr(state.year);$('#yearInput').value=state.year;$('#yearSlider').value=scaled(state.year);$('#yearSlider').setAttribute('aria-valuetext',yr(state.year));$('#mapEra').textContent=state.lang==='bi'?`${era[1]} · ${era[2].toUpperCase()}`:text(era[1],era[2]);$$('#eraButtons button').forEach(b=>b.classList.toggle('active',+b.dataset.year===era[0]));
+function renderYear(){const era=currentEra();$('#bigYear').textContent=yr(state.year);if(!$('#yearInput').atlasYearDraft)$('#yearInput').value=state.year;$('#yearSlider').value=scaled(state.year);$('#yearSlider').setAttribute('aria-valuetext',yr(state.year));$('#mapEra').textContent=state.lang==='bi'?`${era[1]} · ${era[2].toUpperCase()}`:text(era[1],era[2]);$$('#eraButtons button').forEach(b=>b.classList.toggle('active',+b.dataset.year===era[0]));
  $('#prevYear').disabled=state.year<=-70000;$('#nextYear').disabled=state.year>=2026;$('#nearBtn').classList.toggle('active',!state.allTime);$('#allBtn').classList.toggle('active',state.allTime);$('#window').disabled=state.allTime;
  renderRegionalStatus();
  let notice='';if(state.year< -3400)notice=text('史前世界 · 从事件中探索人类早期的足迹。疆域档案始于公元前3400年。','Prehistoric worlds · Explore the earliest human stories through events. Territory records begin in 3400 BCE.');if(state.year>2024)notice=text('疆域档案更新至2024年。选择2024年可查看最近一期地图。','The territory archive extends to 2024. Select 2024 to view the latest map.');$('#mapNotice').hidden=!notice;$('#mapNotice').textContent=notice;saveURL();}
@@ -108,7 +108,7 @@ async function setYear(value,options={}){try{await ensureAtlas();return await ap
 async function applyYear(value,{coordinating=false,placeNavigation=null}={}){
  if(!coordinating)cancelBoundaryComparison();
  const year=normalizeYear(value),seq=++updateId;if(year!==state.year)pendingInitialEvent=null;pendingYear=year;
- $('#yearInput').value=year;$('#mapError').hidden=true;$('#atlasView').setAttribute('aria-busy','true');
+ if(!$('#yearInput').atlasYearDraft)$('#yearInput').value=year;$('#mapError').hidden=true;$('#atlasView').setAttribute('aria-busy','true');
  const loadingTimer=setTimeout(()=>{if(seq===updateId){$('#loading').hidden=false;$('#loading').textContent=text('正在翻到 ','Opening ')+yr(year)+'…';}},120);
  try{
   const count=await atlas.setYear(catalog,year,state.lang);if(seq!==updateId||count===false)return false;
@@ -187,7 +187,7 @@ async function renderSources(){const counts=Object.keys(REGIONS).filter(k=>k!=='
  const [places,battles,atrocities,seshat,polaris]=await Promise.all([loadPlaces().catch(()=>null),loadBattles().catch(()=>null),loadAtrocities().catch(()=>null),readJSON('data/seshat/index.json.gz').catch(()=>null),readJSON('data/seshat-polaris-2026/index.json.gz').catch(()=>null)]);
  const stats=places?{seshat,polaris,placeRecords:places.length,observations:places.reduce((n,p)=>n+((p.observations?.length)||0),0),attested:places.filter(p=>p.kind==='attested-site').length,battles:battles?battles.length:0,atrocities:atrocities?{shipped:atrocities.counts?.shipped??atrocities.incidents.length,withChineseName:atrocities.counts?.withChineseName??atrocities.incidents.filter(a=>a.nameZh).length,withoutChineseName:atrocities.counts?.withoutChineseName??0}:null}:{seshat,polaris};
  if(state.view!=='sources')return;
- $('#contentView').innerHTML=sourcesHTML(catalog,events,state.lang,stats);$('#openResearch').onclick=()=>showView('research');$('#openQualityLedger').onclick=async()=>{const host=$('#qualityLedger');host.hidden=false;host.textContent=text('正在载入核查台账…','Loading identity review…');try{const {mountIdentityLedger}=await import('./identity-ledger.js?v=3.49.0-21169f0d36c4');if(host.isConnected)await mountIdentityLedger(host,state.lang,readJSON,downloadJSON);}catch{if(host.isConnected)host.textContent=text('台账暂未载入，请再次点击重试。','Ledger unavailable. Click the review button to retry.');}};$('#downloadEvents').onclick=()=>downloadJSON(events,'meridian-events.json');$('#downloadCatalog').onclick=async()=>downloadJSON(await readJSON('data/catalog.json.gz'),'meridian-territory-catalog.json');$('#downloadCoverage').onclick=()=>downloadJSON({boundaryMetadata:catalog.metadata,eventCounts:Object.fromEntries(counts),events:events.length,coverage},'meridian-coverage.json');}
+ $('#contentView').innerHTML=sourcesHTML(catalog,events,state.lang,stats);$('#openResearch').onclick=()=>showView('research');$('#openQualityLedger').onclick=async()=>{const host=$('#qualityLedger');host.hidden=false;host.textContent=text('正在载入核查台账…','Loading identity review…');try{const {mountIdentityLedger}=await import('./identity-ledger.js?v=3.50.0-ac226550198f');if(host.isConnected)await mountIdentityLedger(host,state.lang,readJSON,downloadJSON);}catch{if(host.isConnected)host.textContent=text('台账暂未载入，请再次点击重试。','Ledger unavailable. Click the review button to retry.');}};$('#downloadEvents').onclick=()=>downloadJSON(events,'meridian-events.json');$('#downloadCatalog').onclick=async()=>downloadJSON(await readJSON('data/catalog.json.gz'),'meridian-territory-catalog.json');$('#downloadCoverage').onclick=()=>downloadJSON({boundaryMetadata:catalog.metadata,eventCounts:Object.fromEntries(counts),events:events.length,coverage},'meridian-coverage.json');}
 function noteTranslation(note){if(state.lang!=='en')return typeof note==='string'?note:note.zh;const notes={'中文名为与源Wikipedia词条对应的Wikidata标签；原始名称保留。':'Chinese labels come from Wikidata items associated with source Wikipedia articles. Original names are retained.','按源数据完整名称人工译名，保留国家、王朝及阶段区分。':'Editorial translations of exact source names retain distinctions between states, dynasties and periods.','暂无通过身份核对的中文标签，显示源数据原名。':'No identity-checked Chinese label is available; the original source name is shown.','关系名称保留原文，避免以参与者或统治者名称代替关系。':'The relation name is retained rather than replaced with a participant or ruler label.','源名称和百科关联存在年代歧义，保留原名，暂不译为后周。':'The source name and encyclopedia association have a chronological ambiguity. The original name is retained.'};return notes[note]||'Editorial label note: original source names are preserved.';}
 function warningTranslation(w){if(state.lang!=='en')return w;const q=w.match(/Q\d+/g);if(q?.length===2)return `The source Wikidata ID ${q[0]} differs from ${q[1]}, the item associated with the source Wikipedia article. Labels from the mismatched ID were not used.`;if(w.includes('Later Zhou'))return 'The source applies Later Zhou to BCE intervals but links to the dynasty of 951–960 CE. Identity remains ambiguous; source geometry and dates are preserved.';if(w.includes('几何'))return 'The source polygon has geometry-validity issues. It has not been silently repaired and is used only for overview display.';if(w.includes('0年'))return 'The source interval has a year-zero endpoint. It is preserved in the raw data while the selectable timeline skips year zero.';if(w.includes('关系'))return 'This relation may overlap member polities; its encyclopedia ID may describe a participant or ruler.';if(w.includes('历史主题'))return 'The encyclopedia item describes a historical topic or list and was not used as a polity translation.';return 'The source encyclopedia association could not be verified; its automatic label was not adopted.';}
 function renderBrowse(){
@@ -218,12 +218,12 @@ function renderHelp(){$('#helpContent').innerHTML=`<span class="eyebrow">READING
 async function setCompareYear(value,{coordinating=false,placeNavigation=null}={}){
  if(!coordinating)cancelBoundaryComparison();
  const map=compareMap;if(!map)return;const generation=++compareGeneration,year=normalizeYear(value);if(year!==state.compareYear)pendingInitialEvent=null;pendingCompareYear=year;
- $('#compareYear').value=year;
+ if(!$('#compareYear').atlasYearDraft)$('#compareYear').value=year;
  try{const count=await map.setYear(catalog,year,state.lang);if(map!==compareMap||generation!==compareGeneration||count===false)return false;
  const changed=state.compareYear!==year;state.compareYear=year;pendingCompareYear=null;$('#mapError').hidden=true;
  if(changed&&state.selectedPlace&&state.selectedSide==='right'&&placeNavigation!==detailNavigation)closeDetail();if(state.selectedPolity&&state.selectedSide==='right'){const r=activeRecords(catalog,year).find(r=>r.name===state.selectedPolity.name);if(r){state.selectedPolity=r;map.selectPolity(r);polityReader.open(r,map,{keepTab:true});}else closeDetail();}
  renderEvents();saveURL();return true;
- }catch{if(map===compareMap&&generation===compareGeneration){pendingCompareYear=null;$('#compareYear').value=state.compareYear;mapError(text('对照年份未能载入，已保留原地图。','Comparison could not load. The previous map is retained.'),()=>setCompareYear(year));}}
+ }catch{if(map===compareMap&&generation===compareGeneration){pendingCompareYear=null;if(!$('#compareYear').atlasYearDraft)$('#compareYear').value=state.compareYear;mapError(text('对照年份未能载入，已保留原地图。','Comparison could not load. The previous map is retained.'),()=>setCompareYear(year));}}
 }
 function closeComparison(){
  cancelBoundaryComparison();
@@ -237,7 +237,7 @@ async function toggleCompare(){
  if(!atlasReady){if(!await showView('atlas'))return;}
  if(state.compare){closeComparison();return;}
  if(!$('#detailPanel').hidden)closeDetail();state.compare=true;state.browse=false;$('#compareYear').disabled=true;
- $('#compareBtn').classList.add('active');$('.map-stage').classList.add('comparing');$('#map2').hidden=false;$('#compareHeading').hidden=false;$('#compareYear').value=state.compareYear;
+ $('#compareBtn').classList.add('active');$('.map-stage').classList.add('comparing');$('#map2').hidden=false;$('#compareHeading').hidden=false;if(!$('#compareYear').atlasYearDraft)$('#compareYear').value=state.compareYear;
  let map;
  const year=state.compareYear;if(state.compareBoundaryMode!=='cshapes')void prefetchNativeFrame(year,()=>state.compare&&state.compareYear===year);
  try{
@@ -260,7 +260,7 @@ function cancelBoundaryComparison(){
  // closing the right map must invalidate a pending alignment of the left map.
  ++job.map.request;
  if(job.side==='left'){++updateId;pendingYear=null;renderYear();$('#loading').hidden=true;$('#atlasView').setAttribute('aria-busy','false');}
- else{++compareGeneration;pendingCompareYear=null;$('#compareYear').value=state.compareYear;}
+ else{++compareGeneration;pendingCompareYear=null;if(!$('#compareYear').atlasYearDraft)$('#compareYear').value=state.compareYear;}
 }
 function boundaryComparisonController(){
  if(boundaryComparison)return boundaryComparison;

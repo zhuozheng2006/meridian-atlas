@@ -8,7 +8,7 @@ function context(){
  const c=vm.createContext({...researchState,...polityNames,console,document,window:{},location:{hash:''},history:{replaceState(){}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set});
  for(const name of ['view-state.js','map-engine.js','timeline-controls.js','polity-reader.js','app.js']){const code=fs.readFileSync(ROOT+name,'utf8').replace(/^import .*$/gm,'').replace(/^export \{[^}\n]*\};?$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
- renderEvents=()=>{};renderYear=()=>{};renderBrowse=()=>{};saveURL=()=>{};showView=()=>{};
+ globalThis.actualRenderYear=renderYear;renderEvents=()=>{};renderYear=()=>{};renderBrowse=()=>{};saveURL=()=>{};showView=()=>{};
  globalThis.renderLog=[];
  const mapStub=()=>({year:1900,map:{resize(){},getCenter(){return [0,0]},getZoom(){return 1},getBearing(){return 0},getPitch(){return 0},jumpTo(){},on(){},off(){}},selectPolity(){},destroy(){this.destroyed=true},setYear:async()=>0,fly(){}});
  atlas=mapStub();atlasReady=true;mapURLRestored=true;compareMap=mapStub();catalog={records:[],metadata:{}};
@@ -24,6 +24,23 @@ function context(){
  // Execute the real independent URL helpers; do not mock research state parsing.
  researchState=await import(require('node:url').pathToFileURL(ROOT+'research-view.js'));
  polityNames=await import(require('node:url').pathToFileURL(ROOT+'polity-names.js'));
+ {
+  const c=context();
+  vm.runInContext(`
+   currentEra=()=>[0,'Era','Era'];renderRegionalStatus=()=>{};renderYear=actualRenderYear;
+   const input=document.querySelector('#yearInput');
+   bindTimeline({getYear:()=>state.year,getCompareYear:()=>state.compareYear,getStep:()=>10,commit:y=>{globalThis.committedDraft=y;},commitCompare(){},pause(){},isAtlas:()=>true,isDialogOpen:()=>false});
+   input.value='1500';input.oninput();globalThis.release=null;atlas.setYear=()=>new Promise(r=>release=r);globalThis.yearPromise=applyYear(1945);
+  `,c);
+  assert.equal(vm.runInContext("document.querySelector('#yearInput').value",c),'1500');
+  vm.runInContext('release(1)',c);await vm.runInContext('yearPromise',c);
+  assert.equal(vm.runInContext('state.year',c),1945);
+  assert.equal(vm.runInContext("document.querySelector('#yearInput').value",c),'1500');
+  vm.runInContext("document.querySelector('#yearInput').onchange()",c);
+  assert.equal(vm.runInContext('committedDraft',c),1500);
+  assert.equal(vm.runInContext("document.querySelector('#yearInput').atlasYearDraft",c),false);
+  console.log('PASS in-flight year completion preserves a newer unsubmitted input draft');
+ }
  for(const action of ['toggleCompare','closeDetail','eventSwitch']){
   const c=context();
   vm.runInContext(`

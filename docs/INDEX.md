@@ -3,12 +3,18 @@
 ## 从这里开始
 
 - [项目首页与运行方式](../README.md)
-- [当前进度与后续事项：3.49](HANDOFF-3.49.md)
+- [当前进度与后续事项：3.50](HANDOFF-3.50.md)
 - [开发、验证和部署](DEVELOPMENT.md)
 - [完整历史首页与迭代记录](PROJECT-HISTORY.md)
 - [全部来源与许可](../ATTRIBUTIONS.md)
 
 ## 最新验证证据
+
+- [3.50受控性能对照](verification-3.50/browser/ab-results.json)
+- [3.50全精度档位检查](verification-3.50/border-sampling.json)
+- [3.49身份与质量台账](HANDOFF-3.49.md)
+
+以下保留3.48基线验证入口：
 
 - [验证概要](verification-3.48/validation-summary.json)
 - [完整检查日志](verification-3.48/full-test.txt)

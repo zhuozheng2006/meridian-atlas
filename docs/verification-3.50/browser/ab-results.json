@@ -1,0 +1,103 @@
+{
+  "conditions": {
+    "browser": "Chrome",
+    "origin": "http://127.0.0.1:8768",
+    "viewport": [
+      1512,
+      900
+    ],
+    "map": [
+      1512,
+      672
+    ],
+    "year": 1492,
+    "camera": [
+      25,
+      18,
+      1.54
+    ],
+    "network": {
+      "downloadBytesPerSecond": 500000,
+      "latencyMs": 80,
+      "httpCache": false
+    },
+    "parallelTestProcesses": false,
+    "asset": "3.50.0-2ef7f12cf13c"
+  },
+  "method": "Three alternating pairs, same local QA server and sampling implementation. ready is the first render with polities source loaded and nonempty territories query; not physical first pixel or all layers idle. Subsequent production changes only protect year-input drafts and update asset stamps; map sampling code remains unchanged.",
+  "diagnosticNotes": [
+    "Exploratory samples during implementation are not included in this final comparison.",
+    "A diagnostic Runtime.evaluate call initially hit its 3s tool timeout; the completed first baseline measurement was then read once and is included once.",
+    "Temporary network and viewport overrides were restored."
+  ],
+  "results": [
+    {
+      "legacy": true,
+      "start": 3592.60000000149,
+      "work": 453.79999999701977,
+      "ready": 4935.69999999553
+    },
+    {
+      "legacy": false,
+      "start": 3587.39999999851,
+      "work": 330,
+      "ready": 4131.5
+    },
+    {
+      "legacy": true,
+      "start": 3851.89999999851,
+      "work": 464.1000000014901,
+      "ready": 5150.39999999851
+    },
+    {
+      "legacy": false,
+      "start": 3556.7000000029802,
+      "work": 312.29999999701977,
+      "ready": 4083.7000000029802
+    },
+    {
+      "legacy": true,
+      "start": 3862,
+      "work": 449.70000000298023,
+      "ready": 5174.5
+    },
+    {
+      "legacy": false,
+      "start": 3757,
+      "work": 308.30000000447035,
+      "ready": 4326.4000000059605
+    }
+  ],
+  "summary": {
+    "fixed2m": {
+      "ready": 5150.39999999851,
+      "work": 453.79999999701977,
+      "afterSubmission": 1312.5
+    },
+    "adaptive": {
+      "ready": 4131.5,
+      "work": 312.29999999701977,
+      "afterSubmission": 544.1000000014901
+    }
+  },
+  "readyImprovement": 0.19782929481182132,
+  "functional": {
+    "zoom8ToleranceKm": 0.002,
+    "zoom8ReadyObserved": true,
+    "draftAfterPreviousYearLoaded": {
+      "displayedYear": 1945,
+      "draft": "1500"
+    },
+    "draftSubmittedYear": 1500,
+    "dualMap": {
+      "leftYear": 1500,
+      "rightYear": 1900
+    },
+    "originalDataUnmodified": true
+  },
+  "limits": [
+    "Local controlled measurements; not a general online speed claim.",
+    "Detailed regional services and low-memory real devices remain separate performance work.",
+    "Four-second median first-render target was not reached."
+  ]
+}

@@ -13,11 +13,12 @@ export function yearKeyIntent(key,{step=1,shift=false,slider=false,number=false}
 export function bindTimeline({getYear,getCompareYear,getStep,commit,commitCompare,pause,isAtlas,isDialogOpen,closeReader,readerOpen,togglePlay,getMap}){
  const input=document.querySelector('#yearInput'),comparison=document.querySelector('#compareYear'),slider=document.querySelector('#yearSlider');
  const submit=(el,right=false)=>{
-  const value=String(el.value).trim(),current=right?getCompareYear():getYear();
+  const value=String(el.value).trim(),current=right?getCompareYear():getYear();el.atlasYearDraft=false;
   if(!/^-?\d+$/.test(value)||!Number.isFinite(Number(value))||Number(value)===0){el.value=current;return;}
   const year=Math.max(-70000,Math.min(2026,Number(value)));
   el.value=year;if(year===current)return;pause();(right?commitCompare:commit)(year);
  };
+ input.oninput=()=>{input.atlasYearDraft=true;};comparison.oninput=()=>{comparison.atlasYearDraft=true;};
  input.onchange=()=>submit(input);comparison.onchange=()=>submit(comparison,true);
  document.addEventListener('keydown',e=>{
   if(e.defaultPrevented||e.isComposing||e.ctrlKey||e.metaKey||isDialogOpen()||!isAtlas())return;
@@ -27,7 +28,7 @@ export function bindTimeline({getYear,getCompareYear,getStep,commit,commitCompar
     e.preventDefault();e.stopPropagation();getMap(target)?.panBy([e.key==='ArrowLeft'?-80:e.key==='ArrowRight'?80:0,e.key==='ArrowUp'?-80:e.key==='ArrowDown'?80:0],{duration:120});
    }return;}
   if(number&&e.key==='Enter'){e.preventDefault();submit(target,right);return;}
-  if(number&&e.key==='Escape'){e.preventDefault();target.value=right?getCompareYear():getYear();return;}
+  if(number&&e.key==='Escape'){e.preventDefault();target.atlasYearDraft=false;target.value=right?getCompareYear():getYear();return;}
   if(e.key==='Escape'&&readerOpen()){e.preventDefault();closeReader();return;}
   if(target.closest?.('#detailPanel'))return;
   if(!number&&!isSlider&&target.closest?.('input,textarea,select,button,a,summary,[contenteditable="true"],[role="tab"]'))return;
@@ -35,7 +36,7 @@ export function bindTimeline({getYear,getCompareYear,getStep,commit,commitCompar
   if(intent){e.preventDefault();e.stopPropagation();pause();const value=String(target.value??'').trim();const draft=number&&/^-?\d+$/.test(value)?Number(value):NaN;const year=Number.isFinite(draft)&&draft!==0?draft:right?getCompareYear():getYear();
    const delta=intent.delta;let next=intent.year;
    if(delta!==undefined){const raw=year+delta;next=year<0&&raw>=0?raw+1:year>0&&raw<=0?raw-1:raw;}
-   next=Math.max(-70000,Math.min(2026,next));if(number)target.value=next;(right?commitCompare:commit)(next);return;
+   next=Math.max(-70000,Math.min(2026,next));if(number){target.atlasYearDraft=false;target.value=next;}(right?commitCompare:commit)(next);return;
   }
   if(!number&&!isSlider&&e.code==='Space'){e.preventDefault();if(!e.repeat)togglePlay();}
   if(mapCanvas&&['+','=','-'].includes(e.key)){e.preventDefault();getMap(target)?.zoomTo(getMap(target).getZoom()+(e.key==='-'?-.5:.5),{duration:150});}

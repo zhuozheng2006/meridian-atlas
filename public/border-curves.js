@@ -28,14 +28,16 @@ function makeCurve(n){
  n.envelope=[start,p,end];
  // For a quadratic, the maximum deviation from each sampled chord is
  // |start - 2*control + end| / (4*segments^2). Sample in canonical direction
- // once, keeping this local-ground approximation below two metres.
+ // once at the selected display tolerance; the source remains untouched.
  const bend=Math.hypot((start[0]-2*p[0]+end[0])*c,start[1]-2*p[1]+end[1])*KM;
- const segments=Math.max(4,Math.ceil(Math.sqrt(bend/(4*CHORD_ERROR))));
+ const segments=Math.max(4,Math.ceil(Math.sqrt(bend/(4*n.chordError))));
  n.curve=Array.from({length:segments+1},(_,i)=>{const t=i/segments,u=1-t;return [u*u*start[0]+2*u*t*p[0]+t*t*end[0],u*u*start[1]+2*u*t*p[1]+t*t*end[1]];});
 }
 function shorten(n){n.cut*=.5;if(n.cut<MIN_CUT)n.locked=true;else makeCurve(n);}
-export function curvedBorders(collection){
- if(cache.has(collection))return cache.get(collection);
+export function borderChordError(zoom){return !Number.isFinite(zoom)?.002:zoom<4?.1:zoom<6?.02:zoom<8?.005:.002;}
+export function curvedBorders(collection,chordError=CHORD_ERROR){
+ if(![.002,.005,.02,.1].includes(chordError))throw new RangeError('Unsupported border display tolerance');
+ const cached=cache.get(collection);if(cached?.chordError===chordError)return cached.result;
  const nodes=new Map(),edges=new Map(),ringList=[];
  const get=p=>{const id=key(p);if(!nodes.has(id))nodes.set(id,{id,p,neighbours:new Set(),locked:false});return nodes.get(id);};
  for(const f of collection.features)for(const ring of rings(f.geometry)){
@@ -64,7 +66,7 @@ export function curvedBorders(collection){
   if(!la||!lb||cosine<-.985||cosine>.85||(la>80&&lb>80))continue;
   const cut=Math.min(MAX_CUT,la*.45,lb*.45);
   if(cut<MIN_CUT)continue;
-  Object.assign(n,{first:a,ends:[a,b],cut,la,lb});makeCurve(n);
+  Object.assign(n,{first:a,ends:[a,b],cut,la,lb,chordError});makeCurve(n);
  }
  // Each curve lies entirely inside its corner triangle. Permit broad, flowing
  // corners only where that entire envelope is free of other original edges.
@@ -107,5 +109,5 @@ export function curvedBorders(collection){
  }
  const rendered=new Map(ringList.map(r=>[r.ring,render(r)]));
  const features=collection.features.map(f=>{const g=f.geometry;if(!g||!['Polygon','MultiPolygon'].includes(g.type))return f;return {...f,geometry:{...g,coordinates:g.type==='Polygon'?g.coordinates.map(r=>rendered.get(r)||r):g.coordinates.map(p=>p.map(r=>rendered.get(r)||r))}};});
- const result={...collection,features};cache.set(collection,result);return result;
+ const result={...collection,features};cache.set(collection,{chordError,result});return result;
 }
