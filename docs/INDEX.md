@@ -1,0 +1,28 @@
+# 文档导航
+
+## 从这里开始
+
+- [项目首页与运行方式](../README.md)
+- [当前进度与后续事项：3.48](HANDOFF-3.48.md)
+- [开发、验证和部署](DEVELOPMENT.md)
+- [完整历史首页与迭代记录](PROJECT-HISTORY.md)
+- [全部来源与许可](../ATTRIBUTIONS.md)
+
+## 最新验证证据
+
+- [验证概要](verification-3.48/validation-summary.json)
+- [完整检查日志](verification-3.48/full-test.txt)
+- [名称来源审计](verification-3.48/NAME-DISPLAY-AUDIT.md)
+- [名称回归](verification-3.48/polity-display-names.json)
+- [首屏对照](verification-3.48/browser/events-ab-summary.json)
+- [原生发布记录](verification-3.48/publication.json)
+- [线上文件核对](verification-3.48/deployed-modules.json)
+- [部署包核对](verification-3.48/archive-audit.json)
+
+## 历史设计与数据
+
+- [上一版本3.47](HANDOFF-3.47.md)
+- [大型资料分发机制](DATA-STORAGE-v3.37.md)（具体对象数量与revision以3.48交接为准）
+- [未采用的3.48后台几何实验](experiments/3.48/README.md)
+
+其余 `HANDOFF-*`、`verification-*` 和专题说明保留在本目录。历史报告按当时环境和版本阅读；其中本机绝对路径是当时的证据位置，不是跨机器可用的链接。

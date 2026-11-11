@@ -1,0 +1,15 @@
+{
+  "version": "5.6.2",
+  "upstream": "https://github.com/maplibre/maplibre-gl-js/blob/v5.6.2/src/source/geojson_worker_source.ts",
+  "license": "https://github.com/maplibre/maplibre-gl-js/blob/v5.6.2/LICENSE.txt",
+  "originalSha256": "1525f971223d81f169f049f1ce50083e6f1643aa6b0ea0716653a550d2d57fc2",
+  "patchedSha256": "4bf447dce2f04a3997fc88daa8eb8e4bf03bc43db3ced7e255a03a46826148cb",
+  "originalBytes": 937395,
+  "patchedBytes": 937616,
+  "match": "this.loaded={};const s={data:i};",
+  "replacement": "this.loaded={};const s={data:t.request&&(\"halc-landscape\"===t.source&&t.request.url.startsWith(\"data:application/geo+json;base64,\")||\"polities\"===t.source&&t.request.url.startsWith(\"data:application/geo+json;meridian-frame=1;base64,\"))?t.request.url:i};",
+  "replacements": 1,
+  "scope": "Original HALC-only canonical dataURL branch unchanged; additionally only polities with exact data:application/geo+json;meridian-frame=1;base64, prefix returns request URL. Every other source, URL and updateData retains original behavior. GD/getData, pending geometry, filtering and indexing unchanged.",
+  "reason": "Avoid automatic main-thread full-geometry response clones for explicitly opted-in internal territory frame preparation while preserving self-contained styles.",
+  "previousPatchSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c"
+}

@@ -1,0 +1,80 @@
+{
+  "status": "candidate2-input-transport-experiment-not-release-frozen",
+  "baseCommit": "9a9ded84f1a89dde4544ecaf93fd8458180775f4",
+  "products": [
+    {
+      "path": "public/map-engine.js",
+      "sha256": "510d44b0e05e238e63b537000c42d50c94f427ac31d8c89d5037f73fce3f5921",
+      "bytes": 24655
+    },
+    {
+      "path": "public/boundary-controller.js",
+      "sha256": "178b796d4a9bcee31693c57a5684ba03eb2d3169a2b085fcab6e0c39f0928b30",
+      "bytes": 9315
+    },
+    {
+      "path": "public/territory-frame-cache.js",
+      "sha256": "a1953c85cb921f5ee28097faf655ac1ae63505041f500f747e842a2c55b8c69b",
+      "bytes": 4668
+    },
+    {
+      "path": "public/territory-frame-build.js",
+      "sha256": "c3c268a1a9e9d1af8b6fd7404a13e3f4b7acc0a97bde70550940206148e963b0",
+      "bytes": 770
+    },
+    {
+      "path": "public/territory-frame-client.js",
+      "sha256": "d5a5d8956389e996f6c6f491c4b9a60e7beb84053b214c5619b497ea723e89f3",
+      "bytes": 4402
+    },
+    {
+      "path": "public/territory-frame-worker.js",
+      "sha256": "a3f89f82d97c3dd84131df3253fc770da879557fcdc1ad902c2515b14fa3da0c",
+      "bytes": 1771
+    },
+    {
+      "path": "public/territory-frame-protocol.js",
+      "sha256": "e70c640873081edbd49fde7403c51f427762e533fbc1632a46814c325e72dc89",
+      "bytes": 293
+    },
+    {
+      "path": "public/assets/maplibre-gl.js",
+      "sha256": "4bf447dce2f04a3997fc88daa8eb8e4bf03bc43db3ced7e255a03a46826148cb",
+      "bytes": 937616
+    }
+  ],
+  "testsAndPatchRecord": [
+    {
+      "path": "scripts/vendor/maplibre/maplibre-landscape-dataurl-patch.json",
+      "sha256": "b9022e5b7ff368073b0f74854143630e952cdd96c4752bf39752c9b773b6d6d7",
+      "bytes": 1377
+    },
+    {
+      "path": "scripts/validate-territory-frame-worker.mjs",
+      "sha256": "ea817b2028a3d8a09538d3cdafb7facad3f3f3535261a34a2025fc41177386dc",
+      "bytes": 18621
+    },
+    {
+      "path": "scripts/test-support/territory-frame-web-worker.mjs",
+      "sha256": "ef73db122d97a82a8cf57e13028a6bec0300f5dd5a22d63425c0986f653eea72",
+      "bytes": 247
+    }
+  ],
+  "reuseExisting": [
+    "scripts/patch-maplibre-landscape-dataurl.mjs",
+    "scripts/vendor/maplibre/maplibre-gl-5.6.2.upstream.js",
+    "scripts/test-support/maplibre-runtime.mjs",
+    "scripts/test-support/display-territories-3.46.oracle.txt",
+    "scripts/test-support/display-territories-3.46.oracle.json"
+  ],
+  "routeSwitch": "Before app initialization, set window.__MERIDIAN_FRAME_TRANSPORT__ to json for original object preparation; otherwise candidate uses dataURL when Worker exists and reported deviceMemory is greater than 4 or absent. No URL query or persisted user setting.",
+  "workerMetrics": "Atlas instance territoryPreparationMetrics: queueMs,inputSerializeMs,postMessageMs,roundTripMs; Worker inputParseMs,curvesMs,meshMs,buildMs,stringifyMs,encodeMs,totalMs; separate timeOrigin+startedAt/receivedAt; input/output feature counts and bytes. territoryPreparation.getStats exposes bounded pending count.",
+  "notes": [
+    "Only copy listed regular files, never candidate public symlinks or fixture package.json.",
+    "Run asset stamper after copying and verify actual browser vendor bytes/hash; an old cached vendor invalidated the first Chrome pair.",
+    "Root Chrome valid object-input Worker trials improved long tasks but worsened first-frame visibility (median 2735.8 ms vs original JSON 1962.1 ms). This candidate is not selected for default publication.",
+    "Candidate1 new suite 14/14 and existing cache suite 14/14 passed. Candidate2 adds phase timings and raw JSON input; its eight Node input-probe outputs agree. Two new full-data cases are not yet run."
+  ],
+  "inputExperiment": "Before app initialization, __MERIDIAN_FRAME_INPUT__=json changes only the 579KB raw frame transport into the preparation Worker. Unset means structuredClone object. Output is always dedicated self-contained dataURL.",
+  "testState": "Candidate1 error/lifecycle suite 14/14 and existing cache suite14/14 passed. Current candidate2 input probe: 8 full 1492 outputs hash-identical across fresh/warm object/JSON. Two new real country/non-bootstrap cases are written and pending until Chrome runs finish."
+}
