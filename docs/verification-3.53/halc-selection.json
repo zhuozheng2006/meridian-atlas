@@ -1,0 +1,114 @@
+{
+  "checkedAt": "2026-11-11T17:41:45.026Z",
+  "method": "Actual HALC controller, actual bundled MapLibre Style state APIs and paint compiler/evaluator, deterministic source-state cache and DOM interfaces. No browser tile/GPU/memory claim.",
+  "maplibreSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c",
+  "pass": 24,
+  "fail": 0,
+  "benchmark": {
+    "operations": 200,
+    "oldFilterSourceReloads": 200,
+    "featureStateSourceReloads": 0,
+    "featureStateWrites": 399,
+    "oldStyleCallsMs": 0.5980410000000091,
+    "candidateFullFixtureOpenCallsMs": 5.651165999999989,
+    "note": "Local Node fixture operation counts; timings include different work and are not a browser speed comparison. Source workers/GPU absent."
+  },
+  "results": [
+    {
+      "name": "Source promotes the complete source fid across every tile fragment",
+      "pass": true
+    },
+    {
+      "name": "Both selected line passes remain above regional outlines before and after source recreation",
+      "pass": true
+    },
+    {
+      "name": "Independent selection is fully opaque at regional scale without dimming ordinary line hierarchy",
+      "pass": true
+    },
+    {
+      "name": "Opening a locality sets one exact state target without source reload",
+      "pass": true
+    },
+    {
+      "name": "Changing selection removes only its old key and keeps unrelated state",
+      "pass": true
+    },
+    {
+      "name": "Closing the native popup clears the highlight and public selection token",
+      "pass": true
+    },
+    {
+      "name": "Full IDs near the source maximum never select a prefix or truncated ID",
+      "pass": true
+    },
+    {
+      "name": "Malformed IDs cannot disturb the current selection or start a detail request",
+      "pass": true
+    },
+    {
+      "name": "Fast switching rejects late dossier responses without resurrecting old highlight",
+      "pass": true
+    },
+    {
+      "name": "A pan with incomplete tiles preserves selected identity and its dossier",
+      "pass": true
+    },
+    {
+      "name": "An offscreen selected fid remains keyed for newly arrived tile fragments",
+      "pass": true
+    },
+    {
+      "name": "Leaving year clears feature-state and ignores the late dossier",
+      "pass": true
+    },
+    {
+      "name": "Leaving mode clears feature-state and ignores the late dossier",
+      "pass": true
+    },
+    {
+      "name": "Leaving modern reference clears feature-state and ignores the late dossier",
+      "pass": true
+    },
+    {
+      "name": "Leaving borders clears feature-state and ignores the late dossier",
+      "pass": true
+    },
+    {
+      "name": "Leaving zoom clears feature-state and ignores the late dossier",
+      "pass": true
+    },
+    {
+      "name": "Leaving coverage clears feature-state and ignores the late dossier",
+      "pass": true
+    },
+    {
+      "name": "Main source error removes its selection state; late readiness cannot restore it",
+      "pass": true
+    },
+    {
+      "name": "Recreating the main source drops old state and a fresh selection targets the new source",
+      "pass": true
+    },
+    {
+      "name": "A region-only failure preserves the local selection and does not reload locality source",
+      "pass": true
+    },
+    {
+      "name": "Restoring a URL selection waits for a rendered eligible source",
+      "pass": true
+    },
+    {
+      "name": "Destroy clears only owned state before map teardown and ignores late callbacks",
+      "pass": true
+    },
+    {
+      "name": "Two comparison maps keep independent selection state",
+      "pass": true
+    },
+    {
+      "name": "Actual bundled style requires 200 reloads for alternating old filters and zero for state selection",
+      "pass": true
+    }
+  ]
+}

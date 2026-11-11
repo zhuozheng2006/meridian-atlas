@@ -11,7 +11,7 @@ const originalFetch=globalThis.fetch,requests=[],data={type:'FeatureCollection',
 globalThis.fetch=async url=>{requests.push(url);return new Response(JSON.stringify(data));};
 try{
  await test('Every declared regional snapshot uses its own transport URL, never a nearest year',()=>{
-  for(const w of [{id:'central-europe',years:[1000,1492,1900]},{id:'east-asia',years:[1100,1300,1950]}]){for(const year of w.years)assert.equal(regionalTransportURL(w,year),`data/ohm-transport/${w.id}-${year}.json.gz`);assert.equal(regionalTransportURL(w,1493),null);}
+  for(const w of [{id:'central-europe',years:[1000,1492,1900]},{id:'east-asia',years:[1100,1300,1950]},{id:'british-isles',years:[1492,1600,1900]}]){for(const year of w.years)assert.equal(regionalTransportURL(w,year),`data/ohm-transport/${w.id}-${year}.json.gz`);assert.equal(regionalTransportURL(w,1493),null);}
   assert.equal(regionalTransportURL({id:'unknown',years:[1500]},1500),null);
  });
  await test('Optional city downloads wait while first-frame catalog remains unblocked',async()=>{

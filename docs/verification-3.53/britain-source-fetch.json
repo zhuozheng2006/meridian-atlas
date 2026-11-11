@@ -1,0 +1,20 @@
+{
+  "endpoint": "https://overpass-api.openhistoricalmap.org/api/interpreter",
+  "tagQuery": "[out:json][timeout:30];rel[\"boundary\"=\"administrative\"][\"admin_level\"~\"^(2|3|4)$\"](49,-11,61,2);out tags;",
+  "files": {
+    "tags": {
+      "sha256": "fe2d277a4f196edb9549325e2c751eb633ccb998f2b5698fdde2eccac4b77a60",
+      "bytes": 855333,
+      "relations": 288,
+      "timestamp": "2026-11-11T16:21:16Z"
+    },
+    "geom": {
+      "sha256": "9baff43ac58b9c38638b03f8999742384253e58bd44db09009aabacaea52b0ba",
+      "bytes": 43559767,
+      "relations": 34,
+      "timestamp": "2026-11-11T16:21:16Z"
+    }
+  },
+  "snapshot": "2026-11-11T16:21:16Z",
+  "reproduction": "Use build-ohm-1500.mjs --window=british-isles --fetch for a new source snapshot. Live edits may differ from these hashes. The source-coordinate verification report records the cached original answer used for this release."
+}

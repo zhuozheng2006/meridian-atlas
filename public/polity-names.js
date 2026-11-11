@@ -1,4 +1,4 @@
-import {polityDisplayData} from './polity-display-names-data.js?v=3.52.0-a7bea3fb619c';
+import {polityDisplayData} from './polity-display-names-data.js?v=3.53.0-9308e8f3f08d';
 
 const byRecord=new Map();
 for(const rule of polityDisplayData.rules)for(const target of rule.targets)byRecord.set(target.id,{rule,target});

@@ -1,0 +1,68 @@
+{
+  "appSHA256": "a138c0b803789f09bfba56034d6ebcd5e25a23745583260ed7d88195d49337c9",
+  "method": "Actual application loader, map bootstrap, applyYear, restore and status functions evaluated with deferred I/O and UI/renderer boundaries. No browser/render performance claim.",
+  "passed": 15,
+  "total": 15,
+  "cases": [
+    {
+      "name": "Catalog+renderer can construct and commit map while events remain pending; late events never call setYear again",
+      "pass": true
+    },
+    {
+      "name": "Event failure retains usable atlas and an explicit error/retry; retry is shared and never rebuilds map",
+      "pass": true
+    },
+    {
+      "name": "A successfully loaded catalog cannot make ensureCoreData skip unfinished events",
+      "pass": true
+    },
+    {
+      "name": "Catalog failure still blocks the map and remains retryable independent of successful events",
+      "pass": true
+    },
+    {
+      "name": "Deferred event URL survives save/retry and restores once data is available without holding map ready",
+      "pass": true
+    },
+    {
+      "name": "Deferred event never overrides later detail navigation",
+      "pass": true
+    },
+    {
+      "name": "Deferred event never overrides later view navigation",
+      "pass": true
+    },
+    {
+      "name": "Deferred event never overrides later left year navigation",
+      "pass": true
+    },
+    {
+      "name": "Deferred event never overrides later right year navigation",
+      "pass": true
+    },
+    {
+      "name": "Deferred event never overrides later close right navigation",
+      "pass": true
+    },
+    {
+      "name": "Right-map event deep link keeps chosen year and saved camera",
+      "pass": true
+    },
+    {
+      "name": "Event availability updates only the active event-dependent reader region",
+      "pass": true
+    },
+    {
+      "name": "Event search tool waits for actual data instead of returning a false empty result",
+      "pass": true
+    },
+    {
+      "name": "Actual event sidebar distinguishes pending/error from a genuinely empty loaded result",
+      "pass": true
+    },
+    {
+      "name": "Actual polity events section uses pending/error/retry until related data is ready",
+      "pass": true
+    }
+  ]
+}

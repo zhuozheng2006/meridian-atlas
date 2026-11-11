@@ -1,7 +1,7 @@
 // A transport encoding only: every coordinate must round-trip exactly.
 // Original OHM snapshots remain the research/download source.
 export function regionalTransportURL(window_,year){
- return ['central-europe','east-asia'].includes(window_?.id)&&window_.years?.includes(Number(year))?`data/ohm-transport/${window_.id}-${year}.json.gz`:null;
+ return ['central-europe','east-asia','british-isles'].includes(window_?.id)&&window_.years?.includes(Number(year))?`data/ohm-transport/${window_.id}-${year}.json.gz`:null;
 }
 export function decodeRegionalTransport(data){
  if(data?.encoding!=='ohm-delta-1e7')return data;

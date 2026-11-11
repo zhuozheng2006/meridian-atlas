@@ -1,0 +1,64 @@
+{
+  "moduleSha256": "881f55b5b983e2c74ef083c1172eee81484f744c4f6cb8bf8933b67861f1899d",
+  "passed": 14,
+  "total": 14,
+  "results": [
+    {
+      "name": "Mounting/folding does no IO; one open loads once despite repeated toggles",
+      "passed": true
+    },
+    {
+      "name": "A detached reader ignores late fulfillment and cannot receive focus",
+      "passed": true
+    },
+    {
+      "name": "Close during load does not build a hidden document; reopen still performs first positioning",
+      "passed": true
+    },
+    {
+      "name": "Closing after render but before animation frame still positions on reopening",
+      "passed": true
+    },
+    {
+      "name": "Manual directory positioning uses body-relative coordinates and moves keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "Automatic passage positioning never steals focus from another control",
+      "passed": true
+    },
+    {
+      "name": "Length/hash corruption is rejected and the same entry can retry verified bytes",
+      "passed": true
+    },
+    {
+      "name": "Two readers share one source fetch whose bytes pass integrity validation",
+      "passed": true
+    },
+    {
+      "name": "Only exact source SHA, source ID and reading identity receive an inline reader",
+      "passed": true
+    },
+    {
+      "name": "All complete saved documents render text literally, with every chapter and reading anchor",
+      "passed": true
+    },
+    {
+      "name": "A failed open exposes a working Retry action",
+      "passed": true
+    },
+    {
+      "name": "Truncated source payloads fail before parsing and can be retried",
+      "passed": true
+    },
+    {
+      "name": "Closing the surrounding reading guide defers rendering and preserves initial passage navigation",
+      "passed": true
+    },
+    {
+      "name": "New versioned documents load from their own collection with byte and source checks",
+      "passed": true
+    }
+  ],
+  "scope": "Shipped module + deterministic DOM geometry/transport; no browser layout or computed-style claim."
+}

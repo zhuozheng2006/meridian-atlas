@@ -1,6 +1,6 @@
-import {PhysicalGrid} from './physical-grid.js?v=3.52.0-a7bea3fb619c';
-import {LakeLayer} from './lakes.js?v=3.52.0-a7bea3fb619c';
-import {readJSON,EMPTY} from './map-engine.js?v=3.52.0-a7bea3fb619c';
+import {PhysicalGrid} from './physical-grid.js?v=3.53.0-9308e8f3f08d';
+import {LakeLayer} from './lakes.js?v=3.53.0-9308e8f3f08d';
+import {readJSON,EMPTY} from './map-engine.js?v=3.53.0-9308e8f3f08d';
 
 // #region compact-geometry
 // Physical layers ship as compact payloads: integer coordinates quantised to 1e-5 deg

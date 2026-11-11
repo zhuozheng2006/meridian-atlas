@@ -1,0 +1,15 @@
+PASS Overview is usable immediately; exact dated country frame upgrades later
+PASS Late country result cannot overwrite year
+PASS Late country result cannot overwrite request
+PASS Late country result cannot overwrite mode
+PASS Late country result cannot overwrite destroy
+PASS Late country result cannot overwrite replacement
+PASS Network failure retains the usable overview
+PASS No unsolicited country fetch {"mode":"overview"}
+PASS No unsolicited country fetch {"mode":"regional"}
+PASS No unsolicited country fetch {"mode":"halc"}
+PASS No unsolicited country fetch {"mode":"cshapes"}
+PASS No unsolicited country fetch {"year":1885}
+PASS No unsolicited country fetch {"year":2024}
+PASS Two maps upgrade independently
+14 automatic boundary checks passed

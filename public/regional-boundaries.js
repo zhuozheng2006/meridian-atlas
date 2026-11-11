@@ -1,12 +1,12 @@
-import {beginMapForeground} from './map-load-priority.js?v=3.52.0-a7bea3fb619c';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.52.0-a7bea3fb619c';
-import {boundaryNote} from './boundary-notes.js?v=3.52.0-a7bea3fb619c';
-import {readJSON,forgetJSON} from './map-engine.js?v=3.52.0-a7bea3fb619c';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.52.0-a7bea3fb619c';
-import {boundaryMode} from './view-state.js?v=3.52.0-a7bea3fb619c';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.52.0-a7bea3fb619c';
-import {historicalYearRange} from './historical-dates.js?v=3.52.0-a7bea3fb619c';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.52.0-a7bea3fb619c';
+import {beginMapForeground} from './map-load-priority.js?v=3.53.0-9308e8f3f08d';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.53.0-9308e8f3f08d';
+import {boundaryNote} from './boundary-notes.js?v=3.53.0-9308e8f3f08d';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.53.0-9308e8f3f08d';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.53.0-9308e8f3f08d';
+import {boundaryMode} from './view-state.js?v=3.53.0-9308e8f3f08d';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.53.0-9308e8f3f08d';
+import {historicalYearRange} from './historical-dates.js?v=3.53.0-9308e8f3f08d';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.53.0-9308e8f3f08d';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -28,7 +28,7 @@ export const REGIONAL_MIN_ZOOM=6;
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 
 const CITY_ZH={'Rottweil':'罗特魏尔','Kaysersberg':'凯泽斯贝格','Kaufbeuren':'考夫博伊伦','Kempten':'肯普滕','Besançon':'贝桑松','Strasbourg':'斯特拉斯堡','Bern':'伯尔尼','Colmar':'科尔马','Haguenau':'阿格诺','Hagenau':'阿格诺','Munster':'明斯特','Obernai':'奥贝尔奈','Rosheim':'罗斯海姆','Sélestat':'塞莱斯塔','Turckheim':'蒂尔凯姆','Ulm':'乌尔姆','Memmingen':'梅明根','Lindau':'林道'};
-const AREA_ZH={'Prince-Bishopric of Basel':'巴塞尔主教领','Landgraviate of Thurgau':'图尔高方伯领','Republic of Mulhouse':'米卢斯共和国','Duchy of Lorraine':'洛林公国','Duchy of Bar':'巴尔公国'};
+const AREA_ZH={'Scotland':'苏格兰','Ireland':'爱尔兰','England':'英格兰','Kingdom of England':'英格兰王国','Kingdom of Scotland':'苏格兰王国','Kingdom of Ireland':'爱尔兰王国','Kingdom of Great Britain':'大不列颠王国','United Kingdom of Great Britain and Ireland':'大不列颠及爱尔兰联合王国','Isle of Man':'马恩岛','Debatable Lands':'英苏争议地','Earldom of Orkney':'奥克尼伯爵领','Guernsey':'根西岛','Jersey':'泽西岛','Berwick-upon-Tweed':'特威德河畔贝里克','Kingdom of Leinster':'伦斯特王国','Kingdom of Thomond':'托蒙德王国','Kingdom of Desmond':'德斯蒙德王国','County of Artois':'阿图瓦伯国','County of Saint-Pol':'圣波勒伯国','Pale of Calais':'加来辖区','England and Wales':'英格兰与威尔士','Connacht':'康诺特','Clare':'克莱尔','Munster':'芒斯特','Leinster':'伦斯特','Prince-Bishopric of Basel':'巴塞尔主教领','Landgraviate of Thurgau':'图尔高方伯领','Republic of Mulhouse':'米卢斯共和国','Duchy of Lorraine':'洛林公国','Duchy of Bar':'巴尔公国'};
 export function regionalName(p,lang='bi',records=[]){
  if(lang==='en')return featureName(p,'en');
  const zh=p['name_zh-hans']||p['name_zh-cn']||p.name_zh;
@@ -74,7 +74,8 @@ export const OHM_ROOT='data/ohm-1500/',OHM_SOURCE='ohm-frozen',OHM_LAYERS=['ohm-
 // Frozen windows shipped with the atlas. bounds are west,south,east,north; root is repo-relative.
 export const OHM_WINDOWS=[
  {id:'central-europe',zh:'中欧',en:'Central Europe',root:'data/ohm-1500/',bounds:[4.5,44.0,14.5,50.5],years:[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900]},
- {id:'east-asia',zh:'东亚',en:'East Asia',root:'data/ohm-eastasia/',bounds:[95.0,18.0,150.0,55.0],years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]}
+ {id:'east-asia',zh:'东亚',en:'East Asia',root:'data/ohm-eastasia/',bounds:[95.0,18.0,150.0,55.0],years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]},
+ {id:'british-isles',zh:'不列颠群岛',en:'British Isles',root:'data/ohm-britain/',bounds:[-11,49,2,61],years:[1492,1500,1600,1700,1800,1900]}
 ];
 export const OHM_YEARS=[...new Set(OHM_WINDOWS.flatMap(window_=>window_.years))].sort((a,b)=>a-b);
 export const OHM_BOUNDS=OHM_WINDOWS[0].bounds;
@@ -343,7 +344,7 @@ export class RegionalBoundaries{
  setStatus(status){
   this.status=status;const country=this.atlas.boundaries;this.controls.hidden=!this.atlas.showBorders||this.modern&&!country?.isCountry||this.map.getZoom()<REGIONAL_MIN_ZOOM&&this.mode==='auto';this.badge.hidden=this.controls.hidden;
   const labels={updating:['地区详图 · 正在补齐视野…','Regional detail · Updating this view…'],ready:[`地区详图 · ${this.features.length} 条区划`,`Regional detail · ${this.features.length} areas`],partial:[`详图局部覆盖 · ${this.features.length} 条`,`Local detail available · ${this.features.length} areas`],error:['全球疆域 · 详图暂不可用','Global overview · detail unavailable'],empty:['全球疆域 · 此处暂无详图','Global overview · no detail here'],loading:['全球疆域 · 正在读取详图','Global overview · loading detail'],overview:['全球疆域 · 切换来源','Global overview · choose source'],zoom:['全球疆域 · 放大查看详图','Global overview · zoom for detail']};
-  this.badge.textContent=this.mode==='halc'?this.halc.title():country?.mode==='cshapes'?country.title(this.lang):tr(this.lang,...(labels[status]||labels.overview));this.badge.title=tr(this.lang,'选择边界来源与查看区划档案','Choose boundary source and browse area records');
+  this.badge.textContent=this.mode==='halc'?this.halc.title():(country?.mode==='cshapes'||country?.isCountry&&!this.detailedActive)?country.title(this.lang):tr(this.lang,...(labels[status]||labels.overview));this.badge.title=tr(this.lang,'选择边界来源与查看区划档案','Choose boundary source and browse area records');
   this.switcher.hidden=this.controls.hidden||this.map.getZoom()<REGIONAL_MIN_ZOOM||this.failed&&!this.ohmReady&&this.mode!=='halc'||(!this.detailedActive&&['regional','halc'].includes(this.mode));this.switcher.textContent=this.status==='partial'&&!this.detailedActive?tr(this.lang,'并排对照','Compare detail'):tr(this.lang,this.detailedActive?'对照概览':'查看详图',this.detailedActive?'Compare overview':'View detail');
   if(status==='ready'&&this.active&&this.coverageEnough===false)this.badge.textContent=this.overviewContext?tr(this.lang,'局部详图 · '+this.features.length+' 条 · 概览底色','Local detail · '+this.features.length+' areas · overview tint'):tr(this.lang,'局部详图 · '+this.features.length+' 条 · 空白处未收录','Local detail · '+this.features.length+' areas · gaps unmapped');
   if(status==='partial'&&this.ohmReady&&this.ohmVerdict==='sparse')this.badge.textContent=tr(this.lang,'该年固化详图偏少 · '+this.features.length+' 条','Sparse dated detail · '+this.features.length+' areas');
@@ -445,9 +446,9 @@ export class RegionalBoundaries{
   const ranked=this.features.map(f=>({f,anchor:regionalAnchor(f,clipBox[0]<clipBox[2]?clipBox:null)})).filter(x=>x.anchor&&!ohmPartial(x.f.properties)).sort((a,b)=>a.f.properties.admin_level-b.f.properties.admin_level||b.anchor.score-a.anchor.score);
   for(const {f,anchor}of ranked){
    if(this.markers.length>=14)break;const name=regionalName(f.properties,this.lang,this.atlas.active),coord=anchor.coordinate,national=f.properties.admin_level===2;if(!name||names.has(name))continue;
-   const p=this.map.project(coord),primary=[...name].reduce((n,c)=>n+(/[\u3400-\u9fff]/.test(c)?national?16:13:national?8:7),0),width=Math.min(national?220:190,Math.max(90,primary+16)),height=this.lang==='bi'&&f.properties.name_en&&name!==f.properties.name_en?58:40,box={left:root.left+p.x-width/2,right:root.left+p.x+width/2,top:root.top+p.y-height/2,bottom:root.top+p.y+height/2};
+   const p=this.map.project(coord),primary=[...name].reduce((n,c)=>n+(/[\u3400-\u9fff]/.test(c)?national?17:13:national?8:7),0),width=Math.min(national?220:190,Math.max(100,primary+24)),height=this.lang==='bi'&&f.properties.name_en&&name!==f.properties.name_en?58:40,box={left:root.left+p.x-width/2,right:root.left+p.x+width/2,top:root.top+p.y-height/2,bottom:root.top+p.y+height/2};
    if(box.left<root.left+12||box.right>root.right-12||box.top<root.top+85||box.bottom>root.bottom-85||boxes.some(b=>overlap(box,b)))continue;
-   const el=document.createElement('button');el.className='regional-label'+(national?' regional-national':'');el.textContent=name;el.style.maxWidth=width+'px';if(this.lang==='bi'&&f.properties.name_en&&name!==f.properties.name_en){const en=document.createElement('span');en.textContent=f.properties.name_en;el.append(en);}el.setAttribute('aria-label',name);el.onclick=e=>{e.stopPropagation();this.openFeature(f,{lng:coord[0],lat:coord[1]});};
+   const el=document.createElement('button');el.className='regional-label'+(national?' regional-national':'');el.textContent=name;el.style.width=width+'px';el.style.maxWidth=width+'px';if(this.lang==='bi'&&f.properties.name_en&&name!==f.properties.name_en){const en=document.createElement('span');en.textContent=f.properties.name_en;el.append(en);}el.setAttribute('aria-label',name);el.onclick=e=>{e.stopPropagation();this.openFeature(f,{lng:coord[0],lat:coord[1]});};
    this.markers.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(coord).addTo(this.map));boxes.push(box);this.atlas.labelBoxes.push(box);names.add(name);
   }
   this.atlas.places?.refresh();

@@ -19,7 +19,7 @@ const frame=(year,key='n',origin='cliopatria')=>({year,source:origin,requested:'
 function subject(){
  const m=Object.create(AtlasMap.prototype),container={dispatchEvent:event=>ctx.handleGeometryStatus({target:container,type:event.type})};
  Object.assign(m,{request:0,active:[],year:1492,lang:'bi',catalog,geometryKey:'',ready:Promise.resolve(),frames:[],destroyed:false,map:{on(){},setPaintProperty(){},getZoom:()=>0,getContainer:()=>container,getSource:()=>({setData:data=>m.frames.push(data)})},refreshLabels(){},upgradeLand(){},upgradeDetail(){}});
- m.boundaries=new BoundaryController(m,{mode:'auto'});m.boundaries.prepare=async year=>frame(year);return m;
+ m.boundaries=new BoundaryController(m,{mode:'auto',loadCountry:async()=>{throw Error('Country network is isolated in this point-layer test')}});m.boundaries.prepare=async year=>frame(year);return m;
 }
 let passed=0;async function test(name,fn){await fn();passed++;console.log('PASS '+name);}
 await test('No point-layer construction or network before a successful frame',async()=>{const m=subject();globals.atlas=m;ctx.handleGeometryStatus({target:m.map.getContainer()});assert(!m.pointLayersBound);assert.equal(requests.length,0);let release;m.boundaries.prepare=()=>new Promise(r=>release=r);const pending=m.setYear(catalog,1450);await Promise.resolve();assert(!m.pointLayersBound);assert.equal(requests.length,0);release(frame(1450));await pending;assert(m.pointLayersBound);assert.equal(m.places.year,1450);assert.equal(requests.length,6);assert(requests.every(u=>u.startsWith('data/places/')||u==='data/battles.json.gz'||u==='data/atrocities.json.gz'));});

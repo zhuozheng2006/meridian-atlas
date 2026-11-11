@@ -1,0 +1,17 @@
+PASS A dated midyear snapshot excludes sequential boundary phases and unknown dates
+PASS Every paint and selection layer uses the dated regional filter
+PASS Traditional labels convert to Simplified Chinese and bilingual names keep the original English
+PASS Source links preserve relation versus way identity and reject invalid IDs
+PASS Interior label anchor stays outside a polygon hole
+PASS World, disabled, hidden borders and modern reference do not fetch regional tiles
+PASS Actual regional records switch both fill and stroke, empty views restore original data
+PASS Year changes reject stale features and preserve the raw source geometry
+PASS Failed source restores overview, hides partial tiles, retries and removes listeners
+PASS Turning off detail or entering modern reference restores the territory overview
+PASS Partial auto detail appears over overview tint without competing overview strokes
+PASS Auto coverage uses land samples, hysteresis, quadrants and the map center
+PASS Visible tile fragments stay attached to their exact record; national labels have priority
+PASS Listing regional records keeps tile coordinate getters lazy until an anchor is needed
+PASS County-level detail appears at z8 and clears when zooming back out
+PASS Errors preserve the requested mode and a successful retry clears the error
+{"status":"passed","checks":16}

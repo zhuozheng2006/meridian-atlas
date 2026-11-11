@@ -13,13 +13,13 @@ function addStatic(file,expected){
  if(expected&&(b.length!==expected.bytes||sha256!==expected.sha256))throw Error('Invalid audited static asset: '+file);
  staticFiles.push({file,bytes:b.length,sha256,key:'atlas-static/sha256/'+sha256,contentType:file.endsWith('.pdf')?'application/pdf':'application/octet-stream'});split.add(path.join(source,file));
 }
-for(const area of ['ohm-eastasia','ohm-1500']){
+for(const area of ['ohm-eastasia','ohm-1500','ohm-britain']){
  const data=JSON.parse(fs.readFileSync(path.join(source,'data',area,'manifest.json')));
  for(const f of Object.values(data.years)){if(!/^year--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid OHM snapshot path');addStatic('data/'+area+'/'+f.file,{bytes:f.gzipBytes,sha256:f.sha256});}
 }
 const regionalTransport=JSON.parse(fs.readFileSync(path.join(source,'data/ohm-transport/manifest.json')));
 for(const f of regionalTransport.files){
- if(!/^(?:central-europe|east-asia)--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid regional transport path');
+ if(!/^(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid regional transport path');
  addStatic('data/ohm-transport/'+f.file,{bytes:f.bytes,sha256:f.sha256});
 }
 const cshapes=JSON.parse(fs.readFileSync(path.join(source,'data/cshapes/manifest.json')));

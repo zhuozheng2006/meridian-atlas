@@ -20,12 +20,13 @@ import {coverageOf} from './coverage.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const ENDPOINT='https://overpass-api.openhistoricalmap.org/api/interpreter';
 const LEVELS=[2,3,4];
-// Two non-overlapping windows. bbox is south,west,north,east; dir is repo-relative.
+// Regional windows. bbox is south,west,north,east; dir is repo-relative.
 const WINDOWS={
  'central-europe':{id:'central-europe',zh:'中欧',en:'Central Europe',bbox:[44.0,4.5,50.5,14.5],dir:'public/data/ohm-1500',cache:'scripts/ohm/.cache',
   years:[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900]},
  'east-asia':{id:'east-asia',zh:'东亚',en:'East Asia',bbox:[18.0,95.0,55.0,150.0],dir:'public/data/ohm-eastasia',cache:'scripts/ohm/.cache/east-asia',
-  years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]}
+  years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]},
+ 'british-isles':{id:'british-isles',zh:'不列颠群岛',en:'British Isles',bbox:[49,-11,61,2],dir:'public/data/ohm-britain',cache:'scripts/ohm/.cache/british-isles',years:[1492,1500,1600,1700,1800,1900]}
 };
 const args=process.argv.slice(2);
 const flag=name=>args.includes('--'+name);
@@ -72,7 +73,7 @@ export function decimalDate(value){
  let dayOfYear=cumulative[month-1]+day;if(leap&&month>2)dayOfYear++;
  return {decdate:year+(dayOfYear-1+.5)/days,year,month,day};
 }
-export const snapshotDate=year=>year+(181.5/365);
+export const snapshotDate=year=>decimalDate(`${year}-07-01`).decdate;
 export const overlaps=({start,end},year)=>{
  const at=snapshotDate(year);
  if(start===null||start.decdate>at)return false;

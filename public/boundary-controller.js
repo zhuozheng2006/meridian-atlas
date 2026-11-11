@@ -1,6 +1,7 @@
-import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.52.0-a7bea3fb619c';
-import {interiorPoint} from './regional-boundaries.js?v=3.52.0-a7bea3fb619c';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.52.0-a7bea3fb619c';
+import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.53.0-9308e8f3f08d';
+import {interiorPoint} from './regional-boundaries.js?v=3.53.0-9308e8f3f08d';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.53.0-9308e8f3f08d';
+import {beginMapForeground} from './map-load-priority.js?v=3.53.0-9308e8f3f08d';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -17,7 +18,19 @@ export class BoundaryController{
  commit(frame){
   ++this.generation;this.current=frame;this.loading=false;this.reason=frame.reason;this.atlas.geometryKey=frame.key;this.recordMap=new Map(frame.records.map(r=>[r.id,r]));
   this.atlas.displayTerritories(frame.data);this.applyVisibility(!!this.atlas.regional?.detailedActive);
+  this.automaticUpgrade=this.upgradeAutomatic(frame);
   this.atlas.map.getContainer?.()?.dispatchEvent(new CustomEvent('geometry-status',{bubbles:true}));
+ }
+ async upgradeAutomatic(initial){
+  if(this.mode!=='auto'||initial.source!=='cliopatria'||!countrySnapshot(initial.year))return false;
+  const generation=this.generation,year=initial.year,request=this.atlas.request,release=beginMapForeground();
+  const current=()=>!this.atlas.destroyed&&generation===this.generation&&request===this.atlas.request&&year===this.atlas.year&&this.mode==='auto'&&this.current===initial;
+  try{
+   const frame=await this.loadCountry(year);if(!current())return false;
+   const features=countryFeatures(frame,this.color);
+   this.commit({requested:'auto',source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features},key:'cshapes:'+frame.date,reason:null});
+   this.atlas.regional?.update();this.atlas.refreshLabels();return true;
+  }catch{return false;}finally{release();}
  }
  applyVisibility(regional){
   const map=this.atlas.map;
