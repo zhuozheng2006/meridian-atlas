@@ -1,0 +1,50 @@
+{
+  "source": {
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "checkout_path": "/Users/zane/meridian_atlas/world-history-atlas",
+    "commit_sha": "72aa46777bdf8a72cf05ae65d0bb09f65a2dfbc9",
+    "archive": "/private/tmp/meridian-3.55.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6af4b7da802c819191b2679e88006a29",
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "title": "经纬纪 · Meridian Atlas",
+    "version_id": "appgprj_6abed10c25288191b15cf376ca0c8c66~appgver_c6a7c20e7a308191ad71f9faa45c9691",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://meridian-world-history.zhuozheng2006.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6abed10c25288191b15cf376ca0c8c66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-11T18:46:07.110244+00:00"
+  },
+  "storage": {
+    "revision": "2e798c91eb18cbb15fb38f93d9349d7c48128273890e7ebbff75d90044c855da",
+    "expectedFiles": 363,
+    "uploaded": 23,
+    "reused": 340,
+    "allReadBackHashesVerified": true,
+    "importUntil": 0
+  },
+  "checks": {
+    "fullSuite": "passed",
+    "http": "13/13",
+    "worker": "16/16",
+    "existingOHMSourceGeometry": "112/112",
+    "chgisSourceRecords": 2016,
+    "chgisCenturyRecordChecks": 3432,
+    "chgisAnnualSelections": 2135,
+    "chgisSourceAttributesAndCoordinates": "exactly preserved",
+    "viewState": "69/69",
+    "automaticBoundaries": "21/21",
+    "regionalContinuity": "26/26",
+    "chgisCache": "same-century zero additional requests; shared concurrent request; three-pack LRU",
+    "overview": "500/1000/1492 viewport payload checks, unchanged source geometry, all polity features retained",
+    "browser": "750, 751, -200, -221; CHGIS details, BCE dates, cache reuse and global fallback",
+    "deployedContent": "13/13; exact asset hashes and closed import routes"
+  },
+  "github": "https://github.com/zhuozheng2006/meridian-atlas",
+  "tag": "v3.55.0"
+}

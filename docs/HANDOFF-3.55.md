@@ -8,13 +8,13 @@
 
 全部原属性、坐标、孔洞与多面结构保留。重复 SYS_ID 的三处记录以来源行号区分；年度起止包含端点，年内并列记录保留。五处明显拼音错配采用显示别名，原 NAME_PY 留在档案和下载中。年代规则码未作未经证实的解释。原文件声明 Pulkovo 1942，经纬度按原值显示，未推定基准转换；不作测绘级位置精度声明。
 
-来源：[复旦下载页](https://yugong.fudan.edu.cn/CHGIS/sjxz.htm)、[编制方法](https://yugong.fudan.edu.cn/CHGIS/sjsm.htm)、[Harvard 项目介绍](https://gis.harvard.edu/china-historical-gis)。原包哈希、范围和导入决定见 `chgis-source-research.json`。早期朝鲜半岛 OHM 候选的年代区间跨越重大疆域变化，本批未发布，原因保留在 `early-korea-review.json`。
+来源：[复旦下载页](https://yugong.fudan.edu.cn/CHGIS/sjxz.htm)、[编制方法](https://yugong.fudan.edu.cn/CHGIS/sjsm.htm)、[Harvard 项目介绍](https://gis.harvard.edu/china-historical-gis)。原包哈希、范围和导入决定见 [`chgis-source-research.json`](verification-3.55/chgis-source-research.json)。早期朝鲜半岛 OHM 候选的年代区间跨越重大疆域变化，本批未发布，原因保留在 [`early-korea-review.json`](verification-3.55/early-korea-review.json)。
 
 ## 加载与概览
 
 索引 71,590 字节，几何分为 23 个世纪包，按年加载一个，缓存最多三个并合并并发请求。500 年包 948,828 字节，750 年包 669,506 字节；同世纪换年不增加边界下载。整套未分包的原值压缩约 10.8 MB，现无需首屏全部读取。所有分包合计更大是跨世纪几何重复带来的空间换加载速度取舍。
 
-全球概览保留全部政体，精细曲线采样集中在带缓冲的当前视野；视野外用世界尺度采样。放大和移动后自动更新。曲线是可关闭的显示处理，原始边界未改变。500、1000、1492 年的三组区域视野测试中，传给绘图器的数据量减少约 71%–75%，不是网络或端到端加载耗时结论。详见 `border-viewport.json`。
+全球概览保留全部政体，精细曲线采样集中在带缓冲的当前视野；视野外用世界尺度采样。放大和移动后自动更新。曲线是可关闭的显示处理，原始边界未改变。500、1000、1492 年的三组区域视野测试中，传给绘图器的数据量减少约 71%–75%，不是网络或端到端加载耗时结论。详见 [`border-viewport.json`](verification-3.55/border-viewport.json)。
 
 CHGIS 区域与 OHM 不叠绘同一套地方边界；覆盖不足处继续保留全球概览底色。超出 CHGIS 年代或地理范围仍走原有边界来源。
 

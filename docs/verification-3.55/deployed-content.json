@@ -1,0 +1,81 @@
+{
+  "version": "3.55.0",
+  "status": "passed",
+  "checkedAt": "2026-11-11T18:46:28.077Z",
+  "checks": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "method": "asset version (hosting may inject HTML)",
+      "sha256": "78885d04cf4a04c2c8f1701cf1d4a9b7a4874e93dcca6e547240fae951e29d41"
+    },
+    {
+      "file": "country-archive.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "6e8fa0f03697e14eaea67d1f221d609560265a16768c6c9b9e1598a654defc00"
+    },
+    {
+      "file": "boundary-controller.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "ddd63ede747d9d3c44524034f21726dc13225aa9039947c2f1e42fa2f5192d8f"
+    },
+    {
+      "file": "regional-boundaries.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "aac9a8cd339ed43000d466627cf4ebbb00cee6df1befe8e99e1c61b57b2d3ce4"
+    },
+    {
+      "file": "map-engine.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "5ac73d98ef5abd3a0c2326bbfe20c474af825f27f41d5707ce4b3fc07c8d8df6"
+    },
+    {
+      "file": "chgis-boundaries.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "396869bf3ce77daad16575f83cdd6ea5d886695785c2f03b259e40195e112d3b"
+    },
+    {
+      "file": "border-curves.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "c92faaeccb43b9f8579f4de711fa933f0002461f51638c3e1376469ddb1f0201"
+    },
+    {
+      "file": "source-reader.js",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "5b184f59b44859c1d7ed0c0007976756e610cd05709808461c5d8a769f4fdfac"
+    },
+    {
+      "file": "data/chgis/manifest.json",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "6ef25abfc0bffa2ea628a8967ce80cdc238a2d30bc3fda9e5491b9aaadd64476"
+    },
+    {
+      "file": "data/chgis/index.json.gz",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "7cbfe298b7164c9a8e04a5f053303b6da93397095a33d2761b4d28c375c8d515"
+    },
+    {
+      "file": "data/chgis/V4_Prefecture_Bou_TimeSeries.rar",
+      "status": 200,
+      "method": "exact SHA-256",
+      "sha256": "9b624256c7a43835b1f061c073a1075d72b526f9b7720ab0de2e5ec3c0ba3ca4"
+    },
+    {
+      "route": "/__atlas-static-import/status",
+      "status": 404
+    },
+    {
+      "route": "/__atlas-import/status",
+      "status": 404
+    }
+  ]
+}
