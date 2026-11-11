@@ -1,0 +1,27 @@
+{
+  "generated": "2026-11-11T16:04:36.462Z",
+  "method": "Stamped module imports and the actual client Worker URL, actual local AtlasHandler MIME mapping, and static-tree placement. Does not assert deployed headers/CSP or successful browser module-worker startup.",
+  "assetRevision": "3.49.0-21169f0d36c4",
+  "mime": {
+    "halc-landscape-client.js": "text/javascript",
+    "halc-landscape-worker.js": "text/javascript",
+    "halc-landscape-prepare.js": "text/javascript",
+    "halc-landscape-reader.js": "text/javascript"
+  },
+  "passed": 3,
+  "total": 3,
+  "checks": [
+    {
+      "name": "Worker entry and all static imports in its preparation graph carry the same current asset stamp",
+      "pass": true
+    },
+    {
+      "name": "Actual local AtlasHandler maps each module script to a JavaScript MIME type",
+      "pass": true
+    },
+    {
+      "name": "Preserved upstream vendor bytes live outside the public static tree",
+      "pass": true
+    }
+  ]
+}

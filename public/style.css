@@ -35,3 +35,6 @@
 .atrocity-marker i{flex:none;display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:10px solid #7b4f7d;filter:drop-shadow(0 0 1px #efe3f1)}
 .atrocity-marker:hover i,.atrocity-marker:focus-visible i{border-bottom-color:#5d3160}
 .atrocity-marker span{background:#f7eef7d9;border-radius:3px;padding:0 3px}
+
+/* Source review stays in the reading view and never blocks the map. */
+.quality-counts{display:flex;gap:1rem;flex-wrap:wrap;margin:1.4rem 0}.quality-counts>span{flex:1;min-width:150px;border-top:1px solid #b59a6b;padding:.8rem}.quality-counts strong{display:block;font-size:1.65rem;margin-top:.4rem}.quality-controls{display:flex;gap:.8rem;align-items:end;flex-wrap:wrap}.quality-controls label{display:flex;flex-direction:column;gap:.4rem;max-width:100%}.quality-controls input[type=search]{max-width:100%;width:260px}.quality-controls label:has(input[type=checkbox]){flex-direction:row;align-items:center}.quality-record{padding:1rem 0;border-bottom:1px solid #8a80674a;overflow-wrap:anywhere}.quality-record summary{cursor:pointer;line-height:1.6}.quality-record small{display:block;opacity:.75}.quality-record .secondary,.quality-counts .secondary,#qualityLedger h2 .secondary{display:block;font-size:.85em;opacity:.7}

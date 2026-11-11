@@ -1,0 +1,227 @@
+{
+  "checkedAt": "2026-11-11T16:04:57.016Z",
+  "results": [
+    {
+      "name": "Polygon holes, edges, invalid points and separate islands",
+      "passed": true
+    },
+    {
+      "name": "Dateline-crossing shells and holes handle both longitude conventions",
+      "passed": true
+    },
+    {
+      "name": "Date gaps, invalid civil years and inactive polity periods are excluded",
+      "passed": true
+    },
+    {
+      "name": "Dated locations follow their own period rather than the representative point",
+      "passed": true
+    },
+    {
+      "name": "Capital matches require verified identity, active tenure and unambiguous binding",
+      "passed": true
+    },
+    {
+      "name": "Population stays a dated observation, including across BCE/CE and the 50-year boundary",
+      "passed": true
+    },
+    {
+      "name": "Name, alias and kind filters preserve source rows",
+      "passed": true
+    },
+    {
+      "name": "1,250 real geometry samples agree with an independent Shapely oracle",
+      "passed": true
+    },
+    {
+      "name": "Real archived polities load dated place records without modern references",
+      "passed": true
+    },
+    {
+      "name": "A superseded navigation cannot return or cache results",
+      "passed": true
+    },
+    {
+      "name": "Partial source failures are visible and recover without caching incomplete results",
+      "passed": true
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Roman Empire",
+      "id": "clio-01213",
+      "year": 100,
+      "counts": {
+        "capitals": 1,
+        "settlements": 6062,
+        "observations": 9
+      },
+      "records": 6072,
+      "milliseconds": 107,
+      "first": [
+        {
+          "id": "capital:q2277$7188A5B8-5682-4561-B024-26D33391EFB8",
+          "name": "Rome",
+          "kind": "dated-capital"
+        },
+        {
+          "id": "modelski-ancient:109",
+          "name": "Rome",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "modelski-ancient:7",
+          "name": "Alexandria",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:1202",
+          "name": "Rome",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "modelski-ancient:11",
+          "name": "Antioch",
+          "kind": "urban-observation"
+        }
+      ]
+    },
+    {
+      "name": "Ming Dynasty",
+      "id": "clio-07416",
+      "year": 1492,
+      "counts": {
+        "capitals": 1,
+        "settlements": 0,
+        "observations": 19
+      },
+      "records": 20,
+      "milliseconds": 6,
+      "first": [
+        {
+          "id": "capital:Q9903$c21a3aaf-4661-0bb7-c5fc-676a5d25fb1c",
+          "name": "Shuntian Fu",
+          "kind": "dated-capital"
+        },
+        {
+          "id": "chandler:143",
+          "name": "Beijing",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:548",
+          "name": "Hangzhou",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:516",
+          "name": "Guangzhou",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:984",
+          "name": "Nanjing",
+          "kind": "urban-observation"
+        }
+      ]
+    },
+    {
+      "name": "Ottoman Empire",
+      "id": "clio-08504",
+      "year": 1600,
+      "counts": {
+        "capitals": 1,
+        "settlements": 36,
+        "observations": 29
+      },
+      "records": 66,
+      "milliseconds": 4,
+      "first": [
+        {
+          "id": "capital:Q12560$6c41d504-4649-647e-16c3-5ce527ab5552",
+          "name": "Constantinople",
+          "kind": "dated-capital"
+        },
+        {
+          "id": "chandler:246",
+          "name": "Cairo",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:418",
+          "name": "Edirne",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:1369",
+          "name": "Tabriz",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:1309",
+          "name": "Smyrna",
+          "kind": "urban-observation"
+        }
+      ]
+    },
+    {
+      "name": "French Second Republic",
+      "id": "clio-11491",
+      "year": 1850,
+      "counts": {
+        "capitals": 0,
+        "settlements": 10,
+        "observations": 61
+      },
+      "records": 71,
+      "milliseconds": 3,
+      "first": [
+        {
+          "id": "chandler:1081",
+          "name": "Paris",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:840",
+          "name": "Lyon",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:199",
+          "name": "Bordeaux",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:266",
+          "name": "Cassel",
+          "kind": "urban-observation"
+        },
+        {
+          "id": "chandler:1210",
+          "name": "Rouen",
+          "kind": "urban-observation"
+        }
+      ]
+    },
+    {
+      "name": "Swiss Confederation",
+      "id": "clio-07633",
+      "year": 1492,
+      "counts": {
+        "capitals": 0,
+        "settlements": 1,
+        "observations": 0
+      },
+      "records": 1,
+      "milliseconds": 2,
+      "first": [
+        {
+          "id": "pleiades:878719593",
+          "name": "Twann",
+          "kind": "attested-settlement"
+        }
+      ]
+    }
+  ],
+  "requests": 12
+}

@@ -1,0 +1,1561 @@
+{
+  "legacyOracleSha256": "b794ed125e3b8ee6d52a0624609bc77248285191a41dbb243177b314e13cf260",
+  "method": "Production scheduler imported from public/halc-label-scheduler.js. Actual asynchronous HalcBoundaries.refreshLabels with production regionalAnchor and halcVisibleUnits, awaited exact request handle through commit while geometry metrics remain active. Independent frozen 3.42 synchronous refreshLabels body supplies reference markers and ranked anchors. Actual shipped MapLibre Feature lazy getter and MVT parser. Web Mercator latitude projection in a 1200x800 fixture; no browser, QRF or GPU. A copied placement-only helper is separately checked against production in each case solely to demonstrate the KM2 heuristic counterexample.",
+  "bundleSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c",
+  "tiles": [
+    {
+      "path": "local/6/32/20.pbf",
+      "bytes": 97536,
+      "features": 432,
+      "sha256": "ed591808a2654a25c49979192957cce7dc6ad13d6d16a4d2d52e6d8d8ababf47"
+    },
+    {
+      "path": "local/6/33/20.pbf",
+      "bytes": 377358,
+      "features": 1541,
+      "sha256": "e1e41513f1467de23643037d276aa63c004904acd12b37a087cc2d6de1964bf4"
+    },
+    {
+      "path": "regions/6/32/20.pbf",
+      "bytes": 12372,
+      "features": 2,
+      "sha256": "2c1f6591b41d407af7471399b2f6c1eb82330b4f8d23c1e3befa56291aaf6461"
+    },
+    {
+      "path": "local/10/525/336.pbf",
+      "bytes": 39205,
+      "features": 304,
+      "sha256": "a70d18731077b78e363d701ada3dec179e3f90eec48b7018d38bced95a449cf9"
+    },
+    {
+      "path": "local/10/524/341.pbf",
+      "bytes": 17896,
+      "features": 64,
+      "sha256": "fad13928c49cf1c1166be578aabf3ee5255edea139762eb50ec6e6b73d58df4b"
+    },
+    {
+      "path": "local/10/524/343.pbf",
+      "bytes": 43032,
+      "features": 158,
+      "sha256": "03242dee49dad7647d4e6f24e3fd5d8bb6676009d0a071df2a7a92f59cce07d6"
+    }
+  ],
+  "limits": [
+    "4 ms is a cooperative budget, not a hard task-duration cap; an individual polygon anchor cannot be interrupted.",
+    "Final exact stable sorting and at most 12 marker insertion remain synchronous.",
+    "Candidate completion preserves exact final output but initially delays new labels and may increase elapsed completion time due to yields.",
+    "Timing is one bounded Node pass per view, sensitive to JIT/GC/load; it is not an end-to-end browser speed claim.",
+    "Fixture returns whole tile feature sets including candidates clipped outside viewport; actual MapLibre viewport QRF membership is not exercised.",
+    "Production refreshLabels integration is exercised for every real-tile case. Cancellation contracts in this file use an explicit deterministic context guard; separate production lifecycle tests cover real source/year/map event wiring."
+  ],
+  "pass": 22,
+  "fail": 0,
+  "observations": {
+    "cases": [
+      {
+        "name": "fallback low zoom north",
+        "zoom": 6.3,
+        "localities": 432,
+        "regionsReady": false,
+        "candidates": 401,
+        "markers": [
+          {
+            "text": "Holland",
+            "point": [
+              5.007471175306003,
+              53.28093177938937
+            ],
+            "aria": "Holland",
+            "title": "Browse local units with this attribution",
+            "width": "100px",
+            "target": {
+              "type": "region",
+              "code": "HO"
+            }
+          },
+          {
+            "text": "Frisia",
+            "point": [
+              5.36145647703748,
+              52.87596252503147
+            ],
+            "aria": "Frisia",
+            "title": "Browse local units with this attribution",
+            "width": "88px",
+            "target": {
+              "type": "region",
+              "code": "FS"
+            }
+          }
+        ],
+        "baselineMs": 16.724292,
+        "markerPlacementMs": 0.2686250000000001,
+        "scheduler": {
+          "candidates": 401,
+          "computed": 401,
+          "retained": 365,
+          "slices": 7,
+          "workMs": 14.253543000000008,
+          "maxSliceMs": 2.8076670000000092,
+          "maxAnchorMs": 0.16366700000000378,
+          "sortMs": 0.0947089999999946,
+          "canceled": false,
+          "elapsedMs": 24.022500000000008
+        },
+        "coldGeometry": 401,
+        "exactGeometrySha256": "06c28e77e1afe457b2b1da8d9684a6549f36165473df2a298e0ff68d2eaf42e6",
+        "km2OrderingChangesLabels": true
+      },
+      {
+        "name": "fallback north with collision panels and bilingual labels",
+        "zoom": 6.3,
+        "localities": 432,
+        "regionsReady": false,
+        "candidates": 401,
+        "markers": [
+          {
+            "text": "荷兰Holland",
+            "point": [
+              5.007471175306003,
+              53.28093177938937
+            ],
+            "aria": "荷兰",
+            "title": "浏览这一归属下的地方单元",
+            "width": "80px",
+            "target": {
+              "type": "region",
+              "code": "HO"
+            }
+          },
+          {
+            "text": "弗里西亚Frisia",
+            "point": [
+              5.36145647703748,
+              52.87596252503147
+            ],
+            "aria": "弗里西亚",
+            "title": "浏览这一归属下的地方单元",
+            "width": "80px",
+            "target": {
+              "type": "region",
+              "code": "FS"
+            }
+          }
+        ],
+        "baselineMs": 13.30087499999999,
+        "markerPlacementMs": 0.12116699999998559,
+        "scheduler": {
+          "candidates": 401,
+          "computed": 401,
+          "retained": 372,
+          "slices": 7,
+          "workMs": 13.276083999999969,
+          "maxSliceMs": 2.603041999999988,
+          "maxAnchorMs": 0.17325000000001012,
+          "sortMs": 0.0650839999999846,
+          "canceled": false,
+          "elapsedMs": 21.71954199999999
+        },
+        "coldGeometry": 401,
+        "exactGeometrySha256": "06c28e77e1afe457b2b1da8d9684a6549f36165473df2a298e0ff68d2eaf42e6",
+        "km2OrderingChangesLabels": true
+      },
+      {
+        "name": "fallback east clipped across viewport",
+        "zoom": 6.8,
+        "localities": 1541,
+        "regionsReady": false,
+        "candidates": 1376,
+        "markers": [
+          {
+            "text": "Frisia",
+            "point": [
+              6.1627954691044415,
+              53.51594411150961
+            ],
+            "aria": "Frisia",
+            "title": "Browse local units with this attribution",
+            "width": "88px",
+            "target": {
+              "type": "region",
+              "code": "FS"
+            }
+          },
+          {
+            "text": "Groningen",
+            "point": [
+              6.511535455572375,
+              53.56032493320937
+            ],
+            "aria": "Groningen",
+            "title": "Browse local units with this attribution",
+            "width": "124px",
+            "target": {
+              "type": "region",
+              "code": "GR"
+            }
+          },
+          {
+            "text": "Drenthe",
+            "point": [
+              6.9524686733143,
+              52.75166725477376
+            ],
+            "aria": "Drenthe",
+            "title": "Browse local units with this attribution",
+            "width": "100px",
+            "target": {
+              "type": "region",
+              "code": "DR"
+            }
+          },
+          {
+            "text": "Münster",
+            "point": [
+              7.0299161048624335,
+              53.019718444571446
+            ],
+            "aria": "Münster",
+            "title": "Browse local units with this attribution",
+            "width": "100px",
+            "target": {
+              "type": "region",
+              "code": "MU"
+            }
+          },
+          {
+            "text": "East Frisia",
+            "point": [
+              7.233472652981842,
+              53.71701814297042
+            ],
+            "aria": "East Frisia",
+            "title": "Browse local units with this attribution",
+            "width": "148px",
+            "target": {
+              "type": "region",
+              "code": "EF"
+            }
+          },
+          {
+            "text": "Overijssel",
+            "point": [
+              6.179133839429392,
+              52.60818266930313
+            ],
+            "aria": "Overijssel",
+            "title": "Browse local units with this attribution",
+            "width": "136px",
+            "target": {
+              "type": "region",
+              "code": "OV"
+            }
+          },
+          {
+            "text": "Oldenburg",
+            "point": [
+              7.9480240243272515,
+              53.41458024486936
+            ],
+            "aria": "Oldenburg",
+            "title": "Browse local units with this attribution",
+            "width": "124px",
+            "target": {
+              "type": "region",
+              "code": "OL"
+            }
+          },
+          {
+            "text": "Bentheim",
+            "point": [
+              6.8331693290170055,
+              52.549560538173345
+            ],
+            "aria": "Bentheim",
+            "title": "Browse local units with this attribution",
+            "width": "112px",
+            "target": {
+              "type": "region",
+              "code": "BE"
+            }
+          },
+          {
+            "text": "Lingen",
+            "point": [
+              7.455262291339679,
+              52.55508838580585
+            ],
+            "aria": "Lingen",
+            "title": "Browse local units with this attribution",
+            "width": "88px",
+            "target": {
+              "type": "region",
+              "code": "LI"
+            }
+          }
+        ],
+        "baselineMs": 49.97512499999999,
+        "markerPlacementMs": 0.4334580000000301,
+        "scheduler": {
+          "candidates": 1376,
+          "computed": 1376,
+          "retained": 1306,
+          "slices": 22,
+          "workMs": 48.74474800000013,
+          "maxSliceMs": 2.7554159999999968,
+          "maxAnchorMs": 0.15154200000000628,
+          "sortMs": 0.21162500000002638,
+          "canceled": false,
+          "elapsedMs": 74.57095899999999
+        },
+        "coldGeometry": 1376,
+        "exactGeometrySha256": "49d3a5b766e5addfcb4f2ed0ec82b90b539eab9c2f01cc87fda8d1b889073e6f",
+        "km2OrderingChangesLabels": true
+      },
+      {
+        "name": "region ready low zoom",
+        "zoom": 6.3,
+        "localities": 432,
+        "regionsReady": true,
+        "candidates": 2,
+        "markers": [
+          {
+            "text": "Frisia",
+            "point": [
+              5.531959533691406,
+              53.14690290414998
+            ],
+            "aria": "Frisia",
+            "title": "Browse local units with this attribution",
+            "width": "88px",
+            "target": {
+              "type": "region",
+              "code": "FS"
+            }
+          }
+        ],
+        "baselineMs": 0.24079100000000153,
+        "markerPlacementMs": 0.01645899999999756,
+        "scheduler": {
+          "candidates": 2,
+          "computed": 2,
+          "retained": 2,
+          "slices": 1,
+          "workMs": 0.10108400000001438,
+          "maxSliceMs": 0.10108400000001438,
+          "maxAnchorMs": 0.07183300000002646,
+          "sortMs": 0.0004999999999881766,
+          "canceled": false,
+          "elapsedMs": 1.1524160000000165
+        },
+        "coldGeometry": 0,
+        "exactGeometrySha256": "06c28e77e1afe457b2b1da8d9684a6549f36165473df2a298e0ff68d2eaf42e6",
+        "km2OrderingChangesLabels": false
+      },
+      {
+        "name": "Amsterdam local high zoom",
+        "zoom": 10,
+        "localities": 304,
+        "regionsReady": false,
+        "candidates": 304,
+        "markers": [
+          {
+            "text": "Velsen",
+            "point": [
+              4.630219034306892,
+              52.446840811235475
+            ],
+            "aria": "Velsen",
+            "title": "Read local unit: Velsen",
+            "width": "88px",
+            "target": {
+              "type": "local",
+              "id": 12292,
+              "point": {
+                "lng": 4.630219034306892,
+                "lat": 52.446840811235475
+              }
+            }
+          },
+          {
+            "text": "Heemstede",
+            "point": [
+              4.687420101082502,
+              52.3096627481314
+            ],
+            "aria": "Heemstede",
+            "title": "Read local unit: Heemstede",
+            "width": "124px",
+            "target": {
+              "type": "local",
+              "id": 7743,
+              "point": {
+                "lng": 4.687420101082502,
+                "lat": 52.3096627481314
+              }
+            }
+          },
+          {
+            "text": "Osdorp",
+            "point": [
+              4.80333194105901,
+              52.39041054988035
+            ],
+            "aria": "Osdorp",
+            "title": "Read local unit: Osdorp",
+            "width": "88px",
+            "target": {
+              "type": "local",
+              "id": 9908,
+              "point": {
+                "lng": 4.80333194105901,
+                "lat": 52.39041054988035
+              }
+            }
+          },
+          {
+            "text": "Sloten en Sloterdijk",
+            "point": [
+              4.822176644257552,
+              52.356510453802954
+            ],
+            "aria": "Sloten en Sloterdijk",
+            "title": "Read local unit: Sloten en Sloterdijk",
+            "width": "190px",
+            "target": {
+              "type": "local",
+              "id": 13911,
+              "point": {
+                "lng": 4.822176644257552,
+                "lat": 52.356510453802954
+              }
+            }
+          },
+          {
+            "text": "Nieuwer-Amstel",
+            "point": [
+              4.873919183937228,
+              52.30877427596441
+            ],
+            "aria": "Nieuwer-Amstel",
+            "title": "Read local unit: Nieuwer-Amstel",
+            "width": "184px",
+            "target": {
+              "type": "local",
+              "id": 565,
+              "point": {
+                "lng": 4.873919183937228,
+                "lat": 52.30877427596441
+              }
+            }
+          },
+          {
+            "text": "Rietwijk",
+            "point": [
+              4.769363835613545,
+              52.31667428697386
+            ],
+            "aria": "Rietwijk",
+            "title": "Read local unit: Rietwijk",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 10283,
+              "point": {
+                "lng": 4.769363835613545,
+                "lat": 52.31667428697386
+              }
+            }
+          },
+          {
+            "text": "Aalbertsberg",
+            "point": [
+              4.603110507341644,
+              52.410280112913846
+            ],
+            "aria": "Aalbertsberg",
+            "title": "Read local unit: Aalbertsberg",
+            "width": "160px",
+            "target": {
+              "type": "local",
+              "id": 13907,
+              "point": {
+                "lng": 4.603110507341644,
+                "lat": 52.410280112913846
+              }
+            }
+          },
+          {
+            "text": "Nieuwerkerk",
+            "point": [
+              4.738147124529185,
+              52.33840083692948
+            ],
+            "aria": "Nieuwerkerk",
+            "title": "Read local unit: Nieuwerkerk",
+            "width": "148px",
+            "target": {
+              "type": "local",
+              "id": 12494,
+              "point": {
+                "lng": 4.738147124529185,
+                "lat": 52.33840083692948
+              }
+            }
+          },
+          {
+            "text": "Amsterdam",
+            "point": [
+              4.882069507850316,
+              52.41120314623228
+            ],
+            "aria": "Amsterdam",
+            "title": "Read local unit: Amsterdam",
+            "width": "124px",
+            "target": {
+              "type": "local",
+              "id": 13623,
+              "point": {
+                "lng": 4.882069507850316,
+                "lat": 52.41120314623228
+              }
+            }
+          },
+          {
+            "text": "Vijfhuizen",
+            "point": [
+              4.686992387428656,
+              52.341666365794566
+            ],
+            "aria": "Vijfhuizen",
+            "title": "Read local unit: Vijfhuizen",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 760,
+              "point": {
+                "lng": 4.686992387428656,
+                "lat": 52.341666365794566
+              }
+            }
+          },
+          {
+            "text": "Oost-Zaandam",
+            "point": [
+              4.839809836323193,
+              52.440040403540294
+            ],
+            "aria": "Oost-Zaandam",
+            "title": "Read local unit: Oost-Zaandam",
+            "width": "160px",
+            "target": {
+              "type": "local",
+              "id": 7781,
+              "point": {
+                "lng": 4.839809836323193,
+                "lat": 52.440040403540294
+              }
+            }
+          },
+          {
+            "text": "Westzaan",
+            "point": [
+              4.772263873328342,
+              52.445756340888714
+            ],
+            "aria": "Westzaan",
+            "title": "Read local unit: Westzaan",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 2987,
+              "point": {
+                "lng": 4.772263873328342,
+                "lat": 52.445756340888714
+              }
+            }
+          }
+        ],
+        "baselineMs": 5.037208000000021,
+        "markerPlacementMs": 0.10808300000002191,
+        "scheduler": {
+          "candidates": 304,
+          "computed": 304,
+          "retained": 301,
+          "slices": 5,
+          "workMs": 4.940416999999968,
+          "maxSliceMs": 2.040124999999989,
+          "maxAnchorMs": 0.1778749999999718,
+          "sortMs": 0.07720800000004147,
+          "canceled": false,
+          "elapsedMs": 11.528750000000002
+        },
+        "coldGeometry": 304,
+        "exactGeometrySha256": "77deb05ab429b7cd9bba759151d477f25d5248218ca3d9bc3148e22e585db89f",
+        "km2OrderingChangesLabels": true
+      },
+      {
+        "name": "Antwerp local high zoom bilingual collisions",
+        "zoom": 10.6,
+        "localities": 64,
+        "regionsReady": false,
+        "candidates": 61,
+        "markers": [
+          {
+            "text": "Brasschaat",
+            "point": [
+              4.513260698519535,
+              51.31022256921888
+            ],
+            "aria": "Brasschaat",
+            "title": "查看地方单元：Brasschaat",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 5939,
+              "point": {
+                "lng": 4.513260698519535,
+                "lat": 51.31022256921888
+              }
+            }
+          },
+          {
+            "text": "Kallo",
+            "point": [
+              4.262535494427347,
+              51.27321911649166
+            ],
+            "aria": "Kallo",
+            "title": "查看地方单元：Kallo",
+            "width": "80px",
+            "target": {
+              "type": "local",
+              "id": 1521,
+              "point": {
+                "lng": 4.262535494427347,
+                "lat": 51.27321911649166
+              }
+            }
+          },
+          {
+            "text": "Schoten",
+            "point": [
+              4.504850781821358,
+              51.259667398363945
+            ],
+            "aria": "Schoten",
+            "title": "查看地方单元：Schoten",
+            "width": "100px",
+            "target": {
+              "type": "local",
+              "id": 340,
+              "point": {
+                "lng": 4.504850781821358,
+                "lat": 51.259667398363945
+              }
+            }
+          },
+          {
+            "text": "Ekeren",
+            "point": [
+              4.421521627167971,
+              51.282341844571796
+            ],
+            "aria": "Ekeren",
+            "title": "查看地方单元：Ekeren",
+            "width": "88px",
+            "target": {
+              "type": "local",
+              "id": 5923,
+              "point": {
+                "lng": 4.421521627167971,
+                "lat": 51.282341844571796
+              }
+            }
+          },
+          {
+            "text": "Putte",
+            "point": [
+              4.382946846268452,
+              51.370058074349416
+            ],
+            "aria": "Putte",
+            "title": "查看地方单元：Putte",
+            "width": "80px",
+            "target": {
+              "type": "local",
+              "id": 14187,
+              "point": {
+                "lng": 4.382946846268452,
+                "lat": 51.370058074349416
+              }
+            }
+          },
+          {
+            "text": "Wuustwezel",
+            "point": [
+              4.53870304306389,
+              51.36827363168257
+            ],
+            "aria": "Wuustwezel",
+            "title": "查看地方单元：Wuustwezel",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 5242,
+              "point": {
+                "lng": 4.53870304306389,
+                "lat": 51.36827363168257
+              }
+            }
+          },
+          {
+            "text": "Zwijndrecht",
+            "point": [
+              4.337215777075385,
+              51.218627571065156
+            ],
+            "aria": "Zwijndrecht",
+            "title": "查看地方单元：Zwijndrecht",
+            "width": "148px",
+            "target": {
+              "type": "local",
+              "id": 2359,
+              "point": {
+                "lng": 4.337215777075385,
+                "lat": 51.218627571065156
+              }
+            }
+          },
+          {
+            "text": "Antwerpen",
+            "point": [
+              4.4091505080765945,
+              51.20751113144731
+            ],
+            "aria": "Antwerpen",
+            "title": "查看地方单元：Antwerpen",
+            "width": "124px",
+            "target": {
+              "type": "local",
+              "id": 9114,
+              "point": {
+                "lng": 4.4091505080765945,
+                "lat": 51.20751113144731
+              }
+            }
+          },
+          {
+            "text": "Lillo",
+            "point": [
+              4.319398328965353,
+              51.314085579585836
+            ],
+            "aria": "Lillo",
+            "title": "查看地方单元：Lillo",
+            "width": "80px",
+            "target": {
+              "type": "local",
+              "id": 11049,
+              "point": {
+                "lng": 4.319398328965353,
+                "lat": 51.314085579585836
+              }
+            }
+          },
+          {
+            "text": "Doel",
+            "point": [
+              4.241390599562098,
+              51.3039004009496
+            ],
+            "aria": "Doel",
+            "title": "查看地方单元：Doel",
+            "width": "80px",
+            "target": {
+              "type": "local",
+              "id": 6982,
+              "point": {
+                "lng": 4.241390599562098,
+                "lat": 51.3039004009496
+              }
+            }
+          },
+          {
+            "text": "Stabroek",
+            "point": [
+              4.365121284022185,
+              51.33599638401567
+            ],
+            "aria": "Stabroek",
+            "title": "查看地方单元：Stabroek",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 2132,
+              "point": {
+                "lng": 4.365121284022185,
+                "lat": 51.33599638401567
+              }
+            }
+          },
+          {
+            "text": "Beveren",
+            "point": [
+              4.248941852313721,
+              51.220132178800995
+            ],
+            "aria": "Beveren",
+            "title": "查看地方单元：Beveren",
+            "width": "100px",
+            "target": {
+              "type": "local",
+              "id": 1439,
+              "point": {
+                "lng": 4.248941852313721,
+                "lat": 51.220132178800995
+              }
+            }
+          }
+        ],
+        "baselineMs": 2.439208000000008,
+        "markerPlacementMs": 0.05491599999999153,
+        "scheduler": {
+          "candidates": 61,
+          "computed": 61,
+          "retained": 59,
+          "slices": 1,
+          "workMs": 2.4950000000000045,
+          "maxSliceMs": 2.4950000000000045,
+          "maxAnchorMs": 0.1824579999999969,
+          "sortMs": 0.0072079999999914435,
+          "canceled": false,
+          "elapsedMs": 3.819166999999993
+        },
+        "coldGeometry": 61,
+        "exactGeometrySha256": "e97002b7ba3659b2c91e76dcbf48c5e697ad4dacdc195988fb6e921c6825b3c7",
+        "km2OrderingChangesLabels": true
+      },
+      {
+        "name": "Brussels local partly offscreen",
+        "zoom": 10.2,
+        "localities": 158,
+        "regionsReady": false,
+        "candidates": 153,
+        "markers": [
+          {
+            "text": "Overijse",
+            "point": [
+              4.529629075035985,
+              50.77165463323493
+            ],
+            "aria": "Overijse",
+            "title": "Read local unit: Overijse",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 13993,
+              "point": {
+                "lng": 4.529629075035985,
+                "lat": 50.77165463323493
+              }
+            }
+          },
+          {
+            "text": "Vilvoorde",
+            "point": [
+              4.42988577829002,
+              50.92356626283763
+            ],
+            "aria": "Vilvoorde",
+            "title": "Read local unit: Vilvoorde",
+            "width": "124px",
+            "target": {
+              "type": "local",
+              "id": 6416,
+              "point": {
+                "lng": 4.42988577829002,
+                "lat": 50.92356626283763
+              }
+            }
+          },
+          {
+            "text": "Grimbergen",
+            "point": [
+              4.380308845978768,
+              50.93685754128877
+            ],
+            "aria": "Grimbergen",
+            "title": "Read local unit: Grimbergen",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 5552,
+              "point": {
+                "lng": 4.380308845978768,
+                "lat": 50.93685754128877
+              }
+            }
+          },
+          {
+            "text": "Schaarbeek",
+            "point": [
+              4.3792272107154915,
+              50.864161819942495
+            ],
+            "aria": "Schaarbeek",
+            "title": "Read local unit: Schaarbeek",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 813,
+              "point": {
+                "lng": 4.3792272107154915,
+                "lat": 50.864161819942495
+              }
+            }
+          },
+          {
+            "text": "Sint-Lambrechts-Woluwe",
+            "point": [
+              4.428158453556006,
+              50.8440333041539
+            ],
+            "aria": "Sint-Lambrechts-Woluwe",
+            "title": "Read local unit: Sint-Lambrechts-Woluwe",
+            "width": "190px",
+            "target": {
+              "type": "local",
+              "id": 12328,
+              "point": {
+                "lng": 4.428158453556006,
+                "lat": 50.8440333041539
+              }
+            }
+          },
+          {
+            "text": "Laken",
+            "point": [
+              4.35786886071905,
+              50.881534416990675
+            ],
+            "aria": "Laken",
+            "title": "Read local unit: Laken",
+            "width": "80px",
+            "target": {
+              "type": "local",
+              "id": 808,
+              "point": {
+                "lng": 4.35786886071905,
+                "lat": 50.881534416990675
+              }
+            }
+          },
+          {
+            "text": "Sterrebeek",
+            "point": [
+              4.508189483063023,
+              50.859261178733036
+            ],
+            "aria": "Sterrebeek",
+            "title": "Read local unit: Sterrebeek",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 6354,
+              "point": {
+                "lng": 4.508189483063023,
+                "lat": 50.859261178733036
+              }
+            }
+          },
+          {
+            "text": "Everberg",
+            "point": [
+              4.549149438773315,
+              50.87232939372352
+            ],
+            "aria": "Everberg",
+            "title": "Read local unit: Everberg",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 1112,
+              "point": {
+                "lng": 4.549149438773315,
+                "lat": 50.87232939372352
+              }
+            }
+          },
+          {
+            "text": "Sint-Pieters-Woluwe",
+            "point": [
+              4.440356354980038,
+              50.8306140394699
+            ],
+            "aria": "Sint-Pieters-Woluwe",
+            "title": "Read local unit: Sint-Pieters-Woluwe",
+            "width": "190px",
+            "target": {
+              "type": "local",
+              "id": 3555,
+              "point": {
+                "lng": 4.440356354980038,
+                "lat": 50.8306140394699
+              }
+            }
+          },
+          {
+            "text": "Zaventem",
+            "point": [
+              4.475074482947798,
+              50.88279559609306
+            ],
+            "aria": "Zaventem",
+            "title": "Read local unit: Zaventem",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 13865,
+              "point": {
+                "lng": 4.475074482947798,
+                "lat": 50.88279559609306
+              }
+            }
+          },
+          {
+            "text": "Berg",
+            "point": [
+              4.534596712178573,
+              50.93389016189821
+            ],
+            "aria": "Berg",
+            "title": "Read local unit: Berg",
+            "width": "80px",
+            "target": {
+              "type": "local",
+              "id": 2127,
+              "point": {
+                "lng": 4.534596712178573,
+                "lat": 50.93389016189821
+              }
+            }
+          },
+          {
+            "text": "Wezembeek-Oppem",
+            "point": [
+              4.4897985407394145,
+              50.84286786141048
+            ],
+            "aria": "Wezembeek-Oppem",
+            "title": "Read local unit: Wezembeek-Oppem",
+            "width": "190px",
+            "target": {
+              "type": "local",
+              "id": 10553,
+              "point": {
+                "lng": 4.4897985407394145,
+                "lat": 50.84286786141048
+              }
+            }
+          }
+        ],
+        "baselineMs": 5.967874999999992,
+        "markerPlacementMs": 0.04312499999997499,
+        "scheduler": {
+          "candidates": 153,
+          "computed": 153,
+          "retained": 127,
+          "slices": 3,
+          "workMs": 5.796916999999951,
+          "maxSliceMs": 2.631666999999993,
+          "maxAnchorMs": 0.24466599999999517,
+          "sortMs": 0.01841699999999946,
+          "canceled": false,
+          "elapsedMs": 9.74449999999996
+        },
+        "coldGeometry": 153,
+        "exactGeometrySha256": "fdbd564968f6b41e4e46f5eed04abf0168c4c8d3748433ec6df2fd7bb101c8ae",
+        "km2OrderingChangesLabels": true
+      },
+      {
+        "name": "Amsterdam duplicate tile fragments stable ordering",
+        "zoom": 10,
+        "localities": 304,
+        "regionsReady": false,
+        "candidates": 304,
+        "markers": [
+          {
+            "text": "Velsen",
+            "point": [
+              4.630219034306892,
+              52.446840811235475
+            ],
+            "aria": "Velsen",
+            "title": "Read local unit: Velsen",
+            "width": "88px",
+            "target": {
+              "type": "local",
+              "id": 12292,
+              "point": {
+                "lng": 4.630219034306892,
+                "lat": 52.446840811235475
+              }
+            }
+          },
+          {
+            "text": "Heemstede",
+            "point": [
+              4.687420101082502,
+              52.3096627481314
+            ],
+            "aria": "Heemstede",
+            "title": "Read local unit: Heemstede",
+            "width": "124px",
+            "target": {
+              "type": "local",
+              "id": 7743,
+              "point": {
+                "lng": 4.687420101082502,
+                "lat": 52.3096627481314
+              }
+            }
+          },
+          {
+            "text": "Osdorp",
+            "point": [
+              4.80333194105901,
+              52.39041054988035
+            ],
+            "aria": "Osdorp",
+            "title": "Read local unit: Osdorp",
+            "width": "88px",
+            "target": {
+              "type": "local",
+              "id": 9908,
+              "point": {
+                "lng": 4.80333194105901,
+                "lat": 52.39041054988035
+              }
+            }
+          },
+          {
+            "text": "Sloten en Sloterdijk",
+            "point": [
+              4.822176644257552,
+              52.356510453802954
+            ],
+            "aria": "Sloten en Sloterdijk",
+            "title": "Read local unit: Sloten en Sloterdijk",
+            "width": "190px",
+            "target": {
+              "type": "local",
+              "id": 13911,
+              "point": {
+                "lng": 4.822176644257552,
+                "lat": 52.356510453802954
+              }
+            }
+          },
+          {
+            "text": "Nieuwer-Amstel",
+            "point": [
+              4.873919183937228,
+              52.30877427596441
+            ],
+            "aria": "Nieuwer-Amstel",
+            "title": "Read local unit: Nieuwer-Amstel",
+            "width": "184px",
+            "target": {
+              "type": "local",
+              "id": 565,
+              "point": {
+                "lng": 4.873919183937228,
+                "lat": 52.30877427596441
+              }
+            }
+          },
+          {
+            "text": "Rietwijk",
+            "point": [
+              4.769363835613545,
+              52.31667428697386
+            ],
+            "aria": "Rietwijk",
+            "title": "Read local unit: Rietwijk",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 10283,
+              "point": {
+                "lng": 4.769363835613545,
+                "lat": 52.31667428697386
+              }
+            }
+          },
+          {
+            "text": "Aalbertsberg",
+            "point": [
+              4.603110507341644,
+              52.410280112913846
+            ],
+            "aria": "Aalbertsberg",
+            "title": "Read local unit: Aalbertsberg",
+            "width": "160px",
+            "target": {
+              "type": "local",
+              "id": 13907,
+              "point": {
+                "lng": 4.603110507341644,
+                "lat": 52.410280112913846
+              }
+            }
+          },
+          {
+            "text": "Nieuwerkerk",
+            "point": [
+              4.738147124529185,
+              52.33840083692948
+            ],
+            "aria": "Nieuwerkerk",
+            "title": "Read local unit: Nieuwerkerk",
+            "width": "148px",
+            "target": {
+              "type": "local",
+              "id": 12494,
+              "point": {
+                "lng": 4.738147124529185,
+                "lat": 52.33840083692948
+              }
+            }
+          },
+          {
+            "text": "Amsterdam",
+            "point": [
+              4.882069507850316,
+              52.41120314623228
+            ],
+            "aria": "Amsterdam",
+            "title": "Read local unit: Amsterdam",
+            "width": "124px",
+            "target": {
+              "type": "local",
+              "id": 13623,
+              "point": {
+                "lng": 4.882069507850316,
+                "lat": 52.41120314623228
+              }
+            }
+          },
+          {
+            "text": "Vijfhuizen",
+            "point": [
+              4.686992387428656,
+              52.341666365794566
+            ],
+            "aria": "Vijfhuizen",
+            "title": "Read local unit: Vijfhuizen",
+            "width": "136px",
+            "target": {
+              "type": "local",
+              "id": 760,
+              "point": {
+                "lng": 4.686992387428656,
+                "lat": 52.341666365794566
+              }
+            }
+          },
+          {
+            "text": "Oost-Zaandam",
+            "point": [
+              4.839809836323193,
+              52.440040403540294
+            ],
+            "aria": "Oost-Zaandam",
+            "title": "Read local unit: Oost-Zaandam",
+            "width": "160px",
+            "target": {
+              "type": "local",
+              "id": 7781,
+              "point": {
+                "lng": 4.839809836323193,
+                "lat": 52.440040403540294
+              }
+            }
+          },
+          {
+            "text": "Westzaan",
+            "point": [
+              4.772263873328342,
+              52.445756340888714
+            ],
+            "aria": "Westzaan",
+            "title": "Read local unit: Westzaan",
+            "width": "112px",
+            "target": {
+              "type": "local",
+              "id": 2987,
+              "point": {
+                "lng": 4.772263873328342,
+                "lat": 52.445756340888714
+              }
+            }
+          }
+        ],
+        "baselineMs": 9.189833000000021,
+        "markerPlacementMs": 0.05929199999997081,
+        "scheduler": {
+          "candidates": 304,
+          "computed": 304,
+          "retained": 301,
+          "slices": 5,
+          "workMs": 9.822375999999963,
+          "maxSliceMs": 3.991291999999987,
+          "maxAnchorMs": 0.3481249999999818,
+          "sortMs": 0.08304199999997763,
+          "canceled": false,
+          "elapsedMs": 16.469458999999972
+        },
+        "coldGeometry": 608,
+        "exactGeometrySha256": "a39e3f1462d6137759f4cca97d88c457b80e0954af5b800b0befa63595f95d21",
+        "km2OrderingChangesLabels": true
+      }
+    ],
+    "km2Counterexample": {
+      "case": "fallback low zoom north",
+      "exact": [
+        {
+          "text": "Holland",
+          "point": [
+            5.007471175306003,
+            53.28093177938937
+          ]
+        },
+        {
+          "text": "Frisia",
+          "point": [
+            5.36145647703748,
+            52.87596252503147
+          ]
+        }
+      ],
+      "km2": [
+        {
+          "text": "Frisia",
+          "point": [
+            5.359354156551731,
+            52.88259828957466
+          ]
+        },
+        {
+          "text": "Holland",
+          "point": [
+            5.277299421116436,
+            53.38424930857127
+          ]
+        }
+      ],
+      "exactTop": [
+        {
+          "id": 3977,
+          "anchor": {
+            "coordinate": [
+              5.443296359496664,
+              53.42217810341536
+            ],
+            "score": 0.030992111103680962
+          }
+        },
+        {
+          "id": 14740,
+          "anchor": {
+            "coordinate": [
+              5.007471175306003,
+              53.28093177938937
+            ],
+            "score": 0.02983627173700595
+          }
+        },
+        {
+          "id": 1329,
+          "anchor": {
+            "coordinate": [
+              5.461397281809403,
+              52.68964699729628
+            ],
+            "score": 0.022502011303927864
+          }
+        },
+        {
+          "id": 3932,
+          "anchor": {
+            "coordinate": [
+              4.766203072139154,
+              52.8098850117886
+            ],
+            "score": 0.01562271991011638
+          }
+        },
+        {
+          "id": 7517,
+          "anchor": {
+            "coordinate": [
+              4.751046961583475,
+              52.92570194577725
+            ],
+            "score": 0.013529668358701872
+          }
+        }
+      ],
+      "km2Top": [
+        {
+          "id": 60,
+          "anchor": {
+            "coordinate": [
+              5.5756781831815605,
+              53.10267817896073
+            ],
+            "score": 0.0023861130416386335
+          }
+        },
+        {
+          "id": 83,
+          "anchor": {
+            "coordinate": [
+              5.623041107614334,
+              53.118045742068894
+            ],
+            "score": 0.0000427834119166474
+          }
+        },
+        {
+          "id": 91,
+          "anchor": {
+            "coordinate": [
+              5.031510618776365,
+              52.7012471179117
+            ],
+            "score": 0.0017644005651611568
+          }
+        },
+        {
+          "id": 94,
+          "anchor": {
+            "coordinate": [
+              4.983703328842935,
+              52.705304829577344
+            ],
+            "score": 0.0017617855263854728
+          }
+        },
+        {
+          "id": 219,
+          "anchor": {
+            "coordinate": [
+              5.602649123356048,
+              53.08158933619763
+            ],
+            "score": 0.0004960872187427541
+          }
+        }
+      ]
+    },
+    "realCancellation": {
+      "qualifyingLocalities": 401,
+      "anchorsBeforeRegionReady": 64,
+      "uncomputedLocalities": 337,
+      "localGeometryDecoded": 64,
+      "commits": 1
+    }
+  },
+  "checks": [
+    {
+      "name": "No work inline; 4 ms cooperative slices leave old labels until full commit",
+      "pass": true
+    },
+    {
+      "name": "Repeated same-key request reuses one promise and one anchor pass",
+      "pass": true
+    },
+    {
+      "name": "Later regions-ready generation cancels partial locality fallback and commits only regional set",
+      "pass": true
+    },
+    {
+      "name": "Zoom/view generation supersedes older job without removing current visible labels",
+      "pass": true
+    },
+    {
+      "name": "Changed source/year/view guard cancels on next slice even without explicit invalidation",
+      "pass": true
+    },
+    {
+      "name": "Source exit, labels off, mode exit and year change invalidate cache and cannot resurrect markers",
+      "pass": true
+    },
+    {
+      "name": "Destroy cancels pending work and rejects subsequent requests",
+      "pass": true
+    },
+    {
+      "name": "Explicit invalidate clears a completed cache; returning to same key recomputes",
+      "pass": true
+    },
+    {
+      "name": "Cancellation during an anchor cannot publish stale partial or final result",
+      "pass": true
+    },
+    {
+      "name": "Anchor exceptions resolve cancelled result, preserve old labels and allow later retry",
+      "pass": true
+    },
+    {
+      "name": "Null anchors and equal scores preserve the original stable input order",
+      "pass": true
+    },
+    {
+      "name": "A single costly anchor is indivisible; measured slice overrun is explicit",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: fallback low zoom north",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: fallback north with collision panels and bilingual labels",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: fallback east clipped across viewport",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: region ready low zoom",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: Amsterdam local high zoom",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: Antwerp local high zoom bilingual collisions",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: Brussels local partly offscreen",
+      "pass": true
+    },
+    {
+      "name": "Real MVT exact ranked anchors and production markers: Amsterdam duplicate tile fragments stable ordering",
+      "pass": true
+    },
+    {
+      "name": "Real-source property ordering has a concrete differing label result",
+      "pass": true
+    },
+    {
+      "name": "Real-anchor locality job yields, preserves displayed labels, and late regional data cancels remaining geometry demand",
+      "pass": true
+    }
+  ]
+}

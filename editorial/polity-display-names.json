@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-10-10",
+  "reviewedOn": "2026-11-11",
   "baseCommit": "9a9ded84",
   "policy": "Display-only, exact record id + name + start + end + type guards. A civil year within that record is mandatory. No source field, shape, entity identifier, date or population value is rewritten. Missing or invalid year falls back to source name. Linked-topic or conflicting-entity facts are withheld from affected dossiers without deleting their source links.",
   "sources": [
@@ -161,6 +161,36 @@
         "sha256": "58631ac315b57d00ff88c6e13f3aea78f4c1302e65f6052352f9d39aa495f7fe",
         "bytes": 15941,
         "representation": "Actual web-tool text extraction; not original HTML or PDF bytes."
+      }
+    },
+    {
+      "id": "uk-kingdoms",
+      "publisher": "UK Parliament",
+      "title": "Kingdoms",
+      "url": "https://api.parliament.uk/regnal-years/kingdoms",
+      "readOn": "2026-11-11",
+      "locator": "Kingdom of Great Britain; Kingdom of Ireland; United Kingdom",
+      "shortExcerpts": [],
+      "archive": {
+        "path": "docs/verification-3.49/uk-source.retrieval.json",
+        "bytes": 22828,
+        "sha256": "64ab4fec38cf574e4c7e1ea4e38d264059a901aba6d3dae1b84024062aeb6574",
+        "representation": "Web tool text extraction, not original HTML."
+      }
+    },
+    {
+      "id": "uk-unions",
+      "publisher": "UK Parliament",
+      "title": "The United Kingdom and independence",
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10649/",
+      "readOn": "2026-11-11",
+      "locator": "Great Britain and Ireland; Great Britain and Northern Ireland",
+      "shortExcerpts": [],
+      "archive": {
+        "path": "docs/verification-3.49/uk-source.retrieval.json",
+        "bytes": 22828,
+        "sha256": "64ab4fec38cf574e4c7e1ea4e38d264059a901aba6d3dae1b84024062aeb6574",
+        "representation": "Web tool text extraction, not original HTML."
       }
     }
   ],
@@ -1156,6 +1186,332 @@
       "reason": {
         "zh": "《史记·项羽本纪》逐一记载这些封国名称。这里恢复源记录自身的具体名称，不再把每一国都显示成“项羽十八诸侯”。原多边形的起止年保留；这次名称核对没有重新认证各国完整存续年代。",
         "en": "The Annals of Xiang Yu names the individual divisions. Their source-specific names are restored instead of displaying every member as Eighteen Kingdoms. Source polygon dates remain unchanged; this naming review does not re-certify each polity’s full lifespan."
+      },
+      "linkedEntityUse": "withhold"
+    },
+    {
+      "id": "british-kingdoms-before-union",
+      "kind": "reviewed-identity-scope",
+      "reviewedOn": "2026-11-11",
+      "targets": [
+        {
+          "id": "clio-09478",
+          "name": "Kingdom of Great Britain",
+          "start": 1709,
+          "end": 1756,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-09943",
+          "name": "Kingdom of Great Britain",
+          "start": 1757,
+          "end": 1761,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-09987",
+          "name": "Kingdom of Great Britain",
+          "start": 1762,
+          "end": 1793,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-10373",
+          "name": "Kingdom of Great Britain",
+          "start": 1794,
+          "end": 1795,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-10397",
+          "name": "Kingdom of Great Britain",
+          "start": 1796,
+          "end": 1796,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-10448",
+          "name": "Kingdom of Great Britain",
+          "start": 1797,
+          "end": 1798,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-10491",
+          "name": "Kingdom of Great Britain",
+          "start": 1799,
+          "end": 1799,
+          "type": "POLITY"
+        }
+      ],
+      "display": {
+        "zh": "大不列颠与爱尔兰诸王国",
+        "en": "Kingdoms of Great Britain and Ireland"
+      },
+      "sourceIds": [
+        "uk-kingdoms",
+        "uk-unions"
+      ],
+      "reason": {
+        "zh": "1801年以前，大不列颠与爱尔兰是同君的两个王国。这组源轮廓同时包含爱尔兰，采用集合名称；原链接指向大不列颠岛，其实体资料暂缓套用。",
+        "en": "Before 1801 Great Britain and Ireland were separate kingdoms sharing a monarch. These source outlines include Ireland, so the display uses an aggregate name. The original link identifies the island of Great Britain; its entity facts are withheld."
+      },
+      "linkedEntityUse": "withhold"
+    },
+    {
+      "id": "britain-union-transition",
+      "kind": "reviewed-identity-scope",
+      "reviewedOn": "2026-11-11",
+      "targets": [
+        {
+          "id": "clio-10551",
+          "name": "Kingdom of Great Britain",
+          "start": 1800,
+          "end": 1819,
+          "type": "POLITY"
+        }
+      ],
+      "display": {
+        "zh": "不列颠与爱尔兰",
+        "en": "Britain and Ireland"
+      },
+      "sourceIds": [
+        "uk-kingdoms",
+        "uk-unions"
+      ],
+      "reason": {
+        "zh": "这条1800—1819年疆域记录跨越1801年1月1日的合并。保留源分期并使用地理名称，具体政体身份须按1801年前后区分。",
+        "en": "The 1800–1819 source interval crosses the union of 1 January 1801. A geographic label preserves that unsplit interval; political identity must distinguish the years before and after union."
+      },
+      "linkedEntityUse": "withhold"
+    },
+    {
+      "id": "united-kingdom-after-union",
+      "kind": "reviewed-identity-scope",
+      "reviewedOn": "2026-11-11",
+      "targets": [
+        {
+          "id": "clio-11044",
+          "name": "Kingdom of Great Britain",
+          "start": 1820,
+          "end": 1839,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-11340",
+          "name": "Kingdom of Great Britain",
+          "start": 1840,
+          "end": 1852,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-11499",
+          "name": "Kingdom of Great Britain",
+          "start": 1853,
+          "end": 1855,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-11581",
+          "name": "Kingdom of Great Britain",
+          "start": 1856,
+          "end": 1858,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-11618",
+          "name": "Kingdom of Great Britain",
+          "start": 1859,
+          "end": 1869,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-11862",
+          "name": "Kingdom of Great Britain",
+          "start": 1870,
+          "end": 1879,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-11987",
+          "name": "Kingdom of Great Britain",
+          "start": 1880,
+          "end": 1889,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12061",
+          "name": "Kingdom of Great Britain",
+          "start": 1890,
+          "end": 1894,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12115",
+          "name": "Kingdom of Great Britain",
+          "start": 1895,
+          "end": 1904,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12228",
+          "name": "Kingdom of Great Britain",
+          "start": 1905,
+          "end": 1912,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12309",
+          "name": "Kingdom of Great Britain",
+          "start": 1913,
+          "end": 1914,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12341",
+          "name": "Kingdom of Great Britain",
+          "start": 1915,
+          "end": 1915,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12383",
+          "name": "Kingdom of Great Britain",
+          "start": 1916,
+          "end": 1916,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12408",
+          "name": "Kingdom of Great Britain",
+          "start": 1917,
+          "end": 1917,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12418",
+          "name": "Kingdom of Great Britain",
+          "start": 1918,
+          "end": 1918,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12459",
+          "name": "Kingdom of Great Britain",
+          "start": 1919,
+          "end": 1919,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12486",
+          "name": "Kingdom of Great Britain",
+          "start": 1920,
+          "end": 1921,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12543",
+          "name": "Kingdom of Great Britain",
+          "start": 1922,
+          "end": 1923,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12578",
+          "name": "Kingdom of Great Britain",
+          "start": 1924,
+          "end": 1925,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12596",
+          "name": "Kingdom of Great Britain",
+          "start": 1926,
+          "end": 1931,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12680",
+          "name": "Kingdom of Great Britain",
+          "start": 1932,
+          "end": 1935,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12742",
+          "name": "Kingdom of Great Britain",
+          "start": 1936,
+          "end": 1939,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12823",
+          "name": "Kingdom of Great Britain",
+          "start": 1940,
+          "end": 1940,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12841",
+          "name": "Kingdom of Great Britain",
+          "start": 1941,
+          "end": 1944,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-12921",
+          "name": "Kingdom of Great Britain",
+          "start": 1945,
+          "end": 1946,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-13013",
+          "name": "Kingdom of Great Britain",
+          "start": 1947,
+          "end": 1947,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-13028",
+          "name": "Kingdom of Great Britain",
+          "start": 1948,
+          "end": 1955,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-13132",
+          "name": "Kingdom of Great Britain",
+          "start": 1956,
+          "end": 1968,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-13274",
+          "name": "Kingdom of Great Britain",
+          "start": 1969,
+          "end": 2023,
+          "type": "POLITY"
+        },
+        {
+          "id": "clio-13653",
+          "name": "Kingdom of Great Britain",
+          "start": 2024,
+          "end": 2024,
+          "type": "POLITY"
+        }
+      ],
+      "display": {
+        "zh": "英国",
+        "en": "United Kingdom"
+      },
+      "sourceIds": [
+        "uk-kingdoms",
+        "uk-unions"
+      ],
+      "reason": {
+        "zh": "1801年起为联合王国。爱尔兰自由邦于1922年成立，1927年议会名称改为大不列颠及北爱尔兰联合王国议会。此处采用通用短名“英国”；原记录的岛屿实体关联已停用，边界与逐年归属仍按原始来源另行核查。",
+        "en": "The United Kingdom dates from 1801. The Irish Free State was established in 1922; Parliament adopted the Great Britain and Northern Ireland title in 1927. The short name United Kingdom covers these stages. The island entity association is withheld; source geometry and annual territorial attribution remain separate review questions."
       },
       "linkedEntityUse": "withhold"
     }

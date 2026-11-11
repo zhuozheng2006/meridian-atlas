@@ -17,7 +17,7 @@ const source=JSON.parse(read('editorial/polity-display-names.json')),evidence=JS
 const find=id=>records.find(r=>r.id===id);
 const check=(name,fn)=>{try{fn();results.push({name,passed:true});console.log('PASS',name);}catch(e){results.push({name,passed:false,error:e.stack});console.error('FAIL',name,e.message);}};
 const clone=v=>JSON.parse(JSON.stringify(v));
-check('23 reviewed rules target 82 different original records',()=>{assert.equal(source.rules.length,23);assert.equal(new Set(source.rules.flatMap(r=>r.targets.map(t=>t.id))).size,82);assert.deepEqual(source.rules,polityDisplayData.rules);});
+check('Reviewed rules preserve the 82 original corrections and add 38 British records',()=>{assert.equal(source.rules.length,26);assert.equal(new Set(source.rules.flatMap(r=>r.targets.map(t=>t.id))).size,120);assert.deepEqual(source.rules,polityDisplayData.rules);});
 check('All original catalogs, bindings and narratives remain byte-identical to the reviewed baseline',()=>{for(const p of evidence.preservation){assert.equal(read(p.path).length,p.bytes);assert.equal(hash(read(p.path)),p.sha256,p.path);}});
 check('Every source excerpt has retrievable archived evidence with exact byte hashes',()=>{
  for(const s of source.sources){const raw=read(s.archive.path);assert.equal(raw.length,s.archive.bytes);assert.equal(hash(raw),s.archive.sha256);const text=JSON.parse(raw),normalized=text.replace(/L\d+(?:@P\d+)?: /g,'').replace(/\s+/g,' ');for(const quote of s.shortExcerpts)assert(normalized.includes(quote),s.id+': '+quote);if(s.originalFile){const pdf=read(s.originalFile.path);assert.equal(hash(pdf),s.originalFile.sha256);assert.equal(pdf.length,s.originalFile.bytes);assert.equal(pdf.subarray(0,4).toString(),'%PDF');assert.deepEqual(s.originalFile.visuallyReadPages,[38]);}}
@@ -87,7 +87,7 @@ check('Real map label layout uses reviewed names in both lines at the displayed 
 });
 check('Corrected reader events reject later-regime aliases and events outside the actual source record period',()=>{
  const reader=makeReader(find('clio-12933'),1945),event=(id,start,title)=>({id,start,end:start,title:{zh:title,en:title},summary:{zh:'',en:''}});
- reader.context.events=()=>[event('wrong-entity',1945,'French Fourth Republic'),event('future',1946,'France (Provisional Government)'),event('selected',1945,'法国（临时政府）')];assert.deepEqual(reader.relatedEvents().map(e=>e.id),['selected']);assert(reader.chain.some(r=>r.start>1945));
+ reader.context.events=()=>[event('wrong-entity',1945,'French Fourth Republic'),event('future',1946,'France (Provisional Government)'),event('selected',1945,'法国（临时政府）')];assert.deepEqual(reader.relatedEvents().map(e=>e.id),['selected']);assert(reader.chain.every(r=>r.start===1945));
 });
 check('Actual app event-search rendering uses explicit result years and corrected bilingual labels',()=>{
  const app=read('public/app.js').toString(),fragment=app.slice(app.indexOf('function renderEvents(){'),app.indexOf('function mapError('));assert(fragment.includes('searchPolityRecords'));
@@ -103,5 +103,5 @@ check('Actual app event-search rendering uses explicit result years and correcte
   else{assert(!html.includes('data-retry-events'));assert.equal(retryCalls,0);if(eventsStatus==='loading')assert(html.includes('正在加载事件…'));}
  }
 });
-const report={ok:results.every(r=>r.passed),checks:results.length,passed:results.filter(r=>r.passed).length,targetRecords:82,method:'Original source byte hashes, full/fast/detail records, actual map labels, reader rendering/export/event filter and actual app search with injected DOM/data boundaries; no browser performance claims.',results};
-const reportPath=process.env.POLITY_NAMES_REPORT||path.join(root,'docs/verification-3.48/polity-display-names.json');fs.mkdirSync(path.dirname(reportPath),{recursive:true});fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({ok:report.ok,passed:report.passed,checks:report.checks,report:reportPath}));if(!report.ok)process.exitCode=1;
+const report={ok:results.every(r=>r.passed),checks:results.length,passed:results.filter(r=>r.passed).length,targetRecords:120,method:'Original source byte hashes, full/fast/detail records, actual map labels, reader rendering/export/event filter and actual app search with injected DOM/data boundaries; no browser performance claims.',results};
+const reportPath=process.env.POLITY_NAMES_REPORT||path.join(root,'docs/verification-3.49/polity-display-names.json');fs.mkdirSync(path.dirname(reportPath),{recursive:true});fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({ok:report.ok,passed:report.passed,checks:report.checks,report:reportPath}));if(!report.ok)process.exitCode=1;
