@@ -81,3 +81,9 @@ Source geometry values, property values and civil dates are preserved. The manif
 ## HALC 地方区划与地区归属轮廓
 
 Rombert Stapel, Historical Atlas of the Low Countries (1350–1800), version 15.0, [doi:10.34894/BTKFHV](https://doi.org/10.34894/BTKFHV). `public/data/halc/` 与 `public/data/halc-regions/` 中的转换数据采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。本项目将1500年原始地方单元转换为视野瓦片，并按完整原始 ADM1 值归并显示轮廓、去除重复共边；复合归属顺序保留，XX 与自然单元不并为领地。详细转换、核验与署名见相应目录 NOTICE 和 `docs/HALC-1500.md`。
+
+## CHGIS V4 prefecture time series (3.55)
+
+Fudan University / China Historical GIS, in collaboration with Harvard University. Original public MapInfo archive: https://yugong.fudan.edu.cn/V4_Prefecture_Bou_TimeSeries.rar (SHA-256 `9b624256c7a43835b1f061c073a1075d72b526f9b7720ab0de2e5ec3c0ba3ca4`). Source and method: https://yugong.fudan.edu.cn/CHGIS/sjxz.htm and https://yugong.fudan.edu.cn/CHGIS/sjsm.htm. This dataset retains its source terms; it is not relicensed under the application code's MIT license.
+
+2,016 source rows, 1,322 distinct geometries, annual intervals from 224 BCE to 1911 CE, mainly southern/eastern China. Original archive, all source fields, repeated SYS_ID rows and polygon coordinates are retained. Coordinates are losslessly encoded for delivery and displayed without datum conversion (source MapInfo declares Pulkovo 1942). Annual boundaries and rule codes remain source statements, with no inferred month/day precision. Five obvious romanization mismatches use display aliases derived from NAME_CH; NAME_PY remains in source records and downloads (会稽 pronunciation also checked against https://zdic.net/hans/会稽).

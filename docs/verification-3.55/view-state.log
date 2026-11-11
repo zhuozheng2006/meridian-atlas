@@ -1,0 +1,70 @@
+PASS city to polity navigation opens the left dossier
+PASS city to polity navigation opens the right dossier
+PASS event share restores left year with a saved camera
+PASS event share restores left year without a saved camera
+PASS event share restores right year with a saved camera
+PASS event share restores right year without a saved camera
+PASS polity language switch keeps left camera and reader tab
+PASS polity language switch keeps right camera and reader tab
+PASS left draft 1700 ArrowUp yields 1701
+PASS left draft 1700 ArrowDown yields 1699
+PASS left draft -1 ArrowUp yields 1
+PASS left draft 1 ArrowDown yields -1
+PASS left draft 2026 ArrowUp yields 2026
+PASS left draft -70000 ArrowDown yields -70000
+PASS right draft 1700 ArrowUp yields 1701
+PASS right draft 1700 ArrowDown yields 1699
+PASS right draft -1 ArrowUp yields 1
+PASS right draft 1 ArrowDown yields -1
+PASS right draft 2026 ArrowUp yields 2026
+PASS right draft -70000 ArrowDown yields -70000
+PASS comparison input waits for initial map readiness before accepting year edits
+PASS decode accepts camera boundary 0,0,0.2,0,0
+PASS decode accepts camera boundary 180,85.051129,18,180,60
+PASS decode accepts camera boundary -180,-85.051129,0.2,-180,0
+PASS decode accepts camera boundary 25.12345,-30.98765,6.125,-47.5,42
+PASS decode rejects invalid camera null
+PASS decode rejects invalid camera undefined
+PASS decode rejects invalid camera 
+PASS decode rejects invalid camera 0,0,1,0
+PASS decode rejects invalid camera 0,0,1,0,0,1
+PASS decode rejects invalid camera 0,,1,0,0
+PASS decode rejects invalid camera 0,0,NaN,0,0
+PASS decode rejects invalid camera Infinity,0,1,0,0
+PASS decode rejects invalid camera 181,0,1,0,0
+PASS decode rejects invalid camera 0,85.1,1,0,0
+PASS decode rejects invalid camera 0,0,.199,0,0
+PASS decode rejects invalid camera 0,0,18.001,0,0
+PASS decode rejects invalid camera 0,0,1,180.001,0
+PASS decode rejects invalid camera 0,0,1,0,60.001
+PASS decode rejects invalid camera 0,0,1,0,-.001
+PASS encode wraps longitude and bearing without changing position
+PASS encode round-trip retains valid extreme latitude -85.051129
+PASS encode round-trip retains valid extreme latitude 85.051129
+PASS encode rejects nonfinite latitude NaN
+PASS encode rejects nonfinite latitude Infinity
+PASS URL initial loading labels use the requested BCE year before data arrives
+PASS invalid or extreme URL inputs restore safely #year=1800&camera=bad
+PASS invalid or extreme URL inputs restore safely #year=0&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=-999999&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0
+PASS city URL retains left selection, year and camera
+PASS city URL retains right selection, year and camera
+PASS Boundary archive choices restore and share independently #boundaries=halc&boundaries2=overview
+PASS Boundary archive choices restore and share independently #boundaries=overview&boundaries2=halc
+PASS Boundary archive choices restore and share independently #boundaries=halc
+PASS Boundary archive choices restore and share independently #year=1492&boundaries=halc
+PASS Boundary archive choices restore and share independently #boundaries=regional&boundaries2=overview
+PASS Boundary archive choices restore and share independently #boundaries=overview
+PASS Boundary archive choices restore and share independently #regional=0
+PASS Boundary archive choices restore and share independently #boundaries=bad&boundaries2=bad
+PASS Border portrayal restores and shares #borderCurves=0
+PASS Border portrayal restores and shares #borderCurves=1
+PASS Border portrayal restores and shares #year=1500
+PASS HALC Explore left: normal preserves the newest source intent
+PASS HALC Explore left: overview preserves the newest source intent
+PASS HALC Explore left: away-and-back preserves the newest source intent
+PASS HALC Explore right: normal preserves the newest source intent
+PASS HALC Explore right: overview preserves the newest source intent
+PASS HALC Explore right: away-and-back preserves the newest source intent
+69/69 view-state checks passed

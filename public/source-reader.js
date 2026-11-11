@@ -22,6 +22,7 @@ export function sourcesHTML(catalog,events,lang,stats=null){
  [t('近现代国家与属地','Modern-era states & dependencies'),'CShapes 2.1 beta · Correlates of War','https://icr.ethz.ch/data/cshapes/beta.html','CC BY-NC-SA 4.0'],
  [t('社会与制度研究编码','Research coding of societies & institutions'),'Seshat Equinox2020 · 2022-06-09','https://github.com/seshatdb/Equinox_Data',t('README：CC BY-NC-SA；LICENSE：CC0。两份原始声明随数据保存。','README: CC BY-NC-SA; LICENSE: CC0. Both original declarations are preserved.')],
  [t('社会与制度研究编码（新版）','Societies and institutions coding (new edition)'),'Seshat Polaris-2026','https://github.com/Seshat-Global-History-Databank/build_polaris_dataset',t('原始工作簿、固定版本与编纂信息随资料保存。','The original workbook, pinned version and provenance are retained.')],
+ [t('中国历史府级区划 · 2,016 条','Chinese historical prefectures · 2,016 records'),'CHGIS V4 · Fudan University / Harvard University','https://yugong.fudan.edu.cn/CHGIS/sjxz.htm',t('公元前224年—1911年的区域时间序列；完整原始包及年代、坐标说明见区划档案。','Regional time series, 224 BCE–1911 CE; source archive, annual dating and coordinate notes are available in each record.')],
  [t('历史疆域','Historical territories'),'Cliopatria · Seshat Global History Databank',m.repository,'CC BY 4.0'],
  [t('陆地、河流、湖泊、晕渲','Land, rivers, lakes & relief'),'Natural Earth','https://www.naturalearthdata.com/about/terms-of-use/','Public domain'],
  [t('按视野载入的精细湖岸','Fine lake shores on demand'),'HydroLAKES v1.0 · Messager et al. (2016)','https://www.hydrosheds.org/products/hydrolakes','CC BY 4.0'],

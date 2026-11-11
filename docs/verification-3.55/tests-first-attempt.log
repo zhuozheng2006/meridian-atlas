@@ -1,0 +1,134 @@
+
+> meridian-world-history-atlas@3.55.0 test
+> node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-narrative-metadata.mjs && node scripts/validate-seshat-research.mjs && python3 scripts/seshat-polaris/verify_polaris.py --data public/data/seshat-polaris-2026 --report docs/verification-3.55/polaris/source-verification.json && python3 scripts/seshat-polaris/build_contract.py --data-dir public/data/seshat-polaris-2026 --output public/polaris-contract.js --check && node scripts/validate-polaris-store.mjs --report docs/verification-3.55/polaris/store-verification.json && POLARIS_WORKER_REPORT=docs/verification-3.55/polaris/worker-verification.json node scripts/validate-polaris-worker.mjs && node scripts/validate-polaris-pagination.mjs && python3 scripts/build_saved_text_catalog.py --repo . --check && python3 public/data/research-evidence/readings-3.44/verify.py . public/data/research-evidence/readings-3.44 docs/verification-3.55/reading-sources-3.44.json && python3 public/data/research-evidence/readings-3.45/verify.py . public/data/research-evidence/readings-3.45 docs/verification-3.55/reading-sources.json && python3 scripts/validate_hammurabi_text.py && python3 scripts/validate_offline_texts.py && node scripts/build-research-readings.mjs --check && node scripts/validate-research-readings.mjs && node scripts/validate-original-reader.mjs && node scripts/validate-reader-continuity.mjs && POLARIS_SEMANTIC_REPORT=docs/verification-3.55/semantic-evidence/verification.json node scripts/validate-polaris-semantic-evidence.mjs && node scripts/validate-polaris-vocabulary.mjs && node scripts/validate-polaris-polity-names.mjs && POLARIS_READER_REPORT=docs/verification-3.55/polaris/ui-verification.json node scripts/validate-polaris-reader.mjs && node scripts/validate-research-polity-names.mjs && node scripts/validate-research-format.mjs && node scripts/validate-research-entry.mjs && node scripts/validate-map-runtime.mjs && node scripts/validate-map-worker-configuration.mjs && node scripts/validate-research-routing.mjs && node scripts/validate-research-versions.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-point-layer-gate.mjs && node scripts/validate-native-bundles.mjs && node scripts/validate-global-frame-cache.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-boundary-mesh.mjs && node scripts/validate-border-envelopes.mjs && node scripts/places/build-attested-places.mjs --check && node scripts/places/validate-attested-places.mjs . docs/verification-3.55/attested-places.json && node scripts/places/validate-cities-3.47.mjs . docs/verification-3.55/cities-source-runtime.json && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-place-corrections.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-physical-grid.mjs && node scripts/validate-view-state.cjs && HALC_LAZY_REPORT=docs/verification-3.55/halc-lazy-fragments.json node scripts/validate-halc-lazy-fragments.mjs && HALC_BUCKET_REPORT=docs/verification-3.55/halc-shared-buckets.json node scripts/validate-halc-shared-buckets.mjs && HALC_SELECTION_REPORT=docs/verification-3.55/halc-selection.json node scripts/validate-halc-selection.mjs && node scripts/validate-halc-posttask.mjs && HALC_LABEL_SCHEDULER_REPORT=docs/verification-3.55/halc-label-scheduler.json node scripts/validate-halc-label-scheduler.mjs && HALC_FALLBACK_REPORT=docs/verification-3.55/halc-fallback-labels.json node scripts/validate-halc-fallback-labels.mjs && node scripts/validate-halc-label-lifecycle.mjs && node scripts/validate-halc-label-context-recovery.mjs && node scripts/validate-halc-style-reload.mjs && node scripts/validate-halc-render-readiness.mjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-halc-landscape-reader.mjs && node scripts/validate-halc-landscape.mjs && node scripts/patch-maplibre-landscape-dataurl.mjs --check && node scripts/validate-halc-landscape-assets.mjs && node scripts/validate-halc-landscape-worker.mjs && node scripts/validate-halc-landscape-real-data.mjs && node scripts/validate-maplibre-landscape-dataurl.mjs && python3 scripts/validate-halc-landscape.py && node scripts/validate-halc-cache.mjs && node scripts/validate-halc-regions.mjs && node scripts/validate-halc-regions-lazy-lifecycle.mjs && node scripts/validate-halc-regions-lazy.mjs && node scripts/validate-halc-worker-pool.mjs && node scripts/validate-halc-continuity.mjs && REGIONAL_FROZEN_REPORT=docs/verification-3.55/regional-frozen.json node scripts/validate-regional-frozen.mjs && node scripts/validate-regional-continuity.mjs && node scripts/validate-ohm-requests.mjs && node scripts/validate-boundary-comparison.mjs && node scripts/validate-boundary-app-races.mjs && node scripts/validate-lakes.mjs && node scripts/validate-lake-readiness.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && python3 scripts/verify-halc-regions-data.py --data-dir public/data/halc-regions --integrity scripts/data-integrity/halc-regions.integrity.json --audit scripts/data-integrity/halc-regions.geometry-audit.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/ohm/verify-ohm-1500.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-cross-layer.mjs && node scripts/validate-place-return.cjs && CITY_READER_REPORT=docs/verification-3.55/city-reader-navigation.json node scripts/validate-city-reader-navigation.mjs && node scripts/build-polity-display-names.mjs --check && node scripts/validate-polity-display-names.mjs && node scripts/validate-events-loading.mjs && node scripts/validate-identity-ledger.mjs && node scripts/validate-border-sampling.mjs && node scripts/build-regional-transport.mjs --check && node scripts/validate-regional-loading.mjs && node scripts/validate-automatic-boundaries.mjs && node scripts/ohm/verify-britain.mjs && node scripts/validate-country-display-names.mjs && node scripts/validate-country-cache.mjs && node scripts/validate-chgis.mjs && node scripts/validate-border-viewport.mjs
+
+PASS linked asset revision 3.55.0-d057a2673979
+PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
+PASS Time windows use civil years without year zero
+PASS Historical coverage never extrapolates before or after source coverage
+PASS All source record IDs and geometry references are consistent
+PASS Every civil-year coverage count matches the active-record selector
+PASS Boundary archive sizes and hashes match final manifest
+PASS Every shipped geometry can be parsed and all referenced shapes exist
+PASS Every event has bilingual text, valid dates, location semantics and traceable references
+PASS Wikipedia links preserve source language and full URLs
+PASS Required offline assets and launchers are present
+{"result":"passed","checks":10,"events":709,"boundaryRecords":13765,"polityRecords":13380,"coverageYears":5424}
+PASS Lean catalog preserves every ID, interval, type and geometry association
+PASS Bootstrap maps exactly match active geometries for every precompiled year
+PASS Lazy full-record shards resolve all archive records
+PASS Unreferenced, deprecated and unknown statements stay out of sourced fact panels
+PASS Year-matched claims require adequate precision and bounded dates or a point date
+PASS Known source identity/period conflicts cannot load factual dossiers
+PASS Curated narratives match identity, exact record IDs and the selected period
+PASS Every enrichment profile declares its boundary coverage and the declaration matches the records
+PASS Every enrichment profile is reachable through the catalogue or the no-territory view
+PASS Compressed event archive equals editable full event JSON
+PASS Compressed enrichment narratives equal the editable source
+PASS Enrichment profile paths, fact references and narrative bindings are internally consistent
+PASS Initial atlas payload is substantially smaller than v1
+{
+  "result": "passed",
+  "checks": 13,
+  "events": 709,
+  "performance": {
+    "catalogBefore": 1252656,
+    "catalogAfter": 602739,
+    "eventGzip": 446517,
+    "years": [
+      {
+        "year": -221,
+        "previousGeometryBytes": 342104,
+        "bootstrapGeometryBytes": 20053
+      },
+      {
+        "year": 1,
+        "previousGeometryBytes": 780016,
+        "bootstrapGeometryBytes": 26150
+      },
+      {
+        "year": 1000,
+        "previousGeometryBytes": 2597177,
+        "bootstrapGeometryBytes": 51341
+      },
+      {
+        "year": 1492,
+        "previousGeometryBytes": 3005248,
+        "bootstrapGeometryBytes": 79710
+      },
+      {
+        "year": 1750,
+        "previousGeometryBytes": 4405911,
+        "bootstrapGeometryBytes": 141081
+      },
+      {
+        "year": 1914,
+        "previousGeometryBytes": 5130307,
+        "bootstrapGeometryBytes": 213209
+      },
+      {
+        "year": 2024,
+        "previousGeometryBytes": 11345334,
+        "bootstrapGeometryBytes": 208283
+      }
+    ]
+  }
+}
+PASS Authored periods, per-claim references and per-source review dates survive publication
+PASS Actual assembler rejects invalid final entries without partial writes and remains idempotent
+PASS 47,477 original rows are conserved across all 373 PolID shards
+PASS All 424 pilot observations survive, including the 61 explicitly dated rows
+PASS A supplied numeric zero date remains explicit and searchable
+PASS Clearing a loading phase removes its busy state and ignores the late response
+PASS Source PolID selection is shareable without creating an atlas entity binding
+PASS 26 bilingual priority variables preserve formal-law and specialist definitions
+PASS Every one of the 135 original variables has a distinct source key and Chinese search label
+PASS Duration keeps polity source dates separate from ritual hours
+PASS Evidence, inference, expert unknown and RA-suspected unknown are distinct
+PASS Zero, missing values, ranges and disagreement preserve original strings
+PASS Undated records keep source phase context without an invented date or year filter
+PASS Explicit source dates and single-ended dates stay unchanged
+PASS Corrupt indexes, duplicate rows and wrong-polity shards fail closed
+PASS Opening the reader fetches only the 32 KB index, never all observations
+PASS Chinese phase search finds Ming while original source names stay untouched
+PASS A phase loads one shard; filters inspect every variable and pagination bounds DOM work
+PASS Global search can inspect all 47,477 rows with all 373 source identities
+PASS Filtered download contains untouched original rows, filters and source attribution
+PASS Index failures expose a working retry without page reload
+PASS Shard failure is not cached; retry requests the same phase again
+PASS Rapid phase changes discard late requests even when the loader ignores abort
+PASS Destroy aborts work and prevents late DOM writes
+PASS Language changes retain selection and bilingual source/label readability
+PASS Native keyboard controls are isolated from map arrows without canceling defaults
+PASS Hostile source strings render as text rather than injected markup
+PASS Store bounds the phase cache and does not cache failed validation
+PASS Standalone loader accepts gzip bytes and already-decoded HTTP bodies
+PASS Lazy view waits for module and styles, and language changes retain initial PolID
+PASS Lazy view destroyed before import resolves cannot replace the next page
+PASS Lazy view exposes a working import retry with no external data dependency
+PASS Stylesheet failure removes the broken element and permits a fresh request
+PASS Research filters and page survive snapshots, language changes and a Sources round trip
+PASS Unknown variables and excessive pages normalize after the actual phase loads
+33/33 passed
+PASS Every manifest file has its declared bytes and SHA; no extra files
+PASS 58,430 source row IDs are unique; repeated bare sheet row numbers do not collide
+PASS All 7 phases without observations remain in the index and have readable empty shards
+PASS All 626 polity metadata rows and 173 variable metadata rows remain exact
+PASS Every original header, raw field, null, cell type and source row equals the workbook XML
+PASS Six source-sheet search bundles reconstruct the same 57,631 observations
+PASS CrisisDB keeps 166 whole records, 21 coded outcomes and null uncertainty flags
+PASS Zero years, one-sided dates, beyond-phase dates and reverse value endpoints are not normalized away
+PASS Negative control rejects a boolean value converted from original lexical encoding
+PASS Independent rebuild produces the exact same file set and every byte hash
+Traceback (most recent call last):
+  File "/Users/zane/meridian_atlas/world-history-atlas/scripts/seshat-polaris/verify_polaris.py", line 167, in <module>
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--data',type=Path,default=DEFAULT_DATA_DIR);parser.add_argument('--source-dir',type=Path,help='Defaults to the selected data directory / sources');parser.add_argument('--report',type=Path);args=parser.parse_args();verify(args.data,args.report,args.source_dir)
+  File "/Users/zane/meridian_atlas/world-history-atlas/scripts/seshat-polaris/verify_polaris.py", line 163, in verify
+    if report_path:report_path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1275, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1242, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1110, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/verification-3.55/polaris/source-verification.json'

@@ -22,6 +22,8 @@ for(const f of regionalTransport.files){
  if(!/^(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid regional transport path');
  addStatic('data/ohm-transport/'+f.file,{bytes:f.bytes,sha256:f.sha256});
 }
+const chgis=JSON.parse(fs.readFileSync(path.join(source,'data/chgis/manifest.json')));
+for(const f of chgis.files){if(!/^century--?\d+\.json\.gz$/.test(f.file))continue;addStatic('data/chgis/'+f.file,{bytes:f.bytes,sha256:f.sha256});}
 const cshapes=JSON.parse(fs.readFileSync(path.join(source,'data/cshapes/manifest.json')));
 for(const f of Object.values(cshapes.packs)){if(!/^decade-\d+\.json\.gz$/.test(f.file))throw Error('Invalid CShapes pack path');addStatic('data/cshapes/'+f.file,{bytes:f.bytes,sha256:f.sha256});}
 const seshat=JSON.parse(fs.readFileSync(path.join(source,'data/seshat/provenance.json')));

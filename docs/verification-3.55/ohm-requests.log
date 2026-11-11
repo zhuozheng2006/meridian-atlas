@@ -1,0 +1,11 @@
+PASS Same view deduplicates its pending request
+PASS A previous window's late success cannot demote the current ready view
+PASS A previous window's late failure cannot demote the current ready view
+PASS Actual setYear invalidates a previous year's late success
+PASS Actual setYear invalidates a previous year's late failure
+PASS A moved viewport with no pending replacement starts the current window on completion
+PASS Malformed cached payload is evicted and can be retried
+PASS Network rejection can be retried without recreating the map
+PASS Destroy rejects late success without rendering or starting another request
+PASS Destroy rejects late failure without rendering or starting another request
+10/10 OHM asynchronous request checks passed

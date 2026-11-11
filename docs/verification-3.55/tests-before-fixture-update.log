@@ -1,0 +1,1226 @@
+
+> meridian-world-history-atlas@3.55.0 test
+> node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-narrative-metadata.mjs && node scripts/validate-seshat-research.mjs && python3 scripts/seshat-polaris/verify_polaris.py --data public/data/seshat-polaris-2026 --report docs/verification-3.55/polaris/source-verification.json && python3 scripts/seshat-polaris/build_contract.py --data-dir public/data/seshat-polaris-2026 --output public/polaris-contract.js --check && node scripts/validate-polaris-store.mjs --report docs/verification-3.55/polaris/store-verification.json && POLARIS_WORKER_REPORT=docs/verification-3.55/polaris/worker-verification.json node scripts/validate-polaris-worker.mjs && node scripts/validate-polaris-pagination.mjs && python3 scripts/build_saved_text_catalog.py --repo . --check && python3 public/data/research-evidence/readings-3.44/verify.py . public/data/research-evidence/readings-3.44 docs/verification-3.55/reading-sources-3.44.json && python3 public/data/research-evidence/readings-3.45/verify.py . public/data/research-evidence/readings-3.45 docs/verification-3.55/reading-sources.json && python3 scripts/validate_hammurabi_text.py && python3 scripts/validate_offline_texts.py && node scripts/build-research-readings.mjs --check && node scripts/validate-research-readings.mjs && node scripts/validate-original-reader.mjs && node scripts/validate-reader-continuity.mjs && POLARIS_SEMANTIC_REPORT=docs/verification-3.55/semantic-evidence/verification.json node scripts/validate-polaris-semantic-evidence.mjs && node scripts/validate-polaris-vocabulary.mjs && node scripts/validate-polaris-polity-names.mjs && POLARIS_READER_REPORT=docs/verification-3.55/polaris/ui-verification.json node scripts/validate-polaris-reader.mjs && node scripts/validate-research-polity-names.mjs && node scripts/validate-research-format.mjs && node scripts/validate-research-entry.mjs && node scripts/validate-map-runtime.mjs && node scripts/validate-map-worker-configuration.mjs && node scripts/validate-research-routing.mjs && node scripts/validate-research-versions.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-point-layer-gate.mjs && node scripts/validate-native-bundles.mjs && node scripts/validate-global-frame-cache.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-boundary-mesh.mjs && node scripts/validate-border-envelopes.mjs && node scripts/places/build-attested-places.mjs --check && node scripts/places/validate-attested-places.mjs . docs/verification-3.55/attested-places.json && node scripts/places/validate-cities-3.47.mjs . docs/verification-3.55/cities-source-runtime.json && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-place-corrections.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-physical-grid.mjs && node scripts/validate-view-state.cjs && HALC_LAZY_REPORT=docs/verification-3.55/halc-lazy-fragments.json node scripts/validate-halc-lazy-fragments.mjs && HALC_BUCKET_REPORT=docs/verification-3.55/halc-shared-buckets.json node scripts/validate-halc-shared-buckets.mjs && HALC_SELECTION_REPORT=docs/verification-3.55/halc-selection.json node scripts/validate-halc-selection.mjs && node scripts/validate-halc-posttask.mjs && HALC_LABEL_SCHEDULER_REPORT=docs/verification-3.55/halc-label-scheduler.json node scripts/validate-halc-label-scheduler.mjs && HALC_FALLBACK_REPORT=docs/verification-3.55/halc-fallback-labels.json node scripts/validate-halc-fallback-labels.mjs && node scripts/validate-halc-label-lifecycle.mjs && node scripts/validate-halc-label-context-recovery.mjs && node scripts/validate-halc-style-reload.mjs && node scripts/validate-halc-render-readiness.mjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-halc-landscape-reader.mjs && node scripts/validate-halc-landscape.mjs && node scripts/patch-maplibre-landscape-dataurl.mjs --check && node scripts/validate-halc-landscape-assets.mjs && node scripts/validate-halc-landscape-worker.mjs && node scripts/validate-halc-landscape-real-data.mjs && node scripts/validate-maplibre-landscape-dataurl.mjs && python3 scripts/validate-halc-landscape.py && node scripts/validate-halc-cache.mjs && node scripts/validate-halc-regions.mjs && node scripts/validate-halc-regions-lazy-lifecycle.mjs && node scripts/validate-halc-regions-lazy.mjs && node scripts/validate-halc-worker-pool.mjs && node scripts/validate-halc-continuity.mjs && REGIONAL_FROZEN_REPORT=docs/verification-3.55/regional-frozen.json node scripts/validate-regional-frozen.mjs && node scripts/validate-regional-continuity.mjs && node scripts/validate-ohm-requests.mjs && node scripts/validate-boundary-comparison.mjs && node scripts/validate-boundary-app-races.mjs && node scripts/validate-lakes.mjs && node scripts/validate-lake-readiness.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && python3 scripts/verify-halc-regions-data.py --data-dir public/data/halc-regions --integrity scripts/data-integrity/halc-regions.integrity.json --audit scripts/data-integrity/halc-regions.geometry-audit.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/ohm/verify-ohm-1500.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-cross-layer.mjs && node scripts/validate-place-return.cjs && CITY_READER_REPORT=docs/verification-3.55/city-reader-navigation.json node scripts/validate-city-reader-navigation.mjs && node scripts/build-polity-display-names.mjs --check && node scripts/validate-polity-display-names.mjs && node scripts/validate-events-loading.mjs && node scripts/validate-identity-ledger.mjs && node scripts/validate-border-sampling.mjs && node scripts/build-regional-transport.mjs --check && node scripts/validate-regional-loading.mjs && node scripts/validate-automatic-boundaries.mjs && node scripts/ohm/verify-britain.mjs && node scripts/validate-country-display-names.mjs && node scripts/validate-country-cache.mjs && node scripts/validate-chgis.mjs && node scripts/validate-border-viewport.mjs
+
+PASS linked asset revision 3.55.0-d057a2673979
+PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
+PASS Time windows use civil years without year zero
+PASS Historical coverage never extrapolates before or after source coverage
+PASS All source record IDs and geometry references are consistent
+PASS Every civil-year coverage count matches the active-record selector
+PASS Boundary archive sizes and hashes match final manifest
+PASS Every shipped geometry can be parsed and all referenced shapes exist
+PASS Every event has bilingual text, valid dates, location semantics and traceable references
+PASS Wikipedia links preserve source language and full URLs
+PASS Required offline assets and launchers are present
+{"result":"passed","checks":10,"events":709,"boundaryRecords":13765,"polityRecords":13380,"coverageYears":5424}
+PASS Lean catalog preserves every ID, interval, type and geometry association
+PASS Bootstrap maps exactly match active geometries for every precompiled year
+PASS Lazy full-record shards resolve all archive records
+PASS Unreferenced, deprecated and unknown statements stay out of sourced fact panels
+PASS Year-matched claims require adequate precision and bounded dates or a point date
+PASS Known source identity/period conflicts cannot load factual dossiers
+PASS Curated narratives match identity, exact record IDs and the selected period
+PASS Every enrichment profile declares its boundary coverage and the declaration matches the records
+PASS Every enrichment profile is reachable through the catalogue or the no-territory view
+PASS Compressed event archive equals editable full event JSON
+PASS Compressed enrichment narratives equal the editable source
+PASS Enrichment profile paths, fact references and narrative bindings are internally consistent
+PASS Initial atlas payload is substantially smaller than v1
+{
+  "result": "passed",
+  "checks": 13,
+  "events": 709,
+  "performance": {
+    "catalogBefore": 1252656,
+    "catalogAfter": 602739,
+    "eventGzip": 446517,
+    "years": [
+      {
+        "year": -221,
+        "previousGeometryBytes": 342104,
+        "bootstrapGeometryBytes": 20053
+      },
+      {
+        "year": 1,
+        "previousGeometryBytes": 780016,
+        "bootstrapGeometryBytes": 26150
+      },
+      {
+        "year": 1000,
+        "previousGeometryBytes": 2597177,
+        "bootstrapGeometryBytes": 51341
+      },
+      {
+        "year": 1492,
+        "previousGeometryBytes": 3005248,
+        "bootstrapGeometryBytes": 79710
+      },
+      {
+        "year": 1750,
+        "previousGeometryBytes": 4405911,
+        "bootstrapGeometryBytes": 141081
+      },
+      {
+        "year": 1914,
+        "previousGeometryBytes": 5130307,
+        "bootstrapGeometryBytes": 213209
+      },
+      {
+        "year": 2024,
+        "previousGeometryBytes": 11345334,
+        "bootstrapGeometryBytes": 208283
+      }
+    ]
+  }
+}
+PASS Authored periods, per-claim references and per-source review dates survive publication
+PASS Actual assembler rejects invalid final entries without partial writes and remains idempotent
+PASS 47,477 original rows are conserved across all 373 PolID shards
+PASS All 424 pilot observations survive, including the 61 explicitly dated rows
+PASS A supplied numeric zero date remains explicit and searchable
+PASS Clearing a loading phase removes its busy state and ignores the late response
+PASS Source PolID selection is shareable without creating an atlas entity binding
+PASS 26 bilingual priority variables preserve formal-law and specialist definitions
+PASS Every one of the 135 original variables has a distinct source key and Chinese search label
+PASS Duration keeps polity source dates separate from ritual hours
+PASS Evidence, inference, expert unknown and RA-suspected unknown are distinct
+PASS Zero, missing values, ranges and disagreement preserve original strings
+PASS Undated records keep source phase context without an invented date or year filter
+PASS Explicit source dates and single-ended dates stay unchanged
+PASS Corrupt indexes, duplicate rows and wrong-polity shards fail closed
+PASS Opening the reader fetches only the 32 KB index, never all observations
+PASS Chinese phase search finds Ming while original source names stay untouched
+PASS A phase loads one shard; filters inspect every variable and pagination bounds DOM work
+PASS Global search can inspect all 47,477 rows with all 373 source identities
+PASS Filtered download contains untouched original rows, filters and source attribution
+PASS Index failures expose a working retry without page reload
+PASS Shard failure is not cached; retry requests the same phase again
+PASS Rapid phase changes discard late requests even when the loader ignores abort
+PASS Destroy aborts work and prevents late DOM writes
+PASS Language changes retain selection and bilingual source/label readability
+PASS Native keyboard controls are isolated from map arrows without canceling defaults
+PASS Hostile source strings render as text rather than injected markup
+PASS Store bounds the phase cache and does not cache failed validation
+PASS Standalone loader accepts gzip bytes and already-decoded HTTP bodies
+PASS Lazy view waits for module and styles, and language changes retain initial PolID
+PASS Lazy view destroyed before import resolves cannot replace the next page
+PASS Lazy view exposes a working import retry with no external data dependency
+PASS Stylesheet failure removes the broken element and permits a fresh request
+PASS Research filters and page survive snapshots, language changes and a Sources round trip
+PASS Unknown variables and excessive pages normalize after the actual phase loads
+33/33 passed
+PASS Every manifest file has its declared bytes and SHA; no extra files
+PASS 58,430 source row IDs are unique; repeated bare sheet row numbers do not collide
+PASS All 7 phases without observations remain in the index and have readable empty shards
+PASS All 626 polity metadata rows and 173 variable metadata rows remain exact
+PASS Every original header, raw field, null, cell type and source row equals the workbook XML
+PASS Six source-sheet search bundles reconstruct the same 57,631 observations
+PASS CrisisDB keeps 166 whole records, 21 coded outcomes and null uncertainty flags
+PASS Zero years, one-sided dates, beyond-phase dates and reverse value endpoints are not normalized away
+PASS Negative control rejects a boolean value converted from original lexical encoding
+PASS Independent rebuild produces the exact same file set and every byte hash
+{
+  "sourceSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+  "method": "Independent workbook XML cell comparison, output manifests, reassembly, anomaly assertions, negative control, and a second standalone importer process.",
+  "passed": 10,
+  "total": 10,
+  "fileCount": 643,
+  "totalBytes": 6381057
+}
+{
+  "contractBytes": 66109,
+  "contractGzipBytes": 31047,
+  "knownGzipFiles": 635,
+  "priorityVariables": 26
+}
+PASS Cold store reads only one index and selected phase; cache reuse makes no second request
+PASS All seven empty phases load their original raw metadata
+PASS Original phase IDs with spaces are preserved and resolved through index files
+PASS Phase summaries preserve source zero year and missing NGA without assigning map geography
+PASS A supplied file path on a polity object is ignored; traversal and external index files are rejected
+PASS Wrong versions, duplicate phase IDs, altered totals and missing source headers fail closed
+PASS Source identity uses sheet+row, rejecting duplicates, renamed variables and coerced booleans
+PASS Transport validates raw gzip and HTTP-decoded JSON against pinned hashes
+PASS HTTP errors, caller cancellation, invalid JSON and request timeout remain retryable
+PASS A bad shard is not cached, and a retry reloads its valid original
+PASS An aborted read cannot populate cache when its loader ignores abort
+PASS Clearing a store invalidates an in-flight response and allows a fresh read
+PASS Synchronous cache invalidation obsoletes all public operations suspended on a cached index
+PASS Clearing between verified transport and caller continuation cannot repopulate any cache
+PASS Versioned stores have independent bounded phase caches
+PASS Crisis cards retain coded outcomes, null flags and beyond-phase dates
+PASS Full-search source integrity rejects duplicate source rows even if count matches
+PASS Source values and numeric endpoint comparisons preserve precision and do not infer ranges
+PASS Undated rows retain null dates and phase context regardless of a map-year filter
+PASS Record exports retain exact original rows, cell types, IDs and snapshot provenance
+PASS Domain and variable search request only relevant source sheets and retain one page
+PASS Crisis search is one lazy source sheet; requested page and filtered downloads agree
+PASS Cancelled progressive searches do not return partial success or continue to more sheets
+PASS Failed multi-sheet search rejects; retry completes and search LRU stays bounded
+PASS Only supported domains/variables and bounded query text enter filtering
+PASS All six search sheets remain searchable, with full count and bounded retained page/cache
+PASS Every preserved anomaly renders as source context without changing raw dates or endpoints
+27/27 Polaris reader checks passed
+PASS Opening a phase creates no worker and retains the exact original shard
+PASS Real worker Crisis query loads only index and one table and returns one exact page
+PASS Full archive stays complete while only the requested 24 rows cross for display
+PASS Worker transfer export round-trips all original typed Crisis rows and phase contexts
+PASS Full export remains opt-in and collection preserves raw rows for API consumers
+PASS Cancellation during startup rejects promptly without disabling a replacement query
+PASS A cancelled running scan never returns stale rows and queued replacement succeeds
+PASS Clearing a live worker rejects pending work, terminates it and permits a fresh worker
+PASS Dispose rejects pending operations and permanently prevents new work
+PASS Corrupted worker data fails closed instead of silently retrying in the UI thread
+PASS Worker construction restrictions gracefully retain the verified local fallback
+PASS Handshake snapshot mismatch is an error and cannot enable fallback
+PASS Late replies after cancellation are ignored rather than delivered to another job
+PASS Invalid data origin is rejected before the worker fetches any source
+PASS Full serialized archive export preserves every source row and cell type
+PASS A throwing progress observer rejects just its job and the worker remains usable
+PASS Cancelling export while reading suppresses its result and permits the next query
+PASS A worker runtime restriction falls back consistently on subsequent requests
+PASS Undecodable worker messages keep their error category on repeated requests
+{"checks":19,"passed":19}
+PASS Full source scan retains one bounded ordinal index, exact total and source row order
+PASS Second page reopens only its target source sheet after normal LRU eviction
+PASS A page spanning two sheets returns their precise source rows and loads only those sheets
+PASS Equivalent normalized filters reuse the index while a changed query replaces it
+PASS A complete zero-match query pages without reopening any source table
+PASS An incompatible domain and variable produces an empty completed plan
+PASS Different page sizes and the end boundary keep total stable without scanning again
+PASS Explicit collection scans every source table and exports every exact original row
+PASS Retry invalidates pagination and rereads every planned table even with a warm sheet cache
+PASS A failed replacement query never commits partial positions or revives the previous index
+PASS Cancellation during a complete scan discards partial positions and stops before the next table
+PASS Cancelling a cached-page transport cannot restore its index when transport ignores the signal
+PASS clearCaches invalidates a suspended page and neither its rows nor index can repopulate caches
+PASS A newer search supersedes an older suspended scan and the late scan cannot overwrite its index
+PASS Direct index and source-sheet retries invalidate a previously completed query index
+PASS Disposal discards positions and permanently rejects later cached pages
+PASS A corrupt reopened table fails its original checksum and cannot reuse old query metadata
+PASS A progress callback failure cannot commit otherwise complete or partial results
+18/18 pagination checks passed
+{"checked": true, "documents": 8, "blocks": 984, "readings": 16}
+{"passed": true, "checksPassed": 352, "checksTotal": 352, "counts": {"cards": 5, "phases": 2, "primarySourcePayloads": 3, "works": 2, "originalFiles": 6, "originalBytes": 98601, "readingBlocks": 78, "englishFaxianSegments": 50, "simplifiedChineseFaxianSegments": 50, "allLanguageFaxianAssignments": 200}}
+{"passed": true, "checksPassed": 234, "checksTotal": 234, "counts": {"cards": 5, "phases": 2, "primarySourcePayloads": 2, "works": 2, "originalFiles": 4, "originalBytes": 624755, "readingBlocks": 139, "originalNumberedPeriplusSections": 66, "scanPagesVisuallyRead": 8, "targetRows": 11}}
+{"passed": true, "checksPassed": 13, "checksTotal": 13, "counts": {"blocks": 262, "headings": 4, "sourceNotes": 1, "characters": 61216, "numberedLaws": 247, "tocEntries": 251}}
+test_01_pinned_inputs_and_manifest (__main__.OfflineTexts) ... ok
+test_02_every_paragraph_reconstructs_from_exact_utf8_bytes (__main__.OfflineTexts) ... ok
+test_03_full_selected_article_and_notices_have_no_text_omissions (__main__.OfflineTexts) ... ok
+test_04_every_text_span_is_in_an_explicit_reviewed_region (__main__.OfflineTexts) ... ok
+test_05_twelve_tables_retains_all_twelve_sections_and_introduction (__main__.OfflineTexts) ... ok
+test_06_fordham_contains_the_whole_page_not_only_mali (__main__.OfflineTexts) ... ok
+test_07_edition_copyright_editorial_notes_are_preserved_as_data (__main__.OfflineTexts) ... ok
+test_08_navigation_styles_and_site_forms_are_excluded (__main__.OfflineTexts) ... ok
+test_09_links_retain_exact_original_tags_and_safe_resolved_urls (__main__.OfflineTexts) ... ok
+test_10_all_three_reading_routes_have_exact_existing_heading_anchors (__main__.OfflineTexts) ... ok
+test_11_active_markup_is_inert_and_unsafe_links_never_get_urls (__main__.OfflineTexts) ... ok
+test_12_hash_drift_fails_before_catalog_or_output (__main__.OfflineTexts) ... ok
+test_13_reproducible_build_and_original_files_unchanged (__main__.OfflineTexts) ... ok
+test_14_extraction_implementation_is_pinned_in_each_derived_document (__main__.OfflineTexts) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.056s
+
+OK
+PASS Reading catalog matches its reviewed JSON
+PASS Reading leads bind exact snapshot, existing phase/variable/row IDs without altering records
+PASS Every preserved source file retains exact bytes and SHA-256
+PASS All card source links, locators, authors and bilingual text match preserved evidence
+PASS Phase, domain and variable filtering use identities rather than name similarity
+PASS Bilingual locators distinguish PDF pages, printed pages and logical CSV records
+PASS Reader renders saved originals at exact pages, independent provenance and stable folding
+PASS Source text is inert and executable link protocols are rejected
+PASS Earlier Crisis coding remains a distinct snapshot and keeps its documented conflict
+PASS Version conflicts remain legible in the selected language with both original codes
+PASS New reading collections preserve all previously reviewed cards and add exact regional associations
+PASS Source table row intervals remain visible rather than disappearing from the locator
+PASS Reviewed claim locators and original observation values remain exact
+PASS Long author lists stay compact while complete authors remain available in source details
+PASS Asian source additions preserve prior cards, exact source rows and unknown edition years
+PASS Red Sea and Hawaiian readings preserve all earlier guides and exact typed associations
+{"checks":15,"passed":15,"cards":40,"sources":17}
+PASS Mounting/folding does no IO; one open loads once despite repeated toggles
+PASS A detached reader ignores late fulfillment and cannot receive focus
+PASS Close during load does not build a hidden document; reopen still performs first positioning
+PASS Closing after render but before animation frame still positions on reopening
+PASS Manual directory positioning uses body-relative coordinates and moves keyboard focus
+PASS Automatic passage positioning never steals focus from another control
+PASS Length/hash corruption is rejected and the same entry can retry verified bytes
+PASS Two readers share one source fetch whose bytes pass integrity validation
+PASS Only exact source SHA, source ID and reading identity receive an inline reader
+PASS All complete saved documents render text literally, with every chapter and reading anchor
+PASS A failed open exposes a working Retry action
+PASS Truncated source payloads fail before parsing and can be retried
+PASS Closing the surrounding reading guide defers rendering and preserves initial passage navigation
+PASS New versioned documents load from their own collection with byte and source checks
+{"passed":14,"total":14}
+PASS Never-opened originals remain cold across language, export, pagination and phase return
+PASS Language switch reuses exact original DOM, selected chapter, provenance, paragraph position and internal focus
+PASS Both export renders retain the original view and do not steal focus from download controls
+PASS 142-row phase pagination and Mali to Ming to Mali retain only the same card state
+PASS Two Mali cards share source identity but keep independent open and paragraph positions
+PASS Language switch while original fetch is pending, then another card, blocks stale DOM and focus writes
+PASS Closed surrounding details survives language rebuild and reopens at the saved paragraph
+PASS Outer collapse during fetch plus language rebuild postpones late text until the new outer guide opens
+PASS Destroy during original fetch leaves no body, focus or host writes after late completion
+PASS Registry restores source paragraph plus block offset after reflow and after LRU recreation
+PASS Native scroll reset after DOM reattachment cannot overwrite the saved paragraph before rapid second render
+PASS LRU eviction during an unrestored reattachment keeps the previous source-block snapshot
+PASS Snapshots require exact card, original source and derived-document identity before reopening
+PASS Width reflow preserves the actual source paragraph and character within a long paragraph without changing focus or contents
+PASS Repeated width changes and native programmatic scroll events keep the same character anchor without cumulative line drift
+PASS Native scroll arriving before ResizeObserver cannot replace the previous-layout text anchor
+PASS Several width changes coalesce into one restoration using the final geometry
+PASS A contents selection supersedes pending automatic restoration and keeps its intended focus
+PASS A related-passage button supersedes pending resize restoration
+PASS Wheel, touch, scrollbar pointer and scroll keys supersede a pending resize restore
+PASS Input arriving before ResizeObserver respects the user-selected new position
+PASS Unrelated or already handled keys leave the queued resize restoration intact
+PASS Closing and reopening the source while resize is queued retains its character and reconnects one observer
+PASS A hidden surrounding guide can change width without recording zero geometry or stealing outside focus
+PASS Language reattachment during queued resize keeps the exact source character and original DOM
+PASS Destroy invalidates queued frames, disconnects observation and blocks a late observer delivery
+PASS Viewport-height-only changes keep the paragraph position
+PASS Without DOM Range, live reflow keeps a proportional paragraph offset and original registry semantics still work
+PASS Without ResizeObserver, the window-resize fallback restores position and removes listeners on destruction
+PASS Selecting a section before the first restore frame still starts resize observation
+PASS User scrolling before the reattachment restore reconnects observation and supersedes saved position
+PASS At the end of a document, viewport growth accepts native clamping and saves the achievable position for the next resize
+PASS An empty Range rectangle falls back to the same source paragraph instead of inventing a character position
+PASS Rapid repeated language reattachment cannot let old frames overwrite a later explicit directory choice
+{"total":34,"passed":34}
+{
+  "passed": true,
+  "sourceVersion": "1f847d95e224860115a3dc358165380fe5487bcd",
+  "sourceFiles": 8,
+  "checkedLineReferences": 91,
+  "crisisFields": 21,
+  "codeDefinitions": 4,
+  "variablesWithReviewedEvidence": 18,
+  "criteriaStillPending": 17,
+  "originalArchiveFilesUnchanged": 643,
+  "workbookSha256": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41"
+}
+{
+  "passed": true,
+  "variables": 173,
+  "codes": 19,
+  "crisisFields": 21,
+  "checked": "unchanged source vocabulary except explicit reviewed overlays, directional codes, pending criteria, correct units, absent mappings, nested immutability"
+}
+{
+  "passed": true,
+  "phases": 626,
+  "translated": 383,
+  "fallback": 243,
+  "mismatchRegressions": 166,
+  "reviewedNames342": 14,
+  "checked": "actual source index, bilingual notes, source authority, row/number/period/region binding, immutable display"
+}
+PASS Cold reader requests only its index and shows five exact starter phases
+PASS One Ming phase requests one small shard and bounds visible records to 24
+PASS Simplified phase lookup finds Ming without changing source names
+PASS Local filters export full original typed rows and full raw phase metadata
+PASS Global Crisis search reads only its relevant sheet and exports all hits only on request
+PASS Global typing cancels stale work immediately and debounces the newest query
+PASS Chinese composition waits for completion before launching global search
+PASS Rapid phase changes, clear selection and destroy reject late UI writes
+PASS Index and phase failures have working explicit retry paths
+PASS Global failure retries without pretending that the archive is empty
+PASS All seven empty phases retain their source metadata without an error state
+PASS Mobile phase selector stays visible while labelled advanced filters begin closed
+PASS Language changes retain filters, page, disclosure and input focus
+PASS Snapshots restore global filters and pagination and reject excessive page values
+PASS Restored excessive global page clamps before the store range check
+PASS Restored global domain and query pages clamp to actual hits, including zero
+PASS Native arrow keys stop map propagation without cancelling normal controls
+PASS Hostile source text, unknown codes and details stay inert text
+PASS Numeric endpoint order, year zero, one-sided date and source flags stay distinct
+PASS Flag badges require the signed boolean cell type and never coerce string codes
+PASS Date labels distinguish BCE, CE, missing endpoints and undated observations
+PASS Crisis renders all 21 raw string outcomes without boolean coercion
+PASS Explicit cross-version comparison delegates the exact reviewed phase pair
+PASS An export failure can retry, and a changed selection cancels a stale global export
+PASS Destroy during index read prevents all later DOM and selection writes
+PASS Reading library exposes all fifteen curated phases and searches bilingual subjects without reading shards
+PASS All 40 deep links show and export precisely their linked typed source rows
+PASS Library click clears conflicting filters, opens the exact source phase, and focuses the context
+PASS Reading scope clears on manual phase and variable changes and survives a failed fetch retry
+PASS Unknown, mismatched and cross-version reading routes never substitute another card
+PASS Exact source identities reject a same-row-number substitute and surface missing associations
+PASS A late reading fetch cannot overwrite a later phase selection
+PASS Reading-library language changes retain search, phase, page, folding and input focus
+{"checks":33,"passed":33,"failed":0}
+PASS display catalog binds only existing exact source IDs and names
+PASS every East Asia phase has a Chinese display term
+PASS Chinese Ming search, source-name search, IDs, areas and aliases work in the same index
+PASS late Tang and Jin preserve source-date meanings and do not bind unrelated dynasties
+PASS ambiguous Hmong phase segment remains available in English
+PASS Jomon stage translations keep their distinct six source stages
+PASS unreviewed source phases, unknown IDs and changed names retain original names
+PASS name helpers do not mutate source phases or original names including spaces
+PASS display table and nested rows cannot be mutated
+{"ok":true,"checks":9,"phases":373,"translated":308,"englishFallback":65}
+{
+  "pass": true,
+  "displayExamples": 17,
+  "unchangedInputs": 34,
+  "exactBigIntComparisons": 20,
+  "maxExpandedDisplayLength": 512,
+  "sourceValuesPreserved": true
+}
+PASS Initial HTML is neutral before any script, and no app preload bypasses routing
+PASS Head startup warms the atlas before DOM readiness but research requests no application assets
+PASS Research entry dependency closure contains no atlas modules
+PASS Entry branches load only the requested reader or application
+PASS Application readiness rejection is observable by the entry error boundary
+PASS Application import is shared, failed imports clear and retry without an invalid URL
+PASS Cold shell and both research versions preserve complete URL state without importing app
+PASS All five header destinations transfer ownership once with the selected route
+PASS Reader Sources return preserves its latest filter snapshot
+PASS Returning to research while app is downloading prevents stale application start
+PASS Rapid different exits share one import and only the latest destination starts
+PASS Import failure offers working retry and a return to research
+PASS Application synchronous start failure offers an isolated reload boundary preserving the complete URL
+PASS Application rejected readiness offers an isolated reload boundary preserving the complete URL
+PASS A late readiness failure never replaces a newer application route or remounts the old shell
+PASS Explicit retry reuses the desired route; destroy rejects late imports
+PASS Language, help, content skip link and search shortcut work without map keyboard handlers
+PASS Importing app has no UI effects; controlled start rereads the latest complete hash and is idempotent
+{"passed":18,"total":18}
+PASS concurrent renderer requests share one promise and one same-origin script
+PASS an already available renderer performs no download
+PASS network failure removes its script, clears timer and allows an explicit retry
+PASS a loaded script without a usable renderer is rejected and retryable
+PASS timeout permits a retry and a late old callback cannot settle it
+PASS an optional ignored failed prefetch does not create an unhandled rejection
+PASS foreign-origin script injection is rejected before DOM insertion
+PASS DOM append failures are rejected, cleaned up and can retry
+PASS research deep links do not even request the renderer loader
+PASS default map route starts optional async renderer load with the stamped module URL
+PASS HTML has no unconditional renderer preload or synchronous script
+{"ok":true,"checks":11,"method":"Injected DOM/network/time fixtures and startup transport-boundary fixture; no browser automation."}
+PASS Worker policy preserves intended budget for eligible desktop
+PASS Worker policy preserves intended budget for four-core lower threshold
+PASS Worker policy preserves intended budget for browser without device-memory signal
+PASS Worker policy preserves intended budget for two-core device
+PASS Worker policy preserves intended budget for three-core device
+PASS Worker policy preserves intended budget for low-memory four-core device
+PASS Worker policy preserves intended budget for low-memory many-core device
+PASS Worker policy preserves intended budget for no hardware information
+PASS Worker policy preserves intended budget for non-finite hardware information
+PASS Worker policy preserves intended budget for invalid hardware information
+PASS Defaults of two or more are never lowered
+PASS One library is configured once across repeated loader and atlas callers
+PASS Different library instances remain independently configurable
+PASS Libraries lacking optional worker APIs remain usable
+PASS Already available renderer is configured before the load promise gives it to a map constructor
+PASS Async script completion configures once before both concurrent map callers continue
+PASS Low-memory async startup resolves normally without increasing its default pool
+{"passed":17,"total":17}
+PASS Research deep link boots while renderer, WebGL and core data remain unused
+PASS Research to Sources remains textual; returning keeps the complete filter snapshot
+PASS First Atlas navigation loads one renderer/map; repeated visits reuse it
+PASS Concurrent Atlas requests share initialization and only the latest view completes
+PASS Returning to research during renderer loading prevents stale map construction
+PASS WebGL failure offers retry and never prevents reopening the research reader
+PASS Loading a map disables controls that require the renderer, then restores them
+PASS Changing language in research refreshes an existing map only when it is reopened
+PASS A slow initial place deep link cannot resurrect the map after leaving it
+PASS Leaving and re-entering Atlas also invalidates the old place restoration
+PASS Default map route initializes its normal data and renderer once
+PASS Native prefetch starts before renderer/core settle and stops following an abandoned view
+PASS CShapes startup does not prefetch an unused Cliopatria pack
+PASS Only whitelisted research parameters round-trip, with bounds and safe defaults
+PASS Battle legend uses the actual count in English
+15/15 research routing checks passed
+PASS Old links remain Equinox and do not gain a new dataset parameter
+PASS Polaris source IDs including spaces and the long reconstruction ID round trip
+PASS Unknown editions, traversal IDs and controls normalize without guessing a source phase
+PASS Only the chosen version module loads and switching resets source-specific state
+PASS A late version import cannot mount over the selected version
+PASS A failed edition remains switchable and an explicit comparison keeps its selected ID
+PASS Five comparison pairs retain the exact source periods and record counts
+PASS Comparison rendering is descriptive and navigation occurs only on explicit click
+8/8 research version checks passed
+PASS 60/60 independent date-evidence cases
+PASS 30/30 real polity dossier regressions
+PASS in-flight year completion preserves a newer unsubmitted input draft
+PASS pending polity after toggleCompare
+PASS pending polity after closeDetail
+PASS pending polity after eventSwitch
+PASS closing an event during map loading
+PASS out-of-order event responses
+PASS prehistoric events in the comparison map
+PASS failed year keeps the displayed map and year consistent
+PASS removed comparison cannot commit a late year
+PASS a stale native upgrade cannot overwrite a newer year or lock future upgrades
+PASS Timeline keys use civil-year steps regardless of nonlinear slider scale
+PASS Map arrows change years once; Alt pans; native controls and modified keys stay isolated
+PASS Year fields cross BCE correctly, reject empty/zero, and commit Enter only once
+PASS All eleven bootstrap maps exactly retain canonical 0.02-degree display geometry
+PASS Finer overview introduces no extra invalid shapes and detailed coastlines are packaged
+{"result":"passed","checks":5}
+PASS prefetch_bootstrap_one_pack {"onePack":true,"noIndex":true,"exactAliasRecords":136}
+PASS prefetch_temporal_shared_cancel {"sharedConsumers":3,"requests":1,"cancelDidNotAbortOtherMap":true}
+PASS prefetch_invalid_or_canceled_no_requests {"requests":0}
+PASS prefetch_failure_retries_real_frame {"retrySucceeded":true,"indexOrOverviewRequests":0}
+PASS prefetch_incomplete_pack_requires_frame_coverage {"missingRecordNotComplete":true,"overviewFallback":true,"retrySucceeded":true}
+PASS prefetch_rejects_wrong_dates_and_invalid_unused_geometry {"invalidPrefetchPollution":0,"requests":2}
+PASS prefetch_late_result_cannot_commit_old_year {"lateFrames":0,"currentYear":1666}
+PASS bootstrap_cache_release {"year":1492,"sharedPendingRequests":1,"nativeCacheHitRequests":0,"releasedResolvedResource":true,"nativeReferencesPreserved":136}
+PASS temporal_cache_release {"year":1450,"sharedPendingRequests":1,"nativeCacheHitRequests":0,"releasedResolvedResource":true,"nativeReferencesPreserved":133}
+PASS persistent_boot_failure_independent_fallback {"permanentlyFailedOptionalPacks":2,"independentFallbackRecords":136,"bootstrapAttempts":1}
+PASS bootstrap_validates_all_cached_entries {"unrequestedInvalidGeometryExcluded":true,"independentRecoverySucceeded":true}
+PASS slow_pack_waits_without_competing_overview {"controlledDelayMs":1551,"completeFirstFrame":true,"nativePackRequests":1,"overviewRequests":0,"largeIndexRequests":0}
+PASS slow_pack_late_result_after_navigation {"lateNativeRenderCount":0,"latestYear":1666,"overviewRequests":0}
+PASS temporal_validates_entire_payload {"allPackMappingsValidated":true,"independentFallbackRecords":8}
+PASS collision_all {"collisionGroups":59,"records":149,"networkRequests":121}
+PASS boot_no_index {"records":136,"requests":1,"bytes":150207}
+PASS alps_1500_boot_no_index {"records":137,"requests":1,"bytes":151086,"exactIndividualGeometriesCompared":137}
+PASS arbitrary_files_concurrency {"records":122,"geometries":120,"requests":122,"geometryBytes":269168,"maxConcurrent":6}
+PASS arbitrary_bundle_exact {"records":122,"requests":1,"geometryBytes":226236,"largeIndexRequests":0}
+PASS arbitrary_first_frame_exact {"firstFrameComplete":true,"overviewRequests":0,"requests":1,"largeIndexRequests":0}
+PASS failed_bundle_frame_fallback_retry {"coarseFallback":true,"individualRequestsDuringFrame":0,"retrySucceeded":true}
+PASS canceled_bundle_first_frame {"staleFrames":0,"latestYear":1666}
+PASS mixed_cache_render {"records":3,"partialFallbackRetained":true,"completeCachePreventsRedundantSetData":true}
+PASS failed_boot_fallback_retry {"fallbackRendered":true,"retryNativeRendered":true}
+PASS canceled_upgrade_next_sequence {"staleUpgradeRenderCount":0,"currentUpgradeRenderCount":1}
+PASS destroyed_upgrade {"destroyedRenderCount":0,"inFlightCachePreserved":true}
+PASS zero_year {"zeroYearShowsNoTerritories":true,"requests":0,"note":"Engine empties the map; UI is responsible for rejecting a user-selected year zero."}
+PASS shared_file_cache {"recordAliases":2,"sharedIndexRequests":1,"sharedGeometryRequests":1}
+PASS missing_geometry_recovery {"malformedPayloadRejected":true,"retrySucceeded":true}
+{"passed":29,"failed":0}
+PASS No point-layer construction or network before a successful frame
+PASS Repeated commit/upgrade events keep the same layer instances
+PASS Overview fallback and CShapes frames both enable point layers
+PASS A failed first attempt can retry and initialize once after success
+PASS Old-year arrival cannot initialize before the current frame commits
+PASS Comparison commit initializes only its own map; removed maps stay unbound
+PASS Destroyed maps never create point layers from a late event or attempt
+PASS Real deferred point data finishes through the existing retry/load paths
+{"passed":8,"failed":0,"shippedDataRequests":6}
+{
+  "pass": true,
+  "packs": 258,
+  "lookupEntries": 258,
+  "lookupBytes": 10385,
+  "uniqueSourceGeometries": 11007,
+  "recordCopies": 34494,
+  "geometryCopies": 33426,
+  "scope": "Every bundled coordinate, ring order, record ID and date inclusion equals the original assets; source geometric accuracy is unchanged."
+}
+PASS A full real 1492 frame is byte-identical to the frozen original, while same-year language commits reuse derivation and skip settled LD
+PASS Changed properties, feature ordering and replacement geometry references invalidate the one-frame cache
+PASS Raw, curved and CShapes portrayal remain byte-identical to the old method and never accumulate synthetic features
+PASS Explicit invalidation rebuilds the existing portrayal WeakMaps even for in-place raw-coordinate edits
+PASS External setData on the same real source invalidates ownership; same-year display restores the intended frame
+PASS Style replacement with a new actual source resubmits the existing exact derivation and detaches the retired observer
+PASS An actual source failure forces a later same-input retry instead of treating the failed submission as loaded
+PASS Owned A in flight then owned B remains correct through real MapLibre queued _data replacement
+PASS External A in flight then owned B remains correct through real MapLibre queued _data replacement
+PASS An external queued updateData diff is superseded by a later same-year frame even while _data still has the owned reference
+PASS Rapid curve toggles during a real in-flight submission settle on the last exact portrayal
+PASS Overlapping year requests keep the existing AtlasMap stale-result guard and do not cache an old late frame
+PASS Dual maps own independent submissions and destroying one releases only its cache and source listeners
+PASS Source observers detach and explicit invalidation leaves no collection or payload retained
+{
+  "passed": 14,
+  "total": 14,
+  "observations": [
+    {
+      "year": 1492,
+      "records": 136,
+      "inputUTF8Bytes": 579124,
+      "derivedUTF8Bytes": 18752670,
+      "derivedSHA256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949",
+      "metrics": [
+        {
+          "lang": "bi",
+          "synchronousMs": 355.94762499999996,
+          "setDataCalls": 1,
+          "cache": {
+            "builds": 1,
+            "hits": 0,
+            "submissions": 1,
+            "skipped": 0,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        },
+        {
+          "lang": "en",
+          "synchronousMs": 0.44391700000005585,
+          "setDataCalls": 0,
+          "cache": {
+            "builds": 1,
+            "hits": 1,
+            "submissions": 1,
+            "skipped": 1,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        },
+        {
+          "lang": "zh",
+          "synchronousMs": 0.26587500000005093,
+          "setDataCalls": 0,
+          "cache": {
+            "builds": 1,
+            "hits": 2,
+            "submissions": 1,
+            "skipped": 2,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        },
+        {
+          "lang": "bi",
+          "synchronousMs": 0.289792000000034,
+          "setDataCalls": 0,
+          "cache": {
+            "builds": 1,
+            "hits": 3,
+            "submissions": 1,
+            "skipped": 3,
+            "invalidations": 0,
+            "retainedFrames": 1
+          }
+        }
+      ],
+      "sourceInputEqualsFrozenOracle": true,
+      "rawUnchanged": true
+    }
+  ]
+}
+PASS Source remains immutable; results are cached and metadata retained
+PASS Shared stepped boundary gets exactly the same curve in reverse
+PASS All rings stay closed and fine outlines are not moved wholesale
+PASS Small components retain source shapes
+PASS An unsplit T-junction stays pinned on the other polygon’s long edge
+PASS Dateline and malformed open rings remain exactly as archived
+PASS Polygons with holes retain all components and ring directions
+PASS Area protection shortens a curve instead of restoring a whole rectangular staircase
+PASS Narrow spaces and nonincident edge contacts remain protected
+PASS Switch restores exact source; fill and selection keep the same displayed polygons
+10/10 border portrayal checks passed
+PASS One polygon remains one exactly closed cycle
+PASS Reversed coincident polygons draw each edge only once
+PASS Adjacent polygons join degree-two runs and stop at degree-three junctions
+PASS T-junction does not gain a connecting chord
+PASS Different subdivisions are not snapped, split or inferred equivalent
+PASS Almost equal coordinates remain separate
+PASS Open source rings are not silently closed
+PASS Holes and disconnected MultiPolygon islands are retained
+PASS Antimeridian input segments retain exact endpoints and longitude values
+PASS Degenerate segments remain once without interrupting real runs
+PASS Coordinate dimensions are retained and participate in exact identity
+PASS Empty/nonpolygon geometry produces an empty network
+PASS Invalid numerical positions fail explicitly rather than inventing a boundary
+PASS Output positions do not alias mutable original positions
+PASS Actual displayTerritories commits polygon fill and deduplicated boundary mesh in one source frame
+PASS Actual softened fill and mesh use exactly the same derived segment set
+PASS Actual raw/soft toggle always rebuilds from raw polygons without accumulating synthetic features
+PASS Actual CShapes path keeps original polygon rings and stroke multiplicity
+PASS Actual 1500 native: exact segment set, once-only mesh, source immutability and order independence
+PASS Actual 1500 curved: exact segment set, once-only mesh, source immutability and order independence
+20/20
+{
+  "sourceModuleSha256": "c92faaeccb43b9f8579f4de711fa933f0002461f51638c3e1376469ddb1f0201",
+  "passed": 26,
+  "total": 26,
+  "results": [
+    {
+      "name": "Triangle containment is symmetric",
+      "passed": true
+    },
+    {
+      "name": "Disjoint triangles with overlapping bounding boxes remain disjoint",
+      "passed": true
+    },
+    {
+      "name": "Envelope vertex touching is rejected",
+      "passed": true
+    },
+    {
+      "name": "Envelope collinear edge touching is rejected",
+      "passed": true
+    },
+    {
+      "name": "An entire tiny source edge inside a corner envelope is detected",
+      "passed": true
+    },
+    {
+      "name": "An outside segment crossing the envelope is detected",
+      "passed": true
+    },
+    {
+      "name": "A nearby noncrossing edge does not impose an artificial distance cutoff",
+      "passed": true
+    },
+    {
+      "name": "unsplit-t: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "unsplit-t: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "Unsplit T-junction genuinely exercises clearance on a four-vertex ring",
+      "passed": true
+    },
+    {
+      "name": "hole-in-corner: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "hole-in-corner: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "small-hole-area: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "small-hole-area: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "Area fallback reduces curves instead of freezing this viable hole",
+      "passed": true
+    },
+    {
+      "name": "thin-neck: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "thin-neck: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "close-islands: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "close-islands: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "shared-stair: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "shared-stair: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "subdivided-boundary: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "subdivided-boundary: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "tiny-island: source remains untouched and rings preserve direction/area",
+      "passed": true
+    },
+    {
+      "name": "tiny-island: reversing feature order preserves exact per-feature geometry",
+      "passed": true
+    },
+    {
+      "name": "Sub-minimum tiny island remains exact",
+      "passed": true
+    }
+  ]
+}
+{
+  "result": "checked",
+  "generatedAt": "2026-11-11T18:31:50.361Z",
+  "records": 17,
+  "enhancements": 2,
+  "deferred": 4,
+  "handoffVerified": true,
+  "nearbyResolved": 15,
+  "nearbyUnresolved": [
+    "chandler:245"
+  ],
+  "distanceChecks": [],
+  "enhancementExistingRecords": [
+    "chandler:73",
+    "modelski-ancient:12",
+    "chandler:1404",
+    "modelski-ancient:128"
+  ]
+}
+PASS The shipped layer is a deterministic gzip with a zeroed mtime
+PASS Seventeen site records, two enhancements and four documented deferrals ship together
+PASS The review ledger accounts for every reviewed candidate exactly once
+PASS Every shipped record keeps its authored bilingual text, period and review checks
+PASS Periods never escape their verbatim source range and open ends are declared
+PASS Institutional date quotes, UNESCO coordinates and property ids match reviewed evidence
+PASS New city evidence snapshots, DMS conversion and activity periods remain independently verifiable
+PASS No attested record is merged into, or duplicates, an existing place record
+PASS Resolved nearby records carry recomputed distances that match the research file
+PASS Enhancement entries attach to real records without overwriting coordinates or observations
+PASS Deferred candidates keep their reasons and never appear as shipped points
+PASS Chinese text is simplified across the layer
+PASS Read semantics for the integration layer are shipped with the data
+{"passed":13,"total":13,"records":17,"checks":13,"bilingualParts":102,"sources":21,"decisions":23}
+PASS All original source archives, chapters, polity dates and 14 authored sites remain intact
+PASS Each published evidence snapshot is hashed and every date/point/narrative has traceable claims
+PASS Independent DMS conversions use exact heritage or component points, with no invented accuracy
+PASS Construction, planned-city, archaeological occupation and object dates keep their distinct meanings
+PASS Actual loader and chapter renderer expose exactly the new records in both languages
+PASS Actual filters enforce both period endpoints, reject year zero, and preserve BCE/CE continuity
+PASS Chinese, accent-free English and historic aliases find the site without borrowing a nearby chapter
+{"passed":7,"total":7}
+PASS Imports real places.js without DOM
+PASS Capital labels are readable and use pinned entity names
+PASS Dated city names follow the observation and preserve raw names across transitions
+PASS One unavailable archive preserves other sources and is retryable
+PASS Reviewed archaeological sites join the layer with their own period only
+PASS Modern reference is opt-in and never contaminates default loads
+PASS Historical index stays light and all details shards exist
+PASS A failed detail request retries, hydrates, and preserves unknown accuracy
+PASS Detail selects the matching period, not another location sharing its coordinates
+PASS Selected period belongs to the displayed point evidence
+PASS BCE/CE nearest year and observation selection use one consistent calendar
+PASS Dates outside population windows do not become city lifespans
+PASS Real historical attestation gaps remain empty
+PASS Capitals use explicit tenure bounds and do not project forward
+PASS Known internally contradictory name dates are quarantined
+PASS Known geographic feature conflicts are excluded without deleting mountain settlements
+PASS Source URLs exist before lazy Pleiades hydration
+PASS Search uses lazy-record aliases without fetching full records
+PASS Major city search preserves modern isolation and known Chinese names
+PASS Exact city-name relevance precedes incidental substring matches
+{
+  "passed": 20,
+  "total": 20,
+  "failures": []
+}
+{
+  "passed": 22,
+  "total": 22,
+  "syntheticChecks": 18,
+  "realDataChecks": 4,
+  "dataDir": "/Users/zane/meridian_atlas/world-history-atlas/public/data/places",
+  "results": [
+    {
+      "name": "URL population window accepts only supported values and preserves exact-year zero",
+      "passed": true
+    },
+    {
+      "name": "Population window limits are inclusive and exact-year mode rejects borrowed observations",
+      "passed": true
+    },
+    {
+      "name": "BCE/CE population window does not insert a fictitious year zero",
+      "passed": true
+    },
+    {
+      "name": "Same-name-period filtering happens before choosing the nearest population record",
+      "passed": true
+    },
+    {
+      "name": "Cross-name-period observations are withheld rather than renamed to the map year",
+      "passed": true
+    },
+    {
+      "name": "Documented overlapping boundary year accepts observations on either side",
+      "passed": true
+    },
+    {
+      "name": "A missing selected-year name period does not manufacture an exclusion or lifespan",
+      "passed": true
+    },
+    {
+      "name": "A missing observation-year name period preserves its original source label",
+      "passed": true
+    },
+    {
+      "name": "An uncovered gap in a name timeline stays unknown rather than becoming a name period",
+      "passed": true
+    },
+    {
+      "name": "Reviewed observation-name ranges are not treated as inferred rename boundaries",
+      "passed": true
+    },
+    {
+      "name": "Population values, source labels, coordinates and dated rules are never rewritten",
+      "passed": true
+    },
+    {
+      "name": "Population window does not change independently attested settlement or capital periods",
+      "passed": true
+    },
+    {
+      "name": "Country city filtering uses the same population window and name-period policy",
+      "passed": true
+    },
+    {
+      "name": "Country city cache differentiates 0, 25 and 50 years without mutating source records",
+      "passed": true
+    },
+    {
+      "name": "An observation in an overlapping renaming year retains both historical names",
+      "passed": true
+    },
+    {
+      "name": "New historical timeline aliases remain searchable in both global and country lists",
+      "passed": true
+    },
+    {
+      "name": "Open name-period bounds constrain names without asserting city existence",
+      "passed": true
+    },
+    {
+      "name": "Display and JSON export retain the observation year and original source record",
+      "passed": true
+    },
+    {
+      "name": "Real Tokyo records: 1867 uses Edo 1854, 1869 uses Tokyo 1875",
+      "passed": true
+    },
+    {
+      "name": "Real Samara: 1971 borrows 1975 Kuybyshev, not the later Samara observation",
+      "passed": true
+    },
+    {
+      "name": "Exact source-row quarantine preserves original geography/population without reassignment",
+      "passed": true
+    },
+    {
+      "name": "Every real name timeline is sourced; all displayed values remain source observations",
+      "passed": true
+    }
+  ]
+}
+PASS Shipped archives and reviewed rules load without an old checkout or raw-source cache
+PASS Active and archived rows conserve all reviewed source values and observation totals
+PASS All three corrected source rows match their exact rule bindings
+PASS All quarantine entries preserve original records, reviewed reasons, uncertainty and source license
+PASS Source metadata reports the corrected active/archive counts consistently
+PASS Imports and loads the real places and polity-places modules offline
+PASS Quarantined source IDs never reappear in real map-loader search results
+PASS All 27 source observations display Quanzhou without mutating date, population or coordinates
+PASS Display evidence remains tied to observation years and does not invent a continuous city lifespan
+PASS Chinese, English and historical aliases find the same corrected source row
+PASS The real polity reader uses the corrected display while retaining the source alias and spatial/date limits
+PASS: 11/11 place-correction checks
+PASS Imports the real matching module without DOM
+PASS 17 dossiers and 53 institutional source registrations resolve
+PASS All 48 bound records preserve actual names, coordinates, periods and observations
+PASS Every binding accepts its evidence endpoints and rejects years outside its range
+PASS Exact source IDs are required; names, coordinates and modern source kinds do not substitute
+PASS Invalid civil years cannot attach an editorial dossier
+PASS Every observation binding requires the selected source observation and respects both years
+PASS Real and synthetic disjoint source periods never acquire an interpolated history
+PASS All fifty-five reviewed Asia and world regression cases pass against the actual module
+PASS The asynchronous local-fetch API retries after failure, deduplicates and returns only cited sources
+{"passed":10,"total":10,"entries":17,"sources":53,"sourceRecords":48,"positiveBoundaries":146,"negativeBoundaries":188,"actualPeriodGaps":0,"originalRegressionCases":55}
+{
+  "snapshot": {
+    "path": "/Users/zane/meridian_atlas/world-history-atlas/public/geography.js",
+    "sha256": "842b97220f40c9a421511a16fa7a59effb84f7da60fc908158b368350322c4a1",
+    "mapEngineSha256": "8edf2b36a8bee3f6a4a0e10b0ac3e9aaea491670722b47e5c8069f8d18d6cf25",
+    "capturedAt": "2026-11-11T18:31:51.621Z"
+  },
+  "counts": {
+    "pass": 31,
+    "findings": 0
+  },
+  "results": [
+    {
+      "name": "Coarse resources remain the complete fallback at every zoom without global fine downloads",
+      "status": "pass",
+      "details": {
+        "requests": [
+          "data/land-50m.json.gz",
+          "data/physical/physical-overview.json.gz",
+          "data/physical/modern-ocean-mask-overview.json.gz"
+        ]
+      }
+    },
+    {
+      "name": "High zoom starts DEM reference and spatial detail before coarse bodies finish",
+      "status": "pass",
+      "details": "Independent detail requests are dispatched before awaiting the coarse fallback"
+    },
+    {
+      "name": "Late coarse data cannot replace the separately committed spatial source",
+      "status": "pass",
+      "details": "The detailed land and ocean live in one independent source"
+    },
+    {
+      "name": "Failed coarse fallback retries only its missing resource",
+      "status": "pass",
+      "details": {
+        "retriedOnlyMissingCoarse": true
+      }
+    },
+    {
+      "name": "A late failed overview does not downgrade a ready spatial viewport",
+      "status": "pass",
+      "details": "Status follows the currently usable view"
+    },
+    {
+      "name": "Delayed successful local fetch performs no setData after destroy",
+      "status": "pass",
+      "details": {
+        "writes": 0,
+        "reports": 0
+      }
+    },
+    {
+      "name": "Delayed failed local fetch reports nothing after destroy",
+      "status": "pass"
+    },
+    {
+      "name": "Terrain failure restores local relief without hiding modern reference",
+      "status": "pass",
+      "details": {
+        "fallbackOpacity": 0.82,
+        "referenceStillVisible": true,
+        "terrainRecreated": true
+      }
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables fine DEM",
+      "status": "pass"
+    },
+    {
+      "name": "An actual MapLibre 5.6 tile event without sourceDataType enables vector reference",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference failure restores local mask without hiding terrain",
+      "status": "pass",
+      "details": {
+        "maskRestored": true,
+        "terrainUnaffected": true
+      }
+    },
+    {
+      "name": "Modern reference failure invalidates readiness used by territory hit testing",
+      "status": "pass"
+    },
+    {
+      "name": "Modern reference off stays off while the default fine coast survives late remote success",
+      "status": "pass",
+      "details": "modern layers hidden; default fine coast remains"
+    },
+    {
+      "name": "Coast alignment off remains off through reference toggles/failure/retry",
+      "status": "pass",
+      "details": "local mask remains hidden"
+    },
+    {
+      "name": "A metadata-only loaded signal cannot substitute for usable modern vector tiles",
+      "status": "pass"
+    },
+    {
+      "name": "Previously ready reference retains local fallback while new viewport tiles load",
+      "status": "pass"
+    },
+    {
+      "name": "Turning terrain off before DEM metadata arrives does not certify usable DEM tiles",
+      "status": "pass"
+    },
+    {
+      "name": "terrain-dem: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/modern: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "geographic-reference/default-coast: return to cached view after abort converges ready without a new tile event",
+      "status": "pass",
+      "details": {
+        "actualVendorCacheMethods": true,
+        "newTileSuccessEventsAfterReturning": 0,
+        "ready": true
+      }
+    },
+    {
+      "name": "Default coast starts the shared vector source only at zoom 8",
+      "status": "pass",
+      "details": "ocean only; no modern urban or inland-water layers"
+    },
+    {
+      "name": "Pending fine ocean requests tiles while keeping local fallback visible",
+      "status": "pass",
+      "details": "layout visible, opacity zero, local mask opaque"
+    },
+    {
+      "name": "Ready default coast preserves physical rivers and lakes",
+      "status": "pass",
+      "details": "fine coastline with local natural waterways retained"
+    },
+    {
+      "name": "Terrain disabled does not block automatic fine coastline",
+      "status": "pass",
+      "details": "independent coast and terrain controls"
+    },
+    {
+      "name": "Fine coast and modern reference reuse one source through all toggles",
+      "status": "pass",
+      "details": "one vector source; independent modes"
+    },
+    {
+      "name": "Default coast failure/retry restores and reloads only the shared remote coast",
+      "status": "pass",
+      "details": "default coast retry works with modern reference off"
+    },
+    {
+      "name": "Pending transparent fine-ocean geometry cannot block visible fallback land clicks",
+      "status": "pass"
+    },
+    {
+      "name": "Ready default fine ocean rejects water clicks but ignores obsolete coarse ocean hits",
+      "status": "pass",
+      "details": "clicks use the same fine coastline as the visible map"
+    },
+    {
+      "name": "Failed fine coast rejects fallback-water clicks; raw coast mode allows original geometry",
+      "status": "pass",
+      "details": "fallback and raw coast hit tests match visible state"
+    },
+    {
+      "name": "Fine natural waterways replace coarse rivers while modern infrastructure stays hidden",
+      "status": "pass"
+    },
+    {
+      "name": "Fine waterways failure restores the local river and retry removes dependent layers",
+      "status": "pass"
+    }
+  ]
+}
+PASS single_source_atomic_frame_and_worker_readiness {"workerUpdates":1,"pairedSources":1,"coarseCoastHidden":true}
+PASS threshold_does_not_fetch_at_zoom3 {"requestsAt3":0,"requestsAt4":2}
+PASS pan_inside_coverage_reuses_data_without_source_updates {"extraRequests":0,"extraWorkerUpdates":0}
+PASS pan_outside_coverage_restores_complete_coarse_layers_until_new_frame_ready {"newFrameCell":1,"intermediateCoarse":true}
+PASS old_pending_network_cannot_overwrite_new_view {"staleWrites":0,"currentWrites":1}
+PASS motion_during_worker_render_hides_stale_pending_frame {"oldWorkerCannotActivate":true}
+PASS malformed_cell_is_evicted_and_retry_rebuilds_source {"badCellRetried":2,"partialFrameNeverShown":true}
+PASS one_cell_failure_keeps_entire_view_on_coarse_fallback {"partialWorkerFrames":0}
+PASS source_error_recovery_recreates_source_and_layers {"recreated":true}
+PASS terrain_off_reference_coast_and_alignment_controls {"baseRetained":true,"noDoubleCoast":true}
+PASS historical_landscape_order_reconciled_after_grid_creation {"historicalReconciliations":4}
+PASS destroy_cancels_pending_writes_and_removes_listeners {"lateWrites":0}
+PASS date_line_and_world_copy_selection_uses_both_sides {"dateline":true,"worldCopy":true}
+PASS comparison_maps_share_requests_and_survive_one_destroy {"maps":2,"sharedRequests":2,"destroyedMapWrites":0,"survivingMapReady":true}
+PASS nonfinite_coordinates_cannot_be_committed {"invalidCoordinateWrites":0}
+PASS persisted_index_all_cell_hashes_and_source_inputs_match {"cells":648,"totalCellBytes":11501874}
+{"passed":16,"total":16}
+PASS city to polity navigation opens the left dossier
+PASS city to polity navigation opens the right dossier
+FAIL event share restores left year with a saved camera
+Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'anc-columbus'
+
+PASS event share restores left year without a saved camera
+FAIL event share restores right year with a saved camera
+Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'anc-columbus'
+
+PASS event share restores right year without a saved camera
+PASS polity language switch keeps left camera and reader tab
+PASS polity language switch keeps right camera and reader tab
+PASS left draft 1700 ArrowUp yields 1701
+PASS left draft 1700 ArrowDown yields 1699
+PASS left draft -1 ArrowUp yields 1
+PASS left draft 1 ArrowDown yields -1
+PASS left draft 2026 ArrowUp yields 2026
+PASS left draft -70000 ArrowDown yields -70000
+PASS right draft 1700 ArrowUp yields 1701
+PASS right draft 1700 ArrowDown yields 1699
+PASS right draft -1 ArrowUp yields 1
+PASS right draft 1 ArrowDown yields -1
+PASS right draft 2026 ArrowUp yields 2026
+PASS right draft -70000 ArrowDown yields -70000
+PASS comparison input waits for initial map readiness before accepting year edits
+PASS decode accepts camera boundary 0,0,0.2,0,0
+PASS decode accepts camera boundary 180,85.051129,18,180,60
+PASS decode accepts camera boundary -180,-85.051129,0.2,-180,0
+PASS decode accepts camera boundary 25.12345,-30.98765,6.125,-47.5,42
+PASS decode rejects invalid camera null
+PASS decode rejects invalid camera undefined
+PASS decode rejects invalid camera 
+PASS decode rejects invalid camera 0,0,1,0
+PASS decode rejects invalid camera 0,0,1,0,0,1
+PASS decode rejects invalid camera 0,,1,0,0
+PASS decode rejects invalid camera 0,0,NaN,0,0
+PASS decode rejects invalid camera Infinity,0,1,0,0
+PASS decode rejects invalid camera 181,0,1,0,0
+PASS decode rejects invalid camera 0,85.1,1,0,0
+PASS decode rejects invalid camera 0,0,.199,0,0
+PASS decode rejects invalid camera 0,0,18.001,0,0
+PASS decode rejects invalid camera 0,0,1,180.001,0
+PASS decode rejects invalid camera 0,0,1,0,60.001
+PASS decode rejects invalid camera 0,0,1,0,-.001
+PASS encode wraps longitude and bearing without changing position
+PASS encode round-trip retains valid extreme latitude -85.051129
+PASS encode round-trip retains valid extreme latitude 85.051129
+PASS encode rejects nonfinite latitude NaN
+PASS encode rejects nonfinite latitude Infinity
+PASS URL initial loading labels use the requested BCE year before data arrives
+PASS invalid or extreme URL inputs restore safely #year=1800&camera=bad
+PASS invalid or extreme URL inputs restore safely #year=0&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=-999999&camera=0,0,1,0,0
+PASS invalid or extreme URL inputs restore safely #year=999999&camera=0,0,1,0,0
+FAIL city URL retains left selection, year and camera
+Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'chandler:1202'
+
+FAIL city URL retains right selection, year and camera
+Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'chandler:1202'
+
+PASS Boundary archive choices restore and share independently #boundaries=halc&boundaries2=overview
+PASS Boundary archive choices restore and share independently #boundaries=overview&boundaries2=halc
+PASS Boundary archive choices restore and share independently #boundaries=halc
+PASS Boundary archive choices restore and share independently #year=1492&boundaries=halc
+PASS Boundary archive choices restore and share independently #boundaries=regional&boundaries2=overview
+PASS Boundary archive choices restore and share independently #boundaries=overview
+PASS Boundary archive choices restore and share independently #regional=0
+PASS Boundary archive choices restore and share independently #boundaries=bad&boundaries2=bad
+PASS Border portrayal restores and shares #borderCurves=0
+PASS Border portrayal restores and shares #borderCurves=1
+PASS Border portrayal restores and shares #year=1500
+PASS HALC Explore left: normal preserves the newest source intent
+PASS HALC Explore left: overview preserves the newest source intent
+PASS HALC Explore left: away-and-back preserves the newest source intent
+PASS HALC Explore right: normal preserves the newest source intent
+PASS HALC Explore right: overview preserves the newest source intent
+PASS HALC Explore right: away-and-back preserves the newest source intent
+65/69 view-state checks passed

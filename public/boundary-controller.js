@@ -1,7 +1,7 @@
-import {countrySnapshot,loadCountryFrame,cachedCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.54.0-440274174472';
-import {interiorPoint} from './regional-boundaries.js?v=3.54.0-440274174472';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.54.0-440274174472';
-import {beginMapForeground} from './map-load-priority.js?v=3.54.0-440274174472';
+import {countrySnapshot,loadCountryFrame,cachedCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.55.0-17d430e928d3';
+import {interiorPoint} from './regional-boundaries.js?v=3.55.0-17d430e928d3';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.55.0-17d430e928d3';
+import {beginMapForeground} from './map-load-priority.js?v=3.55.0-17d430e928d3';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -43,6 +43,7 @@ export class BoundaryController{
   }catch{return false;}finally{release();}
  }
  applyVisibility(regional){
+  if(!regional)this.atlas.refreshTerritorySampling?.();
   const map=this.atlas.map;
   for(const [id,p]of [['territories','fill-opacity'],['boundary','line-opacity'],['boundary-halo','line-opacity'],['selection','line-opacity'],['selection-fill','fill-opacity']])map.setPaintProperty(id,p+'-transition',{duration:0,delay:0});
   map.setPaintProperty('territories','fill-opacity',regional?(this.atlas.regional?.overviewContext?0.12:0):territoryOpacity);

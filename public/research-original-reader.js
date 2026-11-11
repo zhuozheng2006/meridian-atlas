@@ -1,4 +1,4 @@
-import {SAVED_TEXTS} from './research-original-text-data.js?v=3.54.0-440274174472';
+import {SAVED_TEXTS} from './research-original-text-data.js?v=3.55.0-17d430e928d3';
 const inflight=new Map();
 export function savedTextFor(item){return SAVED_TEXTS.documents.find(entry=>entry.sourceId===item.sourceId&&entry.source.sha256===item.sourceSha256&&entry.readingIds.includes(item.id))||null;}
 export async function loadSavedText(entry,{fetcher=fetch,cryptoAPI=globalThis.crypto}={}){

@@ -1,0 +1,37 @@
+{
+  "selected": {
+    "title": "Fudan CHGIS V4 Prefecture boundary time series",
+    "download": "https://yugong.fudan.edu.cn/V4_Prefecture_Bou_TimeSeries.rar",
+    "sourceSHA256": "9b624256c7a43835b1f061c073a1075d72b526f9b7720ab0de2e5ec3c0ba3ca4",
+    "records": 2016,
+    "uniqueSourceIDs": 2013,
+    "geometryCount": 1322,
+    "extent": [
+      106.60376,
+      18.160896,
+      124.576195,
+      35.726135
+    ],
+    "years": [
+      -224,
+      1911
+    ],
+    "scope": "Regional time series, not whole-China coverage",
+    "coordinates": "Original values preserved; declared datum retained; no survey accuracy claim"
+  },
+  "references": [
+    "https://yugong.fudan.edu.cn/CHGIS/sjxz.htm",
+    "https://yugong.fudan.edu.cn/CHGIS/sjsm.htm",
+    "https://gis.harvard.edu/china-historical-gis"
+  ],
+  "notImported": [
+    {
+      "source": "Early Korean OHM candidates",
+      "reason": "Major changes can fall within overly broad polygon intervals; see early-korea-review.json"
+    },
+    {
+      "source": "CHGIS V4 regime polygons",
+      "reason": "Only 11 regional records; not a national regime time series. Retained as candidate, not displayed."
+    }
+  ]
+}

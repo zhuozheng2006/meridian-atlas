@@ -11,7 +11,7 @@ export async function uploadStatic({origin,token,manifest,publicDir,concurrency=
  if(manifest.schemaVersion!==1||!Array.isArray(manifest.files)||manifest.revision!==hash(JSON.stringify(manifest.files))||manifest.bytes!==manifest.files.reduce((n,f)=>n+f.bytes,0))throw Error('Local manifest identity mismatch');
  const paths=new Set();
  for(const f of manifest.files){
-  if(!/^data\/(?:(?:ohm-eastasia|ohm-1500|ohm-britain)\/year--?\d+\.json\.gz|ohm-transport\/(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz|cshapes\/decade-\d+\.json\.gz|seshat\/sources\/code-book-4\.20\.2021\.pdf|native\/temporal\/pack-\d{3}\.json\.gz)$/.test(f.file)||paths.has(f.file)||f.key!==`atlas-static/sha256/${f.sha256}`)throw Error('Invalid local manifest path/key');paths.add(f.file);
+  if(!/^data\/(?:(?:ohm-eastasia|ohm-1500|ohm-britain)\/year--?\d+\.json\.gz|ohm-transport\/(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz|chgis\/century--?\d+\.json\.gz|cshapes\/decade-\d+\.json\.gz|seshat\/sources\/code-book-4\.20\.2021\.pdf|native\/temporal\/pack-\d{3}\.json\.gz)$/.test(f.file)||paths.has(f.file)||f.key!==`atlas-static/sha256/${f.sha256}`)throw Error('Invalid local manifest path/key');paths.add(f.file);
   const data=fs.readFileSync(path.join(publicDir,f.file));if(data.length!==f.bytes||hash(data)!==f.sha256)throw Error('Local asset checksum failed: '+f.file);
  }
  async function request(route,options={},binary=false){

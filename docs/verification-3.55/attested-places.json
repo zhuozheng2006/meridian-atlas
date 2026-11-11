@@ -1,0 +1,68 @@
+{
+  "testedAt": "2026-11-11T18:33:30.640Z",
+  "data": "public/data/places/attested-places.json.gz",
+  "dataSha256": "38984c9050780bd8d43cb49f35cfdeaea79e080d78b9d060bfbd77fbcbef9565",
+  "counts": {
+    "records": 17,
+    "checks": 13,
+    "bilingualParts": 102,
+    "sources": 21,
+    "decisions": 23
+  },
+  "handoffAvailable": true,
+  "checks": [
+    {
+      "name": "The shipped layer is a deterministic gzip with a zeroed mtime",
+      "passed": true
+    },
+    {
+      "name": "Seventeen site records, two enhancements and four documented deferrals ship together",
+      "passed": true
+    },
+    {
+      "name": "The review ledger accounts for every reviewed candidate exactly once",
+      "passed": true
+    },
+    {
+      "name": "Every shipped record keeps its authored bilingual text, period and review checks",
+      "passed": true
+    },
+    {
+      "name": "Periods never escape their verbatim source range and open ends are declared",
+      "passed": true
+    },
+    {
+      "name": "Institutional date quotes, UNESCO coordinates and property ids match reviewed evidence",
+      "passed": true
+    },
+    {
+      "name": "New city evidence snapshots, DMS conversion and activity periods remain independently verifiable",
+      "passed": true
+    },
+    {
+      "name": "No attested record is merged into, or duplicates, an existing place record",
+      "passed": true
+    },
+    {
+      "name": "Resolved nearby records carry recomputed distances that match the research file",
+      "passed": true
+    },
+    {
+      "name": "Enhancement entries attach to real records without overwriting coordinates or observations",
+      "passed": true
+    },
+    {
+      "name": "Deferred candidates keep their reasons and never appear as shipped points",
+      "passed": true
+    },
+    {
+      "name": "Chinese text is simplified across the layer",
+      "passed": true
+    },
+    {
+      "name": "Read semantics for the integration layer are shipped with the data",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -35,9 +35,20 @@ function makeCurve(n){
 }
 function shorten(n){n.cut*=.5;if(n.cut<MIN_CUT)n.locked=true;else makeCurve(n);}
 export function borderChordError(zoom){return !Number.isFinite(zoom)?.002:zoom<4?.1:zoom<6?.02:zoom<8?.005:.002;}
-export function curvedBorders(collection,chordError=CHORD_ERROR){
+// A padded, quantized view keeps fine curve sampling near the reader. Outside
+// it the same curves use the world-view sampling; no source vertex is changed.
+export function borderViewport(bounds,zoom){
+ if(!bounds||!Number.isFinite(zoom)||zoom<4)return null;
+ let w=bounds.getWest(),e=bounds.getEast();const s=bounds.getSouth(),n=bounds.getNorth();
+ if(![w,e,s,n].every(Number.isFinite)||s>n)return null;
+ if(e<w)e+=360;if(e-w>=180)return null;
+ return [Math.floor(w/5)*5-5,Math.max(-90,Math.floor(s/5)*5-5),Math.ceil(e/5)*5+5,Math.min(90,Math.ceil(n/5)*5+5)];
+}
+const inViewport=(p,box)=>{if(!box)return true;const x=p[0]+360*Math.round(((box[0]+box[2])/2-p[0])/360);return x>=box[0]&&x<=box[2]&&p[1]>=box[1]&&p[1]<=box[3];};
+export function curvedBorders(collection,chordError=CHORD_ERROR,viewport=null){
  if(![.002,.005,.02,.1].includes(chordError))throw new RangeError('Unsupported border display tolerance');
- const cached=cache.get(collection);if(cached?.chordError===chordError)return cached.result;
+ const viewKey=viewport?.join(',')||'';
+ const cached=cache.get(collection);if(cached?.chordError===chordError&&cached.viewKey===viewKey)return cached.result;
  const nodes=new Map(),edges=new Map(),ringList=[];
  const get=p=>{const id=key(p);if(!nodes.has(id))nodes.set(id,{id,p,neighbours:new Set(),locked:false});return nodes.get(id);};
  for(const f of collection.features)for(const ring of rings(f.geometry)){
@@ -66,7 +77,7 @@ export function curvedBorders(collection,chordError=CHORD_ERROR){
   if(!la||!lb||cosine<-.985||cosine>.85||(la>80&&lb>80))continue;
   const cut=Math.min(MAX_CUT,la*.45,lb*.45);
   if(cut<MIN_CUT)continue;
-  Object.assign(n,{first:a,ends:[a,b],cut,la,lb,chordError});makeCurve(n);
+  Object.assign(n,{first:a,ends:[a,b],cut,la,lb,chordError:inViewport(p,viewport)?chordError:.1});makeCurve(n);
  }
  // Each curve lies entirely inside its corner triangle. Permit broad, flowing
  // corners only where that entire envelope is free of other original edges.
@@ -109,5 +120,5 @@ export function curvedBorders(collection,chordError=CHORD_ERROR){
  }
  const rendered=new Map(ringList.map(r=>[r.ring,render(r)]));
  const features=collection.features.map(f=>{const g=f.geometry;if(!g||!['Polygon','MultiPolygon'].includes(g.type))return f;return {...f,geometry:{...g,coordinates:g.type==='Polygon'?g.coordinates.map(r=>rendered.get(r)||r):g.coordinates.map(p=>p.map(r=>rendered.get(r)||r))}};});
- const result={...collection,features};cache.set(collection,{chordError,result});return result;
+ const result={...collection,features};cache.set(collection,{chordError,viewKey,result});return result;
 }

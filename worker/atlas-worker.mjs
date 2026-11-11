@@ -2,7 +2,7 @@
 // import namespace and revision-based keys remain a separate compatibility contract.
 export function createStaticStorageHandler(manifest,{importUntil=0,lakeRevision=''}={}) {
  if(!manifest)return null;
- const validPath=/^data\/(?:(?:ohm-eastasia|ohm-1500|ohm-britain)\/year--?\d+\.json\.gz|ohm-transport\/(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz|cshapes\/decade-\d+\.json\.gz|seshat\/sources\/code-book-4\.20\.2021\.pdf|native\/temporal\/pack-\d{3}\.json\.gz)$/;
+ const validPath=/^data\/(?:(?:ohm-eastasia|ohm-1500|ohm-britain)\/year--?\d+\.json\.gz|ohm-transport\/(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz|chgis\/century--?\d+\.json\.gz|cshapes\/decade-\d+\.json\.gz|seshat\/sources\/code-book-4\.20\.2021\.pdf|native\/temporal\/pack-\d{3}\.json\.gz)$/;
  const entries=new Map();
  for(const f of manifest.files){
   if(!validPath.test(f.file)||entries.has(f.file)||!Number.isSafeInteger(f.bytes)||f.bytes<=0||!/^[a-f0-9]{64}$/.test(f.sha256)||f.key!==`atlas-static/sha256/${f.sha256}`||f.contentType!==(f.file.endsWith('.pdf')?'application/pdf':'application/octet-stream'))throw Error('Invalid static storage manifest');

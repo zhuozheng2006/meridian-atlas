@@ -1,0 +1,192 @@
+{
+  "title": "CHGIS V4 · Prefecture boundaries time series",
+  "sourceURL": "https://yugong.fudan.edu.cn/CHGIS/sjxz.htm",
+  "downloadURL": "https://yugong.fudan.edu.cn/V4_Prefecture_Bou_TimeSeries.rar",
+  "sourceSHA256": "9b624256c7a43835b1f061c073a1075d72b526f9b7720ab0de2e5ec3c0ba3ca4",
+  "sourceCRS": "GEOGCS[\"unnamed\",DATUM[\"Pulkovo_1942\",SPHEROID[\"Krassovsky\",6378245,298.3],AUTHORITY[\"EPSG\",\"6284\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+  "coordinateHandling": "Source longitude/latitude values preserved exactly; displayed on the geographic basemap without a datum shift. This is not a survey-accuracy transformation.",
+  "dateHandling": "Source BEG_YR and END_YR are inclusive annual bounds; BEG_RULE and END_RULE are retained unexpanded. No intra-year precision is inferred.",
+  "identityHandling": "Source row is part of the identity; repeated SYS_ID values are retained as separate source rows.",
+  "coverage": "Regional prefecture time series, mainly southern and eastern China; not complete Chinese national territory.",
+  "bounds": [
+    106.60376,
+    18.160896,
+    124.576195,
+    35.726135
+  ],
+  "records": 2016,
+  "geometries": 1322,
+  "minYear": -224,
+  "maxYear": 1911,
+  "files": [
+    {
+      "file": "century--300.json.gz",
+      "bytes": 314946,
+      "decodedBytes": 769262,
+      "sha256": "40cca6a94f70947e5193afd8544bca6bef5e52ffd458b7eec9c89e78f556461a",
+      "decodedSHA256": "899cf2fa52bbfe9f4e3ae309fd718bbc1ac33d2fa23fb449fd4aa1c1c0b4af8a"
+    },
+    {
+      "file": "century--200.json.gz",
+      "bytes": 498261,
+      "decodedBytes": 1361892,
+      "sha256": "184d226ec72f8804dc24720408e2c390e631376c4b49f8ca5555a312f09500e2",
+      "decodedSHA256": "8d1e1087dd79535ffc1db102bff0fe3488c6eab5ae1deb82c6c1dac7dad75c4e"
+    },
+    {
+      "file": "century--100.json.gz",
+      "bytes": 234159,
+      "decodedBytes": 770560,
+      "sha256": "0b71ddc6cbec761d1ae3a8cdf4fb34ec59e3acf63980c55f27a32d5a6a626a5d",
+      "decodedSHA256": "4e287ca07004e149b07c723fd53a7effff759433906b0cf8717b877aff314c0a"
+    },
+    {
+      "file": "century-0.json.gz",
+      "bytes": 338335,
+      "decodedBytes": 1004842,
+      "sha256": "39cd726ffed33eb4738e9da450952501be73bd13073c9ccfd3f6d128337cd82c",
+      "decodedSHA256": "7501cf30d4fb6f36c7f6b0ce92b3555ffdf51cb59190fbee76e866a68c3fed5a"
+    },
+    {
+      "file": "century-100.json.gz",
+      "bytes": 305461,
+      "decodedBytes": 791596,
+      "sha256": "68dc50f7b3de3e6410fd80c15e1926d25c7f048d2edfc99d12124f827d343ee4",
+      "decodedSHA256": "0a7b40e28d7bfb5df159d2ad662bd1575af1018c01aa09c134fab2e4e836a832"
+    },
+    {
+      "file": "century-200.json.gz",
+      "bytes": 706005,
+      "decodedBytes": 2212004,
+      "sha256": "3aa35ba83ba0a10fb59c786259603d15b039aa5010839b4291662cf2d56e4f7a",
+      "decodedSHA256": "a34f3b8e1cf85efbfd2eac0cca9dc17297195decbde90d6b9f0b8634edee7c78"
+    },
+    {
+      "file": "century-300.json.gz",
+      "bytes": 379801,
+      "decodedBytes": 1060792,
+      "sha256": "2579eb1b9aff5712617982480c156a9ce082307457da18c666a69ee733e7c5d9",
+      "decodedSHA256": "70ab287ec8b0cd98510fbc1d5aaabb2f91a80203e0f7d1bf751476d1c4f2b67a"
+    },
+    {
+      "file": "century-400.json.gz",
+      "bytes": 447371,
+      "decodedBytes": 1537504,
+      "sha256": "87695a9f6a4867be464058a68f5f491c037bdd4a48348a2f39afb3fda8268b9d",
+      "decodedSHA256": "b541348d3245ac90510005fa403fa18d69dc9c60582219f63cb6ff58093245c4"
+    },
+    {
+      "file": "century-500.json.gz",
+      "bytes": 948828,
+      "decodedBytes": 3123720,
+      "sha256": "491c63eadcc9a15db3a919cb4813dc6fab22d877e1173b081f449ec6b0f60ffb",
+      "decodedSHA256": "e3c53853ff3ce17bf4b270cdede694e370138535dc4a12396dfa4c476074f059"
+    },
+    {
+      "file": "century-600.json.gz",
+      "bytes": 1106499,
+      "decodedBytes": 3698582,
+      "sha256": "dff7c0da126a175adb2cfdb1ffcc1d81c69481144d4bdbffa3848823bb0bcab7",
+      "decodedSHA256": "a38cadd59a1b053ad3be09f42c6fbcddca3a9b23d10d4c9d9ef0b47b44aab4d1"
+    },
+    {
+      "file": "century-700.json.gz",
+      "bytes": 669506,
+      "decodedBytes": 2049010,
+      "sha256": "6f361b1fe2ecac7232579a363d885ed477e28078d0b1de89d13db31415eb2889",
+      "decodedSHA256": "dfa2790bb61d22b3641f198fe83620537ff1d35ca6261b1c635bf4ee6504d5ce"
+    },
+    {
+      "file": "century-800.json.gz",
+      "bytes": 473114,
+      "decodedBytes": 1243928,
+      "sha256": "ceeadb2ddb306210b69b14596a564fc8809d24bf254bd730163db395680df59c",
+      "decodedSHA256": "b9ebd7d365a95775972de6aee4e8f287270f4bbbfc9a6ca30e68c3128b7f26cd"
+    },
+    {
+      "file": "century-900.json.gz",
+      "bytes": 839623,
+      "decodedBytes": 2909388,
+      "sha256": "7d0251c9e3878ed2a473df1178b16ac356208baa0f62c486f6565c035b9cb195",
+      "decodedSHA256": "1bc3dfa147667cf500ad97746cf91319d57d10c29434cb5a8c752289ef4d9340"
+    },
+    {
+      "file": "century-1000.json.gz",
+      "bytes": 597318,
+      "decodedBytes": 1684595,
+      "sha256": "eb6e2f16bd499488f2b1d5f0fc9613fc09e5316e2c78defd0bb601192611bfab",
+      "decodedSHA256": "c0cc1edd50ca1d91e413d270c6ac65cc14b145a0f06c90e73acd5991c9faf33f"
+    },
+    {
+      "file": "century-1100.json.gz",
+      "bytes": 553766,
+      "decodedBytes": 1713621,
+      "sha256": "5b814e414cf49b5297f9dea877a4f4927763b10e01170c2be1f597e25832e336",
+      "decodedSHA256": "76fc443688fc0c88c33416bf488cae9c9cc588e252176fdfc9203b1e93a450d8"
+    },
+    {
+      "file": "century-1200.json.gz",
+      "bytes": 726933,
+      "decodedBytes": 2172515,
+      "sha256": "faceaeecee9e2306fbb6f78d38e4831b5e54c5d0ee3cc11096b50352a190a7cf",
+      "decodedSHA256": "d74460a88a0d1e595fa45583e05cebafc994e0966a50b78e4d6d42f5714cbab6"
+    },
+    {
+      "file": "century-1300.json.gz",
+      "bytes": 709341,
+      "decodedBytes": 2356542,
+      "sha256": "b8d863703bb44a539471eea2d9ed17b355170c63be688b8ff7e272592cac318f",
+      "decodedSHA256": "2a43b92861a788c2f6f0482ba426192be20bb7501e274f5b976b015ac42c062e"
+    },
+    {
+      "file": "century-1400.json.gz",
+      "bytes": 524788,
+      "decodedBytes": 1380254,
+      "sha256": "309f8a40d3853527865004ad1d095b162633d0ae9ae4ccb171407c1c6875ac1b",
+      "decodedSHA256": "f855be4001e2beaf5413a0206f2ed648b8e93ed16a7941929338b7274ea4f5f1"
+    },
+    {
+      "file": "century-1500.json.gz",
+      "bytes": 482826,
+      "decodedBytes": 1415283,
+      "sha256": "740427b34bbaad37a21b1c951f5cdee88b7c06c6aa438828f405c1a538b916f6",
+      "decodedSHA256": "9979be591e0dd7109571b4f9a5c8b2669bcc53190995031b31d50bf54644ac84"
+    },
+    {
+      "file": "century-1600.json.gz",
+      "bytes": 476375,
+      "decodedBytes": 1230502,
+      "sha256": "3a8f3e0699b74bff134918f88b87ce878694522ae8a198fecba5ec0b22ffba6d",
+      "decodedSHA256": "1d0d59fb849989d17447b2e43084fa4f9064a6a66a0e3b2704d7e36a08df0011"
+    },
+    {
+      "file": "century-1700.json.gz",
+      "bytes": 623043,
+      "decodedBytes": 1914176,
+      "sha256": "2efaecb7306f3a3936510a2d633f9f83cc6b37f6bd6bea3d6897487ab0407e75",
+      "decodedSHA256": "904da49850a5a94674d6ff02e8d6567630c269c031d4d50af7b55c4158fd90b8"
+    },
+    {
+      "file": "century-1800.json.gz",
+      "bytes": 564458,
+      "decodedBytes": 1591008,
+      "sha256": "1a28bcb9f8b9cfb19a5559868768d0314257180d2a370f35f81582543bf3202c",
+      "decodedSHA256": "95792b022459a65203c69d99d92276d89107b68baee1d71d55c7f3127363d7aa"
+    },
+    {
+      "file": "century-1900.json.gz",
+      "bytes": 498530,
+      "decodedBytes": 1275626,
+      "sha256": "67ffc9930e3848be2a41e8118a59b7ed10411697ef76365ec0a99a40f3b88656",
+      "decodedSHA256": "e09538cc76f8145ee87180df514a69d83cae365fde9899727143dc6e5058acba"
+    },
+    {
+      "file": "index.json.gz",
+      "bytes": 71590,
+      "decodedBytes": 1045890,
+      "sha256": "7cbfe298b7164c9a8e04a5f053303b6da93397095a33d2761b4d28c375c8d515",
+      "decodedSHA256": "e4245fc0307c00cd8f1651c0f689899216dbdb86a942530741fb14c659a6118f"
+    }
+  ],
+  "totalBytes": 13090877
+}
