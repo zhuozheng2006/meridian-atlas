@@ -1,0 +1,40 @@
+{
+  "method": "Actual bundled MapLibre WorkerPool and public worker-count/prewarm APIs in isolated VM with real navigator UA/core metadata and inert Worker process doubles. No real threads, CPU speedup, memory amount or browser resource timing claimed.",
+  "bundleSha256": "ce1a6e48007792219265ead1fc233089e591128b6a1e538ea538d208ddc3850c",
+  "pass": 5,
+  "fail": 0,
+  "observations": [
+    {
+      "engine": "Chrome UA",
+      "logicalCores": 18,
+      "defaultWorkers": 1
+    },
+    {
+      "engine": "Safari UA",
+      "logicalCores": 18,
+      "defaultWorkers": 3
+    }
+  ],
+  "checks": [
+    {
+      "name": "Actual shipped Chrome default is one worker even on an 18-logical-core environment",
+      "pass": true
+    },
+    {
+      "name": "Actual shipped Safari default is separately capped at three workers",
+      "pass": true
+    },
+    {
+      "name": "One pool shares the same worker objects across two map owners, and releases only after both leave",
+      "pass": true
+    },
+    {
+      "name": "Changing getWorkerCount after acquire does not resize an already existing pool",
+      "pass": true
+    },
+    {
+      "name": "Prewarming also fixes the pool size until every owner including prewarm is released",
+      "pass": true
+    }
+  ]
+}

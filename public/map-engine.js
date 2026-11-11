@@ -1,19 +1,19 @@
-import {waitForMapForeground} from './map-load-priority.js?v=3.51.0-6456b01964f4';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.51.0-6456b01964f4';
-import {boundaryMesh} from './boundary-mesh.js?v=3.51.0-6456b01964f4';
-import {curvedBorders,borderChordError} from './border-curves.js?v=3.51.0-6456b01964f4';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.51.0-6456b01964f4';
-import {BoundaryController} from './boundary-controller.js?v=3.51.0-6456b01964f4';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.51.0-6456b01964f4';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.51.0-6456b01964f4';
-import {Geography} from './geography.js?v=3.51.0-6456b01964f4';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.51.0-6456b01964f4';
+import {waitForMapForeground} from './map-load-priority.js?v=3.52.0-a7bea3fb619c';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.52.0-a7bea3fb619c';
+import {boundaryMesh} from './boundary-mesh.js?v=3.52.0-a7bea3fb619c';
+import {curvedBorders,borderChordError} from './border-curves.js?v=3.52.0-a7bea3fb619c';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.52.0-a7bea3fb619c';
+import {BoundaryController} from './boundary-controller.js?v=3.52.0-a7bea3fb619c';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.52.0-a7bea3fb619c';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.52.0-a7bea3fb619c';
+import {Geography} from './geography.js?v=3.52.0-a7bea3fb619c';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.52.0-a7bea3fb619c';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.51.0-6456b01964f4';
+import {polityName} from './polity-names.js?v=3.52.0-a7bea3fb619c';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}

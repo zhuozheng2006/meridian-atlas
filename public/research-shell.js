@@ -1,4 +1,4 @@
-import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.51.0-6456b01964f4';
+import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=3.52.0-a7bea3fb619c';
 const VIEWS=new Set(['atlas','polities','stories','library','sources','research']);
 const TAB_LABELS={atlas:['地图','Atlas'],polities:['文明','Polities'],stories:['专题','Journeys'],library:['年表','Chronicle'],sources:['资料','Sources']};
 // This shell owns only a cold research visit. The normal app takes over once a

@@ -17,6 +17,11 @@ for(const area of ['ohm-eastasia','ohm-1500']){
  const data=JSON.parse(fs.readFileSync(path.join(source,'data',area,'manifest.json')));
  for(const f of Object.values(data.years)){if(!/^year--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid OHM snapshot path');addStatic('data/'+area+'/'+f.file,{bytes:f.gzipBytes,sha256:f.sha256});}
 }
+const regionalTransport=JSON.parse(fs.readFileSync(path.join(source,'data/ohm-transport/manifest.json')));
+for(const f of regionalTransport.files){
+ if(!/^(?:central-europe|east-asia)--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid regional transport path');
+ addStatic('data/ohm-transport/'+f.file,{bytes:f.bytes,sha256:f.sha256});
+}
 const cshapes=JSON.parse(fs.readFileSync(path.join(source,'data/cshapes/manifest.json')));
 for(const f of Object.values(cshapes.packs)){if(!/^decade-\d+\.json\.gz$/.test(f.file))throw Error('Invalid CShapes pack path');addStatic('data/cshapes/'+f.file,{bytes:f.bytes,sha256:f.sha256});}
 const seshat=JSON.parse(fs.readFileSync(path.join(source,'data/seshat/provenance.json')));

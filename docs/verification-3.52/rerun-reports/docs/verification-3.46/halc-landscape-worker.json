@@ -1,0 +1,1138 @@
+{
+  "generated": "2026-11-11T17:18:46.002Z",
+  "method": "Production client protocol tests with explicit message/worker boundaries, plus actual worker module run in Node worker_threads with browser message adapter and real checked-in gzip files. Thread transfer uses genuine structured clone of canonical data URL and metadata. File-backed transport timings are not real network/browser latency.",
+  "passed": 12,
+  "total": 12,
+  "checks": [
+    {
+      "name": "Two map leases share a single worker, preserve per-owner replies and only last disposal terminates it",
+      "pass": true
+    },
+    {
+      "name": "Superseding one viewport rejects its old promise, ignores late replies and leaves another map alive",
+      "pass": true
+    },
+    {
+      "name": "Cancelling/disposal drops pending state and late messages cannot settle a released owner",
+      "pass": true
+    },
+    {
+      "name": "A semantic worker error rejects only its request and permits explicit retry on the same worker",
+      "pass": true
+    },
+    {
+      "name": "Worker error and messageerror reject all owners with fallback-specific code and terminate once",
+      "pass": true
+    },
+    {
+      "name": "A failed initial postMessage terminates the newly created worker instead of leaking it",
+      "pass": true
+    },
+    {
+      "name": "The actual preparation module runs in a real second thread and returns structured-cloned self-contained URL plus exact metadata for two maps",
+      "pass": true
+    },
+    {
+      "name": "Real worker entry honours a cancelled first request and settles only the replacement view",
+      "pass": true
+    },
+    {
+      "name": "Invalid worker initialization rejects pending work promptly with a recoverable availability error",
+      "pass": true
+    },
+    {
+      "name": "A versioned client carries the exact current revision into the module Worker URL",
+      "pass": true
+    },
+    {
+      "name": "Default archive fetch retains the global receiver and explicitly injected fetch callbacks retain their own binding",
+      "pass": true
+    },
+    {
+      "name": "Reported deviceMemory at or below 4 GiB keeps the original JSON route without creating a worker; 8 GiB or unavailable retains worker support",
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "firstFull": {
+        "timeOrigin": 1794417525706.288,
+        "startedAt": 24.265959,
+        "files": [
+          {
+            "file": "index.json.gz",
+            "bytes": 241581,
+            "textBytes": 516382,
+            "readMs": 8.337542000000003,
+            "decodeMs": 3.737375,
+            "parseMs": 0.5882909999999981,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+002-+048-00.geojson.gz",
+            "bytes": 366,
+            "textBytes": 603,
+            "readMs": 0.9241250000000036,
+            "decodeMs": 1.7002919999999975,
+            "parseMs": 0.010666000000000508,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+001-+049-00.geojson.gz",
+            "bytes": 28435,
+            "textBytes": 69139,
+            "readMs": 0.4948750000000004,
+            "decodeMs": 2.706541999999999,
+            "parseMs": 0.11633299999999736,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+002-+050-00.geojson.gz",
+            "bytes": 30301,
+            "textBytes": 79528,
+            "readMs": 0.2781659999999988,
+            "decodeMs": 0.8083340000000021,
+            "parseMs": 0.14170800000000128,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+001-+050-00.geojson.gz",
+            "bytes": 67152,
+            "textBytes": 166245,
+            "readMs": 0.7550000000000026,
+            "decodeMs": 3.399250000000002,
+            "parseMs": 0.26437500000000114,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+002-+051-00.geojson.gz",
+            "bytes": 18272,
+            "textBytes": 46541,
+            "readMs": 0.18325000000000102,
+            "decodeMs": 1.0018749999999983,
+            "parseMs": 0.0815419999999989,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+003-+048-00.geojson.gz",
+            "bytes": 3074,
+            "textBytes": 6878,
+            "readMs": 0.7485830000000036,
+            "decodeMs": 0.34958299999999554,
+            "parseMs": 0.01329199999999986,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+003-+051-01.geojson.gz",
+            "bytes": 31972,
+            "textBytes": 85548,
+            "readMs": 0.3375829999999951,
+            "decodeMs": 0.37745900000000177,
+            "parseMs": 0.1423330000000007,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+003-+050-00.geojson.gz",
+            "bytes": 65427,
+            "textBytes": 185793,
+            "readMs": 0.5109580000000022,
+            "decodeMs": 2.370041999999998,
+            "parseMs": 0.3414580000000029,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+049-00.geojson.gz",
+            "bytes": 25524,
+            "textBytes": 66104,
+            "readMs": 1.7913750000000022,
+            "decodeMs": 2.052624999999999,
+            "parseMs": 0.1301249999999996,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+051-00.geojson.gz",
+            "bytes": 147968,
+            "textBytes": 425637,
+            "readMs": 1.0932919999999982,
+            "decodeMs": 5.204625,
+            "parseMs": 0.760708000000001,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-01.geojson.gz",
+            "bytes": 158092,
+            "textBytes": 426571,
+            "readMs": 1.5509160000000008,
+            "decodeMs": 6.347875000000002,
+            "parseMs": 0.7707499999999996,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-02.geojson.gz",
+            "bytes": 201343,
+            "textBytes": 521060,
+            "readMs": 1.3206249999999997,
+            "decodeMs": 8.737042000000002,
+            "parseMs": 0.915541999999995,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+003-+051-00.geojson.gz",
+            "bytes": 190764,
+            "textBytes": 517601,
+            "readMs": 0.5670420000000007,
+            "decodeMs": 6.974791000000003,
+            "parseMs": 0.990667000000002,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+051-04.geojson.gz",
+            "bytes": 15435,
+            "textBytes": 40068,
+            "readMs": 0.13316599999999568,
+            "decodeMs": 0.21908400000000228,
+            "parseMs": 0.06979100000000216,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+050-00.geojson.gz",
+            "bytes": 139346,
+            "textBytes": 397982,
+            "readMs": 1.807417000000001,
+            "decodeMs": 4.257415999999999,
+            "parseMs": 0.7288750000000022,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+051-03.geojson.gz",
+            "bytes": 190940,
+            "textBytes": 520598,
+            "readMs": 2.148291999999998,
+            "decodeMs": 6.050792000000001,
+            "parseMs": 0.8560829999999982,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-00.geojson.gz",
+            "bytes": 182947,
+            "textBytes": 522678,
+            "readMs": 0.8802079999999961,
+            "decodeMs": 6.872708000000003,
+            "parseMs": 0.8999999999999986,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-01.geojson.gz",
+            "bytes": 189572,
+            "textBytes": 478134,
+            "readMs": 0.1755409999999955,
+            "decodeMs": 6.591959000000003,
+            "parseMs": 0.8206660000000028,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-03.geojson.gz",
+            "bytes": 35695,
+            "textBytes": 86369,
+            "readMs": 1.2999170000000007,
+            "decodeMs": 0.475166999999999,
+            "parseMs": 0.15979099999999846,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+053-00.geojson.gz",
+            "bytes": 29783,
+            "textBytes": 89117,
+            "readMs": 0.33645800000000037,
+            "decodeMs": 1.1668750000000045,
+            "parseMs": 0.14624999999999488,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+049-00.geojson.gz",
+            "bytes": 62761,
+            "textBytes": 170209,
+            "readMs": 0.9338329999999999,
+            "decodeMs": 1.1314589999999995,
+            "parseMs": 0.3347910000000027,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+050-00.geojson.gz",
+            "bytes": 76078,
+            "textBytes": 218513,
+            "readMs": 0.21658299999999997,
+            "decodeMs": 2.374167,
+            "parseMs": 0.4209999999999994,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+051-01.geojson.gz",
+            "bytes": 77417,
+            "textBytes": 200591,
+            "readMs": 0.27387499999999676,
+            "decodeMs": 1.8844169999999991,
+            "parseMs": 0.3222909999999999,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-02.geojson.gz",
+            "bytes": 208869,
+            "textBytes": 522093,
+            "readMs": 1.328040999999999,
+            "decodeMs": 6.2038749999999965,
+            "parseMs": 1.0581670000000045,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+051-00.geojson.gz",
+            "bytes": 194445,
+            "textBytes": 511121,
+            "readMs": 1.277000000000001,
+            "decodeMs": 7.821083000000009,
+            "parseMs": 0.8272499999999923,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+052-01.geojson.gz",
+            "bytes": 79933,
+            "textBytes": 204981,
+            "readMs": 1.4556670000000054,
+            "decodeMs": 1.9016249999999957,
+            "parseMs": 0.37391599999999414,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+052-00.geojson.gz",
+            "bytes": 182245,
+            "textBytes": 518683,
+            "readMs": 1.5345829999999978,
+            "decodeMs": 4.564084000000008,
+            "parseMs": 0.8482079999999996,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+053-01.geojson.gz",
+            "bytes": 88027,
+            "textBytes": 225644,
+            "readMs": 0.13595800000000224,
+            "decodeMs": 1.9222089999999952,
+            "parseMs": 0.35154099999999744,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+053-00.geojson.gz",
+            "bytes": 174561,
+            "textBytes": 493410,
+            "readMs": 0.29024999999998613,
+            "decodeMs": 3.6863330000000047,
+            "parseMs": 0.8008750000000049,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+006-+049-00.geojson.gz",
+            "bytes": 50686,
+            "textBytes": 134649,
+            "readMs": 0.13695800000000702,
+            "decodeMs": 3.1232499999999987,
+            "parseMs": 0.22816699999999912,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+006-+050-00.geojson.gz",
+            "bytes": 104981,
+            "textBytes": 272764,
+            "readMs": 0.13674999999999216,
+            "decodeMs": 5.09875000000001,
+            "parseMs": 0.49741699999999867,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+006-+052-00.geojson.gz",
+            "bytes": 122595,
+            "textBytes": 331464,
+            "readMs": 0.3885000000000076,
+            "decodeMs": 3.378249999999994,
+            "parseMs": 0.588832999999994,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+006-+051-00.geojson.gz",
+            "bytes": 172678,
+            "textBytes": 483470,
+            "readMs": 0.13729199999998798,
+            "decodeMs": 6.139458000000005,
+            "parseMs": 0.8995840000000044,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+006-+053-00.geojson.gz",
+            "bytes": 160509,
+            "textBytes": 432278,
+            "readMs": 0.13683399999999324,
+            "decodeMs": 3.3690409999999957,
+            "parseMs": 0.7814590000000123,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+008-+053-00.geojson.gz",
+            "bytes": 61668,
+            "textBytes": 167738,
+            "readMs": 0.3033750000000026,
+            "decodeMs": 1.4705409999999972,
+            "parseMs": 0.2922920000000033,
+            "cached": false
+          },
+          {
+            "file": "shards/cell--001-+049-00.geojson.gz",
+            "bytes": 1225,
+            "textBytes": 2485,
+            "readMs": 0.5022090000000077,
+            "decodeMs": 0.12224999999999397,
+            "parseMs": 0.0073750000000103455,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+007-+053-00.geojson.gz",
+            "bytes": 100265,
+            "textBytes": 256997,
+            "readMs": 1.235208,
+            "decodeMs": 2.4217080000000095,
+            "parseMs": 0.4614169999999973,
+            "cached": false
+          },
+          {
+            "file": "shards/large-00002.geojson.gz",
+            "bytes": 53384,
+            "textBytes": 129472,
+            "readMs": 0.2372919999999965,
+            "decodeMs": 1.111333000000002,
+            "parseMs": 0.242834000000002,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02023.geojson.gz",
+            "bytes": 60485,
+            "textBytes": 139583,
+            "readMs": 0.11529100000001336,
+            "decodeMs": 0.45887499999999193,
+            "parseMs": 0.25337500000000546,
+            "cached": false
+          },
+          {
+            "file": "shards/large-01942.geojson.gz",
+            "bytes": 230148,
+            "textBytes": 587810,
+            "readMs": 0.14866600000000574,
+            "decodeMs": 7.962374999999994,
+            "parseMs": 0.9986670000000117,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02024.geojson.gz",
+            "bytes": 181508,
+            "textBytes": 444350,
+            "readMs": 3.9072500000000048,
+            "decodeMs": 4.180125000000004,
+            "parseMs": 0.7557079999999985,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02060.geojson.gz",
+            "bytes": 298682,
+            "textBytes": 718371,
+            "readMs": 1.2832499999999953,
+            "decodeMs": 8.529584,
+            "parseMs": 1.173957999999999,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02040.geojson.gz",
+            "bytes": 167397,
+            "textBytes": 408741,
+            "readMs": 0.14520799999999667,
+            "decodeMs": 1.869917000000001,
+            "parseMs": 0.7079999999999984,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02213.geojson.gz",
+            "bytes": 219335,
+            "textBytes": 542512,
+            "readMs": 0.224291000000008,
+            "decodeMs": 5.0044169999999895,
+            "parseMs": 0.8659580000000062,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02232.geojson.gz",
+            "bytes": 402706,
+            "textBytes": 995677,
+            "readMs": 0.5616669999999999,
+            "decodeMs": 12.076250000000002,
+            "parseMs": 1.6709999999999923,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02281.geojson.gz",
+            "bytes": 432891,
+            "textBytes": 1058266,
+            "readMs": 0.20074999999999932,
+            "decodeMs": 12.378833,
+            "parseMs": 1.7938749999999999,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02350.geojson.gz",
+            "bytes": 18779,
+            "textBytes": 42222,
+            "readMs": 0.1017089999999996,
+            "decodeMs": 0.17624999999999602,
+            "parseMs": 0.0762500000000017,
+            "cached": false
+          },
+          {
+            "file": "shards/large-01839.geojson.gz",
+            "bytes": 1168362,
+            "textBytes": 2915515,
+            "readMs": 0.9272080000000003,
+            "decodeMs": 33.369125000000004,
+            "parseMs": 5.228499999999997,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02106.geojson.gz",
+            "bytes": 818353,
+            "textBytes": 2089257,
+            "readMs": 0.19245800000000202,
+            "decodeMs": 26.64762499999999,
+            "parseMs": 3.483167000000009,
+            "cached": false
+          }
+        ],
+        "featureCount": 2980,
+        "jsonBytes": 19949092,
+        "dataURLChars": 26598825,
+        "loadAndSelectMs": 98.346416,
+        "stringifyMs": 21.666792,
+        "base64Ms": 7.407083,
+        "recordsMs": 0.23570899999998574,
+        "totalMs": 127.65675
+      },
+      "concurrentSmall": {
+        "timeOrigin": 1794417525706.288,
+        "startedAt": 31.67125,
+        "files": [
+          {
+            "file": "index.json.gz",
+            "bytes": 241581,
+            "textBytes": 516382,
+            "readMs": 8.337542000000003,
+            "decodeMs": 3.737375,
+            "parseMs": 0.5882909999999981,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-00.geojson.gz",
+            "bytes": 147968,
+            "textBytes": 425637,
+            "readMs": 1.0932919999999982,
+            "decodeMs": 5.204625,
+            "parseMs": 0.760708000000001,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+051-01.geojson.gz",
+            "bytes": 158092,
+            "textBytes": 426571,
+            "readMs": 1.5509160000000008,
+            "decodeMs": 6.347875000000002,
+            "parseMs": 0.7707499999999996,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+051-02.geojson.gz",
+            "bytes": 201343,
+            "textBytes": 521060,
+            "readMs": 1.3206249999999997,
+            "decodeMs": 8.737042000000002,
+            "parseMs": 0.915541999999995,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+051-03.geojson.gz",
+            "bytes": 190940,
+            "textBytes": 520598,
+            "readMs": 2.148291999999998,
+            "decodeMs": 6.050792000000001,
+            "parseMs": 0.8560829999999982,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+052-00.geojson.gz",
+            "bytes": 182947,
+            "textBytes": 522678,
+            "readMs": 0.8802079999999961,
+            "decodeMs": 6.872708000000003,
+            "parseMs": 0.8999999999999986,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+052-01.geojson.gz",
+            "bytes": 189572,
+            "textBytes": 478134,
+            "readMs": 0.1755409999999955,
+            "decodeMs": 6.591959000000003,
+            "parseMs": 0.8206660000000028,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+051-01.geojson.gz",
+            "bytes": 77417,
+            "textBytes": 200591,
+            "readMs": 0.27387499999999676,
+            "decodeMs": 1.8844169999999991,
+            "parseMs": 0.3222909999999999,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+004-+052-02.geojson.gz",
+            "bytes": 208869,
+            "textBytes": 522093,
+            "readMs": 1.328040999999999,
+            "decodeMs": 6.2038749999999965,
+            "parseMs": 1.0581670000000045,
+            "cached": false
+          },
+          {
+            "file": "shards/cell-+005-+051-00.geojson.gz",
+            "bytes": 194445,
+            "textBytes": 511121,
+            "readMs": 1.277000000000001,
+            "decodeMs": 7.821083000000009,
+            "parseMs": 0.8272499999999923,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02213.geojson.gz",
+            "bytes": 219335,
+            "textBytes": 542512,
+            "readMs": 0.224291000000008,
+            "decodeMs": 5.0044169999999895,
+            "parseMs": 0.8659580000000062,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02060.geojson.gz",
+            "bytes": 298682,
+            "textBytes": 718371,
+            "readMs": 1.2832499999999953,
+            "decodeMs": 8.529584,
+            "parseMs": 1.173957999999999,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02232.geojson.gz",
+            "bytes": 402706,
+            "textBytes": 995677,
+            "readMs": 0.5616669999999999,
+            "decodeMs": 12.076250000000002,
+            "parseMs": 1.6709999999999923,
+            "cached": false
+          },
+          {
+            "file": "shards/large-02281.geojson.gz",
+            "bytes": 432891,
+            "textBytes": 1058266,
+            "readMs": 0.20074999999999932,
+            "decodeMs": 12.378833,
+            "parseMs": 1.7938749999999999,
+            "cached": false
+          },
+          {
+            "file": "shards/large-01839.geojson.gz",
+            "bytes": 1168362,
+            "textBytes": 2915515,
+            "readMs": 0.9272080000000003,
+            "decodeMs": 33.369125000000004,
+            "parseMs": 5.228499999999997,
+            "cached": false
+          }
+        ],
+        "featureCount": 143,
+        "jsonBytes": 7536817,
+        "dataURLChars": 10049125,
+        "loadAndSelectMs": 67.296209,
+        "stringifyMs": 8.13108299999999,
+        "base64Ms": 2.339375000000004,
+        "recordsMs": 0.05637500000000273,
+        "totalMs": 77.823875
+      },
+      "cachedFull": {
+        "timeOrigin": 1794417525706.288,
+        "startedAt": 213.020917,
+        "files": [
+          {
+            "file": "index.json.gz",
+            "bytes": 241581,
+            "textBytes": 516382,
+            "readMs": 8.337542000000003,
+            "decodeMs": 3.737375,
+            "parseMs": 0.5882909999999981,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+001-+049-00.geojson.gz",
+            "bytes": 28435,
+            "textBytes": 69139,
+            "readMs": 0.4948750000000004,
+            "decodeMs": 2.706541999999999,
+            "parseMs": 0.11633299999999736,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+001-+050-00.geojson.gz",
+            "bytes": 67152,
+            "textBytes": 166245,
+            "readMs": 0.7550000000000026,
+            "decodeMs": 3.399250000000002,
+            "parseMs": 0.26437500000000114,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+002-+048-00.geojson.gz",
+            "bytes": 366,
+            "textBytes": 603,
+            "readMs": 0.9241250000000036,
+            "decodeMs": 1.7002919999999975,
+            "parseMs": 0.010666000000000508,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+002-+050-00.geojson.gz",
+            "bytes": 30301,
+            "textBytes": 79528,
+            "readMs": 0.2781659999999988,
+            "decodeMs": 0.8083340000000021,
+            "parseMs": 0.14170800000000128,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+002-+051-00.geojson.gz",
+            "bytes": 18272,
+            "textBytes": 46541,
+            "readMs": 0.18325000000000102,
+            "decodeMs": 1.0018749999999983,
+            "parseMs": 0.0815419999999989,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+003-+048-00.geojson.gz",
+            "bytes": 3074,
+            "textBytes": 6878,
+            "readMs": 0.7485830000000036,
+            "decodeMs": 0.34958299999999554,
+            "parseMs": 0.01329199999999986,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+003-+050-00.geojson.gz",
+            "bytes": 65427,
+            "textBytes": 185793,
+            "readMs": 0.5109580000000022,
+            "decodeMs": 2.370041999999998,
+            "parseMs": 0.3414580000000029,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+003-+051-00.geojson.gz",
+            "bytes": 190764,
+            "textBytes": 517601,
+            "readMs": 0.5670420000000007,
+            "decodeMs": 6.974791000000003,
+            "parseMs": 0.990667000000002,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+003-+051-01.geojson.gz",
+            "bytes": 31972,
+            "textBytes": 85548,
+            "readMs": 0.3375829999999951,
+            "decodeMs": 0.37745900000000177,
+            "parseMs": 0.1423330000000007,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+049-00.geojson.gz",
+            "bytes": 25524,
+            "textBytes": 66104,
+            "readMs": 1.7913750000000022,
+            "decodeMs": 2.052624999999999,
+            "parseMs": 0.1301249999999996,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+050-00.geojson.gz",
+            "bytes": 139346,
+            "textBytes": 397982,
+            "readMs": 1.807417000000001,
+            "decodeMs": 4.257415999999999,
+            "parseMs": 0.7288750000000022,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-00.geojson.gz",
+            "bytes": 147968,
+            "textBytes": 425637,
+            "readMs": 1.0932919999999982,
+            "decodeMs": 5.204625,
+            "parseMs": 0.760708000000001,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-01.geojson.gz",
+            "bytes": 158092,
+            "textBytes": 426571,
+            "readMs": 1.5509160000000008,
+            "decodeMs": 6.347875000000002,
+            "parseMs": 0.7707499999999996,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-02.geojson.gz",
+            "bytes": 201343,
+            "textBytes": 521060,
+            "readMs": 1.3206249999999997,
+            "decodeMs": 8.737042000000002,
+            "parseMs": 0.915541999999995,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-03.geojson.gz",
+            "bytes": 190940,
+            "textBytes": 520598,
+            "readMs": 2.148291999999998,
+            "decodeMs": 6.050792000000001,
+            "parseMs": 0.8560829999999982,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+051-04.geojson.gz",
+            "bytes": 15435,
+            "textBytes": 40068,
+            "readMs": 0.13316599999999568,
+            "decodeMs": 0.21908400000000228,
+            "parseMs": 0.06979100000000216,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-00.geojson.gz",
+            "bytes": 182947,
+            "textBytes": 522678,
+            "readMs": 0.8802079999999961,
+            "decodeMs": 6.872708000000003,
+            "parseMs": 0.8999999999999986,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-01.geojson.gz",
+            "bytes": 189572,
+            "textBytes": 478134,
+            "readMs": 0.1755409999999955,
+            "decodeMs": 6.591959000000003,
+            "parseMs": 0.8206660000000028,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-02.geojson.gz",
+            "bytes": 208869,
+            "textBytes": 522093,
+            "readMs": 1.328040999999999,
+            "decodeMs": 6.2038749999999965,
+            "parseMs": 1.0581670000000045,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+052-03.geojson.gz",
+            "bytes": 35695,
+            "textBytes": 86369,
+            "readMs": 1.2999170000000007,
+            "decodeMs": 0.475166999999999,
+            "parseMs": 0.15979099999999846,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+004-+053-00.geojson.gz",
+            "bytes": 29783,
+            "textBytes": 89117,
+            "readMs": 0.33645800000000037,
+            "decodeMs": 1.1668750000000045,
+            "parseMs": 0.14624999999999488,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+049-00.geojson.gz",
+            "bytes": 62761,
+            "textBytes": 170209,
+            "readMs": 0.9338329999999999,
+            "decodeMs": 1.1314589999999995,
+            "parseMs": 0.3347910000000027,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+050-00.geojson.gz",
+            "bytes": 76078,
+            "textBytes": 218513,
+            "readMs": 0.21658299999999997,
+            "decodeMs": 2.374167,
+            "parseMs": 0.4209999999999994,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+051-00.geojson.gz",
+            "bytes": 194445,
+            "textBytes": 511121,
+            "readMs": 1.277000000000001,
+            "decodeMs": 7.821083000000009,
+            "parseMs": 0.8272499999999923,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+051-01.geojson.gz",
+            "bytes": 77417,
+            "textBytes": 200591,
+            "readMs": 0.27387499999999676,
+            "decodeMs": 1.8844169999999991,
+            "parseMs": 0.3222909999999999,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+052-00.geojson.gz",
+            "bytes": 182245,
+            "textBytes": 518683,
+            "readMs": 1.5345829999999978,
+            "decodeMs": 4.564084000000008,
+            "parseMs": 0.8482079999999996,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+052-01.geojson.gz",
+            "bytes": 79933,
+            "textBytes": 204981,
+            "readMs": 1.4556670000000054,
+            "decodeMs": 1.9016249999999957,
+            "parseMs": 0.37391599999999414,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+053-00.geojson.gz",
+            "bytes": 174561,
+            "textBytes": 493410,
+            "readMs": 0.29024999999998613,
+            "decodeMs": 3.6863330000000047,
+            "parseMs": 0.8008750000000049,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+005-+053-01.geojson.gz",
+            "bytes": 88027,
+            "textBytes": 225644,
+            "readMs": 0.13595800000000224,
+            "decodeMs": 1.9222089999999952,
+            "parseMs": 0.35154099999999744,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+006-+049-00.geojson.gz",
+            "bytes": 50686,
+            "textBytes": 134649,
+            "readMs": 0.13695800000000702,
+            "decodeMs": 3.1232499999999987,
+            "parseMs": 0.22816699999999912,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+006-+050-00.geojson.gz",
+            "bytes": 104981,
+            "textBytes": 272764,
+            "readMs": 0.13674999999999216,
+            "decodeMs": 5.09875000000001,
+            "parseMs": 0.49741699999999867,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+006-+051-00.geojson.gz",
+            "bytes": 172678,
+            "textBytes": 483470,
+            "readMs": 0.13729199999998798,
+            "decodeMs": 6.139458000000005,
+            "parseMs": 0.8995840000000044,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+006-+052-00.geojson.gz",
+            "bytes": 122595,
+            "textBytes": 331464,
+            "readMs": 0.3885000000000076,
+            "decodeMs": 3.378249999999994,
+            "parseMs": 0.588832999999994,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+006-+053-00.geojson.gz",
+            "bytes": 160509,
+            "textBytes": 432278,
+            "readMs": 0.13683399999999324,
+            "decodeMs": 3.3690409999999957,
+            "parseMs": 0.7814590000000123,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+007-+053-00.geojson.gz",
+            "bytes": 100265,
+            "textBytes": 256997,
+            "readMs": 1.235208,
+            "decodeMs": 2.4217080000000095,
+            "parseMs": 0.4614169999999973,
+            "cached": true
+          },
+          {
+            "file": "shards/cell-+008-+053-00.geojson.gz",
+            "bytes": 61668,
+            "textBytes": 167738,
+            "readMs": 0.3033750000000026,
+            "decodeMs": 1.4705409999999972,
+            "parseMs": 0.2922920000000033,
+            "cached": true
+          },
+          {
+            "file": "shards/cell--001-+049-00.geojson.gz",
+            "bytes": 1225,
+            "textBytes": 2485,
+            "readMs": 0.5022090000000077,
+            "decodeMs": 0.12224999999999397,
+            "parseMs": 0.0073750000000103455,
+            "cached": true
+          },
+          {
+            "file": "shards/large-00002.geojson.gz",
+            "bytes": 53384,
+            "textBytes": 129472,
+            "readMs": 0.2372919999999965,
+            "decodeMs": 1.111333000000002,
+            "parseMs": 0.242834000000002,
+            "cached": true
+          },
+          {
+            "file": "shards/large-01839.geojson.gz",
+            "bytes": 1168362,
+            "textBytes": 2915515,
+            "readMs": 0.9272080000000003,
+            "decodeMs": 33.369125000000004,
+            "parseMs": 5.228499999999997,
+            "cached": true
+          },
+          {
+            "file": "shards/large-01942.geojson.gz",
+            "bytes": 230148,
+            "textBytes": 587810,
+            "readMs": 0.14866600000000574,
+            "decodeMs": 7.962374999999994,
+            "parseMs": 0.9986670000000117,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02023.geojson.gz",
+            "bytes": 60485,
+            "textBytes": 139583,
+            "readMs": 0.11529100000001336,
+            "decodeMs": 0.45887499999999193,
+            "parseMs": 0.25337500000000546,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02024.geojson.gz",
+            "bytes": 181508,
+            "textBytes": 444350,
+            "readMs": 3.9072500000000048,
+            "decodeMs": 4.180125000000004,
+            "parseMs": 0.7557079999999985,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02040.geojson.gz",
+            "bytes": 167397,
+            "textBytes": 408741,
+            "readMs": 0.14520799999999667,
+            "decodeMs": 1.869917000000001,
+            "parseMs": 0.7079999999999984,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02060.geojson.gz",
+            "bytes": 298682,
+            "textBytes": 718371,
+            "readMs": 1.2832499999999953,
+            "decodeMs": 8.529584,
+            "parseMs": 1.173957999999999,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02106.geojson.gz",
+            "bytes": 818353,
+            "textBytes": 2089257,
+            "readMs": 0.19245800000000202,
+            "decodeMs": 26.64762499999999,
+            "parseMs": 3.483167000000009,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02213.geojson.gz",
+            "bytes": 219335,
+            "textBytes": 542512,
+            "readMs": 0.224291000000008,
+            "decodeMs": 5.0044169999999895,
+            "parseMs": 0.8659580000000062,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02232.geojson.gz",
+            "bytes": 402706,
+            "textBytes": 995677,
+            "readMs": 0.5616669999999999,
+            "decodeMs": 12.076250000000002,
+            "parseMs": 1.6709999999999923,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02281.geojson.gz",
+            "bytes": 432891,
+            "textBytes": 1058266,
+            "readMs": 0.20074999999999932,
+            "decodeMs": 12.378833,
+            "parseMs": 1.7938749999999999,
+            "cached": true
+          },
+          {
+            "file": "shards/large-02350.geojson.gz",
+            "bytes": 18779,
+            "textBytes": 42222,
+            "readMs": 0.1017089999999996,
+            "decodeMs": 0.17624999999999602,
+            "parseMs": 0.0762500000000017,
+            "cached": true
+          }
+        ],
+        "featureCount": 2980,
+        "jsonBytes": 19949092,
+        "dataURLChars": 26598825,
+        "loadAndSelectMs": 1.7464999999999975,
+        "stringifyMs": 21.77883299999999,
+        "base64Ms": 4.700750000000028,
+        "recordsMs": 0.1829169999999749,
+        "totalMs": 28.409166999999997
+      },
+      "mainReceivedGeometryObjects": 0
+    }
+  ]
+}

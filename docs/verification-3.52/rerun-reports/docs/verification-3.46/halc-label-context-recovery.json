@@ -1,0 +1,49 @@
+{
+  "generated": "2026-11-11T17:18:37.825Z",
+  "moduleSha256": "b1f33b7a38843af8d9deb91e1c1a04c8417ea3b537ef1b2e1a059f8a1cf2b0a0",
+  "method": "Actual HalcBoundaries and scheduler via existing project adapter, deterministic task queue and DOM/map boundaries. Layout changes are made without emitting render/idle; first high-zoom recovery, sliced cancellation, request ownership, bounded recovery and exit guards are exercised. No browser timing/pixel claim.",
+  "passed": 10,
+  "total": 10,
+  "checks": [
+    {
+      "name": "First high-zoom labels recover a layout-only context cancellation before any anchor, with no subsequent map render or idle",
+      "pass": true
+    },
+    {
+      "name": "Layout changes between anchor slices discard stale work and commit a complete current frame",
+      "pass": true
+    },
+    {
+      "name": "An external newest-context request coalesces with canceled-job recovery instead of scheduling a second job",
+      "pass": true
+    },
+    {
+      "name": "Continuous unsignaled layout changes stop after three recoveries, and a later explicit refresh can resume",
+      "pass": true
+    },
+    {
+      "name": "Canceled-context recovery performs no late work after destroy",
+      "pass": true
+    },
+    {
+      "name": "Canceled-context recovery performs no late work after year change",
+      "pass": true
+    },
+    {
+      "name": "Canceled-context recovery performs no late work after labels hidden",
+      "pass": true
+    },
+    {
+      "name": "Canceled-context recovery performs no late work after loading",
+      "pass": true
+    },
+    {
+      "name": "Canceled-context recovery performs no late work after moving",
+      "pass": true
+    },
+    {
+      "name": "Independent maps own separate context recovery chains",
+      "pass": true
+    }
+  ]
+}

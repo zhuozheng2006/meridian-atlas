@@ -1,0 +1,131 @@
+{
+  "checkedAt": "2026-11-11T17:18:45.581Z",
+  "modulePath": "/Users/zane/meridian_atlas/world-history-atlas/public/halc-landscape.js",
+  "moduleSha256": "b91ba245176da426b0e280fdbbf9e0ee51f9970fe9c9adda0aba5e362f38aafb",
+  "moduleStableDuringRun": true,
+  "runtime": "Actual HalcLandscape and LandscapeCache classes; fake DOM/map transport only. One retry test also uses actual readJSON over mocked fetch + real gzip decoding.",
+  "passed": 30,
+  "total": 30,
+  "results": [
+    {
+      "name": "Every ineligible date/mode/modern/terrain/borders/zoom/view/destroyed context does zero network or source writes",
+      "passed": true
+    },
+    {
+      "name": "Source readiness gates first visibility and settled features",
+      "passed": true
+    },
+    {
+      "name": "Same context retains the rendered frame while a new viewport loads and renders",
+      "passed": true
+    },
+    {
+      "name": "Closing/changing date during late shard data prevents all late source/style writes",
+      "passed": true
+    },
+    {
+      "name": "An old viewport request cannot replace a newer settled frame",
+      "passed": true
+    },
+    {
+      "name": "A network-rejected shard is evicted and explicit retry can load it",
+      "passed": true
+    },
+    {
+      "name": "A semantically invalid cached shard is evicted for explicit retry",
+      "passed": true
+    },
+    {
+      "name": "A semantically invalid cached index is evicted for explicit retry",
+      "passed": true
+    },
+    {
+      "name": "Separate maps may share immutable requests while rendering readiness remains independent",
+      "passed": true
+    },
+    {
+      "name": "A failure in one map/source does not poison another map with the same loader",
+      "passed": true
+    },
+    {
+      "name": "A GPU/source error is recoverable by recreating the source on explicit retry",
+      "passed": true
+    },
+    {
+      "name": "Semantic retry also evicts the actual readJSON parsed-response cache",
+      "passed": true
+    },
+    {
+      "name": "Different loaders never share cached content",
+      "passed": true
+    },
+    {
+      "name": "Coverage tests the actual rendered point and does not assume the archive bbox is filled",
+      "passed": true
+    },
+    {
+      "name": "Turning terrain/borders/modern/mode/date off immediately hides and restores original layer order",
+      "passed": true
+    },
+    {
+      "name": "Late reference insertion reconciles once, is idempotent, and remains ordered after exit",
+      "passed": true
+    },
+    {
+      "name": "Repeated unchanged updates and idle produce no network or map style writes",
+      "passed": true
+    },
+    {
+      "name": "Destroy removes listeners and late data/retry/idle cannot write to the map",
+      "passed": true
+    },
+    {
+      "name": "Destroy after a rendered frame makes later retry and reconciliation strict no-ops",
+      "passed": true
+    },
+    {
+      "name": "Worker URL preserves exact source data and metadata, with source readiness gating visibility",
+      "passed": true
+    },
+    {
+      "name": "Superseded URL frames remain independently reloadable and settle only latest metadata",
+      "passed": true
+    },
+    {
+      "name": "Leaving year or destroying cancels preparation and prevents late source/style writes",
+      "passed": true
+    },
+    {
+      "name": "Worker availability failure falls back once to the existing data path; later views do not restart a broken worker",
+      "passed": true
+    },
+    {
+      "name": "Ordinary worker data errors preserve the explicit-retry experience rather than silently retrying via the main thread",
+      "passed": true
+    },
+    {
+      "name": "A custom parent loader cannot be silently bypassed by the automatic Worker path",
+      "passed": true
+    },
+    {
+      "name": "Guide uses metadata fields only and displays original dates, quality, bibliography, remarks and overlap order",
+      "passed": true
+    },
+    {
+      "name": "Current data URL source failure falls back once, rebuilds the source, and a repeated error stays explicit",
+      "passed": true
+    },
+    {
+      "name": "A superseded viewport error or queued older source error cannot downgrade a new request",
+      "passed": true
+    },
+    {
+      "name": "Late source errors after date exit or destroy do not restart work or change status",
+      "passed": true
+    },
+    {
+      "name": "One map data URL fallback releases only its lease; the other map still prepares and renders",
+      "passed": true
+    }
+  ]
+}

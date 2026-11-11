@@ -1,6 +1,6 @@
-import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.51.0-6456b01964f4';
-import {interiorPoint} from './regional-boundaries.js?v=3.51.0-6456b01964f4';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.51.0-6456b01964f4';
+import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.52.0-a7bea3fb619c';
+import {interiorPoint} from './regional-boundaries.js?v=3.52.0-a7bea3fb619c';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.52.0-a7bea3fb619c';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};

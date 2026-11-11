@@ -3,12 +3,14 @@
 ## 从这里开始
 
 - [项目首页与运行方式](../README.md)
-- [当前进度与后续事项：3.51](HANDOFF-3.51.md)
+- [当前进度与后续事项：3.52](HANDOFF-3.52.md)
 - [开发、验证和部署](DEVELOPMENT.md)
 - [完整历史首页与迭代记录](PROJECT-HISTORY.md)
 - [全部来源与许可](../ATTRIBUTIONS.md)
 
 ## 最新验证证据
+
+- [3.52全部地区快照无损传输](HANDOFF-3.52.md)
 
 - [3.51自动详图、速度对照与局限](HANDOFF-3.51.md)
 - [3.51三组浏览器原始测量](verification-3.51/browser/measurements.json)

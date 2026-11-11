@@ -1,0 +1,65 @@
+{
+  "generated": "2026-11-11T17:18:37.752Z",
+  "method": "Actual HalcBoundaries + HalcRegions + createExactLabelScheduler through shipped halc-test-adapter; deterministic task queue executes canceled callbacks to probe ownership guards. No browser/GPU/timing claim.",
+  "files": {
+    "public/halc-boundaries.js": "b1f33b7a38843af8d9deb91e1c1a04c8417ea3b537ef1b2e1a059f8a1cf2b0a0",
+    "public/halc-regions.js": "85457964fe91f266f4d0e554a75272299a42523c46ddfd8311d95e67f3aa83d5",
+    "public/halc-label-scheduler.js": "1122111f405af9cbff70bddc322f17b42e66b285a35880f8a8a6d8896dadda0c"
+  },
+  "total": 13,
+  "passed": 13,
+  "results": [
+    {
+      "name": "Same context reuses one pending exact job across repeated refresh and idle events",
+      "passed": true
+    },
+    {
+      "name": "Old markers and collision boxes remain until a changed-language exact result commits",
+      "passed": true
+    },
+    {
+      "name": "Viewport key change supersedes pending anchors and canceled callback cannot place markers",
+      "passed": true
+    },
+    {
+      "name": "Regional readiness cancels locality ranking and places only the newly ready regional candidates",
+      "passed": true
+    },
+    {
+      "name": "Movestart cancels a pending replacement while keeping the existing drawn labels",
+      "passed": true
+    },
+    {
+      "name": "No late marker or point-layer write after labels hidden",
+      "passed": true
+    },
+    {
+      "name": "No late marker or point-layer write after year 1501",
+      "passed": true
+    },
+    {
+      "name": "No late marker or point-layer write after main source error",
+      "passed": true
+    },
+    {
+      "name": "No late marker or point-layer write after main source loading",
+      "passed": true
+    },
+    {
+      "name": "No late marker or point-layer write after destroy",
+      "passed": true
+    },
+    {
+      "name": "An unannounced viewport change fails the live context guard before committing",
+      "passed": true
+    },
+    {
+      "name": "Independent maps never share pending jobs or cancellation",
+      "passed": true
+    },
+    {
+      "name": "A failed region source removes obsolete territorial labels before asynchronous fallback",
+      "passed": true
+    }
+  ]
+}
