@@ -1,14 +1,24 @@
-import {countrySnapshot,loadCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.53.0-9308e8f3f08d';
-import {interiorPoint} from './regional-boundaries.js?v=3.53.0-9308e8f3f08d';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.53.0-9308e8f3f08d';
-import {beginMapForeground} from './map-load-priority.js?v=3.53.0-9308e8f3f08d';
+import {countrySnapshot,loadCountryFrame,cachedCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.54.0-440274174472';
+import {interiorPoint} from './regional-boundaries.js?v=3.54.0-440274174472';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.54.0-440274174472';
+import {beginMapForeground} from './map-load-priority.js?v=3.54.0-440274174472';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
- constructor(atlas,{mode='auto',color,loadCountry=loadCountryFrame}={}){this.atlas=atlas;this.mode=mode;this.color=color;this.loadCountry=loadCountry;this.generation=0;this.current=null;this.loading=false;this.reason=null;}
+ constructor(atlas,{mode='auto',color,loadCountry=loadCountryFrame,peekCountry=loadCountry===loadCountryFrame?cachedCountryFrame:()=>null}={}){this.atlas=atlas;this.mode=mode;this.color=color;this.loadCountry=loadCountry;this.peekCountry=peekCountry;this.generation=0;this.current=null;this.loading=false;this.reason=null;}
+ countryFrame(frame,year,requested){return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features:countryFeatures(frame,this.color)},key:'cshapes:'+frame.date,reason:null};}
  async prepare(year,loadOverview){
   const requested=this.mode;
+  if(requested==='auto'&&countrySnapshot(year)){
+   const cached=this.peekCountry(year);if(cached)return this.countryFrame(cached,year,requested);
+   let overviewWanted=true;const release=beginMapForeground();
+   const country=Promise.resolve().then(()=>this.loadCountry(year)).finally(release);
+   const detail=country.then(frame=>this.countryFrame(frame,year,requested));
+   const overview=Promise.resolve().then(()=>loadOverview(()=>overviewWanted)).then(frame=>{if(!frame)throw Error('Overview superseded');return {...frame,requested,reason:null,countryUpgrade:country};});
+   // Either usable source may lead; a failed source cannot block the other.
+   const first=await Promise.any([detail,overview]);if(first.source==='cshapes')overviewWanted=false;return first;
+  }
   if(requested==='cshapes'){
    if(countrySnapshot(year)){try{const frame=await this.loadCountry(year),features=countryFeatures(frame,this.color);return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features},key:'cshapes:'+frame.date,reason:null};}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
    return {...await loadOverview(),requested,reason:'unsupported'};
@@ -26,7 +36,7 @@ export class BoundaryController{
   const generation=this.generation,year=initial.year,request=this.atlas.request,release=beginMapForeground();
   const current=()=>!this.atlas.destroyed&&generation===this.generation&&request===this.atlas.request&&year===this.atlas.year&&this.mode==='auto'&&this.current===initial;
   try{
-   const frame=await this.loadCountry(year);if(!current())return false;
+   const frame=await (initial.countryUpgrade||this.loadCountry(year));if(!current())return false;
    const features=countryFeatures(frame,this.color);
    this.commit({requested:'auto',source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features},key:'cshapes:'+frame.date,reason:null});
    this.atlas.regional?.update();this.atlas.refreshLabels();return true;
@@ -43,7 +53,7 @@ export class BoundaryController{
  async setMode(mode){
   this.mode=mode;const token=++this.generation,year=this.atlas.year,request=this.atlas.request;
   if(!this.atlas.catalog)return;this.loading=true;this.atlas.regional?.setStatus('loading');
-  try{const frame=await this.prepare(year,()=>this.atlas.prepareOverview(year,()=>!this.atlas.destroyed&&token===this.generation&&request===this.atlas.request&&mode===this.mode));if(this.atlas.destroyed||token!==this.generation||year!==this.atlas.year||request!==this.atlas.request||mode!==this.mode)return;
+  try{const frame=await this.prepare(year,keep=>this.atlas.prepareOverview(year,()=>!this.atlas.destroyed&&token===this.generation&&request===this.atlas.request&&mode===this.mode&&(!keep||keep())));if(this.atlas.destroyed||token!==this.generation||year!==this.atlas.year||request!==this.atlas.request||mode!==this.mode)return;
    this.commit(frame);this.atlas.regional?.update();this.atlas.refreshLabels();this.atlas.upgradeDetail();
   }catch(e){if(token===this.generation&&!this.atlas.destroyed){this.loading=false;this.reason='error';this.atlas.regional?.setStatus('error');}}
  }

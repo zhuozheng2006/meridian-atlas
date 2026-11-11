@@ -1,4 +1,4 @@
-# OpenHistoricalMap frozen extract — British Isles (不列颠群岛), years 1492 / 1500 / 1600 / 1700 / 1800 / 1900
+# OpenHistoricalMap frozen extract — British Isles (不列颠群岛), years 1492 / 1500 / 1600 / 1700 / 1706 / 1707 / 1800 / 1801 / 1900
 
 One gzipped GeoJSON FeatureCollection per year (year-<year>.json.gz), plus manifest.json with the
 per-relation rings, dropped chains, vertex counts and the land-sample coverage verdict.

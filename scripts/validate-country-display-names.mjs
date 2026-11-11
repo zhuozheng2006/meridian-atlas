@@ -17,4 +17,4 @@ try{
  }
 }finally{globalThis.fetch=originalFetch;}
 const report={passed:true,annualCases,rules:editorial.rules.length,endpoints:editorial.rules.length*2,originalNamesAndGeometryPreserved:true};
-fs.writeFileSync(new URL('../docs/verification-3.53/country-display-names.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
+fs.writeFileSync(new URL('../docs/verification-3.54/country-display-names.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

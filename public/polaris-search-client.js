@@ -1,4 +1,4 @@
-import {SNAPSHOT} from './polaris-contract.js?v=3.53.0-9308e8f3f08d';
+import {SNAPSHOT} from './polaris-contract.js?v=3.54.0-440274174472';
 const obsolete=()=>new DOMException('Research request is obsolete','AbortError');
 const unavailable=message=>Object.assign(new Error(message),{workerUnavailable:true});
 function cancellable(promise,signal){if(!signal)return promise;if(signal.aborted)return Promise.reject(obsolete());return new Promise((resolve,reject)=>{const cancel=()=>{signal.removeEventListener('abort',cancel);reject(obsolete());};signal.addEventListener('abort',cancel,{once:true});promise.then(value=>{signal.removeEventListener('abort',cancel);resolve(value);},error=>{signal.removeEventListener('abort',cancel);reject(error);});});}

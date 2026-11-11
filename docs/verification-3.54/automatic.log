@@ -1,0 +1,22 @@
+PASS Overview is usable immediately; exact dated country frame upgrades later
+PASS Late country result cannot overwrite year
+PASS Late country result cannot overwrite request
+PASS Late country result cannot overwrite mode
+PASS Late country result cannot overwrite destroy
+PASS Late country result cannot overwrite replacement
+PASS Network failure retains the usable overview
+PASS No unsolicited country fetch {"mode":"overview"}
+PASS No unsolicited country fetch {"mode":"regional"}
+PASS No unsolicited country fetch {"mode":"halc"}
+PASS No unsolicited country fetch {"mode":"cshapes"}
+PASS No unsolicited country fetch {"year":1885}
+PASS No unsolicited country fetch {"year":2024}
+PASS Two maps upgrade independently
+PASS Cold preparation starts both sources; country can win while overview is blocked
+PASS Fast overview commits immediately and reuses the already running country request
+PASS Country succeeds despite a rejected overview
+PASS Country rejection leaves the first available overview usable without immediate retry
+PASS Both sources failing is an explicit failure, with no invented empty frame
+PASS Exact cached country frame skips overview and country downloads entirely
+PASS An early country request still cannot overwrite a newer year after overview wins
+21 automatic boundary checks passed

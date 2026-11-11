@@ -1,0 +1,27 @@
+PASS Default auto initial pending source stays inactive until its first complete frame
+PASS Existing OHM dossier and its selected id survive crossing zoom8 in both directions
+PASS Reading a county remains possible when its zoom layer becomes filtered out
+PASS Actual CShapes dossier and selection survive crossing zoom8
+PASS CShapes directory also survives a regional level threshold
+PASS Automatic country source exposes its actual country directory and opens the native record
+PASS Regional detail remains the directory source when it overlays automatic country boundaries
+PASS Active OHM loading event retains geometry and dossier but declares updating
+PASS Moveend detects pending OHM tiles even without a loading event
+PASS Repeated pending idle does not query or regenerate old complete-view labels
+PASS Actual OHM directory preserves rows, search and scroll while labelling the prior snapshot
+PASS Auto coverage reevaluates only after completion and adds overview context for sparse detail
+PASS Explicit regional mode retains source selection after a loaded sparse view
+PASS A completed empty viewport releases the previously committed detailed frame
+PASS OHM source errors close its dossier, hide partial frames and keep the requested mode for retry
+PASS Late OHM error cannot close or deselect a newer CShapes dossier
+PASS Changing year discards the prior dossier and does not reuse its dated record
+PASS Leaving source clears active OHM and rejects late readiness
+PASS Leaving hidden borders clears active OHM and rejects late readiness
+PASS Leaving modern reference clears active OHM and rejects late readiness
+PASS Leaving detail zoom clears active OHM and rejects late readiness
+PASS Unrelated source events cannot alter the open OHM record
+PASS Native popup close clears its outline and does not resurrect on zoom
+PASS Resize keeps the open dossier and scroll, fits height to its own map, and is removed on destroy
+PASS Destroy removes source and interaction listeners and ignores late load/error callbacks
+PASS Two regional map instances keep independent load and popup state
+26/26 regional continuity checks passed

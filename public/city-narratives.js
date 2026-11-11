@@ -1,4 +1,4 @@
-import {readJSON} from './map-engine.js?v=3.53.0-9308e8f3f08d';
+import {readJSON} from './map-engine.js?v=3.54.0-440274174472';
 
 // Editorial context is attached to an identified source record and its date.
 // Nearby points and a matching modern city name never establish identity.

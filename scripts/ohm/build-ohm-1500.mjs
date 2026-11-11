@@ -26,7 +26,7 @@ const WINDOWS={
   years:[1000,1200,1300,1400,1492,1500,1600,1700,1800,1900]},
  'east-asia':{id:'east-asia',zh:'东亚',en:'East Asia',bbox:[18.0,95.0,55.0,150.0],dir:'public/data/ohm-eastasia',cache:'scripts/ohm/.cache/east-asia',
   years:[1000,1100,1200,1300,1400,1500,1600,1700,1800,1850,1900,1910,1930,1950]},
- 'british-isles':{id:'british-isles',zh:'不列颠群岛',en:'British Isles',bbox:[49,-11,61,2],dir:'public/data/ohm-britain',cache:'scripts/ohm/.cache/british-isles',years:[1492,1500,1600,1700,1800,1900]}
+ 'british-isles':{id:'british-isles',zh:'不列颠群岛',en:'British Isles',bbox:[49,-11,61,2],dir:'public/data/ohm-britain',cache:'scripts/ohm/.cache/british-isles',years:[1492,1500,1600,1700,1706,1707,1800,1801,1900]}
 };
 const args=process.argv.slice(2);
 const flag=name=>args.includes('--'+name);

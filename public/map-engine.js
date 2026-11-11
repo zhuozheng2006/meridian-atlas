@@ -1,19 +1,19 @@
-import {waitForMapForeground} from './map-load-priority.js?v=3.53.0-9308e8f3f08d';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.53.0-9308e8f3f08d';
-import {boundaryMesh} from './boundary-mesh.js?v=3.53.0-9308e8f3f08d';
-import {curvedBorders,borderChordError} from './border-curves.js?v=3.53.0-9308e8f3f08d';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.53.0-9308e8f3f08d';
-import {BoundaryController} from './boundary-controller.js?v=3.53.0-9308e8f3f08d';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.53.0-9308e8f3f08d';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.53.0-9308e8f3f08d';
-import {Geography} from './geography.js?v=3.53.0-9308e8f3f08d';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.53.0-9308e8f3f08d';
+import {waitForMapForeground} from './map-load-priority.js?v=3.54.0-440274174472';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.54.0-440274174472';
+import {boundaryMesh} from './boundary-mesh.js?v=3.54.0-440274174472';
+import {curvedBorders,borderChordError} from './border-curves.js?v=3.54.0-440274174472';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.54.0-440274174472';
+import {BoundaryController} from './boundary-controller.js?v=3.54.0-440274174472';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.54.0-440274174472';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.54.0-440274174472';
+import {Geography} from './geography.js?v=3.54.0-440274174472';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.54.0-440274174472';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.53.0-9308e8f3f08d';
+import {polityName} from './polity-names.js?v=3.54.0-440274174472';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
@@ -88,7 +88,7 @@ export class AtlasMap{
  }
  async setYear(catalog,year,lang=this.lang){
   const seq=++this.request,selectedPopup=this.boundaries?.selectedPopup,selectedId=this.boundaries?.selectedId;this.lang=lang;this.catalog=catalog;await this.ready;
-  let frame;do{frame=await this.boundaries.prepare(year,()=>this.prepareOverview(year,()=>seq===this.request&&!this.destroyed));if(seq!==this.request||this.destroyed)return false;}while(frame.requested!==this.boundaries.mode);
+  let frame;do{frame=await this.boundaries.prepare(year,keep=>this.prepareOverview(year,()=>seq===this.request&&!this.destroyed&&(!keep||keep())));if(seq!==this.request||this.destroyed)return false;}while(frame.requested!==this.boundaries.mode);
   const restoreSelection=year===this.year&&selectedPopup&&selectedPopup===this.boundaries.selectedPopup;const records=activeRecords(catalog,year);this.upgradeLand();this.year=year;this.active=records;this.recordMap=new Map(records.map(r=>[r.id,r]));this.boundaries.commit(frame);
   this.refreshLabels();this.upgradeDetail();this.places?.setYear(year,lang);this.battles?.setYear(year,lang);this.historical?.setYear(year,lang);this.regional?.setYear(year,lang);if(restoreSelection)this.boundaries.openRecord(selectedId);return records.length;
  }
