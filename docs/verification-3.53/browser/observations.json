@@ -1,0 +1,11 @@
+{
+  "environment": "Local HTTP preview, Chrome, default desktop viewport; browser UI and live map state observed through CUA",
+  "checks": [
+    {"year":1700,"camera":[-2,55,6.5],"key":"british-isles|1700","active":true,"visibleFeatures":5,"compactURL":"data/ohm-transport/british-isles-1700.json.gz","transferBytesIncludingHeaders":492830,"observedLabels":["英格兰王国","苏格兰王国","爱尔兰王国"],"screenshot":"britain.jpg"},
+    {"year":1950,"camera":[30,5,4.4],"mode":"auto","source":"cshapes","date":"1950-07-01","records":172,"regionalActive":false,"observedLabels":["比属刚果","乌班吉沙里","埃塞俄比亚"],"screenshot":"africa.jpg"},
+    {"action":"Year input 1950 to 1800","year":1800,"source":"cliopatria","sourceYear":1800},
+    {"year":1800,"camera":[-3,54,6.2],"key":"british-isles|1800","active":true,"observedLabels":["大不列颠王国","爱尔兰王国","马恩岛"]}
+  ],
+  "console": "Two messages from the installed Zotero browser extension were observed; they are not application errors.",
+  "scope": "Functional and visual local acceptance, not a controlled production-network benchmark. No browser flags or network overrides retained."
+}
