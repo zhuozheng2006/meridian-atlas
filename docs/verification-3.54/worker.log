@@ -1,0 +1,17 @@
+PASS Existing pages delegate to the asset binding
+PASS Missing lake objects fail recoverably without a false empty map
+PASS Unknown objects and non-binary imports are rejected
+PASS Wrong sizes and same-sized corrupt data cannot be stored
+PASS Audited bytes upload idempotently under a versioned key
+PASS Read, HEAD and conditional requests preserve the exact encoded bytes
+PASS Final builds disable every import route while keeping lake reads
+PASS Cross-origin browser imports and expired import windows are rejected
+PASS Missing storage and missing public assets return a recoverable unavailable state
+PASS Static manifests and imports do not change the legacy lake identity or inventory
+PASS Static import requires the exact manifest, listed path, binary type and bounded size
+PASS Static imports use immutable per-content keys and reuse unchanged data
+PASS Unchanged client URLs serve exact gzip/PDF bytes with HEAD, ETag and no compression header
+PASS Missing or mismatched static objects fail 503 and unlisted data paths fail 404
+PASS Both import namespaces close in final builds and static CORS/expiration guards remain active
+PASS Static uploader retries transport/HTTP failures, preserves private header and verifies every file
+{"status":"passed","checks":16}
