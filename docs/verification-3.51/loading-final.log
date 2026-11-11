@@ -1,0 +1,7 @@
+PASS Optional city downloads wait while first-frame catalog remains unblocked
+PASS Two independent map snapshots release their shared priority safely
+PASS A stalled historical snapshot cannot indefinitely block physical geography
+PASS Corrupt compact snapshot falls back to its exact original file
+PASS Online detail starts after a bounded head start, but never after a map exits
+PASS Malformed deltas are rejected instead of drawing corrupt polygons
+6 loading checks passed

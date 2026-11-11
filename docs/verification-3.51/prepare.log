@@ -1,0 +1,43 @@
+
+> meridian-world-history-atlas@3.51.0 prepare:assets
+> node scripts/build-regional-transport.mjs && node scripts/build-identity-ledger.mjs && node scripts/build-polity-display-names.mjs && node scripts/build-enrichment-archive.mjs && node scripts/build-research-readings.mjs && python3 scripts/build_saved_text_catalog.py --repo . && node scripts/stamp-assets.mjs
+
+{
+  "schemaVersion": 1,
+  "encoding": "ohm-delta-1e7",
+  "files": [
+    {
+      "file": "central-europe-1492.json.gz",
+      "year": 1492,
+      "source": "data/ohm-1500/year-1492.json.gz",
+      "sourceSHA256": "e127301da1988550146d39d5574592555d4d5d5435ac4825669e8cd1a642f73c",
+      "sha256": "9dc03138b9e86025683c778447448e3fbe8262dcb6e101f44c8edf65f70d3f15",
+      "originalBytes": 1118302,
+      "bytes": 690928,
+      "features": 91,
+      "exactEncoded": 91,
+      "rawFallback": 0,
+      "coordinateRoundTrip": "exact"
+    },
+    {
+      "file": "central-europe-1500.json.gz",
+      "year": 1500,
+      "source": "data/ohm-1500/year-1500.json.gz",
+      "sourceSHA256": "9feec7f4a12dffa2c2ea9954b20042d292fac6f6363b4d9d703613d28d21c0eb",
+      "sha256": "af370058cbb5f39a7875b4a1f5ae6b610f8d3b3876e949fd6f250fc47bebb3af",
+      "originalBytes": 1639961,
+      "bytes": 1005009,
+      "features": 98,
+      "exactEncoded": 98,
+      "rawFallback": 0,
+      "coordinateRoundTrip": "exact"
+    }
+  ]
+}
+
+{"ok":true,"records":13765,"polities":13380,"status":{"display-corrected":120,"needs-review":2239,"not-reviewed":11406},"flaggedRecords":2320,"flagOccurrences":2527,"sampleDossiers":30,"bytes":284573}
+{"ok":true,"rules":26,"records":120,"check":false}
+narratives.json: 7082951 -> 1273059 bytes (33eb5e5bc9e7 -> 43cd8b88bafa)
+Built 40 sourced reading leads
+{"checked": false, "documents": 8, "blocks": 984, "readings": 16}
+Stamped linked asset revision 3.51.0-6456b01964f4

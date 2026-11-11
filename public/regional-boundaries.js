@@ -1,10 +1,27 @@
-import {boundaryNote} from './boundary-notes.js?v=3.50.0-ac226550198f';
-import {readJSON,forgetJSON} from './map-engine.js?v=3.50.0-ac226550198f';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.50.0-ac226550198f';
-import {boundaryMode} from './view-state.js?v=3.50.0-ac226550198f';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.50.0-ac226550198f';
-import {historicalYearRange} from './historical-dates.js?v=3.50.0-ac226550198f';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.50.0-ac226550198f';
+import {beginMapForeground} from './map-load-priority.js?v=3.51.0-6456b01964f4';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.51.0-6456b01964f4';
+import {boundaryNote} from './boundary-notes.js?v=3.51.0-6456b01964f4';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.51.0-6456b01964f4';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.51.0-6456b01964f4';
+import {boundaryMode} from './view-state.js?v=3.51.0-6456b01964f4';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.51.0-6456b01964f4';
+import {historicalYearRange} from './historical-dates.js?v=3.51.0-6456b01964f4';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.51.0-6456b01964f4';
+
+const snapshotLoads=new Map();
+export function readRegionalSnapshot(window_,year){
+ const original=window_.root+'year-'+year+'.json.gz',compact=regionalTransportURL(window_,year),url=compact||original;
+ if(snapshotLoads.has(url))return snapshotLoads.get(url);
+ const checked=value=>{if(value?.type!=='FeatureCollection'||!Array.isArray(value.features)||value.features.some(f=>!f.geometry||!['Polygon','MultiPolygon'].includes(f.geometry.type)))throw Error('Invalid regional snapshot');return value;};
+ const release=beginMapForeground();
+ const pending=(async()=>{
+  try{return checked(decodeRegionalTransport(await readJSON(url)));}
+  catch(error){forgetJSON(url);if(!compact)throw error;return checked(await readJSON(original));}
+  finally{release();}
+ })();snapshotLoads.set(url,pending);pending.catch(()=>snapshotLoads.delete(url));
+ while(snapshotLoads.size>2)snapshotLoads.delete(snapshotLoads.keys().next().value);
+ return pending;
+}
 
 const SOURCE='regional-boundaries',IDS=['regional-wash','regional-edges','regional-selected'];
 export const REGIONAL_MIN_ZOOM=6;
@@ -90,8 +107,8 @@ export function ohmLayers(){
  const base={source:OHM_SOURCE,minzoom:REGIONAL_MIN_ZOOM};
  return [
   {...base,id:OHM_LAYERS[0],type:'fill',paint:{'fill-color':['to-color',['at',['%',['abs',['number',['get','osm_id'],0]],6],['literal',['#a89563','#6f9693','#93936a','#a38e83','#879baa','#ab9a75']]]],'fill-opacity':0}},
-  {...base,id:OHM_LAYERS[1],type:'line',filter:['!=',['get','partial_geometry'],1],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#a4552b','line-width':['interpolate',['linear'],['zoom'],6,.85,10,1.25,15,1.6],'line-opacity':.85,'line-blur':.12}},
-  {...base,id:OHM_LAYERS[2],type:'line',filter:['==',['get','partial_geometry'],1],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#a4552b','line-width':['interpolate',['linear'],['zoom'],6,1,10,1.4,15,1.7],'line-opacity':.7,'line-dasharray':[2,1.4],'line-blur':.12}},
+  {...base,id:OHM_LAYERS[1],type:'line',filter:['!=',['get','partial_geometry'],1],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#65533e','line-width':['interpolate',['linear'],['zoom'],6,.85,10,1.25,15,1.6],'line-opacity':.82,'line-blur':.12}},
+  {...base,id:OHM_LAYERS[2],type:'line',filter:['==',['get','partial_geometry'],1],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#65533e','line-width':['interpolate',['linear'],['zoom'],6,1,10,1.4,15,1.7],'line-opacity':.7,'line-dasharray':[2,1.4],'line-blur':.12}},
   {...base,id:OHM_SELECTED,type:'line',filter:['==',['get','osm_id'],0],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#e0913c','line-width':2.6,'line-opacity':.95}}
  ];
 }
@@ -151,7 +168,22 @@ export function coverageAllowsDetail(samples,previous=false){
  const center=land.filter(s=>s.central);return !center.length||center.filter(s=>s.covered).length/center.length>=.5;
 }
 export function groupRegionalFeatures(features,year,maxLevel=4){
- const unique=new Map();for(const f of features){if(!regionalVisible(f.properties,year,maxLevel))continue;const id=f.properties.osm_id;if(!Number.isSafeInteger(id)||id===0)continue;if(!unique.has(id))unique.set(id,{...f,fragments:[]});if(f.geometry)unique.get(id).fragments.push(f.geometry);}
+ const unique=new Map();
+ for(const f of features){
+  if(!regionalVisible(f.properties,year,maxLevel))continue;
+  const id=f.properties.osm_id;if(!Number.isSafeInteger(id)||id===0)continue;
+  if(!unique.has(id)){
+   // Rendered tile geometry is a lazy MapLibre getter. The record directory
+   // must not decode every coordinate just to list names and dates.
+   const record=Object.fromEntries(Object.keys(f).filter(k=>k!=='geometry').map(k=>[k,f[k]]));
+   Object.defineProperty(record,'geometry',{enumerable:true,get:()=>f.geometry});
+   record.fragments=[];unique.set(id,record);
+  }
+  const fragments=unique.get(id).fragments,index=fragments.length;
+  Object.defineProperty(fragments,index,{enumerable:true,configurable:true,get(){
+   const geometry=f.geometry;Object.defineProperty(fragments,index,{value:geometry,enumerable:true,configurable:true});return geometry;
+  }});
+ }
  return [...unique.values()].sort((a,b)=>a.properties.admin_level-b.properties.admin_level||(b.properties.area||0)-(a.properties.area||0)||a.properties.osm_id-b.properties.osm_id);
 }
 export function regionalAnchor(feature,box){
@@ -166,6 +198,7 @@ export class RegionalBoundaries{
   this.badge=document.createElement('button');this.badge.className='regional-badge';this.badge.onclick=()=>this.openIndex();
   this.switcher=document.createElement('button');this.switcher.className='regional-switch';this.switcher.onclick=()=>{if(this.status==='partial'&&!this.detailedActive){this.closePopup();this.map.getContainer().dispatchEvent(new CustomEvent('boundary-compare',{bubbles:true}));}else this.setMode(this.detailedActive?'overview':this.mode==='halc'?'halc':'regional');};this.controls.append(this.badge,this.switcher);this.map.getContainer().append(this.controls);
   this.halc=new HalcBoundaries(this,{anchor:regionalAnchor});
+  on('zoom',()=>this.warmDetail());
   on('moveend',()=>{this.update();this.requestRender();});on('resize',()=>{this.fitPopup();this.requestRender();});
   // Each archive can finish while unrelated relief/tiles still keep global idle away.
   // sourcedata announces worker completion; query rendered geometry only on a later frame.
@@ -208,6 +241,20 @@ export class RegionalBoundaries{
  get ohmVerdict(){return this.ohmCoverage?.verdict||null;}
  get ohmWindow(){return ohmWindowFor(this.map.getBounds?.());}
  get ohmWindowLabel(){const window_=this.ohmWindow;return window_?tr(this.lang,window_.zh,window_.en):'';}
+ // Start the dated local snapshot one zoom level before it is visible.
+ // The readJSON cache shares this request with ensureOhm; no duplicate download.
+ warmDetail(){
+  if(!this.enabled||this.modern||!this.atlas.showBorders||this.dead||this.atlas.destroyed||this.map.getZoom()<REGIONAL_MIN_ZOOM-1)return;
+  const window_=this.ohmWindow;if(!window_?.years.includes(Number(this.year)))return;
+  const url=window_.root+'year-'+this.year+'.json.gz';if(this.warmURL===url)return;this.warmURL=url;
+  readRegionalSnapshot(window_,this.year).catch(()=>{if(this.warmURL===url)this.warmURL=null;});
+ }
+ deferOnline(delay=4000){
+  if(this.liveWarmTimer||this.map.getSource(SOURCE))return;
+  this.liveWarmTimer=setTimeout(()=>{this.liveWarmTimer=null;if(!this.eligible||this.failed)return;this.ensure();this.applyFilters();this.visibility();this.requestRender();},delay);
+ }
+ get frozenFirst(){return this.ohmEligible&&!this.ohmReady&&['loading','ready'].includes(this.ohmState);}
+ get overviewContext(){return this.active&&this.mode==='auto'&&!this.coverageEnough;}
  get ohmEligible(){const window_=this.ohmWindow;return this.eligible&&!!window_&&window_.years.includes(Number(this.year));}
  ensure(){
   if(this.map.getSource(SOURCE))return;
@@ -229,7 +276,7 @@ export class RegionalBoundaries{
   if(this.ohmKey&&this.ohmKey!==key){this.ohmKey=null;this.ohmRenderedKey=null;this.scanKey=null;this.ohmData=null;this.ohmIds=[];const source=this.map.getSource(OHM_SOURCE);if(source)source.setData({type:'FeatureCollection',features:[]});this.applyFilters();this.visibility();}
   this.ohmState='loading';this.ohmRequestKey=key;const request=this.ohmRequest=(this.ohmRequest||0)+1;
   const url=window_.root+'year-'+year+'.json.gz';
-  readJSON(url).then(data=>{
+  readRegionalSnapshot(window_,year).then(data=>{
    if(this.dead||this.atlas.destroyed||request!==this.ohmRequest)return;
    const current=this.ohmWindow;
    if(!current||current.id!==window_.id||this.year!==year){this.ohmState='idle';this.ohmRequestKey=null;this.update();return;}
@@ -266,7 +313,7 @@ export class RegionalBoundaries{
   const coverage=this.ohmCoverage,records=this.ohmData?.metadata?.relationCount??this.features.length;
   if(!coverage)return tr(this.lang,'OHM 固化详图与在线瓦片合并显示；两来源都没有记录的地方留白。','The static OHM extract is merged with the online tiles; wherever both sources are silent the map stays blank.');
   const percent=Math.round((coverage.ratio||0)*100),sparse=coverage.verdict==='sparse';
-  return tr(this.lang,'OHM 固化详图（'+this.ohmWindowLabel+' · '+this.year+' 年 · '+records+' 条 · 陆地采样覆盖 '+percent+'%'+(sparse?' · 覆盖不足，自动模式仍用概览':'')+'）与在线瓦片合并显示；两来源都没有记录的地方留白。','Static OHM extract ('+this.ohmWindowLabel+' · '+this.year+' · '+records+' records · '+percent+'% of sampled land'+(sparse?' · too sparse, auto mode keeps the overview':'')+') merged with the online tiles; wherever both sources are silent the map stays blank.');
+  return tr(this.lang,'OHM 固化详图（'+this.ohmWindowLabel+' · '+this.year+' 年 · '+records+' 条 · 陆地采样覆盖 '+percent+'%'+(sparse?' · 概览底色衬托局部详图':'')+'）与在线瓦片合并显示；两来源都没有记录的地方留白。','Static OHM extract ('+this.ohmWindowLabel+' · '+this.year+' · '+records+' records · '+percent+'% of sampled land'+(sparse?' · local detail over overview tint':'')+') merged with the online tiles; wherever both sources are silent the map stays blank.');
  }
  // Polities the frozen snapshot checks for and does not find. They are listed as missing rather
  // than drawn from another year or from the global overview.
@@ -286,7 +333,7 @@ export class RegionalBoundaries{
    list.append(term,value);
   }
   const credit=document.createElement('p');credit.className='historical-credit';
-  credit.textContent=tr(this.lang,'依据 OpenHistoricalMap '+(metadata.timestamp||'')+' 快照核对 '+this.year+' 年；留白处按未收录呈现，不补画。','Checked against the OpenHistoricalMap snapshot of '+(metadata.timestamp||'')+' for '+this.year+'; gaps stay unmapped and are never drawn in.');
+  credit.textContent=tr(this.lang,'依据 OpenHistoricalMap '+(metadata.timestamp||'')+' 快照核对 '+this.year+' 年；留白处按未收录呈现，不补画。','Checked against the OpenHistoricalMap snapshot of '+(metadata.timestamp||'')+' for '+this.year+'; detail gaps stay unmapped; the faint background in auto mode comes from the global overview.');
   details.append(summary,list,credit);
   return details;
  }
@@ -298,17 +345,17 @@ export class RegionalBoundaries{
   const labels={updating:['地区详图 · 正在补齐视野…','Regional detail · Updating this view…'],ready:[`地区详图 · ${this.features.length} 条区划`,`Regional detail · ${this.features.length} areas`],partial:[`详图局部覆盖 · ${this.features.length} 条`,`Local detail available · ${this.features.length} areas`],error:['全球疆域 · 详图暂不可用','Global overview · detail unavailable'],empty:['全球疆域 · 此处暂无详图','Global overview · no detail here'],loading:['全球疆域 · 正在读取详图','Global overview · loading detail'],overview:['全球疆域 · 切换来源','Global overview · choose source'],zoom:['全球疆域 · 放大查看详图','Global overview · zoom for detail']};
   this.badge.textContent=this.mode==='halc'?this.halc.title():country?.mode==='cshapes'?country.title(this.lang):tr(this.lang,...(labels[status]||labels.overview));this.badge.title=tr(this.lang,'选择边界来源与查看区划档案','Choose boundary source and browse area records');
   this.switcher.hidden=this.controls.hidden||this.map.getZoom()<REGIONAL_MIN_ZOOM||this.failed&&!this.ohmReady&&this.mode!=='halc'||(!this.detailedActive&&['regional','halc'].includes(this.mode));this.switcher.textContent=this.status==='partial'&&!this.detailedActive?tr(this.lang,'并排对照','Compare detail'):tr(this.lang,this.detailedActive?'对照概览':'查看详图',this.detailedActive?'Compare overview':'View detail');
-  if(status==='ready'&&this.active&&this.coverageEnough===false)this.badge.textContent=tr(this.lang,'局部详图 · '+this.features.length+' 条 · 空白处未收录','Local detail · '+this.features.length+' areas · gaps unmapped');
+  if(status==='ready'&&this.active&&this.coverageEnough===false)this.badge.textContent=this.overviewContext?tr(this.lang,'局部详图 · '+this.features.length+' 条 · 概览底色','Local detail · '+this.features.length+' areas · overview tint'):tr(this.lang,'局部详图 · '+this.features.length+' 条 · 空白处未收录','Local detail · '+this.features.length+' areas · gaps unmapped');
   if(status==='partial'&&this.ohmReady&&this.ohmVerdict==='sparse')this.badge.textContent=tr(this.lang,'该年固化详图偏少 · '+this.features.length+' 条','Sparse dated detail · '+this.features.length+' areas');
   if(this.ohmReady&&this.active&&!this.liveFrameReady)this.badge.textContent+=tr(this.lang,this.failed?' · 在线补充暂不可用':' · 在线补充中',this.failed?' · Online supplement unavailable':' · Online supplement loading');
   this.indexRefresh?.();this.map.getContainer().dispatchEvent(new CustomEvent('regional-status',{bubbles:true}));
  }
  setActive(v){
-  if(v===this.active){this.visibility();return;}this.active=v;
+  if(v===this.active){this.atlas.boundaries?.applyVisibility(this.detailedActive);this.visibility();return;}this.active=v;
   if(this.atlas.boundaries){this.atlas.boundaries.applyVisibility(this.detailedActive);this.visibility();this.atlas.refreshLabels();return;}
   // Switch archives atomically: cross-fading unrelated outlines creates false double borders.
   for(const [id,property]of [['territories','fill-opacity'],['boundary','line-opacity'],['selection','line-opacity'],['selection-fill','fill-opacity']])this.map.setPaintProperty(id,property+'-transition',{duration:0,delay:0});
-  this.map.setPaintProperty('territories','fill-opacity',v?0:['interpolate',['linear'],['zoom'],0,.53,4,.4,9,.2]);
+  this.map.setPaintProperty('territories','fill-opacity',v?(this.overviewContext?.12:0):['interpolate',['linear'],['zoom'],0,.53,4,.4,9,.2]);
   this.map.setPaintProperty('boundary','line-opacity',v?0:['interpolate',['linear'],['zoom'],1,.36,4,.5,9,.4]);
   this.map.setPaintProperty('selection','line-opacity',v?0:1);this.map.setPaintProperty('selection-fill','fill-opacity',v?0:.08);
   this.visibility();this.atlas.refreshLabels();
@@ -323,12 +370,12 @@ export class RegionalBoundaries{
  }
  update(){
   if(this.dead||this.atlas.destroyed)return;
-  this.halc?.update();if(this.ohmEligible)this.ensureOhm();
+  this.halc?.update();this.warmDetail();if(this.ohmEligible)this.ensureOhm();
   const frozenView=this.ohmEligible?this.ohmWindow?.id+'|'+this.year:null;if(this.frozenView!==frozenView){this.frozenView=frozenView;this.applyFilters();this.scanKey=null;}
   if(this.active&&!this.ohmReady&&!this.liveDrawn){this.features=[];this.samples=[];this.setActive(false);}
   const maxLevel=this.map.getZoom()>=8?6:4;if(maxLevel!==this.maxLevel){this.maxLevel=maxLevel;this.applyFilters();}
   if(!this.eligible){this.setActive(false);this.clearLabels();if(!['cshapes','halc'].includes(this.mode)||!this.atlas.showBorders)this.closePopup();this.features=[];this.samples=[];this.scanKey=null;this.setStatus(!this.enabled?'overview':this.modern?'modern':'zoom');}
-  else{if(!this.failed)this.ensure();this.visibility();if(this.active&&!this.map.isSourceLoaded(SOURCE)&&!this.ohmReady)this.beginUpdate();else this.setStatus(this.active?'ready':this.failed&&!this.ohmReady?'error':'loading');this.requestRender();}
+  else{if(!this.failed){if(this.frozenFirst)this.deferOnline();else this.ensure();}this.visibility();if(this.active&&!this.map.isSourceLoaded(SOURCE)&&!this.ohmReady)this.beginUpdate();else this.setStatus(this.active?'ready':this.failed&&!this.ohmReady?'error':'loading');this.requestRender();}
   this.visibility();
  }
  coverage(layers=[IDS[0]],excluded=new Set()){
@@ -362,12 +409,16 @@ export class RegionalBoundaries{
    const layers=[...(frozen?[OHM_LAYERS[0]]:[]),...(live?[IDS[0]]:[])],excluded=new Set(frozen?this.ohmIds:[]);
    const local=frozen?this.map.queryRenderedFeatures({layers:[OHM_LAYERS[0]]}):[],online=live?this.map.queryRenderedFeatures({layers:[IDS[0]]}).filter(f=>!excluded.has(f.properties.osm_id)):[];
    const features=groupRegionalFeatures([...local,...online],this.year,this.maxLevel),samples=features.length?this.coverage(layers,excluded):[];
-   const detailed=coverageAllowsDetail(samples,this.active)&&this.ohmVerdict!=='sparse',show=features.length>0&&(this.mode==='regional'||detailed);
+   const detailed=coverageAllowsDetail(samples,this.active)&&this.ohmVerdict!=='sparse',show=features.length>0;
+   // A partial archive is useful detail too. Keep a quiet overview wash as
+   // context, but remove its competing strokes; never invent missing detail.
    // An incomplete replacement cannot evict a useful previously committed view.
    // This applies only to the same view/year; a completed empty result does clear it.
    if(this.active&&this.committedView===view&&(!live&&!this.failed&&(this.liveDrawn||!show)||!frozen&&this.frozenDrawn&&this.ohmReady)){this.beginUpdate();this.scanKey=key;return;}
    this.features=features;this.samples=samples;this.coverageEnough=detailed;this.liveDrawn=live;this.frozenDrawn=frozen;this.committedView=view;this.scanKey=key;
    this.setActive(show);this.setStatus(!features.length?'empty':show?'ready':'partial');this.refreshLabels();
+   // Let the local frame reach the screen before competing remote requests.
+   if(frozen&&!this.failed&&!this.map.getSource(SOURCE)){this.ensure();this.applyFilters();this.visibility();}
   }finally{this.settling=false;}
  }
  setYear(year,lang){
@@ -441,5 +492,5 @@ export class RegionalBoundaries{
   if(this.ohmState==='failed'){this.removeOhmLayers();this.ohmState='idle';this.ohmKey=null;}
   this.scanKey=null;this.update();
  }
- destroy(){this.dead=true;this.ohmRequest=(this.ohmRequest||0)+1;this.renderPending=false;this.closePopup();this.halc.destroy();this.removeOhmLayers();this.clearLabels();this.controls.remove();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
+ destroy(){clearTimeout(this.liveWarmTimer);this.liveWarmTimer=null;this.dead=true;this.ohmRequest=(this.ohmRequest||0)+1;this.renderPending=false;this.closePopup();this.halc.destroy();this.removeOhmLayers();this.clearLabels();this.controls.remove();for(const [event,fn]of this.listeners)this.map.off(event,fn);}
 }

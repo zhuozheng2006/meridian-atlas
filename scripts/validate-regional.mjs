@@ -44,8 +44,8 @@ test('Failed source restores overview, hides partial tiles, retries and removes 
 test('Turning off detail or entering modern reference restores the territory overview',()=>{
  for(const action of ['toggle','setModern']){const x=make();x.setZoom(7);const l=new RegionalBoundaries(x.atlas);x.setFeatures([{properties:p}]);l.settle(true);l[action](action==='setModern');assert(!l.active);assert([...x.layers.values()].every(v=>v.layout.visibility==='none'));}
 });
-test('A small detailed area no longer hides the whole overview; a manual choice remains available',()=>{
- const x=make();x.setZoom(7);x.setCoverage(.2);x.setFeatures([{properties:p}]);const r=new RegionalBoundaries(x.atlas);x.setFeatures([{properties:p}]);r.settle(true);assert.equal(r.status,'partial');assert.equal(r.active,false);assert.equal(x.paint.get('regional-wash:fill-opacity'),0);r.setMode('regional');r.settle(true);assert.equal(r.active,true);assert.equal(r.mode,'regional');r.setMode('overview');assert.equal(r.active,false);assert.equal(r.status,'overview');assert([...x.layers.values()].every(v=>v.layout.visibility==='none'));
+test('Partial auto detail appears over overview tint without competing overview strokes',()=>{
+ const x=make();x.setZoom(7);x.setCoverage(.2);x.setFeatures([{properties:p}]);const r=new RegionalBoundaries(x.atlas);x.setFeatures([{properties:p}]);r.settle(true);assert.equal(r.status,'ready');assert.equal(r.active,true);assert.equal(r.overviewContext,true);assert.equal(x.paint.get('territories:fill-opacity'),.12);assert.equal(x.paint.get('boundary:line-opacity'),0);r.setMode('regional');r.settle(true);assert.equal(r.active,true);assert.equal(r.mode,'regional');r.setMode('overview');assert.equal(r.active,false);assert.equal(r.status,'overview');assert([...x.layers.values()].every(v=>v.layout.visibility==='none'));
 });
 test('Auto coverage uses land samples, hysteresis, quadrants and the map center',()=>{
  const samples=Array.from({length:100},(_,i)=>({land:true,covered:i<80,quadrant:i%4,central:i<9}));assert(coverageAllowsDetail(samples));samples[79].covered=false;assert(!coverageAllowsDetail(samples));assert(coverageAllowsDetail(samples,true));samples.forEach((s,i)=>s.covered=i<64);assert(!coverageAllowsDetail(samples,true));assert(!coverageAllowsDetail(samples.map(s=>({...s,land:false})),true));assert(!coverageAllowsDetail(samples.slice(0,4)),true);const center=samples.map((s,i)=>({...s,covered:i>=9}));assert(!coverageAllowsDetail(center));const quadrants=samples.map(s=>({...s,covered:s.quadrant!==0}));assert(!coverageAllowsDetail(quadrants,true));
@@ -53,6 +53,11 @@ test('Auto coverage uses land samples, hysteresis, quadrants and the map center'
 test('Visible tile fragments stay attached to their exact record; national labels have priority',()=>{
  const small={type:'Polygon',coordinates:[[[0,0],[1,0],[1,1],[0,1],[0,0]]]},large={type:'Polygon',coordinates:[[[10,10],[20,10],[20,20],[10,20],[10,10]]]};
  const features=groupRegionalFeatures([{properties:p,geometry:small},{properties:p,geometry:large},{properties:{...p,osm_id:-99,admin_level:2},geometry:large}],1492);assert.equal(features.length,2);assert.equal(features[0].properties.admin_level,2);assert.equal(features[1].fragments.length,2);const anchor=regionalAnchor(features[1],null);assert(anchor.coordinate[0]>10);assert.equal(groupRegionalFeatures([{properties:{...p,osm_id:undefined},geometry:small}],1492).length,0);
+});
+test('Listing regional records keeps tile coordinate getters lazy until an anchor is needed',()=>{
+ let reads=0;const f={properties:p,get geometry(){reads++;return {type:'Polygon',coordinates:[[[0,0],[1,0],[1,1],[0,1],[0,0]]]};}};
+ const grouped=groupRegionalFeatures([f,f],1492);assert.equal(reads,0);assert.equal(grouped[0].fragments.length,2);
+ regionalAnchor(grouped[0],null);assert.equal(reads,2);regionalAnchor(grouped[0],null);assert.equal(reads,2);
 });
 test('County-level detail appears at z8 and clears when zooming back out',()=>{
  const x=make();x.setZoom(7);const county={properties:{...p,admin_level:6}},r=new RegionalBoundaries(x.atlas,{mode:'regional'});x.setFeatures([county]);r.settle(true);assert.equal(r.features.length,0);x.setZoom(8);r.update();r.settle(true);assert.equal(r.maxLevel,6);assert.equal(r.features.length,1);x.setZoom(7);r.update();r.settle(true);assert.equal(r.maxLevel,4);assert.equal(r.features.length,0);

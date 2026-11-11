@@ -3,13 +3,15 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import {regionalTransportURL,decodeRegionalTransport} from '../public/regional-transport.js';
+import {beginMapForeground} from '../public/map-load-priority.js';
 
 const source=fs.readFileSync(new URL('../public/regional-boundaries.js',import.meta.url),'utf8');
 const code=source.replace(/^import[^\n]*\n/gm,'').replace(/export /g,'')+'\nglobalThis.Subject=RegionalBoundaries;';
 const flush=async()=>{for(let i=0;i<8;i++)await Promise.resolve();};
 function make(){
  const requests=[],evictions=[],writes=[];
- const ctx=vm.createContext({location:{protocol:'https:'},readJSON:url=>new Promise((resolve,reject)=>requests.push({url,resolve,reject})),forgetJSON:url=>evictions.push(url)});
+ const ctx=vm.createContext({regionalTransportURL,decodeRegionalTransport,beginMapForeground,location:{protocol:'https:'},readJSON:url=>new Promise((resolve,reject)=>requests.push({url,resolve,reject})),forgetJSON:url=>evictions.push(url)});
  vm.runInContext(code,ctx);
  const s=Object.create(ctx.Subject.prototype);
  Object.assign(s,{year:1500,lang:'bi',atlas:{destroyed:false},ohmState:'idle',ohmKey:null,window:{id:'a',root:'a/',years:[1492,1500]},map:{getSource:()=>({setData:data=>writes.push(data)})},
