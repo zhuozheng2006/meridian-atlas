@@ -48,7 +48,16 @@ def cache_update():
         first=module.AtlasHandler.compressed(None,str(p));must(gzip.decompress(first)==a)
         old=p.stat().st_mtime_ns;p.write_bytes(b);os.utime(p,ns=(old+10000000,old+10000000))
         second=module.AtlasHandler.compressed(None,str(p));must(gzip.decompress(second)==b);must(first!=second)
+def native_fingerprint():
+    file='year-1492.json.gz';body=(ROOT/'public/data/native'/file).read_bytes()
+    route='/__atlas-native/'+file+'?sha256='+sha(body)
+    code,h,b=request(route);must(code==200);must(b==body);must(h['cache-control']=='private, max-age=31536000, immutable')
+    code,h,b=request(route,method='HEAD');must(code==200);must(not b);must(int(h['content-length'])==len(body))
+    must(request('/__atlas-native/'+file+'?sha256=wrong')[0]==412)
+    must(request('/__atlas-native/'+file)[0]==412)
+    must(request('/__atlas-native/missing.json.gz?sha256=wrong')[0]==404)
 try:
+    check('Pinned native route preserves bytes, private cache and rejects wrong fingerprints',native_fingerprint)
     check('PBF gzip response preserves every decoded byte, MIME and wire length',compressed)
     check('HEAD uses the same compressed representation headers and no body',head)
     check('Identity returns original PBF bytes with negotiated Vary',lambda:identity({'Accept-Encoding':'identity'}))

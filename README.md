@@ -2,7 +2,7 @@
 
 中英文双语世界历史图集。沿时间轴浏览历史疆域，在地形与城市之间探索国家、文明、事件及原始资料。
 
-**当前版本：3.58.0** · [交接与验证记录](docs/HANDOFF-3.58.md) · [文档导航](docs/INDEX.md) · [来源与许可](ATTRIBUTIONS.md)
+**当前版本：3.58.1** · [交接与验证记录](docs/HANDOFF-3.58.md) · [文档导航](docs/INDEX.md) · [来源与许可](ATTRIBUTIONS.md)
 
 ![孔雀王朝地图与学术原图入口](docs/verification-3.58/browser/maurya.png)
 

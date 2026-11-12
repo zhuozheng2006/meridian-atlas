@@ -1,0 +1,26 @@
+{
+  "source": {
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "checkout_path": "/Users/zane/meridian_atlas/world-history-atlas",
+    "commit_sha": "eedddfabc4ac5bb5301bb0a7e585dc255f0faf29",
+    "archive": "/private/tmp/meridian-3.58.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6af531a9d8d88191b23d9e995a01b6f5",
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "title": "经纬纪 · Meridian Atlas",
+    "version_id": "appgprj_6abed10c25288191b15cf376ca0c8c66~appgver_cadaf8e2f48881919d5122c337d3ffea",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://meridian-world-history.zhuozheng2006.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6abed10c25288191b15cf376ca0c8c66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-12T03:25:55.005019+00:00"
+  },
+  "status": "published-but-cache-verification-failed",
+  "finding": "Asset-first hosting served bootstrap files directly, bypassing Worker fingerprint validation and private immutable headers. Temporal R2 packs behaved as intended.",
+  "next": "3.58.1 uses a virtual bootstrap route handled by the Worker and local server."
+}

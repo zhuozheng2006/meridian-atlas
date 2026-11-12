@@ -120,12 +120,18 @@ export function createAtlasWorker(manifest,{importUntil=0,staticManifest=null,bo
    }catch(error){console.error('Lake storage request failed',entry.file,error?.name);return fail('Lake detail temporarily unavailable',503);}
   }
   if(request.method!=='GET'&&request.method!=='HEAD')return fail('Method not allowed',405);
-  const file=url.pathname.slice(1),fingerprint=Object.hasOwn(bootstrapFingerprints,file)?bootstrapFingerprints[file]:null;
-  if(fingerprint&&url.searchParams.has('sha256')){
+  // Asset-first hosting bypasses the Worker for existing static paths. This
+  // virtual route guarantees that fingerprint validation and cache headers run.
+  const bootstrapRoute='/__atlas-native/';
+  const file=path.startsWith(bootstrapRoute)?'data/native/'+path.slice(bootstrapRoute.length):null;
+  const fingerprint=file&&Object.hasOwn(bootstrapFingerprints,file)?bootstrapFingerprints[file]:null;
+  if(path.startsWith(bootstrapRoute)){
+   if(!fingerprint)return fail('Not found',404);
    if(url.searchParams.get('sha256')!==fingerprint)return fail('Asset fingerprint mismatch',412);
    if(!['GET','HEAD'].includes(request.method))return fail('Method not allowed',405);
    if(!env.ASSETS)return fail('Atlas resources temporarily unavailable',503);
-   const response=await env.ASSETS.fetch(request);if(response.status!==200&&response.status!==304)return response;
+   const assetURL=new URL(request.url);assetURL.pathname='/'+file;assetURL.search='';
+   const response=await env.ASSETS.fetch(new Request(assetURL,request));if(response.status!==200&&response.status!==304)return response;
    const headers=new Headers(response.headers);headers.set('Cache-Control','private, max-age=31536000, immutable');
    return new Response(response.body,{status:response.status,headers});
   }

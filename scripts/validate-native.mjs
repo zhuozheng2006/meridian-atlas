@@ -299,7 +299,7 @@ if(!process.argv.includes('--case')){
 }else{
  const requests=[],overrides=new Map(),gates=new Map(),stats={inFlight:0,maxInFlight:0};
  globalThis.fetch=async (url,options={})=>{
-  const transportURL=String(url);url=transportURL.split('?')[0];const request={url,transportURL,bytes:0,priority:options.priority};requests.push(request);
+  const transportURL=String(url);url=transportURL.split('?')[0].replace(/^__atlas-native\//,'data/native/');const request={url,transportURL,bytes:0,priority:options.priority};requests.push(request);
   stats.inFlight++;stats.maxInFlight=Math.max(stats.maxInFlight,stats.inFlight);
   try{
    const barrier=gates.get(url);if(barrier){barrier.reached=true;await barrier.promise;}

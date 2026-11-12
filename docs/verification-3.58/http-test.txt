@@ -1,7 +1,8 @@
 
-> meridian-world-history-atlas@3.58.0 test:http
+> meridian-world-history-atlas@3.58.1 test:http
 > python3 scripts/validate-local-http.py
 
+PASS Pinned native route preserves bytes, private cache and rejects wrong fingerprints
 PASS PBF gzip response preserves every decoded byte, MIME and wire length
 PASS HEAD uses the same compressed representation headers and no body
 PASS Identity returns original PBF bytes with negotiated Vary
@@ -15,4 +16,4 @@ PASS Existing .gz archives are never double-encoded
 PASS Identity HEAD has original length and no body
 PASS Existing HTML compression remains byte-exact
 PASS Compression cache invalidates a changed file
-13/13 local HTTP checks passed
+14/14 local HTTP checks passed

@@ -2,8 +2,8 @@
 """Serve the atlas locally. Bundled layers work offline; fine online layers are optional."""
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-from urllib.parse import urlsplit
-import argparse, functools, gzip, io, os, threading, webbrowser
+from urllib.parse import urlsplit, parse_qs
+import argparse, functools, gzip, hashlib, io, json, os, threading, webbrowser
 
 # Text and MVT assets ship uncompressed on disk; gzip on the fly cuts wire size.
 # HALC's largest z6 tile is 2.27 MB -> 1.16 MB without changing decoded bytes. Files that are
@@ -50,6 +50,26 @@ class AtlasHandler(SimpleHTTPRequestHandler):
         return body
 
     def send_head(self):
+        # Match the production Worker route without changing source asset paths.
+        self.pinned_native=False
+        route=urlsplit(self.path)
+        if route.path.startswith('/__atlas-native/'):
+            file=route.path[len('/__atlas-native/'):]
+            manifest=json.loads((Path(self.directory)/'data/native/manifest.json').read_text())
+            item=next((f for f in manifest['bootstrap'].values() if f['file']==file),None)
+            if not item:
+                self.send_error(404);return None
+            if parse_qs(route.query).get('sha256')!=[item['gzipSha256']]:
+                self.send_error(412);return None
+            raw=(Path(self.directory)/'data/native'/file).read_bytes()
+            if hashlib.sha256(raw).hexdigest()!=item['gzipSha256']:
+                self.send_error(503);return None
+            self.pinned_native=True
+            self.send_response(200)
+            self.send_header('Content-Type','application/octet-stream')
+            self.send_header('Content-Length',str(len(raw)))
+            self.end_headers()
+            return io.BytesIO(raw)
         path=self.translate_path(urlsplit(self.path).path)
         compressible=os.path.isfile(path) and path.lower().endswith(COMPRESSIBLE)
         self.vary_encoding=compressible
@@ -69,6 +89,7 @@ class AtlasHandler(SimpleHTTPRequestHandler):
         return io.BytesIO(body)
 
     def end_headers(self):
+        if getattr(self,'pinned_native',False):self.send_header('Cache-Control','private, max-age=31536000, immutable')
         if getattr(self,'vary_encoding',False):self.send_header('Vary','Accept-Encoding')
         super().end_headers()
 

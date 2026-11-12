@@ -1,8 +1,8 @@
 
-> meridian-world-history-atlas@3.58.0 test
+> meridian-world-history-atlas@3.58.1 test
 > node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-narrative-metadata.mjs && node scripts/validate-seshat-research.mjs && python3 scripts/seshat-polaris/verify_polaris.py --data public/data/seshat-polaris-2026 --report docs/verification-3.58/polaris/source-verification.json && python3 scripts/seshat-polaris/build_contract.py --data-dir public/data/seshat-polaris-2026 --output public/polaris-contract.js --check && node scripts/validate-polaris-store.mjs --report docs/verification-3.58/polaris/store-verification.json && POLARIS_WORKER_REPORT=docs/verification-3.58/polaris/worker-verification.json node scripts/validate-polaris-worker.mjs && node scripts/validate-polaris-pagination.mjs && python3 scripts/build_saved_text_catalog.py --repo . --check && python3 public/data/research-evidence/readings-3.44/verify.py . public/data/research-evidence/readings-3.44 docs/verification-3.58/reading-sources-3.44.json && python3 public/data/research-evidence/readings-3.45/verify.py . public/data/research-evidence/readings-3.45 docs/verification-3.58/reading-sources.json && python3 scripts/validate_hammurabi_text.py && python3 scripts/validate_offline_texts.py && node scripts/build-research-readings.mjs --check && node scripts/validate-research-readings.mjs && node scripts/validate-original-reader.mjs && node scripts/validate-reader-continuity.mjs && POLARIS_SEMANTIC_REPORT=docs/verification-3.58/semantic-evidence/verification.json node scripts/validate-polaris-semantic-evidence.mjs && node scripts/validate-polaris-vocabulary.mjs && node scripts/validate-polaris-polity-names.mjs && POLARIS_READER_REPORT=docs/verification-3.58/polaris/ui-verification.json node scripts/validate-polaris-reader.mjs && node scripts/validate-research-polity-names.mjs && node scripts/validate-research-format.mjs && node scripts/validate-research-entry.mjs && node scripts/validate-map-runtime.mjs && node scripts/validate-map-worker-configuration.mjs && node scripts/validate-research-routing.mjs && node scripts/validate-research-versions.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-point-layer-gate.mjs && node scripts/validate-native-bundles.mjs && node scripts/validate-global-frame-cache.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-boundary-mesh.mjs && node scripts/validate-border-envelopes.mjs && node scripts/places/build-attested-places.mjs --check && node scripts/places/validate-attested-places.mjs . docs/verification-3.58/attested-places.json && node scripts/places/validate-cities-3.47.mjs . docs/verification-3.58/cities-source-runtime.json && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-place-corrections.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-physical-grid.mjs && node scripts/validate-view-state.cjs && HALC_LAZY_REPORT=docs/verification-3.58/halc-lazy-fragments.json node scripts/validate-halc-lazy-fragments.mjs && HALC_BUCKET_REPORT=docs/verification-3.58/halc-shared-buckets.json node scripts/validate-halc-shared-buckets.mjs && HALC_SELECTION_REPORT=docs/verification-3.58/halc-selection.json node scripts/validate-halc-selection.mjs && node scripts/validate-halc-posttask.mjs && HALC_LABEL_SCHEDULER_REPORT=docs/verification-3.58/halc-label-scheduler.json node scripts/validate-halc-label-scheduler.mjs && HALC_FALLBACK_REPORT=docs/verification-3.58/halc-fallback-labels.json node scripts/validate-halc-fallback-labels.mjs && node scripts/validate-halc-label-lifecycle.mjs && node scripts/validate-halc-label-context-recovery.mjs && node scripts/validate-halc-style-reload.mjs && node scripts/validate-halc-render-readiness.mjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-halc-landscape-reader.mjs && node scripts/validate-halc-landscape.mjs && node scripts/patch-maplibre-landscape-dataurl.mjs --check && node scripts/validate-halc-landscape-assets.mjs && node scripts/validate-halc-landscape-worker.mjs && node scripts/validate-halc-landscape-real-data.mjs && node scripts/validate-maplibre-landscape-dataurl.mjs && python3 scripts/validate-halc-landscape.py && node scripts/validate-halc-cache.mjs && node scripts/validate-halc-regions.mjs && node scripts/validate-halc-regions-lazy-lifecycle.mjs && node scripts/validate-halc-regions-lazy.mjs && node scripts/validate-halc-worker-pool.mjs && node scripts/validate-halc-continuity.mjs && REGIONAL_FROZEN_REPORT=docs/verification-3.58/regional-frozen.json node scripts/validate-regional-frozen.mjs && node scripts/validate-regional-continuity.mjs && node scripts/validate-ohm-requests.mjs && node scripts/validate-boundary-comparison.mjs && node scripts/validate-boundary-app-races.mjs && node scripts/validate-lakes.mjs && node scripts/validate-lake-readiness.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && python3 scripts/verify-halc-regions-data.py --data-dir public/data/halc-regions --integrity scripts/data-integrity/halc-regions.integrity.json --audit scripts/data-integrity/halc-regions.geometry-audit.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/ohm/verify-ohm-1500.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-cross-layer.mjs && node scripts/validate-place-return.cjs && CITY_READER_REPORT=docs/verification-3.58/city-reader-navigation.json node scripts/validate-city-reader-navigation.mjs && node scripts/build-polity-display-names.mjs --check && node scripts/validate-polity-display-names.mjs && node scripts/validate-events-loading.mjs && node scripts/validate-identity-ledger.mjs && node scripts/validate-border-sampling.mjs && node scripts/build-regional-transport.mjs --check && node scripts/validate-regional-loading.mjs && node scripts/validate-automatic-boundaries.mjs && node scripts/ohm/verify-britain.mjs && node scripts/validate-country-display-names.mjs && node scripts/validate-country-cache.mjs && node scripts/validate-chgis.mjs && node scripts/validate-border-viewport.mjs && node scripts/validate-border-plan.mjs && node scripts/validate-china-prefectures.mjs && node scripts/validate-early-asia.mjs && node scripts/validate-json-streaming.mjs && node scripts/build-native-content-hashes.mjs --check && node scripts/validate-content-cache.mjs && node scripts/validate-research-map-plates.mjs && node scripts/validate-overview-reuse.mjs
 
-PASS linked asset revision 3.58.0-beae9dc933ae
+PASS linked asset revision 3.58.1-c7e43da44e1e
 PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
 PASS Time windows use civil years without year zero
 PASS Historical coverage never extrapolates before or after source coverage
@@ -474,7 +474,7 @@ PASS bootstrap_cache_release {"year":1492,"sharedPendingRequests":1,"nativeCache
 PASS temporal_cache_release {"year":1450,"sharedPendingRequests":1,"nativeCacheHitRequests":0,"releasedResolvedResource":true,"nativeReferencesPreserved":133}
 PASS persistent_boot_failure_independent_fallback {"permanentlyFailedOptionalPacks":2,"independentFallbackRecords":136,"bootstrapAttempts":1}
 PASS bootstrap_validates_all_cached_entries {"unrequestedInvalidGeometryExcluded":true,"independentRecoverySucceeded":true}
-PASS slow_pack_waits_without_competing_overview {"controlledDelayMs":1548,"completeFirstFrame":true,"nativePackRequests":1,"overviewRequests":0,"largeIndexRequests":0}
+PASS slow_pack_waits_without_competing_overview {"controlledDelayMs":1546,"completeFirstFrame":true,"nativePackRequests":1,"overviewRequests":0,"largeIndexRequests":0}
 PASS slow_pack_late_result_after_navigation {"lateNativeRenderCount":0,"latestYear":1666,"overviewRequests":0}
 PASS temporal_validates_entire_payload {"allPackMappingsValidated":true,"independentFallbackRecords":8}
 PASS collision_all {"collisionGroups":59,"records":149,"networkRequests":121}
@@ -533,13 +533,13 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
     {
       "year": 1492,
       "records": 136,
-      "inputUTF8Bytes": 579124,
-      "derivedUTF8Bytes": 18752670,
-      "derivedSHA256": "877f7cdf6aaafd53a6a69787739a68dc37a47e084d6c882ac81419aa71573949",
+      "inputUTF8Bytes": 294533,
+      "derivedUTF8Bytes": 18177961,
+      "derivedSHA256": "1b8479eb39a24191170d20eb9e5fcce95a261108315790edeaa761e36218630a",
       "metrics": [
         {
           "lang": "bi",
-          "synchronousMs": 354.498417,
+          "synchronousMs": 346.174666,
           "setDataCalls": 1,
           "cache": {
             "builds": 1,
@@ -552,7 +552,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
         },
         {
           "lang": "en",
-          "synchronousMs": 0.7000419999999394,
+          "synchronousMs": 0.7278329999999187,
           "setDataCalls": 0,
           "cache": {
             "builds": 1,
@@ -565,7 +565,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
         },
         {
           "lang": "zh",
-          "synchronousMs": 0.2737499999998363,
+          "synchronousMs": 0.42141700000001947,
           "setDataCalls": 0,
           "cache": {
             "builds": 1,
@@ -578,7 +578,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
         },
         {
           "lang": "bi",
-          "synchronousMs": 0.2824590000000171,
+          "synchronousMs": 0.3738340000002154,
           "setDataCalls": 0,
           "cache": {
             "builds": 1,
@@ -740,7 +740,7 @@ PASS Actual 1500 curved: exact segment set, once-only mesh, source immutability 
 }
 {
   "result": "checked",
-  "generatedAt": "2026-11-12T03:11:05.366Z",
+  "generatedAt": "2026-11-12T03:29:50.208Z",
   "records": 17,
   "enhancements": 2,
   "deferred": 4,
@@ -927,9 +927,9 @@ PASS The asynchronous local-fetch API retries after failure, deduplicates and re
 {
   "snapshot": {
     "path": "/Users/zane/meridian_atlas/world-history-atlas/public/geography.js",
-    "sha256": "acd9efeafb0f65d26cc80f41dba3bdf5b4894599bd5071e3b4c798b937f584c3",
-    "mapEngineSha256": "62729dea1d6e7c09744f23bdbd70f3455c3fd38e87f1195385fd93543ba98cad",
-    "capturedAt": "2026-11-12T03:11:06.651Z"
+    "sha256": "5addfc13a80088af2fb613bcc042a164b1f75ef715584a3af1f0f2afb6d34fd6",
+    "mapEngineSha256": "74446e245e77e1506ed71e3f33ced7e63aba2efc30d4d0174152c6cd822f55ec",
+    "capturedAt": "2026-11-12T03:29:51.540Z"
   },
   "counts": {
     "pass": 31,
@@ -1287,89 +1287,89 @@ PASS Real-anchor locality job yields, preserves displayed labels, and late regio
       "name": "fallback low zoom north",
       "candidates": 401,
       "markers": 2,
-      "baselineMs": 16.49425,
-      "workMs": 13.928124999999987,
-      "maxSliceMs": 3.0506250000000037,
-      "maxAnchorMs": 0.1633329999999944,
+      "baselineMs": 18.567082999999997,
+      "workMs": 16.373042000000027,
+      "maxSliceMs": 3.3757499999999965,
+      "maxAnchorMs": 0.19058300000000372,
       "slices": 7,
-      "elapsedMs": 21.485917
+      "elapsedMs": 23.705583000000004
     },
     {
       "name": "fallback north with collision panels and bilingual labels",
       "candidates": 401,
       "markers": 2,
-      "baselineMs": 12.975209000000007,
-      "workMs": 12.916501000000011,
-      "maxSliceMs": 2.458167000000003,
-      "maxAnchorMs": 0.1557499999999976,
+      "baselineMs": 14.476957999999996,
+      "workMs": 22.34941699999996,
+      "maxSliceMs": 3.942542000000003,
+      "maxAnchorMs": 0.3067500000000223,
       "slices": 7,
-      "elapsedMs": 21.565875000000005
+      "elapsedMs": 32.439875
     },
     {
       "name": "fallback east clipped across viewport",
       "candidates": 1376,
       "markers": 9,
-      "baselineMs": 50.01595900000001,
-      "workMs": 48.29695999999987,
-      "maxSliceMs": 2.6932079999999985,
-      "maxAnchorMs": 0.16179199999999128,
+      "baselineMs": 59.28645800000001,
+      "workMs": 57.554457999999954,
+      "maxSliceMs": 4.1983339999999885,
+      "maxAnchorMs": 0.35370799999998326,
       "slices": 22,
-      "elapsedMs": 74.38437499999998
+      "elapsedMs": 84.11149999999998
     },
     {
       "name": "region ready low zoom",
       "candidates": 2,
       "markers": 1,
-      "baselineMs": 0.10775000000001,
-      "workMs": 0.12033399999995709,
-      "maxSliceMs": 0.12033399999995709,
-      "maxAnchorMs": 0.07045800000003055,
+      "baselineMs": 0.15195799999997917,
+      "workMs": 0.0929159999999456,
+      "maxSliceMs": 0.0929159999999456,
+      "maxAnchorMs": 0.06845900000001848,
       "slices": 1,
-      "elapsedMs": 1.3394999999999868
+      "elapsedMs": 1.3144159999999943
     },
     {
       "name": "Amsterdam local high zoom",
       "candidates": 304,
       "markers": 12,
-      "baselineMs": 4.955291999999986,
-      "workMs": 4.71670800000004,
-      "maxSliceMs": 1.9193330000000515,
-      "maxAnchorMs": 0.16420800000003055,
+      "baselineMs": 5.2922080000000165,
+      "workMs": 5.563709000000017,
+      "maxSliceMs": 2.173249999999996,
+      "maxAnchorMs": 0.17754200000001674,
       "slices": 5,
-      "elapsedMs": 10.63416699999999
+      "elapsedMs": 11.583833000000027
     },
     {
       "name": "Antwerp local high zoom bilingual collisions",
       "candidates": 61,
       "markers": 12,
-      "baselineMs": 2.2546670000000404,
-      "workMs": 2.2155839999999785,
-      "maxSliceMs": 2.2155839999999785,
-      "maxAnchorMs": 0.1560000000000059,
+      "baselineMs": 2.591415999999981,
+      "workMs": 2.6601249999999936,
+      "maxSliceMs": 2.6601249999999936,
+      "maxAnchorMs": 0.20508399999999938,
       "slices": 1,
-      "elapsedMs": 3.4115830000000074
+      "elapsedMs": 3.7894999999999754
     },
     {
       "name": "Brussels local partly offscreen",
       "candidates": 153,
       "markers": 12,
-      "baselineMs": 6.006583999999975,
-      "workMs": 6.211415999999986,
-      "maxSliceMs": 2.7507499999999823,
-      "maxAnchorMs": 0.25029200000000174,
+      "baselineMs": 5.906750000000045,
+      "workMs": 6.0176250000000095,
+      "maxSliceMs": 2.6027499999999577,
+      "maxAnchorMs": 0.2377920000000131,
       "slices": 3,
-      "elapsedMs": 8.317375000000027
+      "elapsedMs": 9.593291000000022
     },
     {
       "name": "Amsterdam duplicate tile fragments stable ordering",
       "candidates": 304,
       "markers": 12,
-      "baselineMs": 9.181457999999964,
-      "workMs": 9.53537499999993,
-      "maxSliceMs": 3.9662500000000023,
-      "maxAnchorMs": 0.35287500000004,
+      "baselineMs": 10.01070900000002,
+      "workMs": 9.848957999999811,
+      "maxSliceMs": 3.857833000000028,
+      "maxAnchorMs": 0.32695799999999053,
       "slices": 5,
-      "elapsedMs": 15.547208000000012
+      "elapsedMs": 15.692207999999937
     }
   ]
 }
@@ -1653,8 +1653,8 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
       "groups": 2,
       "points": 2752,
       "qualifyingGroups": 2,
-      "eagerGroupMs": 1.3732910000000018,
-      "lazyGroupMs": 0.02558400000000205,
+      "eagerGroupMs": 1.3910000000000053,
+      "lazyGroupMs": 0.027459000000000344,
       "eagerColdGeometry": 2,
       "lazyColdBeforeLabels": 0,
       "labelColdGeometry": 2,
@@ -1666,12 +1666,12 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
         "computed": 2,
         "retained": 2,
         "slices": 1,
-        "workMs": 1.443792000000002,
-        "maxSliceMs": 1.443792000000002,
-        "maxAnchorMs": 1.1674170000000004,
-        "sortMs": 0.005916999999996619,
+        "workMs": 1.4748329999999967,
+        "maxSliceMs": 1.4748329999999967,
+        "maxAnchorMs": 1.180500000000002,
+        "sortMs": 0.005584000000006029,
         "canceled": false,
-        "elapsedMs": 2.795250000000003
+        "elapsedMs": 2.8143749999999983
       },
       "exactGeometrySha256": "ddf24d2234e5ba5731c322a01a1cfb2a39e273b107895f6a1460fd64aa76a65a",
       "geometryJsonBytes": 105721
@@ -1682,8 +1682,8 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
       "groups": 103,
       "points": 168321,
       "qualifyingGroups": 35,
-      "eagerGroupMs": 63.269417,
-      "lazyGroupMs": 0.0702089999999913,
+      "eagerGroupMs": 66.80825,
+      "lazyGroupMs": 0.11095799999999656,
       "eagerColdGeometry": 103,
       "lazyColdBeforeLabels": 0,
       "labelColdGeometry": 35,
@@ -1694,13 +1694,13 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
         "candidates": 35,
         "computed": 35,
         "retained": 35,
-        "slices": 9,
-        "workMs": 52.18983600000003,
-        "maxSliceMs": 9.393833999999984,
-        "maxAnchorMs": 5.4675829999999905,
-        "sortMs": 0.00899999999998613,
+        "slices": 10,
+        "workMs": 56.41825099999997,
+        "maxSliceMs": 7.929292000000004,
+        "maxAnchorMs": 6.14416700000001,
+        "sortMs": 0.009541999999981954,
         "canceled": false,
-        "elapsedMs": 61.35708299999999
+        "elapsedMs": 68.41275000000002
       },
       "exactGeometrySha256": "7cf388df5726ec849379f83a0c0e3d3dda82b0e875218b3ba42b40f32b0bb6ee",
       "geometryJsonBytes": 6459321
@@ -1711,8 +1711,8 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
       "groups": 152,
       "points": 253101,
       "qualifyingGroups": 54,
-      "eagerGroupMs": 88.99783300000001,
-      "lazyGroupMs": 0.10287499999998317,
+      "eagerGroupMs": 100.82808399999999,
+      "lazyGroupMs": 0.09791699999999537,
       "eagerColdGeometry": 185,
       "lazyColdBeforeLabels": 0,
       "labelColdGeometry": 75,
@@ -1724,12 +1724,12 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
         "computed": 54,
         "retained": 54,
         "slices": 15,
-        "workMs": 78.61112400000007,
-        "maxSliceMs": 9.384250000000009,
-        "maxAnchorMs": 7.084791999999993,
-        "sortMs": 0.01125000000001819,
+        "workMs": 88.0040830000001,
+        "maxSliceMs": 11.25491599999998,
+        "maxAnchorMs": 7.515041999999994,
+        "sortMs": 0.020959000000004835,
         "canceled": false,
-        "elapsedMs": 94.671334
+        "elapsedMs": 106.13333399999999
       },
       "exactGeometrySha256": "099c6c377fd24bc20ce5d8cefa088737ab400a42d34974cfbdb621e4b5c47643",
       "geometryJsonBytes": 9714132
@@ -1853,9 +1853,9 @@ PASS A manual year request started after cancellation wins both map and app comm
 PASS The old alignment finally cannot clear the sentinel for a new operation
 PASS Successful right-origin comparison still adopts the right year and reuses the pair
 {
-  "checkedAt": "2026-11-12T03:11:23.062Z",
+  "checkedAt": "2026-11-12T03:30:09.045Z",
   "negativeControl": false,
-  "appSha256": "40a81053a32b1f3f5b2db08ad88cd5f43f3d7da93f5ab28e13a8296700276320",
+  "appSha256": "73ff25302e57458b35fa748ab70990af8cd20c8bd1a42995214d9f815a81bfcb",
   "actualFunctions": [
     "setYear",
     "applyYear",
@@ -1964,7 +1964,7 @@ PASS Idle remains a safe completion fallback after own content and cached tiles
   "sourceTimeMeaning": "Source reconstruction for 1500, not exact historical locality lifetimes.",
   "publicBudget": {
     "files": 19936,
-    "bytes": 792603667,
+    "bytes": 792603653,
     "maxFiles": null
   }
 }
@@ -3986,84 +3986,84 @@ PASS adaptive border sampling [
   {
     year: 1492,
     tolerance: 0.002,
-    ms: 247.69579199999998,
+    ms: 266.562,
     bytes: 18750170,
     reductionFromFinest: 0
   },
   {
     year: 1492,
     tolerance: 0.005,
-    ms: 108.50291600000003,
+    ms: 116.05445799999995,
     bytes: 12357994,
     reductionFromFinest: 0.34091296238914104
   },
   {
     year: 1492,
     tolerance: 0.02,
-    ms: 67.0140409999999,
+    ms: 79.72958300000005,
     bytes: 6868871,
     reductionFromFinest: 0.6336635347839512
   },
   {
     year: 1492,
     tolerance: 0.1,
-    ms: 42.43537500000002,
+    ms: 47.105166000000054,
     bytes: 4205784,
     reductionFromFinest: 0.7756935537117797
   },
   {
     year: 1500,
     tolerance: 0.002,
-    ms: 254.65704200000005,
+    ms: 292.24524999999994,
     bytes: 19124216,
     reductionFromFinest: 0
   },
   {
     year: 1500,
     tolerance: 0.005,
-    ms: 124.40308300000015,
+    ms: 142.24575000000004,
     bytes: 12605670,
     reductionFromFinest: 0.340852979280301
   },
   {
     year: 1500,
     tolerance: 0.02,
-    ms: 71.24358400000028,
+    ms: 128.2683750000001,
     bytes: 7008029,
     reductionFromFinest: 0.6335520891418502
   },
   {
     year: 1500,
     tolerance: 0.1,
-    ms: 80.79479199999969,
+    ms: 53.45804199999975,
     bytes: 4294891,
     reductionFromFinest: 0.7754213296900642
   },
   {
     year: 1945,
     tolerance: 0.002,
-    ms: 651.0131670000001,
+    ms: 757.0627079999999,
     bytes: 43170678,
     reductionFromFinest: 0
   },
   {
     year: 1945,
     tolerance: 0.005,
-    ms: 268.05816700000014,
+    ms: 338.40141700000004,
     bytes: 28434101,
     reductionFromFinest: 0.34135616308828876
   },
   {
     year: 1945,
     tolerance: 0.02,
-    ms: 161.97854199999983,
+    ms: 185.16883299999972,
     bytes: 15750141,
     reductionFromFinest: 0.6351657715452141
   },
   {
     year: 1945,
     tolerance: 0.1,
-    ms: 110.81383300000016,
+    ms: 119.62183300000015,
     bytes: 9528037,
     reductionFromFinest: 0.779293783618594
   }
@@ -4615,20 +4615,20 @@ PASS British Isles: nine dated snapshots, required identities, Chinese names, Ju
     {
       year: 500,
       cases: 25,
-      coldMilliseconds: 1303.9106679999998,
-      reusedPlanMilliseconds: 122.95537500000037
+      coldMilliseconds: 1367.3462069999996,
+      reusedPlanMilliseconds: 119.83716700000063
     },
     {
       year: 1000,
       cases: 25,
-      coldMilliseconds: 1585.2225839999996,
-      reusedPlanMilliseconds: 133.38033599999972
+      coldMilliseconds: 1622.6331680000008,
+      reusedPlanMilliseconds: 136.34862199999907
     },
     {
       year: 1492,
       cases: 25,
-      coldMilliseconds: 2430.1166649999986,
-      reusedPlanMilliseconds: 198.53662600000007
+      coldMilliseconds: 2519.512582,
+      reusedPlanMilliseconds: 210.21554000000106
     }
   ]
 }
@@ -4702,56 +4702,56 @@ PASS 270 native content fingerprints
   {
     year: -250,
     records: 45,
-    coldBeforeMs: 40.494958,
-    coldAfterMs: 34.830957999999995,
-    warmBeforeMedianMs: 2.9158749999999998,
-    warmAfterMedianMs: 0.734375,
-    warmBeforeTotalMs: 34.22304100000002,
-    warmAfterTotalMs: 8.703582000000011,
+    coldBeforeMs: 41.181,
+    coldAfterMs: 35.134709,
+    warmBeforeMedianMs: 2.982584000000003,
+    warmAfterMedianMs: 0.7276250000000175,
+    warmBeforeTotalMs: 34.34841700000001,
+    warmAfterTotalMs: 8.910209000000094,
     all12ViewsExactlyEqual: true
   },
   {
     year: 200,
     records: 42,
-    coldBeforeMs: 36.97554199999999,
-    coldAfterMs: 43.53008299999999,
-    warmBeforeMedianMs: 3.525250000000028,
-    warmAfterMedianMs: 1.2132500000000164,
-    warmBeforeTotalMs: 40.206998,
-    warmAfterTotalMs: 15.275584000000094,
+    coldBeforeMs: 37.495959,
+    coldAfterMs: 42.97604199999998,
+    warmBeforeMedianMs: 3.4728750000000446,
+    warmAfterMedianMs: 1.3174999999999955,
+    warmBeforeTotalMs: 41.78654200000011,
+    warmAfterTotalMs: 15.029917000000125,
     all12ViewsExactlyEqual: true
   },
   {
     year: 450,
     records: 53,
-    coldBeforeMs: 41.48120800000004,
-    coldAfterMs: 39.12033399999996,
-    warmBeforeMedianMs: 3.9590409999999565,
-    warmAfterMedianMs: 1.228290999999956,
-    warmBeforeTotalMs: 51.19883199999998,
-    warmAfterTotalMs: 16.660582999999917,
+    coldBeforeMs: 40.640625,
+    coldAfterMs: 39.51516600000002,
+    warmBeforeMedianMs: 4.051999999999964,
+    warmAfterMedianMs: 1.139583000000016,
+    warmBeforeTotalMs: 54.39083300000016,
+    warmAfterTotalMs: 13.14924899999994,
     all12ViewsExactlyEqual: true
   },
   {
     year: 742,
     records: 75,
-    coldBeforeMs: 59.56483400000002,
-    coldAfterMs: 61.156875000000014,
-    warmBeforeMedianMs: 4.795582999999965,
-    warmAfterMedianMs: 1.5772500000000491,
-    warmBeforeTotalMs: 55.43141799999978,
-    warmAfterTotalMs: 19.447373999999968,
+    coldBeforeMs: 61.93345899999997,
+    coldAfterMs: 61.51733300000001,
+    warmBeforeMedianMs: 5.363207999999986,
+    warmAfterMedianMs: 1.6427090000000817,
+    warmBeforeTotalMs: 60.779124999999794,
+    warmAfterTotalMs: 18.526001999999835,
     all12ViewsExactlyEqual: true
   },
   {
     year: 1492,
     records: 136,
-    coldBeforeMs: 105.09604100000001,
-    coldAfterMs: 98.34358399999996,
-    warmBeforeMedianMs: 9.249374999999873,
-    warmAfterMedianMs: 2.5045840000000226,
-    warmBeforeTotalMs: 102.9342069999999,
-    warmAfterTotalMs: 27.76208299999962,
+    coldBeforeMs: 107.75854199999992,
+    coldAfterMs: 100.36908299999993,
+    warmBeforeMedianMs: 9.574541999999838,
+    warmAfterMedianMs: 2.5673749999998563,
+    warmBeforeTotalMs: 105.62583499999982,
+    warmAfterTotalMs: 30.790415999999368,
     all12ViewsExactlyEqual: true
   }
 ]
