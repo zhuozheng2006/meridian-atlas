@@ -1,0 +1,54 @@
+{
+  "decision": "no_new_boundary_layer_approved",
+  "scope": "Focused audit of early South Asia political boundary vectors before 1000 CE; not an exhaustive absence claim",
+  "leads": [
+    {
+      "name": "NATMO Ancient India (Cultural)",
+      "url": "https://geoportal.natmo.gov.in/dataset/ancient-india-cultural",
+      "catalog_url": "https://geoportal.natmo.gov.in/search/field_data_type/vector",
+      "evidence": "Official catalog lists Cultural as vector with WMS/PDF. Dataset page could not be retrieved: timeout and DNS failure.",
+      "geometry_schema": null,
+      "historical_dates": null,
+      "decision": "candidate_only; retrieve actual capabilities and dated feature schema before import",
+      "confidence": "high for catalog existence; unknown for usable political geometry"
+    },
+    {
+      "name": "NATMO Ancient India (Physical)",
+      "url": "https://geoportal.natmo.gov.in/dataset/ancient-india-physical",
+      "evidence": "Official metadata: physical landscape/physiography, vector; scale 1:14,000,000; Lambert Conformal Conic. Mapping 2014, digitizing 2019, metadata 2020 are production years. Temporal fields tlate, tearly, period and precision are NA.",
+      "geometry_schema": null,
+      "historical_dates": null,
+      "decision": "reject as political boundary source",
+      "confidence": "high",
+      "caution": "NA temporal metadata observed for Physical only, not Cultural."
+    },
+    {
+      "name": "IDSA GIS Lab, One Hundred Years of Kautilya’s Arthasastra",
+      "url": "https://www.idsa.in/system/files/monograph20.pdf",
+      "evidence": "Indexed primary PDF excerpt identifies plate India during post Maurya and Gupta times (CE 100-500), copyright IDSA GIS Lab, Map not to scale. Full PDF was not inspected.",
+      "geometry_schema": "PDF illustrative plate; no vector feature schema obtained",
+      "historical_dates": "100–500 CE broad period, not an exact-year snapshot",
+      "decision": "reference candidate only; do not create exact-year boundary from this evidence",
+      "confidence": "high for indexed plate text; no geospatial accuracy established"
+    },
+    {
+      "name": "Xatra",
+      "url": "https://github.com/srajma/xatra",
+      "evidence": "Source README uses GADM administrative boundary unions, e.g. Maurya = gadm(IND) | gadm(PAK); downloads modern GADM and Natural Earth.",
+      "geometry_schema": "modern GADM-derived geometry used by map framework",
+      "historical_dates": null,
+      "decision": "reject as independent ancient historical boundary upgrade",
+      "confidence": "high"
+    },
+    {
+      "name": "India State Story",
+      "url": "https://www.indiastatestory.in/datadownloads",
+      "evidence": "Administrative atlas 1872–2011; requested GIS data 1941–2021.",
+      "geometry_schema": "administrative GIS, outside requested era",
+      "historical_dates": "19th–21st centuries",
+      "decision": "reject for pre-1000 CE task",
+      "confidence": "high"
+    }
+  ],
+  "downloaded_boundary_files": []
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "environment": "Chrome local preview, actual map rendering",
+  "checks": [
+    "200 CE: automatic AWMC detail, one territory count and source popup",
+    "201 CE: prior exact-year detail removed, world overview restored",
+    "742 CE: Wuwei Jun / 武威郡 shown with original Liang Zhou label and Old Book of Tang evidence",
+    "English name-review popup works; no captured console errors"
+  ],
+  "fixedDuringQA": "Province lines appeared in fill queries and inflated counts; Polygon layer filter and record/hit exclusion fixed this.",
+  "limitations": [
+    "Local preview is not a controlled network speed benchmark.",
+    "Browser evidence is separate from deployed file-hash verification."
+  ]
+}

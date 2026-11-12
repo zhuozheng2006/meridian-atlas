@@ -1,0 +1,13 @@
+{
+  passed: true,
+  checks: [
+    'gzip magic split across individual bytes',
+    'already decoded gzip asset and multibyte UTF-8',
+    'empty and truncated streams rejected',
+    'network body failure and retry',
+    'concurrent consumers share one fetch',
+    'decompression produces output before download completes',
+    'HTTP errors rejected and non-gzip JSON preserved'
+  ],
+  claims: 'Decoded output starts before final network chunk. No wall-clock speedup percentage inferred.'
+}

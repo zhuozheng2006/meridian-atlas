@@ -1,19 +1,19 @@
-import {waitForMapForeground} from './map-load-priority.js?v=3.56.0-2d8a9f8e737a';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.56.0-2d8a9f8e737a';
-import {boundaryMesh} from './boundary-mesh.js?v=3.56.0-2d8a9f8e737a';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.56.0-2d8a9f8e737a';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.56.0-2d8a9f8e737a';
-import {BoundaryController} from './boundary-controller.js?v=3.56.0-2d8a9f8e737a';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.56.0-2d8a9f8e737a';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.56.0-2d8a9f8e737a';
-import {Geography} from './geography.js?v=3.56.0-2d8a9f8e737a';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.56.0-2d8a9f8e737a';
+import {waitForMapForeground} from './map-load-priority.js?v=3.57.0-100cb4a60c31';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.57.0-100cb4a60c31';
+import {boundaryMesh} from './boundary-mesh.js?v=3.57.0-100cb4a60c31';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.57.0-100cb4a60c31';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.57.0-100cb4a60c31';
+import {BoundaryController} from './boundary-controller.js?v=3.57.0-100cb4a60c31';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.57.0-100cb4a60c31';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.57.0-100cb4a60c31';
+import {Geography} from './geography.js?v=3.57.0-100cb4a60c31';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.57.0-100cb4a60c31';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.56.0-2d8a9f8e737a';
+import {polityName} from './polity-names.js?v=3.57.0-100cb4a60c31';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
@@ -35,15 +35,17 @@ export async function readJSON(url){
    // Fetch Priority: first-frame data (data/fast) and the small native geometry
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
-   const priority=/(?:^|\/)data\/(?:fast|native|chgis|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
+   const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
    const response=await fetch(url,{signal:controller.signal,cache:'no-cache',priority});if(!response.ok)throw Error(`${response.status} ${url}`);
    if(!url.endsWith('.gz'))return await response.json();
-   // Stream the body so the timeout measures progress instead of total duration:
-   // a 3.5 MB detail file needs ~70 s at 400 kbit/s but never stalls.
-   const reader=response.body.getReader(),chunks=[];let total=0;
-   for(;;){const{done,value}=await reader.read();if(done)break;chunks.push(value);total+=value.length;arm(STALL_TIMEOUT);}
-   const bytes=new Uint8Array(total);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
-   return bytes[0]===31&&bytes[1]===139?await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).json():JSON.parse(new TextDecoder().decode(bytes));
+   // Start decompression after the magic bytes, while the body is still arriving.
+   // Keep only the prefix here; no compressed-body collection or second copy.
+   const reader=response.body.getReader(),prefix=[];let bytes=0,ended=false;
+   const next=async()=>{const chunk=await reader.read();if(chunk.value?.length)arm(STALL_TIMEOUT);return chunk;};
+   while(bytes<2){const chunk=await next();if(chunk.done){ended=true;break;}prefix.push(chunk.value);bytes+=chunk.value.length;}
+   const magic=[];for(const chunk of prefix)for(const byte of chunk){magic.push(byte);if(magic.length===2)break;}const compressed=magic[0]===31&&magic[1]===139;
+   const body=new ReadableStream({start(output){for(const chunk of prefix)output.enqueue(chunk);prefix.length=0;if(ended)output.close();},async pull(output){try{const chunk=await next();if(chunk.done)output.close();else output.enqueue(chunk.value);}catch(error){output.error(error);}},cancel(reason){return reader.cancel(reason);}});
+   return await new Response(compressed?body.pipeThrough(new DecompressionStream('gzip')):body).json();
   }finally{clearTimeout(timer);}
  })();
  resources.set(url,pending);pending.catch(()=>resources.delete(url));return pending;

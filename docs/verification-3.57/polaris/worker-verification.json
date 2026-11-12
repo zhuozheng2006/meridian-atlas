@@ -1,0 +1,83 @@
+{
+  "scope": "Production client/facade and unchanged browser worker inside independent Node threads, actual local gzip files and hash checks; not browser performance",
+  "checks": 19,
+  "passed": 19,
+  "results": [
+    {
+      "name": "Opening a phase creates no worker and retains the exact original shard",
+      "status": "passed"
+    },
+    {
+      "name": "Real worker Crisis query loads only index and one table and returns one exact page",
+      "status": "passed"
+    },
+    {
+      "name": "Full archive stays complete while only the requested 24 rows cross for display",
+      "status": "passed"
+    },
+    {
+      "name": "Worker transfer export round-trips all original typed Crisis rows and phase contexts",
+      "status": "passed"
+    },
+    {
+      "name": "Full export remains opt-in and collection preserves raw rows for API consumers",
+      "status": "passed"
+    },
+    {
+      "name": "Cancellation during startup rejects promptly without disabling a replacement query",
+      "status": "passed"
+    },
+    {
+      "name": "A cancelled running scan never returns stale rows and queued replacement succeeds",
+      "status": "passed"
+    },
+    {
+      "name": "Clearing a live worker rejects pending work, terminates it and permits a fresh worker",
+      "status": "passed"
+    },
+    {
+      "name": "Dispose rejects pending operations and permanently prevents new work",
+      "status": "passed"
+    },
+    {
+      "name": "Corrupted worker data fails closed instead of silently retrying in the UI thread",
+      "status": "passed"
+    },
+    {
+      "name": "Worker construction restrictions gracefully retain the verified local fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Handshake snapshot mismatch is an error and cannot enable fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Late replies after cancellation are ignored rather than delivered to another job",
+      "status": "passed"
+    },
+    {
+      "name": "Invalid data origin is rejected before the worker fetches any source",
+      "status": "passed"
+    },
+    {
+      "name": "Full serialized archive export preserves every source row and cell type",
+      "status": "passed"
+    },
+    {
+      "name": "A throwing progress observer rejects just its job and the worker remains usable",
+      "status": "passed"
+    },
+    {
+      "name": "Cancelling export while reading suppresses its result and permits the next query",
+      "status": "passed"
+    },
+    {
+      "name": "A worker runtime restriction falls back consistently on subsequent requests",
+      "status": "passed"
+    },
+    {
+      "name": "Undecodable worker messages keep their error category on repeated requests",
+      "status": "passed"
+    }
+  ]
+}

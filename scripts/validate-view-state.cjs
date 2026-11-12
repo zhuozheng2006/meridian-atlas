@@ -11,13 +11,13 @@ const realPolity=realCatalog.records.filter(r=>r.name==='Qin Dynasty').sort((a,b
 const realPlace=readData('places/urban-observations').cities.find(p=>p.id==='chandler:1202');
 assert(realEvent&&realPolity&&realPlace,'Required real historical fixtures exist');
 const flush=()=>new Promise(r=>setImmediate(r));
-let researchState,polityNames,chgis,china;
+let researchState,polityNames,chgis,china,awmc;
 function context(hash=''){
  const nodes=new Map(),keyListeners=[],eventListeners=new Map();
  const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},dataset:{},isConnected:true,scrollTop:0,focus(){},replaceChildren(){},append(){},insertAdjacentHTML(){},closest(){return null},matches(){return false},click(){this.onclick?.({target:this})},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(k,v){this[k]=v},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
  const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(type,fn){if(type==='keydown')keyListeners.push(fn);if(!eventListeners.has(type))eventListeners.set(type,[]);eventListeners.get(type).push(fn)}};
  const location={hash,href:'https://example.test/'+hash};
- const c=vm.createContext({...researchState,...polityNames,...chgis,...china,console,document,window:{},location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null,prefetchNativeFrame:async()=>false});
+ const c=vm.createContext({...researchState,...polityNames,...chgis,...china,...awmc,console,document,window:{},location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null,prefetchNativeFrame:async()=>false});
  for(const name of files){const code=snapshots[name].replace(/^import .*$/gm,'').replace(/^export \{[^}\n]*\};?$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
  globalThis.renderLog=[];globalThis.focusLog=[];globalThis.readerOptions=[];globalThis.originalBindLayers=bindLayers;globalThis.originalRenderYear=renderYear;
@@ -45,6 +45,7 @@ const results=[];
 async function test(name,fn){try{await fn();results.push({name,pass:true});console.log('PASS '+name)}catch(e){results.push({name,pass:false,error:e.stack});console.error('FAIL '+name+'\n'+e.message)}}
 async function run(){
  researchState=await import(require('node:url').pathToFileURL(path.join(ROOT,'research-view.js')));
+ awmc=await import(require('node:url').pathToFileURL(path.join(ROOT,'awmc-boundaries.js')));
  china=await import(require('node:url').pathToFileURL(path.join(ROOT,'china-prefectures.js')));
  chgis=await import(require('node:url').pathToFileURL(path.join(ROOT,'chgis-boundaries.js')));
  polityNames=await import(require('node:url').pathToFileURL(path.join(ROOT,'polity-names.js')));

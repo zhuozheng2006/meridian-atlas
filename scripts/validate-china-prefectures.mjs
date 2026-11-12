@@ -22,4 +22,4 @@ try{
  const regional=Object.create(RegionalBoundaries.prototype);Object.assign(regional,{year:742,map:{getBounds:()=>box(104),getSource(){throw Error('Scholarly source must suppress live OHM startup');}}});assert(regional.scholarlyActive);regional.ensure();
 }finally{globalThis.fetch=originalFetch;}
 const report={passed:true,sourceRows:420,years:[2,742],bandInstances:instances,files:manifest.files.length,concurrentRequestsShared:true,sameBandExtraRequests:0,threePackEviction:true,retryAfterFailure:true,exactYearsOnly:true};
-fs.mkdirSync('docs/verification-3.56',{recursive:true});fs.writeFileSync('docs/verification-3.56/china-runtime.json',JSON.stringify(report,null,2)+'\n');console.log(report);
+fs.mkdirSync('docs/verification-3.57',{recursive:true});fs.writeFileSync('docs/verification-3.57/china-runtime.json',JSON.stringify(report,null,2)+'\n');console.log(report);

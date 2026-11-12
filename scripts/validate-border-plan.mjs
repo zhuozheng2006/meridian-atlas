@@ -19,4 +19,4 @@ for(const year of [500,1000,1492]){
  results.push({year,cases,coldMilliseconds:cold.reduce((a,b)=>a+b,0),reusedPlanMilliseconds:warm.reduce((a,b)=>a+b,0)});
 }
 const report={passed:true,scope:'Local Node curve preparation and sampling only; not network or browser end-to-end timing',sourceImmutable:true,historyIndependent:true,results};
-fs.mkdirSync('docs/verification-3.56',{recursive:true});fs.writeFileSync('docs/verification-3.56/border-plan.json',JSON.stringify(report,null,2)+'\n');console.log(report);
+fs.mkdirSync('docs/verification-3.57',{recursive:true});fs.writeFileSync('docs/verification-3.57/border-plan.json',JSON.stringify(report,null,2)+'\n');console.log(report);
