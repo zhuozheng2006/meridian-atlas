@@ -1,0 +1,49 @@
+{
+  "source": {
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "checkout_path": "/Users/zane/meridian_atlas/world-history-atlas",
+    "commit_sha": "59d40291c2e5e331a2587ce75e07f1a0a19f4e77",
+    "archive": "/private/tmp/meridian-3.56.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6af504be194481918ad000491a24b56e",
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "title": "经纬纪 · Meridian Atlas",
+    "version_id": "appgprj_6abed10c25288191b15cf376ca0c8c66~appgver_fd6633c3e3548191b5c2ea4d6f68e09b",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://meridian-world-history.zhuozheng2006.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6abed10c25288191b15cf376ca0c8c66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-12T00:14:09.842312+00:00"
+  },
+  "storage": {
+    "revision": "e3c72442369b6cbea74ff3fc9e37a7b9104cd56aac86c4d7efe337cb970516bf",
+    "expectedFiles": 377,
+    "newFiles": 14,
+    "unchangedFiles": 363,
+    "recovery": "One PUT lacked a successful client response; resumed inventory found all 377 files already stored. Final attempt reused 377 and verified every read-back.",
+    "allReadBackHashesVerified": true,
+    "importUntil": 0
+  },
+  "checks": {
+    "fullSuite": "passed",
+    "http": "13/13",
+    "worker": "16/16",
+    "chinaOriginalComponents": 8,
+    "chinaSelectedSourceRows": 420,
+    "chinaSourceVertices": 207457,
+    "chinaBandInstances": 1329,
+    "sourceDownloadReproduced": true,
+    "exactYearIsolation": "2 and 742 only; adjacent years excluded",
+    "cache": "concurrent request sharing, same-band reuse, three-pack eviction and error retry",
+    "borderPortrayal": "75 viewport/tolerance cases; warm outputs identical to cold and source geometry immutable",
+    "browser": "Han and Tang dossier; 743 drops previous snapshot; South Asia overview without China data requests",
+    "deployedContent": "17/17; asset hashes and closed import routes"
+  },
+  "github": "https://github.com/zhuozheng2006/meridian-atlas",
+  "tag": "v3.56.0"
+}
