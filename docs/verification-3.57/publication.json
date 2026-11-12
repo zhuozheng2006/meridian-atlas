@@ -1,0 +1,56 @@
+{
+  "source": {
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "checkout_path": "/Users/zane/meridian_atlas/world-history-atlas",
+    "commit_sha": "27a7c06e991f2ebf3cebe90ef1ead5c31cf876e4",
+    "archive": "/private/tmp/meridian-3.57.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6af509cb33848191bc771a38f7c32545",
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "title": "经纬纪 · Meridian Atlas",
+    "version_id": "appgprj_6abed10c25288191b15cf376ca0c8c66~appgver_67c0c5825f308191bd1b7ea5f9e55333",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://meridian-world-history.zhuozheng2006.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6abed10c25288191b15cf376ca0c8c66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-12T00:36:18.664675+00:00"
+  },
+  "checks": {
+    "fullSuite": "passed",
+    "fullSuiteNote": "Full suite passed; subsequent citation-label wording fix rechecked with source, China, streaming and Worker validations.",
+    "http": "13/13",
+    "worker": "16/16",
+    "viewState": "69/69",
+    "awmcYears": [
+      117,
+      200
+    ],
+    "sourceFragmentsPerYear": 112,
+    "provinceLines": 81,
+    "nameReviews": {
+      "han": 12,
+      "tang": 18,
+      "remaining": 390
+    },
+    "streaming": "7 scenarios passed, including decoded output before network completion",
+    "browser": "West Asia auto-detail and count, off-year fallback, Tang bilingual names and source review; no captured console errors",
+    "deployedContent": "24/24: exact deployed asset hashes, HTML revision and closed import routes"
+  },
+  "storage": {
+    "revision": "e3c72442369b6cbea74ff3fc9e37a7b9104cd56aac86c4d7efe337cb970516bf",
+    "changed": false,
+    "importUntil": 0
+  },
+  "github": "https://github.com/zhuozheng2006/meridian-atlas",
+  "tag": "v3.57.0",
+  "scope": {
+    "southAsiaNewReliableBoundaries": 0,
+    "westAsia": "Roman extent only at 117/200 CE, not all regional polities",
+    "overview": "streaming decompression; no new overview source precision claimed"
+  }
+}
