@@ -1,0 +1,56 @@
+{
+  "generated": "2026-11-12T03:11:20.235Z",
+  "method": "Actual original and patched MapLibre 5.6.2 constructors and WorkerScope request code in VM, native Node Request/Response/fetch and genuine structuredClone at actor boundaries. getStyle prototype exercised; source reconstruction from style exercised. This does not exercise actual Map.setStyle diff/render/CSP/Chrome URL limits or browser memory/performance.",
+  "passed": 9,
+  "total": 9,
+  "checks": [
+    {
+      "name": "Canonical data URL uses native fetch/JSON in the actual WorkerScope on both original and candidate bundles",
+      "pass": true
+    },
+    {
+      "name": "Only the dedicated source and exact canonical MIME prefix change the LD return; all other source/URL types retain full data",
+      "pass": true
+    },
+    {
+      "name": "Synchronous serialize/getStyle remain self-contained and a new actual source reconstructed from a JSON-cloned style reloads identical data",
+      "pass": true
+    },
+    {
+      "name": "Filter, rewind, getBounds and round-trip source serialization retain actual MapLibre behavior",
+      "pass": true
+    },
+    {
+      "name": "Actual updateData after a compact URL response still updates GD and serializes the new full object",
+      "pass": true
+    },
+    {
+      "name": "Actual queued setData publishes the final URL and GD data after a previous URL finishes",
+      "pass": true
+    },
+    {
+      "name": "Data fetch failure and malformed JSON retain source errors without publishing successful source content events",
+      "pass": true
+    },
+    {
+      "name": "Superseded worker loads abort the first native request and publish only the replacement data",
+      "pass": true
+    },
+    {
+      "name": "Full 2,980-record input preserves GD, source style, and byte-identical actual geojson-vt/PBF tiles without returning full geometry in LD",
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "features": 2980,
+      "jsonUTF8Bytes": 19949092,
+      "dataURLChars": 26598825,
+      "dataURLSha256": "994e9529bf9081f28874621669d2222d2fa752ba6f1e91fd7775cd563942f727",
+      "oldMainStringify": 1,
+      "newMainStringify": 0,
+      "newAutomaticLDResponseType": "string",
+      "getDataStillReturnsCompleteGeometry": true
+    }
+  ]
+}

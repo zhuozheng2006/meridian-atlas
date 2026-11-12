@@ -49,14 +49,14 @@ export function createStaticStorageHandler(manifest,{importUntil=0,lakeRevision=
   const name=pathname.slice(1),entry=entries.get(name);
   if(!entry){if(validPath.test(name))return fail('Not found',404);return null;}
   if(request.method!=='GET'&&request.method!=='HEAD')return fail('Method not allowed',405);
-  // Stable application URLs revalidate. Generic asset ?v queries are not content
-  // fingerprints. Only the explicit optional sha256 query has hash semantics.
+  // Stable URLs and generic ?v queries revalidate. Only a matching, validated
+  // content fingerprint permits long-lived PRIVATE browser caching.
   if(url.searchParams.has('sha256')&&url.searchParams.get('sha256')!==entry.sha256)return fail('Asset fingerprint mismatch',412);
   if(!env.BUCKET)return fail('Atlas detail temporarily unavailable',503);
   try{
    const object=request.method==='HEAD'?await env.BUCKET.head(entry.key):await env.BUCKET.get(entry.key);
    if(!object||object.size!==entry.bytes||object.customMetadata?.sha256!==entry.sha256)return fail('Atlas detail temporarily unavailable',503);
-   const headers={'Content-Type':entry.contentType,'Content-Length':String(entry.bytes),'Cache-Control':'private, no-cache','ETag':`"${entry.sha256}"`,'X-Content-Type-Options':'nosniff'};
+   const headers={'Content-Type':entry.contentType,'Content-Length':String(entry.bytes),'Cache-Control':url.searchParams.get('sha256')===entry.sha256?'private, max-age=31536000, immutable':'private, no-cache','ETag':`"${entry.sha256}"`,'X-Content-Type-Options':'nosniff'};
    if(request.headers.get('If-None-Match')===headers.ETag)return new Response(null,{status:304,headers});
    return new Response(request.method==='HEAD'?null:object.body,{headers});
   }catch{return fail('Atlas detail temporarily unavailable',503);}
@@ -65,8 +65,9 @@ export function createStaticStorageHandler(manifest,{importUntil=0,lakeRevision=
 
 // Only the confirmed owner-private Site may enable the short import window.
 // Imports accept the exact audited bytes of listed assets, never arbitrary files.
-export function createAtlasWorker(manifest,{importUntil=0,staticManifest=null}={}){
+export function createAtlasWorker(manifest,{importUntil=0,staticManifest=null,bootstrapFingerprints={}}={}){
  const staticStorage=createStaticStorageHandler(staticManifest,{importUntil,lakeRevision:manifest.revision});
+ for(const [file,hash]of Object.entries(bootstrapFingerprints))if(!/^data\/native\/year--?\d+\.json\.gz$/.test(file)||!/^[a-f0-9]{64}$/.test(hash))throw Error('Invalid bootstrap fingerprint');
  const entries=new Map(manifest.files.map(f=>[f.file,f]));
  const prefix=`hydrolakes/${manifest.revision}/`;
  const json=(value,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store'}});
@@ -119,6 +120,15 @@ export function createAtlasWorker(manifest,{importUntil=0,staticManifest=null}={
    }catch(error){console.error('Lake storage request failed',entry.file,error?.name);return fail('Lake detail temporarily unavailable',503);}
   }
   if(request.method!=='GET'&&request.method!=='HEAD')return fail('Method not allowed',405);
+  const file=url.pathname.slice(1),fingerprint=Object.hasOwn(bootstrapFingerprints,file)?bootstrapFingerprints[file]:null;
+  if(fingerprint&&url.searchParams.has('sha256')){
+   if(url.searchParams.get('sha256')!==fingerprint)return fail('Asset fingerprint mismatch',412);
+   if(!['GET','HEAD'].includes(request.method))return fail('Method not allowed',405);
+   if(!env.ASSETS)return fail('Atlas resources temporarily unavailable',503);
+   const response=await env.ASSETS.fetch(request);if(response.status!==200&&response.status!==304)return response;
+   const headers=new Headers(response.headers);headers.set('Cache-Control','private, max-age=31536000, immutable');
+   return new Response(response.body,{status:response.status,headers});
+  }
   return env.ASSETS?env.ASSETS.fetch(request):fail('Atlas resources temporarily unavailable',503);
  }};
 }

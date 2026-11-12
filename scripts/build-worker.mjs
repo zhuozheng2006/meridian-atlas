@@ -36,6 +36,7 @@ for(const f of native.temporalBundles){
  if(!/^temporal\/pack-\d{3}\.json\.gz$/.test(f.file))throw Error('Invalid native temporal path');
  addStatic('data/native/'+f.file,{bytes:f.gzipBytes,sha256:f.gzipSha256});
 }
+const bootstrapFingerprints=Object.fromEntries(Object.values(native.bootstrap).map(f=>{const file='data/native/'+f.file,b=fs.readFileSync(path.join(source,file));if(b.length!==f.gzipBytes||digest(b)!==f.gzipSha256)throw Error('Invalid native bootstrap: '+file);return [file,f.gzipSha256];}));
 staticFiles.sort((a,b)=>a.file.localeCompare(b.file));
 const staticManifest={schemaVersion:1,revision:digest(JSON.stringify(staticFiles)),bytes:staticFiles.reduce((n,f)=>n+f.bytes,0),files:staticFiles};
 for(const f of files){const b=fs.readFileSync(path.join(source,'data/lakes',f.file));if(b.length!==f.bytes||crypto.createHash('sha256').update(b).digest('hex')!==f.sha256)throw Error('Invalid lake storage asset: '+f.file);}
@@ -45,7 +46,7 @@ if(fs.existsSync(output))fs.rmSync(output,{recursive:true});
 fs.mkdirSync(path.join(output,'server'),{recursive:true});
 fs.cpSync(source,path.join(output,'client'),{recursive:true,filter:entry=>path.basename(entry)!=='.DS_Store'&&!split.has(entry)});
 const worker=fs.readFileSync(path.join(root,'worker/atlas-worker.mjs'),'utf8');
-fs.writeFileSync(path.join(output,'server/index.js'),worker+'\nexport default createAtlasWorker('+JSON.stringify(manifest)+','+JSON.stringify({importUntil,staticManifest})+');\n');
+fs.writeFileSync(path.join(output,'server/index.js'),worker+'\nexport default createAtlasWorker('+JSON.stringify(manifest)+','+JSON.stringify({importUntil,staticManifest,bootstrapFingerprints})+');\n');
 fs.mkdirSync(path.join(output,'.openai'),{recursive:true});fs.copyFileSync(path.join(root,'.openai/hosting.json'),path.join(output,'.openai/hosting.json'));
 fs.mkdirSync(path.join(root,'build'),{recursive:true});fs.writeFileSync(path.join(root,'build/lake-storage-manifest.json'),JSON.stringify(manifest,null,2)+'\n');
 fs.writeFileSync(path.join(root,'build/static-storage-manifest.json'),JSON.stringify(staticManifest,null,2)+'\n');

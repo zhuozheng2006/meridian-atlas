@@ -15,5 +15,5 @@ try{
   const pending=readJSON(url());let timer;try{await Promise.race([observed,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('Decoder waited for entire body')),3000))]);assert(decodedEarly);downloadFinished=true;input.enqueue(compressed.subarray(Math.floor(compressed.length/2)));input.close();assert.deepEqual(await pending,payload);}finally{clearTimeout(timer);globalThis.DecompressionStream=NativeDS;}
  });
  await test('HTTP errors rejected and non-gzip JSON preserved',async()=>{globalThis.fetch=async()=>new Response('',{status:503});await assert.rejects(readJSON(url()));globalThis.fetch=async()=>new Response(JSON.stringify(value));assert.deepEqual(await readJSON('stream-plain.json'),value);});
- const report={passed:true,checks,claims:'Decoded output starts before final network chunk. No wall-clock speedup percentage inferred.'};fs.writeFileSync('docs/verification-3.57/json-streaming.json',JSON.stringify(report,null,2)+'\n');console.log(report);
+ const report={passed:true,checks,claims:'Decoded output starts before final network chunk. No wall-clock speedup percentage inferred.'};fs.writeFileSync('docs/verification-3.58/json-streaming.json',JSON.stringify(report,null,2)+'\n');console.log(report);
 }finally{globalThis.fetch=nativeFetch;globalThis.DecompressionStream=NativeDS;}

@@ -1,6 +1,6 @@
-import {chinaNameReviews,reviewedChinaName} from './china-name-reviews.js?v=3.57.0-100cb4a60c31';
-import {readJSON,forgetJSON} from './map-engine.js?v=3.57.0-100cb4a60c31';
-import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=3.57.0-100cb4a60c31';
+import {chinaNameReviews,reviewedChinaName} from './china-name-reviews.js?v=3.58.0-4e6c095f36aa';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.58.0-4e6c095f36aa';
+import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=3.58.0-4e6c095f36aa';
 const ROOT='data/china-prefectures/',packs=new Map();let indexPromise;
 const names={'Jingzhao Yin':'京兆尹','Jingzhao Fu':'京兆府','Longxi Jun':'陇西郡','Wuwei Jun':'武威郡','Jiuquan Jun':'酒泉郡','Zhangye Jun':'张掖郡','Dunhuang Jun':'敦煌郡','Shuofang Jun':'朔方郡','Yuyang Jun':'渔阳郡','Taiyuan Jun':'太原郡','Taiyuan Fu':'太原府','Henan Fu':'河南府','Hanzhong Jun':'汉中郡','Shang Jun':'上郡','Beidi Jun':'北地郡','Tianshui Jun':'天水郡','Anding Jun':'安定郡','Hongnong Jun':'弘农郡','Zuo Pingyi':'左冯翊','You Fufeng':'右扶风','Jincheng Jun':'金城郡','Yunzhong Jun':'云中郡','Wuyuan Jun':'五原郡','Dai Jun':'代郡','Yanmen Jun':'雁门郡','Shanggu Jun':'上谷郡','Youbeiping Jun':'右北平郡','Liaoxi Jun':'辽西郡','Liaodong Jun':'辽东郡','Shu Jun':'蜀郡','Ba Jun':'巴郡','Hedong Jun':'河东郡','Henan Jun':'河南郡','Henei Jun':'河内郡'};
 export const chinaSnapshotYear=y=>Object.hasOwn(chinaPrefectureBounds,String(y));

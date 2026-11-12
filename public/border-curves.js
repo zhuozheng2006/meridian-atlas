@@ -23,6 +23,8 @@ function cells(box,visit){
  for(let x=Math.floor(box[0]/GRID);x<=Math.floor(box[2]/GRID);x++)for(let y=Math.floor(box[1]/GRID);y<=Math.floor(box[3]/GRID);y++)visit(x+':'+y);
 }
 function makeCurve(n){
+ const sampleKey=n.cut+':'+n.chordError;n.samples??=new Map();
+ const saved=n.samples.get(sampleKey);if(saved){n.curve=saved.curve;n.envelope=saved.envelope;return;}
  const [a,b]=n.ends,p=n.p,c=Math.cos(p[1]*Math.PI/180),cut=n.cut;
  const start=[p[0]+(a.p[0]-p[0])*cut/n.la,p[1]+(a.p[1]-p[1])*cut/n.la],end=[p[0]+(b.p[0]-p[0])*cut/n.lb,p[1]+(b.p[1]-p[1])*cut/n.lb];
  n.envelope=[start,p,end];
@@ -32,6 +34,7 @@ function makeCurve(n){
  const bend=Math.hypot((start[0]-2*p[0]+end[0])*c,start[1]-2*p[1]+end[1])*KM;
  const segments=Math.max(4,Math.ceil(Math.sqrt(bend/(4*n.chordError))));
  n.curve=Array.from({length:segments+1},(_,i)=>{const t=i/segments,u=1-t;return [u*u*start[0]+2*u*t*p[0]+t*t*end[0],u*u*start[1]+2*u*t*p[1]+t*t*end[1]];});
+ n.samples.set(sampleKey,{curve:n.curve,envelope:n.envelope});while(n.samples.size>2)n.samples.delete(n.samples.keys().next().value);
 }
 function shorten(n){n.cut*=.5;if(n.cut<MIN_CUT)n.locked=true;else makeCurve(n);}
 export function borderChordError(zoom){return !Number.isFinite(zoom)?.002:zoom<4?.1:zoom<6?.02:zoom<8?.005:.002;}
@@ -58,9 +61,14 @@ export function curvedBorders(collection,chordError=CHORD_ERROR,viewport=null){
   n.cut=cut;n.locked=locked;
   if(n.curve&&!locked){n.chordError=inViewport(n.p,viewport)?chordError:.1;makeCurve(n);}
  }
- const render=({ns,ring})=>{
-  if(!ns.some(n=>n.curve&&!n.locked))return ring;
-  const result=[];for(let i=0;i<ns.length;i++){const n=ns[i];if(n.curve&&!n.locked){const points=ns[(i+ns.length-1)%ns.length]===n.first?n.curve:n.curve.slice().reverse();result.push(...points);}else result.push(n.p);}result.push(result[0]);return result;
+ // Unchanged rings keep their sampled coordinates and signed area. A pan
+ // resamples only corners whose viewport tolerance changes. Two samples per
+ // corner bound retained memory; source rings are never modified.
+ const render=r=>{
+  const {ns,ring}=r,state=ns.map(n=>n.curve&&!n.locked?n.curve:n.p);
+  if(r.renderState?.every((value,i)=>value===state[i]))return r.rendered;
+  const result=[];for(let i=0;i<ns.length;i++){const n=ns[i];if(n.curve&&!n.locked){const points=ns[(i+ns.length-1)%ns.length]===n.first?n.curve:n.curve.slice().reverse();result.push(...points);}else result.push(n.p);}result.push(result[0]);
+  r.renderState=state;r.rendered=ns.some(n=>n.curve&&!n.locked)?result:ring;r.renderedArea=area(r.rendered);return r.rendered;
  };
  // Keep small components and holes recognisable without turning every corner
  // of a ring back into a staircase. Shorten affected cuts together, including
@@ -69,7 +77,7 @@ export function curvedBorders(collection,chordError=CHORD_ERROR,viewport=null){
   const pending=new Set();
   for(const r of ringList){
    if(!r.ns.some(n=>n.curve&&!n.locked))continue;
-   const before=area(r.ring),after=area(render(r));
+   const before=r.sourceArea;render(r);const after=r.renderedArea;
    if(!before||after*before<=0||Math.abs(after/before-1)>.02)r.ns.filter(n=>n.curve&&!n.locked).forEach(n=>pending.add(n));
   }
   if(!pending.size)break;
@@ -86,7 +94,7 @@ function prepareBorderPlan(collection){
  const get=p=>{const id=key(p);if(!nodes.has(id))nodes.set(id,{id,p,neighbours:new Set(),locked:false});return nodes.get(id);};
  for(const f of collection.features)for(const ring of rings(f.geometry)){
   if(ring.length<4)continue;
-  const ns=ring.slice(0,-1).map(get),closed=key(ring[0])===key(ring.at(-1));ringList.push({ring,ns});
+  const ns=ring.slice(0,-1).map(get),closed=key(ring[0])===key(ring.at(-1));ringList.push({ring,ns,sourceArea:area(ring)});
   const unsafe=!closed||ns.length<4||new Set(ns).size!==ns.length||ring.some((p,i)=>Math.abs(p[1])>80||(i&&Math.abs(p[0]-ring[i-1][0])>180));
   if(unsafe)ns.forEach(n=>n.locked=true);
   for(let i=0;i<ns.length;i++){

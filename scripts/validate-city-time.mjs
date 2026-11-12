@@ -29,7 +29,7 @@ const fixtures=new Map([
 const requests=[];
 const originalFetch=globalThis.fetch;
 globalThis.fetch=async input=>{
- const file=String(input);requests.push(file);
+ const file=String(input).split(/[?#]/,1)[0];requests.push(file);
  return fixtures.has(file)?new Response(gzipSync(JSON.stringify(fixtures.get(file)))):new Response('Missing fixture: '+file,{status:404});
 };
 const {placeAtYear,placeName,placeNamePeriods,loadPlaces,searchPlaces}=await import(pathToFileURL(resolve(root,'public/places.js')));

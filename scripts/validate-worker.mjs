@@ -49,6 +49,7 @@ await test('Static imports use immutable per-content keys and reuse unchanged da
 await test('Unchanged client URLs serve exact gzip/PDF bytes with HEAD, ETag and no compression header',async()=>{
  for(const f of staticFiles){const r=await sf.fetch(req('/'+f.file),env);assert.deepEqual(Buffer.from(await r.arrayBuffer()),sampleFor(f));assert.equal(r.headers.get('content-type'),f.contentType);assert.equal(r.headers.get('content-encoding'),null);assert.equal(r.headers.get('cache-control'),'private, no-cache');
  const h=await sf.fetch(req('/'+f.file,{method:'HEAD'}),env);assert.equal((await h.arrayBuffer()).byteLength,0);assert.equal(h.headers.get('content-length'),String(f.bytes));assert.equal((await sf.fetch(req('/'+f.file,{headers:{'If-None-Match':`"${f.sha256}"`}}),env)).status,304);
+ const pinned=await sf.fetch(req('/'+f.file+'?sha256='+f.sha256),env);assert.equal(pinned.headers.get('cache-control'),'private, max-age=31536000, immutable');assert.deepEqual(Buffer.from(await pinned.arrayBuffer()),sampleFor(f));
  assert.equal((await sf.fetch(req('/'+f.file+'?v=an-older-ui'),env)).status,200);assert.equal((await sf.fetch(req('/'+f.file+'?sha256=wrong'),env)).status,412);
  }
 });

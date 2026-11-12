@@ -96,6 +96,14 @@ Coordinates are inverse-projected from Krasovsky_1940_Albers onto its original e
 
 ## AWMC Roman snapshots and name review (3.57)
 
+For expanded name review and new scholarly reference plates, see the 3.58 note below.
+
 Ancient World Mapping Center, University of North Carolina at Chapel Hill, [geodata](https://github.com/AWMC/geodata), pinned revision `7ecf8bccea2efe1e1e9df2daf6001942de73fb87`, ODbL 1.0. Original CE117/CE200 extent polygons and CE200 province lines are preserved in `public/data/awmc/`, including source README, license and hashes. Each extent groups 112 fragments into one MultiPolygon without coordinate edits. The 81 province lines remain unnamed linework. Only the two publisher-labelled years are displayed, focused on western Asia; this is not full regional polity coverage.
 
 Thirty display names in the 2 CE / 742 CE ResearchArea snapshots have now been checked: 12 Han entries against [Book of Han, juan 28](https://zh.wikisource.org/zh-hans/漢書/卷028) and 18 Tang period names against [Old Book of Tang, juan 40](https://zh.wikisource.org/zh-hans/舊唐書/卷40). Exact record keys, evidence and original source labels are retained in `public/data/china-prefectures/name-audit.json`. This checks names, not source geometry; the remaining 390 records and merged units still need review. Left Pingyi retains the source romanization, consistent with the historical reading of 冯 in 冯翊.
+
+## South Asian scholarly plates and expanded Han name review (3.58)
+
+Joseph E. Schwartzberg (ed.), *A Historical Atlas of South Asia*, 1992 edition, hosted by the [University of Chicago Digital South Asia Library](https://dsal.uchicago.edu/reference/schwartzberg/). Three source-linked plate records describe III.B.4 (p.18), III.D.1 (p.25), and XIV.1 (p.145). Original map images are not bundled or mirrored; the interface opens the institution's high-resolution reader. The plate's printed Gupta/Vakataka period is c.300–550 CE, while the catalog label says 300–500. XIV.1 compares maxima at different dates. These are research references, not newly digitized annual borders. Source terms remain with the publisher.
+
+Fifty further Han display names are cross-checked against Book of Han, juan 28, bringing reviewed ResearchArea names to 80/420 (62 Han, 18 Tang). Exact source identities and short evidence extracts are recorded in the name audit. Remaining 340 entries and merged units still require review. Source romanization and geometry are retained.

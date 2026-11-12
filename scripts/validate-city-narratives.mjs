@@ -17,7 +17,7 @@ const records=new Map(datasets.flat().map(r=>[r.id,r]));
 const originalFetch=globalThis.fetch;
 let failNext=false;
 globalThis.fetch=async input=>{
- const path=String(input);requests.push(path);
+ const path=String(input).split(/[?#]/,1)[0];requests.push(path);
  if(failNext){failNext=false;return new Response('Temporary test failure',{status:503});}
  const file=resolve(dist,path);
  if(!file.startsWith(dist+'/'))return new Response('Path outside test root',{status:400});

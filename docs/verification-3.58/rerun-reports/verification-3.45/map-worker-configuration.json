@@ -1,0 +1,78 @@
+{
+  "generated": "2026-11-12T03:10:51.881Z",
+  "module": "public/map-runtime.js",
+  "sha256": "2ed1471cec9f1f86ba169aef9a0d06aaf03da7b45300df253b348bd7f1de3e8a",
+  "method": "Production configureMapWorkers and createMapLibreLoader with deterministic navigator/script fixtures; validates policy and before-construction sequencing, not actual WebWorker creation or browser speed.",
+  "total": 17,
+  "passed": 17,
+  "results": [
+    {
+      "name": "Worker policy preserves intended budget for eligible desktop",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for four-core lower threshold",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for browser without device-memory signal",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for two-core device",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for three-core device",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for low-memory four-core device",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for low-memory many-core device",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for no hardware information",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for non-finite hardware information",
+      "passed": true
+    },
+    {
+      "name": "Worker policy preserves intended budget for invalid hardware information",
+      "passed": true
+    },
+    {
+      "name": "Defaults of two or more are never lowered",
+      "passed": true
+    },
+    {
+      "name": "One library is configured once across repeated loader and atlas callers",
+      "passed": true
+    },
+    {
+      "name": "Different library instances remain independently configurable",
+      "passed": true
+    },
+    {
+      "name": "Libraries lacking optional worker APIs remain usable",
+      "passed": true
+    },
+    {
+      "name": "Already available renderer is configured before the load promise gives it to a map constructor",
+      "passed": true
+    },
+    {
+      "name": "Async script completion configures once before both concurrent map callers continue",
+      "passed": true
+    },
+    {
+      "name": "Low-memory async startup resolves normally without increasing its default pool",
+      "passed": true
+    }
+  ]
+}

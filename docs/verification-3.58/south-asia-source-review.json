@@ -1,0 +1,127 @@
+{
+  "version": "3.58 research",
+  "checkedOn": "2026-11-12",
+  "status": "Concrete scholarly raster sources obtained and visually checked; no annual vector approved",
+  "newResearchPlates": [
+    {
+      "id": "maurya",
+      "zh": "孔雀王朝时期",
+      "manifest": "https://dsal.uchicago.edu/reference/schwartzberg/manifests/map_groups/The_time_of_the_Mauryan_Empire_321-181_B.C.json",
+      "originalCatalogLabel": "The time of the Mauryan Empire, 321-181 B.C.",
+      "plate": "III.B.4 / printed page 18",
+      "periodStart": -321,
+      "periodEnd": -181,
+      "periodIsSnapshot": false,
+      "mainImageService": "https://dsal.uchicago.edu/iiif/schwartzberg/055.tif",
+      "fullImage": "https://dsal.uchicago.edu/iiif/schwartzberg/055.tif/full/max/0/default.jpg",
+      "width": 6223,
+      "height": 7893,
+      "canvases": 5,
+      "inspectedPreview": "/private/tmp/atlas358-southasia/055.jpg",
+      "geometryType": "scanned plate with graticule and legends",
+      "decision": "accepted scholarly research plate and digitization source; NOT ready to replace yearly political polygons",
+      "notes": "Submap b distinguishes territorial acquisitions under different rulers, including c.305 BCE and c.260 BCE; the full plate spans a period, not a constant empire."
+    },
+    {
+      "id": "gupta",
+      "zh": "笈多与伐迦陀迦时期",
+      "manifest": "https://dsal.uchicago.edu/reference/schwartzberg/manifests/map_groups/The_Gupta-Vakataka_Age_c._A.D._300-500.json",
+      "originalCatalogLabel": "The Gupta-Vakataka Age, c. A.D. 300-500",
+      "plate": "III.D.1 / printed page 25",
+      "periodStart": 300,
+      "periodEnd": 550,
+      "periodIsSnapshot": false,
+      "mainImageService": "https://dsal.uchicago.edu/iiif/schwartzberg/062.tif",
+      "fullImage": "https://dsal.uchicago.edu/iiif/schwartzberg/062.tif/full/max/0/default.jpg",
+      "width": 6215,
+      "height": 7812,
+      "canvases": 5,
+      "inspectedPreview": "/private/tmp/atlas358-southasia/gupta.jpg",
+      "geometryType": "scanned plate with graticule and legends",
+      "decision": "accepted scholarly research plate and digitization source; NOT ready to replace yearly political polygons",
+      "notes": "Actual plate title is c.300–550 CE; catalog and manifest label say c.300–500. The plate includes tributary, annexed and maximum-ever domains; these must remain distinct."
+    },
+    {
+      "id": "synopsis",
+      "zh": "至六世纪的南亚主要政权",
+      "manifest": "https://dsal.uchicago.edu/reference/schwartzberg/manifests/map_groups/Major_powers_to_the_6th_century_A.D.json",
+      "originalCatalogLabel": "Major powers to the 6th century A.D.",
+      "plate": "XIV.1 / printed page 145",
+      "periodStart": null,
+      "periodEnd": 600,
+      "periodIsSnapshot": false,
+      "mainImageService": "https://dsal.uchicago.edu/iiif/schwartzberg/182.tif",
+      "fullImage": "https://dsal.uchicago.edu/iiif/schwartzberg/182.tif/full/max/0/default.jpg",
+      "width": 6281,
+      "height": 7795,
+      "canvases": 13,
+      "inspectedPreview": "/private/tmp/atlas358-southasia/synopsis.jpg",
+      "geometryType": "scanned plate with graticule and legends",
+      "decision": "accepted scholarly research plate and digitization source; NOT ready to replace yearly political polygons",
+      "notes": "Twelve panels. Legend explicitly uses maximum extent at some time, unless otherwise specified. Not an annual map or simultaneous state system."
+    }
+  ],
+  "institution": "Digital South Asia Library, University of Chicago",
+  "catalog": "https://dsal.uchicago.edu/reference/schwartzberg/",
+  "bibliography": "Joseph E. Schwartzberg, A Historical Atlas of South Asia, second impression with additional material, Oxford University Press, 1992.",
+  "recommendedImmediateUse": "Link indexed plates from source panels/dossiers with original legend visible; retain source title, actual plate date and uncertainty. Build a reference reader, not automatic yearly polygons.",
+  "digitizationRequirements": [
+    "Select a specific dated boundary from an individual panel, not an entire period label.",
+    "Georeference each map panel separately using its graticule; report held-out control residuals.",
+    "Keep annexed, tributary, claimed, approximate, maximum-ever and core-area semantics separate.",
+    "Record digitizer, source canvas and traced path; test topology and independent landmarks."
+  ],
+  "otherSources": [
+    {
+      "name": "NATMO Ancient India Cultural",
+      "url": "https://geoportal.natmo.gov.in/dataset/ancient-india-cultural",
+      "result": "Official search index now exposes full Cultural metadata: vector, 1:14,000,000, Lambert Conformal Conic, tlate/tearly/period/temporal precision all NA; dates2014/2019/2020 describe production. Direct dataset open still timed out.",
+      "decision": "No ancient political date validity established."
+    },
+    {
+      "name": "SDSU GIS Software To Explore the Mauryan Dynasty, Sukesh Mandava,2008",
+      "url": "https://edoras.sdsu.edu/~eckberg/Mauryan/MauryanDynasty.html",
+      "download": "https://edoras.sdsu.edu/~eckberg/Mauryan/Maurya_Dynasty.zip",
+      "localArchive": "/private/tmp/atlas358-southasia/Maurya_Dynasty.zip",
+      "sha256": "d939efa11d9d3682c322772e542d4addb6d624dbec4d2f081b1bd12fbdd86861",
+      "inspected": [
+        "ZIP inventory without running software",
+        "Ashoka,Bindusara,ChandraGuptha Polygon shapefiles and attributes",
+        "MauryaDynastyPOI coordinates",
+        "MauryaReadme.doc installation instructions"
+      ],
+      "facts": [
+        "3 purported historical polygons; no .prj in ZIP and Fiona returns empty CRS",
+        "ChandraGuptha RULED=321BC-297BC; Bindusara RULED=297BC-272BC; Ashoka lacks a historical date field",
+        "Historical boundary construction/original map sources not established",
+        "POI calls 73.205E22.057N Gandhara and74.256E16.496N Kambhoja, major geographic anomalies"
+      ],
+      "decision": "Reject as reliable boundary upgrade; preserve discovery as negative evidence. Do not infer validity for entire reign from RULED."
+    },
+    {
+      "name": "John C. Huntington historical maps",
+      "catalog": "https://dsal.uchicago.edu/huntington/resources/historicalMaps.php",
+      "image": "https://dsal.uchicago.edu/huntington/resources/images/maps/fullSize/11MauryanEmpire.jpg",
+      "localImage": "/private/tmp/atlas358-southasia/11MauryanEmpire.jpg",
+      "readImageLegend": "Empire at ca.250 BCE, greatest extent; reign list and inscription symbols.",
+      "decision": "Useful independent scholarly teaching reference; no projection/graticule/coordinate data established. Not a ready high-precision vector replacement."
+    }
+  ],
+  "additionalCatalogLeads": [
+    {
+      "title": "Satavahana-Saka-Kusana age, c.1–300 CE",
+      "manifest": "https://dsal.uchicago.edu/reference/schwartzberg/manifests/map_groups/The_Satavahana-Saka-Kusana_age_c._A.D._1-300.json",
+      "inspected": "catalog link only"
+    },
+    {
+      "title": "Pusyabhuti and Calukyan ascendancy, c.550–700 CE",
+      "manifest": "https://dsal.uchicago.edu/reference/schwartzberg/manifests/map_groups/The_age_of_Pusyabhuti_and_Calukyan_ascendancy_c._A.D._550-700.json",
+      "inspected": "catalog link only"
+    },
+    {
+      "title": "Gurjara-Pratiharas, Palas and Rastrakutas, c.700–975 CE",
+      "manifest": "https://dsal.uchicago.edu/reference/schwartzberg/manifests/map_groups/The_age_of_the_Gurjara-Pratiharas_Palas_and_Rastrakutas_c._A.D._700-975.json",
+      "inspected": "catalog link only"
+    }
+  ]
+}
