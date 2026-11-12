@@ -1,6 +1,6 @@
 // A reversible cartographic portrayal, never a replacement for source geometry.
 // Corners are keyed globally so neighbours reuse the exact same curve in reverse.
-const cache=new WeakMap(),KM=111.195,MAX_CUT=4,MIN_CUT=.02,CHORD_ERROR=.002,GRID=1;
+const cache=new WeakMap(),plans=new WeakMap(),KM=111.195,MAX_CUT=4,MIN_CUT=.02,CHORD_ERROR=.002,GRID=1;
 const key=p=>p[0]+','+p[1];
 const rings=g=>g?.type==='Polygon'?g.coordinates:g?.type==='MultiPolygon'?g.coordinates.flat():[];
 const area=r=>{let a=0;for(let i=1;i<r.length;i++)a+=r[i-1][0]*r[i][1]-r[i][0]*r[i-1][1];return a/2;};
@@ -49,6 +49,39 @@ export function curvedBorders(collection,chordError=CHORD_ERROR,viewport=null){
  if(![.002,.005,.02,.1].includes(chordError))throw new RangeError('Unsupported border display tolerance');
  const viewKey=viewport?.join(',')||'';
  const cached=cache.get(collection);if(cached?.chordError===chordError&&cached.viewKey===viewKey)return cached.result;
+ // Topology and collision envelopes depend only on source coordinates. Keep
+ // that plan with the immutable frame; camera changes only resample its curves.
+ let plan=plans.get(collection);
+ if(!plan){plan=prepareBorderPlan(collection);plans.set(collection,plan);}
+ const {nodes,ringList,basis}=plan;
+ for(const [n,cut,locked] of basis){
+  n.cut=cut;n.locked=locked;
+  if(n.curve&&!locked){n.chordError=inViewport(n.p,viewport)?chordError:.1;makeCurve(n);}
+ }
+ const render=({ns,ring})=>{
+  if(!ns.some(n=>n.curve&&!n.locked))return ring;
+  const result=[];for(let i=0;i<ns.length;i++){const n=ns[i];if(n.curve&&!n.locked){const points=ns[(i+ns.length-1)%ns.length]===n.first?n.curve:n.curve.slice().reverse();result.push(...points);}else result.push(n.p);}result.push(result[0]);return result;
+ };
+ // Keep small components and holes recognisable without turning every corner
+ // of a ring back into a staircase. Shorten affected cuts together, including
+ // their neighbours' copy, then recheck all rings (area changes can cancel).
+ while(true){
+  const pending=new Set();
+  for(const r of ringList){
+   if(!r.ns.some(n=>n.curve&&!n.locked))continue;
+   const before=area(r.ring),after=area(render(r));
+   if(!before||after*before<=0||Math.abs(after/before-1)>.02)r.ns.filter(n=>n.curve&&!n.locked).forEach(n=>pending.add(n));
+  }
+  if(!pending.size)break;
+  // Commit each adjustment together: feature order must not affect borders.
+  pending.forEach(shorten);
+ }
+ const rendered=new Map(ringList.map(r=>[r.ring,render(r)]));
+ const features=collection.features.map(f=>{const g=f.geometry;if(!g||!['Polygon','MultiPolygon'].includes(g.type))return f;return {...f,geometry:{...g,coordinates:g.type==='Polygon'?g.coordinates.map(r=>rendered.get(r)||r):g.coordinates.map(p=>p.map(r=>rendered.get(r)||r))}};});
+ const result={...collection,features};cache.set(collection,{chordError,viewKey,result});return result;
+}
+
+function prepareBorderPlan(collection){
  const nodes=new Map(),edges=new Map(),ringList=[];
  const get=p=>{const id=key(p);if(!nodes.has(id))nodes.set(id,{id,p,neighbours:new Set(),locked:false});return nodes.get(id);};
  for(const f of collection.features)for(const ring of rings(f.geometry)){
@@ -77,7 +110,7 @@ export function curvedBorders(collection,chordError=CHORD_ERROR,viewport=null){
   if(!la||!lb||cosine<-.985||cosine>.85||(la>80&&lb>80))continue;
   const cut=Math.min(MAX_CUT,la*.45,lb*.45);
   if(cut<MIN_CUT)continue;
-  Object.assign(n,{first:a,ends:[a,b],cut,la,lb,chordError:inViewport(p,viewport)?chordError:.1});makeCurve(n);
+  Object.assign(n,{first:a,ends:[a,b],cut,la,lb,chordError:CHORD_ERROR});makeCurve(n);
  }
  // Each curve lies entirely inside its corner triangle. Permit broad, flowing
  // corners only where that entire envelope is free of other original edges.
@@ -100,25 +133,5 @@ export function curvedBorders(collection,chordError=CHORD_ERROR,viewport=null){
   }
   if(!pending.size)break;pending.forEach(shorten);
  }
- const render=({ns,ring})=>{
-  if(!ns.some(n=>n.curve&&!n.locked))return ring;
-  const result=[];for(let i=0;i<ns.length;i++){const n=ns[i];if(n.curve&&!n.locked){const points=ns[(i+ns.length-1)%ns.length]===n.first?n.curve:n.curve.slice().reverse();result.push(...points);}else result.push(n.p);}result.push(result[0]);return result;
- };
- // Keep small components and holes recognisable without turning every corner
- // of a ring back into a staircase. Shorten affected cuts together, including
- // their neighbours' copy, then recheck all rings (area changes can cancel).
- while(true){
-  const pending=new Set();
-  for(const r of ringList){
-   if(!r.ns.some(n=>n.curve&&!n.locked))continue;
-   const before=area(r.ring),after=area(render(r));
-   if(!before||after*before<=0||Math.abs(after/before-1)>.02)r.ns.filter(n=>n.curve&&!n.locked).forEach(n=>pending.add(n));
-  }
-  if(!pending.size)break;
-  // Commit each adjustment together: feature order must not affect borders.
-  pending.forEach(shorten);
- }
- const rendered=new Map(ringList.map(r=>[r.ring,render(r)]));
- const features=collection.features.map(f=>{const g=f.geometry;if(!g||!['Polygon','MultiPolygon'].includes(g.type))return f;return {...f,geometry:{...g,coordinates:g.type==='Polygon'?g.coordinates.map(r=>rendered.get(r)||r):g.coordinates.map(p=>p.map(r=>rendered.get(r)||r))}};});
- const result={...collection,features};cache.set(collection,{chordError,viewKey,result});return result;
+ return {nodes,ringList,basis:[...nodes.values()].map(n=>[n,n.cut,n.locked])};
 }

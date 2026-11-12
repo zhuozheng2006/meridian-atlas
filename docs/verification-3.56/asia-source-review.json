@@ -1,0 +1,43 @@
+{
+  "selected": {
+    "title": "ResearchArea, Zheng & Wu (2026)",
+    "paper": "https://doi.org/10.1038/s41597-026-07086-6",
+    "dataset": "https://doi.org/10.6084/m9.figshare.30518417.v2",
+    "selectedYears": [
+      2,
+      742
+    ],
+    "selectedRows": 420,
+    "originalRows": 1070,
+    "geometryReview": "Every inverse-projected source coordinate and original attribute verified; topology and historical interpretation remain source-dependent.",
+    "namesReview": "Source romanized names retained; limited display aliases added. Exact period naming has not been independently reviewed for every unit, including Tang Zhou names.",
+    "frontierScope": "Research area, not full national territory; merged units and excluded frontier/water areas retained."
+  },
+  "deferred": [
+    {
+      "source": "ResearchArea 1102,1820",
+      "reason": "Larger geometry payload and further source-name review required; retained in originals, not rendered."
+    },
+    {
+      "source": "AWMC geopolitical shading",
+      "url": "https://github.com/AWMC/geodata",
+      "commit": "7ecf8bccea2efe1e1e9df2daf6001942de73fb87",
+      "reason": "Persian extent and Alexander geometries omit per-feature dates; do not assign whole-lifetime validity or invent annual borders."
+    },
+    {
+      "source": "ECAI Persian Achaemenid Era",
+      "url": "https://ecaidata.org/dataset/ecaiclearinghouse-id-1421",
+      "reason": "Catalog says no downloadable data."
+    },
+    {
+      "source": "South Asia academic maps",
+      "url": "https://dsal.uchicago.edu/huntington/resources/historicalMaps.php",
+      "reason": "Scanned or illustrated maps require georeferencing and date/source audit before use as precise polygon boundaries."
+    },
+    {
+      "source": "CHGIS V6 prefecture polygons",
+      "doi": "10.7910/DVN/I0Q7SM",
+      "reason": "Official Dataverse page and API returned403 during retrieval; no CAPTCHA or authentication bypass attempted."
+    }
+  ]
+}

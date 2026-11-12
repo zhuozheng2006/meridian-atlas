@@ -1,19 +1,19 @@
-import {waitForMapForeground} from './map-load-priority.js?v=3.55.0-17d430e928d3';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.55.0-17d430e928d3';
-import {boundaryMesh} from './boundary-mesh.js?v=3.55.0-17d430e928d3';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.55.0-17d430e928d3';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.55.0-17d430e928d3';
-import {BoundaryController} from './boundary-controller.js?v=3.55.0-17d430e928d3';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.55.0-17d430e928d3';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.55.0-17d430e928d3';
-import {Geography} from './geography.js?v=3.55.0-17d430e928d3';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.55.0-17d430e928d3';
+import {waitForMapForeground} from './map-load-priority.js?v=3.56.0-2d8a9f8e737a';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.56.0-2d8a9f8e737a';
+import {boundaryMesh} from './boundary-mesh.js?v=3.56.0-2d8a9f8e737a';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.56.0-2d8a9f8e737a';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.56.0-2d8a9f8e737a';
+import {BoundaryController} from './boundary-controller.js?v=3.56.0-2d8a9f8e737a';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.56.0-2d8a9f8e737a';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.56.0-2d8a9f8e737a';
+import {Geography} from './geography.js?v=3.56.0-2d8a9f8e737a';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.56.0-2d8a9f8e737a';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.55.0-17d430e928d3';
+import {polityName} from './polity-names.js?v=3.56.0-2d8a9f8e737a';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
@@ -35,7 +35,7 @@ export async function readJSON(url){
    // Fetch Priority: first-frame data (data/fast) and the small native geometry
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
-   const priority=/(?:^|\/)data\/(?:fast|native|chgis|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
+   const priority=/(?:^|\/)data\/(?:fast|native|chgis|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
    const response=await fetch(url,{signal:controller.signal,cache:'no-cache',priority});if(!response.ok)throw Error(`${response.status} ${url}`);
    if(!url.endsWith('.gz'))return await response.json();
    // Stream the body so the timeout measures progress instead of total duration:

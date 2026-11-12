@@ -22,6 +22,9 @@ for(const f of regionalTransport.files){
  if(!/^(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid regional transport path');
  addStatic('data/ohm-transport/'+f.file,{bytes:f.bytes,sha256:f.sha256});
 }
+const china=JSON.parse(fs.readFileSync(path.join(source,'data/china-prefectures/manifest.json')));
+addStatic('data/china-prefectures/ResearchArea-originals.zip',{bytes:fs.statSync(path.join(source,'data/china-prefectures/ResearchArea-originals.zip')).size,sha256:china.sourceArchiveSHA256});
+for(const f of china.files){if(!/^year-\d+-band-\d+\.json\.gz$/.test(f.file))continue;addStatic('data/china-prefectures/'+f.file,{bytes:f.bytes,sha256:f.sha256});}
 const chgis=JSON.parse(fs.readFileSync(path.join(source,'data/chgis/manifest.json')));
 for(const f of chgis.files){if(!/^century--?\d+\.json\.gz$/.test(f.file))continue;addStatic('data/chgis/'+f.file,{bytes:f.bytes,sha256:f.sha256});}
 const cshapes=JSON.parse(fs.readFileSync(path.join(source,'data/cshapes/manifest.json')));

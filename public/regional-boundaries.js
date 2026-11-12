@@ -1,16 +1,18 @@
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.55.0-17d430e928d3';
-import {beginMapForeground} from './map-load-priority.js?v=3.55.0-17d430e928d3';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.55.0-17d430e928d3';
-import {boundaryNote} from './boundary-notes.js?v=3.55.0-17d430e928d3';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.55.0-17d430e928d3';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.55.0-17d430e928d3';
-import {boundaryMode} from './view-state.js?v=3.55.0-17d430e928d3';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.55.0-17d430e928d3';
-import {historicalYearRange} from './historical-dates.js?v=3.55.0-17d430e928d3';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.55.0-17d430e928d3';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.56.0-2d8a9f8e737a';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.56.0-2d8a9f8e737a';
+import {beginMapForeground} from './map-load-priority.js?v=3.56.0-2d8a9f8e737a';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.56.0-2d8a9f8e737a';
+import {boundaryNote} from './boundary-notes.js?v=3.56.0-2d8a9f8e737a';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.56.0-2d8a9f8e737a';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.56.0-2d8a9f8e737a';
+import {boundaryMode} from './view-state.js?v=3.56.0-2d8a9f8e737a';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.56.0-2d8a9f8e737a';
+import {historicalYearRange} from './historical-dates.js?v=3.56.0-2d8a9f8e737a';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.56.0-2d8a9f8e737a';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
+ if(window_?.id?.startsWith('china-prefectures-')){const release=beginMapForeground();return readChinaSnapshot(window_,Number(year)).finally(release);}
  if(window_?.id==='chgis-prefectures'){const release=beginMapForeground();return readChgisSnapshot(Number(year)).finally(release);}
  const original=window_.root+'year-'+year+'.json.gz',compact=regionalTransportURL(window_,year),url=compact||original;
  if(snapshotLoads.has(url))return snapshotLoads.get(url);
@@ -90,7 +92,7 @@ export function ohmWindowInView(window_,bounds){
  const shift=Math.round(((west+end)/2-(window_.bounds[0]+window_.bounds[2])/2)/360)*360;
  return west<=window_.bounds[2]+shift&&end>=window_.bounds[0]+shift;
 }
-export const regionalWindowFor=(bounds,year)=>chgisWindowFor(bounds,year)||ohmWindowFor(bounds);
+export const regionalWindowFor=(bounds,year)=>chinaWindowFor(bounds,year)||chgisWindowFor(bounds,year)||ohmWindowFor(bounds);
 export const ohmInView=bounds=>OHM_WINDOWS.some(window_=>ohmWindowInView(window_,bounds));
 // Which window answers for this view: the one holding the view centre, else the largest overlap.
 export function ohmWindowFor(bounds){
@@ -244,6 +246,8 @@ export class RegionalBoundaries{
  get ohmCoverage(){return this.ohmReady?this.ohmData.metadata?.coverage||null:null;}
  get ohmVerdict(){return this.ohmCoverage?.verdict||null;}
  get ohmWindow(){return regionalWindowFor(this.map.getBounds?.(),Number(this.year));}
+ get chinaResearchActive(){return !!this.ohmWindow?.id?.startsWith('china-prefectures-');}
+ get scholarlyActive(){return this.chgisActive||this.chinaResearchActive;}
  get chgisActive(){return this.ohmWindow?.id==='chgis-prefectures';}
  get ohmWindowLabel(){const window_=this.ohmWindow;return window_?tr(this.lang,window_.zh,window_.en):'';}
  // Start the dated local snapshot one zoom level before it is visible.
@@ -262,7 +266,7 @@ export class RegionalBoundaries{
  get overviewContext(){return this.active&&this.mode==='auto'&&!this.coverageEnough;}
  get ohmEligible(){const window_=this.ohmWindow;return this.eligible&&!!window_&&window_.years.includes(Number(this.year));}
  ensure(){
-  if(this.chgisActive||this.map.getSource(SOURCE))return;
+  if(this.scholarlyActive||this.map.getSource(SOURCE))return;
   this.liveContentSeen=false;this.liveRendered=null;
   this.map.addSource(SOURCE,{type:'vector',tiles:['https://vtiles.openhistoricalmap.org/maps/ohm_admin/{z}/{x}/{y}'],minzoom:REGIONAL_MIN_ZOOM,maxzoom:14,attribution:'<a href="https://www.openhistoricalmap.org/copyright" target="_blank" rel="noopener">OpenHistoricalMap contributors</a> · <a href="https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Sources" target="_blank" rel="noopener">Sources & attribution</a>'});
   for(const layer of regionalLayers(this.year,this.maxLevel))this.map.addLayer(layer,'boundary');this.visibilityKey=null;
@@ -292,7 +296,7 @@ export class RegionalBoundaries{
  }
  addOhmLayers(){
   if(!this.ohmData)return;
-  const attribution=this.chgisActive?'CHGIS V4 · Fudan University / Harvard University':'OpenHistoricalMap contributors · CC0';
+  const attribution=this.chinaResearchActive?'Zheng & Wu (2026) · CC BY 4.0':this.chgisActive?'CHGIS V4 · Fudan University / Harvard University':'OpenHistoricalMap contributors · CC0';
   if(this.frozenAttribution!==attribution&&this.map.getSource(OHM_SOURCE))this.removeOhmLayers();this.frozenAttribution=attribution;
   this.frozenEpoch++;this.frozenContentSeen=false;this.scanKey=null;
   if(this.map.getSource(OHM_SOURCE)){this.map.getSource(OHM_SOURCE).setData(this.ohmData);this.visibilityKey=null;this.visibility();return;}
@@ -318,6 +322,7 @@ export class RegionalBoundaries{
  }
  // What the frozen snapshot holds for the selected year, in the atlas' own honest wording.
  ohmNote(){
+  if(this.chinaResearchActive)return tr(this.lang,'中国历史区划研究截面 · '+this.year+' 年。点击区划可查来源与原始记录；部分边疆和水面位于研究区之外。','Chinese historical divisions · '+this.year+' research snapshot. Select an area for source records; some frontier areas and water surfaces lie outside the study area.');
   if(this.chgisActive)return tr(this.lang,'CHGIS V4 · 复旦大学历史府级区划，按来源起止年份显示。主要覆盖中国南部与东部；点开区划可读编制信息、变更类型和原始记录。','CHGIS V4 · Fudan historical prefectures, selected by the source year ranges. Coverage is regional, mainly southern and eastern China. Open an area for compilers, change types and source records.');
   const coverage=this.ohmCoverage,records=this.ohmData?.metadata?.relationCount??this.features.length;
   if(!coverage)return tr(this.lang,'OHM 固化详图与在线瓦片合并显示；两来源都没有记录的地方留白。','The static OHM extract is merged with the online tiles; wherever both sources are silent the map stays blank.');
@@ -356,7 +361,7 @@ export class RegionalBoundaries{
   this.switcher.hidden=this.controls.hidden||this.map.getZoom()<REGIONAL_MIN_ZOOM||this.failed&&!this.ohmReady&&this.mode!=='halc'||(!this.detailedActive&&['regional','halc'].includes(this.mode));this.switcher.textContent=this.status==='partial'&&!this.detailedActive?tr(this.lang,'并排对照','Compare detail'):tr(this.lang,this.detailedActive?'对照概览':'查看详图',this.detailedActive?'Compare overview':'View detail');
   if(status==='ready'&&this.active&&this.coverageEnough===false)this.badge.textContent=this.overviewContext?tr(this.lang,'局部详图 · '+this.features.length+' 条 · 概览底色','Local detail · '+this.features.length+' areas · overview tint'):tr(this.lang,'局部详图 · '+this.features.length+' 条 · 空白处未收录','Local detail · '+this.features.length+' areas · gaps unmapped');
   if(status==='partial'&&this.ohmReady&&this.ohmVerdict==='sparse')this.badge.textContent=tr(this.lang,'该年固化详图偏少 · '+this.features.length+' 条','Sparse dated detail · '+this.features.length+' areas');
-  if(this.ohmReady&&this.active&&!this.liveFrameReady&&!this.chgisActive)this.badge.textContent+=tr(this.lang,this.failed?' · 在线补充暂不可用':' · 在线补充中',this.failed?' · Online supplement unavailable':' · Online supplement loading');
+  if(this.ohmReady&&this.active&&!this.liveFrameReady&&!this.scholarlyActive)this.badge.textContent+=tr(this.lang,this.failed?' · 在线补充暂不可用':' · 在线补充中',this.failed?' · Online supplement unavailable':' · Online supplement loading');
   this.indexRefresh?.();this.map.getContainer().dispatchEvent(new CustomEvent('regional-status',{bubbles:true}));
  }
  setActive(v){
@@ -370,7 +375,7 @@ export class RegionalBoundaries{
   this.visibility();this.atlas.refreshLabels();
  }
  visibility(){
-  const ohmLoaded=this.ohmEligible&&this.ohmState==='ready'&&this.ohmKey===this.ohmWindow?.id+'|'+this.year,ohmVisible=ohmLoaded&&this.ohmReady,visible=this.eligible&&!this.failed&&!this.chgisActive,key=visible+':'+this.active+':'+this.liveDrawn+':'+ohmLoaded+':'+ohmVisible;if(this.visibilityKey===key)return;this.visibilityKey=key;
+  const ohmLoaded=this.ohmEligible&&this.ohmState==='ready'&&this.ohmKey===this.ohmWindow?.id+'|'+this.year,ohmVisible=ohmLoaded&&this.ohmReady,visible=this.eligible&&!this.failed&&!this.scholarlyActive,key=visible+':'+this.active+':'+this.liveDrawn+':'+ohmLoaded+':'+ohmVisible;if(this.visibilityKey===key)return;this.visibilityKey=key;
   if(this.map.getLayer(IDS[0]))this.map.setPaintProperty(IDS[0],'fill-opacity-transition',{duration:0,delay:0});
   for(const id of IDS)if(this.map.getLayer(id))this.map.setLayoutProperty(id,'visibility',visible&&(id===IDS[0]||this.liveDrawn&&this.active)?'visible':'none');
   if(this.map.getLayer(IDS[0]))this.map.setPaintProperty(IDS[0],'fill-opacity',this.active&&this.liveDrawn?['case',['==',['get','admin_level'],2],.05,.2]:0);
@@ -404,7 +409,7 @@ export class RegionalBoundaries{
  }
  settle(rendered=false){
   if(this.settling||!this.eligible||this.map.isMoving())return;
-  const view=this.viewportKey(),liveLoaded=!this.chgisActive&&!this.failed&&this.liveContentSeen&&!!this.map.getSource(SOURCE)&&this.map.isSourceLoaded(SOURCE),frozenLoaded=this.frozenContentSeen&&this.ohmState==='ready'&&this.ohmKey===this.ohmWindow?.id+'|'+this.year&&!!this.map.getSource(OHM_SOURCE)&&this.map.isSourceLoaded(OHM_SOURCE);
+  const view=this.viewportKey(),liveLoaded=!this.scholarlyActive&&!this.failed&&this.liveContentSeen&&!!this.map.getSource(SOURCE)&&this.map.isSourceLoaded(SOURCE),frozenLoaded=this.frozenContentSeen&&this.ohmState==='ready'&&this.ohmKey===this.ohmWindow?.id+'|'+this.year&&!!this.map.getSource(OHM_SOURCE)&&this.map.isSourceLoaded(OHM_SOURCE);
   if(rendered){
    if(liveLoaded)this.liveRendered=view+'|'+this.liveEpoch;
    if(frozenLoaded){this.frozenRendered=view+'|'+this.frozenEpoch;if(this.ohmRenderedKey!==this.ohmKey){this.ohmRenderedKey=this.ohmKey;this.applyFilters();this.visibility();}}
@@ -478,7 +483,13 @@ export class RegionalBoundaries{
   const button=add('button',tr(lang,'下载这条原始记录','Download this source record'));button.className='regional-dossier';const year=this.year;button.onclick=async()=>{button.disabled=true;try{const data=await chgisRecord(p.id,year),url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=p.id+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch{button.textContent=tr(lang,'读取失败，点击重试','Could not load; retry');}finally{button.disabled=false;}};
   this.popupAt(node,point);this.selectedId=p.osm_id;this.applySelection(p.osm_id);
  }
+ openChinaRecord(f,point){
+  if(!regionalVisible(f.properties,this.year,this.maxLevel))return;this.closePopup();const p=f.properties,year=this.year,window_=this.ohmWindow;
+  const node=chinaRecordPanel(p,this.lang,async()=>{const data=await chinaRecord(p.id,window_,year),url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=p.id+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  this.popupAt(node,point);this.selectedId=p.osm_id;this.applySelection(p.osm_id);
+ }
  openFeature(f,point){
+  if(f.properties.archive==='china-prefectures'){this.openChinaRecord(f,point);return;}
   if(f.properties.archive==='chgis'){this.openChgisRecord(f,point);return;}
   if(f.properties.archive==='halc'){this.halc.openRecord(f.properties.fid,point);return;}
   if(f.properties.archive==='cshapes'){this.atlas.boundaries?.openRecord(f.properties.id,point);return;}
