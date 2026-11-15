@@ -1,8 +1,8 @@
 
-> meridian-world-history-atlas@3.61.0 test
+> meridian-world-history-atlas@3.61.1 test
 > node scripts/stamp-assets.mjs --check && node scripts/validate.mjs && node scripts/validate-v2.mjs && node scripts/validate-narrative-metadata.mjs && node scripts/validate-seshat-research.mjs && python3 scripts/seshat-polaris/verify_polaris.py --data public/data/seshat-polaris-2026 --report docs/verification-3.61/polaris/source-verification.json && python3 scripts/seshat-polaris/build_contract.py --data-dir public/data/seshat-polaris-2026 --output public/polaris-contract.js --check && node scripts/validate-polaris-store.mjs --report docs/verification-3.61/polaris/store-verification.json && POLARIS_WORKER_REPORT=docs/verification-3.61/polaris/worker-verification.json node scripts/validate-polaris-worker.mjs && node scripts/validate-polaris-pagination.mjs && python3 scripts/build_saved_text_catalog.py --repo . --check && python3 public/data/research-evidence/readings-3.44/verify.py . public/data/research-evidence/readings-3.44 docs/verification-3.61/reading-sources-3.44.json && python3 public/data/research-evidence/readings-3.45/verify.py . public/data/research-evidence/readings-3.45 docs/verification-3.61/reading-sources.json && python3 scripts/validate_hammurabi_text.py && python3 scripts/validate_offline_texts.py && node scripts/build-research-readings.mjs --check && node scripts/validate-research-readings.mjs && node scripts/validate-original-reader.mjs && node scripts/validate-reader-continuity.mjs && POLARIS_SEMANTIC_REPORT=docs/verification-3.61/semantic-evidence/verification.json node scripts/validate-polaris-semantic-evidence.mjs && node scripts/validate-polaris-vocabulary.mjs && node scripts/validate-polaris-polity-names.mjs && POLARIS_READER_REPORT=docs/verification-3.61/polaris/ui-verification.json node scripts/validate-polaris-reader.mjs && node scripts/validate-research-polity-names.mjs && node scripts/validate-research-format.mjs && node scripts/validate-research-entry.mjs && node scripts/validate-map-runtime.mjs && node scripts/validate-map-worker-configuration.mjs && node scripts/validate-research-routing.mjs && node scripts/validate-research-versions.mjs && node scripts/validate-fact-period.mjs && node scripts/validate-polity-period.mjs && node scripts/validate-interactions.cjs && node scripts/validate-v3.mjs && node scripts/validate-native.mjs && node scripts/validate-point-layer-gate.mjs && node scripts/validate-native-bundles.mjs && node scripts/validate-global-frame-cache.mjs && node scripts/validate-border-curves.mjs && node scripts/validate-boundary-mesh.mjs && node scripts/validate-border-envelopes.mjs && node scripts/places/build-attested-places.mjs --check && node scripts/places/validate-attested-places.mjs . docs/verification-3.61/attested-places.json && node scripts/places/validate-cities-3.47.mjs . docs/verification-3.61/cities-source-runtime.json && node scripts/validate-places.mjs && node scripts/validate-city-time.mjs && node scripts/validate-place-corrections.mjs && node scripts/validate-city-narratives.mjs && node scripts/validate-geography.mjs && node scripts/validate-physical-grid.mjs && node scripts/validate-view-state.cjs && HALC_LAZY_REPORT=docs/verification-3.61/halc-lazy-fragments.json node scripts/validate-halc-lazy-fragments.mjs && HALC_BUCKET_REPORT=docs/verification-3.61/halc-shared-buckets.json node scripts/validate-halc-shared-buckets.mjs && HALC_SELECTION_REPORT=docs/verification-3.61/halc-selection.json node scripts/validate-halc-selection.mjs && node scripts/validate-halc-posttask.mjs && HALC_LABEL_SCHEDULER_REPORT=docs/verification-3.61/halc-label-scheduler.json node scripts/validate-halc-label-scheduler.mjs && HALC_FALLBACK_REPORT=docs/verification-3.61/halc-fallback-labels.json node scripts/validate-halc-fallback-labels.mjs && node scripts/validate-halc-label-lifecycle.mjs && node scripts/validate-halc-label-context-recovery.mjs && node scripts/validate-halc-style-reload.mjs && node scripts/validate-halc-render-readiness.mjs && node scripts/validate-halc-lifecycle.mjs && node scripts/validate-halc-landscape-reader.mjs && node scripts/validate-halc-landscape.mjs && node scripts/patch-maplibre-landscape-dataurl.mjs --check && node scripts/validate-halc-landscape-assets.mjs && node scripts/validate-halc-landscape-worker.mjs && node scripts/validate-halc-landscape-real-data.mjs && node scripts/validate-maplibre-landscape-dataurl.mjs && python3 scripts/validate-halc-landscape.py && node scripts/validate-halc-cache.mjs && node scripts/validate-halc-regions.mjs && node scripts/validate-halc-regions-lazy-lifecycle.mjs && node scripts/validate-halc-regions-lazy.mjs && node scripts/validate-halc-worker-pool.mjs && node scripts/validate-halc-continuity.mjs && REGIONAL_FROZEN_REPORT=docs/verification-3.61/regional-frozen.json node scripts/validate-regional-frozen.mjs && node scripts/validate-regional-continuity.mjs && node scripts/validate-ohm-requests.mjs && node scripts/validate-boundary-comparison.mjs && node scripts/validate-boundary-app-races.mjs && node scripts/validate-lakes.mjs && node scripts/validate-lake-readiness.mjs && python3 scripts/verify-halc-data.py --data-dir public/data/halc --public-dir public --allow-extra labels.json && python3 scripts/verify-halc-regions-data.py --data-dir public/data/halc-regions --integrity scripts/data-integrity/halc-regions.integrity.json --audit scripts/data-integrity/halc-regions.geometry-audit.json && node scripts/validate-release.mjs && node scripts/validate-worker.mjs && node scripts/validate-historical.mjs && node scripts/validate-regional.mjs && node scripts/ohm/verify-ohm-1500.mjs && node scripts/validate-polity-places.mjs && node scripts/validate-cross-layer.mjs && node scripts/validate-place-return.cjs && CITY_READER_REPORT=docs/verification-3.61/city-reader-navigation.json node scripts/validate-city-reader-navigation.mjs && node scripts/build-polity-display-names.mjs --check && node scripts/validate-polity-display-names.mjs && EVENTS_LOADING_REPORT=docs/verification-3.61/events-loading.json node scripts/validate-events-loading.mjs && node scripts/validate-identity-ledger.mjs && node scripts/validate-border-sampling.mjs && node scripts/build-regional-transport.mjs --check && node scripts/validate-regional-loading.mjs && node scripts/validate-automatic-boundaries.mjs && node scripts/ohm/verify-britain.mjs && node scripts/validate-country-display-names.mjs && node scripts/validate-country-cache.mjs && node scripts/validate-chgis.mjs && node scripts/validate-border-viewport.mjs && node scripts/validate-border-plan.mjs && node scripts/validate-china-prefectures.mjs && node scripts/validate-early-asia.mjs && node scripts/validate-json-streaming.mjs && node scripts/build-native-content-hashes.mjs --check && node scripts/validate-content-cache.mjs && node scripts/validate-research-map-plates.mjs && node scripts/validate-overview-reuse.mjs && node scripts/validate-detail-prewarming.mjs && node scripts/validate-detail-content-cache.mjs && STARTUP_OVERLAP_REPORT=docs/verification-3.61/startup-overlap.json node scripts/validate-startup-overlap.mjs && node scripts/build-map-catalog.mjs --check && MAP_CATALOG_REPORT=docs/verification-3.61/map-catalog.json node scripts/validate-map-catalog.mjs && MAP_CATALOG_APP_REPORT=docs/verification-3.61/map-catalog-app.json node scripts/validate-map-catalog-app.mjs
 
-PASS linked asset revision 3.61.0-5c44c7edafa2
+PASS linked asset revision 3.61.1-fc4e970c6719
 PASS BCE/CE arithmetic crosses directly between 1 BCE and 1 CE
 PASS Time windows use civil years without year zero
 PASS Historical coverage never extrapolates before or after source coverage
@@ -221,7 +221,7 @@ test_13_reproducible_build_and_original_files_unchanged (__main__.OfflineTexts) 
 test_14_extraction_implementation_is_pinned_in_each_derived_document (__main__.OfflineTexts) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 0.059s
+Ran 14 tests in 0.058s
 
 OK
 PASS Reading catalog matches its reviewed JSON
@@ -475,7 +475,7 @@ PASS bootstrap_cache_release {"year":1492,"sharedPendingRequests":1,"nativeCache
 PASS temporal_cache_release {"year":1450,"sharedPendingRequests":1,"nativeCacheHitRequests":0,"releasedResolvedResource":true,"nativeReferencesPreserved":133}
 PASS persistent_boot_failure_independent_fallback {"permanentlyFailedOptionalPacks":2,"independentFallbackRecords":136,"bootstrapAttempts":1}
 PASS bootstrap_validates_all_cached_entries {"unrequestedInvalidGeometryExcluded":true,"independentRecoverySucceeded":true}
-PASS slow_pack_waits_without_competing_overview {"controlledDelayMs":1546,"completeFirstFrame":true,"nativePackRequests":1,"overviewRequests":0,"largeIndexRequests":0}
+PASS slow_pack_waits_without_competing_overview {"controlledDelayMs":1548,"completeFirstFrame":true,"nativePackRequests":1,"overviewRequests":0,"largeIndexRequests":0}
 PASS slow_pack_late_result_after_navigation {"lateNativeRenderCount":0,"latestYear":1666,"overviewRequests":0}
 PASS temporal_validates_entire_payload {"allPackMappingsValidated":true,"independentFallbackRecords":8}
 PASS collision_all {"collisionGroups":59,"records":149,"networkRequests":121}
@@ -540,7 +540,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
       "metrics": [
         {
           "lang": "bi",
-          "synchronousMs": 368.784042,
+          "synchronousMs": 358.857167,
           "setDataCalls": 1,
           "cache": {
             "builds": 1,
@@ -553,7 +553,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
         },
         {
           "lang": "en",
-          "synchronousMs": 0.7950829999999769,
+          "synchronousMs": 0.7462920000000395,
           "setDataCalls": 0,
           "cache": {
             "builds": 1,
@@ -566,7 +566,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
         },
         {
           "lang": "zh",
-          "synchronousMs": 0.4963749999999436,
+          "synchronousMs": 0.4703750000001037,
           "setDataCalls": 0,
           "cache": {
             "builds": 1,
@@ -579,7 +579,7 @@ PASS Source observers detach and explicit invalidation leaves no collection or p
         },
         {
           "lang": "bi",
-          "synchronousMs": 0.38220799999999144,
+          "synchronousMs": 0.3646249999999327,
           "setDataCalls": 0,
           "cache": {
             "builds": 1,
@@ -741,7 +741,7 @@ PASS Actual 1500 curved: exact segment set, once-only mesh, source immutability 
 }
 {
   "result": "checked",
-  "generatedAt": "2026-11-15T18:17:08.950Z",
+  "generatedAt": "2026-11-15T18:25:52.958Z",
   "records": 17,
   "enhancements": 2,
   "deferred": 4,
@@ -928,9 +928,9 @@ PASS The asynchronous local-fetch API retries after failure, deduplicates and re
 {
   "snapshot": {
     "path": "/Users/zane/meridian_atlas/world-history-atlas/public/geography.js",
-    "sha256": "1c97ca3a129903ef5c8ea935be5f84970f7b2a158bba313645146f3b9b3ede32",
-    "mapEngineSha256": "104716b3a6070b1839c0c9aaa89108fbb166f69c36878e60a1b754818e530fc8",
-    "capturedAt": "2026-11-15T18:17:10.300Z"
+    "sha256": "82b3dcbf0fef2b5defc6cafb3fbddf4fcc72460c4b7672d3fec464ba9442cfdd",
+    "mapEngineSha256": "f6628206b73168b6bda765194ce12f7d5661b66843294d747cc8d2ec15b7aed1",
+    "capturedAt": "2026-11-15T18:25:54.325Z"
   },
   "counts": {
     "pass": 31,
@@ -1288,89 +1288,89 @@ PASS Real-anchor locality job yields, preserves displayed labels, and late regio
       "name": "fallback low zoom north",
       "candidates": 401,
       "markers": 2,
-      "baselineMs": 20.711750000000002,
-      "workMs": 14.176876000000007,
-      "maxSliceMs": 2.757707999999994,
-      "maxAnchorMs": 0.16575000000000273,
+      "baselineMs": 17.190709,
+      "workMs": 13.68529199999999,
+      "maxSliceMs": 2.7122090000000014,
+      "maxAnchorMs": 0.16629100000000108,
       "slices": 7,
-      "elapsedMs": 22.887665999999996
+      "elapsedMs": 22.540875
     },
     {
       "name": "fallback north with collision panels and bilingual labels",
       "candidates": 401,
       "markers": 2,
-      "baselineMs": 12.883582999999987,
-      "workMs": 12.675792000000015,
-      "maxSliceMs": 2.4074170000000095,
-      "maxAnchorMs": 0.15979199999999594,
+      "baselineMs": 14.458874999999992,
+      "workMs": 13.415291999999965,
+      "maxSliceMs": 2.6277919999999995,
+      "maxAnchorMs": 0.15799999999998704,
       "slices": 7,
-      "elapsedMs": 20.458833
+      "elapsedMs": 22.29529199999999
     },
     {
       "name": "fallback east clipped across viewport",
       "candidates": 1376,
       "markers": 9,
-      "baselineMs": 52.383208999999994,
-      "workMs": 49.39008299999995,
-      "maxSliceMs": 2.7233750000000043,
-      "maxAnchorMs": 0.14991699999998787,
+      "baselineMs": 53.06949999999998,
+      "workMs": 53.0390010000001,
+      "maxSliceMs": 3.1585420000000113,
+      "maxAnchorMs": 0.3347919999999931,
       "slices": 22,
-      "elapsedMs": 75.37691699999999
+      "elapsedMs": 78.840292
     },
     {
       "name": "region ready low zoom",
       "candidates": 2,
       "markers": 1,
-      "baselineMs": 0.13075000000003456,
-      "workMs": 0.09729099999998425,
-      "maxSliceMs": 0.09729099999998425,
-      "maxAnchorMs": 0.06850000000002865,
+      "baselineMs": 0.12366600000001426,
+      "workMs": 0.08920800000004192,
+      "maxSliceMs": 0.08920800000004192,
+      "maxAnchorMs": 0.06245799999999235,
       "slices": 1,
-      "elapsedMs": 1.3161249999999995
+      "elapsedMs": 1.2747499999999832
     },
     {
       "name": "Amsterdam local high zoom",
       "candidates": 304,
       "markers": 12,
-      "baselineMs": 4.958958999999993,
-      "workMs": 4.631916999999987,
-      "maxSliceMs": 1.892583000000002,
-      "maxAnchorMs": 0.16300000000001091,
+      "baselineMs": 5.24066700000003,
+      "workMs": 5.0397910000000365,
+      "maxSliceMs": 2.0995830000000524,
+      "maxAnchorMs": 0.16149999999998954,
       "slices": 5,
-      "elapsedMs": 9.437250000000006
+      "elapsedMs": 11.149041000000011
     },
     {
       "name": "Antwerp local high zoom bilingual collisions",
       "candidates": 61,
       "markers": 12,
-      "baselineMs": 2.3839169999999967,
-      "workMs": 2.502124999999978,
-      "maxSliceMs": 2.502124999999978,
-      "maxAnchorMs": 0.1791249999999991,
+      "baselineMs": 2.5708329999999933,
+      "workMs": 2.3362920000000145,
+      "maxSliceMs": 2.3362920000000145,
+      "maxAnchorMs": 0.16687500000000455,
       "slices": 1,
-      "elapsedMs": 8.018582999999978
+      "elapsedMs": 3.5187909999999647
     },
     {
       "name": "Brussels local partly offscreen",
       "candidates": 153,
       "markers": 12,
-      "baselineMs": 6.099666999999954,
-      "workMs": 5.722707999999955,
-      "maxSliceMs": 2.539874999999995,
-      "maxAnchorMs": 0.2294170000000122,
+      "baselineMs": 6.297875000000033,
+      "workMs": 6.034624999999949,
+      "maxSliceMs": 2.7468749999999886,
+      "maxAnchorMs": 0.24166700000000674,
       "slices": 3,
-      "elapsedMs": 9.372083000000032
+      "elapsedMs": 9.628040999999996
     },
     {
       "name": "Amsterdam duplicate tile fragments stable ordering",
       "candidates": 304,
       "markers": 12,
-      "baselineMs": 9.018042000000037,
-      "workMs": 9.28754100000009,
-      "maxSliceMs": 3.770832999999982,
-      "maxAnchorMs": 0.3307909999999765,
+      "baselineMs": 9.934333000000038,
+      "workMs": 9.240083000000027,
+      "maxSliceMs": 3.8063750000000027,
+      "maxAnchorMs": 0.3375419999999849,
       "slices": 5,
-      "elapsedMs": 15.29079200000001
+      "elapsedMs": 14.027499999999975
     }
   ]
 }
@@ -1654,8 +1654,8 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
       "groups": 2,
       "points": 2752,
       "qualifyingGroups": 2,
-      "eagerGroupMs": 1.7738330000000033,
-      "lazyGroupMs": 0.06354199999999821,
+      "eagerGroupMs": 1.4922500000000056,
+      "lazyGroupMs": 0.06387499999999591,
       "eagerColdGeometry": 2,
       "lazyColdBeforeLabels": 0,
       "labelColdGeometry": 2,
@@ -1667,12 +1667,12 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
         "computed": 2,
         "retained": 2,
         "slices": 1,
-        "workMs": 1.960124999999998,
-        "maxSliceMs": 1.960124999999998,
-        "maxAnchorMs": 1.5771249999999952,
-        "sortMs": 0.02037499999999426,
+        "workMs": 1.5490410000000026,
+        "maxSliceMs": 1.5490410000000026,
+        "maxAnchorMs": 1.253333000000005,
+        "sortMs": 0.012500000000002842,
         "canceled": false,
-        "elapsedMs": 3.3941250000000025
+        "elapsedMs": 2.879084000000006
       },
       "exactGeometrySha256": "ddf24d2234e5ba5731c322a01a1cfb2a39e273b107895f6a1460fd64aa76a65a",
       "geometryJsonBytes": 105721
@@ -1683,8 +1683,8 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
       "groups": 103,
       "points": 168321,
       "qualifyingGroups": 35,
-      "eagerGroupMs": 82.67220800000001,
-      "lazyGroupMs": 0.07520900000000097,
+      "eagerGroupMs": 68.961167,
+      "lazyGroupMs": 0.07512499999999989,
       "eagerColdGeometry": 103,
       "lazyColdBeforeLabels": 0,
       "labelColdGeometry": 35,
@@ -1696,12 +1696,12 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
         "computed": 35,
         "retained": 35,
         "slices": 10,
-        "workMs": 54.01024899999999,
-        "maxSliceMs": 7.379209000000003,
-        "maxAnchorMs": 5.762417000000028,
-        "sortMs": 0.009749999999996817,
+        "workMs": 56.06454199999996,
+        "maxSliceMs": 7.883582999999987,
+        "maxAnchorMs": 6.278583999999995,
+        "sortMs": 0.014624999999995225,
         "canceled": false,
-        "elapsedMs": 65.775792
+        "elapsedMs": 68.080625
       },
       "exactGeometrySha256": "7cf388df5726ec849379f83a0c0e3d3dda82b0e875218b3ba42b40f32b0bb6ee",
       "geometryJsonBytes": 6459321
@@ -1712,8 +1712,8 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
       "groups": 152,
       "points": 253101,
       "qualifyingGroups": 54,
-      "eagerGroupMs": 92.419917,
-      "lazyGroupMs": 0.10066599999998971,
+      "eagerGroupMs": 99.00645800000001,
+      "lazyGroupMs": 0.09808399999997164,
       "eagerColdGeometry": 185,
       "lazyColdBeforeLabels": 0,
       "labelColdGeometry": 75,
@@ -1724,13 +1724,13 @@ PASS all six z6 tiles, exact cross-tile grouping: zero-decode grouping, full anc
         "candidates": 54,
         "computed": 54,
         "retained": 54,
-        "slices": 14,
-        "workMs": 80.70016700000002,
-        "maxSliceMs": 9.792042000000038,
-        "maxAnchorMs": 7.50570799999997,
-        "sortMs": 0.024916999999959444,
+        "slices": 15,
+        "workMs": 85.81287800000013,
+        "maxSliceMs": 10.03774999999996,
+        "maxAnchorMs": 7.461332999999968,
+        "sortMs": 0.027999999999963165,
         "canceled": false,
-        "elapsedMs": 96.05808300000001
+        "elapsedMs": 102.19795799999997
       },
       "exactGeometrySha256": "099c6c377fd24bc20ce5d8cefa088737ab400a42d34974cfbdb621e4b5c47643",
       "geometryJsonBytes": 9714132
@@ -1854,9 +1854,9 @@ PASS A manual year request started after cancellation wins both map and app comm
 PASS The old alignment finally cannot clear the sentinel for a new operation
 PASS Successful right-origin comparison still adopts the right year and reuses the pair
 {
-  "checkedAt": "2026-11-15T18:17:27.404Z",
+  "checkedAt": "2026-11-15T18:26:12.240Z",
   "negativeControl": false,
-  "appSha256": "df0e8dc83d88c5eaa1577d4801b39fb74ec74615e4793ca369174460d342a437",
+  "appSha256": "3e0a0e8e13825eeeff0c186f72306f740d879a6e15b4bae7101bd32017a797e2",
   "actualFunctions": [
     "mapCatalogForYear",
     "setYear",
@@ -1966,7 +1966,7 @@ PASS Idle remains a safe completion fallback after own content and cached tiles
   "sourceTimeMeaning": "Source reconstruction for 1500, not exact historical locality lifetimes.",
   "publicBudget": {
     "files": 20156,
-    "bytes": 795821125,
+    "bytes": 795821678,
     "maxFiles": null
   }
 }
@@ -3988,84 +3988,84 @@ PASS adaptive border sampling [
   {
     year: 1492,
     tolerance: 0.002,
-    ms: 281.746166,
+    ms: 344.140917,
     bytes: 18750170,
     reductionFromFinest: 0
   },
   {
     year: 1492,
     tolerance: 0.005,
-    ms: 139.181375,
+    ms: 137.678042,
     bytes: 12357994,
     reductionFromFinest: 0.34091296238914104
   },
   {
     year: 1492,
     tolerance: 0.02,
-    ms: 72.73337500000002,
+    ms: 76.86658299999999,
     bytes: 6868871,
     reductionFromFinest: 0.6336635347839512
   },
   {
     year: 1492,
     tolerance: 0.1,
-    ms: 41.90833400000008,
+    ms: 44.258542000000034,
     bytes: 4205784,
     reductionFromFinest: 0.7756935537117797
   },
   {
     year: 1500,
     tolerance: 0.002,
-    ms: 284.02141700000016,
+    ms: 287.8714590000002,
     bytes: 19124216,
     reductionFromFinest: 0
   },
   {
     year: 1500,
     tolerance: 0.005,
-    ms: 126.09737499999983,
+    ms: 123.18550000000005,
     bytes: 12605670,
     reductionFromFinest: 0.340852979280301
   },
   {
     year: 1500,
     tolerance: 0.02,
-    ms: 73.35745899999984,
+    ms: 73.20154100000036,
     bytes: 7008029,
     reductionFromFinest: 0.6335520891418502
   },
   {
     year: 1500,
     tolerance: 0.1,
-    ms: 43.89079200000015,
+    ms: 57.91829199999984,
     bytes: 4294891,
     reductionFromFinest: 0.7754213296900642
   },
   {
     year: 1945,
     tolerance: 0.002,
-    ms: 724.490542,
+    ms: 683.516916,
     bytes: 43170678,
     reductionFromFinest: 0
   },
   {
     year: 1945,
     tolerance: 0.005,
-    ms: 312.89816599999995,
+    ms: 301.7262920000003,
     bytes: 28434101,
     reductionFromFinest: 0.34135616308828876
   },
   {
     year: 1945,
     tolerance: 0.02,
-    ms: 190.39050000000043,
+    ms: 187.11699999999928,
     bytes: 15750141,
     reductionFromFinest: 0.6351657715452141
   },
   {
     year: 1945,
     tolerance: 0.1,
-    ms: 135.05091699999957,
+    ms: 115.15808300000026,
     bytes: 9528037,
     reductionFromFinest: 0.779293783618594
   }
@@ -4617,20 +4617,20 @@ PASS British Isles: nine dated snapshots, required identities, Chinese names, Ju
     {
       year: 500,
       cases: 25,
-      coldMilliseconds: 1398.4142920000002,
-      reusedPlanMilliseconds: 131.15862399999992
+      coldMilliseconds: 1388.6699580000002,
+      reusedPlanMilliseconds: 136.20562499999946
     },
     {
       year: 1000,
       cases: 25,
-      coldMilliseconds: 1703.9139999999984,
-      reusedPlanMilliseconds: 143.517832
+      coldMilliseconds: 1700.5592100000003,
+      reusedPlanMilliseconds: 142.4281290000008
     },
     {
       year: 1492,
       cases: 25,
-      coldMilliseconds: 2553.778124999998,
-      reusedPlanMilliseconds: 217.37870899999916
+      coldMilliseconds: 2615.506706000002,
+      reusedPlanMilliseconds: 221.837834999998
     }
   ]
 }
@@ -4704,56 +4704,56 @@ PASS 270 native and 117 detail content fingerprints
   {
     year: -250,
     records: 45,
-    coldBeforeMs: 46.548583,
-    coldAfterMs: 41.52104200000001,
-    warmBeforeMedianMs: 3.4656660000000272,
-    warmAfterMedianMs: 1.1200839999999914,
-    warmBeforeTotalMs: 40.00354100000001,
-    warmAfterTotalMs: 13.206750000000028,
+    coldBeforeMs: 45.1435,
+    coldAfterMs: 37.570167,
+    warmBeforeMedianMs: 3.213417000000021,
+    warmAfterMedianMs: 0.9961669999999856,
+    warmBeforeTotalMs: 36.62937500000001,
+    warmAfterTotalMs: 11.537166999999982,
     all12ViewsExactlyEqual: true
   },
   {
     year: 200,
     records: 42,
-    coldBeforeMs: 42.03375,
-    coldAfterMs: 49.71616599999999,
-    warmBeforeMedianMs: 4.107541000000026,
-    warmAfterMedianMs: 2.1064590000000294,
-    warmBeforeTotalMs: 50.631166000000064,
-    warmAfterTotalMs: 24.06520800000004,
+    coldBeforeMs: 39.620542,
+    coldAfterMs: 44.76720899999998,
+    warmBeforeMedianMs: 3.5297089999999685,
+    warmAfterMedianMs: 1.4275409999999624,
+    warmBeforeTotalMs: 41.92679300000003,
+    warmAfterTotalMs: 17.55325199999993,
     all12ViewsExactlyEqual: true
   },
   {
     year: 450,
     records: 53,
-    coldBeforeMs: 44.74025,
-    coldAfterMs: 42.704583999999954,
-    warmBeforeMedianMs: 4.664666000000011,
-    warmAfterMedianMs: 1.6434169999999995,
-    warmBeforeTotalMs: 60.34770700000013,
-    warmAfterTotalMs: 18.52141600000016,
+    coldBeforeMs: 41.284374999999955,
+    coldAfterMs: 40.00437499999998,
+    warmBeforeMedianMs: 5.313207999999918,
+    warmAfterMedianMs: 1.5231249999999932,
+    warmBeforeTotalMs: 79.04512399999987,
+    warmAfterTotalMs: 18.098832999999956,
     all12ViewsExactlyEqual: true
   },
   {
     year: 742,
     records: 75,
-    coldBeforeMs: 70.15620799999999,
-    coldAfterMs: 68.10908300000006,
-    warmBeforeMedianMs: 6.438750000000027,
-    warmAfterMedianMs: 2.275541999999973,
-    warmBeforeTotalMs: 74.70137499999998,
-    warmAfterTotalMs: 25.34454200000016,
+    coldBeforeMs: 69.69037500000002,
+    coldAfterMs: 63.25487499999997,
+    warmBeforeMedianMs: 5.287458000000015,
+    warmAfterMedianMs: 1.8815419999999676,
+    warmBeforeTotalMs: 61.41629000000012,
+    warmAfterTotalMs: 21.47595799999999,
     all12ViewsExactlyEqual: true
   },
   {
     year: 1492,
     records: 136,
-    coldBeforeMs: 115.65058399999998,
-    coldAfterMs: 105.73095899999998,
-    warmBeforeMedianMs: 10.666875000000118,
-    warmAfterMedianMs: 3.172791999999845,
-    warmBeforeTotalMs: 115.71425000000022,
-    warmAfterTotalMs: 36.31037299999957,
+    coldBeforeMs: 107.21012500000006,
+    coldAfterMs: 103.23487499999999,
+    warmBeforeMedianMs: 9.600667000000158,
+    warmAfterMedianMs: 2.6833749999998417,
+    warmBeforeTotalMs: 107.32974999999988,
+    warmAfterTotalMs: 30.743247999999994,
     all12ViewsExactlyEqual: true
   }
 ]
@@ -4933,9 +4933,14 @@ PASS Search lazily reads all periods, retries failures, and renders the newest q
 PASS Search observes catalog completion even when a now-closed dossier started the shared request
 PASS Search observes failures of a shared catalog request started by another view
 PASS A polity deep link retries its full catalog after an initial download failure
+PASS A completed user year change supersedes a pending initial polity deep link
+PASS A still-pending user year request supersedes a pending initial polity deep link
+PASS Opening another dossier supersedes a pending initial polity deep link
+PASS Closing the target comparison map cancels its pending initial polity deep link
+PASS A rejected obsolete deep-link catalog cannot surface a map error or re-arm old restoration
 PASS Recorded-change navigation never mutates a shared date index and stays nearest in both directions
 PASS No rejected lazy catalog or obsolete callback creates an unhandled rejection
-21/21 map catalog app checks passed
+26/26 map catalog app checks passed
 npm notice
 npm notice New major version of npm available! 11.19.0 -> 12.2.2
 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2

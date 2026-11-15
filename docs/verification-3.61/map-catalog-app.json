@@ -1,8 +1,8 @@
 {
   "method": "Actual app functions, real map-catalog loader and packed source data, and AtlasMap.setYear; only rendering, DOM and I/O completion are controlled.",
-  "appSHA256": "df0e8dc83d88c5eaa1577d4801b39fb74ec74615e4793ca369174460d342a437",
-  "passed": 21,
-  "total": 21,
+  "appSHA256": "3e0a0e8e13825eeeff0c186f72306f740d879a6e15b4bae7101bd32017a797e2",
+  "passed": 26,
+  "total": 26,
   "tests": [
     {
       "name": "Initial map becomes interactive from a date pack without reading the complete catalog",
@@ -78,6 +78,26 @@
     },
     {
       "name": "A polity deep link retries its full catalog after an initial download failure",
+      "passed": true
+    },
+    {
+      "name": "A completed user year change supersedes a pending initial polity deep link",
+      "passed": true
+    },
+    {
+      "name": "A still-pending user year request supersedes a pending initial polity deep link",
+      "passed": true
+    },
+    {
+      "name": "Opening another dossier supersedes a pending initial polity deep link",
+      "passed": true
+    },
+    {
+      "name": "Closing the target comparison map cancels its pending initial polity deep link",
+      "passed": true
+    },
+    {
+      "name": "A rejected obsolete deep-link catalog cannot surface a map error or re-arm old restoration",
       "passed": true
     },
     {

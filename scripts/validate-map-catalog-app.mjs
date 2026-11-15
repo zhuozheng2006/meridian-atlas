@@ -9,7 +9,7 @@ import {createMapCatalogLoader,mapCatalogPath} from '../public/map-catalog.js';
 import {AtlasMap,activeRecords} from '../public/map-engine.js';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const source=fs.readFileSync(resolve(root,'public/app.js'),'utf8');
+const source=fs.readFileSync(process.env.MAP_CATALOG_APP_SOURCE||resolve(root,'public/app.js'),'utf8');
 function extract(name){
  const start=new RegExp('^(?:async )?function '+name+'\\(','m').exec(source)?.index;assert.notEqual(start,undefined,name);
  const next=/^(?:(?:async )?function |const |let |export |class )/m.exec(source.slice(start+1));
@@ -124,6 +124,26 @@ await test('Search observes failures of a shared catalog request started by anot
 await test('A polity deep link retries its full catalog after an initial download failure',async()=>{
  const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
  const first=assert.rejects(h.c.restoreInitialMapView(),/offline/);gate.reject(Error('offline'));await first;assert.equal(h.c.mapURLRestored,false,'A failed deep-link restoration must remain retryable');h.unblock('data/fast/catalog.json.gz');await h.c.restoreInitialMapView();assert.deepEqual(h.calls.filter(x=>x[0]==='jump').map(x=>x[1]),[record.id]);assert.equal(h.c.mapURLRestored,true);
+});
+await test('A completed user year change supersedes a pending initial polity deep link',async()=>{
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const opening=h.c.restoreInitialMapView();await flush();assert.equal(await h.c.applyYear(1700),true);gate.complete();await opening;assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'Initial polity must not overwrite a newer user year');assert.equal(h.c.state.year,1700);
+});
+await test('A still-pending user year request supersedes a pending initial polity deep link',async()=>{
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const opening=h.c.restoreInitialMapView();await flush();const next=h.blockYear(1700),changing=h.c.applyYear(1700);await flush();assert.equal(h.c.state.year,1492);assert.equal(h.c.pendingYear,1700);gate.complete();await opening;next.complete();await changing;assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'A newer pending year intent must not be overwritten');assert.equal(h.c.state.year,1700);
+});
+await test('Opening another dossier supersedes a pending initial polity deep link',async()=>{
+ const h=fixture(),records=activeRecords(completeCatalog,1492),gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:records[0].id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const opening=h.c.restoreInitialMapView();await flush();const selected=h.c.openPolity(records[1]);await flush();gate.complete();await Promise.all([opening,selected]);assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'Initial polity must not replace a newly selected dossier');assert.equal(h.c.state.selectedPolity.id,records[1].id);assert.deepEqual(h.calls.filter(x=>x[0]==='reader').map(x=>x[1].id),[records[1].id]);
+});
+await test('Closing the target comparison map cancels its pending initial polity deep link',async()=>{
+ const h=fixture(),record=activeRecords(completeCatalog,1650)[0],gate=h.blockFull();h.c.compareMap=h.makeMap(1650);h.c.state.compare=true;h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id,side:'right'});h.c.jumpPolity=async(r,map)=>h.calls.push(['jump',r.id,map]);h.loadFunction('restoreInitialMapView');
+ const opening=h.c.restoreInitialMapView();await flush();h.c.closeComparison();gate.complete();await opening;assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'A removed right-side target must not fall back to the left map');assert.equal(h.c.compareMap,null);
+});
+await test('A rejected obsolete deep-link catalog cannot surface a map error or re-arm old restoration',async()=>{
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const opening=h.c.restoreInitialMapView().then(()=>true,()=>false);await flush();assert.equal(await h.c.applyYear(1700),true);gate.reject(Error('obsolete catalog offline'));assert.equal(await opening,true,'A superseded deep link must settle without bubbling an error to showView');assert.equal(h.c.mapURLRestored,true,'User navigation must not re-arm the obsolete initial link');assert.equal(h.calls.filter(x=>x[0]==='jump'||x[0]==='error').length,0);assert.equal(h.c.state.year,1700);
 });
 await test('Recorded-change navigation never mutates a shared date index and stays nearest in both directions',async()=>{
  const h=fixture();h.c.atlas.catalog={changeYears:[1400,1450,1500,1550,1600]};h.c.state.year=1520;const jumps=[];h.c.setYear=y=>{jumps.push(y);h.c.state.year=y;};

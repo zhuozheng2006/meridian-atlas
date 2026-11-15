@@ -1,0 +1,62 @@
+PASS Initial map becomes interactive from a date pack without reading the complete catalog
+PASS Optional geography starts only after the initial historical frame commits, with restored preferences
+PASS Every date pack preserves active records; subsequent full reading never replaces global catalog with a partial pack
+PASS A late older date catalog cannot overwrite the latest left-map request
+PASS A newer left catalog failure cancels an earlier in-flight renderer and preserves the committed year
+PASS Comparison date catalogs obey their own generation and keep the left map unchanged
+PASS A newer comparison catalog failure invalidates an earlier renderer before it can commit
+PASS Preparing another year keeps the displayed catalog until its map frame commits
+PASS Closing comparison while its catalog is pending cannot revive the removed map
+PASS Initial comparison cannot submit an old catalog under a newer year
+PASS Polity reading waits for the full catalog and receives the complete period chain
+PASS Closing a pending polity dossier prevents its later catalog from opening the reader
+PASS Changing a dossier map year rejects the obsolete reader completion
+PASS A different polity selected during catalog loading wins the reader
+PASS Dossier catalog failures display retry; retry succeeds and preserves the original selection
+PASS Search lazily reads all periods, retries failures, and renders the newest query
+PASS Search observes catalog completion even when a now-closed dossier started the shared request
+PASS Search observes failures of a shared catalog request started by another view
+PASS A polity deep link retries its full catalog after an initial download failure
+FAIL A completed user year change supersedes a pending initial polity deep link
+AssertionError [ERR_ASSERTION]: Initial polity must not overwrite a newer user year
+
+1 !== 0
+
+    at file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:130:140
+    at async test (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:65:34)
+    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:128:1
+FAIL A still-pending user year request supersedes a pending initial polity deep link
+AssertionError [ERR_ASSERTION]: A newer pending year intent must not be overwritten
+
+1 !== 0
+
+    at file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:134:267
+    at async test (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:65:34)
+    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:132:1
+FAIL Opening another dossier supersedes a pending initial polity deep link
+AssertionError [ERR_ASSERTION]: Initial polity must not replace a newly selected dossier
+
+1 !== 0
+
+    at file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:138:175
+    at async test (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:65:34)
+    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:136:1
+FAIL Closing the target comparison map cancels its pending initial polity deep link
+AssertionError [ERR_ASSERTION]: A removed right-side target must not fall back to the left map
+
+1 !== 0
+
+    at file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:142:117
+    at async test (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:65:34)
+    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:140:1
+FAIL A rejected obsolete deep-link catalog cannot surface a map error or re-arm old restoration
+AssertionError [ERR_ASSERTION]: A superseded deep link must settle without bubbling an error to showView
+
+false !== true
+
+    at file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:146:182
+    at async test (file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:65:34)
+    at async file:///Users/zane/meridian_atlas/world-history-atlas/scripts/validate-map-catalog-app.mjs:144:1
+PASS Recorded-change navigation never mutates a shared date index and stays nearest in both directions
+PASS No rejected lazy catalog or obsolete callback creates an unhandled rejection
+21/26 map catalog app checks passed
