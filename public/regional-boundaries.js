@@ -1,15 +1,15 @@
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.59.0-666e7ea66e0d';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.59.0-666e7ea66e0d';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.59.0-666e7ea66e0d';
-import {beginMapForeground} from './map-load-priority.js?v=3.59.0-666e7ea66e0d';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.59.0-666e7ea66e0d';
-import {boundaryNote} from './boundary-notes.js?v=3.59.0-666e7ea66e0d';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.59.0-666e7ea66e0d';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.59.0-666e7ea66e0d';
-import {boundaryMode} from './view-state.js?v=3.59.0-666e7ea66e0d';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.59.0-666e7ea66e0d';
-import {historicalYearRange} from './historical-dates.js?v=3.59.0-666e7ea66e0d';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.59.0-666e7ea66e0d';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.60.0-fb454a842b2a';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.60.0-fb454a842b2a';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.60.0-fb454a842b2a';
+import {beginMapForeground} from './map-load-priority.js?v=3.60.0-fb454a842b2a';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.60.0-fb454a842b2a';
+import {boundaryNote} from './boundary-notes.js?v=3.60.0-fb454a842b2a';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.60.0-fb454a842b2a';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.60.0-fb454a842b2a';
+import {boundaryMode} from './view-state.js?v=3.60.0-fb454a842b2a';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.60.0-fb454a842b2a';
+import {historicalYearRange} from './historical-dates.js?v=3.60.0-fb454a842b2a';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.60.0-fb454a842b2a';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){

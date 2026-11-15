@@ -1,0 +1,1074 @@
+{
+  "schemaVersion": 1,
+  "researchBatch": "3.60",
+  "readDate": "2026-11-16",
+  "dataset": "china-prefectures/index.json.gz",
+  "sourceType": "Primary historical text, modern transcription; not a facsimile edition collation.",
+  "reviewScope": {
+    "newTangPeriodAliases": 23,
+    "byProvince": {
+      "Jiangnan West Dao": 12,
+      "Qianzhong Dao": 11
+    },
+    "baselineReviewedMappings": 102,
+    "projectedReviewedMappings": 125,
+    "newDeferred": 10
+  },
+  "applicationRules": [
+    "Match year + PrefID + sourcePrefNAM + ProvNAM exactly.",
+    "Keep sourceRecord, source geometry and province fields untouched.",
+    "These are annual name checks. Geometry, sovereignty, county extent and population figures are not newly validated by this batch.",
+    "Population is only an identity cross-reference; Tianbao figures are not assumed to be a census of 742.",
+    "742 annual display uses the Tianbao first-year rename; it is not a within-year daily chronology.",
+    "Original names remain available for search and provenance."
+  ],
+  "records": [
+    {
+      "id": "china-prefecture-742-68",
+      "year": 742,
+      "PrefID": 68,
+      "sourcePrefNAM": "Yong Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "零陵郡",
+      "en": "Lingling Jun",
+      "formerNameZh": "永州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#永州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "永州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》永州条记天宝元年改为零陵郡，乾元元年复为永州。"
+    },
+    {
+      "id": "china-prefecture-742-70",
+      "year": 742,
+      "PrefID": 70,
+      "sourcePrefNAM": "Qian Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "南康郡",
+      "en": "Nankang Jun",
+      "formerNameZh": "虔州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#虔州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "虔州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》虔州条记天宝元年改为南康郡，乾元元年复为虔州。"
+    },
+    {
+      "id": "china-prefecture-742-71",
+      "year": 742,
+      "PrefID": 71,
+      "sourcePrefNAM": "Heng Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "衡阳郡",
+      "en": "Hengyang Jun",
+      "formerNameZh": "衡州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#衡州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "衡州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》衡州条记天宝元年改为衡阳郡，乾元元年复为衡州。"
+    },
+    {
+      "id": "china-prefecture-742-72",
+      "year": 742,
+      "PrefID": 72,
+      "sourcePrefNAM": "Bo Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "播川郡",
+      "en": "Bochuan Jun",
+      "formerNameZh": "播州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#播州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "播州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》播州条记天宝元年改为播川郡，乾元元年复为播州。"
+    },
+    {
+      "id": "china-prefecture-742-73",
+      "year": 742,
+      "PrefID": 73,
+      "sourcePrefNAM": "Yi Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "义泉郡",
+      "en": "Yiquan Jun",
+      "formerNameZh": "夷州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#夷州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "夷州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》夷州条记天宝元年改为义泉郡，乾元元年复为夷州。"
+    },
+    {
+      "id": "china-prefecture-742-74",
+      "year": 742,
+      "PrefID": 74,
+      "sourcePrefNAM": "Shao Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "邵阳郡",
+      "en": "Shaoyang Jun",
+      "formerNameZh": "邵州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#邵州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "邵州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》邵州条记天宝元年改为邵阳郡，乾元元年复为邵州。"
+    },
+    {
+      "id": "china-prefecture-742-75",
+      "year": 742,
+      "PrefID": 75,
+      "sourcePrefNAM": "Fei Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "涪川郡",
+      "en": "Fuchuan Jun",
+      "formerNameZh": "费州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#费州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "费州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》费州条记天宝元年复为涪川郡，乾元元年复为费州。"
+    },
+    {
+      "id": "china-prefecture-742-77",
+      "year": 742,
+      "PrefID": 77,
+      "sourcePrefNAM": "Yuan Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "宜春郡",
+      "en": "Yichun Jun",
+      "formerNameZh": "袁州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#袁州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "袁州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》袁州条记天宝元年改为宜春郡，乾元元年复为袁州。"
+    },
+    {
+      "id": "china-prefecture-742-79",
+      "year": 742,
+      "PrefID": 79,
+      "sourcePrefNAM": "Jin Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "卢阳郡",
+      "en": "Luyang Jun",
+      "formerNameZh": "锦州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#锦州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "锦州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》锦州条记天宝元年改为卢阳郡，乾元元年复为锦州。"
+    },
+    {
+      "id": "china-prefecture-742-80",
+      "year": 742,
+      "PrefID": 80,
+      "sourcePrefNAM": "Tan Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "长沙郡",
+      "en": "Changsha Jun",
+      "formerNameZh": "潭州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#潭州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "潭州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》潭州条记天宝元年改为长沙郡，乾元元年复为潭州。"
+    },
+    {
+      "id": "china-prefecture-742-81",
+      "year": 742,
+      "PrefID": 81,
+      "sourcePrefNAM": "Fu Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "临川郡",
+      "en": "Linchuan Jun",
+      "formerNameZh": "抚州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#抚州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "抚州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》抚州条记天宝元年改为临川郡，乾元元年复为抚州。"
+    },
+    {
+      "id": "china-prefecture-742-84",
+      "year": 742,
+      "PrefID": 84,
+      "sourcePrefNAM": "Chen Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "卢溪郡",
+      "en": "Luxi Jun",
+      "formerNameZh": "辰州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#辰州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "辰州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》辰州条记天宝元年改为卢溪郡，乾元元年复为辰州。"
+    },
+    {
+      "id": "china-prefecture-742-85",
+      "year": 742,
+      "PrefID": 85,
+      "sourcePrefNAM": "Nan Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "南川郡",
+      "en": "Nanchuan Jun",
+      "formerNameZh": "南州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#南州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "南州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》南州条记天宝元年改为南川郡，乾元元年复为南州。"
+    },
+    {
+      "id": "china-prefecture-742-87",
+      "year": 742,
+      "PrefID": 87,
+      "sourcePrefNAM": "Si Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "宁夷郡",
+      "en": "Ningyi Jun",
+      "formerNameZh": "思州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#思州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "思州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》思州条记天宝元年改为宁夷郡，乾元元年复为思州。"
+    },
+    {
+      "id": "china-prefecture-742-91",
+      "year": 742,
+      "PrefID": 91,
+      "sourcePrefNAM": "Xi Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "灵溪郡",
+      "en": "Lingxi Jun",
+      "formerNameZh": "溪州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#溪州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "溪州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》溪州条记天宝元年改为灵溪郡，乾元元年复为溪州。"
+    },
+    {
+      "id": "china-prefecture-742-93",
+      "year": 742,
+      "PrefID": 93,
+      "sourcePrefNAM": "Qian Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "黔中郡",
+      "en": "Qianzhong Jun",
+      "formerNameZh": "黔州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#黔州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "黔州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》黔州条记天宝元年改为黔中郡，乾元元年复为黔州都督府。"
+    },
+    {
+      "id": "china-prefecture-742-95",
+      "year": 742,
+      "PrefID": 95,
+      "sourcePrefNAM": "Hong Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "豫章郡",
+      "en": "Yuzhang Jun",
+      "formerNameZh": "洪州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#洪州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "洪州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》洪州条记天宝元年改为豫章郡，乾元元年复为洪州。"
+    },
+    {
+      "id": "china-prefecture-742-96",
+      "year": 742,
+      "PrefID": 96,
+      "sourcePrefNAM": "Yue Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "巴陵郡",
+      "en": "Baling Jun",
+      "formerNameZh": "岳州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#岳州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "岳州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》岳州条记天宝元年改为巴陵郡，乾元元年复为岳州。"
+    },
+    {
+      "id": "china-prefecture-742-115",
+      "year": 742,
+      "PrefID": 115,
+      "sourcePrefNAM": "Shi Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "清化郡",
+      "en": "Qinghua Jun",
+      "formerNameZh": "施州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#施州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "施州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》施州条记天宝元年改为清化郡，乾元元年复为施州。"
+    },
+    {
+      "id": "china-prefecture-742-116",
+      "year": 742,
+      "PrefID": 116,
+      "sourcePrefNAM": "E Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "江夏郡",
+      "en": "Jiangxia Jun",
+      "formerNameZh": "鄂州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#鄂州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "鄂州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》鄂州条记天宝元年改为江夏郡，乾元元年复为鄂州。"
+    },
+    {
+      "id": "china-prefecture-742-144",
+      "year": 742,
+      "PrefID": 144,
+      "sourcePrefNAM": "Ye Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "zh": "龙标郡",
+      "en": "Longbiao Jun",
+      "formerNameZh": "业州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#业州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "业州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》业州条记天宝元年改为龙标郡，乾元元年复为业州。"
+    },
+    {
+      "id": "china-prefecture-742-172",
+      "year": 742,
+      "PrefID": 172,
+      "sourcePrefNAM": "Xuan Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "宣城郡",
+      "en": "Xuancheng Jun",
+      "formerNameZh": "宣州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#宣州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "宣州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》宣州条记天宝元年改为宣城郡，乾元元年复为宣州。"
+    },
+    {
+      "id": "china-prefecture-742-300",
+      "year": 742,
+      "PrefID": 300,
+      "sourcePrefNAM": "Dao Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "江华郡",
+      "en": "Jianghua Jun",
+      "formerNameZh": "道州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#道州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "道州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "evidence": "《旧唐书》道州条记天宝元年改为江华郡，乾元元年复为道州。"
+    }
+  ],
+  "identityChecks": [
+    {
+      "id": "china-prefecture-742-68",
+      "primaryHeading": "永州",
+      "firstListedCounty": "零陵",
+      "populationInText": 176168,
+      "sourceRecordPopulation": 176168,
+      "populationMatches": true,
+      "observedWebLine": 917,
+      "sourceBounds": [
+        110.3422168091252,
+        25.186030407804772,
+        112.3252740891787,
+        27.076826381960302
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-70",
+      "primaryHeading": "虔州",
+      "firstListedCounty": "赣",
+      "populationInText": 275410,
+      "sourceRecordPopulation": 275410,
+      "populationMatches": true,
+      "observedWebLine": 762,
+      "sourceBounds": [
+        113.90777829622924,
+        24.488412474833073,
+        116.62401241525788,
+        27.184100731866497
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-71",
+      "primaryHeading": "衡州",
+      "firstListedCounty": "衡阳",
+      "populationInText": 199228,
+      "sourceRecordPopulation": 199228,
+      "populationMatches": true,
+      "observedWebLine": 878,
+      "sourceBounds": [
+        111.98450465934043,
+        26.055719613384714,
+        114.10336038600543,
+        27.508859535773258
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-72",
+      "primaryHeading": "播州",
+      "firstListedCounty": "遵义",
+      "populationInText": 2168,
+      "sourceRecordPopulation": 2168,
+      "populationMatches": true,
+      "observedWebLine": 1081,
+      "sourceBounds": [
+        106.28302170018885,
+        27.27241377693196,
+        107.30798181406126,
+        28.265978002895995
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-73",
+      "primaryHeading": "夷州",
+      "firstListedCounty": "绥阳",
+      "populationInText": 7013,
+      "sourceRecordPopulation": 7013,
+      "populationMatches": true,
+      "observedWebLine": 1067,
+      "sourceBounds": [
+        106.96567837036805,
+        27.236123992845684,
+        108.06170877776826,
+        28.32378847244461
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-74",
+      "primaryHeading": "邵州",
+      "firstListedCounty": "邵阳",
+      "populationInText": 71644,
+      "sourceRecordPopulation": 71644,
+      "populationMatches": true,
+      "observedWebLine": 964,
+      "sourceBounds": [
+        110.03261539177976,
+        25.974649237537438,
+        112.08763186625984,
+        28.227380562093593
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-75",
+      "primaryHeading": "费州",
+      "firstListedCounty": "涪川",
+      "populationInText": 2609,
+      "sourceRecordPopulation": 2609,
+      "populationMatches": true,
+      "observedWebLine": 1105,
+      "sourceBounds": [
+        107.97605039864003,
+        27.648058205571086,
+        108.32629225358089,
+        28.385907637391693
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census.",
+      "notes": "原文天宝元年使用“复为涪川郡”，按该段年度名称录入；不据“复”字补造更早郡名沿革。"
+    },
+    {
+      "id": "china-prefecture-742-77",
+      "primaryHeading": "袁州",
+      "firstListedCounty": "宜春",
+      "populationInText": 144096,
+      "sourceRecordPopulation": 144096,
+      "populationMatches": true,
+      "observedWebLine": 820,
+      "sourceBounds": [
+        113.57440162098484,
+        27.32748846643739,
+        115.3389022015341,
+        28.243151841993914
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-79",
+      "primaryHeading": "锦州",
+      "firstListedCounty": "卢阳",
+      "populationInText": 14374,
+      "sourceRecordPopulation": 14374,
+      "populationMatches": true,
+      "observedWebLine": 1019,
+      "sourceBounds": [
+        108.69860602432394,
+        27.42323187392403,
+        109.90478938123564,
+        28.870785750519463
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-80",
+      "primaryHeading": "潭州",
+      "firstListedCounty": "长沙",
+      "populationInText": 192657,
+      "sourceRecordPopulation": 192657,
+      "populationMatches": true,
+      "observedWebLine": 864,
+      "sourceBounds": [
+        110.6860042423746,
+        27.218595415535958,
+        114.25051117024977,
+        28.76975998546669
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-81",
+      "primaryHeading": "抚州",
+      "firstListedCounty": "临川",
+      "populationInText": 176394,
+      "sourceRecordPopulation": 176394,
+      "populationMatches": true,
+      "observedWebLine": 781,
+      "sourceBounds": [
+        115.5652084818105,
+        26.509659688590634,
+        117.32861029795788,
+        28.438827754600926
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-84",
+      "primaryHeading": "辰州",
+      "firstListedCounty": "沅陵",
+      "populationInText": 28554,
+      "sourceRecordPopulation": 28554,
+      "populationMatches": true,
+      "observedWebLine": 1004,
+      "sourceBounds": [
+        109.51327369482611,
+        27.13445847294309,
+        111.0795244095913,
+        29.009663649484608
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-85",
+      "primaryHeading": "南州",
+      "firstListedCounty": "南川",
+      "populationInText": 2043,
+      "sourceRecordPopulation": 2043,
+      "populationMatches": true,
+      "observedWebLine": 1118,
+      "sourceBounds": [
+        106.3914284521709,
+        28.77421896437553,
+        106.97485489514018,
+        29.227148852717875
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-87",
+      "primaryHeading": "思州",
+      "firstListedCounty": "务川",
+      "populationInText": 12021,
+      "sourceRecordPopulation": 12021,
+      "populationMatches": true,
+      "observedWebLine": 1092,
+      "sourceBounds": [
+        107.68525979660046,
+        27.69415810159884,
+        109.32084091884953,
+        29.395686722764278
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-91",
+      "primaryHeading": "溪州",
+      "firstListedCounty": "大乡",
+      "populationInText": 15282,
+      "sourceRecordPopulation": 15282,
+      "populationMatches": true,
+      "observedWebLine": 1127,
+      "sourceBounds": [
+        109.24614845481683,
+        28.415871794580124,
+        110.3013694555022,
+        29.6668824987807
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-93",
+      "primaryHeading": "黔州",
+      "firstListedCounty": "彭水",
+      "populationInText": 24204,
+      "sourceRecordPopulation": 24204,
+      "populationMatches": true,
+      "observedWebLine": 988,
+      "sourceBounds": [
+        104.817580592804,
+        24.034446473233018,
+        109.49794311414064,
+        29.864281122114235
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census.",
+      "notes": "黔州条同时记都督、羁縻州及多个年代的属州列表。本条只核验黔州在天宝元年的郡名，未把所督各州并入直辖疆域。源几何范围另待核验。"
+    },
+    {
+      "id": "china-prefecture-742-95",
+      "primaryHeading": "洪州",
+      "firstListedCounty": "钟陵",
+      "populationInText": 353231,
+      "sourceRecordPopulation": 353231,
+      "populationMatches": true,
+      "observedWebLine": 744,
+      "sourceBounds": [
+        113.94143888413227,
+        27.683852063769695,
+        116.54707581370317,
+        29.564926946456595
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census.",
+      "notes": "firstListedCounty记录县条标题钟陵；同县条明确记宝应元年（762）才由豫章改为钟陵。本条只核验742年的郡名豫章郡，不把后出的县名当作742年治所名。"
+    },
+    {
+      "id": "china-prefecture-742-96",
+      "primaryHeading": "岳州",
+      "firstListedCounty": "巴陵",
+      "populationInText": 50298,
+      "sourceRecordPopulation": 50298,
+      "populationMatches": true,
+      "observedWebLine": 849,
+      "sourceBounds": [
+        112.20476382458749,
+        28.431553932738744,
+        114.16509344755774,
+        29.793356726807982
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-115",
+      "primaryHeading": "施州",
+      "firstListedCounty": "清江",
+      "populationInText": 16444,
+      "sourceRecordPopulation": 16444,
+      "populationMatches": true,
+      "observedWebLine": 1036,
+      "sourceBounds": [
+        108.38445236703885,
+        29.15284090162468,
+        110.917873529875,
+        30.89008509889593
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    },
+    {
+      "id": "china-prefecture-742-116",
+      "primaryHeading": "鄂州",
+      "firstListedCounty": "江夏",
+      "populationInText": 84563,
+      "sourceRecordPopulation": 84563,
+      "populationMatches": true,
+      "observedWebLine": 831,
+      "sourceBounds": [
+        113.36843521528608,
+        29.055935935832995,
+        115.47903934399605,
+        30.675339469478633
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census.",
+      "notes": "同条含后来并沔州入鄂州的记载，县条又记太和七年（833）合并。这里只核验742年郡名，不据后世县目扩展疆域。"
+    },
+    {
+      "id": "china-prefecture-742-144",
+      "primaryHeading": "业州",
+      "firstListedCounty": "峨山",
+      "populationInText": 7284,
+      "sourceRecordPopulation": 7284,
+      "populationMatches": true,
+      "observedWebLine": 1056,
+      "sourceBounds": [
+        108.81753024821148,
+        27.062890041028837,
+        109.57402424886683,
+        27.548516346448945
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census.",
+      "notes": "业州县条记梓姜至天宝三年（744）才来属；本次仅采用明确的742年龙标郡改名，不据后出的县目推定742年辖境。"
+    },
+    {
+      "id": "china-prefecture-742-172",
+      "primaryHeading": "宣州",
+      "firstListedCounty": "宣城",
+      "populationInText": 884985,
+      "sourceRecordPopulation": 884985,
+      "populationMatches": true,
+      "observedWebLine": 696,
+      "sourceBounds": [
+        116.65122299361896,
+        29.542158674545906,
+        119.65118120672422,
+        31.764672675185587
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census.",
+      "notes": "同段混列天宝、至德、永泰等时点，所列县目并非单一年份快照；仅用明确的天宝元年改名语核验年度名称。"
+    },
+    {
+      "id": "china-prefecture-742-300",
+      "primaryHeading": "道州",
+      "firstListedCounty": "弘道",
+      "populationInText": 139063,
+      "sourceRecordPopulation": 139063,
+      "populationMatches": true,
+      "observedWebLine": 930,
+      "sourceBounds": [
+        110.95243039281934,
+        24.682493276321416,
+        112.4589231038494,
+        26.378920252312966
+      ],
+      "identityMethod": "Exact year, PrefID, sourcePrefNAM and ProvNAM; the Tianbao population is used only as an identity cross-reference. The text population is not assumed to be a 742 census."
+    }
+  ],
+  "deferred": [
+    {
+      "id": "china-prefecture-742-59",
+      "year": 742,
+      "PrefID": 59,
+      "sourcePrefNAM": "Lian Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "连州改连山郡有明确记载，但转录文本天宝口数143532与源记录143523不同，留待版本对读。",
+      "primaryHeading": "连州",
+      "sourceRecordPopulation": 143523,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 973,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#连州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "连州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 143532
+    },
+    {
+      "id": "china-prefecture-742-67",
+      "year": 742,
+      "PrefID": 67,
+      "sourcePrefNAM": "Chen Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "郴州改桂阳郡有明确记载；源数据Source为Number of households*5、POP为165875，本次文本天宝户31303，乘5为156515。户数或推算来源需对读，暂不自动改名。",
+      "primaryHeading": "郴州",
+      "sourceRecordPopulation": 165875,
+      "sourceRecordPopulationMethod": "Number of households*5",
+      "observedWebLine": 944,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#郴州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "郴州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ]
+    },
+    {
+      "id": "china-prefecture-742-78",
+      "year": 742,
+      "PrefID": 78,
+      "sourcePrefNAM": "Ji Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "吉州改庐陵郡有明确记载，但转录文本天宝口数237032与源记录377032不同，留待版本对读。",
+      "primaryHeading": "吉州",
+      "sourceRecordPopulation": 377032,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 794,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#吉州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "吉州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 237032
+    },
+    {
+      "id": "china-prefecture-742-89",
+      "year": 742,
+      "PrefID": 89,
+      "sourcePrefNAM": "Lang Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "朗州改武陵郡有明确记载，但转录文本天宝口数43716与源记录43760不同；原文又记天宝初割属山南东道，源ProvNAM仍为Jiangnan West Dao，需另审年度道属。",
+      "primaryHeading": "朗州",
+      "sourceRecordPopulation": 43760,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 908,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#朗州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "朗州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 43716
+    },
+    {
+      "id": "china-prefecture-742-100",
+      "year": 742,
+      "PrefID": 100,
+      "sourcePrefNAM": "Li Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "澧州改澧阳郡及口数93349均有对应；原文又记天宝初割属山南东道，源ProvNAM仍为Jiangnan West Dao。为避免把年度道属一起视为已验证，本批保留待核，未改源属性。",
+      "primaryHeading": "澧州",
+      "sourceRecordPopulation": 93349,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 895,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#澧州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "澧州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 93349
+    },
+    {
+      "id": "china-prefecture-742-105",
+      "year": 742,
+      "PrefID": 105,
+      "sourcePrefNAM": "Rao Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "饶州条天宝口数244350与源数据一致，但本次《旧唐书》条目未明确记载742年改鄱阳郡；不能用隋代同名替代唐代改名依据，待《新唐书》等对读。",
+      "primaryHeading": "饶州",
+      "sourceRecordPopulation": 244350,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 733,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#饶州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "饶州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 244350
+    },
+    {
+      "id": "china-prefecture-742-108",
+      "year": 742,
+      "PrefID": 108,
+      "sourcePrefNAM": "Jiang Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "reason": "江州改浔阳郡有明确记载，但转录文本天宝口数155744与源记录105744不同，留待版本对读。",
+      "primaryHeading": "江州",
+      "sourceRecordPopulation": 105744,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 809,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#江州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "江州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 155744
+    },
+    {
+      "id": "china-prefecture-742-82",
+      "year": 742,
+      "PrefID": 82,
+      "sourcePrefNAM": "Qin Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "reason": "溱州改溱溪郡及口数5045均有对应，但溱字有多音，源转写Qin与历史地名读音需要字书或音注专门核对，本批暂不生成英文别名。",
+      "primaryHeading": "溱州",
+      "sourceRecordPopulation": 5045,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 1137,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#溱州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "溱州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 5045
+    },
+    {
+      "id": "china-prefecture-742-157",
+      "year": 742,
+      "PrefID": 157,
+      "sourcePrefNAM": "Zhen Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "reason": "珍州改夜郎郡有明确记载，文本口数1034；源Zhen Zhou人口8000为邻区面积人口推算，不能用估算数交叉确认珍州/真州等同音身份，暂缓。",
+      "primaryHeading": "珍州",
+      "sourceRecordPopulation": 8000,
+      "sourceRecordPopulationMethod": "Estimated according to its area and population of neighboring regions",
+      "observedWebLine": 1144,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#珍州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "珍州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 1034
+    },
+    {
+      "id": "china-prefecture-742-310",
+      "year": 742,
+      "PrefID": 310,
+      "sourcePrefNAM": "Wu Zhou",
+      "ProvNAM": "Qianzhong Dao",
+      "reason": "巫州改潭阳郡有明确记载，但本次转录文本天宝口数12738与源记录22738不同，留待版本对读。",
+      "primaryHeading": "巫州",
+      "sourceRecordPopulation": 22738,
+      "sourceRecordPopulationMethod": "Population records",
+      "observedWebLine": 1045,
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#巫州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "巫州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        }
+      ],
+      "populationInText": 12738
+    }
+  ]
+}

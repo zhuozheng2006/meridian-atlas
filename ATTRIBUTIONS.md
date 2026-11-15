@@ -112,3 +112,7 @@ Fifty further Han display names are cross-checked against Book of Han, juan 28, 
 ## Expanded Tang name review (3.59)
 
 Twenty-two further 742 CE names (11 Huainan, 11 Jiangnan East records) are checked against [Old Book of Tang, juan 40](https://zh.wikisource.org/zh-hans/舊唐書/卷40), a modern transcription of the public-domain historical text, read 2026-11-16. Exact year, ID, source name and province keys are retained. Source population figures are cross-reference aids for record identity, not new independently validated estimates. Reviewed names now total 102/420 (62 Han, 40 Tang). Original labels and geometries remain unchanged. Eleven additional candidates are deferred pending date, reading or edition checks; evidence is in `docs/verification-3.59/tang-name-evidence.json`.
+
+## Jiangnan West and Qianzhong name review (3.60)
+
+Twenty-three further 742 CE names (12 Jiangnan West, 11 Qianzhong records) are checked against [Old Book of Tang, juan 40](https://zh.wikisource.org/zh-hans/舊唐書/卷40), read 2026-11-16. The review uses exact year, PrefID, source name and province keys; source population counts are identity cross-checks only. Reviewed names total 125/420 (62 Han, 63 Tang), with 295 remaining. Later county changes in Hongzhou (762), Ezhou (833) and Yezhou (744) are not applied to the 742 snapshot. Ten additional candidates remain deferred for edition, date or reading checks. Evidence: `docs/verification-3.60/tang-name-evidence.json`. Original source records and geometry are retained.

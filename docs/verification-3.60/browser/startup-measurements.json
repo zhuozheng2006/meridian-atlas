@@ -1,0 +1,170 @@
+{
+  "version": "3.60.0",
+  "finalAssetRevision": "3.60.0-fb454a842b2a",
+  "method": {
+    "target": "local Python preview",
+    "browser": "existing IAB tab on the same device",
+    "view": "year=-250, camera=80,23,4.6,0,0",
+    "downloadBytesPerSecond": 187500,
+    "uploadBytesPerSecond": 93750,
+    "latencyMs": 150,
+    "mainTargetCacheDisabled": true,
+    "workerCacheState": "not independently controlled; base GeoJSON likely reused",
+    "fullyColdStart": false,
+    "measure": "navigation-relative Performance marks and resource timings; map-interactive means first year controls enabled, not every optional layer complete"
+  },
+  "baseline": {
+    "marks": [
+      {
+        "name": "meridian:map-constructed",
+        "start": 9419.600000023842
+      },
+      {
+        "name": "meridian:map-interactive",
+        "start": 9530
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:8770/data/fast/catalog.json.gz",
+        "start": 373.69999998807907,
+        "end": 9388.300000011921,
+        "transfer": 603039
+      },
+      {
+        "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.59.0-666e7ea66e0d",
+        "start": 636.3000000119209,
+        "end": 5212.699999988079,
+        "transfer": 248041
+      },
+      {
+        "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+        "start": 4504.600000023842,
+        "end": 7115.900000035763,
+        "transfer": 145291
+      }
+    ],
+    "yearEnabled": true
+  },
+  "intermediateRuns": [
+    {
+      "marks": [
+        {
+          "name": "meridian:map-constructed",
+          "start": 5313.300000011921
+        },
+        {
+          "name": "meridian:basemap-ready",
+          "start": 5375.400000035763
+        },
+        {
+          "name": "meridian:map-interactive",
+          "start": 9522.400000035763
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8770/data/fast/catalog.json.gz",
+          "start": 382.19999998807907,
+          "end": 9420.5,
+          "transfer": 603039
+        },
+        {
+          "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.60.0-0b8c5a38924b",
+          "start": 676.3000000119209,
+          "end": 5283,
+          "transfer": 248041
+        },
+        {
+          "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+          "start": 4480.100000023842,
+          "end": 7123.699999988079,
+          "transfer": 145291
+        }
+      ],
+      "yearEnabled": true
+    },
+    {
+      "marks": [
+        {
+          "name": "meridian:map-constructed",
+          "start": 5770.399999976158
+        },
+        {
+          "name": "meridian:basemap-ready",
+          "start": 5823.299999952316
+        },
+        {
+          "name": "meridian:map-interactive",
+          "start": 9982.399999976158
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8770/data/fast/catalog.json.gz",
+          "start": 848.7999999523163,
+          "end": 9903.699999988079,
+          "transfer": 603039
+        },
+        {
+          "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.60.0-0b8c5a38924b",
+          "start": 1151.699999988079,
+          "end": 5758.199999988079,
+          "transfer": 248041
+        },
+        {
+          "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+          "start": 4963.799999952316,
+          "end": 7598.899999976158,
+          "transfer": 145291
+        }
+      ],
+      "yearEnabled": true
+    }
+  ],
+  "final": {
+    "marks": [
+      {
+        "name": "meridian:map-constructed",
+        "start": 5333.899999976158
+      },
+      {
+        "name": "meridian:basemap-ready",
+        "start": 5395.100000023842
+      },
+      {
+        "name": "meridian:map-interactive",
+        "start": 9522
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:8770/data/fast/catalog.json.gz",
+        "start": 358.80000001192093,
+        "end": 9438.800000011921,
+        "transfer": 603039
+      },
+      {
+        "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.60.0-fb454a842b2a",
+        "start": 656,
+        "end": 5318.100000023842,
+        "transfer": 248041
+      },
+      {
+        "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+        "start": 4387.899999976158,
+        "end": 7062.800000011921,
+        "transfer": 145291
+      }
+    ],
+    "yearEnabled": true
+  },
+  "conclusion": "Under these conditions, baseline construction began at 9.420 s; final base was ready at 5.395 s. Final historical controls ready at 9.522 s versus baseline 9.530 s: no measured improvement to complete historical startup. Intermediate repeats had base ready at 5.375/5.823 s and history at 9.522/9.982 s. Directory transfer remains the main gate. No whole-site speed percentage is claimed.",
+  "limits": [
+    "One device and view; local origin; fixed simulated main-target network, not production measurement.",
+    "Worker cache and external map services not uniformly controlled.",
+    "Baseline did not include a basemap-ready mark; compare its construction start only.",
+    "Final includes layer-order repair; intermediate runs retained separately."
+  ],
+  "cleanup": "Network and cache overrides restored before other UI verification."
+}

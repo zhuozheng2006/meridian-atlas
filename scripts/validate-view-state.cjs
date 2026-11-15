@@ -33,7 +33,7 @@ function context(hash=''){
   // Real boot and URL restoration run from a cold state; renderer/network remain fixture boundaries.
   atlas=null;atlasReady=false;mapURLRestored=false;catalog=undefined;events=[];catalogDataPromise=null;eventsDataPromise=null;eventsStatus='idle';pendingInitialEvent=null;displayedPolityCount=null;atlasBootPromise=null;
   loadMapLibre=async()=>({});renderDensity=()=>{};renderYear=originalRenderYear;
-  AtlasMap=class{constructor(container,options){const m=makeMap();if(options.camera)m.map.jumpTo(options.camera);Object.assign(this,m)}};
+  AtlasMap=class{constructor(container,options){const m=makeMap();if(options.camera)m.map.jumpTo(options.camera);Object.assign(this,m)}startGeography(){return Promise.resolve(true);}};
   PolityReader=class{constructor(){this.seq=0}open(r,m,opts){renderLog.push('polity:'+r.id);readerOptions.push(opts)}};
   readJSON=async url=>url.includes('catalog')?realCatalog:url.includes('events')?realEvents:[];
   loadPlaces=async()=>[realPlace];bind=()=>{};bindPlaceLayer=()=>{};

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "checks": 15,
+  "checks": 16,
   "results": [
     {
       "name": "A dated midyear snapshot excludes sequential boundary phases and unknown dates",
@@ -43,7 +43,7 @@
       "passed": true
     },
     {
-      "name": "A small detailed area no longer hides the whole overview; a manual choice remains available",
+      "name": "Partial auto detail appears over overview tint without competing overview strokes",
       "passed": true
     },
     {
@@ -52,6 +52,10 @@
     },
     {
       "name": "Visible tile fragments stay attached to their exact record; national labels have priority",
+      "passed": true
+    },
+    {
+      "name": "Listing regional records keeps tile coordinate getters lazy until an anchor is needed",
       "passed": true
     },
     {
