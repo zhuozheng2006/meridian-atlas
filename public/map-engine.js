@@ -1,20 +1,20 @@
-import {historicalDataRequest} from './native-content-hashes.js?v=3.60.0-fb454a842b2a';
-import {waitForMapForeground} from './map-load-priority.js?v=3.60.0-fb454a842b2a';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.60.0-fb454a842b2a';
-import {boundaryMesh} from './boundary-mesh.js?v=3.60.0-fb454a842b2a';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.60.0-fb454a842b2a';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.60.0-fb454a842b2a';
-import {BoundaryController} from './boundary-controller.js?v=3.60.0-fb454a842b2a';
-import {RegionalBoundaries} from './regional-boundaries.js?v=3.60.0-fb454a842b2a';
-import {HistoricalDetailLayer} from './historical-detail.js?v=3.60.0-fb454a842b2a';
-import {Geography} from './geography.js?v=3.60.0-fb454a842b2a';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.60.0-fb454a842b2a';
+import {historicalDataRequest} from './native-content-hashes.js?v=3.61.0-5c44c7edafa2';
+import {waitForMapForeground} from './map-load-priority.js?v=3.61.0-5c44c7edafa2';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.61.0-5c44c7edafa2';
+import {boundaryMesh} from './boundary-mesh.js?v=3.61.0-5c44c7edafa2';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.61.0-5c44c7edafa2';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.61.0-5c44c7edafa2';
+import {BoundaryController} from './boundary-controller.js?v=3.61.0-5c44c7edafa2';
+import {RegionalBoundaries} from './regional-boundaries.js?v=3.61.0-5c44c7edafa2';
+import {HistoricalDetailLayer} from './historical-detail.js?v=3.61.0-5c44c7edafa2';
+import {Geography} from './geography.js?v=3.61.0-5c44c7edafa2';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.61.0-5c44c7edafa2';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.60.0-fb454a842b2a';
+import {polityName} from './polity-names.js?v=3.61.0-5c44c7edafa2';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
@@ -104,17 +104,17 @@ export class AtlasMap{
   }
   return this.geographyReady;
  }
- async prepareOverview(year,keepGoing=()=>!this.destroyed){
-  const records=activeRecords(this.catalog,year);
+ async prepareOverview(year,keepGoing=()=>!this.destroyed,catalog=this.catalog){
+  const records=activeRecords(catalog,year);
   try{await loadNativeFrame(records,year,keepGoing);}catch{/* A failed optional pack retains the overview path. */}
   if(!keepGoing())return null;
-  const geos=records.every(r=>nativeGeometry(r.id)||detail.has(r.geometryId))?detail:await geometryFor(this.catalog,records,year,false),high=records.every(r=>detail.has(r.geometryId)),complete=records.every(r=>nativeGeometry(r.id));
+  const geos=records.every(r=>nativeGeometry(r.id)||detail.has(r.geometryId))?detail:await geometryFor(catalog,records,year,false),high=records.every(r=>detail.has(r.geometryId)),complete=records.every(r=>nativeGeometry(r.id));
   return {source:'cliopatria',year,records,key:records.map(r=>r.id+(nativeGeometry(r.id)?'n':'')).join(',')+(complete?'n':high?'h':'o'),data:{type:'FeatureCollection',features:records.map(r=>({type:'Feature',properties:{id:r.id,color:color(r.name)},geometry:nativeGeometry(r.id)||geos.get(r.geometryId)||detail.get(r.geometryId)||overview.get(r.geometryId)}))}};
  }
  async setYear(catalog,year,lang=this.lang){
-  const seq=++this.request,selectedPopup=this.boundaries?.selectedPopup,selectedId=this.boundaries?.selectedId;this.lang=lang;this.catalog=catalog;await this.ready;
-  let frame;do{frame=await this.boundaries.prepare(year,keep=>this.prepareOverview(year,()=>seq===this.request&&!this.destroyed&&(!keep||keep())));if(seq!==this.request||this.destroyed)return false;}while(frame.requested!==this.boundaries.mode);
-  const restoreSelection=year===this.year&&selectedPopup&&selectedPopup===this.boundaries.selectedPopup;const records=activeRecords(catalog,year);this.upgradeLand();this.year=year;this.active=records;this.recordMap=new Map(records.map(r=>[r.id,r]));this.boundaries.commit(frame);
+  const seq=++this.request,selectedPopup=this.boundaries?.selectedPopup,selectedId=this.boundaries?.selectedId;this.lang=lang;await this.ready;
+  let frame;do{frame=await this.boundaries.prepare(year,keep=>this.prepareOverview(year,()=>seq===this.request&&!this.destroyed&&(!keep||keep()),catalog));if(seq!==this.request||this.destroyed)return false;}while(frame.requested!==this.boundaries.mode);
+  const restoreSelection=year===this.year&&selectedPopup&&selectedPopup===this.boundaries.selectedPopup;const records=activeRecords(catalog,year);this.upgradeLand();this.catalog=catalog;this.year=year;this.active=records;this.recordMap=new Map(records.map(r=>[r.id,r]));this.boundaries.commit(frame);
   this.refreshLabels();this.upgradeDetail();this.places?.setYear(year,lang);this.battles?.setYear(year,lang);this.historical?.setYear(year,lang);this.regional?.setYear(year,lang);if(restoreSelection)this.boundaries.openRecord(selectedId);return records.length;
  }
  renderGeometry(geos,high){

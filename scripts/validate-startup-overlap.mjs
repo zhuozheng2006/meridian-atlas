@@ -3,9 +3,12 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {dirname,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import vm from 'node:vm';
+import {gunzipSync} from 'node:zlib';
+import {createMapCatalogLoader} from '../public/map-catalog.js';
 
 const appSource=await readFile(new URL('../public/app.js',import.meta.url),'utf8');
 const engineSource=await readFile(new URL('../public/map-engine.js',import.meta.url),'utf8');
+const mapTemplate=JSON.parse(gunzipSync(await readFile(new URL('../public/data/fast/map-catalog/years-1476-1500.json.gz',import.meta.url))));
 function extract(name){
  const start=new RegExp('^(?:async )?function '+name+'\\(','m').exec(appSource)?.index;assert.notEqual(start,undefined,name);
  const next=/^(?:(?:async )?function |const |let |export |class )/m.exec(appSource.slice(start+1));
@@ -15,26 +18,26 @@ const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve
 const flush=async()=>{for(let i=0;i<25;i++)await Promise.resolve();};
 const turn=()=>new Promise(resolve=>setImmediate(resolve));
 function environment(){
- const maps=[],marks=[],calls=[],nodes=new Map();let catalogRequest=deferred(),rendererRequest=deferred();
+ const maps=[],marks=[],calls=[],nodes=new Map();let catalogRequest=deferred(),fullCatalogRequest=deferred(),rendererRequest=deferred();
  const node=id=>{if(!nodes.has(id))nodes.set(id,{value:'',disabled:true,hidden:false});return nodes.get(id);};
  const c={Promise,console,
   state:{view:'atlas',year:1492,lang:'bi',boundaryMode:'auto',borders:true,reference:false,projection:'globe',streets:true,borderCurves:true,events:true,labels:true,terrain:true,coast:true,search:''},
-  catalog:undefined,catalogDataPromise:null,atlas:null,atlasReady:false,atlasBootPromise:null,savedCamera:null,restoringView:false,applyingBoundaryComparison:false,
+  catalog:undefined,catalogDataPromise:null,catalogStatus:'idle',mapCatalogs:null,createMapCatalogLoader,forgetJSON(){},atlas:null,atlasReady:false,atlasBootPromise:null,savedCamera:null,restoringView:false,applyingBoundaryComparison:false,
   window:{__meridian:{instances:[]}},location:{reload(){}},performance:{mark:name=>marks.push(name)},$:node,
-  readJSON:path=>{calls.push(['read',path]);return path.includes('catalog')?catalogRequest.promise:Promise.resolve([]);},
+  readJSON:path=>{calls.push(['read',path]);return path.includes('map-catalog/')?catalogRequest.promise.then(value=>({...mapTemplate,...value})):path==='data/fast/catalog.json.gz'?fullCatalogRequest.promise:Promise.resolve([]);},
   loadMapLibre:()=>{calls.push(['renderer']);return rendererRequest.promise;},ensureEventsData:async()=>{},prefetchNativeFrame:async()=>{},
   text:(zh,en)=>en,openPolity(){},boundarySelection(){},cancelBoundaryComparison(){},closeDetail(){},renderLayerLabels(){},saveURL(){},mapError(){},
   setMapControlsReady:value=>calls.push(['controls',value]),renderBrowse(){},renderEvents(){},registerTools(){},exportMapImage(){},
   applyYear:async year=>{calls.push(['year',year]);c.atlas.year=year;return true;}
  };
  c.AtlasMap=class{
-  constructor(container,options){this.options=options;this.load=deferred();this.ready=this.load.promise;this.year=options.year;this.map={on(){}};maps.push(this);c.window.__meridian.instances.push(this);calls.push(['constructed']);}
-  startGeography(){assert(!this.destroyed);calls.push(['geography']);this.geography={toggle(){},alignCoast(){},setReference(){}};}
+  constructor(container,options){this.options=options;this.load=deferred();this.ready=this.load.promise;this.year=options.year;this.map={on(){}};this.geography={enabled:true,coastAligned:true,reference:false,toggle(){},alignCoast(){},setReference(){}};maps.push(this);c.window.__meridian.instances.push(this);calls.push(['constructed']);}
+  startGeography(){assert(!this.destroyed);calls.push(['geography']);}
   toggleBorders(){}projection(){}
   destroy(){if(this.destroyed)return;this.destroyed=true;calls.push(['destroyed']);this.load.reject(Error('Map initialization cancelled'));}
  };
- vm.createContext(c);vm.runInContext(extract('ensureCatalogData')+'\n'+extract('ensureAtlas'),c);
- return {c,maps,marks,calls,nodes,get catalog(){return catalogRequest;},get renderer(){return rendererRequest;},replaceCatalog(){return catalogRequest=deferred();},replaceRenderer(){return rendererRequest=deferred();}};
+ vm.createContext(c);vm.runInContext(extract('mapCatalogForYear')+'\n'+extract('ensureCatalogData')+'\n'+extract('ensureAtlas'),c);
+ return {c,maps,marks,calls,nodes,get catalog(){return catalogRequest;},get fullCatalog(){return fullCatalogRequest;},get renderer(){return rendererRequest;},replaceCatalog(){return catalogRequest=deferred();},replaceRenderer(){return rendererRequest=deferred();}};
 }
 async function complete(h,p){h.renderer.resolve({});h.catalog.resolve({records:[]});await flush();h.maps.at(-1).load.resolve();return p;}
 function engineEnvironment({failController=false}={}){
@@ -66,29 +69,29 @@ function engineEnvironment({failController=false}={}){
 const cases=[],unhandled=[];const onUnhandled=reason=>unhandled.push(String(reason));process.on('unhandledRejection',onUnhandled);
 async function test(name,run){try{await run();cases.push({name,pass:true});console.log('PASS '+name);}catch(error){cases.push({name,pass:false,error:String(error.stack||error)});console.error('FAIL '+name+'\n'+error.stack);}}
 
-await test('Renderer opens the base before the catalog; geography and the catalog-backed year commit wait for both',async()=>{
+await test('Renderer opens the base before the year catalog; geography and the year commit wait for both',async()=>{
  const h=environment(),p=h.c.ensureAtlas();h.renderer.resolve({});await flush();assert.equal(h.maps.length,1);assert.equal(h.maps[0].options.deferGeography,true);assert.equal(h.c.atlasReady,false);
  h.maps[0].load.resolve();await flush();assert(h.marks.includes('meridian:basemap-ready'));assert(!h.calls.some(([key])=>key==='geography'||key==='year'));
  h.catalog.resolve({records:[]});await p;assert.equal(h.c.atlasReady,true);assert.equal(h.calls.filter(([key])=>key==='geography').length,1);assert.equal(h.calls.filter(([key])=>key==='year').length,1);
  assert(h.marks.indexOf('meridian:basemap-ready')<h.marks.indexOf('meridian:map-interactive'));
 });
-await test('A fast catalog never bypasses renderer or base readiness',async()=>{
+await test('A fast year catalog never bypasses renderer or base readiness',async()=>{
  const h=environment(),p=h.c.ensureAtlas();h.catalog.resolve({records:[]});await flush();assert.equal(h.maps.length,0);h.renderer.resolve({});await flush();assert.equal(h.maps.length,1);assert(!h.calls.some(([key])=>key==='geography'));h.maps[0].load.resolve();await p;assert(h.c.atlasReady);
 });
 await test('Concurrent callers share one startup and later callers reuse the same map',async()=>{
  const h=environment(),a=h.c.ensureAtlas(),b=h.c.ensureAtlas();assert.equal(a,b);await complete(h,a);assert.equal(await h.c.ensureAtlas(),h.maps[0]);assert.equal(h.maps.length,1);assert.equal(h.calls.filter(([key])=>key==='renderer').length,1);
 });
-await test('Catalog rejection is immediately observed; its late renderer cannot resurrect a failed attempt',async()=>{
+await test('Year catalog rejection is immediately observed; its late renderer cannot resurrect a failed attempt',async()=>{
  const h=environment(),p=assert.rejects(h.c.ensureAtlas(),/catalog failed/);h.catalog.reject(Error('catalog failed'));await p;assert.equal(h.c.atlasBootPromise,null);assert.equal(h.c.catalogDataPromise,null);h.renderer.resolve({});await turn();assert.equal(h.maps.length,0);assert.equal(h.c.atlas,null);
 });
-await test('Catalog failure destroys an already constructed pending base and permits retry',async()=>{
+await test('Year catalog failure destroys an already constructed pending base and permits retry',async()=>{
  const h=environment(),p=assert.rejects(h.c.ensureAtlas(),/catalog failed/);h.renderer.resolve({});await flush();const failed=h.maps[0];h.catalog.reject(Error('catalog failed'));await p;assert(failed.destroyed);assert.equal(h.c.atlas,null);assert.equal(h.c.window.__meridian.instances.length,0);assert(!h.calls.some(([key])=>key==='geography'));
  h.replaceCatalog();const retry=h.c.ensureAtlas();await complete(h,retry);assert.equal(h.maps.length,2);assert.equal(h.c.atlas,h.maps[1]);assert(h.c.atlasReady);
 });
 await test('A failed old renderer branch cannot overwrite a newer successful attempt',async()=>{
  const h=environment(),oldRenderer=h.renderer,p=assert.rejects(h.c.ensureAtlas(),/catalog failed/);h.catalog.reject(Error('catalog failed'));await p;h.replaceCatalog();h.replaceRenderer();const retry=h.c.ensureAtlas();oldRenderer.resolve({});await flush();assert.equal(h.maps.length,0);await complete(h,retry);assert.equal(h.maps.length,1);assert.equal(h.c.atlas,h.maps[0]);
 });
-await test('Renderer failure is observed while catalog is pending and keeps the cached catalog retryable',async()=>{
+await test('Renderer failure is observed while year catalog is pending and keeps its request reusable',async()=>{
  const h=environment(),p=assert.rejects(h.c.ensureAtlas(),/renderer failed/);h.renderer.reject(Error('renderer failed'));await p;h.catalog.resolve({records:[]});await flush();h.replaceRenderer();const retry=h.c.ensureAtlas();await complete(h,retry);assert(h.c.atlasReady);assert.equal(h.calls.filter(([key,path])=>key==='read'&&path.includes('catalog')).length,1);
 });
 await test('Base failure before catalog completion is handled and removes the failed instance',async()=>{
@@ -102,6 +105,21 @@ await test('Navigating away during the catalog wait destroys the base without st
 });
 await test('The latest year is applied when startup dependencies finish',async()=>{
  const h=environment(),p=h.c.ensureAtlas();h.renderer.resolve({});await flush();h.c.state.year=-221;h.maps[0].load.resolve();h.catalog.resolve({records:[]});await p;assert.deepEqual(h.calls.filter(([key])=>key==='year'),[['year',-221]]);
+});
+await test('Full reading catalog failure is independent of successful map startup',async()=>{
+ const h=environment(),full=assert.rejects(h.c.ensureCatalogData(),/reading catalog failed/),map=h.c.ensureAtlas();h.fullCatalog.reject(Error('reading catalog failed'));await full;await complete(h,map);assert(h.c.atlasReady);assert.equal(h.c.catalog,undefined);assert.equal(h.c.catalogStatus,'error');assert.equal(h.calls.filter(([key,path])=>key==='read'&&path==='data/fast/catalog.json.gz').length,1);
+});
+await test('Optional geography waits for the initial historical year and receives saved display choices without starting I/O',async()=>{
+ const h=environment(),yearReady=deferred();Object.assign(h.c.state,{terrain:false,coast:false,reference:true});let committed=false,preferences;
+ h.c.applyYear=async year=>{h.calls.push(['year',year]);preferences=[h.c.atlas.geography.enabled,h.c.atlas.geography.coastAligned,h.c.atlas.geography.reference];await yearReady.promise;committed=true;return true;};
+ const boot=h.c.ensureAtlas();h.renderer.resolve({});h.catalog.resolve({records:[]});await flush();h.maps[0].load.resolve();await flush();
+ assert(h.marks.includes('meridian:basemap-ready'));assert.equal(h.calls.filter(([key])=>key==='year').length,1);assert.equal(committed,false);assert.deepEqual(preferences,[false,false,true]);assert.equal(h.calls.filter(([key])=>key==='geography').length,0);assert.equal(h.c.atlasReady,false);assert(!h.marks.includes('meridian:map-interactive'));
+ yearReady.resolve();await boot;assert(committed);assert.equal(h.calls.filter(([key])=>key==='geography').length,1);assert(h.calls.findIndex(([key])=>key==='year')<h.calls.findIndex(([key])=>key==='geography'));assert(h.c.atlasReady);assert(h.marks.includes('meridian:map-interactive'));
+});
+await test('Leaving while the first historical year is pending never starts optional geography on its late completion',async()=>{
+ const h=environment(),yearReady=deferred();h.c.applyYear=()=>yearReady.promise;
+ const boot=assert.rejects(h.c.ensureAtlas(),/superseded/);h.renderer.resolve({});h.catalog.resolve({records:[]});await flush();h.maps[0].load.resolve();await flush();assert.equal(h.calls.filter(([key])=>key==='geography').length,0);
+ h.c.state.view='research';yearReady.resolve(true);await boot;assert(h.maps[0].destroyed);assert.equal(h.c.atlas,null);assert.equal(h.calls.filter(([key])=>key==='geography').length,0);assert(!h.marks.includes('meridian:map-interactive'));
 });
 await test('Real AtlasMap defers optional geography and starts it exactly once',async()=>{
  const h=engineEnvironment(),map=new h.c.ActualAtlasMap('map',{deferGeography:true});h.maps[0].emitLoad();await map.ready;assert.equal(h.calls.filter(v=>v==='geography-started').length,0);assert.equal(h.timers.size,0);const a=map.startGeography(),b=map.startGeography();assert.equal(a,b);assert.equal(await a,true);assert.equal(h.calls.filter(v=>v==='geography-started').length,1);assert(h.calls.includes('layer-order'));map.destroy();assert.equal(await map.startGeography(),false);

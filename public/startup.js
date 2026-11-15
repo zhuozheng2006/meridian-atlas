@@ -8,7 +8,14 @@
   const appURL=new URL('./app.js'+scriptURL.search,scriptURL);
   import(appURL.href).catch(()=>{});
   const catalogHint=document.createElement('link');catalogHint.rel='preload';catalogHint.as='fetch';catalogHint.crossOrigin='anonymous';
-  catalogHint.href=new URL('./data/fast/catalog.json.gz',scriptURL).href;document.head.append(catalogHint);
+  const requested=Number(params.get('year')??1492),year=Math.max(-70000,Math.min(2026,Number.isFinite(requested)?Math.round(requested)||1:1492));
+  const mapView=!['polities','stories','library','sources'].includes(params.get('view'));
+  let catalogPath='data/fast/catalog.json.gz';
+  if(mapView){
+   const civil=year>0?year-1:year,start=Math.floor(civil/25)*25,end=Math.min(start+24,2023),label=n=>n>=0?n+1:n;
+   catalogPath=year< -3400||year>2024?'data/fast/map-catalog/empty.json.gz':`data/fast/map-catalog/years-${label(start)}-${label(end)}.json.gz`;
+  }
+  catalogHint.href=new URL('./'+catalogPath,scriptURL).href;document.head.append(catalogHint);
   if(!['polities','stories','library','sources'].includes(params.get('view'))){
    const runtimeURL=new URL('./map-runtime.js'+scriptURL.search,scriptURL);
    import(runtimeURL.href).then(module=>module.loadMapLibre()).catch(()=>{});

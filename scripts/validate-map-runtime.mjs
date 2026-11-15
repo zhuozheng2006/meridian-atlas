@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {createMapLibreLoader} from '../public/map-runtime.js';
+import {mapCatalogPath} from '../public/map-catalog.js';
 let checks=0;const check=async(name,fn)=>{await fn();checks++;console.log(`PASS ${name}`);};
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 function fixture(options={}){
@@ -52,8 +53,12 @@ await check('research deep links do not even request the renderer loader',async(
  for(const hash of ['#view=research','#view=research&lang=zh&seshat=CnMing%2A','#lang=en&view=research&year=1450']){const result=await boot(hash);assert.equal(result.imports,0);assert.equal(result.appImports,0);assert.equal(result.loads,0);assert.equal(result.hints.length,0);}
 });
 await check('default map route starts optional async renderer load with the stamped module URL',async()=>{
- const r=await boot('#year=1450');assert.equal(r.imports,1);assert.equal(r.appImports,1);assert.equal(r.loads,1);assert.equal(r.url,'https://atlas.example/sub/map-runtime.js?v=3.37-test');assert.equal(r.hints.length,1);assert.equal(r.hints[0].href,'https://atlas.example/sub/data/fast/catalog.json.gz');
+ const r=await boot('#year=1450');assert.equal(r.imports,1);assert.equal(r.appImports,1);assert.equal(r.loads,1);assert.equal(r.url,'https://atlas.example/sub/map-runtime.js?v=3.37-test');assert.equal(r.hints.length,1);assert.equal(r.hints[0].href,'https://atlas.example/sub/'+mapCatalogPath(1450));
  await boot('',{fail:true});
+});
+await check('Startup preload agrees with catalog window lookup across all years and route types',async()=>{
+ for(const year of [-70000,-3400,-250,-26,-25,-1,1,25,26,742,1492,2024,2026]){const r=await boot('#year='+year);assert.equal(r.hints[0].href,'https://atlas.example/sub/'+mapCatalogPath(year));}
+ for(const view of ['polities','stories','library','sources']){const r=await boot('#view='+view);assert.equal(r.imports,0);assert.equal(r.hints[0].href,'https://atlas.example/sub/data/fast/catalog.json.gz');}
 });
 await check('HTML has no unconditional renderer preload or synchronous script',()=>{
  const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');

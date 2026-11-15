@@ -1,0 +1,197 @@
+{
+  "version": "3.61.0",
+  "assetRevision": "3.61.0-5c44c7edafa2",
+  "method": {
+    "origin": "http://127.0.0.1:8770",
+    "browser": "same IAB browser and device",
+    "view": "year=-250, camera=80,23,4.6,0,0",
+    "downloadBytesPerSecond": 187500,
+    "uploadBytesPerSecond": 93750,
+    "latencyMs": 150,
+    "mainTargetCacheDisabled": true,
+    "workerCacheState": "not independently controlled",
+    "fullyColdStart": false,
+    "marks": "map-interactive means the requested historical year has committed and year controls are enabled; optional geographical layers may still load"
+  },
+  "baseline": {
+    "marks": [
+      {
+        "name": "meridian:map-constructed",
+        "start": 5279.400000035763
+      },
+      {
+        "name": "meridian:basemap-ready",
+        "start": 5332.800000011921
+      },
+      {
+        "name": "meridian:map-interactive",
+        "start": 9454.800000011921
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:8770/data/fast/catalog.json.gz",
+        "start": 344.19999998807907,
+        "end": 9375.699999988079,
+        "transfer": 603039
+      },
+      {
+        "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.60.0-fb454a842b2a",
+        "start": 665.6000000238419,
+        "end": 5263.600000023842,
+        "transfer": 248041
+      },
+      {
+        "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+        "start": 4487.800000011921,
+        "end": 7127.5,
+        "transfer": 145291
+      }
+    ],
+    "yearEnabled": true
+  },
+  "intermediateWithEarlyGeography": {
+    "marks": [
+      {
+        "name": "meridian:map-constructed",
+        "start": 3669.600000023842
+      },
+      {
+        "name": "meridian:basemap-ready",
+        "start": 3731
+      },
+      {
+        "name": "meridian:map-interactive",
+        "start": 8241.600000023842
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:8770/data/fast/map-catalog/years--250--226.json.gz",
+        "start": 427,
+        "end": 770.1999999880791,
+        "transfer": 13148
+      },
+      {
+        "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.61.0-bbdfa13ebfe3",
+        "start": 603.5,
+        "end": 3641.900000035763,
+        "transfer": 248041
+      },
+      {
+        "name": "http://127.0.0.1:8770/map-catalog.js?v=3.61.0-bbdfa13ebfe3",
+        "start": 1012.9000000357628,
+        "end": 1834.4000000357628,
+        "transfer": 1489
+      },
+      {
+        "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+        "start": 3645.300000011921,
+        "end": 8170.100000023842,
+        "transfer": 145291
+      }
+    ],
+    "yearEnabled": true
+  },
+  "finalRuns": [
+    {
+      "marks": [
+        {
+          "name": "meridian:map-constructed",
+          "start": 3611.399999976158
+        },
+        {
+          "name": "meridian:basemap-ready",
+          "start": 3674.099999964237
+        },
+        {
+          "name": "meridian:map-interactive",
+          "start": 5285.099999964237
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8770/data/fast/map-catalog/years--250--226.json.gz",
+          "start": 381.89999997615814,
+          "end": 748.5999999642372,
+          "transfer": 13148
+        },
+        {
+          "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.61.0-5c44c7edafa2",
+          "start": 583.2999999523163,
+          "end": 3596.5,
+          "transfer": 248041
+        },
+        {
+          "name": "http://127.0.0.1:8770/map-catalog.js?v=3.61.0-5c44c7edafa2",
+          "start": 942.0999999642372,
+          "end": 1589,
+          "transfer": 1489
+        },
+        {
+          "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+          "start": 3537.199999988079,
+          "end": 5229,
+          "transfer": 145291
+        }
+      ],
+      "yearEnabled": true
+    },
+    {
+      "marks": [
+        {
+          "name": "meridian:map-constructed",
+          "start": 3611
+        },
+        {
+          "name": "meridian:basemap-ready",
+          "start": 3671.899999976158
+        },
+        {
+          "name": "meridian:map-interactive",
+          "start": 5339.199999988079
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:8770/data/fast/map-catalog/years--250--226.json.gz",
+          "start": 379.0999999642372,
+          "end": 632.0999999642372,
+          "transfer": 13148
+        },
+        {
+          "name": "http://127.0.0.1:8770/assets/maplibre-gl.js?v=3.61.0-5c44c7edafa2",
+          "start": 561.0999999642372,
+          "end": 3593.099999964237,
+          "transfer": 248041
+        },
+        {
+          "name": "http://127.0.0.1:8770/map-catalog.js?v=3.61.0-5c44c7edafa2",
+          "start": 963.5,
+          "end": 1785.5999999642372,
+          "transfer": 1489
+        },
+        {
+          "name": "http://127.0.0.1:8770/data/native/temporal/pack-003.json.gz?sha256=14888b189fdb760e9cf4de30d27b3abdd109b081e97cb3b752d3376796e69595",
+          "start": 3563.099999964237,
+          "end": 5265.5,
+          "transfer": 145291
+        }
+      ],
+      "yearEnabled": true
+    }
+  ],
+  "conclusion": {
+    "baselineInteractiveMs": 9454.800000011921,
+    "finalInteractiveMs": [
+      5285.099999964237,
+      5339.199999988079
+    ],
+    "baselineCatalogBytes": 602739,
+    "dateWindowCatalogBytes": 12848,
+    "fullCatalogRequestedInFinalStartup": false,
+    "scope": "Improvement observed in this fixed local main-target network condition. Not a production-wide or fully cold-cache performance claim.",
+    "intermediateFinding": "Starting geography immediately after the small catalog arrived competed with native geometry. Final code starts geography after the requested historical frame commits."
+  },
+  "cleanup": "Network and cache overrides reset before UI checks."
+}

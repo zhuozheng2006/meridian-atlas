@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.60.0-fb454a842b2a';
-import {placeWindow} from './view-state.js?v=3.60.0-fb454a842b2a';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.61.0-5c44c7edafa2';
+import {placeWindow} from './view-state.js?v=3.61.0-5c44c7edafa2';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that

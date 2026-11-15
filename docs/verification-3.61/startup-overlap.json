@@ -1,0 +1,89 @@
+{
+  "method": "Actual ensureAtlas/ensureCatalogData and actual AtlasMap class with deferred I/O and renderer boundaries; checks dependency overlap and lifecycle, not browser timing.",
+  "appSHA256": "df0e8dc83d88c5eaa1577d4801b39fb74ec74615e4793ca369174460d342a437",
+  "engineSHA256": "104716b3a6070b1839c0c9aaa89108fbb166f69c36878e60a1b754818e530fc8",
+  "passed": 20,
+  "total": 20,
+  "cases": [
+    {
+      "name": "Renderer opens the base before the year catalog; geography and the year commit wait for both",
+      "pass": true
+    },
+    {
+      "name": "A fast year catalog never bypasses renderer or base readiness",
+      "pass": true
+    },
+    {
+      "name": "Concurrent callers share one startup and later callers reuse the same map",
+      "pass": true
+    },
+    {
+      "name": "Year catalog rejection is immediately observed; its late renderer cannot resurrect a failed attempt",
+      "pass": true
+    },
+    {
+      "name": "Year catalog failure destroys an already constructed pending base and permits retry",
+      "pass": true
+    },
+    {
+      "name": "A failed old renderer branch cannot overwrite a newer successful attempt",
+      "pass": true
+    },
+    {
+      "name": "Renderer failure is observed while year catalog is pending and keeps its request reusable",
+      "pass": true
+    },
+    {
+      "name": "Base failure before catalog completion is handled and removes the failed instance",
+      "pass": true
+    },
+    {
+      "name": "Navigating away before renderer arrival creates no map",
+      "pass": true
+    },
+    {
+      "name": "Navigating away during the catalog wait destroys the base without starting geography",
+      "pass": true
+    },
+    {
+      "name": "The latest year is applied when startup dependencies finish",
+      "pass": true
+    },
+    {
+      "name": "Full reading catalog failure is independent of successful map startup",
+      "pass": true
+    },
+    {
+      "name": "Optional geography waits for the initial historical year and receives saved display choices without starting I/O",
+      "pass": true
+    },
+    {
+      "name": "Leaving while the first historical year is pending never starts optional geography on its late completion",
+      "pass": true
+    },
+    {
+      "name": "Real AtlasMap defers optional geography and starts it exactly once",
+      "pass": true
+    },
+    {
+      "name": "Real AtlasMap destruction cancels pending readiness and prevents late layer creation",
+      "pass": true
+    },
+    {
+      "name": "Deferred geography preserves ordinary regional, frozen and street layers above water",
+      "pass": true
+    },
+    {
+      "name": "Comparison-map default still initializes geography on base load",
+      "pass": true
+    },
+    {
+      "name": "Real map readiness reports initialization errors and clears its deadline",
+      "pass": true
+    },
+    {
+      "name": "No asynchronous startup failure escapes as an unhandled rejection",
+      "pass": true
+    }
+  ]
+}

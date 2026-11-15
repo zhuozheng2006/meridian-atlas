@@ -1,5 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import assert from 'node:assert/strict';
+import {objectStoragePaths} from './object-storage-paths.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),source=path.join(root,'public'),output=path.join(root,'dist');
 const m=JSON.parse(fs.readFileSync(path.join(source,'data/lakes/manifest.json')));
 const files=m.shards.map(s=>({file:s.file,bytes:s.gzipBytes,sha256:s.sha256}));
@@ -8,6 +10,7 @@ const manifest={revision,bytes:files.reduce((n,f)=>n+f.bytes,0),files};
 const split=new Set(files.map(f=>path.join(source,'data/lakes',f.file)));
 const digest=b=>crypto.createHash('sha256').update(b).digest('hex');
 const staticFiles=[];
+const ohm={};
 function addStatic(file,expected){
  const b=fs.readFileSync(path.join(source,file)),sha256=digest(b);
  if(expected&&(b.length!==expected.bytes||sha256!==expected.sha256))throw Error('Invalid audited static asset: '+file);
@@ -15,6 +18,7 @@ function addStatic(file,expected){
 }
 for(const area of ['ohm-eastasia','ohm-1500','ohm-britain']){
  const data=JSON.parse(fs.readFileSync(path.join(source,'data',area,'manifest.json')));
+ ohm[area]=data;
  for(const f of Object.values(data.years)){if(!/^year--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid OHM snapshot path');addStatic('data/'+area+'/'+f.file,{bytes:f.gzipBytes,sha256:f.sha256});}
 }
 const regionalTransport=JSON.parse(fs.readFileSync(path.join(source,'data/ohm-transport/manifest.json')));
@@ -39,6 +43,8 @@ for(const f of native.temporalBundles){
 const bootstrapFingerprints=Object.fromEntries(Object.values(native.bootstrap).map(f=>{const file='data/native/'+f.file,b=fs.readFileSync(path.join(source,file));if(b.length!==f.gzipBytes||digest(b)!==f.gzipSha256)throw Error('Invalid native bootstrap: '+file);return [file,f.gzipSha256];}));
 staticFiles.sort((a,b)=>a.file.localeCompare(b.file));
 const staticManifest={schemaVersion:1,revision:digest(JSON.stringify(staticFiles)),bytes:staticFiles.reduce((n,f)=>n+f.bytes,0),files:staticFiles};
+const expectedStoragePaths=objectStoragePaths({lakes:m,ohm,regionalTransport,china,chgis,cshapes,seshat,native});
+assert.deepEqual([...split].map(file=>path.relative(source,file).split(path.sep).join('/')).sort(),[...expectedStoragePaths].sort(),'Worker object-storage split must match the release-budget inventory');
 for(const f of files){const b=fs.readFileSync(path.join(source,'data/lakes',f.file));if(b.length!==f.bytes||crypto.createHash('sha256').update(b).digest('hex')!==f.sha256)throw Error('Invalid lake storage asset: '+f.file);}
 let importUntil=0;const option=process.argv.indexOf('--import-until');
 if(option>=0){importUntil=Date.parse(process.argv[option+1]);if(!Number.isFinite(importUntil)||importUntil<=Date.now()||importUntil>Date.now()+86400000)throw Error('Import window must end within 24 hours');}

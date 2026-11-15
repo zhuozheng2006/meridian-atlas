@@ -33,7 +33,7 @@ function context(){
    input.value='1500';input.oninput();globalThis.release=null;atlas.setYear=()=>new Promise(r=>release=r);globalThis.yearPromise=applyYear(1945);
   `,c);
   assert.equal(vm.runInContext("document.querySelector('#yearInput').value",c),'1500');
-  vm.runInContext('release(1)',c);await vm.runInContext('yearPromise',c);
+  await flush();vm.runInContext('release(1)',c);await vm.runInContext('yearPromise',c);
   assert.equal(vm.runInContext('state.year',c),1945);
   assert.equal(vm.runInContext("document.querySelector('#yearInput').value",c),'1500');
   vm.runInContext("document.querySelector('#yearInput').onchange()",c);
@@ -68,7 +68,9 @@ function context(){
  }
  {
   const c=context();
-  vm.runInContext(`globalThis.releases=[];atlas.setYear=()=>new Promise(r=>releases.push(r));globalThis.a=openEvent({...event,id:'A',start:1800});globalThis.b=openEvent({...event,id:'B',start:1900});`,c);
+  vm.runInContext(`globalThis.releases=[];atlas.setYear=()=>new Promise(r=>releases.push(r));globalThis.a=openEvent({...event,id:'A',start:1800});`,c);
+  await flush();assert.equal(vm.runInContext('releases.length',c),1);
+  vm.runInContext(`globalThis.b=openEvent({...event,id:'B',start:1900});`,c);
   await flush();
   vm.runInContext('releases[1](1)',c);await vm.runInContext('b',c);vm.runInContext('releases[0](1)',c);await vm.runInContext('a',c);
   const result=vm.runInContext('({selected:state.selected?.id,year:state.year,renderLog})',c);assert.equal(result.selected,'B');assert.equal(result.year,1900);assert.deepEqual(Array.from(result.renderLog),['event:B']);console.log('PASS out-of-order event responses');
@@ -87,8 +89,8 @@ function context(){
   console.log('PASS failed year keeps the displayed map and year consistent');
  }
  {
-  const c=context();vm.runInContext(`globalThis.finish=null;const oldMap=compareMap;oldMap.setYear=()=>new Promise(r=>finish=r);globalThis.wait=setCompareYear(1914);compareMap=mapStub();`,c);
-  vm.runInContext('finish(1)',c);await vm.runInContext('wait',c);assert.equal(vm.runInContext('state.compareYear',c),1900);
+  const c=context();vm.runInContext(`globalThis.finish=null;const oldMap=compareMap;oldMap.setYear=()=>new Promise(r=>finish=r);globalThis.wait=setCompareYear(1914);`,c);
+  await flush();assert.equal(vm.runInContext('typeof finish',c),'function');vm.runInContext('compareMap=mapStub();finish(1)',c);await vm.runInContext('wait',c);assert.equal(vm.runInContext('state.compareYear',c),1900);
   console.log('PASS removed comparison cannot commit a late year');
  }
  {

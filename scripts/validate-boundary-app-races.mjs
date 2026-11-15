@@ -24,7 +24,7 @@ function extract(name){
  }
  throw Error('Unclosed app function '+name);
 }
-const names=['setYear','applyYear','ensureAtlas','setCompareYear','closeComparison','boundaryComparisonController','openBoundaryComparison','cancelBoundaryComparison'];
+const names=['mapCatalogForYear','setYear','applyYear','ensureAtlas','setCompareYear','closeComparison','boundaryComparisonController','openBoundaryComparison','cancelBoundaryComparison'];
 const negativeControl=process.env.MERIDIAN_OLD_CANCEL==='1';
 const functions=names.map(name=>negativeControl&&name==='cancelBoundaryComparison'?'function cancelBoundaryComparison(){boundaryComparison?.cancel();}':extract(name)).join('\n');
 const declarations=source.slice(source.indexOf('let boundaryComparison='),source.indexOf('const params='));

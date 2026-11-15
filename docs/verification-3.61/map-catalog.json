@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "Every generated package retains exact complete source rows, geometry references, metadata and global change years",
+      "pass": true
+    },
+    {
+      "name": "All 5424 supported historical years have the same ordered active record set as the full catalog",
+      "pass": true
+    },
+    {
+      "name": "Date windows cross BCE/CE without a year zero and clamp the published range",
+      "pass": true
+    },
+    {
+      "name": "Concurrent and repeated dates within one window share the same request and exact object",
+      "pass": true
+    },
+    {
+      "name": "Different years and the shared empty package remain independent and never request the full catalog",
+      "pass": true
+    },
+    {
+      "name": "A failed fetch is evicted and a second request can succeed",
+      "pass": true
+    },
+    {
+      "name": "Wrong date packages and malformed rows fail explicitly and evict the underlying JSON cache",
+      "pass": true
+    },
+    {
+      "name": "Out-of-range data cannot smuggle records into an empty historical year",
+      "pass": true
+    },
+    {
+      "name": "The full catalog and original archive stay byte-for-byte untouched by map loading",
+      "pass": true
+    }
+  ],
+  "yearsChecked": 5424,
+  "recordYearPairs": 254592,
+  "files": 218,
+  "totalBytes": 2999270,
+  "fullCatalogBytes": 602739,
+  "sourceCatalogSHA256": "35be1763146b78201fd0b748fe235d3f981bcb404475c8fca4483be6e161f4a9",
+  "originalRowsFieldsGeometryReferencesAndMetadataPreserved": true,
+  "globalChangeYears": 508,
+  "fullSearchAndReadingCatalogUnchanged": true,
+  "method": "Actual generated files compared to canonical full lean catalog for all supported years; loader failure, malformed-response, concurrency and retry tests. This is data/loader validation, not browser timing."
+}

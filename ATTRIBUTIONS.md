@@ -116,3 +116,11 @@ Twenty-two further 742 CE names (11 Huainan, 11 Jiangnan East records) are check
 ## Jiangnan West and Qianzhong name review (3.60)
 
 Twenty-three further 742 CE names (12 Jiangnan West, 11 Qianzhong records) are checked against [Old Book of Tang, juan 40](https://zh.wikisource.org/zh-hans/舊唐書/卷40), read 2026-11-16. The review uses exact year, PrefID, source name and province keys; source population counts are identity cross-checks only. Reviewed names total 125/420 (62 Han, 63 Tang), with 295 remaining. Later county changes in Hongzhou (762), Ezhou (833) and Yezhou (744) are not applied to the 742 snapshot. Ten additional candidates remain deferred for edition, date or reading checks. Evidence: `docs/verification-3.60/tang-name-evidence.json`. Original source records and geometry are retained.
+
+## Date-window catalogs, further Tang review and South Asian reading (3.61)
+
+Map startup catalogs partition the existing Cliopatria derivative into 25-year civil-date windows. Complete source rows, geometry references and metadata are retained; the unpartitioned research catalog remains available. No geometry or historical date was changed.
+
+Twenty-five additional 742 CE names are checked against [Old Book of Tang, juan 38, fixed revision 7904832](https://zh.wikisource.org/w/index.php?title=舊唐書/卷38&oldid=7904832), read 2026-11-16. Reviewed names total 150/420 (62 Han, 88 Tang); 270 remain. Evidence, 15 deferred candidates and the compressed public-domain text capture are retained under `docs/verification-3.61/`. Source population counts serve only as identity cross-checks.
+
+Four original bilingual reading notes distinguish dated annotations in Schwartzberg plate III.B.4b (printed p.18): after 305 BCE, by 273 BCE, around 260 BCE, and Ashoka's reign. The inset's printed c.325–175 BCE period differs from the parent plate's 321–181 BCE. The [DSAL inset](https://dsal.uchicago.edu/iiif/schwartzberg/055_b.tif/full/max/0/default.jpg) and cartographic specifications remain institution-hosted. Georeferencing experiments did not pass independent location checks and are archived as research evidence, not annual vector boundaries.
