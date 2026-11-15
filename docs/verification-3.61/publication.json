@@ -1,0 +1,93 @@
+{
+  "version": "3.61.1",
+  "assetRevision": "3.61.1-fc4e970c6719",
+  "source": {
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "checkout_path": "/Users/zane/meridian_atlas/world-history-atlas",
+    "commit_sha": "4948965876dfd734f9b6b7b4a816da799d3911a1",
+    "archive": "/private/tmp/meridian-3.61.1.tar.gz"
+  },
+  "deployment": {
+    "id": "appgdep_6af9fa1cf7488191ae655d2e9627b5fd",
+    "project_id": "appgprj_6abed10c25288191b15cf376ca0c8c66",
+    "title": "经纬纪 · Meridian Atlas",
+    "version_id": "appgprj_6abed10c25288191b15cf376ca0c8c66~appgver_b0f9956d8a508191971b9e160e75b15d",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://meridian-world-history.zhuozheng2006.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6abed10c25288191b15cf376ca0c8c66",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-15T18:30:13.748583+00:00"
+  },
+  "initialPublication": "initial-publication.json",
+  "checks": {
+    "fullSuite": "passed; initial static-budget accounting failure and subsequent successful 3.61.0 run retained; full suite passed again after 3.61.1 intent guard",
+    "http": "14/14",
+    "mapCatalog": "9/9; 5424 years and 254592 record-year pairs match original catalog exactly",
+    "startup": "20/20",
+    "appCatalog": "26/26; original 3.61.0 negative control 21/26",
+    "deployedContent": "65/65; module/data bytes, date catalog samples, HTML revision, existing native/detail cache behavior and closed import routes",
+    "archive": "17446 entries; all 218 date catalogs verified; current modules and Worker match; safe paths, no Mac resource forks",
+    "browser": "3.61.0 final startup and UI verified; 3.61.1 changes only polity deep-link intent guards, validated by real-function regression tests and full deployed app hash"
+  },
+  "catalog": {
+    "sourceRecords": 13765,
+    "files": 218,
+    "totalBytes": 2999270,
+    "fullCatalogBytes": 602739,
+    "firstMapYearMinus250Bytes": 12848,
+    "allHistoricalRowsAndGeometryReferencesPreserved": true,
+    "fullSearchCatalogLoadedOnDemand": true
+  },
+  "performance": {
+    "measuredVersion": "3.61.0",
+    "measuredAssetRevision": "3.61.0-5c44c7edafa2",
+    "conditions": "same local preview/browser/device, 1.5 Mbps down, .75 Mbps up, 150 ms latency; main-target cache disabled; worker cache not controlled",
+    "baselineInteractiveSeconds": 9.4548,
+    "finalInteractiveSeconds": [
+      5.2851,
+      5.3392
+    ],
+    "intermediateWithoutGeographyGateSeconds": 8.2416,
+    "fullCatalogFetchedDuringFinalStartup": false,
+    "metric": "Requested historical year committed and year controls enabled; optional geography may still load",
+    "limits": "One view and device, not a production-wide or fully cold-cache claim. 3.61.1 does not change the measured default startup branch."
+  },
+  "names": {
+    "newTang": 25,
+    "han": 62,
+    "tang": 88,
+    "total": 150,
+    "remaining": 270,
+    "newDeferred": 15
+  },
+  "southAsia": {
+    "newBilingualReadingSections": 4,
+    "plate": "III.B.4b",
+    "graticuleConstraints": 28,
+    "holdoutConstraints": 9,
+    "independentLandmarkErrorsKm": [
+      57.69,
+      68.84
+    ],
+    "newAnnualVectorBoundaries": 0,
+    "conclusion": "Calibration not accepted for annual boundary publication; evidence and reproduction scripts retained"
+  },
+  "storage": {
+    "revision": "e3c72442369b6cbea74ff3fc9e37a7b9104cd56aac86c4d7efe337cb970516bf",
+    "changed": false,
+    "staticStorageObjects": 377,
+    "lakeStorageObjects": 2551,
+    "importUntil": 0
+  },
+  "github": {
+    "url": "https://github.com/zhuozheng2006/meridian-atlas",
+    "tag": "v3.61.1",
+    "initialTag": "v3.61.0",
+    "releaseCommit": "4948965876dfd734f9b6b7b4a816da799d3911a1"
+  },
+  "access": "Existing owner-only access preserved"
+}
