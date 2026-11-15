@@ -1,6 +1,42 @@
 import fs from 'node:fs';import {createHash} from 'node:crypto';
-const base=new URL('../',import.meta.url),manifest=JSON.parse(fs.readFileSync(new URL('public/data/native/manifest.json',base))),pairs=[];
-for(const f of [...manifest.temporalBundles,...Object.values(manifest.bootstrap)]){const b=fs.readFileSync(new URL('public/data/native/'+f.file,base));if(b.length!==f.gzipBytes||createHash('sha256').update(b).digest('hex')!==f.gzipSha256)throw Error('Native hash mismatch: '+f.file);pairs.push(['data/native/'+f.file,f.gzipSha256]);}
-const content='// Generated from audited compressed bytes; only these paths use immutable caching.\nexport const nativeContentHashes='+JSON.stringify(Object.fromEntries(pairs))+';\nexport function historicalDataRequest(url){const sha256=Object.hasOwn(nativeContentHashes,url)?nativeContentHashes[url]:null;return sha256?{url:(/^data\\/native\\/year--?\\d+\\.json\\.gz$/.test(url)?url.replace(\'data/native/\',\'__atlas-native/\'):url)+\'?sha256=\'+sha256,cache:\'default\'}:{url,cache:\'no-cache\'};}\n',out=new URL('public/native-content-hashes.js',base);
-if(process.argv.includes('--check')){if(fs.readFileSync(out,'utf8')!==content)throw Error('Native hash table is stale');}else fs.writeFileSync(out,content);
-console.log('PASS '+pairs.length+' native content fingerprints');
+const base=new URL('../',import.meta.url),read=file=>JSON.parse(fs.readFileSync(new URL('public/data/'+file,base)));
+const native=read('native/manifest.json'),nativePairs=[],detailPairs=[],seen=new Set();
+function add(pairs,file,bytes,sha256){
+ if(seen.has(file)||!Number.isSafeInteger(bytes)||bytes<=0||!/^[a-f0-9]{64}$/.test(sha256))throw Error('Invalid content fingerprint: '+file);
+ const b=fs.readFileSync(new URL('public/'+file,base));
+ if(b.length!==bytes||createHash('sha256').update(b).digest('hex')!==sha256)throw Error('Content hash mismatch: '+file);
+ seen.add(file);pairs.push([file,sha256]);
+}
+for(const f of [...native.temporalBundles,...Object.values(native.bootstrap)]){
+ if(!/^(?:temporal\/pack-\d{3}|year--?\d+)\.json\.gz$/.test(f.file))throw Error('Invalid native path');
+ add(nativePairs,'data/native/'+f.file,f.gzipBytes,f.gzipSha256);
+}
+// These paths are already removed from static assets and served by the R2
+// Worker. Do not include indexes or AWMC/static assets: asset-first hosting
+// would bypass the fingerprint validation and cache response headers.
+for(const area of ['ohm-eastasia','ohm-1500','ohm-britain'])for(const f of Object.values(read(area+'/manifest.json').years)){
+ if(!/^year--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid OHM path');
+ add(detailPairs,'data/'+area+'/'+f.file,f.gzipBytes,f.sha256);
+}
+for(const f of read('ohm-transport/manifest.json').files){
+ if(!/^(?:central-europe|east-asia|british-isles)--?\d+\.json\.gz$/.test(f.file))throw Error('Invalid regional transport path');
+ add(detailPairs,'data/ohm-transport/'+f.file,f.bytes,f.sha256);
+}
+for(const [area,pattern]of [['china-prefectures',/^year-\d+-band-\d+\.json\.gz$/],['chgis',/^century--?\d+\.json\.gz$/]]){
+ for(const f of read(area+'/manifest.json').files)if(pattern.test(f.file))add(detailPairs,'data/'+area+'/'+f.file,f.bytes,f.sha256);
+}
+for(const f of Object.values(read('cshapes/manifest.json').packs)){
+ if(!/^decade-\d+\.json\.gz$/.test(f.file))throw Error('Invalid CShapes path');
+ add(detailPairs,'data/cshapes/'+f.file,f.bytes,f.sha256);
+}
+detailPairs.sort(([a],[b])=>a.localeCompare(b));
+const content=`// Generated from audited compressed bytes; only these paths use immutable caching.
+export const nativeContentHashes=${JSON.stringify(Object.fromEntries(nativePairs))};
+export const detailContentHashes=${JSON.stringify(Object.fromEntries(detailPairs))};
+export function historicalDataRequest(url){
+ const sha256=Object.hasOwn(nativeContentHashes,url)?nativeContentHashes[url]:Object.hasOwn(detailContentHashes,url)?detailContentHashes[url]:null;
+ return sha256?{url:(/^data\\/native\\/year--?\\d+\\.json\\.gz$/.test(url)?url.replace('data/native/','__atlas-native/'):url)+'?sha256='+sha256,cache:'default'}:{url,cache:'no-cache'};
+}
+`,out=new URL('public/native-content-hashes.js',base);
+if(process.argv.includes('--check')){if(fs.readFileSync(out,'utf8')!==content)throw Error('Historical hash table is stale');}else fs.writeFileSync(out,content);
+console.log('PASS '+nativePairs.length+' native and '+detailPairs.length+' detail content fingerprints');

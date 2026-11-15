@@ -107,3 +107,8 @@ Thirty display names in the 2 CE / 742 CE ResearchArea snapshots have now been c
 Joseph E. Schwartzberg (ed.), *A Historical Atlas of South Asia*, 1992 edition, hosted by the [University of Chicago Digital South Asia Library](https://dsal.uchicago.edu/reference/schwartzberg/). Three source-linked plate records describe III.B.4 (p.18), III.D.1 (p.25), and XIV.1 (p.145). Original map images are not bundled or mirrored; the interface opens the institution's high-resolution reader. The plate's printed Gupta/Vakataka period is c.300–550 CE, while the catalog label says 300–500. XIV.1 compares maxima at different dates. These are research references, not newly digitized annual borders. Source terms remain with the publisher.
 
 Fifty further Han display names are cross-checked against Book of Han, juan 28, bringing reviewed ResearchArea names to 80/420 (62 Han, 18 Tang). Exact source identities and short evidence extracts are recorded in the name audit. Remaining 340 entries and merged units still require review. Source romanization and geometry are retained.
+
+
+## Expanded Tang name review (3.59)
+
+Twenty-two further 742 CE names (11 Huainan, 11 Jiangnan East records) are checked against [Old Book of Tang, juan 40](https://zh.wikisource.org/zh-hans/舊唐書/卷40), a modern transcription of the public-domain historical text, read 2026-11-16. Exact year, ID, source name and province keys are retained. Source population figures are cross-reference aids for record identity, not new independently validated estimates. Reviewed names now total 102/420 (62 Han, 40 Tang). Original labels and geometries remain unchanged. Eleven additional candidates are deferred pending date, reading or edition checks; evidence is in `docs/verification-3.59/tang-name-evidence.json`.

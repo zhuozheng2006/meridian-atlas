@@ -12,7 +12,7 @@ let instances=0;
 for(const f of manifest.files){const b=fs.readFileSync(root+f.file);assert.equal(b.length,f.bytes);assert.equal(hash(b),f.sha256);if(!f.file.startsWith('year-'))continue;const d=read(f.file),expected=index.records.filter(r=>r.year===d.year&&r.bounds[0]<=d.band+20&&r.bounds[2]>=d.band-10);assert.deepEqual(Object.keys(d.geometries).sort(),expected.map(r=>r.id).sort());instances+=expected.length;}
 assert.equal(hash(fs.readFileSync(root+'ResearchArea-originals.zip')),manifest.sourceArchiveSHA256);
 const originalFetch=globalThis.fetch,requests=[];let fail=false;
-globalThis.fetch=async url=>{requests.push(url);if(fail&&url.includes('year-2-band-90'))return new Response('unavailable',{status:503});return new Response(fs.readFileSync('public/'+url));};
+globalThis.fetch=async url=>{requests.push(url);if(fail&&url.includes('year-2-band-90'))return new Response('unavailable',{status:503});return new Response(fs.readFileSync('public/'+String(url).split('?')[0]));};
 try{
  const a=chinaWindowFor(box(104),2),frames=await Promise.all([readChinaSnapshot(a,2),readChinaSnapshot(a,2)]);assert.equal(requests.length,2);assert.deepEqual(frames[0],frames[1]);assert(frames[0].features.every(f=>regionalVisible(f.properties,2,4)&&!regionalVisible(f.properties,3,4)));
  await readChinaSnapshot(chinaWindowFor(box(109),2),2);assert.equal(requests.length,2);
@@ -22,4 +22,4 @@ try{
  const regional=Object.create(RegionalBoundaries.prototype);Object.assign(regional,{year:742,map:{getBounds:()=>box(104),getSource(){throw Error('Scholarly source must suppress live OHM startup');}}});assert(regional.scholarlyActive);regional.ensure();
 }finally{globalThis.fetch=originalFetch;}
 const report={passed:true,sourceRows:420,years:[2,742],bandInstances:instances,files:manifest.files.length,concurrentRequestsShared:true,sameBandExtraRequests:0,threePackEviction:true,retryAfterFailure:true,exactYearsOnly:true};
-fs.mkdirSync('docs/verification-3.58',{recursive:true});fs.writeFileSync('docs/verification-3.58/china-runtime.json',JSON.stringify(report,null,2)+'\n');console.log(report);
+fs.mkdirSync('docs/verification-3.59',{recursive:true});fs.writeFileSync('docs/verification-3.59/china-runtime.json',JSON.stringify(report,null,2)+'\n');console.log(report);

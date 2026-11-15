@@ -23,7 +23,7 @@ try{
  await test('Corrupt compact snapshot falls back to its exact original file',async()=>{
   requests.length=0;globalThis.fetch=async url=>{requests.push(url);return new Response(JSON.stringify(url.includes('ohm-transport')?{encoding:'ohm-delta-1e7',features:[{deltaGeometry:{type:'Polygon',coordinates:[[1,2,3]]}}]}:data));};
   const window_={id:'central-europe',root:'data/ohm-1500/',years:[1492,1500]};assert.deepEqual(await readRegionalSnapshot(window_,1492),data);
-  assert.deepEqual(requests,['data/ohm-transport/central-europe-1492.json.gz','data/ohm-1500/year-1492.json.gz']);await waitForMapForeground('data/land-50m.json.gz');
+  assert.deepEqual(requests.map(u=>u.split('?')[0]),['data/ohm-transport/central-europe-1492.json.gz','data/ohm-1500/year-1492.json.gz']);await waitForMapForeground('data/land-50m.json.gz');
  });
  await test('Online detail starts after a bounded head start, but never after a map exits',async()=>{
   for(const live of [true,false]){let starts=0;const owner={liveWarmTimer:null,eligible:true,failed:false,map:{getSource:()=>null},ensure(){starts++;},applyFilters(){},visibility(){},requestRender(){}};

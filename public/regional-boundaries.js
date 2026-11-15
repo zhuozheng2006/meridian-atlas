@@ -1,15 +1,15 @@
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.58.1-c7e43da44e1e';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.58.1-c7e43da44e1e';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.58.1-c7e43da44e1e';
-import {beginMapForeground} from './map-load-priority.js?v=3.58.1-c7e43da44e1e';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.58.1-c7e43da44e1e';
-import {boundaryNote} from './boundary-notes.js?v=3.58.1-c7e43da44e1e';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.58.1-c7e43da44e1e';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.58.1-c7e43da44e1e';
-import {boundaryMode} from './view-state.js?v=3.58.1-c7e43da44e1e';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.58.1-c7e43da44e1e';
-import {historicalYearRange} from './historical-dates.js?v=3.58.1-c7e43da44e1e';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.58.1-c7e43da44e1e';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.59.0-666e7ea66e0d';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.59.0-666e7ea66e0d';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.59.0-666e7ea66e0d';
+import {beginMapForeground} from './map-load-priority.js?v=3.59.0-666e7ea66e0d';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.59.0-666e7ea66e0d';
+import {boundaryNote} from './boundary-notes.js?v=3.59.0-666e7ea66e0d';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.59.0-666e7ea66e0d';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.59.0-666e7ea66e0d';
+import {boundaryMode} from './view-state.js?v=3.59.0-666e7ea66e0d';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.59.0-666e7ea66e0d';
+import {historicalYearRange} from './historical-dates.js?v=3.59.0-666e7ea66e0d';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.59.0-666e7ea66e0d';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -258,8 +258,10 @@ export class RegionalBoundaries{
  warmDetail(){
   if(!this.enabled||this.modern||!this.atlas.showBorders||this.dead||this.atlas.destroyed||this.map.getZoom()<REGIONAL_MIN_ZOOM-1)return;
   const window_=this.ohmWindow;if(!window_?.years.includes(Number(this.year)))return;
-  const url=window_.root+'year-'+this.year+'.json.gz';if(this.warmURL===url)return;this.warmURL=url;
-  readRegionalSnapshot(window_,this.year).catch(()=>{if(this.warmURL===url)this.warmURL=null;});
+  // A shared root/year can contain multiple geographical bands. Track the
+  // window identity so panning preloads the destination band before zooming.
+  const key=window_.id+':'+Number(this.year);if(this.warmURL===key)return;this.warmURL=key;
+  return readRegionalSnapshot(window_,this.year).catch(()=>{if(this.warmURL===key)this.warmURL=null;});
  }
  deferOnline(delay=4000){
   if(this.liveWarmTimer||this.map.getSource(SOURCE))return;
