@@ -58,7 +58,8 @@ await check('default map route starts optional async renderer load with the stam
 });
 await check('Startup preload agrees with catalog window lookup across all years and route types',async()=>{
  for(const year of [-70000,-3400,-250,-26,-25,-1,1,25,26,742,1492,2024,2026]){const r=await boot('#year='+year);assert.equal(r.hints[0].href,'https://atlas.example/sub/'+mapCatalogPath(year));}
- for(const view of ['polities','stories','library','sources']){const r=await boot('#view='+view);assert.equal(r.imports,0);assert.equal(r.hints[0].href,'https://atlas.example/sub/data/fast/catalog.json.gz');}
+ const expected={polities:'data/fast/polity-search-index.json.gz',sources:'data/fast/polity-search-index.json.gz',library:'data/events.json.gz',stories:'data/fast/events-index.json.gz'};
+ for(const [view,file] of Object.entries(expected)){const r=await boot('#view='+view);assert.equal(r.imports,0);assert.equal(r.hints[0].href,'https://atlas.example/sub/'+file);}
 });
 await check('HTML has no unconditional renderer preload or synchronous script',()=>{
  const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');

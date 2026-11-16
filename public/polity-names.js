@@ -1,4 +1,4 @@
-import {polityDisplayData} from './polity-display-names-data.js?v=3.61.1-fc4e970c6719';
+import {polityDisplayData} from './polity-display-names-data.js?v=3.61.1-8e8b3e467940';
 
 const byRecord=new Map();
 for(const rule of polityDisplayData.rules)for(const target of rule.targets)byRecord.set(target.id,{rule,target});
@@ -57,4 +57,46 @@ export function groupPolityRecords(records,year){
   groups.set(key,Math.abs(labelYear-year)<Math.abs(g.labelYear-year)?{...r,min,max,count,labelYear}:{...g,min,max,count});
  }
  return [...groups.values()];
+}
+export function polityChainBucket(key,buckets=64){
+ let h=2166136261;
+ for(let i=0;i<key.length;i++)h=Math.imul(h^key.charCodeAt(i),16777619);
+ return (h>>>0)%buckets;
+}
+export function polityChainPath(r){
+ const key=typeof r==='string'?r:polityNameGroupKey(r);
+ return `data/fast/polity-chains/b-${String(polityChainBucket(key)).padStart(2,'0')}.json.gz`;
+}
+function spanReference(g,desired){
+ let bestYear=null,bestSpan=null,bestDist=Infinity;
+ for(const sp of g.s){
+  const [s,e]=sp;
+  let y=civilYear(desired)?Math.max(s,Math.min(e,desired)):s;
+  if(y===0)y=s<0?-1:e>0?1:null;
+  if(y===null)continue;
+  const dist=civilYear(desired)?Math.abs(y-desired):0;
+  if(dist<bestDist){bestDist=dist;bestYear=y;bestSpan=sp;}
+ }
+ return bestYear===null?null:{year:bestYear,zh:bestSpan[2]??g.zh,en:bestSpan[3]??g.en};
+}
+export function searchPolityIndex(index,query,year,limit=12){
+ const q=query.trim().toLowerCase();if(!q||!index?.groups)return [];
+ const matches=[];
+ for(const g of index.groups){
+  const hay=[g.n,g.zh,g.en,...g.s.flatMap(sp=>sp.slice(2)),...(g.x||[])].filter(Boolean).join(' ').toLowerCase();
+  if(!hay.includes(q))continue;
+  const ref=spanReference(g,year);
+  if(!ref)continue;
+  const exact=[ref.zh,ref.en,g.n].some(n=>n&&n.toLowerCase()===q)?0:1;
+  matches.push({group:g,year:ref.year,zh:ref.zh,en:ref.en,exact});
+ }
+ matches.sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year)||a.exact-b.exact||b.group.a-a.group.a||a.group.id.localeCompare(b.group.id));
+ return matches.slice(0,limit);
+}
+export function groupPolityIndex(index,year){
+ if(!index?.groups)return [];
+ return index.groups.map(g=>{
+  const ref=spanReference(g,year);
+  return {id:g.id,name:g.n,zhName:ref?.zh??g.zh,enName:ref?.en??g.en,min:g.min,max:g.max,count:g.c,labelYear:ref?.year??g.min,groupKey:g.k,bucket:g.b,area:g.a};
+ });
 }

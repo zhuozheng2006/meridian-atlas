@@ -1,15 +1,18 @@
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.61.1-fc4e970c6719';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.61.1-fc4e970c6719';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.61.1-fc4e970c6719';
-import {beginMapForeground} from './map-load-priority.js?v=3.61.1-fc4e970c6719';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.61.1-fc4e970c6719';
-import {boundaryNote} from './boundary-notes.js?v=3.61.1-fc4e970c6719';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.61.1-fc4e970c6719';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.61.1-fc4e970c6719';
-import {boundaryMode} from './view-state.js?v=3.61.1-fc4e970c6719';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.61.1-fc4e970c6719';
-import {historicalYearRange} from './historical-dates.js?v=3.61.1-fc4e970c6719';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.61.1-fc4e970c6719';
+import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=3.61.1-8e8b3e467940';
+export const interiorAnchor=(geometry,box=null)=>_interiorAnchor(geometry,box);
+export const interiorPoint=(geometry,box=null)=>_interiorPoint(geometry,box);
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.61.1-8e8b3e467940';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.61.1-8e8b3e467940';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.61.1-8e8b3e467940';
+import {beginMapForeground} from './map-load-priority.js?v=3.61.1-8e8b3e467940';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.61.1-8e8b3e467940';
+import {boundaryNote} from './boundary-notes.js?v=3.61.1-8e8b3e467940';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.61.1-8e8b3e467940';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.61.1-8e8b3e467940';
+import {boundaryMode} from './view-state.js?v=3.61.1-8e8b3e467940';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.61.1-8e8b3e467940';
+import {historicalYearRange} from './historical-dates.js?v=3.61.1-8e8b3e467940';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.61.1-8e8b3e467940';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -137,38 +140,6 @@ export const ohmPartial=p=>p?.partial_geometry===1;
 export function regionalElementURL(p){
  const id=Number(p.osm_id);return Number.isSafeInteger(id)&&id!==0?`https://www.openhistoricalmap.org/${id<0?'relation':'way'}/${Math.abs(id)}`:null;
 }
-// Interior label point: intersect a horizontal scanline with polygon rings,
-// then use the midpoint of the widest inside interval (including holes).
-function clipRing(ring,box){
- let points=ring.slice(0,-1);
- for(const [axis,edge,sign] of [[0,box[0],1],[0,box[2],-1],[1,box[1],1],[1,box[3],-1]]){
-  const next=[];if(!points.length)break;
-  for(let i=0;i<points.length;i++){
-   const a=points[(i+points.length-1)%points.length],b=points[i],ain=(a[axis]-edge)*sign>=0,bin=(b[axis]-edge)*sign>=0;
-   if(ain!==bin){const t=(edge-a[axis])/(b[axis]-a[axis]);next.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
-   if(bin)next.push(b);
-  }
-  points=next;
- }
- return points.length>=3?[...points,points[0]]:[];
-}
-export function interiorAnchor(geometry,box=null){
- const polygons=geometry.type==='Polygon'?[geometry.coordinates]:geometry.type==='MultiPolygon'?geometry.coordinates:[];
- let best=null,score=0;
- for(const original of polygons){
-  const rings=box?original.map(r=>clipRing(r,box)).filter(r=>r.length):original;
-  const outer=rings[0];if(!outer?.length)continue;
-  let lo=Infinity,hi=-Infinity;for(const p of outer){lo=Math.min(lo,p[1]);hi=Math.max(hi,p[1]);}
-  for(const ratio of [.5,.35,.65]){
-   const y=lo+(hi-lo)*ratio,xs=[];
-   for(const ring of rings)for(let i=1;i<ring.length;i++){const a=ring[i-1],b=ring[i];if((a[1]>y)!==(b[1]>y))xs.push(a[0]+(y-a[1])*(b[0]-a[0])/(b[1]-a[1]));}
-   xs.sort((a,b)=>a-b);
-   for(let i=0;i+1<xs.length;i+=2){const width=xs[i+1]-xs[i],area=width*(hi-lo);if(area>score){score=area;best=[(xs[i]+xs[i+1])/2,y];}}
-  }
- }
- return best?{coordinate:best,score}:null;
-}
-export const interiorPoint=(geometry,box=null)=>interiorAnchor(geometry,box)?.coordinate||null;
 export function coverageAllowsDetail(samples,previous=false){
  const land=samples.filter(s=>s.land),covered=land.filter(s=>s.covered);
  if(land.length<5||covered.length/land.length<(previous?.65:.8))return false;

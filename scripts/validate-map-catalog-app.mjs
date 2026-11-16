@@ -7,6 +7,7 @@ import {dirname,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createMapCatalogLoader,mapCatalogPath} from '../public/map-catalog.js';
 import {AtlasMap,activeRecords} from '../public/map-engine.js';
+import {searchPolityIndex,groupPolityIndex,polityChainPath,polityNameGroupKey} from '../public/polity-names.js';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const source=fs.readFileSync(process.env.MAP_CATALOG_APP_SOURCE||resolve(root,'public/app.js'),'utf8');
@@ -29,16 +30,18 @@ function fixture({startup=false}={}){
  };
  const c={Promise,console,URL,URLSearchParams,Number,Set,Map,Error,RangeError,setTimeout,clearTimeout,
   state:{view:'atlas',year:1492,compareYear:1650,compare:false,lang:'en',boundaryMode:'auto',compareBoundaryMode:'auto',borders:true,reference:false,projection:'globe',streets:false,borderCurves:true,events:true,labels:true,terrain:true,coast:true,search:'',selectedSide:'left',browse:false,allTime:false},
-  catalog:undefined,catalogStatus:'idle',catalogDataPromise:null,mapCatalogs:null,coverage:[],events:[],eventsStatus:'ready',eventsDataPromise:null,
+  catalog:undefined,catalogStatus:'idle',catalogDataPromise:null,politySearchIndex:null,politySearchIndexPromise:null,politySearchIndexStatus:'idle',polityChainPromises:new Map(),mapCatalogs:null,coverage:[],events:[],eventsStatus:'ready',eventsDataPromise:null,eventsFullPromise:null,eventsFullReady:true,
   atlas:null,compareMap:null,atlasReady:!startup,atlasBootPromise:null,updateId:0,compareGeneration:0,pendingYear:null,pendingCompareYear:null,pendingInitialEvent:null,displayedPolityCount:null,
   detailNavigation:0,placeReturn:null,readerReturnBrowse:false,detailFocus:null,restoringView:false,applyingBoundaryComparison:false,savedCamera:null,viewRevision:0,
   $:node,$$:()=>[],window:{__meridian:{instances:[]}},document:{activeElement:null,body:{classList:{add(){},remove(){}}},createElement:()=>node('created')},location:{reload(){}},performance:{mark:name=>calls.push(['mark',name])},
-  text:(zh,en)=>en,escape:v=>String(v??''),yr:String,normalizeYear:Number,polityName:r=>r.name,activeRecords,
+  text:(zh,en)=>en,escape:v=>String(v??''),yr:String,normalizeYear:Number,polityName:r=>r.name,polityNameGroupKey,polityChainPath,groupPolityIndex,activeRecords,
   createMapCatalogLoader,forgetJSON:path=>calls.push(['forget',path]),readJSON:path=>{reads.push(path);return gates.has(path)?gates.get(path).promise:Promise.resolve(read(path));},
-  loadMapLibre:async()=>{},ensureEventsData:async()=>{},prefetchNativeFrame:async()=>{},cancelBoundaryComparison(){},
+  recordDetail:id=>c.readJSON(`data/fast/records-${String(Math.floor(+id.slice(5)/256)).padStart(3,'0')}.json.gz`).then(d=>d[id]),
+  loadMapLibre:async()=>{},ensureEventsData:Object.assign(async()=>{},{fullReady:true}),ensureFullEventsData:async()=>{},refreshEventData(){},prefetchNativeFrame:async()=>{},cancelBoundaryComparison(){},
   pause(){},renderYear(){node('#yearInput').value=c.state.year;},renderEvents(){},renderBrowse(){},renderRegionalStatus(){},renderLayerLabels(){},renderDatasetStatus(){},saveURL(){},
   mapError:(message,retry)=>calls.push(['error',message,retry]),setMapControlsReady:value=>calls.push(['controls',value]),registerTools(){},exportMapImage(){},boundarySelection(){},openEvent(){},
   renderPlaceSearch(){},searchPlaces:async()=>[],loadBattles:async()=>[],filteredEvents:()=>[],eventCountText:n=>String(n),bindEventRetries(){},COLORS:{},inWindow:()=>true,
+  searchPolityIndex:(index,query,year)=>{calls.push(['search',index,query]);return searchPolityIndex(index,query,year);},
   searchPolityRecords:(records,query,year)=>{calls.push(['search',records,query]);return records.filter(r=>r.name.toLowerCase().includes(query.toLowerCase())).slice(0,2).map(record=>({record,year}));}
  };
  const makeMap=year=>{
@@ -53,13 +56,14 @@ function fixture({startup=false}={}){
   m.delayRender=year=>{const g=deferred();renderGates.set(year,g);return g;};maps.push(m);return m;
  };
  c.AtlasMap=function(container,options){const m=makeMap(options.year);c.window.__meridian.instances.push(m);return m;};
- c.polityReader={seq:0,async open(record,map,options){assert(c.catalog&&!c.catalog.mapCatalog,'Reader must receive the complete catalog');calls.push(['reader',record,map,options]);}};
+ c.polityReader={seq:0,async open(record,map,options){const chain=options?.chainRecords||c.catalog?.records;assert(chain&&Array.isArray(chain)&&chain.some(x=>x.id===record.id)&&(!c.catalog||!c.catalog.mapCatalog),'Reader must receive the polity period chain');calls.push(['reader',record,map,options]);}};
  if(!startup)c.atlas=makeMap(1492);
- const names=['mapCatalogForYear','ensureCatalogData','applyYear','setCompareYear','openPolity','closeDetail','beginDetail','bindDetailClose','ensureAtlas','toggleCompare','closeComparison'];
+ const names=['mapCatalogForYear','ensureCatalogData','ensurePolitySearchIndex','ensurePolityChain','applyYear','setCompareYear','openPolity','closeDetail','beginDetail','bindDetailClose','ensureAtlas','toggleCompare','closeComparison'];
  vm.createContext(c);vm.runInContext(names.map(extract).join('\n'),c);
  c.setYear=(year,options)=>c.applyYear(year,options);c.showView=async view=>{c.state.view=view;return true;};
  const block=path=>{const g=deferred();gates.set(path,g);return {...g,complete:()=>g.resolve(read(path))};};
- return {c,calls,reads,nodes,node,maps,makeMap,block,blockYear:year=>block(mapCatalogPath(year)),blockFull:()=>block('data/fast/catalog.json.gz'),unblock:path=>gates.delete(path),loadFunction:name=>vm.runInContext(extract(name),c)};
+ const recordPath=id=>`data/fast/records-${String(Math.floor(+id.slice(5)/256)).padStart(3,'0')}.json.gz`;
+ return {c,calls,reads,nodes,node,maps,makeMap,block,blockYear:year=>block(mapCatalogPath(year)),blockFull:()=>block('data/fast/catalog.json.gz'),blockIndex:()=>block('data/fast/polity-search-index.json.gz'),blockChain:r=>block(polityChainPath(r)),blockRecord:id=>block(recordPath(id)),recordPath,unblock:path=>gates.delete(path),loadFunction:name=>vm.runInContext(extract(name),c)};
 }
 const tests=[],unhandled=[];const onUnhandled=e=>unhandled.push(String(e));process.on('unhandledRejection',onUnhandled);
 async function test(name,fn){try{await fn();tests.push({name,passed:true});console.log('PASS '+name);}catch(e){tests.push({name,passed:false,error:String(e.stack||e)});console.error('FAIL '+name+'\n'+e.stack);}}
@@ -97,53 +101,53 @@ await test('Closing comparison while its catalog is pending cannot revive the re
 await test('Initial comparison cannot submit an old catalog under a newer year',async()=>{
  const h=fixture(),initial=h.blockYear(1650),opening=h.c.toggleCompare();await flush();assert(h.c.compareMap);const newer=h.c.setCompareYear(1800);await newer;initial.complete();await opening;assert.equal(h.c.state.compareYear,1800);assert.equal(h.c.compareMap.year,1800);assert.deepEqual(h.c.compareMap.active,activeRecords(completeCatalog,1800));assert.equal(h.node('#compareYear').disabled,false);
 });
-await test('Polity reading waits for the full catalog and receives the complete period chain',async()=>{
- const h=fixture(),gate=h.blockFull(),r=activeRecords(completeCatalog,1492)[0],opening=h.c.openPolity(r);await flush();assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);assert(h.node('#detailPanel').innerHTML.includes('complete historical record'));gate.complete();await opening;assert.equal(h.calls.filter(x=>x[0]==='reader').length,1);assert.equal(h.c.catalog.records.length,completeCatalog.records.length);
+await test('Polity reading waits for its sharded period chain without loading the full catalog',async()=>{
+ const h=fixture(),r=activeRecords(completeCatalog,1492)[0],gate=h.blockChain(r),opening=h.c.openPolity(r);await flush();assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);assert(!h.reads.includes('data/fast/catalog.json.gz'));assert(h.node('#detailPanel').innerHTML.includes('complete historical record'));gate.complete();await opening;const call=h.calls.find(x=>x[0]==='reader');assert(call);assert(!h.reads.includes('data/fast/catalog.json.gz'));assert.equal(h.c.catalog,undefined);assert.equal(call[3].chainRecords.length,completeCatalog.records.filter(x=>x.type==='POLITY'&&polityNameGroupKey(x)===polityNameGroupKey(r)).length);
 });
-await test('Closing a pending polity dossier prevents its later catalog from opening the reader',async()=>{
- const h=fixture(),gate=h.blockFull(),p=h.c.openPolity(activeRecords(completeCatalog,1492)[0]);await flush();h.c.closeDetail();gate.complete();await p;assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);assert.equal(h.node('#detailPanel').hidden,true);assert.equal(h.c.state.selectedPolity,null);
+await test('Closing a pending polity dossier prevents its later period chain from opening the reader',async()=>{
+ const h=fixture(),r=activeRecords(completeCatalog,1492)[0],gate=h.blockChain(r),p=h.c.openPolity(r);await flush();h.c.closeDetail();gate.complete();await p;assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);assert.equal(h.node('#detailPanel').hidden,true);assert.equal(h.c.state.selectedPolity,null);
 });
 await test('Changing a dossier map year rejects the obsolete reader completion',async()=>{
- const h=fixture(),gate=h.blockFull(),p=h.c.openPolity(activeRecords(completeCatalog,1492)[0]);await flush();h.c.atlas.year=1500;gate.complete();await p;assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);
+ const h=fixture(),r=activeRecords(completeCatalog,1492)[0],gate=h.blockChain(r),p=h.c.openPolity(r);await flush();h.c.atlas.year=1500;gate.complete();await p;assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);
 });
-await test('A different polity selected during catalog loading wins the reader',async()=>{
- const h=fixture(),gate=h.blockFull(),records=activeRecords(completeCatalog,1492),a=h.c.openPolity(records[0]);await flush();const b=h.c.openPolity(records[1]);gate.complete();await Promise.all([a,b]);assert.deepEqual(h.calls.filter(x=>x[0]==='reader').map(x=>x[1].id),[records[1].id]);
+await test('A different polity selected during chain loading wins the reader',async()=>{
+ const h=fixture(),records=activeRecords(completeCatalog,1492),gate0=h.blockChain(records[0]),gate1=h.blockChain(records[1]),a=h.c.openPolity(records[0]);await flush();const b=h.c.openPolity(records[1]);gate0.complete();await flush();gate1.complete();await Promise.all([a,b]);assert.deepEqual(h.calls.filter(x=>x[0]==='reader').map(x=>x[1].id),[records[1].id]);
 });
-await test('Dossier catalog failures display retry; retry succeeds and preserves the original selection',async()=>{
- const h=fixture(),gate=h.blockFull(),r=activeRecords(completeCatalog,1492)[0],p=h.c.openPolity(r);gate.reject(Error('offline'));await p;assert.equal(h.c.catalogStatus,'error');assert(h.node('#detailPanel .reader-content').innerHTML.includes('could not load'));assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);h.unblock('data/fast/catalog.json.gz');await h.node('#retryPolityCatalog').onclick();assert.equal(h.c.catalogStatus,'ready');assert.equal(h.calls.filter(x=>x[0]==='reader')[0][1].id,r.id);
+await test('Dossier chain failures display retry; retry succeeds and preserves the original selection',async()=>{
+ const h=fixture(),r=activeRecords(completeCatalog,1492)[0],chainPath=polityChainPath(r),gate=h.block(chainPath),p=h.c.openPolity(r);gate.reject(Error('offline'));await p;assert(h.node('#detailPanel .reader-content').innerHTML.includes('could not load'));assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);h.unblock(chainPath);await h.node('#retryPolityCatalog').onclick();assert.equal(h.calls.filter(x=>x[0]==='reader')[0][1].id,r.id);assert.equal(h.c.catalog,undefined);
 });
-await test('Search lazily reads all periods, retries failures, and renders the newest query',async()=>{
- const h=fixture();h.loadFunction('renderEvents');h.c.renderEvents();assert(!h.reads.includes('data/fast/catalog.json.gz'));const gate=h.blockFull();h.c.state.search='rome';h.c.renderEvents();await flush();assert.equal(h.reads.filter(x=>x==='data/fast/catalog.json.gz').length,1);gate.reject(Error('offline'));await flush();assert(h.node('#eventList').innerHTML.includes('Polity catalog unavailable'));assert(h.node('#retryCatalogSearch').events.click);h.unblock('data/fast/catalog.json.gz');h.c.state.search='Ming';h.node('#retryCatalogSearch').events.click();await flush();assert.equal(h.c.catalogStatus,'ready');const last=h.calls.filter(x=>x[0]==='search').at(-1);assert.equal(last[2],'Ming');assert.equal(last[1].length,completeCatalog.records.length);
+await test('Search lazily reads the all-period polity index, retries failures, and renders the newest query',async()=>{
+ const h=fixture();h.loadFunction('renderEvents');h.c.renderEvents();assert(!h.reads.includes('data/fast/polity-search-index.json.gz'));assert(!h.reads.includes('data/fast/catalog.json.gz'));const gate=h.blockIndex();h.c.state.search='rome';h.c.renderEvents();await flush();assert.equal(h.reads.filter(x=>x==='data/fast/polity-search-index.json.gz').length,1);gate.reject(Error('offline'));await flush();assert(h.node('#eventList').innerHTML.includes('Polity catalog unavailable'));assert(h.node('#retryCatalogSearch').events.click);h.unblock('data/fast/polity-search-index.json.gz');h.c.state.search='Ming';h.node('#retryCatalogSearch').events.click();await flush();assert.equal(h.c.politySearchIndexStatus,'ready');assert(!h.reads.includes('data/fast/catalog.json.gz'));const last=h.calls.filter(x=>x[0]==='search').at(-1);assert.equal(last[2],'Ming');assert.equal(last[1].groups.length,read('data/fast/polity-search-index.json.gz').groups.length);
 });
-await test('Search observes catalog completion even when a now-closed dossier started the shared request',async()=>{
- const h=fixture();h.loadFunction('renderEvents');const gate=h.blockFull(),opening=h.c.openPolity(activeRecords(completeCatalog,1492)[0]);await flush();h.c.closeDetail();h.c.state.search='Ming';h.c.renderEvents();assert(h.node('#eventList').innerHTML.includes('Searching polities'));gate.complete();await opening;await flush();const last=h.calls.filter(x=>x[0]==='search').at(-1);assert(last,'Shared full-catalog completion must refresh current search');assert.equal(last[2],'Ming');assert.equal(h.calls.filter(x=>x[0]==='reader').length,0);
+await test('Search observes shared search-index completion started by another view',async()=>{
+ const h=fixture();h.loadFunction('renderEvents');const gate=h.blockIndex(),loading=h.c.ensurePolitySearchIndex();h.c.state.search='Ming';h.c.renderEvents();assert(h.node('#eventList').innerHTML.includes('Searching polities'));gate.complete();await loading;await flush();const last=h.calls.filter(x=>x[0]==='search').at(-1);assert(last,'Shared polity search-index completion must refresh current search');assert.equal(last[2],'Ming');
 });
-await test('Search observes failures of a shared catalog request started by another view',async()=>{
- const h=fixture();h.loadFunction('renderEvents');const gate=h.blockFull(),loading=h.c.ensureCatalogData().catch(()=>{});h.c.state.search='Ming';h.c.renderEvents();gate.reject(Error('offline'));await loading;await flush();assert(h.node('#eventList').innerHTML.includes('Polity catalog unavailable'));assert(h.node('#retryCatalogSearch').events.click);
+await test('Search observes failures of a shared search-index request started by another view',async()=>{
+ const h=fixture();h.loadFunction('renderEvents');const gate=h.blockIndex(),loading=h.c.ensurePolitySearchIndex().catch(()=>{});h.c.state.search='Ming';h.c.renderEvents();gate.reject(Error('offline'));await loading;await flush();assert(h.node('#eventList').innerHTML.includes('Polity catalog unavailable'));assert(h.node('#retryCatalogSearch').events.click);
 });
-await test('A polity deep link retries its full catalog after an initial download failure',async()=>{
- const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
- const first=assert.rejects(h.c.restoreInitialMapView(),/offline/);gate.reject(Error('offline'));await first;assert.equal(h.c.mapURLRestored,false,'A failed deep-link restoration must remain retryable');h.unblock('data/fast/catalog.json.gz');await h.c.restoreInitialMapView();assert.deepEqual(h.calls.filter(x=>x[0]==='jump').map(x=>x[1]),[record.id]);assert.equal(h.c.mapURLRestored,true);
+await test('A polity deep link retries its record lookup after an initial download failure without reading full catalog',async()=>{
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockRecord(record.id);h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const first=assert.rejects(h.c.restoreInitialMapView(),/offline/);gate.reject(Error('offline'));await first;assert.equal(h.c.mapURLRestored,false,'A failed deep-link restoration must remain retryable');h.unblock(h.recordPath(record.id));await h.c.restoreInitialMapView();assert.deepEqual(h.calls.filter(x=>x[0]==='jump').map(x=>x[1]),[record.id]);assert(!h.reads.includes('data/fast/catalog.json.gz'));assert.equal(h.c.mapURLRestored,true);
 });
 await test('A completed user year change supersedes a pending initial polity deep link',async()=>{
- const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockRecord(record.id);h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
  const opening=h.c.restoreInitialMapView();await flush();assert.equal(await h.c.applyYear(1700),true);gate.complete();await opening;assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'Initial polity must not overwrite a newer user year');assert.equal(h.c.state.year,1700);
 });
 await test('A still-pending user year request supersedes a pending initial polity deep link',async()=>{
- const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockRecord(record.id);h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
  const opening=h.c.restoreInitialMapView();await flush();const next=h.blockYear(1700),changing=h.c.applyYear(1700);await flush();assert.equal(h.c.state.year,1492);assert.equal(h.c.pendingYear,1700);gate.complete();await opening;next.complete();await changing;assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'A newer pending year intent must not be overwritten');assert.equal(h.c.state.year,1700);
 });
 await test('Opening another dossier supersedes a pending initial polity deep link',async()=>{
- const h=fixture(),records=activeRecords(completeCatalog,1492),gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:records[0].id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const h=fixture(),records=activeRecords(completeCatalog,1492),gate=h.blockRecord(records[0].id);h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:records[0].id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
  const opening=h.c.restoreInitialMapView();await flush();const selected=h.c.openPolity(records[1]);await flush();gate.complete();await Promise.all([opening,selected]);assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'Initial polity must not replace a newly selected dossier');assert.equal(h.c.state.selectedPolity.id,records[1].id);assert.deepEqual(h.calls.filter(x=>x[0]==='reader').map(x=>x[1].id),[records[1].id]);
 });
 await test('Closing the target comparison map cancels its pending initial polity deep link',async()=>{
- const h=fixture(),record=activeRecords(completeCatalog,1650)[0],gate=h.blockFull();h.c.compareMap=h.makeMap(1650);h.c.state.compare=true;h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id,side:'right'});h.c.jumpPolity=async(r,map)=>h.calls.push(['jump',r.id,map]);h.loadFunction('restoreInitialMapView');
+ const h=fixture(),record=activeRecords(completeCatalog,1650)[0],gate=h.blockRecord(record.id);h.c.compareMap=h.makeMap(1650);h.c.state.compare=true;h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id,side:'right'});h.c.jumpPolity=async(r,map)=>h.calls.push(['jump',r.id,map]);h.loadFunction('restoreInitialMapView');
  const opening=h.c.restoreInitialMapView();await flush();h.c.closeComparison();gate.complete();await opening;assert.equal(h.calls.filter(x=>x[0]==='jump').length,0,'A removed right-side target must not fall back to the left map');assert.equal(h.c.compareMap,null);
 });
-await test('A rejected obsolete deep-link catalog cannot surface a map error or re-arm old restoration',async()=>{
- const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockFull();h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
- const opening=h.c.restoreInitialMapView().then(()=>true,()=>false);await flush();assert.equal(await h.c.applyYear(1700),true);gate.reject(Error('obsolete catalog offline'));assert.equal(await opening,true,'A superseded deep link must settle without bubbling an error to showView');assert.equal(h.c.mapURLRestored,true,'User navigation must not re-arm the obsolete initial link');assert.equal(h.calls.filter(x=>x[0]==='jump'||x[0]==='error').length,0);assert.equal(h.c.state.year,1700);
+await test('A rejected obsolete deep-link record cannot surface a map error or re-arm old restoration',async()=>{
+ const h=fixture(),record=activeRecords(completeCatalog,1492)[0],gate=h.blockRecord(record.id);h.c.mapURLRestored=false;h.c.params=new URLSearchParams({polity:record.id});h.c.jumpPolity=async r=>h.calls.push(['jump',r.id]);h.loadFunction('restoreInitialMapView');
+ const opening=h.c.restoreInitialMapView().then(()=>true,()=>false);await flush();assert.equal(await h.c.applyYear(1700),true);gate.reject(Error('obsolete record offline'));assert.equal(await opening,true,'A superseded deep link must settle without bubbling an error to showView');assert.equal(h.c.mapURLRestored,true,'User navigation must not re-arm the obsolete initial link');assert.equal(h.calls.filter(x=>x[0]==='jump'||x[0]==='error').length,0);assert.equal(h.c.state.year,1700);
 });
 await test('Recorded-change navigation never mutates a shared date index and stays nearest in both directions',async()=>{
  const h=fixture();h.c.atlas.catalog={changeYears:[1400,1450,1500,1550,1600]};h.c.state.year=1520;const jumps=[];h.c.setYear=y=>{jumps.push(y);h.c.state.year=y;};

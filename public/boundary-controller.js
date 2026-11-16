@@ -1,13 +1,18 @@
-import {countrySnapshot,loadCountryFrame,cachedCountryFrame,countryFeatures,countryAlias,countryName,countryStatus,countryVisible} from './country-archive.js?v=3.61.1-fc4e970c6719';
-import {interiorPoint} from './regional-boundaries.js?v=3.61.1-fc4e970c6719';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.61.1-fc4e970c6719';
-import {beginMapForeground} from './map-load-priority.js?v=3.61.1-fc4e970c6719';
+import {interiorPoint} from './geometry-anchor.js?v=3.61.1-8e8b3e467940';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.61.1-8e8b3e467940';
+import {cachedCountryFrame,countryAlias,countryFeatures,countryName,countrySnapshot,countryStatus,countryVisible,loadCountryFrame} from './country-archive.js?v=3.61.1-8e8b3e467940';
+import {beginMapForeground} from './map-load-priority.js?v=3.61.1-8e8b3e467940';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
- constructor(atlas,{mode='auto',color,loadCountry=loadCountryFrame,peekCountry=loadCountry===loadCountryFrame?cachedCountryFrame:()=>null}={}){this.atlas=atlas;this.mode=mode;this.color=color;this.loadCountry=loadCountry;this.peekCountry=peekCountry;this.generation=0;this.current=null;this.loading=false;this.reason=null;}
- countryFrame(frame,year,requested){return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features:countryFeatures(frame,this.color)},key:'cshapes:'+frame.date,reason:null};}
+ constructor(atlas,{mode='auto',color,loadCountry=loadCountryFrame,peekCountry=cachedCountryFrame}={}){
+  this.atlas=atlas;this.mode=mode;this.color=color;this.loadCountry=loadCountry;this.peekCountry=peekCountry;
+  this.generation=0;this.current=null;this.loading=false;this.reason=null;
+ }
+ countryFrame(frame,year,requested){
+  return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features:countryFeatures(frame,this.color)},key:'cshapes:'+frame.date,reason:null};
+ }
  async prepare(year,loadOverview){
   const requested=this.mode;
   if(requested==='auto'&&countrySnapshot(year)){
@@ -20,7 +25,7 @@ export class BoundaryController{
    const first=await Promise.any([detail,overview]);if(first.source==='cshapes')overviewWanted=false;return first;
   }
   if(requested==='cshapes'){
-   if(countrySnapshot(year)){try{const frame=await this.loadCountry(year),features=countryFeatures(frame,this.color);return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features},key:'cshapes:'+frame.date,reason:null};}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
+   if(countrySnapshot(year)){try{const frame=await this.loadCountry(year);return this.countryFrame(frame,year,requested);}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
    return {...await loadOverview(),requested,reason:'unsupported'};
   }
   return {...await loadOverview(),requested,reason:null};
@@ -37,8 +42,7 @@ export class BoundaryController{
   const current=()=>!this.atlas.destroyed&&generation===this.generation&&request===this.atlas.request&&year===this.atlas.year&&this.mode==='auto'&&this.current===initial;
   try{
    const frame=await (initial.countryUpgrade||this.loadCountry(year));if(!current())return false;
-   const features=countryFeatures(frame,this.color);
-   this.commit({requested:'auto',source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features},key:'cshapes:'+frame.date,reason:null});
+   this.commit(this.countryFrame(frame,year,'auto'));
    this.atlas.regional?.update();this.atlas.refreshLabels();return true;
   }catch{return false;}finally{release();}
  }
@@ -75,7 +79,7 @@ export class BoundaryController{
  }
  openRecord(id,point=this.atlas.map.getCenter()){
   if(!this.isCountry)return;const r=this.recordMap.get(id),frame=this.current.frame;if(!r||!countryVisible(r,frame.date))return;
-  const regional=this.atlas.regional,lang=this.atlas.lang,node=make('section');regional.closePopup();
+  const regional=this.atlas.regional,lang=this.atlas.lang,node=make('section');regional?.closePopup();
   node.append(make('small',`CShapes ${frame.catalog.version} · ${frame.catalog.coding}`,'historical-eyebrow'),make('h3',countryName(r,lang,frame.date)));
   if(lang==='bi'&&r.zhName)node.append(make('p',countryName(r,'en',frame.date)));
   const rulers=frame.records.filter(x=>x.code===r.ruledby&&x.status==='independent'),ruler=rulers.length===1?countryName(rulers[0],lang,frame.date):String(r.ruledby??'—');
@@ -86,9 +90,9 @@ export class BoundaryController{
   const links=make('div',null,'historical-source-links');for(const [label,url]of [[tr(lang,'资料与收录口径','Dataset & coding'),'https://icr.ethz.ch/data/cshapes/beta.html'],['CC BY-NC-SA 4.0','https://creativecommons.org/licenses/by-nc-sa/4.0/']]){const a=make('a',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}node.append(links);
   if(alias){const a=make('a',tr(lang,'名称年代与依据','Name periods & evidence'));a.href='data/cshapes/name-periods.json';a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
   const download=make('button',tr(lang,'下载这条边界记录','Download this boundary record'),'regional-dossier');download.onclick=()=>{const content={source:'CShapes 2.1 beta',coding:frame.catalog.coding,license:'CC BY-NC-SA 4.0',licenseURL:'https://creativecommons.org/licenses/by-nc-sa/4.0/',citation:'Schvitz, Guy, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils Weidmann, and Kristian Skrede Gleditsch (2022). Mapping The International System, 1886–2017: The CShapes 2.0 Dataset. Journal of Conflict Resolution 66(1), 144–161.',modifications:'Exact source geometry values retained; dates indexed from source integer fields; representative label anchors, Simplified Chinese translations and date-aware display aliases added.',sourceURL:'https://icr.ethz.ch/data/cshapes/beta.html',display:{date:frame.date,name:countryName(r,'en',frame.date),zhName:countryName(r,'zh',frame.date),sources:alias?.sourceURLs||[]},record:r,geometry:frame.geometries[r.geometryId]},url=URL.createObjectURL(new Blob([JSON.stringify(content,null,2)],{type:'application/json'})),a=make('a');a.href=url;a.download=r.id+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};node.append(download,make('p',r.id+' · '+tr(lang,'所选年年中','Midyear snapshot')+' '+frame.date,'historical-credit'));
-  regional.popupAt(node,point);this.atlas.selectBoundary(id);const popup=regional.popup;this.atlas.onBoundarySelection?.(id);
+  regional?.popupAt(node,point);this.atlas.selectBoundary(id);const popup=regional?.popup;this.atlas.onBoundarySelection?.(id);
   this.selectedPopup=popup;this.selectedId=id;
-  popup.on('close',()=>{if(this.selectedPopup!==popup)return;this.selectedPopup=null;this.selectedId=null;this.atlas.selectBoundary(null);this.atlas.onBoundarySelection?.(null,id);});
+  popup?.on('close',()=>{if(this.selectedPopup!==popup)return;this.selectedPopup=null;this.selectedId=null;this.atlas.selectBoundary(null);this.atlas.onBoundarySelection?.(null,id);});
  }
  destroy(){++this.generation;}
 }
