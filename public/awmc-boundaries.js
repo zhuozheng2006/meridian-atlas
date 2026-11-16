@@ -1,4 +1,4 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.61.1-4c21e964fe17';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.61.1-d0801f096cd4';
 const ROOT='data/awmc/',YEARS=[117,200],frames=new Map();
 export function awmcWindowFor(bounds,year){
  if(!YEARS.includes(year)||!bounds)return null;
