@@ -454,7 +454,15 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:509457605',-3500,'加苏尔土丘遗址（外约旦铜石并用加苏尔文化代表地）'],
     ['index','pleiades:56036938',-2500,'萨尔遗址（巴林 · 迪尔蒙青铜时代古城与神庙）'],
     ['index','pleiades:423885388',-2500,'纳巴达古城（泰勒·贝达尔 · 早王朝北叙利亚圆城）'],
-    ['index','pleiades:923122730',-3500,'泰勒·哈布巴·卡比拉（幼发拉底河中游乌鲁克古城）']
+    ['index','pleiades:923122730',-3500,'泰勒·哈布巴·卡比拉（幼发拉底河中游乌鲁克古城）'],
+    ['index','pleiades:187406',-440,'哈尔施塔特（欧洲早期铁器时代哈尔施塔特文化命名地 · 古盐矿城）'],
+    ['index','pleiades:20410',-650,'比斯库平遗址（卢萨蒂亚文化湖心木构要塞城）'],
+    ['index','pleiades:207425',-180,'萨尔米泽杰图萨皇家圣城（达契亚王国首都 · 格勒迪什泰亚德蒙泰）'],
+    ['index','pleiades:668345',470,'伊本·瓦尔丹堡（查士丁尼东方行省皇宫教堂群）'],
+    ['index','pleiades:49999',135,'希波库拉（百乘王朝西德干名都 · 科尔哈普尔）'],
+    ['index','pleiades:550588',-180,'希尔卡尼斯（吕底亚波斯殖民城）'],
+    ['index','pleiades:570612',-650,'皮萨（奥林匹亚旁古代名邦）'],
+    ['index','pleiades:59739',135,'巴坦凯萨拉（巴特什瓦尔 · 阿格拉东南古镇）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);

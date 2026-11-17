@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.88.0-e25b5b4966d4';
+import {decodeLakeArchive} from './lake-codec.js?v=3.89.0-5a1e492d0eb7';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -66,7 +66,7 @@ const LAKE_ZH=new Map([
  ['Inawashiro ko','猪苗代湖'],['Kasumigaura','霞浦'],['Toba','多巴湖'],['Chilika','奇利卡湖'],
  ['Turkana','图尔卡纳湖'],['Albert','艾伯特湖'],['Edward','爱德华湖'],['Kivu','基伍湖'],['Rukwa','鲁夸湖'],['Mweru','姆韦鲁湖'],['Bangweulu','班韦乌卢湖'],['Mai-Ndombe','马伊恩东贝湖'],
  ['Eyre','艾尔湖'],['Torrens','托伦斯湖'],['Great Bear','大熊湖'],['Great Slave','大奴湖'],['Winnipeg','温尼伯湖'],['Winnipegosis','温尼伯戈西斯湖'],['Manitoba','马尼托巴湖'],['Athabasca','阿萨巴斯卡湖'],['Champlain','尚普兰湖'],
- ['Wangen Lachen','苏黎世上湖（旺根—拉亨）'],['Kloentalersee','克伦塔尔湖'],['Traunsee','特劳恩湖'],['Iseo','伊塞奥湖'],['Valli di Comacchio','科马基奥泻湖'],['Berre','贝尔泻湖'],['Vaccares','瓦卡雷斯湖'],
+ ['Wangen Lachen','苏黎世上湖'],['Kloentalersee','克伦塔尔湖'],['Traunsee','特劳恩湖'],['Iseo','伊塞奥湖'],['Valli di Comacchio','科马基奥泻湖'],['Berre','贝尔泻湖'],['Vaccares','瓦卡雷斯湖'],
  ['Syvash','锡瓦什湖（腐海）'],['Imandra','伊曼德拉湖'],['Vygozero','维戈泽罗湖'],['Iso-Kallan','卡拉维西湖'],['Beloye','白湖（沃洛格达）'],['Taymyr','泰梅尔湖'],['Chany','恰内湖'],['Oulu','奥卢湖'],['Tornetrask','托尔讷湖'],
  ['Khyargas','吉尔吉斯湖（蒙古）'],['Khar Us','哈尔乌苏湖'],['Kaydak','凯达克盐沼'],['Buhayrat ath Tharthar','萨尔萨尔湖'],['Goud-e-Zareh','戈德扎雷盐沼'],
  ['Abaya','阿巴亚湖'],['Kyoga','基奥加湖'],['Eyasi','埃亚西湖'],['Mweru wa Ntipa','姆韦鲁万蒂帕湖'],['Chilwa','奇尔瓦湖'],['Ntwetwe Pan','恩特韦特韦盐沼'],

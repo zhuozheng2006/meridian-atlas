@@ -3,14 +3,14 @@
 ## 从这里开始
 
 - [项目首页与运行方式](../README.md)
-- [当前进度与后续事项：3.88](HANDOFF-3.88.md)
+- [当前进度与后续事项：3.89](HANDOFF-3.89.md)
 - [开发、验证和部署](DEVELOPMENT.md)
 - [完整历史首页与迭代记录](PROJECT-HISTORY.md)
 - [全部来源与许可](../ATTRIBUTIONS.md)
 
 ## 最新验证证据
 
-- [3.88 Cliopatria/CShapes 全量 100% 中文清零、Wave-23 首轮 +550（6,419 处）与界面打磨](HANDOFF-3.88.md)
+- [3.89 Wave-23 全量 Pleiades >= 3（7,712 处）清零、年表/资料卡/阅读态年代条视觉重设](HANDOFF-3.89.md)
 - [3.86 Wave-21 全量 Pleiades ref === 5（4,779 处）、全球 86 湖泊中文、OHM 扩展与脚本预加载](HANDOFF-3.86.md)
 - [3.85 Wave-20 全量 Pleiades >= 6（4,104 处）、上游政体机翻纠偏、OHM 德奥／东亚扩展与视觉微精修](HANDOFF-3.85.md)
 - [3.84 Wave-19 全量 Pleiades >= 7（3,565 处）、概览重名去括号去重与内容页细节精修](HANDOFF-3.84.md)
