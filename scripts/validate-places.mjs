@@ -431,7 +431,23 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:157894',-400,'尼凯亚（尼斯）'],
     ['index','pleiades:118731',150,'罗马时期海德堡'],
     ['index','pleiades:97875559',-6500,'阿特利特-亚姆水下新石器遗址'],
-    ['index','pleiades:893987',-600,'迪尔巴特']
+    ['index','pleiades:893987',-600,'迪尔巴特'],
+    ['index','pleiades:878719593',1500,'特万（比尔湖畔）'],
+    ['index','pleiades:39269',100,'亚丁（阿达内／幸福阿拉伯港）'],
+    ['index','pleiades:29457',-200,'赫拉特（阿里亚的亚历山大城）'],
+    ['index','pleiades:216981',-200,'修索波利斯（色雷斯王都）'],
+    ['index','pleiades:718296310',-3500,'马阿迪铜石并用时期遗址（下埃及）'],
+    ['index','pleiades:902113570',-2500,'摩亨佐-达罗（印度河文明大都市）'],
+    ['index','pleiades:869702586',-2400,'埃勃拉（泰勒·马尔迪赫 · 叙利亚青铜王城）'],
+    ['index','pleiades:104811110',1800,'萨那古城（也门）'],
+    ['index','pleiades:128460',150,'温多波纳罗马市政城（维也纳）'],
+    ['index','pleiades:108992',150,'法兰克福（美因河畔罗马聚落）'],
+    ['index','pleiades:432670',500,'阿马尔菲'],
+    ['index','pleiades:236396',100,'卡莱（波尔图古港）'],
+    ['index','pleiades:322739224',1800,'大津巴布韦石城遗址'],
+    ['index','pleiades:58094152',-1500,'科基诺巨石天文台遗址（北马其顿青铜时代）'],
+    ['index','pleiades:863785',-500,'埃雷布尼要塞（乌拉尔图王城 · 埃里温）'],
+    ['index','pleiades:80606012',-3000,'斯卡拉布雷新石器聚落（奥克尼）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
