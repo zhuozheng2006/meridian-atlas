@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.75.0-e59af3eab7ec';
-import {placeWindow} from './view-state.js?v=3.75.0-e59af3eab7ec';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.76.0-ee980148f6d1';
+import {placeWindow} from './view-state.js?v=3.76.0-ee980148f6d1';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -476,7 +476,50 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:589772','埃莱夫塞尔纳'],['pleiades:355216649','索斯丘克'],['pleiades:893964','博尔西帕'],
  ['pleiades:894099','提克里特'],['pleiades:893941','基尔库克（阿拉法）'],['pleiades:658474','卡赫拉曼马拉什（日耳曼尼西亚）'],
  ['pleiades:854724','法纳戈里亚'],['pleiades:229277207','利奥城（梵蒂冈）'],['pleiades:550771','老士麦那'],
- ['pleiades:609305','弗里吉亚安卡拉'],['pleiades:589692','安德罗斯城']
+ ['pleiades:609305','弗里吉亚安卡拉'],['pleiades:589692','安德罗斯城'],
+ // Wave-11: Full Pleiades ref === 15 completion (100% of Pleiades ref >= 15) + 1000 CE Silk Road & Iberia landmarks
+ ['pleiades:266021','萨贡托（阿尔塞）'],['pleiades:295363','蒂帕萨'],['pleiades:295374','祖卡巴尔（米利亚纳）'],
+ ['pleiades:157879','博尔马努斯圣林'],['pleiades:373786','欧埃斯佩里得斯（班加西古址）'],['pleiades:383706','米兰（梅迪奥拉努姆）'],
+ ['pleiades:383804','特伦托（特里登图姆）'],['pleiades:393473','帕多瓦（帕塔维乌姆）'],['pleiades:570205','迪迈（阿哈伊亚）'],
+ ['pleiades:845041','庞培波利斯（塞巴斯泰）'],['pleiades:638814','克雷姆纳'],['pleiades:638955','吕科斯河畔老底嘉'],
+ ['pleiades:639042','帕塔拉'],['pleiades:216744','卡拉蒂斯（曼加利亚）'],['pleiades:216927','腓力波波利斯（普罗夫迪夫）'],
+ ['pleiades:305068','奎库尔（杰米拉）'],['pleiades:305137','鲁西卡德（斯基克达）'],['pleiades:678324','腓立比凯撒里亚（巴尼亚斯）'],
+ ['pleiades:678393','西顿'],['pleiades:727078','阿特里比斯（下埃及）'],['pleiades:727153','马雷亚（菲洛克塞尼泰）'],
+ ['pleiades:756574','大赫尔莫波利斯（赫蒙努）'],['pleiades:589807','耶拉皮特纳'],['pleiades:589917','吕卡斯托斯'],
+ ['pleiades:589987','费斯托斯'],['pleiades:59669','阿拉霍西亚亚历山大里亚（坎大哈古址）'],['pleiades:599550','巴尔吉利亚'],
+ ['pleiades:599577','科洛丰'],['pleiades:599754','莱贝多斯'],['pleiades:423121','拉乌伦图姆奥古斯都村'],
+ ['pleiades:432852','弗鲁西诺（弗罗西诺内）'],['pleiades:432890','库布泰里亚'],['pleiades:433125','西尔皮乌姆'],
+ ['pleiades:433128','斯塔比亚'],['pleiades:433132','苏埃萨·奥伦卡'],['pleiades:442491','阿泽蒂乌姆'],
+ ['pleiades:442515','凯利亚（阿普利亚）'],['pleiades:442536','密涅瓦堡'],['pleiades:442546','特里卡里科古城'],
+ ['pleiades:442550','孔普萨'],['pleiades:442753','鲁迪埃'],['pleiades:540906','拉里姆纳'],
+ ['pleiades:540907','莱瓦迪亚'],['pleiades:541008','帕诺佩乌斯'],['pleiades:541117','斯蒂拉'],
+ ['pleiades:541137','弗提亚底比斯'],['pleiades:648810','泽菲里翁（梅尔辛）'],['pleiades:658455','多利克'],
+ ['pleiades:658481','卡斯塔巴拉'],['pleiades:442841','乌曾图姆（乌真托）'],['pleiades:462074','阿德拉农（阿德拉诺）'],
+ ['pleiades:462079','阿加蒂尔努姆'],['pleiades:462106','阿索鲁斯（阿索罗）'],['pleiades:786036','赫尔蒙提斯（阿尔曼特）'],
+ ['pleiades:786059','拉托波利斯（伊斯纳）'],['pleiades:786123','西耶尼（阿斯旺）'],['pleiades:79409','库内蒂奥'],
+ ['pleiades:79735','文塔·贝尔加鲁姆（温彻斯特）'],['pleiades:805630','麦罗埃'],['pleiades:609367','多里莱乌姆（埃斯基谢希尔）'],
+ ['pleiades:609382','欧迈尼亚'],['pleiades:334599','阿德·马约雷斯'],['pleiades:570423','莱普雷翁'],
+ ['pleiades:570596','法赖（美塞尼亚）'],['pleiades:570761','扎拉克斯'],['pleiades:579941','哈利穆斯'],
+ ['pleiades:580109','斯费托斯'],['pleiades:580114','塔纳格拉'],['pleiades:481728','阿波罗尼亚（伊利里亚）'],
+ ['pleiades:511375','普里阿波斯'],['pleiades:511385','基奥斯（盖姆利克）'],['pleiades:530793','阿利泽亚'],
+ ['pleiades:530870','厄菲拉（伊庇鲁斯）'],['pleiades:531061','腓尼基城（伊庇鲁斯）'],['pleiades:167663','阿克西马（艾姆）'],
+ ['pleiades:167719','维埃纳（维恩纳殖民地）'],['pleiades:491663','梅托内（皮埃里亚）'],['pleiades:501428','哈德良堡（埃迪尔内）'],
+ ['pleiades:324665','阿迈达拉（海德拉）'],['pleiades:246694','图卢兹（托洛萨）'],['pleiades:177577','马孔（马蒂斯科）'],
+ ['pleiades:187430','尤利乌姆·卡尔尼库姆（祖廖）'],['pleiades:187583','图尔尼亚'],['pleiades:197471','里济尼乌姆（里桑）'],
+ ['pleiades:874418','卡尔哈'],['pleiades:472048','阿莱里亚（阿拉利亚）'],['pleiades:942276','百门城（赫卡托姆皮洛斯）'],
+ ['pleiades:971886','铁尔梅兹（塔尔米塔）'],['pleiades:678185','希波斯（加利利）'],['pleiades:138255','图尔（凯撒罗杜努姆）'],
+ ['pleiades:138458','梅迪奥拉努姆·桑托努姆（桑特）'],['pleiades:413017','安克萨努姆（兰恰诺）'],['pleiades:413046','阿韦亚'],
+ ['pleiades:413143','奥雷利乌斯广场'],['pleiades:413148','新广场（韦斯科维奥）'],['pleiades:413151','福利尼奥（富尔吉尼亚埃）'],
+ ['pleiades:413166','赫尔维亚·里基纳'],['pleiades:413189','曼利亚纳'],['pleiades:413315','塞斯蒂努姆'],
+ ['pleiades:413354','图德尔（托迪）'],['pleiades:422930','弗雷杰纳埃'],['pleiades:422956','拉努维乌姆'],
+ ['pleiades:246379','埃林贝鲁姆（欧什）'],['pleiades:874774','蒂格拉诺凯尔特'],['pleiades:893974','基尔凯西乌姆（布赛拉）'],
+ ['pleiades:894004','哈特拉'],['pleiades:108755','阿尔根托瓦里亚'],['pleiades:109366','泰鲁阿讷（塔尔文纳）'],
+ ['pleiades:430344981','大不里士'],['pleiades:641191184','马什哈德'],['pleiades:300354630','萨卜泽瓦尔'],
+ ['pleiades:630721027','坎大哈古城'],['pleiades:410216618','麦迪纳·阿扎哈拉'],['pleiades:931117398','巴达霍斯'],
+ ['pleiades:503948792','昆卡'],['pleiades:810796636','穆尔西亚'],['pleiades:302942693','哈恩'],
+ ['pleiades:694916885','索里亚'],['pleiades:50120','曼泰'],['pleiades:59666','阿克拉（班努古址）'],
+ ['pleiades:903012','迪纳瓦尔'],['pleiades:678333','贝特耶拉赫'],['pleiades:678211','乌赛斯'],
+ ['pleiades:648710','梅伊丹哲克城堡']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
@@ -511,14 +554,27 @@ export function nearestPlaceYear(p,year){
  return year;
 }
 export const normalizePlaceQuery=q=>String(q||'').toLocaleLowerCase().normalize('NFD').replace(/[\p{Diacritic}\s'’‘ʼ‐‑–—-]/gu,'');
+const _searchIndexCache=new WeakMap();
+const placeSearchEntry=p=>{
+ let entry=_searchIndexCache.get(p);
+ if(!entry){
+  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p))].map(normalizePlaceQuery);
+  const aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
+  entry={names,aliases};
+  _searchIndexCache.set(p,entry);
+ }
+ return entry;
+};
 export async function searchPlaces(query,year,span=50){
  const q=normalizePlaceQuery(query);if(!q||q.length<2&&!/\p{Script=Han}/u.test(q))return [];
- const scored=(await loadPlaces()).filter(p=>p.kind!=='modern-reference'&&!CAPITAL_DATE_QUARANTINE.has(p.id)&&!PLACE_COORD_QUARANTINE.has(p.id)).map(p=>{
-  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p))].map(normalizePlaceQuery),aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
-  const score=names.includes(q)?0:aliases.includes(q)?1:names.some(n=>n.startsWith(q))?2:[...names,...aliases].some(n=>n.includes(q))?3:99;
-  return {p,score};
- });
- return scored.filter(x=>x.score<99).sort((a,b)=>Math.max(1,a.score)-Math.max(1,b.score)||Number(!placeAtYear(a.p,year,span))-Number(!placeAtYear(b.p,year,span))||a.score-b.score||Number(a.p.kind!=='dated-capital')-Number(b.p.kind!=='dated-capital')||a.p.name.length-b.p.name.length).slice(0,10).map(x=>x.p);
+ const scored=[];
+ for(const p of await loadPlaces()){
+  if(p.kind==='modern-reference'||CAPITAL_DATE_QUARANTINE.has(p.id)||PLACE_COORD_QUARANTINE.has(p.id))continue;
+  const {names,aliases}=placeSearchEntry(p);
+  const score=names.includes(q)?0:aliases.includes(q)?1:names.some(n=>n.startsWith(q))?2:(names.some(n=>n.includes(q))||aliases.some(n=>n.includes(q)))?3:99;
+  if(score<99)scored.push({p,score});
+ }
+ return scored.sort((a,b)=>Math.max(1,a.score)-Math.max(1,b.score)||Number(!placeAtYear(a.p,year,span))-Number(!placeAtYear(b.p,year,span))||a.score-b.score||Number(a.p.kind!=='dated-capital')-Number(b.p.kind!=='dated-capital')||a.p.name.length-b.p.name.length).slice(0,10).map(x=>x.p);
 }
 export class PlaceLayer {
  constructor(atlas,{onSelect,onStatus,window=50}={}){this.window=placeWindow(window);this.atlas=atlas;this.map=atlas.map;this.onSelect=onSelect;this.onStatus=onStatus;this.markers=[];this.active=[];this.enabled=true;this.modern=false;this.seq=0;this.year=atlas.year;this.lang=atlas.lang;this.move=()=>this.refresh();this.map.on('resize',this.move);this.setYear(atlas.year,atlas.lang);}

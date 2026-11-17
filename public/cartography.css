@@ -26,10 +26,10 @@
 .compare-heading input::-webkit-inner-spin-button{appearance:none}
 .compare-era{font-size:10.5px;letter-spacing:.06em;color:#a9bcc8;white-space:nowrap}
 #closeCompare{margin-left:auto;border:0;width:26px;height:26px;padding:0;border-radius:50%;font-size:18px;color:#b2c4cf}#closeCompare:hover{background:#ffffff14;color:#fff}
-.map-hover-card{position:absolute;z-index:6;pointer-events:none;background:rgba(8,17,29,.93);border:1px solid #dcc0895c;border-radius:8px;padding:8px 12px;box-shadow:0 10px 28px #00000059;backdrop-filter:blur(10px);min-width:130px;max-width:230px}
-.map-hover-card strong{display:block;font-family:var(--serif);font-size:14.5px;font-weight:500;color:#f6f0e2;line-height:1.35}
-.map-hover-card .map-hover-sub{display:block;font-size:11.5px;color:#bacbd6;margin-top:2px}
-.map-hover-card small{display:block;font-size:10.5px;color:#d6b77e;margin-top:4px;letter-spacing:.03em}
+.map-hover-card{position:absolute;z-index:6;pointer-events:none;background:linear-gradient(160deg,#0f2032f5,#07111cf5);border:1px solid #dcc0895c;border-top:2px solid #dcc089;border-radius:8px;padding:8px 12px;box-shadow:0 12px 30px #00000070;backdrop-filter:blur(10px);min-width:130px;max-width:230px}
+.map-hover-card strong{display:block;font-family:var(--serif);font-size:13.5px;font-weight:500;color:#f6f1e6;line-height:1.35}
+.map-hover-card .map-hover-sub{display:block;font-size:11.5px;color:#b7c9d6;margin-top:2px}
+.map-hover-card small{display:block;font-size:11px;color:#d8bb82;margin-top:3px;letter-spacing:.03em;font-variant-numeric:tabular-nums}
 .place-marker{display:flex;gap:5px;align-items:center;padding:4px 5px 4px 0;min-height:28px;max-width:180px;border:0;background:none!important;box-shadow:none!important;color:#152624;text-align:left;font-family:var(--body);font-size:12px;font-weight:550;line-height:1.35;text-shadow:0 0 2px #f7f0dc,0 1px 0 #f7f0dc,0 -1px 0 #f7f0dc,1px 0 0 #f7f0dc,-1px 0 0 #f7f0dc,0 0 6px rgba(247,240,220,.96);white-space:nowrap;transition:none}
 .place-marker i{flex:none;display:block;width:6px;height:6px;background:#364e49;border:1.5px solid #f9eccb;border-radius:50%;box-shadow:0 0 0 1px #364e4980}
 .place-marker.capital i{border-radius:1px;transform:rotate(45deg);width:7px;height:7px;background:#5b483b}
@@ -209,7 +209,7 @@ button.layer-note:hover{color:#ecd4a3;background:#dcc0890f;border-radius:0 6px 6
 @media(min-width:761px){.maplibregl-ctrl-bottom-left{left:14px;bottom:44px}.regional-controls{bottom:78px;background:rgba(9,19,31,.92);border:1px solid #dcc08944;border-radius:9px;backdrop-filter:blur(12px);box-shadow:0 10px 28px #00000055}}
 .historical-popup .maplibregl-popup-content{background:linear-gradient(160deg,#112234fa,#08131efa);border:1px solid #dcc08955;border-top:2px solid #dcc089;border-radius:12px;box-shadow:0 18px 44px #00000080;backdrop-filter:blur(16px);color:#f3efe5;padding:16px 18px}
 .historical-popup .maplibregl-popup-tip{border-top-color:#0e1d2e;border-bottom-color:#0e1d2e}
-.historical-popup .maplibregl-popup-close-button{color:#b4c6d4;right:8px;top:8px;width:28px;height:28px;border-radius:50%;font-size:18px;line-height:26px}
+.historical-popup .maplibregl-popup-close-button{color:#b4c6d4;right:8px;top:8px;min-width:34px;min-height:34px;width:34px;height:34px;border-radius:50%;font-size:18px;line-height:32px}
 .historical-popup .maplibregl-popup-close-button:hover{background:#dcc08922;color:#fff}
 .historical-popup .historical-eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#dcc089;margin-bottom:4px;display:block}
 .historical-popup h3{font-family:var(--serif);font-size:19px;margin:2px 0 8px;color:#f6f1e6;padding-right:24px}
@@ -220,7 +220,6 @@ button.layer-note:hover{color:#ecd4a3;background:#dcc0890f;border-radius:0 6px 6
 .historical-source-links a:hover,.historical-review-sources a:hover{border-color:#dcc08999;background:#172e46;color:#fff}
 .historical-popup .regional-dossier{width:100%;margin-top:8px;border-radius:8px;border:1px solid #dcc08966;background:linear-gradient(135deg,#dcc08928,#dcc08914);color:#f6e2b4;font-weight:500;padding:8px 12px}
 .historical-popup .regional-dossier:hover{background:linear-gradient(135deg,#dcc0893d,#dcc08920);border-color:#e9cfa0}
-.map-hover-card{border-top:2px solid #dcc089!important;background:linear-gradient(160deg,#0f2032f5,#07111cf5)!important;box-shadow:0 12px 30px #00000070!important}.map-hover-card strong{color:#f6f1e6;font-size:13.5px;display:block}.map-hover-card .map-hover-sub{color:#b7c9d6;font-size:11.5px;display:block;margin-top:2px}.map-hover-card small{color:#d8bb82;font-size:11px;display:block;margin-top:3px;font-variant-numeric:tabular-nums}
 /* Phones with a home indicator: viewport-fit=cover lets the layout reach the screen
    edge, so the bottom-docked elements claim the inset themselves. env() resolves to 0
    everywhere else, leaving the existing layout untouched. */
