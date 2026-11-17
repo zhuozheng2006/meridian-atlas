@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=3.71.0-beaa6d4b8546';
+import {readJSON,formatYear} from './map-engine.js?v=3.72.0-9e3bf09a59f6';
 
 // A separate point layer for one-sided mass violence against non-combatants.
 // It is deliberately NOT the battle layer: scripts/places/validate-atrocities.mjs
@@ -38,24 +38,29 @@ export class AtrocityLayer{
  refresh(){
   this.markers.forEach(m=>m.remove());this.markers=[];if(!this.enabled||this.atlas.destroyed||!this.year)return;
   const map=this.map,zoom=map.getZoom();if(zoom<3||this.atlas.regional?.detailedActive)return;
-  const bounds=map.getBounds(),origin=map.getContainer().getBoundingClientRect(),max=Math.min(60,Math.round((zoom-2)*10)),boxes=[...(this.atlas.labelBoxes||[])];
+  const bounds=map.getBounds(),origin=map.getContainer().getBoundingClientRect(),center=map.getCenter(),max=Math.min(60,Math.round((zoom-2)*10)),boxes=[...(this.atlas.labelBoxes||[])];
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+  const textWidth=s=>Array.from(String(s||'')).reduce((w,ch)=>w+(/[\u3400-\u9fff\uF900-\uFAFF]/.test(ch)?12.4:7.2),0);
   for(const record of this.active){
    if(this.markers.length>=max)break;
    const [lon,lat]=record.coordinates||[];if(!Number.isFinite(lon)||!Number.isFinite(lat))continue;
+   if(map.getProjection().type==='globe'&&zoom<4.5){const rad=Math.PI/180;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
    if(!bounds.contains([lon,lat]))continue;
    const screen=map.project([lon,lat]),el=document.createElement('button');
    el.className='atrocity-marker';el.type='button';
    el.title=this.name(record)+' · '+formatYear(record.year,this.lang==='en'?'en':'zh');
    el.setAttribute('aria-label',el.title);
    const icon=document.createElement('i');el.append(icon);
-   if(zoom>=6.5){const label=document.createElement('span');label.textContent=this.name(record);el.append(label);}
-   const w=zoom>=6.5?Math.min(150,this.name(record).length*7+30):18,h=zoom>=6.5?22:18;
+   const titleText=this.name(record);
+   if(zoom>=6.5){const label=document.createElement('span');label.textContent=titleText;el.append(label);}
+   const w=zoom>=6.5?Math.min(180,textWidth(titleText)+32):18,h=zoom>=6.5?24:18;
    const box={left:origin.left+screen.x-w/2,right:origin.left+screen.x+w/2,top:origin.top+screen.y-h/2,bottom:origin.top+screen.y+h/2};
    if(box.left<origin.left+8||box.right>origin.right-10||box.top<origin.top+10||box.bottom>origin.bottom-48||boxes.some(b=>overlap(box,b)))continue;
    boxes.push({...box,left:box.left-7,right:box.right+7,top:box.top-4,bottom:box.bottom+4});
    const secondary=this.lang!=='en'&&this.hasSourceZh(record)&&record.nameEn?record.nameEn.trim():'';
-   const meta=formatYear(record.year,this.lang==='en'?'en':'zh');
+   const rawConflict=this.lang==='en'?(record.conflict?.length?record.conflict:record.conflictZh):(record.conflictZh?.length?record.conflictZh:record.conflict);
+   const conflict=Array.isArray(rawConflict)?rawConflict.filter(Boolean).join(' · '):(rawConflict||'');
+   const meta=formatYear(record.year,this.lang==='en'?'en':'zh')+(conflict?' · '+conflict:'');
    const showHover=()=>{this.atlas.setHoverMarker?.({primary:this.name(record),secondary,meta},el.getBoundingClientRect());};
    el.addEventListener('mouseenter',showHover);el.addEventListener('focus',showHover);
    el.addEventListener('mouseleave',()=>this.atlas.setHoverMarker?.(null));el.addEventListener('blur',()=>this.atlas.setHoverMarker?.(null));

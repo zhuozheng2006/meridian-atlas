@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.71.0-beaa6d4b8546';
-import {placeWindow} from './view-state.js?v=3.71.0-beaa6d4b8546';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.72.0-9e3bf09a59f6';
+import {placeWindow} from './view-state.js?v=3.72.0-9e3bf09a59f6';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -19,10 +19,21 @@ export function attestedPlaces(layer){
  }));
  attestedCache.set(layer,list);return list;
 }
-export async function loadPlaces(includeModern=false){
- const names=['historical-settlements-index','historical-capitals','urban-observations',...(includeModern?['modern-cities']:[])];
- const results=await Promise.allSettled([...names.map(n=>readJSON(`data/places/${n}.json.gz`)),readJSON('data/places/attested-places.json.gz')]);
- const data=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value.places||r.value.claims||r.value.cities||attestedPlaces(r.value));
+export async function loadPlaces(includeModern=false,onPartial=null){
+ const indexP=readJSON('data/places/historical-settlements-index.json.gz');
+ const fastNames=['historical-capitals','urban-observations',...(includeModern?['modern-cities']:[])];
+ const fastPromises=[...fastNames.map(n=>readJSON(`data/places/${n}.json.gz`)),readJSON('data/places/attested-places.json.gz')];
+ const extract=res=>res.filter(r=>r.status==='fulfilled').flatMap(r=>r.value.places||r.value.claims||r.value.cities||attestedPlaces(r.value));
+ let settled=false;
+ if(onPartial){
+  void Promise.allSettled(fastPromises).then(fastRes=>{
+   if(settled)return;
+   const fastData=extract(fastRes);if(fastData.length)onPartial(fastData);
+  });
+ }
+ const results=await Promise.allSettled([indexP,...fastPromises]);
+ settled=true;
+ const data=extract(results);
  if(!data.length)throw Error('Place archives unavailable');
  data.partial=results.some(r=>r.status==='rejected');return data;
 }
@@ -301,7 +312,43 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:452488','埃利亚（韦利亚）'],['pleiades:570467','梅加洛波利斯'],['pleiades:177494','奥古斯塔·劳里卡'],
  ['pleiades:413014','安科纳'],['pleiades:413105','科尔菲尼乌姆'],['pleiades:570459','曼提尼亚'],
  ['pleiades:570707','泰格阿'],['pleiades:579925','埃雷特里亚'],['pleiades:462214','杰拉'],
- ['pleiades:197448','波拉（普拉）'],['pleiades:678010','阿克（托勒密斯）']
+ ['pleiades:197448','波拉（普拉）'],['pleiades:678010','阿克（托勒密斯）'],
+ // Wave-7: Full classical Pleiades ref >= 20 completion + South Asia / East Africa classical emporia
+ ['pleiades:413224','内佩特（内皮）'],['pleiades:413310','塞纳加利卡（塞尼加利亚）'],['pleiades:432825','新法布拉特里亚'],
+ ['pleiades:433139','苏伦图姆（索伦托）'],['pleiades:433146','西迪基尼的泰阿努姆'],['pleiades:462498','索伦图姆'],
+ ['pleiades:442797','西蓬图姆'],['pleiades:786010','科普托斯'],['pleiades:570740','梯林斯'],
+ ['pleiades:481900','吕克尼多斯'],['pleiades:491546','贝罗亚'],['pleiades:472032','塔罗斯'],
+ ['pleiades:403280','泰拉蒙'],['pleiades:413012','阿梅里亚（翁布里亚）'],['pleiades:413036','阿斯库卢姆（阿斯科利）'],
+ ['pleiades:413144','卡西乌斯广场'],['pleiades:413174','伊古维乌姆（古比奥）'],['pleiades:413231','奥克里库卢姆'],
+ ['pleiades:422837','安提乌姆（安齐奥）'],['pleiades:422986','诺门图姆'],['pleiades:246347','纳尔博·马尔提乌斯（纳博讷）'],
+ ['pleiades:570051','艾戈斯泰纳'],['pleiades:432658','阿利法埃'],['pleiades:540755','埃拉提亚'],
+ ['pleiades:462252','赫拉亚的希布拉'],['pleiades:462489','塞利努斯'],['pleiades:658465','卡赫美士'],
+ ['pleiades:442796','西尔维乌姆'],['pleiades:579842','阿卡奈'],['pleiades:580044','奥罗波斯'],
+ ['pleiades:462154','刻法洛埃迪乌姆（切法卢）'],['pleiades:501634','萨索斯'],['pleiades:324716','哈德鲁梅图姆（苏塞）'],
+ ['pleiades:413032','阿雷提乌姆（阿雷佐）'],['pleiades:413106','科尔托纳'],['pleiades:413112','海上库普拉'],
+ ['pleiades:413126','老法莱里伊'],['pleiades:413389','沃尔西尼伊'],['pleiades:912872','斯帕西努卡拉克斯'],
+ ['pleiades:383584','贝德里亚库姆'],['pleiades:432927','马鲁维乌姆'],['pleiades:344282','萨布拉塔'],
+ ['pleiades:501347','安菲波利斯'],['pleiades:501523','尼亚波利斯（卡瓦拉）'],['pleiades:413247','佩尔图伊努姆'],
+ ['pleiades:442452','埃库姆·图蒂库姆'],['pleiades:540723','道利斯'],['pleiades:540820','希安波利斯'],
+ ['pleiades:550433','安坦德罗斯'],['pleiades:648557','阿内穆里乌姆'],['pleiades:658538','莫普苏埃斯提亚'],
+ ['pleiades:452361','拉奥斯'],['pleiades:403288','沃拉泰拉浅滩港'],['pleiades:413097','克卢维亚埃'],
+ ['pleiades:413121','埃雷图姆'],['pleiades:413306','萨尔西纳'],['pleiades:413314','塞普滕佩达'],
+ ['pleiades:422833','阿纳格尼亚（阿纳尼）'],['pleiades:422952','拉比库姆'],['pleiades:570129','阿索波斯'],
+ ['pleiades:432705','阿泰拉'],['pleiades:432826','老法布拉特里亚'],['pleiades:432911','利泰尔努姆'],
+ ['pleiades:433070','鲁夫拉埃'],['pleiades:433133','苏埃苏拉'],['pleiades:442642','卢皮亚埃（莱切）'],
+ ['pleiades:442644','曼杜里亚'],['pleiades:541157','特拉基斯（赫拉克利亚）'],['pleiades:462234','赫洛罗斯'],
+ ['pleiades:452375','梅德马'],['pleiades:452411','皮克苏斯（布克森图姆）'],['pleiades:452450','西里斯'],
+ ['pleiades:452469','泰梅萨（滕普萨）'],['pleiades:462062','阿巴卡伊农'],['pleiades:609307','皮西迪亚安条克'],
+ ['pleiades:570602','弗利乌斯'],['pleiades:580119','索里科斯'],['pleiades:501337','艾诺斯'],
+ ['pleiades:324684','卡普萨（加夫萨）'],['pleiades:324816','苏费图拉（斯贝特拉）'],['pleiades:472024','苏尔基斯'],
+ ['pleiades:413054','布莱拉'],['pleiades:413060','卡梅里努姆（卡梅里诺）'],['pleiades:413132','费伦蒂乌姆'],
+ ['pleiades:413133','费斯肯尼乌姆'],['pleiades:413170','希斯佩卢姆（斯佩洛）'],['pleiades:413171','希斯托尼乌姆（瓦斯托）'],
+ ['pleiades:413333','泰阿泰（基耶蒂）'],['pleiades:413356','图斯卡纳（图斯卡尼亚）'],['pleiades:413364','乌尔布斯·萨尔维亚'],
+ ['pleiades:422923','菲德纳埃'],['pleiades:423117','韦莱特拉埃（韦莱特里）'],['pleiades:109153','梅迪奥拉努姆（埃夫勒）'],
+ ['pleiades:109190','纳西乌姆'],['pleiades:39414','拉普塔'],['pleiades:59931','马图拉（秣菟罗）'],
+ ['pleiades:59972','乌贾因（邬阇衍那）'],['pleiades:59978','华氏城（巴连弗邑）'],['pleiades:49863','阿努拉达普拉'],
+ ['pleiades:50064','科尔凯'],['pleiades:50146','穆济里斯'],['pleiades:50150','那伽提波'],
+ ['pleiades:50219','达拉尼科塔'],['pleiades:50221','阿里卡梅杜（波杜凯）']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
@@ -349,8 +396,14 @@ export class PlaceLayer {
  constructor(atlas,{onSelect,onStatus,window=50}={}){this.window=placeWindow(window);this.atlas=atlas;this.map=atlas.map;this.onSelect=onSelect;this.onStatus=onStatus;this.markers=[];this.active=[];this.enabled=true;this.modern=false;this.seq=0;this.year=atlas.year;this.lang=atlas.lang;this.move=()=>this.refresh();this.map.on('resize',this.move);this.setYear(atlas.year,atlas.lang);}
  async setYear(year,lang){
   this.year=year;this.lang=lang;const seq=++this.seq;
-  try{const places=await loadPlaces(this.modern);if(this.atlas.destroyed||seq!==this.seq)return;
-   this.active=places.filter(p=>p.kind!=='modern-reference'||this.modern).map(p=>placeAtYear(p,year,this.window)).filter(Boolean).sort((a,b)=>a.rank-b.rank);this.refresh();this.onStatus?.(places.partial?'partial':'ready',this.active.length);
+  const apply=places=>{
+   if(this.atlas.destroyed||seq!==this.seq)return;
+   this.active=places.filter(p=>p.kind!=='modern-reference'||this.modern).map(p=>placeAtYear(p,year,this.window)).filter(Boolean).sort((a,b)=>a.rank-b.rank);
+   this.refresh();
+  };
+  try{
+   const places=await loadPlaces(this.modern,apply);if(this.atlas.destroyed||seq!==this.seq)return;
+   apply(places);this.onStatus?.(places.partial?'partial':'ready',this.active.length);
   }catch{if(seq===this.seq)this.onStatus?.('error',0);}
  }
  setWindow(value){this.window=placeWindow(value);return this.setYear(this.year,this.lang);}
@@ -373,7 +426,7 @@ export class PlaceLayer {
    if(this.markers.length>=max)break;
    const modern=p.kind==='modern-reference';if(modern&&zoom<Math.max(3,(p.minZoom||4)-2))continue;
    if((p.kind==='attested-settlement'||p.kind==='attested-site')&&zoom<3.4)continue;
-   if(map.getProjection().type==='globe'&&zoom<3){const rad=Math.PI/180,[lon,lat]=p.coordinates;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
+   if(map.getProjection().type==='globe'&&zoom<4.5){const rad=Math.PI/180,[lon,lat]=p.coordinates;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
    const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
    const obsText=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):'';
    const measureLine=(s,cjk,lat)=>Array.from(String(s||'')).reduce((w,ch)=>w+(/[\u3400-\u9fff\uF900-\uFAFF]/.test(ch)?cjk:lat),0);

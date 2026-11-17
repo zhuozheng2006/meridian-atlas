@@ -29,7 +29,6 @@ function boot(){
     if(req)pre[req.url]??=fetch(req.url,{cache:req.cache,priority:'high'}).catch(()=>null);
    }).catch(()=>{});
   }
-  pre['data/fast/events-index.json.gz']??=fetch('data/fast/events-index.json.gz',{cache:'no-cache',priority:'low'}).catch(()=>null);
   window.__meridianBootLand??=fetch('data/land.geojson').then(r=>r.ok?r.json():'data/land.geojson').catch(()=>'data/land.geojson');
   if(typeof document!=='undefined'&&document.head){
    const cshapes=bootYear>=1886||params.get('boundaries')==='cshapes';
