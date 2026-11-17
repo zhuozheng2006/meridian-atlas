@@ -1,21 +1,24 @@
-import {historicalDataRequest} from './native-content-hashes.js?v=3.63.0-9a65b8f1893a';
-import {waitForMapForeground} from './map-load-priority.js?v=3.63.0-9a65b8f1893a';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.63.0-9a65b8f1893a';
-import {boundaryMesh} from './boundary-mesh.js?v=3.63.0-9a65b8f1893a';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.63.0-9a65b8f1893a';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.63.0-9a65b8f1893a';
-import {BoundaryController} from './boundary-controller.js?v=3.63.0-9a65b8f1893a';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.63.0-9a65b8f1893a';
+import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.64.0-1da6be270289';
+import {waitForMapForeground} from './map-load-priority.js?v=3.64.0-1da6be270289';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.64.0-1da6be270289';
+import {boundaryMesh} from './boundary-mesh.js?v=3.64.0-1da6be270289';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.64.0-1da6be270289';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.64.0-1da6be270289';
+import {BoundaryController} from './boundary-controller.js?v=3.64.0-1da6be270289';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.64.0-1da6be270289';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.63.0-9a65b8f1893a';
+import {polityName} from './polity-names.js?v=3.64.0-1da6be270289';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
 const resources=new Map();
+let fullContentHashesPromise=null;
+const EXTENDED_HASH_PATH=/^data\/(?:native\/temporal\/|ohm-|china-prefectures\/year-\d+-band-|chgis\/century-|cshapes\/decade-)/;
+const syncHistoricalRequest=url=>bootstrapDataRequest(url)||(EXTENDED_HASH_PATH.test(url)?null:{url,cache:'no-cache'});
 export const forgetJSON=url=>resources.delete(url);
 // Queue-aware load timeouts. A fixed 20 s abort used to fire while a request was
 // still queued behind the multi-megabyte detail layers on a slow link, which killed
@@ -34,7 +37,7 @@ export async function readJSON(url){
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
    const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
-   const transport=historicalDataRequest(url),response=await fetch(transport.url,{signal:controller.signal,cache:transport.cache,priority});if(!response.ok)throw Error(`${response.status} ${url}`);
+   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.64.0-1da6be270289'))).historicalDataRequest(url),response=await fetch(transport.url,{signal:controller.signal,cache:transport.cache,priority});if(!response.ok)throw Error(`${response.status} ${url}`);
    if(!url.endsWith('.gz'))return await response.json();
    // Start decompression after the magic bytes, while the body is still arriving.
    // Keep only the prefix here; no compressed-body collection or second copy.
@@ -138,8 +141,8 @@ export class AtlasMap{
   if(this._detailLayersPromise)return this._detailLayersPromise;
   this._detailLayersPromise=(async()=>{
    const [{RegionalBoundaries:RB},{HistoricalDetailLayer:HD}]=await Promise.all([
-    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.63.0-9a65b8f1893a'),
-    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.63.0-9a65b8f1893a')
+    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.64.0-1da6be270289'),
+    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.64.0-1da6be270289')
    ]);
    if(this.destroyed)return false;
    if(this.regional?._isStub){
@@ -170,7 +173,7 @@ export class AtlasMap{
    if(this.geography._isStub&&typeof Geography==='undefined'){
     const stub=this.geography;
     this.geographyReady=(async()=>{
-     const {Geography:RealGeography}=await import('./geography.js?v=3.63.0-9a65b8f1893a');
+     const {Geography:RealGeography}=await import('./geography.js?v=3.64.0-1da6be270289');
      if(this.destroyed)return false;
      const geo=new RealGeography(this);geo.enabled=stub.enabled;geo.coastAligned=stub.coastAligned;geo.reference=stub.reference;this.geography=geo;
      const ok=await geo.init().then(()=>true).catch(()=>false);
