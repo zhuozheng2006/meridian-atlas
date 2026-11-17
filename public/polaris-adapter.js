@@ -1,5 +1,5 @@
-import {SNAPSHOT,PRIORITY_VARIABLE_IDS} from './polaris-contract.js?v=3.74.0-8b8b4f417a74';
-import {POLARIS_VARIABLES,POLARIS_CODES,CRISIS_FIELDS} from './polaris-vocabulary.js?v=3.74.0-8b8b4f417a74';
+import {SNAPSHOT,PRIORITY_VARIABLE_IDS} from './polaris-contract.js?v=3.75.0-e59af3eab7ec';
+import {POLARIS_VARIABLES,POLARIS_CODES,CRISIS_FIELDS} from './polaris-vocabulary.js?v=3.75.0-e59af3eab7ec';
 const PRIORITY=new Set(PRIORITY_VARIABLE_IDS);
 export const POLARIS_DOMAINS=Object.freeze({scale:{zh:'人口与规模',en:'Population & scale'},institutions:{zh:'行政与法律',en:'Administration & law'},economy:{zh:'生产与交换',en:'Production & exchange'},transport:{zh:'交通与通信',en:'Transport & communication'},knowledge:{zh:'文字与知识',en:'Writing & knowledge'},warfare:{zh:'军事与防御',en:'Warfare & defense'},religion:{zh:'宗教与思想',en:'Religion & ideas'},general:{zh:'政体与文化背景',en:'Polity & cultural background'},crisis:{zh:'危机与后果',en:'Crises & consequences'}});
 export const label=(value,lang='bi')=>typeof value==='string'?value:lang==='en'?value?.en||value?.zh||'':lang==='zh'?value?.zh||value?.en||'':[value?.zh,value?.en].filter((v,i,a)=>v&&a.indexOf(v)===i).join(' · ');

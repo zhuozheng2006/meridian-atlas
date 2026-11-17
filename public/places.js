@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.74.0-8b8b4f417a74';
-import {placeWindow} from './view-state.js?v=3.74.0-8b8b4f417a74';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.75.0-e59af3eab7ec';
+import {placeWindow} from './view-state.js?v=3.75.0-e59af3eab7ec';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -434,7 +434,49 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:668354','雷萨法（塞尔吉奥波利斯）'],['pleiades:678179','赫利奥波利斯（巴勒贝克）'],['pleiades:678378','斯库托波利斯（贝特谢安）'],
  ['pleiades:727082','巴比伦（福斯塔特／开罗旧城）'],['pleiades:79531','伊斯卡·杜姆诺尼奥鲁姆（埃克塞特）'],['pleiades:79739','维鲁拉米乌姆（圣奥尔本斯）'],
  ['pleiades:854687','赫尔莫纳萨'],['pleiades:857285','波勒莫尼翁（西代）'],['pleiades:874298','阿米达（迪亚巴克尔）'],
- ['pleiades:874341','埃尔比勒（阿尔贝拉）'],['pleiades:874699','辛加拉'],['pleiades:89143','卡塔拉克托尼乌姆（卡特里克）']
+ ['pleiades:874341','埃尔比勒（阿尔贝拉）'],['pleiades:874699','辛加拉'],['pleiades:89143','卡塔拉克托尼乌姆（卡特里克）'],
+ // Wave-10: Full Pleiades ref === 16 completion (100% of Pleiades ref >= 16) + 750 CE & 1960 landmarks
+ ['pleiades:295279','约尔凯撒里亚（歇尔谢尔）'],['pleiades:305063','库卢（科洛）'],['pleiades:305064','西尔塔（君士坦丁）'],
+ ['pleiades:148053','阿奎·塞克斯蒂亚（普罗旺斯艾克斯）'],['pleiades:157834','凯梅内卢姆（锡米耶）'],['pleiades:157836','尤利乌斯广场（弗雷瑞斯）'],
+ ['pleiades:373750','巴尔卡'],['pleiades:383574','阿奎·斯塔蒂埃拉'],['pleiades:383580','奥古斯塔·陶里诺鲁姆（都灵）'],
+ ['pleiades:383627','科莫（科穆姆）'],['pleiades:393427','波皮利乌斯广场（福林波波利）'],['pleiades:550924','推雅推喇'],
+ ['pleiades:619164','加尔绍拉（阿克萨赖）'],['pleiades:629075','塞巴斯蒂亚（锡瓦斯）'],['pleiades:638796','考诺斯'],
+ ['pleiades:857321','锡诺普'],['pleiades:305153','西蒂菲斯（塞提夫）'],['pleiades:314912','布拉·雷吉亚'],
+ ['pleiades:315085','穆斯蒂'],['pleiades:678387','塞弗里斯'],['pleiades:687891','以马忤斯（尼科波利斯）'],
+ ['pleiades:707519','伊达利翁'],['pleiades:736920','赫拉克利奥波利斯'],['pleiades:736948','克罗科迪洛波利斯（法尤姆）'],
+ ['pleiades:589913','林多斯'],['pleiades:59672','极东亚历山大里亚（苦盏）'],['pleiades:599575','尼多斯（克尼多斯）'],
+ ['pleiades:599811','明多斯'],['pleiades:432679','安蒂努姆'],['pleiades:432721','贝内文托（贝内温图姆）'],
+ ['pleiades:432725','博维亚努姆'],['pleiades:432764','卡西努姆（卡西诺）'],['pleiades:432907','拜比亚尼的利古里亚区'],
+ ['pleiades:438710','因努乌斯堡'],['pleiades:442471','阿奎洛尼亚'],['pleiades:442523','坎尼'],
+ ['pleiades:442640','卢凯里亚'],['pleiades:442688','内雷图姆（纳尔多）'],['pleiades:442693','努米斯特罗'],
+ ['pleiades:540582','阿拜（福基斯）'],['pleiades:540717','科罗尼亚'],['pleiades:540960','纳夫帕克托斯'],
+ ['pleiades:541020','佩利纳（塞萨利）'],['pleiades:541044','费赖'],['pleiades:550523','埃莱亚（密细亚）'],
+ ['pleiades:462247','希帕纳'],['pleiades:462259','伊马卡拉'],['pleiades:462424','芬蒂亚斯（利卡塔）'],
+ ['pleiades:462527','廷达里斯'],['pleiades:648647','科尼亚（伊科尼乌姆）'],['pleiades:648702','马洛斯'],
+ ['pleiades:648772','奇里乞亚塞利努斯'],['pleiades:452274','布兰达（卢卡尼亚）'],['pleiades:452304','克兰佩蒂亚'],
+ ['pleiades:609538','辛纳达'],['pleiades:344377','戈莱亚（布恩杰姆）'],['pleiades:344456','奥亚（的黎波里）'],
+ ['pleiades:570548','帕兰蒂翁'],['pleiades:570567','帕特雷'],['pleiades:570720','泰索阿'],
+ ['pleiades:580110','斯泰里亚'],['pleiades:462225','哈莱萨'],['pleiades:256128','科尔多瓦（科尔杜巴）'],
+ ['pleiades:256231','伊塔利卡'],['pleiades:530843','多多纳'],['pleiades:481808','多克莱亚'],
+ ['pleiades:167718','瓦伦蒂亚（瓦朗斯）'],['pleiades:167771','塞古西亚维广场（弗尔）'],
+ ['pleiades:501323','阿布德拉（色雷斯）'],['pleiades:501572','普洛蒂诺波利斯'],['pleiades:501596','萨莫色雷斯'],
+ ['pleiades:501645','托佩罗斯'],['pleiades:334536','迪亚纳·韦特拉诺鲁姆'],['pleiades:334570','兰巴埃西斯'],
+ ['pleiades:197312','扎达尔（亚德尔）'],['pleiades:197488','萨洛纳'],['pleiades:874502','哈桑卢丘遗址'],
+ ['pleiades:471977','萨丁尼亚那波利斯'],['pleiades:678073','布斯拉'],['pleiades:678142','加达拉'],
+ ['pleiades:403254','皮斯托亚'],['pleiades:413037','阿西西'],['pleiades:413074','特鲁恩图姆堡'],
+ ['pleiades:413149','森普罗尼乌斯广场（福松布罗内）'],['pleiades:413228','努马纳'],['pleiades:413246','保苏拉埃'],
+ ['pleiades:423026','拉鲁斯蒂卡'],['pleiades:246343','巴尔奇诺（巴塞罗那）'],['pleiades:246345','克卢尼亚'],
+ ['pleiades:246459','拉克托拉（莱克图尔）'],['pleiades:89152','科里亚（科布里奇）'],['pleiades:109059','亚蒂农（莫城）'],
+ ['pleiades:118580','奥古斯塔·温德利库姆（奥格斯堡）'],
+ ['pleiades:818739154','威尼斯'],['pleiades:599636','哈利卡纳苏斯'],['pleiades:912986','乌鲁克'],
+ ['pleiades:109169','美因茨（莫贡蒂亚库姆）'],['pleiades:893952','巴格达'],['pleiades:903088','纳哈万德'],
+ ['pleiades:894178','韦赫-阿尔达希尔（塞琉西亚）'],['pleiades:874771','图什帕（凡城）'],['pleiades:942260','达姆甘（库米斯）'],
+ ['pleiades:29678','扎兰季（纳迪阿里）'],['pleiades:29755','沙赫里斯兰（扎兰季）'],['pleiades:29501','巴姆'],
+ ['pleiades:46154574','巴库'],['pleiades:403627900','拉利贝拉'],['pleiades:863911','佐尔'],
+ ['pleiades:589772','埃莱夫塞尔纳'],['pleiades:355216649','索斯丘克'],['pleiades:893964','博尔西帕'],
+ ['pleiades:894099','提克里特'],['pleiades:893941','基尔库克（阿拉法）'],['pleiades:658474','卡赫拉曼马拉什（日耳曼尼西亚）'],
+ ['pleiades:854724','法纳戈里亚'],['pleiades:229277207','利奥城（梵蒂冈）'],['pleiades:550771','老士麦那'],
+ ['pleiades:609305','弗里吉亚安卡拉'],['pleiades:589692','安德罗斯城']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
@@ -506,17 +548,18 @@ export class PlaceLayer {
   const bounds=map.getBounds(),origin=map.getContainer().getBoundingClientRect(),center=map.getCenter();
   const boxes=[...(this.atlas.labelBoxes||[]),...(this.atlas.overlayBlockerBoxes?.('.map-legend')||[])];
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
-  const candidates=this.active.filter(p=>bounds.contains(p.coordinates));
+  const textPx=(s,cjk,lat)=>{if(!s)return 0;const str=String(s);let w=0;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);w+=(c>=0x3400&&c<=0x9FFF)||(c>=0xF900&&c<=0xFAFF)?cjk:lat;}return w;};
+  const globeClip=map.getProjection().type==='globe'&&zoom<4.5,rad=Math.PI/180,sinC=globeClip?Math.sin(center.lat*rad):0,cosC=globeClip?Math.cos(center.lat*rad):0;
   const max=Math.min(90,Math.round((zoom-1)*12));
-  for(const p of candidates){
+  for(const p of this.active){
    if(this.markers.length>=max)break;
+   if(!bounds.contains(p.coordinates))continue;
    const modern=p.kind==='modern-reference';if(modern&&zoom<Math.max(3,(p.minZoom||4)-2))continue;
    if((p.kind==='attested-settlement'||p.kind==='attested-site')&&zoom<3.4)continue;
-   if(map.getProjection().type==='globe'&&zoom<4.5){const rad=Math.PI/180,[lon,lat]=p.coordinates;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
+   if(globeClip){const [lon,lat]=p.coordinates;const dot=sinC*Math.sin(lat*rad)+cosC*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
    const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
    const obsText=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):'';
-   const measureLine=(s,cjk,lat)=>Array.from(String(s||'')).reduce((w,ch)=>w+(/[\u3400-\u9fff\uF900-\uFAFF]/.test(ch)?cjk:lat),0);
-   const width=Math.min(184,Math.max(measureLine(name,12.8,7.4),measureLine(secondary,11,6.4),measureLine(obsText,11.2,6.3))+34),height=(secondary?48:34)+(obsText?15:0);
+   const width=Math.min(184,Math.max(textPx(name,12.8,7.4),textPx(secondary,11,6.4),textPx(obsText,11.2,6.3))+34),height=(secondary?48:34)+(obsText?15:0);
    // A record that exists in the data should still be visible and clickable when its
    // label cannot be placed. Try the label on the right, then on the left, then fall
    // back to the dot alone instead of dropping the record entirely.

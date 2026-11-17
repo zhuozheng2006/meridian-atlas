@@ -1,7 +1,7 @@
-import {READING_CATALOG} from './research-reading-data.js?v=3.74.0-8b8b4f417a74';
-import {label} from './polaris-adapter.js?v=3.74.0-8b8b4f417a74';
-import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=3.74.0-8b8b4f417a74';
-import {polarisPolityName,polarisPolitySearchText} from './polaris-polity-names.js?v=3.74.0-8b8b4f417a74';
+import {READING_CATALOG} from './research-reading-data.js?v=3.75.0-e59af3eab7ec';
+import {label} from './polaris-adapter.js?v=3.75.0-e59af3eab7ec';
+import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=3.75.0-e59af3eab7ec';
+import {polarisPolityName,polarisPolitySearchText} from './polaris-polity-names.js?v=3.75.0-e59af3eab7ec';
 
 const PAGE_SIZE=6;
 export function readingForId(id,phaseId,catalog=READING_CATALOG){

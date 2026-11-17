@@ -30,11 +30,11 @@
 .map-hover-card strong{display:block;font-family:var(--serif);font-size:14.5px;font-weight:500;color:#f6f0e2;line-height:1.35}
 .map-hover-card .map-hover-sub{display:block;font-size:11.5px;color:#bacbd6;margin-top:2px}
 .map-hover-card small{display:block;font-size:10.5px;color:#d6b77e;margin-top:4px;letter-spacing:.03em}
-.place-marker{display:flex;gap:5px;align-items:center;padding:4px 5px 4px 0;min-height:28px;max-width:180px;border:0;background:none!important;box-shadow:none!important;color:#1d3331;text-align:left;font-family:var(--body);font-size:12px;font-weight:500;line-height:1.35;text-shadow:0 0 4px rgba(255,248,225,.94),0 1px 2px rgba(255,248,225,.9),1px 0 2px rgba(255,248,225,.85);white-space:nowrap;transition:none}
+.place-marker{display:flex;gap:5px;align-items:center;padding:4px 5px 4px 0;min-height:28px;max-width:180px;border:0;background:none!important;box-shadow:none!important;color:#152624;text-align:left;font-family:var(--body);font-size:12px;font-weight:550;line-height:1.35;text-shadow:0 0 2px #f7f0dc,0 1px 0 #f7f0dc,0 -1px 0 #f7f0dc,1px 0 0 #f7f0dc,-1px 0 0 #f7f0dc,0 0 6px rgba(247,240,220,.96);white-space:nowrap;transition:none}
 .place-marker i{flex:none;display:block;width:6px;height:6px;background:#364e49;border:1.5px solid #f9eccb;border-radius:50%;box-shadow:0 0 0 1px #364e4980}
 .place-marker.capital i{border-radius:1px;transform:rotate(45deg);width:7px;height:7px;background:#5b483b}
-.place-marker.modern i{background:transparent;border:1.5px solid #566d7b;box-shadow:none}.place-marker.modern{color:#50616c}
-.place-marker small{display:block;font-size:10px;font-weight:450;letter-spacing:0;line-height:1.35;color:#33443f}
+.place-marker.modern i{background:transparent;border:1.5px solid #566d7b;box-shadow:none}.place-marker.modern{color:#3f515c}
+.place-marker small{display:block;font-size:10px;font-weight:500;letter-spacing:0;line-height:1.35;color:#273a35;text-shadow:0 0 2px #f7f0dc,0 1px 0 rgba(247,240,220,.94),0 -1px 0 rgba(247,240,220,.94),1px 0 0 rgba(247,240,220,.94),-1px 0 0 rgba(247,240,220,.94)}
 .place-marker>span{display:block;min-width:0;max-width:156px;overflow:hidden;text-overflow:ellipsis}
 /* Fallback placement: the label could not be fitted anywhere, so the record stays
    on the map as a clickable dot rather than disappearing. */
@@ -51,7 +51,7 @@ tbody tr.structured-index .library-year{box-shadow:inset 3px 0 #b08a52}
 .battle-marker i{flex:none;display:block;width:9px;height:9px;background:#b4553f;border:1.5px solid #f6e7c8;transform:rotate(45deg);box-shadow:0 0 0 1px #b4553f66}
 .battle-marker span{background:#fdf6e6d9;border-radius:3px;padding:0 3px}
 .place-marker small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.place-marker .place-date{font-size:9px;color:#404a42;font-weight:500}
+.place-marker .place-date{font-size:9px;color:#2c3b32;font-weight:500}
 .place-marker:hover span,.place-marker:focus-visible span{color:#312510;text-decoration:underline;text-underline-offset:3px}.place-marker:focus-visible{outline:2px solid #b77736;outline-offset:3px;border-radius:5px}
 .place-marker[style*="opacity: 0;"]{pointer-events:none}
 .selected-place{width:20px;height:20px;border:2px solid #fff0bb;border-radius:50%;box-shadow:0 0 0 3px #52432c88,0 0 0 7px #f9d88540;pointer-events:none;background:#c9a05a33}
