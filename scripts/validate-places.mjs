@@ -331,7 +331,19 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:108903',100,'科布伦茨（汇流城）'],
     ['index','pleiades:79590',100,'马穆基乌姆（曼彻斯特古堡）'],
     ['index','pleiades:59737',100,'巴里加扎'],
-    ['index','pleiades:59873',-200,'憍赏弥']
+    ['index','pleiades:59873',-200,'憍赏弥'],
+    ['index','pleiades:687902',100,'加沙'],
+    ['index','pleiades:266090',100,'瓦伦蒂亚（瓦伦西亚）'],
+    ['index','pleiades:157868',-100,'摩纳哥（赫拉克勒斯·莫诺伊科斯港）'],
+    ['index','pleiades:39379',-100,'马里卜（马里亚巴）'],
+    ['index','pleiades:419508714',1600,'德黑兰'],
+    ['index','pleiades:79393',100,'卡穆洛杜努姆（科尔切斯特）'],
+    ['index','pleiades:177434',100,'阿莱西亚'],
+    ['index','pleiades:207447',200,'西尔米乌姆'],
+    ['index','pleiades:207100',200,'德罗贝塔'],
+    ['index','pleiades:108896',100,'克桑滕（乌尔皮亚·图拉真城）'],
+    ['index','pleiades:98992',100,'卡尔克里泽（条顿堡遗址）'],
+    ['index','pleiades:668295',-1300,'白港（乌加里特港）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
