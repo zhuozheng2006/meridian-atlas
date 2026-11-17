@@ -19,7 +19,7 @@ globalThis.fetch=async input=>{
   try{return new Response(await readFile(resolve(dist,file)));}
   catch{return new Response('Missing local test asset',{status:404});}
 };
-const {loadPlaces,placeDetail,placeAtYear,nearestPlaceYear,searchPlaces}=await import(pathToFileURL(resolve(dist,'places.js')));
+const {loadPlaces,placeDetail,placeName,placeAtYear,nearestPlaceYear,searchPlaces}=await import(pathToFileURL(resolve(dist,'places.js')));
 const index=await diskJSON('historical-settlements-index');
 const urban=await diskJSON('urban-observations');
 const capitals=await diskJSON('historical-capitals');
@@ -168,6 +168,27 @@ await check('Corrupted Wikidata capital dates are quarantined and editorial labe
   assert.equal(francia.polityLabels.en,'Francia');
   assert((await searchPlaces('阿玛尔纳',-1345)).some(p=>p.qid==='Q5736'));
   assert(!(await searchPlaces('尼托斯',-1345)).some(p=>p.qid==='Q5736'));
+});
+await check('Editorial global city exonyms resolve without mutating frozen sources or dated timelines',async()=>{
+  const samples=[
+    ['urban','chandler:1510',1500,'毗奢耶那伽罗'],
+    ['urban','chandler:474',1492,'高尔（高达）'],
+    ['urban','modelski-modern:266',2000,'乌鲁木齐'],
+    ['index','pleiades:668331',200,'巴尔米拉']
+  ];
+  for(const [src,id,year,expectedZh] of samples){
+    const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
+    assert(raw,id);assert(!raw.nameZh,id+' raw should stay unmutated');
+    const frozen=Object.freeze({...raw}),atYear=placeAtYear(frozen,year);
+    assert(atYear,id+' at '+year);
+    assert.equal(atYear.nameZh,expectedZh);
+    assert.equal(placeName(frozen,'zh'),expectedZh);
+    assert.equal(frozen.nameZh,raw.nameZh);
+    const hits=await searchPlaces(expectedZh,year);
+    assert(hits.some(p=>p.id===id),'searchPlaces failed for '+expectedZh);
+  }
+  const dated=urban.cities.find(p=>p.nameTimeline?.length&&!p.nameZh);
+  if(dated){const atYear=placeAtYear(dated,dated.observations[0][0]);assert.equal(placeName(atYear,'en'),atYear.displayName||dated.name);}
 });
 await check('Known internally contradictory name dates are quarantined',()=>{
   for(const id of ['pleiades:520998','pleiades:211425280']){

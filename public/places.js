@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.65.0-a4346e1321b5';
-import {placeWindow} from './view-state.js?v=3.65.0-a4346e1321b5';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.65.0-134c7e79e40a';
+import {placeWindow} from './view-state.js?v=3.65.0-134c7e79e40a';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -52,8 +52,42 @@ const CAPITAL_POLITY_FIX=new Map([
  ['Q123027565',{zh:'克什米尔苏丹国'}],['Q23039102',{zh:'东吁第一帝国'}],['Q146246',{en:'Francia'}]
 ]);
 const capitalZh=p=>p?.kind==='dated-capital'?(CAPITAL_ZH_FIX.get(p.qid)||p.nameZh||CAPITAL_ZH_EDITORIAL.get(p.qid)||''):p?.nameZh||'';
+// Editorial Chinese exonyms for verified historical & major modern urban settlements
+// lacking upstream Chinese labels in Chandler/Modelski/Pleiades. Never mutates frozen raw data
+// and never overrides dated nameTimeline or datedNames epochs.
+const PLACE_ZH_EDITORIAL=new Map([
+ // Historical Chandler & Modelski ancient urban records
+ ['chandler:1510','毗奢耶那伽罗'],['chandler:478','加里波利'],['chandler:474','高尔（高达）'],['chandler:502','格拉纳达'],
+ ['chandler:670','镰仓'],['chandler:110','蒲甘'],['chandler:885','马拉喀什'],['chandler:1260','萨莱'],
+ ['chandler:35','哈萨'],['modelski-ancient:5','哈萨'],['chandler:643','章普尔'],['chandler:480','热那亚'],
+ ['chandler:1419','天水'],['chandler:1408','特斯科科'],['chandler:66','阿尼'],['modelski-ancient:9','阿尼'],
+ ['chandler:1124','波隆纳鲁瓦'],['chandler:242','加的斯'],['chandler:533','海宁'],['chandler:1022','诺夫哥罗德'],
+ ['chandler:1141','普雷斯拉夫'],['chandler:1165','库姆'],['chandler:1450','特里尔'],['modelski-ancient:137','特里尔'],
+ ['chandler:12','阿卡'],['chandler:251','卡利卡特'],['chandler:588','霍尔木兹'],['chandler:831','潞城'],
+ ['chandler:929','米利都'],['chandler:1008','尼姆鲁德'],['chandler:1100','波斯波利斯'],['chandler:1317','苏丹尼耶'],
+ ['chandler:1392','特尔戈维什泰'],['modelski-ancient:66','克诺索斯'],['chandler:115','八剌沙衮'],['chandler:19','阿格里真托'],
+ ['chandler:81','阿尔戈斯'],['chandler:83','阿尔勒'],['chandler:491','果阿'],['chandler:792','莱昂'],
+ ['chandler:798','辽东'],['chandler:1033','奥赫里德'],['chandler:1070','帕多瓦'],['chandler:1560','山口'],
+ ['chandler:1593','大津巴布韦'],['modelski-ancient:45','二里头'],['modelski-ancient:84','摩亨佐-达罗'],
+ ['modelski-ancient:81','梅里达'],['chandler:75','隞（郑州）'],
+ // Modern >=1M settlements lacking Chinese names
+ ['modelski-modern:76','埃卡特佩克'],['modelski-modern:281','阳城'],['modelski-modern:238','塞提夫'],['chandler:408','杜塞尔多夫'],
+ ['modelski-modern:210','启东'],['modelski-modern:87','瓜鲁柳斯'],['modelski-modern:106','桦甸'],['modelski-modern:266','乌鲁木齐'],
+ ['modelski-modern:142','耒阳'],['modelski-modern:117','江阴'],['chandler:411','东柏林'],['modelski-modern:79','防城港'],
+ ['modelski-modern:247','宿迁'],['modelski-modern:285','宜兴'],['modelski-modern:85','戈亚尼亚'],['modelski-modern:288','禹州'],
+ ['modelski-modern:153','麻城'],['modelski-modern:225','瑞安'],['modelski-modern:262','天水'],['modelski-modern:48','常熟'],
+ ['modelski-modern:93','海城'],['modelski-modern:42','卡卢坎'],['modelski-modern:119','即墨'],['modelski-modern:144','涟源'],
+ ['modelski-modern:224','顿河畔罗斯托夫'],
+ // High-reference Pleiades classical settlements (ref>=30)
+ ['pleiades:668331','巴尔米拉'],['pleiades:422995','奥斯蒂亚'],['pleiades:599612','以弗所'],['pleiades:570182','科林斯'],
+ ['pleiades:432873','赫库兰尼姆'],['pleiades:442658','梅塔蓬托'],['pleiades:893990','杜拉-欧罗波斯'],['pleiades:462086','阿格里真托'],
+ ['pleiades:423013','普赖内斯特'],['pleiades:423108','图斯库卢姆'],['pleiades:462307','麦加拉·希布莱亚'],['pleiades:530824','布特林特'],
+ ['pleiades:903021','埃克巴坦那'],['pleiades:638753','阿佛洛狄西亚'],['pleiades:413005','阿尔巴·富琴斯'],['pleiades:432815','普泰奥利'],
+ ['pleiades:413332','塔尔奎尼亚'],['pleiades:413393','武尔奇'],['pleiades:452457','锡巴里斯']
+]);
+const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
-export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||(p?.kind==='dated-capital'?capitalZh(p):p.nameZh)||p.displayName||p.name);
+export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||(p?.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p)))||p.displayName||p.name);
 // A source observation is not a city lifespan. Name epochs constrain borrowing
 // only when both dates have evidence; editorial observation aliases alone do not.
 export const placeNamePeriods=(p,year)=>(p.nameTimeline||[]).filter(n=>(n.start==null||n.start<=year)&&(n.end==null||year<=n.end));
@@ -70,12 +104,12 @@ export function placeAtYear(p,year,span=50){
  if(!Number.isInteger(year)||year===0)return null;
  if(p.kind==='modern-reference')return {...p,rank:4+(p.scaleRank||0)};
  if(p.kind==='dated-capital'&&CAPITAL_DATE_QUARANTINE.has(p.id))return null;
- if(p.observations){const candidates=p.observations.filter(o=>Math.abs(civilYear(o[0])-civilYear(year))<=span&&observationMatchesNamePeriod(p,o[0],year));if(!candidates.length)return null;const o=candidates.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a),label=datedPlaceLabel(p,o[0]);return {...p,observation:o,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,rank:2-Math.log10(Math.max(1,o[1]||1))/10};}
+ if(p.observations){const candidates=p.observations.filter(o=>Math.abs(civilYear(o[0])-civilYear(year))<=span&&observationMatchesNamePeriod(p,o[0],year));if(!candidates.length)return null;const o=candidates.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a),label=datedPlaceLabel(p,o[0]),zh=p.nameZh||editorialPlaceZh(p);return {...p,...(zh?{nameZh:zh}:{}),observation:o,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,rank:2-Math.log10(Math.max(1,o[1]||1))/10};}
  const period=p.periods?.find(([a,b])=>a<=year&&year<=b);if(!period)return null;
  const location=p.locations?.filter(l=>l.periods?.some(([a,b])=>a<=year&&year<=b)).sort((a,b)=>(a.accuracyMeters??Infinity)-(b.accuracyMeters??Infinity))[0];
  if(p.locations&&!location)return null;
  const label=datedPlaceLabel(p,year);
- const zh=p.kind==='dated-capital'?capitalZh(p):p.nameZh,polityLabels=capitalPolityLabels(p);
+ const zh=p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p)),polityLabels=capitalPolityLabels(p);
  return {...p,...(zh?{nameZh:zh}:{}),...(polityLabels?{polityLabels}:{}),displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,coordinates:location?.coordinates||p.coordinates,location,period:location?.periods.find(([a,b])=>a<=year&&year<=b)||period,rank:p.kind==='dated-capital'?0:p.kind==='attested-site'?1:3-(p.referenceCount||0)/100};
 }
 export function nearestPlaceYear(p,year){
@@ -87,7 +121,7 @@ export const normalizePlaceQuery=q=>String(q||'').toLocaleLowerCase().normalize(
 export async function searchPlaces(query,year,span=50){
  const q=normalizePlaceQuery(query);if(!q||q.length<2&&!/\p{Script=Han}/u.test(q))return [];
  const scored=(await loadPlaces()).filter(p=>p.kind!=='modern-reference'&&!CAPITAL_DATE_QUARANTINE.has(p.id)).map(p=>{
-  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):p.nameZh].map(normalizePlaceQuery),aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
+  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p))].map(normalizePlaceQuery),aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
   const score=names.includes(q)?0:aliases.includes(q)?1:names.some(n=>n.startsWith(q))?2:[...names,...aliases].some(n=>n.includes(q))?3:99;
   return {p,score};
  });

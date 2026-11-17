@@ -1,8 +1,8 @@
-import {createExactLabelScheduler} from './halc-label-scheduler.js?v=3.65.0-a4346e1321b5';
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.65.0-a4346e1321b5';
-import {HalcLandscape} from './halc-landscape.js?v=3.65.0-a4346e1321b5';
-import {readJSON} from './map-engine.js?v=3.65.0-a4346e1321b5';
-import {HalcRegions} from './halc-regions.js?v=3.65.0-a4346e1321b5';
+import {createExactLabelScheduler} from './halc-label-scheduler.js?v=3.65.0-134c7e79e40a';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=3.65.0-134c7e79e40a';
+import {HalcLandscape} from './halc-landscape.js?v=3.65.0-134c7e79e40a';
+import {readJSON} from './map-engine.js?v=3.65.0-134c7e79e40a';
+import {HalcRegions} from './halc-regions.js?v=3.65.0-134c7e79e40a';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';

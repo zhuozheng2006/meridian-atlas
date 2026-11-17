@@ -1,9 +1,9 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.65.0-a4346e1321b5';
-import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=3.65.0-a4346e1321b5';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.65.0-134c7e79e40a';
+import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=3.65.0-134c7e79e40a';
 let reviewsModPromise=null,reviewsMod=null;
 async function ensureChinaReviews(){
  if(reviewsMod)return reviewsMod;
- if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=3.65.0-a4346e1321b5').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
+ if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=3.65.0-134c7e79e40a').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
  return reviewsModPromise;
 }
 const ROOT='data/china-prefectures/',packs=new Map();let indexPromise;
