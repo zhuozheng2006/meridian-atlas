@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.70.0-e953c306ee1f';
-import {placeWindow} from './view-state.js?v=3.70.0-e953c306ee1f';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.70.0-4697b3ed2f8a';
+import {placeWindow} from './view-state.js?v=3.70.0-4697b3ed2f8a';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -44,9 +44,19 @@ export const CAPITAL_DATE_QUARANTINE=new Set([
 // Quarantined urban observations whose upstream Western Hemisphere longitudes dropped
 // the leading minus sign, displacing American settlements into Asia/Bay of Bengal.
 export const PLACE_COORD_QUARANTINE=new Set([
- 'chandler:422',  // El Tajin, Mexico [97.3782, 20.4481] (omitted minus sign; actually -97.3782)
- 'chandler:545',  // Hamilton, Canada [79.866092, 43.250022] (omitted minus sign; actually -79.866092)
- 'chandler:1192', // Richmond, United States [77.4667, 37.5333] (omitted minus sign; actually -77.4667)
+ 'chandler:422',         // El Tajin, Mexico [97.3782, 20.4481] (omitted minus sign; actually -97.3782)
+ 'chandler:545',         // Hamilton, Canada [79.866092, 43.250022] (omitted minus sign; actually -79.866092)
+ 'chandler:1192',        // Richmond, United States [77.4667, 37.5333] (omitted minus sign; actually -77.4667)
+ 'chandler:136',         // Barrow, AK USA [-156.7887, 71.2906] (geocoded Barrow-in-Furness UK 1900 pop 56k to Alaska)
+ 'chandler:279',         // Changteh, China [112.9388, 28.2282] (geocoded Changde to downtown Changsha)
+ 'chandler:382',         // Dienne, Senegal [-16.3501, 15.0334] (Senegal coast instead of Djenne, Mali [-4.55, 13.90])
+ 'chandler:562',         // Haverhill, UK [0.4389, 52.0823] (geocoded Haverhill MA USA 1900 pop 37k to Suffolk village)
+ 'chandler:819',         // Londonderry, NH USA [-71.3740, 42.8651] (geocoded Derry N. Ireland 1900 pop 38k to New Hampshire)
+ 'chandler:1090',        // Pau, France [0.37, 43.30] (omitted minus sign; actually -0.37 across Pyrenees)
+ 'chandler:1198',        // Rochefort, Belgium [5.2216, 50.1631] (Belgium village instead of Rochefort France [-0.96, 45.94])
+ 'chandler:1333',        // St. Helens, OR USA [-122.8169, 45.8594] (geocoded St Helens Lancashire UK 1900 pop 83k to Oregon)
+ 'chandler:1341',        // Stoke, UK [-2.8667, 53.25] (Cheshire village instead of Stoke-on-Trent [-2.18, 53.00])
+ 'modelski-ancient:117', // Shangqi / Shangqiu [-500] [121.4581, 31.2222] (geocoded Shanghi to Shanghai Harbor instead of [115.65, 34.44])
 ]);
 const CAPITAL_ZH_FIX=new Map([['Q5736','阿玛尔纳']]);
 const CAPITAL_ZH_EDITORIAL=new Map([
@@ -216,7 +226,82 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:589989','法拉萨尔纳'],['pleiades:432839','福尔米亚'],['pleiades:432981','诺拉'],['pleiades:433134','苏尔莫纳（苏尔莫）'],
  ['pleiades:442525','卡努西乌姆'],['pleiades:442613','赫尔多尼亚'],['pleiades:550403','阿德拉米蒂乌姆'],['pleiades:550434','亚历山大·特洛阿斯'],
  ['pleiades:857018','阿马西亚'],['pleiades:658587','萨莫萨塔'],['pleiades:462236','恩纳'],['pleiades:462373','莫西亚'],
- ['pleiades:462487','塞杰斯塔']
+ ['pleiades:462487','塞杰斯塔'],
+ // Wave-6: Remaining verified Chandler / Modelski urban observations (to ~100% coverage) & classical Pleiades ref >= 20
+ ['chandler:8','图尔库（奥布）'],['chandler:28','实兑（阿恰布）'],['chandler:30','奥尔德肖特'],['chandler:44','阿尔斯特'],
+ ['chandler:45','阿尔滕堡'],['chandler:61','安集延'],['chandler:62','安德里亚'],['chandler:65','昂古莱姆'],
+ ['chandler:86','阿拉'],['chandler:119','班贝格'],['chandler:133','巴恩斯利'],['chandler:139','勃生'],
+ ['chandler:149','阿克曼（比尔霍罗德-德涅斯特罗夫斯基）'],['chandler:153','贝卢尔'],['chandler:154','宾杰里'],['chandler:161','贝尔吉施格拉德巴赫'],
+ ['chandler:164','贝恩堡'],['chandler:165','贝鲁特'],['chandler:166','特威德河畔贝里克'],['chandler:170','巴克塔普尔（巴德岗）'],
+ ['chandler:193','博布鲁伊斯克'],['chandler:203','滨海布洛涅'],['chandler:207','布勒伊拉'],['chandler:208','勃兰登堡'],
+ ['chandler:210','布拉索夫'],['chandler:211','布拉索夫（科隆施塔特）'],['chandler:224','布罗克顿'],['chandler:236','伯恩利'],
+ ['chandler:238','伯里'],['chandler:252','卡尔塔尼塞塔'],['chandler:266','卡塞尔（法国）'],['chandler:268','切里尼奥拉'],
+ ['chandler:269','捷克布杰约维采'],['chandler:285','烟台（芝罘）'],['chandler:286','切尔滕纳姆'],['chandler:299','奇廉'],
+ ['chandler:315','科特布里奇'],['chandler:320','科尔切斯特'],['chandler:321','科尔马'],['chandler:326','康塞普西翁'],
+ ['chandler:338','克鲁'],['chandler:343','库亚巴'],['chandler:348','琴斯托霍瓦'],['chandler:357','达尔邦加'],
+ ['chandler:359','达灵顿'],['chandler:360','达姆施塔特'],['chandler:375','德绍-罗斯劳'],['chandler:377','迪尤斯伯里'],
+ ['chandler:381','达尔瓦德'],['chandler:385','迪夸'],['chandler:412','伊斯特本'],['chandler:420','艾森纳赫'],
+ ['chandler:423','埃尔布隆格'],['chandler:440','福尔里弗'],['chandler:446','菲罗兹布尔'],['chandler:448','菲奇堡'],
+ ['chandler:451','弗洛里亚诺波利斯'],['chandler:453','福克斯通'],['chandler:454','福斯特'],['chandler:459','奥得河畔法兰克福'],
+ ['chandler:461','弗赖贝格'],['chandler:465','菲尔特'],['chandler:468','加拉茨'],['chandler:484','加济布尔'],
+ ['chandler:490','格洛斯特'],['chandler:497','格尔利茨'],['chandler:500','哥达'],['chandler:501','哥廷根'],
+ ['chandler:505','大雅茅斯'],['chandler:509','格里姆斯比'],['chandler:512','格罗兹尼'],['chandler:513','格鲁琼兹'],
+ ['chandler:519','古本'],['chandler:522','贵阳（贵州省城）'],['chandler:537','哈尔伯施塔特'],['chandler:540','哈利法克斯'],
+ ['chandler:541','哈雷'],['chandler:546','哈姆'],['chandler:557','哈特尔浦'],['chandler:558','黑斯廷斯'],
+ ['chandler:566','海尔布隆'],['chandler:570','希尔德斯海姆'],['chandler:578','荷台达'],['chandler:579','霍德梅泽瓦沙尔海伊'],
+ ['chandler:583','霍利奥克'],['chandler:590','新会'],['chandler:595','哈德斯菲尔德'],['chandler:608','伊拉德'],
+ ['chandler:639','贾姆讷格尔'],['chandler:641','贾巴尔普尔'],['chandler:642','贾蒂内加拉'],['chandler:661','卡赫拉曼马拉什'],
+ ['chandler:664','凯泽斯劳滕'],['chandler:678','康定'],['chandler:698','凯奇凯梅特'],['chandler:714','基尔马诺克'],
+ ['chandler:718','柯科迪'],['chandler:721','基什孔费莱吉哈佐'],['chandler:726','科布伦茨'],['chandler:728','甲府'],
+ ['chandler:733','科洛梅亚'],['chandler:737','科特赖克'],['chandler:739','科希策'],['chandler:745','克雷费尔德'],
+ ['chandler:749','库杜斯'],['chandler:765','拉绍德封'],['chandler:769','拉斯佩齐亚'],['chandler:774','兰开斯特'],
+ ['chandler:776','莱希河畔兰茨贝格'],['chandler:787','莱格尼察'],['chandler:791','莱昂（墨西哥）'],['chandler:807','林肯（英国）'],
+ ['chandler:834','路德维希港'],['chandler:835','卢甘斯克'],['chandler:843','麦克尔斯菲尔德'],['chandler:844','马塞约'],
+ ['chandler:854','梅德斯通'],['chandler:858','毛科'],['chandler:863','马尔默'],['chandler:875','曼苏拉'],
+ ['chandler:882','马尔吉兰'],['chandler:901','梅赫伦'],['chandler:902','什未林（原注 Meckenbeuren）'],['chandler:908','梅县'],
+ ['chandler:914','门戈（坎帕拉）'],['chandler:922','莫乌'],['chandler:927','梅迪尼普尔'],['chandler:936','莫达凯凯'],
+ ['chandler:939','比托拉（莫纳斯提尔）'],['chandler:945','蒙吕松'],['chandler:948','蒙扎'],['chandler:954','马瑟韦尔'],
+ ['chandler:955','米尔豪森（图林根）'],['chandler:956','米卢斯'],['chandler:961','明斯特'],['chandler:997','纽堡'],
+ ['chandler:1000','纽波特（威尔士）'],['chandler:1001','涅任'],['chandler:1006','奈梅亨'],['chandler:1015','下塔吉尔'],
+ ['chandler:1018','诺尔雪平'],['chandler:1019','北安普顿'],['chandler:1027','尼赖吉哈佐'],['chandler:1053','奥斯纳布吕克'],
+ ['chandler:1054','奥斯坦德'],['chandler:1058','大津'],['chandler:1075','帕尔卡德'],['chandler:1080','巴拉那'],
+ ['chandler:1092','佩奇'],['chandler:1095','北赖（威省）'],['chandler:1096','蓬莱'],['chandler:1106','彼得罗瓦拉丁'],
+ ['chandler:1107','普福尔茨海姆'],['chandler:1113','彼得库夫'],['chandler:1114','皮尔马森斯'],['chandler:1118','普洛耶什蒂'],
+ ['chandler:1134','西班牙港'],['chandler:1148','普热梅希尔'],['chandler:1168','拉多姆'],['chandler:1170','赖布尔'],
+ ['chandler:1179','罗滕斯托尔'],['chandler:1182','雷丁（宾夕法尼亚）'],['chandler:1188','雷姆沙伊德'],['chandler:1191','朗达'],
+ ['chandler:1197','罗奇代尔'],['chandler:1199','罗切斯特（肯特）'],['chandler:1207','罗瑟勒姆'],['chandler:1214','萨尔布吕肯'],
+ ['chandler:1222','圣康坦'],['chandler:1236','桑伯尔'],['chandler:1244','圣塞瓦斯蒂安'],['chandler:1246','圣加仑'],
+ ['chandler:1247','圣克鲁斯（特内里费）'],['chandler:1256','圣路易斯（巴西）'],['chandler:1289','希卡尔普尔'],['chandler:1316','索林根'],
+ ['chandler:1320','肖普朗'],['chandler:1330','塞兰坡（斯里曼塔普尔）'],['chandler:1334','圣约翰'],['chandler:1359','汕头'],
+ ['chandler:1360','斯温登'],['chandler:1368','森特什'],['chandler:1379','高崎'],['chandler:1385','坦佩雷'],
+ ['chandler:1393','塔尔努夫'],['chandler:1397','汤顿（马萨诸塞）'],['chandler:1406','捷尔诺波尔'],['chandler:1421','蒂尔堡'],
+ ['chandler:1422','蒂米什瓦拉'],['chandler:1438','托基'],['chandler:1447','特拉帕尼'],['chandler:1459','图库曼'],
+ ['chandler:1477','乌拉尔斯克'],['chandler:1481','拉贝河畔乌斯季'],['chandler:1485','宇和岛'],['chandler:1504','韦尔维耶'],
+ ['chandler:1517','弗拉季高加索'],['chandler:1523','韦克菲尔德'],['chandler:1526','沃灵顿'],['chandler:1537','威根'],
+ ['chandler:1538','威尔克斯-巴里'],['chandler:1541','伍斯特（英国）'],['chandler:1573','米泽'],['chandler:1589','日托米尔'],
+ ['chandler:1594','齐陶'],['chandler:1597','茨维考'],['modelski-modern:137','拉马坦萨'],['modelski-modern:214','凯马杜斯'],
+ // Classical Pleiades ref >= 20 Mediterranean & Near Eastern cities
+ ['pleiades:413216','穆尔洛（波焦奇维塔泰）'],['pleiades:432739','卡莱斯（坎帕尼亚）'],['pleiades:570733','图里亚'],
+ ['pleiades:433147','泰莱西亚'],['pleiades:432884','因特拉姆纳·利雷纳斯'],['pleiades:442476','阿尔皮'],
+ ['pleiades:422844','阿里恰'],['pleiades:422921','菲卡纳'],['pleiades:433073','萨埃皮努姆'],
+ ['pleiades:452352','考洛尼亚'],['pleiades:452403','佩泰利亚'],['pleiades:570483','迈索尼'],
+ ['pleiades:413013','阿米泰尔努姆'],['pleiades:422831','阿尔西乌姆'],['pleiades:422859','凯雷'],
+ ['pleiades:423012','波图斯港'],['pleiades:423081','蒂布尔'],['pleiades:432985','努凯里亚·阿尔法泰尔纳'],
+ ['pleiades:462251','希布拉'],['pleiades:462153','琴图里佩'],['pleiades:413045','奥克西穆姆'],
+ ['pleiades:413178','纳尔河畔因特拉姆纳'],['pleiades:432700','阿尔皮努姆'],['pleiades:433052','普里韦尔努姆'],
+ ['pleiades:471899','卡拉利斯（卡利亚里）'],['pleiades:785986','贝勒尼基'],['pleiades:599905','普里埃内'],
+ ['pleiades:403291','韦图洛尼亚'],['pleiades:413129','法努姆·福图纳埃'],['pleiades:432618','阿贝利努姆'],
+ ['pleiades:432664','阿莱特里乌姆'],['pleiades:432695','阿奎努姆'],['pleiades:432734','卡伊埃塔'],
+ ['pleiades:432830','费伦蒂努姆'],['pleiades:433061','皮尔吉'],['pleiades:265855','卡斯图洛'],
+ ['pleiades:187578','特吉斯特（的里雅斯特）'],['pleiades:471979','诺拉（撒丁）'],['pleiades:413124','菲耶索莱（法埃苏拉埃）'],
+ ['pleiades:413163','皮克努姆的哈特里亚'],['pleiades:197389','穆尔萨'],['pleiades:98921','巴塔沃杜鲁姆（奈梅亨）'],
+ ['pleiades:668261','埃梅萨（霍姆斯）'],['pleiades:913163220','库努卢亚（泰伊纳特丘）'],['pleiades:403234','卢卡'],
+ ['pleiades:413044','萨图尔尼亚'],['pleiades:413076','森图姆凯莱（奇维塔韦基亚）'],['pleiades:413320','斯波莱托（斯波莱蒂乌姆）'],
+ ['pleiades:423072','西格尼亚'],['pleiades:246348','鲁斯奇诺'],['pleiades:452333','赫拉克利亚（卢卡尼亚）'],
+ ['pleiades:452488','埃利亚（韦利亚）'],['pleiades:570467','梅加洛波利斯'],['pleiades:177494','奥古斯塔·劳里卡'],
+ ['pleiades:413014','安科纳'],['pleiades:413105','科尔菲尼乌姆'],['pleiades:570459','曼提尼亚'],
+ ['pleiades:570707','泰格阿'],['pleiades:579925','埃雷特里亚'],['pleiades:462214','杰拉'],
+ ['pleiades:197448','波拉（普拉）'],['pleiades:678010','阿克（托勒密斯）']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;

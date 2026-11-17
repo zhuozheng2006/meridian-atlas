@@ -194,7 +194,17 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
   const displaced=[
     ['chandler:422','El Tajin',800],
     ['chandler:545','Hamilton',1975],
-    ['chandler:1192','Richmond',1950]
+    ['chandler:1192','Richmond',1950],
+    ['chandler:136','Barrow',1900],
+    ['chandler:279','Changteh',1900],
+    ['chandler:382','Dienne',1300],
+    ['chandler:562','Haverhill',1900],
+    ['chandler:819','Londonderry',1900],
+    ['chandler:1090','Pau',1900],
+    ['chandler:1198','Rochefort',1900],
+    ['chandler:1333','St. Helens',1900],
+    ['chandler:1341','Stoke',1850],
+    ['modelski-ancient:117','Shangqi',-500]
   ];
   for(const [id,query,year] of displaced){
     const raw=urban.cities.find(p=>p.id===id);
@@ -235,7 +245,17 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['urban','chandler:1311',1300,'索斯特'],
     ['urban','chandler:760',900,'库施（纳帕塔）'],
     ['index','pleiades:638751',100,'弗里吉亚阿帕米亚'],
-    ['index','pleiades:589872',-100,'克诺索斯']
+    ['index','pleiades:589872',-100,'克诺索斯'],
+    ['urban','chandler:8',1900,'图尔库（奥布）'],
+    ['urban','chandler:165',1900,'贝鲁特'],
+    ['urban','chandler:285',1900,'烟台（芝罘）'],
+    ['urban','chandler:1191',1914,'朗达'],
+    ['urban','chandler:1422',1900,'蒂米什瓦拉'],
+    ['index','pleiades:422859',-200,'凯雷'],
+    ['index','pleiades:452488',-300,'埃利亚（韦利亚）'],
+    ['index','pleiades:668261',200,'埃梅萨（霍姆斯）'],
+    ['index','pleiades:462214',-400,'杰拉'],
+    ['index','pleiades:678010',100,'阿克（托勒密斯）']
   ];
   for(const [src,id,year,expectedZh] of wave2){
     const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
