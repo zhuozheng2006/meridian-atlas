@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.76.0-ee980148f6d1';
-import {placeWindow} from './view-state.js?v=3.76.0-ee980148f6d1';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.77.0-626adbf944ff';
+import {placeWindow} from './view-state.js?v=3.77.0-626adbf944ff';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -519,7 +519,63 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:503948792','昆卡'],['pleiades:810796636','穆尔西亚'],['pleiades:302942693','哈恩'],
  ['pleiades:694916885','索里亚'],['pleiades:50120','曼泰'],['pleiades:59666','阿克拉（班努古址）'],
  ['pleiades:903012','迪纳瓦尔'],['pleiades:678333','贝特耶拉赫'],['pleiades:678211','乌赛斯'],
- ['pleiades:648710','梅伊丹哲克城堡']
+ ['pleiades:648710','梅伊丹哲克城堡'],
+ // Wave-12: Full Pleiades ref === 14 completion (100% of Pleiades ref >= 14) + 1000 CE Persia/Arabia/East Africa landmarks
+ ['pleiades:266066','托莱多（托莱图姆）'],['pleiades:275736','丹吉尔（廷吉）'],['pleiades:295280','伊奥姆尼乌姆（蒂格齐尔特）'],
+ ['pleiades:295333','鲁苏比卡里'],['pleiades:483473194','恰塔尔休于'],['pleiades:148093','格拉努姆'],
+ ['pleiades:157805','雷伊（里耶）'],['pleiades:157896','奥尔比亚（高卢/耶尔）'],['pleiades:363924','菲莱尼兄弟祭坛'],
+ ['pleiades:373749','巴拉格拉埃（贝达）'],['pleiades:383578','奥古斯塔·巴吉恩诺鲁姆'],['pleiades:383602','布里克塞卢姆（布雷谢洛）'],
+ ['pleiades:383648','菲登蒂亚（菲登扎）'],['pleiades:383694','利巴尔纳'],['pleiades:383798','帕维亚（提基努姆）'],
+ ['pleiades:39271','阿杜利斯'],['pleiades:570027','阿比亚（麦西尼亚）'],['pleiades:570043','埃吉拉'],
+ ['pleiades:570044','埃吉埃（拉科尼亚）'],['pleiades:570059','卫城科林斯（阿克罗科林托斯）'],['pleiades:844856','阿马斯特里斯（阿马斯拉）'],
+ ['pleiades:844970','卡兰比斯'],['pleiades:854719','潘提卡彭（刻赤）'],['pleiades:638749','安蒂费洛斯（卡什）'],
+ ['pleiades:638803','哈哲穆萨拉尔丘'],['pleiades:638936','科尔马萨'],['pleiades:639048','佩尔格'],
+ ['pleiades:216800','杜罗斯托鲁姆（锡利斯特拉）'],['pleiades:216839','伊斯特里亚'],['pleiades:226546','奥尔比亚（黑海）'],
+ ['pleiades:226800','提拉斯（比尔霍罗德）'],['pleiades:281718504','大阿尔布努斯（罗西亚蒙大拿）'],['pleiades:687925','雅布内（亚姆尼亚）'],
+ ['pleiades:687996','安提帕特里斯'],['pleiades:707534','基蒂翁（拉纳卡）'],['pleiades:707628','塔马索斯'],
+ ['pleiades:727124','赫罗恩波利斯（皮托姆）'],['pleiades:570336','卡里斯托斯'],['pleiades:570347','肯克雷亚'],
+ ['pleiades:570392','基奈萨（卡拉夫里塔）'],['pleiades:570396','基帕里夏'],['pleiades:756613','帕诺波利斯（艾赫米姆）'],
+ ['pleiades:589815','伊阿利索斯'],['pleiades:589901','莱本（伦塔斯）'],['pleiades:590011','普赖索斯'],
+ ['pleiades:59915','马拉坎达（撒马尔罕）'],['pleiades:599476','埃吉亚莱'],['pleiades:599490','阿奈亚'],
+ ['pleiades:599745','拉布劳恩达'],['pleiades:550571','伊奥利亚赫拉克利亚'],['pleiades:550756','米里纳（伊奥利亚）'],
+ ['pleiades:432676','安吉提亚圣林'],['pleiades:432709','奥菲德纳（阿尔费德纳）'],['pleiades:432782','奇尔切伊（圣费利切）'],
+ ['pleiades:432886','约维斯·拉雷尼'],['pleiades:442691','诺尔巴（阿普利亚）'],['pleiades:540617','阿克赖菲亚'],
+ ['pleiades:540631','阿米罗斯'],['pleiades:540682','阿特拉克斯'],['pleiades:540687','阿佐罗斯'],
+ ['pleiades:540823','希埃托斯'],['pleiades:540909','莱夫坎迪'],['pleiades:540921','利西马基亚（埃托利亚）'],
+ ['pleiades:540984','翁凯斯托斯'],['pleiades:540987','奥尔霍迈诺斯（维奥蒂亚）'],['pleiades:540992','法拉纳'],
+ ['pleiades:541081','皮拉索斯'],['pleiades:550404','埃盖（伊奥利亚）'],['pleiades:550535','埃里特赖'],
+ ['pleiades:857177','新凯撒里亚（卡贝拉/尼克萨尔）'],['pleiades:462239','赫尔贝索斯'],['pleiades:462269','卡斯梅奈'],
+ ['pleiades:462279','莱昂蒂尼'],['pleiades:462281','利利巴埃乌姆（马尔萨拉）'],['pleiades:462378','莫迪卡（穆图卡）'],
+ ['pleiades:648555','尤穆克特佩（梅尔辛）'],['pleiades:648628','埃莱乌萨·塞巴斯泰'],['pleiades:648781','索洛伊（奇里乞亚庞培波利斯）'],
+ ['pleiades:658371','伊苏斯近郊亚历山大里亚（伊斯肯德伦）'],['pleiades:786127','丹德拉（坦提拉）'],['pleiades:786132','图菲翁（托德）'],
+ ['pleiades:79475','加里亚诺努姆'],['pleiades:79549','科里尼乌姆（赛伦塞斯特）'],['pleiades:79733','文塔·伊凯诺鲁姆（凯斯特）'],
+ ['pleiades:609292','艾扎诺伊'],['pleiades:609302','阿莫里翁'],['pleiades:570485','米迪亚（阿尔戈利斯）'],
+ ['pleiades:570558','帕奥斯'],['pleiades:570591','法里斯（拉科尼亚）'],['pleiades:570598','菲加利亚'],
+ ['pleiades:570662','塞拉西亚'],['pleiades:579853','埃伊纳'],['pleiades:579855','埃克索内'],
+ ['pleiades:579873','阿菲德纳'],['pleiades:579887','阿斯莫农'],['pleiades:579932','欧奥尼蒙'],
+ ['pleiades:579935','加尔格托斯'],['pleiades:579971','凯法莱'],['pleiades:579972','基菲夏'],
+ ['pleiades:580072','法勒隆'],['pleiades:511218','基齐库斯'],['pleiades:511354','帕里翁'],
+ ['pleiades:530834','科基拉（科孚）'],['pleiades:530842','迪奥里克托斯'],['pleiades:530879','格利基斯港'],
+ ['pleiades:531019','翁凯斯莫斯（萨兰达）'],['pleiades:180252821','阿佐里亚'],['pleiades:481770','布德瓦（布托埃）'],
+ ['pleiades:481896','利苏斯（莱什）'],['pleiades:491519','阿洛罗斯'],['pleiades:491526','阿波罗尼亚（哈尔基迪基）'],
+ ['pleiades:167650','艾克斯莱班（阿奎·阿拉奥布罗古姆）'],['pleiades:167675','贝尔金特鲁姆（圣莫里斯堡）'],['pleiades:491572','迪翁（奥林波斯山）'],
+ ['pleiades:491664','米埃扎'],['pleiades:501570','兰普萨库斯'],['pleiades:167919','塞古西奥（苏萨）'],
+ ['pleiades:177473','比布拉克特'],['pleiades:177516','埃帕曼杜奥杜鲁姆（芒德尔）'],['pleiades:187292','阿尔博尔·费利克斯（阿尔邦）'],
+ ['pleiades:187325','布里甘提乌姆（布雷根茨）'],['pleiades:187432','尤瓦乌姆（萨尔茨堡）'],['pleiades:197130','阿昆库姆（布达佩斯）'],
+ ['pleiades:197427','帕伦提乌姆（波雷奇）'],['pleiades:197501','斯卡尔班蒂亚（肖普朗前身）'],['pleiades:874361','阿塔沙特（阿尔塔克萨塔）'],
+ ['pleiades:874623','尼西比斯（努赛宾）'],['pleiades:472035','图里斯·利比索尼斯（托雷斯港）'],['pleiades:922695','波斯波利斯（帕尔萨）'],
+ ['pleiades:678266','莱吉奥（米吉多罗马营地）'],['pleiades:138323','达里奥里图姆（瓦讷）'],['pleiades:413179','泰拉莫（普拉埃图蒂乌姆因特拉姆尼亚）'],
+ ['pleiades:413264','普莱斯蒂亚'],['pleiades:246349','塔拉科（塔拉戈纳）'],['pleiades:246352','康普卢图姆（埃纳雷斯堡）'],
+ ['pleiades:246406','赫罗纳（格伦达）'],['pleiades:246410','格罗弗桑克'],['pleiades:89128','布罗科利蒂亚'],
+ ['pleiades:108729','阿格丁库姆（桑斯）'],['pleiades:108776','奥古斯托马古斯（桑利斯）'],['pleiades:108788','巴加库姆（巴韦）'],
+ ['pleiades:108802','贝尔吉努姆'],['pleiades:109194','内梅塔库姆（阿拉斯）'],['pleiades:109287','鲁昂（罗托马古斯）'],
+ ['pleiades:109329','斯卡尔蓬纳'],
+ ['pleiades:211425279','拉什特'],['pleiades:890432541','卡尚'],['pleiades:982176368','法达克'],
+ ['pleiades:897829063','格迪古城'],['pleiades:903064','霍拉马巴德'],['pleiades:903102','克尔曼沙汗'],
+ ['pleiades:692712721','卡尔斯'],['pleiades:296101142','希拉（巴比伦近郊）'],['pleiades:159615010','苏尔特'],
+ ['pleiades:944396034','马拉盖'],['pleiades:874762','塔努里斯'],['pleiades:39300','阿特鲁拉'],
+ ['pleiades:874438','巴莱萨'],['pleiades:699913','伊拉克城堡（外约旦）'],['pleiades:671109966','拉马特·拉赫勒'],
+ ['pleiades:499030282','古拜拉']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;

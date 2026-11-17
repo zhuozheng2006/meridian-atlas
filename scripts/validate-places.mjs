@@ -295,7 +295,19 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:942276',-200,'百门城（赫卡托姆皮洛斯）'],
     ['index','pleiades:971886',100,'铁尔梅兹（塔尔米塔）'],
     ['index','pleiades:430344981',1000,'大不里士'],
-    ['index','pleiades:410216618',1000,'麦迪纳·阿扎哈拉']
+    ['index','pleiades:410216618',1000,'麦迪纳·阿扎哈拉'],
+    ['index','pleiades:922695',-400,'波斯波利斯（帕尔萨）'],
+    ['index','pleiades:483473194',-6000,'恰塔尔休于'],
+    ['index','pleiades:59915',-200,'马拉坎达（撒马尔罕）'],
+    ['index','pleiades:246349',100,'塔拉科（塔拉戈纳）'],
+    ['index','pleiades:266066',100,'托莱多（托莱图姆）'],
+    ['index','pleiades:854719',-200,'潘提卡彭（刻赤）'],
+    ['index','pleiades:197130',200,'阿昆库姆（布达佩斯）'],
+    ['index','pleiades:874361',-100,'阿塔沙特（阿尔塔克萨塔）'],
+    ['index','pleiades:211425279',1000,'拉什特'],
+    ['index','pleiades:890432541',1000,'卡尚'],
+    ['index','pleiades:982176368',1000,'法达克'],
+    ['index','pleiades:897829063',1300,'格迪古城']
   ];
   for(const [src,id,year,expectedZh] of wave2){
     const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
