@@ -16,11 +16,20 @@ function boot(){
  const params=new URLSearchParams(location.hash.slice(1)),view=params.get('view');
  if(!['research','polities','stories','library','sources'].includes(view)&&typeof fetch==='function'&&location.protocol.startsWith('http')){
   window.__meridianBootLand??=fetch('data/land.geojson').then(r=>r.ok?r.json():'data/land.geojson').catch(()=>'data/land.geojson');
+  const pre=window.__meridianBootPrefetch??=Object.create(null);
+  pre['data/fast/events-index.json.gz']??=fetch('data/fast/events-index.json.gz',{cache:'no-cache',priority:'auto'}).catch(()=>null);
   if(typeof document!=='undefined'&&document.head){
    const ml=document.createElement('link');ml.rel='preload';ml.as='script';ml.fetchPriority='high';ml.href=assetURL('./assets/maplibre-gl.js');document.head.append(ml);
-   for(const mod of ['./map-engine.js','./boundary-controller.js','./country-archive.js','./native-geometry.js','./bootstrap-content-hashes.js','./native-temporal-index.js','./polity-names.js','./polity-display-names-data.js','./map-catalog.js','./view-state.js','./timeline-controls.js','./research-view.js','./boundary-mesh.js','./territory-frame-cache.js','./border-curves.js','./country-names.js','./map-load-priority.js','./boundary-style.js','./geometry-anchor.js']){
+   for(const mod of ['./bootstrap-content-hashes.js','./map-engine.js','./native-geometry.js','./native-temporal-index.js','./boundary-controller.js','./country-archive.js','./polity-names.js','./polity-display-names-data.js','./map-catalog.js','./view-state.js','./timeline-controls.js','./research-view.js','./boundary-mesh.js','./territory-frame-cache.js','./border-curves.js','./country-names.js','./map-load-priority.js','./boundary-style.js','./geometry-anchor.js']){
     const link=document.createElement('link');link.rel='modulepreload';link.href=assetURL(mod);document.head.append(link);
    }
+  }
+  const reqYear=Number(params.get('year')??1492),bootYear=Math.max(-70000,Math.min(2026,Number.isFinite(reqYear)?Math.round(reqYear)||1:1492));
+  if(bootYear>=-3400&&bootYear<=2024&&params.get('boundaries')!=='cshapes'){
+   void import(assetURL('./bootstrap-content-hashes.js')).then(m=>{
+    const req=m.bootstrapDataRequest(`data/native/year-${bootYear}.json.gz`);
+    if(req)pre[req.url]??=fetch(req.url,{cache:req.cache,priority:'high'}).catch(()=>null);
+   }).catch(()=>{});
   }
  }
  startEntry().catch(()=>{
