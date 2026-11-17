@@ -1,19 +1,72 @@
-import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.84.0-fa76da83e989';
-import {waitForMapForeground} from './map-load-priority.js?v=3.84.0-fa76da83e989';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.84.0-fa76da83e989';
-import {boundaryMesh} from './boundary-mesh.js?v=3.84.0-fa76da83e989';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.84.0-fa76da83e989';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.84.0-fa76da83e989';
-import {BoundaryController} from './boundary-controller.js?v=3.84.0-fa76da83e989';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.84.0-fa76da83e989';
+import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.85.0-441ebc74b40e';
+import {waitForMapForeground} from './map-load-priority.js?v=3.85.0-441ebc74b40e';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.85.0-441ebc74b40e';
+import {boundaryMesh} from './boundary-mesh.js?v=3.85.0-441ebc74b40e';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.85.0-441ebc74b40e';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.85.0-441ebc74b40e';
+import {BoundaryController} from './boundary-controller.js?v=3.85.0-441ebc74b40e';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.85.0-441ebc74b40e';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.84.0-fa76da83e989';
-import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=3.84.0-fa76da83e989';
+import {polityName} from './polity-names.js?v=3.85.0-441ebc74b40e';
+import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=3.85.0-441ebc74b40e';
 export {polityName};
+const POLITY_LABEL_ZH_FIX=new Map([
+ ['切尔尼戈夫统治者列表','切尔尼戈夫公国'],['立窝尼亚语','利沃尼亚邦联'],['也门伊玛目列表','也门伊玛目国'],
+ ['中山市','中山国'],['梁赞大公','梁赞公国'],['维捷布斯克公爵','维捷布斯克公国'],['大波兰公爵','大波兰公国'],
+ ['塞尔维亚大王子','塞尔维亚大公国'],['萨沃伊伯爵','萨伏伊伯国'],['安茹伯爵','安茹伯国'],
+ ['阿奎莱亚宗主教','阿奎莱亚宗主教区'],['迪斯蒙伯爵','德斯蒙德伯国'],['阿尔斯特伯爵','阿尔斯特伯国'],
+ ['莱格尼察公爵','莱格尼察公国'],['奥索纳伯爵','奥索纳伯国'],['比托姆公爵','比托姆公国'],
+ ['施瓦茨堡统治者列表','施瓦茨堡-松德斯豪森侯国'],['瓦尔德克统治者列表','瓦尔德克-皮尔蒙特侯国'],
+ ['凯法利尼亚与扎金索斯公爵领地','托科家族领地'],['文奇察省','文奇察公国'],
+ ['匈牙利皇冠领地波士尼亚省','波斯尼亚总督区'],['阿尔马尼亚克行省','阿尔马尼亚克伯国'],
+ ['米却肯州','米却肯王国'],['巴厘省','巴厘诸邦'],
+ ['巴达维亚共和国 (荷兰殖民地)总督','巴达维亚共和国（荷属东印度）'],['玻璃市州','吉打—玻璃市领地'],
+ ['Mahameghavahana Dynasty','大云车王朝'],['First Toungoo Empire','东吁第一帝国'],
+ ['(Carolingian Empire)','（加洛林帝国）'],['Gothia','哥特兰（哥特诸部）'],
+ ['Old Kingdom of Norway','挪威王国'],['Southern Wu','南吴（杨吴）'],
+ ['Muzaffarids','穆扎法尔王朝'],['Lohara Dynasty','罗哈拉王朝（克什米尔）'],
+ ['Cundinamarca','昆迪纳马卡自由邦'],['Denmark-England','北海帝国（丹麦—英格兰）'],
+ ["Samo's Empire",'萨莫斯拉夫邦联'],['Jaunpur Sultanate','章普尔苏丹国'],
+ ['Republic of Uryankhay','乌梁海共和国'],['Zayyanid dynasty','扎扬王朝'],
+ ['Kapisa','迦毕试王国'],['Nawab of Awadh','阿瓦德纳瓦卜领国'],
+ ['Principality of Minsk','明斯克公国'],['Asir','阿西尔伊德里斯酋长国'],
+ ['Thracian Kingdom','色雷斯王国'],['Sulayhid Dynasty','苏莱希德王朝'],
+ ['Balasagan','巴拉萨干'],['Principality of Terebovlia','捷列博夫利亚公国'],
+ ['Thuringian states','图林根诸邦'],['Kingdom of Thuringia','图林根王国'],
+ ['Kingdom of Africa','西西里非洲王国'],['Angevins','安茹帝国'],
+ ['Taifa of Granada','格拉纳达泰法'],['County of Poitou','普瓦图伯国'],
+ ['Taifa of Almería','阿尔梅里亚泰法'],['Principality of Drutsk','德鲁茨克公国'],
+ ['County of Périgord','佩里戈尔伯国'],['Ryazan','梁赞公国'],
+ ['Duchy of Tuscia','图西亚公国'],['Rugiland','鲁吉兰（鲁吉人王国）'],
+ ['Sultanate of Sambaliung','桑巴利翁苏丹国'],['Qataban','卡塔班王国'],
+ ['Taifa of Carmona','卡尔莫纳泰法'],['Despotate of Arta','阿尔塔专制国'],
+ ['Principality of Beloozero','白湖公国'],['Taifa of Algeciras','阿尔赫西拉斯泰法'],
+ ['Taifa of Albarracín','阿尔瓦拉辛泰法'],['Duchy of Kuyavia','库亚维亚公国'],
+ ['County of Besalú','贝萨卢伯国'],['Taifa of Silves','西尔维什泰法'],
+ ['Kampili Kingdom','坎皮利王国'],['Kingdom of Dambadeniya','丹巴德尼亚王国'],
+ ['Thebans','底比斯城邦'],['Taifa of Arcos','阿尔科斯泰法'],
+ ['Janapada of Gandhāra','犍陀罗国'],['Taifa of Saltés and Huelva','萨尔特斯—韦尔瓦泰法'],
+ ['Janapada of Cedī','支提国'],['County of Aragon','阿拉贡伯国'],
+ ['Zurayid dynasty','祖赖伊德王朝'],['County of Pallars Sobirà','上帕利亚尔斯伯国'],
+ ['Taifa of Alpuente','阿尔蓬特泰法'],['Kingdom of Powys Wenwynwyn','波伊斯温温温王国'],
+ ['Sultanate of Mempawah','喃吧哇苏丹国'],['Duchy of Kalisz','卡利什公国'],
+ ['Principality of Svaneti','斯瓦涅季公国'],['Texcoco','特斯科科'],
+ ['Taifa of Santa Maria do Algarve','阿尔加维泰法']
+]);
+function overviewPolityName(r,lang,year){
+ const raw=polityName(r,lang,year);
+ if(lang==='en'||!r)return raw;
+ const mapped=POLITY_LABEL_ZH_FIX.get(raw);
+ if(mapped)return mapped;
+ if(raw==='Later Zhou'&&r.start<0)return '东周';
+ if(raw==='Xia'&&r.start>=400&&r.end<=450)return '胡夏';
+ if(raw==='Min'&&r.start>=900&&r.end<=950)return '闽国';
+ return raw;
+}
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
 const resources=new Map();
@@ -38,7 +91,7 @@ export async function readJSON(url){
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
    const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
-   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.84.0-fa76da83e989'))).historicalDataRequest(url);
+   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.85.0-441ebc74b40e'))).historicalDataRequest(url);
    const pre=(typeof window!=='undefined'&&window.__meridianBootPrefetch?.[transport.url])||null;
    if(pre)delete window.__meridianBootPrefetch[transport.url];
    let response=null;
@@ -172,8 +225,8 @@ export class AtlasMap{
   if(this._detailLayersPromise)return this._detailLayersPromise;
   this._detailLayersPromise=(async()=>{
    const [{RegionalBoundaries:RB},{HistoricalDetailLayer:HD}]=await Promise.all([
-    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.84.0-fa76da83e989'),
-    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.84.0-fa76da83e989')
+    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.85.0-441ebc74b40e'),
+    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.85.0-441ebc74b40e')
    ]);
    if(this.destroyed)return false;
    if(this.regional?._isStub){
@@ -204,7 +257,7 @@ export class AtlasMap{
    if(this.geography._isStub&&typeof Geography==='undefined'){
     const stub=this.geography;
     this.geographyReady=(async()=>{
-     const {Geography:RealGeography}=await import('./geography.js?v=3.84.0-fa76da83e989');
+     const {Geography:RealGeography}=await import('./geography.js?v=3.85.0-441ebc74b40e');
      if(this.destroyed)return false;
      const geo=new RealGeography(this);geo.enabled=stub.enabled;geo.coastAligned=stub.coastAligned;geo.reference=stub.reference;this.geography=geo;
      const ok=await geo.init().then(()=>true).catch(()=>false);
@@ -291,7 +344,7 @@ export class AtlasMap{
    if(this.labels.length>=Math.min(30,6+Math.floor(zoom)*5))break;
    if(r.area<8000/Math.max(1,zoom))continue;
    let anchor=r.labelCenter||r.center;
-   const name=polityName(r,this.lang,this.year),englishName=polityName(r,'en',this.year);
+   const name=overviewPolityName(r,this.lang,this.year),englishName=polityName(r,'en',this.year);
    const labelKey=String(name||'').replace(/^[()（）\s]+|[()（）\s]+$/g,'');
    if(labelKey&&anchor&&placedKeys.some(k=>k.key===labelKey&&Math.hypot(k.lon-anchor[0],k.lat-anchor[1])<18))continue;
    const bilingual=this.lang==='bi'&&name!==englishName&&zoom>=2.3;
@@ -411,8 +464,10 @@ export class AtlasMap{
   if(!next||!point){this._renderHoverCard(null);return;}
   const r=this.boundaries?.isCountry?this.boundaries.recordMap?.get(next):this.recordMap?.get(next);
   if(!r){this._renderHoverCard(null);return;}
-  const primary=this.boundaries?.isCountry?(this.boundaries.countryLabel?this.boundaries.countryLabel(r,this.lang):(this.lang==='en'?r.name:(r.zhName||r.name))):polityName(r,this.lang,this.year);
-  const secondary=this.lang==='bi'?(this.boundaries?.isCountry?((()=>{const e=this.boundaries.countryLabel?this.boundaries.countryLabel(r,'en'):r.name;return e&&e!==primary?e:'';})()):((()=>{const e=polityName(r,'en',this.year);return e&&e!==primary?e:'';})())):'';
+  const isCountry=this.boundaries?.isCountry;
+  const primary=isCountry?(this.boundaries.countryLabel?this.boundaries.countryLabel(r,this.lang):(this.lang==='en'?r.name:(r.zhName||r.name))):overviewPolityName(r,this.lang,this.year);
+  const en=isCountry?(this.boundaries.countryLabel?this.boundaries.countryLabel(r,'en'):r.name):polityName(r,'en',this.year);
+  const secondary=this.lang==='bi'&&en&&en!==primary?en:'';
   const meta=this.boundaries?.isCountry?`${r.startDate||''} — ${r.endDate||''}`:`${formatYear(r.start,this.lang==='en'?'en':'zh')} — ${formatYear(r.end,this.lang==='en'?'en':'zh')}`;
   this._renderHoverCard({primary,secondary,meta},point);
  }

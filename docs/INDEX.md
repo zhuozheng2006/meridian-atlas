@@ -3,13 +3,14 @@
 ## 从这里开始
 
 - [项目首页与运行方式](../README.md)
-- [当前进度与后续事项：3.84](HANDOFF-3.84.md)
+- [当前进度与后续事项：3.85](HANDOFF-3.85.md)
 - [开发、验证和部署](DEVELOPMENT.md)
 - [完整历史首页与迭代记录](PROJECT-HISTORY.md)
 - [全部来源与许可](../ATTRIBUTIONS.md)
 
 ## 最新验证证据
 
+- [3.85 Wave-20 全量 Pleiades >= 6（4,104 处）、上游政体机翻纠偏、OHM 德奥／东亚扩展与视觉微精修](HANDOFF-3.85.md)
 - [3.84 Wave-19 全量 Pleiades >= 7（3,565 处）、概览重名去括号去重与内容页细节精修](HANDOFF-3.84.md)
 - [3.83 Wave-18 全量 Pleiades >= 8（3,150 处）与 OHM 欧洲双语扩展、球面/移动端图钉疏密、详图按需加载及界面精修](HANDOFF-3.83.md)
 - [3.82 Wave-17 全量 Pleiades >= 9（2,810 处）、CShapes 分期悬停修复与图元碰撞/性能清理](HANDOFF-3.82.md)

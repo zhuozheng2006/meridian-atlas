@@ -400,7 +400,22 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:459393126',-1250,'恰高·赞比尔'],
     ['index','pleiades:599971',-500,'锡拉古城（圣托里尼）'],
     ['index','pleiades:197524',300,'斯帕拉图姆（斯普利特）'],
-    ['index','pleiades:109188',100,'那慕尔']
+    ['index','pleiades:109188',100,'那慕尔'],
+    ['index','pleiades:29652',100,'马科拉巴（麦加）'],
+    ['index','pleiades:912851',-400,'法伊拉卡岛遗址（伊卡罗斯）'],
+    ['index','pleiades:912941',200,'舒什塔尔（索斯特拉特）'],
+    ['index','pleiades:678403',-200,'示剑'],
+    ['index','pleiades:687904',-800,'基泽尔（基色）'],
+    ['index','pleiades:688015',-217,'拉菲亚（拉法）'],
+    ['index','pleiades:550496',2005,'希俄斯'],
+    ['index','pleiades:540703',-400,'哈尔基斯（优卑亚）'],
+    ['index','pleiades:59759',100,'迦毕试（巴格兰—贝格拉姆）'],
+    ['index','pleiades:128384',200,'卡农图姆殖民地'],
+    ['index','pleiades:207193',550,'第一查士丁尼亚（卡里钦格勒）'],
+    ['index','pleiades:863739',100,'阿尼（亚美尼亚）'],
+    ['index','pleiades:893988',-600,'杜尔-库里加尔祖'],
+    ['index','pleiades:894185',300,'芝诺比娅（哈拉比耶）'],
+    ['index','pleiades:118701',-200,'格劳贝格凯尔特王城']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
