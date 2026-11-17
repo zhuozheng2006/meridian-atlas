@@ -13,6 +13,15 @@ export async function startEntry({doc=document,win=window,loadApplication=create
  const module=await loadApplication(),application=module.startApplication();await application.ready;return application;
 }
 function boot(){
+ const params=new URLSearchParams(location.hash.slice(1)),view=params.get('view');
+ if(!['research','polities','stories','library','sources'].includes(view)&&typeof fetch==='function'&&location.protocol.startsWith('http')){
+  window.__meridianBootLand??=fetch('data/land.geojson').then(r=>r.ok?r.json():'data/land.geojson').catch(()=>'data/land.geojson');
+  if(typeof document!=='undefined'&&document.head){
+   for(const mod of ['./map-engine.js','./boundary-controller.js','./country-archive.js','./native-geometry.js']){
+    const link=document.createElement('link');link.rel='modulepreload';link.href=assetURL(mod);document.head.append(link);
+   }
+  }
+ }
  startEntry().catch(()=>{
   const doc=document,host=doc.getElementById('contentView'),en=new URLSearchParams(location.hash.slice(1)).get('lang')==='en';
   for(const id of ['atlasView','timeline','browseBtn','compareBtn'])doc.getElementById(id).hidden=true;host.hidden=false;host.replaceChildren();

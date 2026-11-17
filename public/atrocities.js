@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=3.62.0-49956dfacac0';
+import {readJSON,formatYear} from './map-engine.js?v=3.62.0-4a3f7de0be92';
 
 // A separate point layer for one-sided mass violence against non-combatants.
 // It is deliberately NOT the battle layer: scripts/places/validate-atrocities.mjs
@@ -54,9 +54,14 @@ export class AtrocityLayer{
    const box={left:origin.left+screen.x-w/2,right:origin.left+screen.x+w/2,top:origin.top+screen.y-h/2,bottom:origin.top+screen.y+h/2};
    if(box.left<origin.left+8||box.right>origin.right-10||box.top<origin.top+10||box.bottom>origin.bottom-48||boxes.some(b=>overlap(box,b)))continue;
    boxes.push({...box,left:box.left-7,right:box.right+7,top:box.top-4,bottom:box.bottom+4});
-   el.onclick=e=>{e.stopPropagation();this.onSelect?.(record,this.atlas);};
+   const secondary=this.lang!=='en'&&this.hasSourceZh(record)&&record.nameEn?record.nameEn.trim():'';
+   const meta=formatYear(record.year,this.lang==='en'?'en':'zh');
+   const showHover=()=>{this.atlas.setHoverMarker?.({primary:this.name(record),secondary,meta},el.getBoundingClientRect());};
+   el.addEventListener('mouseenter',showHover);el.addEventListener('focus',showHover);
+   el.addEventListener('mouseleave',()=>this.atlas.setHoverMarker?.(null));el.addEventListener('blur',()=>this.atlas.setHoverMarker?.(null));
+   el.onclick=e=>{e.stopPropagation();this.atlas.setHoverMarker?.(null);this.onSelect?.(record,this.atlas);};
    this.markers.push(new maplibregl.Marker({element:el,anchor:'center',opacityWhenCovered:'0'}).setLngLat([lon,lat]).addTo(map));
   }
  }
- destroy(){this.seq++;this.map.off('moveend',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
+ destroy(){this.seq++;this.atlas.setHoverMarker?.(null);this.map.off('moveend',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
 }

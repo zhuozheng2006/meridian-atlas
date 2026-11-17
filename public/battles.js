@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=3.62.0-49956dfacac0';
+import {readJSON,formatYear} from './map-engine.js?v=3.62.0-4a3f7de0be92';
 
 // Battles are a dated point layer, not a boundary layer. Every record keeps the
 // source entity it came from; outcome is deliberately absent because the upstream
@@ -42,10 +42,15 @@ export class BattleLayer{
    const box={left:origin.left+screen.x-w/2,right:origin.left+screen.x+w/2,top:origin.top+screen.y-h/2,bottom:origin.top+screen.y+h/2};
    if(box.left<origin.left+8||box.right>origin.right-10||box.top<origin.top+10||box.bottom>origin.bottom-48||boxes.some(b=>overlap(box,b)))continue;
    boxes.push({...box,left:box.left-7,right:box.right+7,top:box.top-4,bottom:box.bottom+4});
-   el.onclick=e=>{e.stopPropagation();this.onSelect?.(battle,this.atlas);};
+   const secondary=this.lang!=='en'&&battle.nameZh&&battle.nameEn&&battle.nameZh!==battle.nameEn?battle.nameEn:'';
+   const meta=formatYear(battle.year,this.lang==='en'?'en':'zh')+(battle.conflict?' · '+battle.conflict:'');
+   const showHover=()=>{this.atlas.setHoverMarker?.({primary:this.name(battle),secondary,meta},el.getBoundingClientRect());};
+   el.addEventListener('mouseenter',showHover);el.addEventListener('focus',showHover);
+   el.addEventListener('mouseleave',()=>this.atlas.setHoverMarker?.(null));el.addEventListener('blur',()=>this.atlas.setHoverMarker?.(null));
+   el.onclick=e=>{e.stopPropagation();this.atlas.setHoverMarker?.(null);this.onSelect?.(battle,this.atlas);};
    this.markers.push(new maplibregl.Marker({element:el,anchor:'center',opacityWhenCovered:'0'}).setLngLat([lon,lat]).addTo(map));
   }
  }
  name(battle){return this.lang==='en'?(battle.nameEn||battle.nameZh||battle.id):(battle.nameZh||battle.nameEn||battle.id);}
- destroy(){this.seq++;this.map.off('moveend',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
+ destroy(){this.seq++;this.atlas.setHoverMarker?.(null);this.map.off('moveend',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
 }
