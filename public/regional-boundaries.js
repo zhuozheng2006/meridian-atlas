@@ -1,18 +1,18 @@
-import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=3.69.0-e45a0e3bf7a4';
+import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=3.69.0-346ed9e46b02';
 export const interiorAnchor=(geometry,box=null)=>_interiorAnchor(geometry,box);
 export const interiorPoint=(geometry,box=null)=>_interiorPoint(geometry,box);
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.69.0-e45a0e3bf7a4';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.69.0-e45a0e3bf7a4';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.69.0-e45a0e3bf7a4';
-import {beginMapForeground} from './map-load-priority.js?v=3.69.0-e45a0e3bf7a4';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.69.0-e45a0e3bf7a4';
-import {boundaryNote} from './boundary-notes.js?v=3.69.0-e45a0e3bf7a4';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.69.0-e45a0e3bf7a4';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.69.0-e45a0e3bf7a4';
-import {boundaryMode} from './view-state.js?v=3.69.0-e45a0e3bf7a4';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.69.0-e45a0e3bf7a4';
-import {historicalYearRange} from './historical-dates.js?v=3.69.0-e45a0e3bf7a4';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.69.0-e45a0e3bf7a4';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.69.0-346ed9e46b02';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.69.0-346ed9e46b02';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.69.0-346ed9e46b02';
+import {beginMapForeground} from './map-load-priority.js?v=3.69.0-346ed9e46b02';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.69.0-346ed9e46b02';
+import {boundaryNote} from './boundary-notes.js?v=3.69.0-346ed9e46b02';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.69.0-346ed9e46b02';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.69.0-346ed9e46b02';
+import {boundaryMode} from './view-state.js?v=3.69.0-346ed9e46b02';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.69.0-346ed9e46b02';
+import {historicalYearRange} from './historical-dates.js?v=3.69.0-346ed9e46b02';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.69.0-346ed9e46b02';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){

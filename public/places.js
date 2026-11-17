@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.69.0-e45a0e3bf7a4';
-import {placeWindow} from './view-state.js?v=3.69.0-e45a0e3bf7a4';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.69.0-346ed9e46b02';
+import {placeWindow} from './view-state.js?v=3.69.0-346ed9e46b02';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -187,7 +187,36 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:462538','墨西拿（赞克勒）'],['pleiades:452416','雷焦卡拉布里亚（雷吉翁）'],['pleiades:148217','阿尔勒（阿雷拉特）'],['pleiades:148142','尼姆（内毛苏斯）'],
  ['pleiades:256210','塞维利亚（伊斯帕利斯）'],['pleiades:599587','提洛岛'],['pleiades:570468','墨伽拉'],['pleiades:570491','迈锡尼'],
  ['pleiades:226564','赫尔松涅斯'],['pleiades:658381','叙利亚安条克'],['pleiades:678060','贝鲁特'],['pleiades:678158','杰拉什'],
- ['pleiades:315248','乌提卡'],['pleiades:315267','扎马']
+ ['pleiades:315248','乌提卡'],['pleiades:315267','扎马'],
+ ['chandler:9','阿波美卡拉维'],['chandler:38','阿尔卡拉瓦'],['chandler:56','阿姆罗哈'],['chandler:58','阿嫩达布尔'],
+ ['chandler:104','艾瓦勒克'],['chandler:120','班达'],['chandler:158','别尔季切夫'],['chandler:173','比马瓦拉姆'],
+ ['chandler:192','博巴斯特罗'],['chandler:197','邦加'],['chandler:200','博里纳日'],['chandler:240','布萨'],
+ ['chandler:255','肯普隆格'],['chandler:271','查坎普通'],['chandler:273','钱德拉普尔'],['chandler:276','钱德拉吉里'],
+ ['chandler:283','查塔姆'],['chandler:294','恰普拉'],['chandler:296','奇比里'],['chandler:300','奇利科西'],
+ ['chandler:301','钦查'],['chandler:303','基希讷乌'],['chandler:310','丘纳尔'],['chandler:373','德拉加齐汗'],
+ ['chandler:386','迪纳杰布尔'],['chandler:391','东戈'],['chandler:415','埃西哈'],['chandler:427','埃尔维拉（伊尔贝里斯）'],
+ ['chandler:463','福阿'],['chandler:572','希波斯'],['chandler:601','海德拉（阿尔及尔）'],['chandler:605','伊贾耶'],
+ ['chandler:606','伊克凯里'],['chandler:607','沙基（伊科索）'],['chandler:627','伊萨帕'],['chandler:673','卡姆塔布尔'],
+ ['chandler:694','卡亚尔帕特纳姆'],['chandler:697','凯比'],['chandler:760','库施（纳帕塔）'],['chandler:772','拉昆迪'],
+ ['chandler:824','鲁汶'],['chandler:852','马赫什瓦尔'],['chandler:853','马霍巴'],['chandler:869','曼德维'],
+ ['chandler:871','马尼'],['chandler:883','马里亚纳'],['chandler:888','马塞尼亚'],['chandler:917','梅瑟蒂德菲尔'],
+ ['chandler:940','蒙多维'],['chandler:959','蒙格埃尔'],['chandler:965','穆松巴'],['chandler:970','纳瓦德维帕（纳迪亚）'],
+ ['chandler:973','贝德努尔（纳加拉）'],['chandler:1002','恩戈尔努'],['chandler:1167','拉巴'],['chandler:1183','雷亚尔·德·卡托尔塞'],
+ ['chandler:1209','鲁贝'],['chandler:1253','蒂兰通戈'],['chandler:1259','萨普塔格拉姆'],['chandler:1266','萨塔拉'],
+ ['chandler:1311','索斯特'],['chandler:1319','松加德'],['chandler:1352','苏拉梅'],['chandler:1357','斯维什托夫'],
+ ['chandler:1410','塔内萨尔'],['chandler:1453','特里波利斯'],['chandler:1455','特洛伊（纽约州）'],['chandler:1466','泰恩茅斯'],
+ ['modelski-ancient:127','泰勒·塔亚'],['modelski-ancient:135','蒂特里斯·霍尤克'],
+ ['pleiades:148004','阿维尼翁（阿韦尼奥）'],['pleiades:148054','奥朗日（阿劳西奥）'],['pleiades:157803','阿尔本加（阿尔宾高努姆）'],['pleiades:373757','贝伦尼基（班加西）'],
+ ['pleiades:383603','布雷西亚（布里克西亚）'],['pleiades:383691','洛迪（老庞培）'],['pleiades:383715','摩德纳（穆蒂纳）'],['pleiades:383741','皮亚琴察（普拉森蒂亚）'],
+ ['pleiades:383755','雷焦艾米利亚（雷吉乌姆）'],['pleiades:383815','韦尔切利'],['pleiades:393374','阿尔蒂努姆'],['pleiades:393405','克拉泰尔纳'],
+ ['pleiades:393448','马扎博托（凯努亚）'],['pleiades:393498','斯皮纳'],['pleiades:570049','埃伊翁'],['pleiades:570220','伊利斯'],
+ ['pleiades:570268','吉雄'],['pleiades:570274','哈利埃伊斯'],['pleiades:570316','伊斯特米亚'],['pleiades:844926','甘格拉'],
+ ['pleiades:638751','弗里吉亚阿帕米亚'],['pleiades:639087','萨加拉索斯'],['pleiades:236377','布拉加（奥古斯塔）'],['pleiades:315192','塔巴尔卡（塔布拉卡）'],
+ ['pleiades:707586','新帕福斯'],['pleiades:727088','布巴斯提斯'],['pleiades:746700','亚喀巴（艾拉）'],['pleiades:589872','克诺索斯'],
+ ['pleiades:589989','法拉萨尔纳'],['pleiades:432839','福尔米亚'],['pleiades:432981','诺拉'],['pleiades:433134','苏尔莫纳（苏尔莫）'],
+ ['pleiades:442525','卡努西乌姆'],['pleiades:442613','赫尔多尼亚'],['pleiades:550403','阿德拉米蒂乌姆'],['pleiades:550434','亚历山大·特洛阿斯'],
+ ['pleiades:857018','阿马西亚'],['pleiades:658587','萨莫萨塔'],['pleiades:462236','恩纳'],['pleiades:462373','莫西亚'],
+ ['pleiades:462487','塞杰斯塔']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
