@@ -3,13 +3,14 @@
 ## 从这里开始
 
 - [项目首页与运行方式](../README.md)
-- [当前进度与后续事项：3.77](HANDOFF-3.77.md)
+- [当前进度与后续事项：3.78](HANDOFF-3.78.md)
 - [开发、验证和部署](DEVELOPMENT.md)
 - [完整历史首页与迭代记录](PROJECT-HISTORY.md)
 - [全部来源与许可](../ATTRIBUTIONS.md)
 
 ## 最新验证证据
 
+- [3.78 Wave-13 全量 Pleiades >= 13 覆证（1,788 处）、悬停浮窗边缘防遮挡翻转与导出按钮统一](HANDOFF-3.78.md)
 - [3.77 Wave-12 全量 Pleiades >= 14 覆证（1,598 处）与波斯 1000 CE 100% 汉化、图层浮窗/帮助窗轻退交互](HANDOFF-3.77.md)
 - [3.76 Wave-11 全量 Pleiades >= 15 覆证（1,437 处）、WeakMap 检索 5x 加速（2.9 ms）与样式表内联去重](HANDOFF-3.76.md)
 - [3.75 海域地名对比光晕、style.css 阴影剪枝、Wave-10 古代及丝路全城覆证（1,313 处 / ref >= 16 全覆盖）与交互零重排优化](HANDOFF-3.75.md)
