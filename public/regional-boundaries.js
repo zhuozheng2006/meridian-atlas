@@ -1,18 +1,18 @@
-import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=3.82.0-d306b119bfeb';
+import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=3.83.0-edef63c355f2';
 export const interiorAnchor=(geometry,box=null)=>_interiorAnchor(geometry,box);
 export const interiorPoint=(geometry,box=null)=>_interiorPoint(geometry,box);
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.82.0-d306b119bfeb';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.82.0-d306b119bfeb';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.82.0-d306b119bfeb';
-import {beginMapForeground} from './map-load-priority.js?v=3.82.0-d306b119bfeb';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.82.0-d306b119bfeb';
-import {boundaryNote} from './boundary-notes.js?v=3.82.0-d306b119bfeb';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.82.0-d306b119bfeb';
-import {HalcBoundaries} from './halc-boundaries.js?v=3.82.0-d306b119bfeb';
-import {boundaryMode} from './view-state.js?v=3.82.0-d306b119bfeb';
-import {simplifiedChinese} from './simplified-chinese.js?v=3.82.0-d306b119bfeb';
-import {historicalYearRange} from './historical-dates.js?v=3.82.0-d306b119bfeb';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.82.0-d306b119bfeb';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=3.83.0-edef63c355f2';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=3.83.0-edef63c355f2';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=3.83.0-edef63c355f2';
+import {beginMapForeground} from './map-load-priority.js?v=3.83.0-edef63c355f2';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=3.83.0-edef63c355f2';
+import {boundaryNote} from './boundary-notes.js?v=3.83.0-edef63c355f2';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=3.83.0-edef63c355f2';
+import {HalcBoundaries} from './halc-boundaries.js?v=3.83.0-edef63c355f2';
+import {boundaryMode} from './view-state.js?v=3.83.0-edef63c355f2';
+import {simplifiedChinese} from './simplified-chinese.js?v=3.83.0-edef63c355f2';
+import {historicalYearRange} from './historical-dates.js?v=3.83.0-edef63c355f2';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=3.83.0-edef63c355f2';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -37,7 +37,7 @@ export const REGIONAL_MIN_ZOOM=6;
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 
 const CITY_ZH={'Rottweil':'罗特魏尔','Kaysersberg':'凯泽斯贝格','Kaufbeuren':'考夫博伊伦','Kempten':'肯普滕','Besançon':'贝桑松','Strasbourg':'斯特拉斯堡','Bern':'伯尔尼','Colmar':'科尔马','Haguenau':'阿格诺','Hagenau':'阿格诺','Munster':'明斯特','Obernai':'奥贝尔奈','Rosheim':'罗斯海姆','Sélestat':'塞莱斯塔','Turckheim':'蒂尔凯姆','Ulm':'乌尔姆','Memmingen':'梅明根','Lindau':'林道'};
-const AREA_ZH={'Scotland':'苏格兰','Ireland':'爱尔兰','England':'英格兰','Kingdom of England':'英格兰王国','Kingdom of Scotland':'苏格兰王国','Kingdom of Ireland':'爱尔兰王国','Kingdom of Great Britain':'大不列颠王国','United Kingdom of Great Britain and Ireland':'大不列颠及爱尔兰联合王国','Isle of Man':'马恩岛','Debatable Lands':'英苏争议地','Earldom of Orkney':'奥克尼伯爵领','Guernsey':'根西岛','Jersey':'泽西岛','Berwick-upon-Tweed':'特威德河畔贝里克','Kingdom of Leinster':'伦斯特王国','Kingdom of Thomond':'托蒙德王国','Kingdom of Desmond':'德斯蒙德王国','County of Artois':'阿图瓦伯国','County of Saint-Pol':'圣波勒伯国','Pale of Calais':'加来辖区','England and Wales':'英格兰与威尔士','Connacht':'康诺特','Clare':'克莱尔','Munster':'芒斯特','Leinster':'伦斯特','Prince-Bishopric of Basel':'巴塞尔主教领','Landgraviate of Thurgau':'图尔高方伯领','Republic of Mulhouse':'米卢斯共和国','Duchy of Lorraine':'洛林公国','Duchy of Bar':'巴尔公国'};
+const AREA_ZH={'Scotland':'苏格兰','Ireland':'爱尔兰','England':'英格兰','Kingdom of England':'英格兰王国','Kingdom of Scotland':'苏格兰王国','Kingdom of Ireland':'爱尔兰王国','Kingdom of Great Britain':'大不列颠王国','United Kingdom of Great Britain and Ireland':'大不列颠及爱尔兰联合王国','Isle of Man':'马恩岛','Debatable Lands':'英苏争议地','Earldom of Orkney':'奥克尼伯爵领','Guernsey':'根西岛','Jersey':'泽西岛','Berwick-upon-Tweed':'特威德河畔贝里克','Kingdom of Leinster':'伦斯特王国','Kingdom of Thomond':'托蒙德王国','Kingdom of Desmond':'德斯蒙德王国','County of Artois':'阿图瓦伯国','County of Saint-Pol':'圣波勒伯国','Pale of Calais':'加来辖区','England and Wales':'英格兰与威尔士','Connacht':'康诺特','Clare':'克莱尔','Munster':'芒斯特','Leinster':'伦斯特','Prince-Bishopric of Basel':'巴塞尔主教领','Landgraviate of Thurgau':'图尔高方伯领','Republic of Mulhouse':'米卢斯共和国','Duchy of Lorraine':'洛林公国','Duchy of Bar':'巴尔公国','Prince-Bishopric of Liège':'列日采邑主教区','County of Hainaut':'埃诺伯国','County of Namur':'那慕尔伯国','Princely Abbey of Stavelot-Malmedy':'斯塔弗洛-马尔默迪修道院领','Electorate of Cologne':'科隆选侯国','Duchy of Brabant':'布拉班特公国','County of Flanders':'佛兰德伯国','County of Holland':'荷兰伯国','Duchy of Guelders':'海尔德公国','Duchy of Luxembourg':'卢森堡公国','Duchy of Cleves':'克莱沃公国','Duchy of Jülich':'于利希公国','Duchy of Berg':'贝格公国','Bishopric of Utrecht':'乌得勒支主教领','County of Zeeland':'泽兰伯国','Lordship of Frisia':'弗里斯兰领地','Holy Roman Empire':'神圣罗马帝国','Kingdom of France':'法兰西王国','Duchy of Burgundy':'勃艮第公国','Burgundian Netherlands':'勃艮第低地','Habsburg Netherlands':'哈布斯堡低地','Electorate of the Palatinate':'普法尔茨选侯国','Electorate of Trier':'特里尔选侯国','Electorate of Mainz':'美因茨选侯国','Duchy of Milan':'米兰公国','Republic of Venice':'威尼斯共和国','Papal States':'教皇国','Duchy of Savoy':'萨伏伊公国','Old Swiss Confederacy':'旧瑞士邦联','Republic of Genoa':'热那亚共和国','Republic of Florence':'佛罗伦萨共和国'};
 export function regionalName(p,lang='bi',records=[]){
  if(lang==='en')return featureName(p,'en');
  const zh=p['name_zh-hans']||p['name_zh-cn']||p.name_zh;

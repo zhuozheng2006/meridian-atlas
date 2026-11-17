@@ -12,7 +12,6 @@
 .research-context p{font-size:12px;margin:2px 0}.research-actions{margin:10px 0 14px}
 .seshat-research-reader input,.seshat-research-reader select{padding:8px 10px}
 @container(max-width:700px){.research-controls{grid-template-columns:1fr}.research-field-polity-search,.research-field-polity,.research-field-domain,.research-field-variable,.research-field-query{grid-column:1}.research-field{font-size:14px}}
-@media(max-width:700px){.research-controls{grid-template-columns:1fr}.research-field-polity-search,.research-field-polity,.research-field-domain,.research-field-variable,.research-field-query{grid-column:1}}
 
 /* Version-aware reading; the phase stays visible while secondary controls fold. */
 .research-version-shell{max-width:1140px;margin-inline:auto;min-width:0}
@@ -51,7 +50,7 @@
 .research-phase-compare{padding:12px 16px;margin:16px 0;border-left:3px solid #b39a66;background:#a8a88d08}
 .research-phase-compare p{margin:4px 0;font-size:13px}
 @container(max-width:700px){.research-advanced-controls{grid-template-columns:1fr}}
-@media(max-width:700px){.research-version-bar{display:block;margin-bottom:14px;padding-bottom:12px}.research-version-bar p{margin-top:8px;font-size:12px}.research-version-bar select{width:100%}.research-advanced-controls{grid-template-columns:1fr}.research-filter-panel>summary{font-size:13px}}
+@media(max-width:700px){.research-version-bar{display:block;margin-bottom:14px;padding-bottom:12px}.research-version-bar p{margin-top:8px;font-size:12px}.research-version-bar select{width:100%}.research-filter-panel>summary{font-size:13px}}
 
 .research-version-bar select option{color:#243d40;background:#f7f5ea}
 
@@ -68,7 +67,6 @@
 .research-reading-card .research-reading-provenance{margin-top:8px}.research-reading-card .research-reading-provenance p{font-size:11px;overflow-wrap:anywhere}
 .research-crisis-definitions dt{font-weight:600;margin-top:16px;font-size:14px}.research-crisis-definitions dd{margin:5px 0 12px;max-width:90ch;font-size:14px;line-height:1.9}.research-crisis-definitions dd>a{display:block;width:max-content;max-width:100%;font-size:12px;margin-top:4px}
 @container(max-width:700px){.research-reading-list{grid-template-columns:1fr}.research-reading-card{padding:14px}}
-@media(max-width:700px){.research-reading-list{grid-template-columns:1fr}.research-reading-card{padding:14px}}
 .research-reading-card:has(.research-original[open]){grid-column:1/-1}
 .research-original{--research-ink:#263a39;--research-muted:#596257;--research-line:#b9aa8c;color-scheme:light;margin:1.1rem 0;border-block:1px solid #b9aa8c;color:#263a39;background:#f8f5eb}
 .research-original>summary{padding:.9rem 1rem;font-size:1rem;cursor:pointer;font-weight:600}

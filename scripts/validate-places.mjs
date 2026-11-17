@@ -370,7 +370,22 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:236658',100,'塞哥维亚'],
     ['index','pleiades:246567',100,'庞佩洛（潘普洛纳）'],
     ['index','pleiades:324835',200,'蒂斯德鲁斯（艾尔·杰姆）'],
-    ['index','pleiades:197498',200,'萨瓦里亚（松博特海伊）']
+    ['index','pleiades:197498',200,'萨瓦里亚（松博特海伊）'],
+    ['index','pleiades:13818291',-1457,'恩科米'],
+    ['index','pleiades:668200',-1457,'阿沙尔奈'],
+    ['index','pleiades:90720956',-2500,'埃什努纳'],
+    ['index','pleiades:44626252',-2500,'温马'],
+    ['index','pleiades:894089',-600,'西帕尔'],
+    ['index','pleiades:952092',400,'内沙布尔（沙普尔新城）'],
+    ['index','pleiades:922740',400,'比沙普尔'],
+    ['index','pleiades:207303',200,'纳伊苏斯（尼什）'],
+    ['index','pleiades:177528',100,'日内瓦（热那瓦）'],
+    ['index','pleiades:187596',200,'苏黎世（图里库姆）'],
+    ['index','pleiades:246523',-150,'努曼西亚'],
+    ['index','pleiades:638811',-400,'歌罗西'],
+    ['index','pleiades:501609',-480,'塞斯托斯'],
+    ['index','pleiades:511225',-400,'达斯库莱翁'],
+    ['index','pleiades:26356565',-650,'米吉多（米吉杜）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
