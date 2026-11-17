@@ -1,6 +1,6 @@
-import {PhysicalGrid} from './physical-grid.js?v=3.70.0-4697b3ed2f8a';
-import {LakeLayer} from './lakes.js?v=3.70.0-4697b3ed2f8a';
-import {readJSON,EMPTY} from './map-engine.js?v=3.70.0-4697b3ed2f8a';
+import {PhysicalGrid} from './physical-grid.js?v=3.70.0-9ecc26ed52f1';
+import {LakeLayer} from './lakes.js?v=3.70.0-9ecc26ed52f1';
+import {readJSON,EMPTY} from './map-engine.js?v=3.70.0-9ecc26ed52f1';
 
 // #region compact-geometry
 // Physical layers ship as compact payloads: integer coordinates quantised to 1e-5 deg
@@ -45,7 +45,7 @@ export class Geography {
   map.addLayer({id:'physical-lakes',type:'fill',source:'physical-lakes',filter:['==','artificial',false],paint:{'fill-color':'#40738a','fill-opacity':['interpolate',['linear'],['zoom'],1,.25,3,.8]}},'boundary');
   map.addLayer({id:'physical-rivers',type:'line',source:'physical-rivers',filter:['all',['==','artificial',false],['!=','kind','Lake Centerline']],layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#3d7388','line-opacity':['interpolate',['linear'],['zoom'],1,.08,3,.55,7,.85],'line-width':['interpolate',['linear'],['zoom'],1,.12,4,.5,8,1.25]}},'boundary');
   this.lakes=new LakeLayer(this);
-  map.addSource('coastal-water',{type:'geojson',data:EMPTY,tolerance:0,maxzoom:14});
+  map.addSource('coastal-water',{type:'geojson',data:EMPTY,tolerance:.18,maxzoom:14});
   map.addLayer({id:'coastal-water',type:'fill',source:'coastal-water',paint:{'fill-color':'#163246','fill-antialias':false}});
   map.moveLayer('coast');
   this.spatial=new PhysicalGrid(this);

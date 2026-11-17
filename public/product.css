@@ -83,6 +83,18 @@ main{height:calc(100dvh - var(--header-height) - var(--timeline-height))}
 #contentView .seshat-research-reader button{border-radius:9px;border-color:#dcc08944;background:#0e1d2e;color:#f0dcb2}
 #contentView .seshat-research-reader button:hover:not(:disabled){border-color:#dcc08988;background:#172e45}
 #contentView .research-version-bar,#contentView .research-filter-panel,#contentView .research-guide,#contentView .research-sources{border-color:#dcc0892b}
+#contentView .research-version-bar{background:linear-gradient(155deg,#122335e0,#0a1624eb);border:1px solid #dcc08936;border-top:2px solid #dcc08970;border-radius:12px;padding:18px 22px;margin:14px 0 22px;box-shadow:0 8px 24px #0000003a}
+#contentView .research-context{background:linear-gradient(135deg,#112234d9,#091421e0);border:1px solid #dcc0892b;border-left:3px solid var(--gold);border-radius:10px;padding:14px 18px}
+#contentView .research-filter-panel,#contentView .research-guide,#contentView .research-sources{background:#0b1827cc;border:1px solid #9caec124;border-radius:11px;padding:4px 18px;margin:14px 0}
+#contentView .research-reading-card{background:linear-gradient(160deg,#122334d9,#0b1724d9);border:1px solid #9caec126;border-top:2px solid #dcc08966;border-radius:12px;padding:20px 22px;transition:transform .15s,border-color .15s}
+#contentView .research-reading-card:hover{border-color:#dcc08966}
+#contentView .research-reading-card .research-source-links a{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;border:1px solid #dcc0893d;background:#0e1f31;color:#edd8ab;font-size:12px;text-decoration:none}
+#contentView .research-reading-card .research-source-links a:hover{border-color:#dcc08988;background:#172e45;color:#fff}
+#contentView .research-starters button{border-radius:999px;padding:7px 14px;background:#0e1f31;border-color:#dcc08955;color:#f3deb3}
+#contentView .research-starters button:hover{border-color:#dcc08999;background:#172e45;color:#fff}
+#contentView .research-reading-library{--research-ink:#f3efe5;--research-muted:#9eb2c0;--research-line:#9caec129;color:#f3efe5;background:linear-gradient(155deg,#122335eb,#0a1624eb);border-color:#dcc0893d;border-radius:12px}
+#contentView .research-reading-library>summary{color:#f2dca9}
+#contentView .research-reading-library label{color:#b8c8d4}
 #contentView .research-version-bar select{background-color:#0a1522;border-color:#9caec12e;color:#f3efe5;border-radius:9px}
 #contentView .research-version-bar select option{color:#f3efe5;background:#0d1a28}
 #contentView .research-starters{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
