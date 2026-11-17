@@ -18,7 +18,7 @@ function boot(){
   window.__meridianBootLand??=fetch('data/land.geojson').then(r=>r.ok?r.json():'data/land.geojson').catch(()=>'data/land.geojson');
   if(typeof document!=='undefined'&&document.head){
    const ml=document.createElement('link');ml.rel='preload';ml.as='script';ml.fetchPriority='high';ml.href=assetURL('./assets/maplibre-gl.js');document.head.append(ml);
-   for(const mod of ['./map-engine.js','./boundary-controller.js','./country-archive.js','./native-geometry.js','./bootstrap-content-hashes.js','./native-temporal-index.js','./polity-names.js','./polity-display-names-data.js','./map-catalog.js']){
+   for(const mod of ['./map-engine.js','./boundary-controller.js','./country-archive.js','./native-geometry.js','./bootstrap-content-hashes.js','./native-temporal-index.js','./polity-names.js','./polity-display-names-data.js','./map-catalog.js','./view-state.js','./timeline-controls.js','./research-view.js','./boundary-mesh.js','./territory-frame-cache.js','./border-curves.js','./country-names.js','./map-load-priority.js','./boundary-style.js','./geometry-anchor.js']){
     const link=document.createElement('link');link.rel='modulepreload';link.href=assetURL(mod);document.head.append(link);
    }
   }

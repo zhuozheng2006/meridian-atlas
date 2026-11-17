@@ -16,8 +16,8 @@
 .compare-swap{border:1px solid #9caec12e;border-radius:7px;min-width:26px;height:26px;padding:0 6px;font-size:14px;line-height:1;color:var(--gold);background:#ffffff08;cursor:pointer;transition:background .15s,border-color .15s}
 .compare-swap:hover:not(:disabled){background:#dcc08922;border-color:#dcc08977;color:#fff}
 .compare-swap:disabled{opacity:.45;cursor:default}
-.polity-label{font-size:13.5px;font-weight:600;letter-spacing:.07em;color:#1e2620;text-shadow:0 0 2px #faf4e1,0 0 3px #faf4e1,1px 0 2px #faf4e1,-1px 0 2px #faf4e1,0 1px 2px #faf4e1,0 -1px 2px #faf4e1}
-.polity-label span{color:#35423a;font-size:10.5px;font-weight:500;text-shadow:0 0 2px #faf4e1,0 0 4px #faf4e1}
+.polity-label{font-size:13.5px;font-weight:600;letter-spacing:.07em;color:#17211d;text-shadow:0 0 4px rgba(250,244,225,.92),0 1px 2px rgba(250,244,225,.88),1px 0 3px rgba(250,244,225,.85),-1px 0 3px rgba(250,244,225,.85)}
+.polity-label span{color:#2f3c35;font-size:10.5px;font-weight:500;text-shadow:0 0 3px rgba(250,244,225,.9)}
 .compare-year-bar{display:flex;align-items:center;gap:4px}
 .compare-year-bar label{font-size:11px;color:#9eb2c0;margin-right:2px}
 .compare-year-bar button{border:0;min-width:26px;height:26px;padding:0;font:19px/1 Georgia,serif;color:var(--gold);border-radius:6px}
@@ -30,11 +30,11 @@
 .map-hover-card strong{display:block;font-family:var(--serif);font-size:14.5px;font-weight:500;color:#f6f0e2;line-height:1.35}
 .map-hover-card .map-hover-sub{display:block;font-size:11.5px;color:#bacbd6;margin-top:2px}
 .map-hover-card small{display:block;font-size:10.5px;color:#d6b77e;margin-top:4px;letter-spacing:.03em}
-.place-marker{display:flex;gap:5px;align-items:center;padding:4px 5px 4px 0;min-height:28px;max-width:180px;border:0;background:none!important;box-shadow:none!important;color:#243c3a;text-align:left;font-family:var(--body);font-size:12px;line-height:1.35;text-shadow:0 0 3px #fff7dc,0 1px 3px #fff7dc,1px 0 2px #fff7dc;white-space:nowrap;transition:none}
+.place-marker{display:flex;gap:5px;align-items:center;padding:4px 5px 4px 0;min-height:28px;max-width:180px;border:0;background:none!important;box-shadow:none!important;color:#1d3331;text-align:left;font-family:var(--body);font-size:12px;font-weight:500;line-height:1.35;text-shadow:0 0 4px rgba(255,248,225,.94),0 1px 2px rgba(255,248,225,.9),1px 0 2px rgba(255,248,225,.85);white-space:nowrap;transition:none}
 .place-marker i{flex:none;display:block;width:6px;height:6px;background:#364e49;border:1.5px solid #f9eccb;border-radius:50%;box-shadow:0 0 0 1px #364e4980}
 .place-marker.capital i{border-radius:1px;transform:rotate(45deg);width:7px;height:7px;background:#5b483b}
 .place-marker.modern i{background:transparent;border:1.5px solid #566d7b;box-shadow:none}.place-marker.modern{color:#50616c}
-.place-marker small{display:block;font-size:10px;letter-spacing:0;line-height:1.35;color:#3f514c}
+.place-marker small{display:block;font-size:10px;font-weight:450;letter-spacing:0;line-height:1.35;color:#33443f}
 .place-marker>span{display:block;min-width:0;max-width:156px;overflow:hidden;text-overflow:ellipsis}
 /* Fallback placement: the label could not be fitted anywhere, so the record stays
    on the map as a clickable dot rather than disappearing. */
@@ -51,7 +51,7 @@ tbody tr.structured-index .library-year{box-shadow:inset 3px 0 #b08a52}
 .battle-marker i{flex:none;display:block;width:9px;height:9px;background:#b4553f;border:1.5px solid #f6e7c8;transform:rotate(45deg);box-shadow:0 0 0 1px #b4553f66}
 .battle-marker span{background:#fdf6e6d9;border-radius:3px;padding:0 3px}
 .place-marker small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.place-marker .place-date{font-size:9px;color:#596158}
+.place-marker .place-date{font-size:9px;color:#404a42;font-weight:500}
 .place-marker:hover span,.place-marker:focus-visible span{color:#312510;text-decoration:underline;text-underline-offset:3px}.place-marker:focus-visible{outline:2px solid #b77736;outline-offset:3px;border-radius:5px}
 .place-marker[style*="opacity: 0;"]{pointer-events:none}
 .selected-place{width:20px;height:20px;border:2px solid #fff0bb;border-radius:50%;box-shadow:0 0 0 3px #52432c88,0 0 0 7px #f9d88540;pointer-events:none;background:#c9a05a33}

@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.66.0-572641e7eaeb';
-import {placeWindow} from './view-state.js?v=3.66.0-572641e7eaeb';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.66.0-2049b35a5ac3';
+import {placeWindow} from './view-state.js?v=3.66.0-2049b35a5ac3';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -146,8 +146,8 @@ export class PlaceLayer {
  refresh(){
   this.markers.forEach(m=>m.remove());this.markers=[];if(!this.enabled||this.atlas.destroyed||!this.year)return;
   const map=this.map,zoom=map.getZoom();if(zoom<2)return;
-  const bounds=map.getBounds(),origin=map.getContainer().getBoundingClientRect(),center=map.getCenter(),boxes=[...(this.atlas.labelBoxes||[])];
-  for(const el of document.querySelectorAll('.map-heading,.map-tools,.layer-panel,.compare-heading,.map-notice'))if(el.getClientRects().length)boxes.push(el.getBoundingClientRect());
+  const bounds=map.getBounds(),origin=map.getContainer().getBoundingClientRect(),center=map.getCenter();
+  const boxes=[...(this.atlas.labelBoxes||[]),...(this.atlas.overlayBlockerBoxes?.('.map-legend')||[])];
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
   const candidates=this.active.filter(p=>bounds.contains(p.coordinates));
   const max=Math.min(90,Math.round((zoom-1)*12));
