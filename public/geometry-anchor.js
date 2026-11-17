@@ -30,3 +30,10 @@ export function interiorAnchor(geometry,box=null){
  return best?{coordinate:best,score}:null;
 }
 export const interiorPoint=(geometry,box=null)=>interiorAnchor(geometry,box)?.coordinate||null;
+const ringContains=([x,y],ring)=>{let inside=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const xi=ring[i][0],yi=ring[i][1],xj=ring[j][0],yj=ring[j][1];if((yi>y)!==(yj>y)&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)inside=!inside;}return inside;};
+export function pointInGeometry(point,geometry){
+ if(!point||!geometry)return false;
+ const polygons=geometry.type==='Polygon'?[geometry.coordinates]:geometry.type==='MultiPolygon'?geometry.coordinates:[];
+ for(const poly of polygons){if(!poly.length||!ringContains(point,poly[0]))continue;let inHole=false;for(let r=1;r<poly.length;r++)if(ringContains(point,poly[r])){inHole=true;break;}if(!inHole)return true;}
+ return false;
+}

@@ -38,7 +38,10 @@
 .place-marker>span{display:block;min-width:0;max-width:156px;overflow:hidden;text-overflow:ellipsis}
 /* Fallback placement: the label could not be fitted anywhere, so the record stays
    on the map as a clickable dot rather than disappearing. */
-.place-marker.dot-only{padding:0;min-height:0}.place-marker.dot-only>span{display:none}
+.place-marker.dot-only{padding:0;min-height:0}.place-marker.dot-only>span,.place-marker.no-dot i{display:none}
+.place-marker.label-left{flex-direction:row-reverse;padding:4px 0 4px 5px;text-align:right}
+.place-marker.label-below{flex-direction:column;gap:8px;padding:0;text-align:center}.place-marker.label-above{flex-direction:column-reverse;gap:8px;padding:0;text-align:center}
+.place-marker.label-below>span,.place-marker.label-above>span{max-width:168px}
 /* Structured index entries come from dataset statements rather than editorial review.
    They are useful to find, but must not read like curated entries. */
 .event-card.structured-index{border-left-style:dashed}

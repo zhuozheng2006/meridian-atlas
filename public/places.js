@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.78.0-02574ff8b8be';
-import {placeWindow} from './view-state.js?v=3.78.0-02574ff8b8be';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.79.0-72fcc2534451';
+import {placeWindow} from './view-state.js?v=3.79.0-72fcc2534451';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -640,11 +640,90 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:422886','卡斯特里莫埃尼乌姆（马里诺）'],['pleiades:423115','瓦里亚（维科瓦罗）'],['pleiades:236642','萨拉曼卡（萨尔曼蒂卡）'],
  ['pleiades:246369','托尔托萨（代尔托萨）'],['pleiades:903104','拉伊（拉加埃/雷伊）'],['pleiades:108844','博韦（凯撒罗马古斯）'],
  ['pleiades:108865','卡塞尔（梅纳皮乌姆堡）'],['pleiades:108908','海尔伦（科里奥瓦卢姆）'],['pleiades:108945','兰斯（杜罗科托鲁姆）'],
- ['pleiades:118569','阿奎莱亚']
+ ['pleiades:118569','阿奎莱亚'],
+ // Wave-14: Full Pleiades ref === 12 completion (200 sites -> 100% of Pleiades ref >= 12) + Asia Silk Road landmarks
+ ['pleiades:266022','萨拉里亚（乌韦达）'],['pleiades:266036','塞戈布里加'],['pleiades:275696','萨拉（舍拉）'],
+ ['pleiades:295253','基西'],['pleiades:305030','蒂比利温泉城'],['pleiades:157812','安蒂波利斯（昂蒂布）'],
+ ['pleiades:912845','埃里都'],['pleiades:363954','迪格迪达'],['pleiades:383542','阿凯赖（波河谷）'],
+ ['pleiades:383677','因杜斯特里亚（博丁科马古姆）'],['pleiades:383791','塔内图姆'],['pleiades:383809','瓦尔达加特'],
+ ['pleiades:393404','克拉西斯（拉文纳港）'],['pleiades:393425','高卢人广场城'],['pleiades:393436','阿德里亚（阿特里亚）'],
+ ['pleiades:393503','塔尔维西乌姆（特雷维索）'],['pleiades:570040','埃盖（阿哈伊亚）'],['pleiades:570323','卡拉迈（卡拉马塔）'],
+ ['pleiades:844879','克劳迪奥波利斯（比提尼翁/博卢）'],['pleiades:844994','克罗姆纳'],['pleiades:854695','凯波伊'],
+ ['pleiades:854715','宁法伊翁'],['pleiades:619267','塔维乌姆'],['pleiades:629040','梅利泰内（马拉蒂亚）'],
+ ['pleiades:638733','阿达达'],['pleiades:639105','锡德'],['pleiades:639166','克桑托斯'],
+ ['pleiades:857382','泽拉'],['pleiades:216899','诺瓦埃'],['pleiades:216900','诺维奥杜努姆（伊萨克恰）'],
+ ['pleiades:226658','凯尔基尼提斯'],['pleiades:305111','穆斯卢比乌姆'],['pleiades:305166','图布尔西库姆'],
+ ['pleiades:305171','图布苏克图'],['pleiades:314892','克利佩阿（阿斯皮斯）'],['pleiades:315207','蒂格尼卡'],
+ ['pleiades:678301','尼亚波利斯（纳布卢斯）'],['pleiades:678401','滨海凯撒利亚'],['pleiades:687953','卢德（迪奥斯波利斯）'],
+ ['pleiades:69471','奥古斯托杜鲁姆（巴约）'],['pleiades:69518','阿夫朗什（因格纳）'],['pleiades:69585','沃尔吉乌姆（卡赖）'],
+ ['pleiades:707462','阿马图斯'],['pleiades:707555','拉佩托斯'],['pleiades:707617','萨拉米斯（塞浦路斯）'],
+ ['pleiades:716525','安蒂皮尔戈斯（图卜鲁格）'],['pleiades:716656','济格里斯'],['pleiades:727101','克利斯马（苏伊士）'],
+ ['pleiades:727121','塞特罗埃（小赫拉克勒波利斯）'],['pleiades:570371','科罗内'],['pleiades:570385','克罗凯艾'],
+ ['pleiades:737072','特布蒂尼斯'],['pleiades:756635','赫尔米乌托勒迈伊斯'],['pleiades:589767','德雷罗斯'],
+ ['pleiades:589824','伊塔诺斯'],['pleiades:589899','拉托'],['pleiades:589922','马利亚（米诺斯遗址）'],
+ ['pleiades:590097','扎戈拉'],['pleiades:59677','亚历山大港（信德）'],['pleiades:59694','阿拉科西亚亚历山大城'],
+ ['pleiades:599625','格尔加'],['pleiades:599809','米拉萨'],['pleiades:599832','尼萨（阿廷布拉）'],
+ ['pleiades:550633','凯布伦'],['pleiades:550678','兰波尼亚'],['pleiades:550683','布伦丘克（拉里萨）'],
+ ['pleiades:432617','阿贝拉（阿韦拉）'],['pleiades:432621','阿凯赖（坎帕尼亚）'],['pleiades:432727','布卡'],
+ ['pleiades:432760','卡尔西奥利'],['pleiades:432776','凯雷阿泰（马里乌斯村）'],['pleiades:432843','波皮利乌斯广场城（坎帕尼亚）'],
+ ['pleiades:432963','切尔凯马焦雷萨拉切诺山遗址'],['pleiades:442436','阿凯伦蒂亚（阿切伦扎）'],['pleiades:442502','巴斯塔'],
+ ['pleiades:442586','波皮利广场城（波拉）'],['pleiades:540659','阿尔古拉'],['pleiades:540792','贡福伊'],
+ ['pleiades:540861','凯林托斯'],['pleiades:540867','基耶里翁'],['pleiades:540868','基拉'],
+ ['pleiades:540908','莱东'],['pleiades:540916','林奈翁'],['pleiades:541004','旧法萨卢斯'],
+ ['pleiades:541085','里祖斯'],['pleiades:541152','蒂托雷亚（内翁）'],['pleiades:541174','克西尼艾'],
+ ['pleiades:550401','阿基莱翁（特洛阿斯）'],['pleiades:550435','安蒂萨'],['pleiades:857024','阿米索斯（萨姆松）'],
+ ['pleiades:857107','狄奥斯库里亚斯（塞巴斯托波利斯）'],['pleiades:857120','尤凯塔'],['pleiades:462267','卡莱阿克泰'],
+ ['pleiades:648783','锡耶德拉'],['pleiades:658410','提尔巴尔西普（贝尔西巴）'],['pleiades:442816','特吉亚努姆（泰贾诺）'],
+ ['pleiades:786079','翁博斯（考姆翁布）'],['pleiades:79364','凯撒罗马古斯（切尔姆斯福德）'],['pleiades:79399','孔布雷托维乌姆'],
+ ['pleiades:79534','伊斯哈利斯'],['pleiades:79590','马穆基乌姆（曼彻斯特古堡）'],['pleiades:805634','纳帕塔'],
+ ['pleiades:825397','塔奈斯'],['pleiades:59993','普什卡拉瓦蒂（佩乌凯拉奥提斯）'],['pleiades:609293','阿克莫尼亚'],
+ ['pleiades:609473','米代翁'],['pleiades:334632','塔布德奥斯'],['pleiades:334669','扎赖'],
+ ['pleiades:344380','吉格蒂斯'],['pleiades:344439','梅宁克斯（杰尔巴）'],['pleiades:570420','莱凯翁'],
+ ['pleiades:570463','马塞斯'],['pleiades:570484','梅蒂德里翁'],['pleiades:570527','奥伊蒂洛斯'],
+ ['pleiades:570535','奥尔霍梅诺斯（阿卡迪亚）'],['pleiades:570575','佩拉纳'],['pleiades:570629','普拉西艾（拉科尼亚）'],
+ ['pleiades:570702','泰纳隆'],['pleiades:570708','迪麦翁要塞'],['pleiades:570714','特乌特罗内'],
+ ['pleiades:580090','普拉西亚（阿提卡）'],['pleiades:580123','蒂迈塔代'],['pleiades:462201','厄律克斯（埃里切）'],
+ ['pleiades:256235','尤利娅特拉杜克塔'],['pleiades:256325','内尔托布里加'],['pleiades:256503','乌尔索（奥苏纳）'],
+ ['pleiades:511151','伦达库斯畔阿波罗尼亚'],['pleiades:531034','帕莱罗斯'],['pleiades:531039','潘多西亚（伊庇鲁斯）'],
+ ['pleiades:481939','奥里库姆'],['pleiades:481986','斯库台（斯科德拉）'],['pleiades:481987','斯库皮（斯科普里）'],
+ ['pleiades:491525','阿菲蒂斯'],['pleiades:167649','阿夸塞格泰'],['pleiades:167855','诺约马古斯'],
+ ['pleiades:491595','欧罗波斯（马其顿）'],['pleiades:491647','基罗斯（马其顿）'],['pleiades:491701','波提代亚（卡桑德里亚）'],
+ ['pleiades:491703','彼得纳'],['pleiades:501393','达尔达诺斯'],['pleiades:501556','佩尔科特'],
+ ['pleiades:501613','辛戈斯'],['pleiades:501616','塞雷斯（西拉）'],['pleiades:501628','斯特律墨'],
+ ['pleiades:501649','图拉真波利斯（色雷斯）'],['pleiades:324803','鲁斯皮纳'],['pleiades:177514','埃布罗杜努姆（伊韦尔东）'],
+ ['pleiades:177565','洛桑（卢松纳）'],['pleiades:187516','彭斯阿埃尼'],['pleiades:187561','苏布拉维奥内'],
+ ['pleiades:197184','布尔努姆'],['pleiades:197350','莱乌萨巴'],['pleiades:197400','纳罗纳'],
+ ['pleiades:197401','瑙波尔图斯'],['pleiades:197446','波埃托维奥（普图伊）'],['pleiades:771100776','古尔尼亚'],
+ ['pleiades:874324','泰拉（君士坦提亚）'],['pleiades:874354','阿尔萨莫萨塔'],['pleiades:874681','萨尔德巴尔（泽尔泽万）'],
+ ['pleiades:971746','德拉普萨卡'],['pleiades:677992','阿比拉（德卡波利斯）'],['pleiades:138192','阿尔让托马古斯'],
+ ['pleiades:138329','卡奥尔（迪沃纳）'],['pleiades:138422','普瓦捷（利莫努姆）'],['pleiades:138496','诺维奥雷古姆'],
+ ['pleiades:138579','罗德兹（塞戈杜努姆）'],['pleiades:255950','阿基尼波（旧龙达）'],['pleiades:207304','纳波卡（克卢日-纳波卡）'],
+ ['pleiades:216688','阿布里图斯'],['pleiades:138606','巴尔藏（高卢罗马遗址）'],['pleiades:403269','萨莱布罗'],
+ ['pleiades:413073','新堡（皮凯努姆）'],['pleiades:413186','米尼奥内河畔卢尼'],['pleiades:413194','马尔塔努姆'],
+ ['pleiades:413233','奥尔克拉（诺尔基亚）'],['pleiades:413256','佩萨罗（皮萨乌鲁姆）'],['pleiades:413272','波滕蒂亚（皮凯努姆）'],
+ ['pleiades:413355','图菲库姆'],['pleiades:413366','乌尔比诺（乌尔维努姆）'],['pleiades:422857','卡布姆'],
+ ['pleiades:422910','科尔尼库卢姆'],['pleiades:236405','卡帕拉（卡佩拉）'],['pleiades:246321','凯尔萨'],
+ ['pleiades:246383','昂塞律讷'],['pleiades:246433','埃尔讷（埃莱纳）'],['pleiades:874735','布拉克丘（纳加尔）'],
+ ['pleiades:89234','卡莱尔（卢古瓦利乌姆）'],['pleiades:89303','特拉普兰劳'],['pleiades:893991','杜尔-卡特利穆'],
+ ['pleiades:894019','尼姆鲁德（卡拉赫）'],['pleiades:894082','萨迈拉'],['pleiades:108772','苏瓦松（奥古斯塔·苏埃西奥努姆）'],
+ ['pleiades:108778','沙特尔（奥特里库姆）'],['pleiades:108820','沃尔姆斯（博尔贝托马古斯）'],['pleiades:108903','科布伦茨（汇流城）'],
+ ['pleiades:109062','伊科里吉乌姆'],['pleiades:109205','尼达（黑登海姆）'],['pleiades:109236','勒芒（苏布丁努姆）'],
+ ['pleiades:109398','图尔奈（图尔纳库姆）'],['pleiades:118542','阿德卢纳姆'],
+ ['pleiades:59737','巴里加扎'],['pleiades:59668','迦毕试亚历山大城'],['pleiades:59740','巴齐拉'],
+ ['pleiades:59987','帕塔拉'],['pleiades:49939','普哈尔（迦维里港）'],['pleiades:50168','那伽帕蒂南'],
+ ['pleiades:480040249','巴乌泰尔纳'],['pleiades:59873','憍赏弥'],['pleiades:59897','石塔（塔什库尔干）'],
+ ['pleiades:60079','耽摩栗底'],['pleiades:119192778','马哈巴利普拉姆'],['pleiades:762205391','布哈拉'],
+ ['pleiades:59945','沙赫里萨布兹'],['pleiades:971878','苏尔赫科塔尔'],['pleiades:961969','蒂利亚丘（黄金丘）'],
+ ['pleiades:961963','萨拉赫斯'],['pleiades:59781','居鲁士城（锡尔河）'],['pleiades:377547413','焚毁之城遗址'],
+ ['pleiades:839190400','甘吉布勒姆'],['pleiades:971696','阿奥尔诺斯'],['pleiades:59947','尼凯亚（兴都库什）'],
+ ['pleiades:59933','明纳加拉'],
+ ['pleiades:442679','塞里科山城'],['pleiades:119011','温格丹肯'],
+ ['pleiades:48210385','中世纪博尔戈'],['pleiades:303732808','蒙特里焦尼']
 ]);
-const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
+const PLACE_ZH_OVERRIDE=new Map([['chandler:659','开城']]);
+const editorialPlaceZh=p=>PLACE_ZH_OVERRIDE.get(p?.id)||((!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'');
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
-export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||(p?.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p)))||p.displayName||p.name);
+export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||(p?.kind==='dated-capital'?capitalZh(p):(PLACE_ZH_OVERRIDE.get(p?.id)||p.nameZh||editorialPlaceZh(p)))||p.displayName||p.name);
 // A source observation is not a city lifespan. Name epochs constrain borrowing
 // only when both dates have evidence; editorial observation aliases alone do not.
 export const placeNamePeriods=(p,year)=>(p.nameTimeline||[]).filter(n=>(n.start==null||n.start<=year)&&(n.end==null||year<=n.end));
@@ -661,12 +740,12 @@ export function placeAtYear(p,year,span=50){
  if(!Number.isInteger(year)||year===0)return null;
  if(p.kind==='modern-reference')return {...p,rank:4+(p.scaleRank||0)};
  if((p.kind==='dated-capital'&&CAPITAL_DATE_QUARANTINE.has(p.id))||PLACE_COORD_QUARANTINE.has(p.id))return null;
- if(p.observations){const candidates=p.observations.filter(o=>Math.abs(civilYear(o[0])-civilYear(year))<=span&&observationMatchesNamePeriod(p,o[0],year));if(!candidates.length)return null;const o=candidates.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a),label=datedPlaceLabel(p,o[0]),zh=p.nameZh||editorialPlaceZh(p);return {...p,...(zh?{nameZh:zh}:{}),observation:o,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,rank:2-Math.log10(Math.max(1,o[1]||1))/10};}
+ if(p.observations){const candidates=p.observations.filter(o=>Math.abs(civilYear(o[0])-civilYear(year))<=span&&observationMatchesNamePeriod(p,o[0],year));if(!candidates.length)return null;const o=candidates.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a),label=datedPlaceLabel(p,o[0]),zh=PLACE_ZH_OVERRIDE.get(p?.id)||p.nameZh||editorialPlaceZh(p);return {...p,...(zh?{nameZh:zh}:{}),observation:o,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,rank:2-Math.log10(Math.max(1,o[1]||1))/10};}
  const period=p.periods?.find(([a,b])=>a<=year&&year<=b);if(!period)return null;
  const location=p.locations?.filter(l=>l.periods?.some(([a,b])=>a<=year&&year<=b)).sort((a,b)=>(a.accuracyMeters??Infinity)-(b.accuracyMeters??Infinity))[0];
  if(p.locations&&!location)return null;
  const label=datedPlaceLabel(p,year);
- const zh=p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p)),polityLabels=capitalPolityLabels(p);
+ const zh=p.kind==='dated-capital'?capitalZh(p):(PLACE_ZH_OVERRIDE.get(p?.id)||p.nameZh||editorialPlaceZh(p)),polityLabels=capitalPolityLabels(p);
  return {...p,...(zh?{nameZh:zh}:{}),...(polityLabels?{polityLabels}:{}),displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,coordinates:location?.coordinates||p.coordinates,location,period:location?.periods.find(([a,b])=>a<=year&&year<=b)||period,rank:p.kind==='dated-capital'?0:p.kind==='attested-site'?1:3-(p.referenceCount||0)/100};
 }
 export function nearestPlaceYear(p,year){
@@ -679,7 +758,7 @@ const _searchIndexCache=new WeakMap();
 const placeSearchEntry=p=>{
  let entry=_searchIndexCache.get(p);
  if(!entry){
-  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p))].map(normalizePlaceQuery);
+  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):(PLACE_ZH_OVERRIDE.get(p?.id)||p.nameZh||editorialPlaceZh(p))].map(normalizePlaceQuery);
   const aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
   entry={names,aliases};
   _searchIndexCache.set(p,entry);
@@ -727,32 +806,44 @@ export class PlaceLayer {
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
   const textPx=(s,cjk,lat)=>{if(!s)return 0;const str=String(s);let w=0;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);w+=(c>=0x3400&&c<=0x9FFF)||(c>=0xF900&&c<=0xFAFF)?cjk:lat;}return w;};
   const globeClip=map.getProjection().type==='globe'&&zoom<4.5,rad=Math.PI/180,sinC=globeClip?Math.sin(center.lat*rad):0,cosC=globeClip?Math.cos(center.lat*rad):0;
-  const max=Math.min(90,Math.round((zoom-1)*12));
+  const max=Math.min(90,Math.round((zoom-1)*12)),seen=[];
   for(const p of this.active){
    if(this.markers.length>=max)break;
    if(!bounds.contains(p.coordinates))continue;
    const modern=p.kind==='modern-reference';if(modern&&zoom<Math.max(3,(p.minZoom||4)-2))continue;
    if((p.kind==='attested-settlement'||p.kind==='attested-site')&&zoom<3.4)continue;
    if(globeClip){const [lon,lat]=p.coordinates;const dot=sinC*Math.sin(lat*rad)+cosC*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
+   const norm=normalizePlaceQuery(placeName(p,'en')||p.name);
+   if(norm&&seen.some(s=>s.norm===norm&&Math.abs(s.lon-p.coordinates[0])<.25&&Math.abs(s.lat-p.coordinates[1])<.25))continue;
    const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
    const obsText=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):'';
    const width=Math.min(184,Math.max(textPx(name,12.8,7.4),textPx(secondary,11,6.4),textPx(obsText,11.2,6.3))+34),height=(secondary?48:34)+(obsText?15:0);
    // A record that exists in the data should still be visible and clickable when its
-   // label cannot be placed. Try the label on the right, then on the left, then fall
-   // back to the dot alone instead of dropping the record entirely.
+   // label cannot be placed. Try right, left, below, above (and pin-cleared vertical
+   // below/above without duplicating a co-located dot), before falling back to dot alone.
    const fits=candidate=>candidate.left>=origin.left+10&&candidate.right<=origin.right-12&&candidate.top>=origin.top+12&&candidate.bottom<=origin.bottom-52&&!boxes.some(b=>overlap(candidate,b));
+   const vw=Math.min(width,168),vh=height+14;
    const labelBox=side=>side==='right'
     ?{left:origin.left+screen.x-12,right:origin.left+screen.x+width,top:origin.top+screen.y-height/2,bottom:origin.top+screen.y+height/2}
-    :{left:origin.left+screen.x-width+12,right:origin.left+screen.x+12,top:origin.top+screen.y-height/2,bottom:origin.top+screen.y+height/2};
+    :side==='left'
+     ?{left:origin.left+screen.x-width+12,right:origin.left+screen.x+12,top:origin.top+screen.y-height/2,bottom:origin.top+screen.y+height/2}
+     :side==='below'
+      ?{left:origin.left+screen.x-vw/2,right:origin.left+screen.x+vw/2,top:origin.top+screen.y-4,bottom:origin.top+screen.y+vh}
+      :side==='above'
+       ?{left:origin.left+screen.x-vw/2,right:origin.left+screen.x+vw/2,top:origin.top+screen.y-vh,bottom:origin.top+screen.y+4}
+       :side==='below-clear'
+        ?{left:origin.left+screen.x-vw/2,right:origin.left+screen.x+vw/2,top:origin.top+screen.y+14,bottom:origin.top+screen.y+14+height}
+        :{left:origin.left+screen.x-vw/2,right:origin.left+screen.x+vw/2,top:origin.top+screen.y-14-height,bottom:origin.top+screen.y-14};
    const dotBox={left:origin.left+screen.x-7,right:origin.left+screen.x+7,top:origin.top+screen.y-7,bottom:origin.top+screen.y+7};
-   let box=null,side='right',dotOnly=false;
-   for(const [candidate,place]of [[labelBox('right'),'right'],[labelBox('left'),'left'],[dotBox,'dot']]){
+   let box=null,side='right',dotOnly=false,noDot=false;
+   for(const [candidate,place]of [[labelBox('right'),'right'],[labelBox('left'),'left'],[labelBox('below'),'below'],[labelBox('above'),'above'],[labelBox('below-clear'),'below-clear'],[labelBox('above-clear'),'above-clear'],[dotBox,'dot']]){
     if(!fits(candidate))continue;
-    box=candidate;dotOnly=place==='dot';side=place==='dot'?'right':place;break;
+    box=candidate;dotOnly=place==='dot';noDot=place.endsWith('-clear');side=dotOnly?'right':place.replace('-clear','');break;
    }
    if(!box)continue;
+   if(norm)seen.push({norm,lon:p.coordinates[0],lat:p.coordinates[1]});
    boxes.push({...box,left:box.left-8,right:box.right+8,top:box.top-5,bottom:box.bottom+5});
-   const el=document.createElement('button');el.className='place-marker '+(modern?'modern':p.kind==='dated-capital'?'capital':'historic')+(dotOnly?' dot-only':'');
+   const el=document.createElement('button');el.className='place-marker '+(modern?'modern':p.kind==='dated-capital'?'capital':'historic')+(dotOnly?' dot-only':'')+(side!=='right'?' label-'+side:'')+(noDot?' no-dot':'');
    const dot=document.createElement('i'),label=document.createElement('span');label.textContent=name;el.append(dot,label);
    if(secondary){const sub=document.createElement('small');sub.textContent=secondary;label.append(sub);}
    if(obsText){const stamp=document.createElement('small');stamp.className='place-date';stamp.textContent=obsText;label.append(stamp);}
@@ -762,7 +853,8 @@ export class PlaceLayer {
    el.addEventListener('mouseenter',showHover);el.addEventListener('focus',showHover);
    el.addEventListener('mouseleave',()=>this.atlas.setHoverMarker?.(null));el.addEventListener('blur',()=>this.atlas.setHoverMarker?.(null));
    el.onclick=e=>{e.stopPropagation();this.atlas.setHoverMarker?.(null);this.onSelect?.(p,this.atlas);};
-   const anchor=dotOnly?'center':side==='left'?'right':'left',offset=dotOnly?[0,0]:side==='left'?[5,0]:[-5,0];
+   const anchor=dotOnly?'center':side==='left'?'right':side==='below'?'top':side==='above'?'bottom':'left';
+   const offset=dotOnly?[0,0]:side==='left'?[5,0]:side==='below'?[0,noDot?14:-3]:side==='above'?[0,noDot?-14:3]:[-5,0];
    this.markers.push(new maplibregl.Marker({element:el,anchor,offset,opacityWhenCovered:'0'}).setLngLat(p.coordinates).addTo(map));
   }
  }

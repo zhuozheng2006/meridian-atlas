@@ -319,8 +319,25 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:903104',-100,'拉伊（拉加埃/雷伊）'],
     ['index','pleiades:541042',-100,'法萨卢斯'],
     ['index','pleiades:79395',100,'林杜姆（林肯）'],
-    ['index','pleiades:236642',100,'萨拉曼卡（萨尔曼蒂卡）']
+    ['index','pleiades:236642',100,'萨拉曼卡（萨尔曼蒂卡）'],
+    ['index','pleiades:912845',-4500,'埃里都'],
+    ['index','pleiades:894019',-500,'尼姆鲁德（卡拉赫）'],
+    ['index','pleiades:894082',500,'萨迈拉'],
+    ['index','pleiades:874735',-1500,'布拉克丘（纳加尔）'],
+    ['index','pleiades:805634',100,'纳帕塔'],
+    ['index','pleiades:678401',100,'滨海凯撒利亚'],
+    ['index','pleiades:678301',100,'尼亚波利斯（纳布卢斯）'],
+    ['index','pleiades:108778',100,'沙特尔（奥特里库姆）'],
+    ['index','pleiades:108903',100,'科布伦茨（汇流城）'],
+    ['index','pleiades:79590',100,'马穆基乌姆（曼彻斯特古堡）'],
+    ['index','pleiades:59737',100,'巴里加扎'],
+    ['index','pleiades:59873',-200,'憍赏弥']
   ];
+  const kaesong=urban.cities.find(c=>c.id==='chandler:659');
+  assert(kaesong);
+  const k1000=placeAtYear(Object.freeze({...kaesong}),1000);
+  assert.equal(k1000?.nameZh,'开城');
+  assert.equal(placeName(k1000,'zh'),'开城');
   for(const [src,id,year,expectedZh] of wave2){
     const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
     assert(raw&&!raw.nameZh,id);
