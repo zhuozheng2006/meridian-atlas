@@ -1,5 +1,5 @@
-import {countryAlias} from './country-names.js?v=3.63.0-aae975a178ba';
-export {countryAlias} from './country-names.js?v=3.63.0-aae975a178ba';
+import {countryAlias} from './country-names.js?v=3.63.0-9a65b8f1893a';
+export {countryAlias} from './country-names.js?v=3.63.0-9a65b8f1893a';
 // CShapes data is independently licensed CC BY-NC-SA 4.0; see data/cshapes/.
 const ROOT='data/cshapes/',pending=new Map();let catalogPromise,catalogValue;
 export const countrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023?`${year}-07-01`:null;

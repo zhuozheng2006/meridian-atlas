@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=3.63.0-aae975a178ba';
+import {readJSON,formatYear} from './map-engine.js?v=3.63.0-9a65b8f1893a';
 
 // Battles are a dated point layer, not a boundary layer. Every record keeps the
 // source entity it came from; outcome is deliberately absent because the upstream
