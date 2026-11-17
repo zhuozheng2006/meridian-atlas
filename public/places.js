@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.64.0-5f9b49515cc5';
-import {placeWindow} from './view-state.js?v=3.64.0-5f9b49515cc5';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.65.0-ea34f1881e6f';
+import {placeWindow} from './view-state.js?v=3.65.0-ea34f1881e6f';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -32,7 +32,28 @@ export async function placeDetail(p){
  const full=shard[p.id];if(!full)throw Error('Missing place record');
  return {...full,...p,description:full.description,names:full.names,sourceUrl:full.sourceUrl,referenceUrls:full.referenceUrls,authors:full.authors,location:full.locations?.find(l=>l.coordinates[0]===p.coordinates[0]&&l.coordinates[1]===p.coordinates[1]&&l.accuracyMeters===p.location?.accuracyMeters&&JSON.stringify(l.periods)===JSON.stringify(p.location?.periods))||p.location};
 }
-export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||p.nameZh||p.displayName||p.name);
+// Quarantined Wikidata capital claims whose explicit date qualifiers exhibit
+// unmistakable upstream sign flips or century-as-year encoding errors. Raw claims
+// remain untouched in historical-capitals.json.gz while display is withheld.
+export const CAPITAL_DATE_QUARANTINE=new Set([
+ 'capital:Q180568$5ac9055c-44f4-93a7-fcb7-88674c46b701', // Egyptian Empire (New Kingdom) Thebes [-1336, 1279]: +1279 sign error for -1279
+ 'capital:Q2980623$613b5f92-45dd-ce9b-abcd-9c5fc0145c32', // Kingdom of Bosnia Visoko [9, 1340]: +9 typo extending medieval state to antiquity
+ 'capital:Q3627069$d0b39cb4-4d5e-15ee-4f60-725632ee182d', // Banate of Bosnia Bobovac [14, 14]: +14 typo for 14th century
+ 'capital:Q83958$cf01679d-4565-d213-61db-12abfbc7b7b4', // Macedonia Aigai [808, 808]: +808 sign error for 808 BCE
+]);
+const CAPITAL_ZH_FIX=new Map([['Q5736','阿玛尔纳']]);
+const CAPITAL_ZH_EDITORIAL=new Map([
+ ['Q4445604','苏扎克'],['Q12489692','克尔托'],['Q12505828','普莱雷特'],['Q3537816','内寇尔'],
+ ['Q7066653','诺瓦塔'],['Q31917158','哈卡'],['Q31916975','韦斯卡'],['Q33186','博博瓦茨'],
+ ['Q404200','埃盖'],['Q115738657','拉韦纳'],['Q31844059','托莱多'],['Q116170766','马德里'],
+ ['Q31925679','巴利亚多利德'],['Q1017178','楚夫特卡莱'],['Q289618','曼苏里耶']
+]);
+const CAPITAL_POLITY_FIX=new Map([
+ ['Q123027565',{zh:'克什米尔苏丹国'}],['Q23039102',{zh:'东吁第一帝国'}],['Q146246',{en:'Francia'}]
+]);
+const capitalZh=p=>p?.kind==='dated-capital'?(CAPITAL_ZH_FIX.get(p.qid)||p.nameZh||CAPITAL_ZH_EDITORIAL.get(p.qid)||''):p?.nameZh||'';
+const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
+export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||(p?.kind==='dated-capital'?capitalZh(p):p.nameZh)||p.displayName||p.name);
 // A source observation is not a city lifespan. Name epochs constrain borrowing
 // only when both dates have evidence; editorial observation aliases alone do not.
 export const placeNamePeriods=(p,year)=>(p.nameTimeline||[]).filter(n=>(n.start==null||n.start<=year)&&(n.end==null||year<=n.end));
@@ -48,12 +69,14 @@ function datedPlaceLabel(p,year){
 export function placeAtYear(p,year,span=50){
  if(!Number.isInteger(year)||year===0)return null;
  if(p.kind==='modern-reference')return {...p,rank:4+(p.scaleRank||0)};
+ if(p.kind==='dated-capital'&&CAPITAL_DATE_QUARANTINE.has(p.id))return null;
  if(p.observations){const candidates=p.observations.filter(o=>Math.abs(civilYear(o[0])-civilYear(year))<=span&&observationMatchesNamePeriod(p,o[0],year));if(!candidates.length)return null;const o=candidates.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a),label=datedPlaceLabel(p,o[0]);return {...p,observation:o,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,rank:2-Math.log10(Math.max(1,o[1]||1))/10};}
  const period=p.periods?.find(([a,b])=>a<=year&&year<=b);if(!period)return null;
  const location=p.locations?.filter(l=>l.periods?.some(([a,b])=>a<=year&&year<=b)).sort((a,b)=>(a.accuracyMeters??Infinity)-(b.accuracyMeters??Infinity))[0];
  if(p.locations&&!location)return null;
  const label=datedPlaceLabel(p,year);
- return {...p,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,coordinates:location?.coordinates||p.coordinates,location,period:location?.periods.find(([a,b])=>a<=year&&year<=b)||period,rank:p.kind==='dated-capital'?0:p.kind==='attested-site'?1:3-(p.referenceCount||0)/100};
+ const zh=p.kind==='dated-capital'?capitalZh(p):p.nameZh,polityLabels=capitalPolityLabels(p);
+ return {...p,...(zh?{nameZh:zh}:{}),...(polityLabels?{polityLabels}:{}),displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,coordinates:location?.coordinates||p.coordinates,location,period:location?.periods.find(([a,b])=>a<=year&&year<=b)||period,rank:p.kind==='dated-capital'?0:p.kind==='attested-site'?1:3-(p.referenceCount||0)/100};
 }
 export function nearestPlaceYear(p,year){
  if(p.observations)return p.observations.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a)[0];
@@ -63,8 +86,8 @@ export function nearestPlaceYear(p,year){
 export const normalizePlaceQuery=q=>String(q||'').toLocaleLowerCase().normalize('NFD').replace(/[\p{Diacritic}\s'’‘ʼ‐‑–—-]/gu,'');
 export async function searchPlaces(query,year,span=50){
  const q=normalizePlaceQuery(query);if(!q||q.length<2&&!/\p{Script=Han}/u.test(q))return [];
- const scored=(await loadPlaces()).filter(p=>p.kind!=='modern-reference').map(p=>{
-  const names=[p.name,p.nameZh].map(normalizePlaceQuery),aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
+ const scored=(await loadPlaces()).filter(p=>p.kind!=='modern-reference'&&!CAPITAL_DATE_QUARANTINE.has(p.id)).map(p=>{
+  const names=[p.name,p.kind==='dated-capital'?capitalZh(p):p.nameZh].map(normalizePlaceQuery),aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
   const score=names.includes(q)?0:aliases.includes(q)?1:names.some(n=>n.startsWith(q))?2:[...names,...aliases].some(n=>n.includes(q))?3:99;
   return {p,score};
  });

@@ -148,6 +148,27 @@ await check('Capitals use explicit tenure bounds and do not project forward',()=
   assert(placeAtYear(p,330));assert(placeAtYear(p,1453));
   assert.equal(placeAtYear(p,329),null);assert.equal(placeAtYear(p,1454),null);
 });
+await check('Corrupted Wikidata capital dates are quarantined and editorial labels resolve cleanly',async()=>{
+  for(const [id,year] of [
+    ['capital:Q180568$5ac9055c-44f4-93a7-fcb7-88674c46b701',742],
+    ['capital:Q2980623$613b5f92-45dd-ce9b-abcd-9c5fc0145c32',500],
+    ['capital:Q3627069$d0b39cb4-4d5e-15ee-4f60-725632ee182d',14],
+    ['capital:Q83958$cf01679d-4565-d213-61db-12abfbc7b7b4',808]
+  ]){
+    const c=capitals.claims.find(x=>x.id===id);assert(c,id);
+    assert.equal(placeAtYear(c,year),null,id+' should be quarantined at '+year);
+  }
+  const amarna=placeAtYear(capitals.claims.find(x=>x.qid==='Q5736'),-1345);
+  assert.equal(amarna.nameZh,'阿玛尔纳');
+  const madrid=placeAtYear(capitals.claims.find(x=>x.qid==='Q116170766'),1570);
+  assert.equal(madrid.nameZh,'马德里');
+  const kashmir=placeAtYear(capitals.claims.find(x=>x.polityQid==='Q123027565'&&x.qid==='Q170115'),1450);
+  assert.equal(kashmir.polityLabels.zh,'克什米尔苏丹国');
+  const francia=placeAtYear(capitals.claims.find(x=>x.polityQid==='Q146246'&&x.qid==='Q90'),600);
+  assert.equal(francia.polityLabels.en,'Francia');
+  assert((await searchPlaces('阿玛尔纳',-1345)).some(p=>p.qid==='Q5736'));
+  assert(!(await searchPlaces('尼托斯',-1345)).some(p=>p.qid==='Q5736'));
+});
 await check('Known internally contradictory name dates are quarantined',()=>{
   for(const id of ['pleiades:520998','pleiades:211425280']){
     const p=index.places.find(p=>p.id===id);assert(p);
