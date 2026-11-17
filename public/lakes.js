@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.85.0-441ebc74b40e';
+import {decodeLakeArchive} from './lake-codec.js?v=3.86.0-33de266d936c';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -49,6 +49,24 @@ async function fetchLakeJSON(url){
  const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),20000);
  try{const r=await fetch(url,{signal:abort.signal,cache:'no-cache'});if(!r.ok)throw Error('Lake archive '+r.status);let bytes=new Uint8Array(await r.arrayBuffer());if(bytes[0]===31&&bytes[1]===139)bytes=new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());return url.endsWith('.bin.gz')?decodeLakeArchive(bytes):JSON.parse(new TextDecoder().decode(bytes));}finally{clearTimeout(timer);}
 }
+const LAKE_ZH=new Map([
+ ['Constance','博登湖（康斯坦茨湖）'],['Zurich','苏黎世湖'],['Luzern','卢塞恩湖'],['Neuchatel','纳沙泰尔湖'],
+ ['Como','科莫湖'],['Maggiore','马焦雷湖'],['Garda','加尔达湖'],['Trasimeno','特拉西梅诺湖'],['Bolsena','博尔塞纳湖'],
+ ['Balaton','巴拉顿湖'],['Neusiedl','新锡德尔湖'],['Ijsselmeer','艾瑟尔湖'],['Chiemsee','基姆湖'],['Starnberger See','施塔恩贝格湖'],
+ ['Ohrid','奥赫里德湖'],['Prespa','普雷斯帕湖'],['Scutari','斯库台湖'],['Peipsi','楚德湖（佩普西湖）'],['Ilmen','伊尔门湖'],
+ ['Vanern','维纳恩湖'],['Vattern','韦特恩湖'],['Malaren','梅拉伦湖'],['Hjalmaren','耶尔马伦湖'],
+ ['Saimaa','塞马湖'],['Paijanne','派延奈湖'],['Inari','伊纳里湖'],['Lomond','洛蒙德湖'],['Ness','尼斯湖'],['Neagh','内伊湖'],
+ ['Iznik','伊兹尼克湖'],['Tuz','图兹湖'],['Sevan','塞凡湖'],['Urmia','乌尔米耶湖'],['Tiberias','加利利海（提比里亚湖）'],
+ ['Kara-Bogaz-Gol','卡拉博加兹戈尔湾'],['Sarygamysh','萨雷卡梅什湖'],['Aydar','艾达尔库尔湖'],['Tengiz','田吉兹湖'],['Zaysan','斋桑泊'],['Alakol','阿拉湖'],
+ ['Khovsgol','库苏古尔湖'],['Uvs','乌布苏湖'],['Hulun','呼伦湖'],['Buir','贝尔湖'],['Khanka','兴凯湖'],
+ ['Ulungur','乌伦古湖'],['Ebi','艾比湖'],['Sai li-mu','赛里木湖'],['Bosten','博斯腾湖'],['Wu-liang-su','乌梁素海'],
+ ['Qinghai','青海湖'],['Ngoring','鄂陵湖'],['Gyaring','扎陵湖'],['Dongping','东平湖'],['Weishan','微山湖'],['Kaoyu','高邮湖'],
+ ['Tai','太湖'],['Poyang','鄱阳湖'],['Siling','色林错'],['Nam','纳木错'],['Zhari Namco','扎日南木错'],
+ ['Tangra','当惹雍错'],["Ma-p'ang yung-ts'o",'玛旁雍错'],['La-ang','拉昂错'],['Pangong','班公错'],['Bangong','班公错'],
+ ['Inawashiro ko','猪苗代湖'],['Kasumigaura','霞浦'],['Toba','多巴湖'],['Chilika','奇利卡湖'],
+ ['Turkana','图尔卡纳湖'],['Albert','艾伯特湖'],['Edward','爱德华湖'],['Kivu','基伍湖'],['Rukwa','鲁夸湖'],['Mweru','姆韦鲁湖'],['Bangweulu','班韦乌卢湖'],['Mai-Ndombe','马伊恩东贝湖'],
+ ['Eyre','艾尔湖'],['Torrens','托伦斯湖'],['Great Bear','大熊湖'],['Great Slave','大奴湖'],['Winnipeg','温尼伯湖'],['Winnipegosis','温尼伯戈西斯湖'],['Manitoba','马尼托巴湖'],['Athabasca','阿萨巴斯卡湖'],['Champlain','尚普兰湖']
+]);
 const cache=new LakeCache(fetchLakeJSON);
 let indexPromise;
 function lakeIndex(){return indexPromise??=(fetchLakeJSON('data/lakes/index.json.gz').then(data=>{if(data.schemaVersion!==1||!Array.isArray(data.shards))throw Error('Invalid lake index');return data;}).catch(e=>{indexPromise=null;throw e;}));}
@@ -112,8 +130,9 @@ export class LakeLayer {
    if(Math.abs(b.x-a.x)<85||Math.abs(b.y-a.y)<45)continue;
    const p=this.map.project(n.center),box={left:origin.left+p.x-80,right:origin.left+p.x+80,top:origin.top+p.y-18,bottom:origin.top+p.y+18};
    if(box.left<origin.left+10||box.right>origin.right-10||box.top<origin.top+30||box.bottom>origin.bottom-30||[...blockers,...placed].some(r=>overlap(box,r)))continue;
-   const el=document.createElement('div');el.className='lake-label';el.textContent=lang==='en'?n.name:n.zh||n.name;
-   if(lang==='bi'&&n.zh){const small=document.createElement('small');small.textContent=n.name;el.append(small);}
+   const zh=n.zh||LAKE_ZH.get(n.name)||'';
+   const el=document.createElement('div');el.className='lake-label';el.textContent=lang==='en'?n.name:zh||n.name;
+   if(lang==='bi'&&zh){const small=document.createElement('small');small.textContent=n.name;el.append(small);}
    this.labels.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(n.center).addTo(this.map));placed.push(box);
   }
  }

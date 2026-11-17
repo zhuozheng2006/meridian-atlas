@@ -1,10 +1,10 @@
-import {interiorPoint} from './geometry-anchor.js?v=3.85.0-441ebc74b40e';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.85.0-441ebc74b40e';
-import {beginMapForeground} from './map-load-priority.js?v=3.85.0-441ebc74b40e';
+import {interiorPoint} from './geometry-anchor.js?v=3.86.0-33de266d936c';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.86.0-33de266d936c';
+import {beginMapForeground} from './map-load-priority.js?v=3.86.0-33de266d936c';
 
 const hasCountrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023;
 let _countryMod=null,_countryModP=null;
-const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=3.85.0-441ebc74b40e').then(m=>(_countryMod=m)));
+const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=3.86.0-33de266d936c').then(m=>(_countryMod=m)));
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{

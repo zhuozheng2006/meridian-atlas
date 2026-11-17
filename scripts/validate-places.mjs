@@ -415,7 +415,23 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:863739',100,'阿尼（亚美尼亚）'],
     ['index','pleiades:893988',-600,'杜尔-库里加尔祖'],
     ['index','pleiades:894185',300,'芝诺比娅（哈拉比耶）'],
-    ['index','pleiades:118701',-200,'格劳贝格凯尔特王城']
+    ['index','pleiades:118701',-200,'格劳贝格凯尔特王城'],
+    ['index','pleiades:912800',500,'希拉（拉赫姆王都）'],
+    ['index','pleiades:912808',500,'库法（阿科拉）'],
+    ['index','pleiades:912873',500,'贡德沙普尔（韦赫-安迪约克-沙普尔）'],
+    ['index','pleiades:149576487',-1350,'阿马尔纳（阿赫塔顿）'],
+    ['index','pleiades:58129442',-1600,'卡内什（屈尔泰佩）'],
+    ['index','pleiades:393135871',-6000,'耶莫新石器遗址'],
+    ['index','pleiades:339709658',-3500,'欧贝德丘遗址'],
+    ['index','pleiades:932478',-100,'巴林堡（卡拉特·巴林）'],
+    ['index','pleiades:863907',100,'蒂格拉纳克特（亚美尼亚）'],
+    ['index','pleiades:688011',1,'库姆兰遗址'],
+    ['index','pleiades:697700',50,'马凯鲁斯要塞'],
+    ['index','pleiades:697701',100,'马代巴'],
+    ['index','pleiades:157894',-400,'尼凯亚（尼斯）'],
+    ['index','pleiades:118731',150,'罗马时期海德堡'],
+    ['index','pleiades:97875559',-6500,'阿特利特-亚姆水下新石器遗址'],
+    ['index','pleiades:893987',-600,'迪尔巴特']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);

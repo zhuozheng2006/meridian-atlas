@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=3.85.0-441ebc74b40e';
+import {readJSON,formatYear} from './map-engine.js?v=3.86.0-33de266d936c';
 
 const BATTLE_ZH_GLOSSARY=new Map([
  ['Canaanites','迦南人'],['Hatti','赫梯'],['ancient Greeks','古希腊各邦'],['Styra','斯蒂拉'],
