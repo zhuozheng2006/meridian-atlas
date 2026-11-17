@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.69.0-346ed9e46b02';
-import {placeWindow} from './view-state.js?v=3.69.0-346ed9e46b02';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.69.0-e953c306ee1f';
+import {placeWindow} from './view-state.js?v=3.69.0-e953c306ee1f';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -290,7 +290,9 @@ export class PlaceLayer {
    if((p.kind==='attested-settlement'||p.kind==='attested-site')&&zoom<3.4)continue;
    if(map.getProjection().type==='globe'&&zoom<3){const rad=Math.PI/180,[lon,lat]=p.coordinates;const dot=Math.sin(center.lat*rad)*Math.sin(lat*rad)+Math.cos(center.lat*rad)*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.2)continue;}
    const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
-   const width=Math.min(172,Math.max(name.length*(p.nameZh&&this.lang!=='en'?12:6.5),secondary.length*6)+30),height=(secondary?46:32)+(p.observation?14:0);
+   const obsText=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):'';
+   const measureLine=(s,cjk,lat)=>Array.from(String(s||'')).reduce((w,ch)=>w+(/[\u3400-\u9fff\uF900-\uFAFF]/.test(ch)?cjk:lat),0);
+   const width=Math.min(184,Math.max(measureLine(name,12.8,7.4),measureLine(secondary,11,6.4),measureLine(obsText,11.2,6.3))+34),height=(secondary?48:34)+(obsText?15:0);
    // A record that exists in the data should still be visible and clickable when its
    // label cannot be placed. Try the label on the right, then on the left, then fall
    // back to the dot alone instead of dropping the record entirely.
@@ -309,7 +311,7 @@ export class PlaceLayer {
    const el=document.createElement('button');el.className='place-marker '+(modern?'modern':p.kind==='dated-capital'?'capital':'historic')+(dotOnly?' dot-only':'');
    const dot=document.createElement('i'),label=document.createElement('span');label.textContent=name;el.append(dot,label);
    if(secondary){const sub=document.createElement('small');sub.textContent=secondary;label.append(sub);}
-   if(p.observation){const stamp=document.createElement('small');stamp.className='place-date';stamp.textContent=(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh');label.append(stamp);}
+   if(obsText){const stamp=document.createElement('small');stamp.className='place-date';stamp.textContent=obsText;label.append(stamp);}
    el.title=(modern?(this.lang==='en'?'Modern reference · ':'现代参照 · '):'')+name;el.setAttribute('aria-label',el.title);
    const meta=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+Number(p.observation[1]).toLocaleString()+' · '+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):p.kind==='dated-capital'?(this.lang==='en'?'Historical capital':'历史首都'):modern?(this.lang==='en'?'Present-day reference':'现代参照'):p.period?formatYear(p.period[0],this.lang==='en'?'en':'zh')+(p.period[1]!==p.period[0]?' — '+formatYear(p.period[1],this.lang==='en'?'en':'zh'):''):'';
    const showHover=()=>{this.atlas.setHoverMarker?.({primary:name,secondary,meta},el.getBoundingClientRect());};

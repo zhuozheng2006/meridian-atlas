@@ -204,6 +204,22 @@ button.layer-note:hover{color:#ecd4a3;background:#dcc0890f;border-radius:0 6px 6
 }
 .landscape-legend{display:grid;grid-template-columns:1fr 1fr;gap:12px 8px;margin:20px 0;font-size:13px}.landscape-legend>div{display:flex;align-items:center;gap:8px}.landscape-legend i{width:15px;height:15px;flex:0 0 15px;border-radius:3px;border:1px solid #ffffff30}.regional-controls .regional-landscape{border-left:1px solid #b7ad8633}.regional-controls:has(.regional-landscape:not([hidden])){max-width:calc(100% - 78px);flex-wrap:wrap}
 .landscape-legend small{display:block;font-size:10px;line-height:1.45;opacity:.75;margin-top:2px}
+/* v3.70 Cartographic Scale, Regional Controls & Obsidian Popup Surface */
+.maplibregl-ctrl-scale{border:1px solid #dcc0894f!important;border-top:0!important;border-radius:6px;background:rgba(8,17,29,.88)!important;backdrop-filter:blur(8px);color:#e9dcb8!important;font:600 10.5px/1.35 system-ui,sans-serif!important;padding:2px 8px!important;box-shadow:0 4px 14px #00000044}
+@media(min-width:761px){.maplibregl-ctrl-bottom-left{left:14px;bottom:44px}.regional-controls{bottom:78px;background:rgba(9,19,31,.92);border:1px solid #dcc08944;border-radius:9px;backdrop-filter:blur(12px);box-shadow:0 10px 28px #00000055}}
+.historical-popup .maplibregl-popup-content{background:linear-gradient(160deg,#112234fa,#08131efa);border:1px solid #dcc08955;border-top:2px solid #dcc089;border-radius:12px;box-shadow:0 18px 44px #00000080;backdrop-filter:blur(16px);color:#f3efe5;padding:16px 18px}
+.historical-popup .maplibregl-popup-tip{border-top-color:#0e1d2e;border-bottom-color:#0e1d2e}
+.historical-popup .maplibregl-popup-close-button{color:#b4c6d4;right:8px;top:8px;width:28px;height:28px;border-radius:50%;font-size:18px;line-height:26px}
+.historical-popup .maplibregl-popup-close-button:hover{background:#dcc08922;color:#fff}
+.historical-popup .historical-eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#dcc089;margin-bottom:4px;display:block}
+.historical-popup h3{font-family:var(--serif);font-size:19px;margin:2px 0 8px;color:#f6f1e6;padding-right:24px}
+.historical-popup dl{display:grid;gap:6px;margin:10px 0}.historical-popup dl div{padding:7px 10px;border-radius:8px;background:#091522b8;border:1px solid #9caec11c}
+.historical-popup dt{font-size:10.5px;color:#8ea4b4;letter-spacing:.04em}.historical-popup dd{margin:2px 0 0;font-size:13px;color:#e7eff5;font-variant-numeric:tabular-nums}
+.historical-source-links,.historical-review-sources{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.historical-source-links a,.historical-review-sources a{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;border:1px solid #dcc08944;background:#0e1f31;color:#edd8ab;font-size:11.5px;text-decoration:none;transition:border-color .15s,background .15s}
+.historical-source-links a:hover,.historical-review-sources a:hover{border-color:#dcc08999;background:#172e46;color:#fff}
+.historical-popup .regional-dossier{width:100%;margin-top:8px;border-radius:8px;border:1px solid #dcc08966;background:linear-gradient(135deg,#dcc08928,#dcc08914);color:#f6e2b4;font-weight:500;padding:8px 12px}
+.historical-popup .regional-dossier:hover{background:linear-gradient(135deg,#dcc0893d,#dcc08920);border-color:#e9cfa0}
 /* Phones with a home indicator: viewport-fit=cover lets the layout reach the screen
    edge, so the bottom-docked elements claim the inset themselves. env() resolves to 0
    everywhere else, leaving the existing layout untouched. */
