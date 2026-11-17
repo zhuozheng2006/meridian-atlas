@@ -1,4 +1,4 @@
-import {LandscapeArchive} from './halc-landscape-prepare.js?v=3.68.0-271b3c0fd22a';
+import {LandscapeArchive} from './halc-landscape-prepare.js?v=3.68.0-e45a0e3bf7a4';
 const tasks=new Map();let archive;
 self.addEventListener('message',async({data})=>{
  const {type,owner,id}=data||{};
