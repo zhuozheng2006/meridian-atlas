@@ -1,4 +1,4 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.80.0-05032a3b9e8f';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.81.0-1671ff63e093';
 export const chgisDisplayNames={'浔阳郡':'Xunyang Jun','鄱阳郡':'Poyang Jun','新定郡':'Xinding Jun','会稽郡':'Kuaiji Jun','义兴郡':'Yixing Jun'};
 const ROOT='data/chgis/',packs=new Map();let indexPromise;
 export const chgisCoversYear=year=>Number.isInteger(year)&&year!==0&&year>=-224&&year<=1911;

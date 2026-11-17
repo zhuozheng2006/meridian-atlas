@@ -1,31 +1,35 @@
-import {interiorPoint} from './geometry-anchor.js?v=3.80.0-05032a3b9e8f';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.80.0-05032a3b9e8f';
-import {cachedCountryFrame,countryAlias,countryFeatures,countryName,countrySnapshot,countryStatus,countryVisible,loadCountryFrame} from './country-archive.js?v=3.80.0-05032a3b9e8f';
-import {beginMapForeground} from './map-load-priority.js?v=3.80.0-05032a3b9e8f';
+import {interiorPoint} from './geometry-anchor.js?v=3.81.0-1671ff63e093';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.81.0-1671ff63e093';
+import {beginMapForeground} from './map-load-priority.js?v=3.81.0-1671ff63e093';
 
+const hasCountrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023;
+let _countryMod=null,_countryModP=null;
+const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=3.81.0-1671ff63e093').then(m=>(_countryMod=m)));
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
- constructor(atlas,{mode='auto',color,loadCountry=loadCountryFrame,peekCountry=cachedCountryFrame}={}){
+ constructor(atlas,{mode='auto',color,loadCountry=null,peekCountry=null}={}){
   this.atlas=atlas;this.mode=mode;this.color=color;this.loadCountry=loadCountry;this.peekCountry=peekCountry;
   this.generation=0;this.current=null;this.loading=false;this.reason=null;
  }
  countryFrame(frame,year,requested){
-  return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features:countryFeatures(frame,this.color)},key:'cshapes:'+frame.date,reason:null};
+  return {requested,source:'cshapes',year,frame,records:frame.records,data:{type:'FeatureCollection',features:_countryMod.countryFeatures(frame,this.color)},key:'cshapes:'+frame.date,reason:null};
  }
  async prepare(year,loadOverview){
   const requested=this.mode;
-  if(requested==='auto'&&countrySnapshot(year)){
-   const cached=this.peekCountry(year);if(cached)return this.countryFrame(cached,year,requested);
+  if(requested==='auto'&&hasCountrySnapshot(year)){
+   const cached=this.peekCountry?this.peekCountry(year):_countryMod?.cachedCountryFrame(year)||null;
+   if(cached){if(!_countryMod)await getCountryMod();return this.countryFrame(cached,year,requested);}
    let overviewWanted=true;const release=beginMapForeground();
-   const country=Promise.resolve().then(()=>this.loadCountry(year)).finally(release);
+   const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y)));
+   const country=Promise.all([loadFn(year),getCountryMod()]).then(([frame])=>frame).finally(release);
    const detail=country.then(frame=>this.countryFrame(frame,year,requested));
    const overview=Promise.resolve().then(()=>loadOverview(()=>overviewWanted)).then(frame=>{if(!frame)throw Error('Overview superseded');return {...frame,requested,reason:null,countryUpgrade:country};});
    // Either usable source may lead; a failed source cannot block the other.
    const first=await Promise.any([detail,overview]);if(first.source==='cshapes')overviewWanted=false;return first;
   }
   if(requested==='cshapes'){
-   if(countrySnapshot(year)){try{const frame=await this.loadCountry(year);return this.countryFrame(frame,year,requested);}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
+   if(hasCountrySnapshot(year)){try{const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y)));const [frame]=await Promise.all([loadFn(year),getCountryMod()]);return this.countryFrame(frame,year,requested);}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
    return {...await loadOverview(),requested,reason:'unsupported'};
   }
   return {...await loadOverview(),requested,reason:null};
@@ -37,11 +41,12 @@ export class BoundaryController{
   this.atlas.map.getContainer?.()?.dispatchEvent(new CustomEvent('geometry-status',{bubbles:true}));
  }
  async upgradeAutomatic(initial){
-  if(this.mode!=='auto'||initial.source!=='cliopatria'||!countrySnapshot(initial.year))return false;
+  if(this.mode!=='auto'||initial.source!=='cliopatria'||!hasCountrySnapshot(initial.year))return false;
   const generation=this.generation,year=initial.year,request=this.atlas.request,release=beginMapForeground();
   const current=()=>!this.atlas.destroyed&&generation===this.generation&&request===this.atlas.request&&year===this.atlas.year&&this.mode==='auto'&&this.current===initial;
   try{
-   const frame=await (initial.countryUpgrade||this.loadCountry(year));if(!current())return false;
+   const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y)));
+   const [frame]=await Promise.all([initial.countryUpgrade||loadFn(year),getCountryMod()]);if(!current())return false;
    this.commit(this.countryFrame(frame,year,'auto'));
    this.atlas.regional?.update();this.atlas.refreshLabels();return true;
   }catch{return false;}finally{release();}
@@ -71,14 +76,19 @@ export class BoundaryController{
  }
  get isCountry(){return this.current?.source==='cshapes';}
  labelRecords(){
-  if(!this.isCountry)return this.atlas.active;const b=this.atlas.map.getBounds(),box=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()];
-  return this.current.records.map(r=>({...r,name:countryName(r,'en',this.current.frame.date),zhName:countryName(r,'zh',this.current.frame.date),labelCenter:interiorPoint(this.current.frame.geometries[r.geometryId],box[0]<box[2]?box:null)||r.center})).sort((a,b)=>b.area-a.area);
+  if(!this.isCountry)return this.atlas.active;const b=this.atlas.map.getBounds(),box=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()],cn=_countryMod?.countryName;
+  return (this.current.records||[]).map(r=>({...r,name:cn?cn(r,'en',this.current.frame.date):r.name,zhName:cn?cn(r,'zh',this.current.frame.date):(r.zhName||r.name),labelCenter:interiorPoint(this.current.frame.geometries[r.geometryId],box[0]<box[2]?box:null)||r.center})).sort((a,b)=>b.area-a.area);
  }
  indexFeatures(){
   return this.isCountry?this.current.data.features:[];
  }
  openRecord(id,point=this.atlas.map.getCenter()){
-  if(!this.isCountry)return;const r=this.recordMap.get(id),frame=this.current.frame;if(!r||!countryVisible(r,frame.date))return;
+  if(!this.isCountry)return;
+  const visible=_countryMod?.countryVisible||((r,date)=>typeof date==='string'&&r.startDate<=date&&date<=r.endDate);
+  const countryAlias=_countryMod?.countryAlias||(()=>undefined);
+  const countryName=_countryMod?.countryName||((r,lang)=>lang==='en'?r.name:(r.zhName||r.name));
+  const countryStatus=_countryMod?.countryStatus||((value,lang)=>({independent:['独立国家','Independent state'],colony:['殖民地','Colony'],protectorate:['保护国','Protectorate'],occupied:['被占领地区','Occupied territory'],mandate:['委任统治地','Mandated territory']}[value]||['未记载','Not recorded'])[lang==='en'?1:0]);
+  const r=this.recordMap.get(id),frame=this.current.frame;if(!r||!visible(r,frame.date))return;
   const regional=this.atlas.regional,lang=this.atlas.lang,node=make('section');regional?.closePopup();
   node.append(make('small',`CShapes ${frame.catalog.version} · ${frame.catalog.coding}`,'historical-eyebrow'),make('h3',countryName(r,lang,frame.date)));
   if(lang==='bi'&&r.zhName)node.append(make('p',countryName(r,'en',frame.date)));
