@@ -44,7 +44,7 @@ export function openResearchView(host,{lang='bi',initialPolityId='',initialState
  const body=doc.createElement('div');body.className='research-version-body';shell.append(bar,body);host.replaceChildren(shell);
  function renderVersion(){
   caption.textContent=t('资料版本','Archive version');select.setAttribute('aria-label',caption.textContent);
-  select.replaceChildren();for(const [value,zh,en]of [['equinox','Equinox · 2022快照','Equinox · 2022 snapshot'],['polaris-2026','Polaris · 2026快照','Polaris · 2026 snapshot']]){const option=doc.createElement('option');option.value=value;option.textContent=t(zh,en);select.append(option);}
+  select.replaceChildren();for(const [value,zh,en]of [['equinox','2022 档案快照','Equinox · 2022 snapshot'],['polaris-2026','2026 档案快照','Polaris · 2026 snapshot']]){const option=doc.createElement('option');option.value=value;option.textContent=t(zh,en);select.append(option);}
   select.value=snapshot.dataset;note.textContent=t('分别查阅两个版本，追溯原始资料。','Browse each version and trace its original records.');
  }
  function loading(error=false){

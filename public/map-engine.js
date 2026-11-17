@@ -1,17 +1,17 @@
-import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.66.0-265f0df4e66e';
-import {waitForMapForeground} from './map-load-priority.js?v=3.66.0-265f0df4e66e';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.66.0-265f0df4e66e';
-import {boundaryMesh} from './boundary-mesh.js?v=3.66.0-265f0df4e66e';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.66.0-265f0df4e66e';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.66.0-265f0df4e66e';
-import {BoundaryController} from './boundary-controller.js?v=3.66.0-265f0df4e66e';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.66.0-265f0df4e66e';
+import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.67.0-90c599a3d07b';
+import {waitForMapForeground} from './map-load-priority.js?v=3.67.0-90c599a3d07b';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.67.0-90c599a3d07b';
+import {boundaryMesh} from './boundary-mesh.js?v=3.67.0-90c599a3d07b';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.67.0-90c599a3d07b';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.67.0-90c599a3d07b';
+import {BoundaryController} from './boundary-controller.js?v=3.67.0-90c599a3d07b';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.67.0-90c599a3d07b';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.66.0-265f0df4e66e';
+import {polityName} from './polity-names.js?v=3.67.0-90c599a3d07b';
 export {polityName};
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
 export function activeRecords(catalog,year,relations=false){if(!year||year< -3400||year>2024)return [];return catalog.records.filter(r=>r.start<=year&&year<=r.end&&(relations||r.type==='POLITY')).sort((a,b)=>b.area-a.area);}
@@ -37,7 +37,7 @@ export async function readJSON(url){
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
    const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
-   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.66.0-265f0df4e66e'))).historicalDataRequest(url),response=await fetch(transport.url,{signal:controller.signal,cache:transport.cache,priority});if(!response.ok)throw Error(`${response.status} ${url}`);
+   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.67.0-90c599a3d07b'))).historicalDataRequest(url),response=await fetch(transport.url,{signal:controller.signal,cache:transport.cache,priority});if(!response.ok)throw Error(`${response.status} ${url}`);
    if(!url.endsWith('.gz'))return await response.json();
    // Start decompression after the magic bytes, while the body is still arriving.
    // Keep only the prefix here; no compressed-body collection or second copy.
@@ -157,8 +157,8 @@ export class AtlasMap{
   if(this._detailLayersPromise)return this._detailLayersPromise;
   this._detailLayersPromise=(async()=>{
    const [{RegionalBoundaries:RB},{HistoricalDetailLayer:HD}]=await Promise.all([
-    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.66.0-265f0df4e66e'),
-    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.66.0-265f0df4e66e')
+    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.67.0-90c599a3d07b'),
+    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.67.0-90c599a3d07b')
    ]);
    if(this.destroyed)return false;
    if(this.regional?._isStub){
@@ -189,7 +189,7 @@ export class AtlasMap{
    if(this.geography._isStub&&typeof Geography==='undefined'){
     const stub=this.geography;
     this.geographyReady=(async()=>{
-     const {Geography:RealGeography}=await import('./geography.js?v=3.66.0-265f0df4e66e');
+     const {Geography:RealGeography}=await import('./geography.js?v=3.67.0-90c599a3d07b');
      if(this.destroyed)return false;
      const geo=new RealGeography(this);geo.enabled=stub.enabled;geo.coastAligned=stub.coastAligned;geo.reference=stub.reference;this.geography=geo;
      const ok=await geo.init().then(()=>true).catch(()=>false);
