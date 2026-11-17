@@ -462,7 +462,17 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:49999',135,'希波库拉（百乘王朝西德干名都 · 科尔哈普尔）'],
     ['index','pleiades:550588',-180,'希尔卡尼斯（吕底亚波斯殖民城）'],
     ['index','pleiades:570612',-650,'皮萨（奥林匹亚旁古代名邦）'],
-    ['index','pleiades:59739',135,'巴坦凯萨拉（巴特什瓦尔 · 阿格拉东南古镇）']
+    ['index','pleiades:59739',135,'巴坦凯萨拉（巴特什瓦尔 · 阿格拉东南古镇）'],
+    ['index','pleiades:688210632',1250,'阿尔莫格拉（科尔多瓦东南中世纪村）'],
+    ['index','pleiades:77149477',150,'洛桑纳罗马港与乡邑（莱芒湖北岸）'],
+    ['index','pleiades:394649378',-4500,'塔勒伊卜利斯（伊朗铜石并用冶铜遗址）'],
+    ['index','pleiades:394649380',-800,'塔维兰遗址（佩特拉以西 · 以东人铁器古城）'],
+    ['index','pleiades:414082997',-5000,'梅里姆达新石器遗址（尼罗河三角洲西缘）'],
+    ['index','pleiades:211790934',500,'拉塔基亚（劳迪凯亚 · 叙利亚海岸）'],
+    ['index','pleiades:890432540',800,'卡尔巴拉（幼发拉底河西伊拉克圣城）'],
+    ['index','pleiades:464208937',-3000,'锡亚勒克遗址（卡尚伊朗高原史前名址）'],
+    ['index','pleiades:629167850',-400,'毕达哥拉斯港（萨摩斯岛古城）'],
+    ['index','pleiades:912807',200,'阿波洛戈斯（乌布拉古港 · 巴士拉前身）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);

@@ -1,4 +1,4 @@
-import {ADDITIONAL_VARIABLES} from './research-vocabulary.js?v=3.89.0-5a1e492d0eb7';
+import {ADDITIONAL_VARIABLES} from './research-vocabulary.js?v=3.90.0-466df06b3df6';
 // Labels are editorial translations; original Equinox variable names remain the keys.
 // Definitions: official Seshat Code Book, 20 April 2021, pp. 6–9 and 12–17.
 export const CODEBOOK_URL='https://seshatdatabank.info/sitefiles/code-book-4.20.2021.pdf';
