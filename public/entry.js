@@ -17,7 +17,8 @@ function boot(){
  if(!['research','polities','stories','library','sources'].includes(view)&&typeof fetch==='function'&&location.protocol.startsWith('http')){
   window.__meridianBootLand??=fetch('data/land.geojson').then(r=>r.ok?r.json():'data/land.geojson').catch(()=>'data/land.geojson');
   if(typeof document!=='undefined'&&document.head){
-   for(const mod of ['./map-engine.js','./boundary-controller.js','./country-archive.js','./native-geometry.js']){
+   const ml=document.createElement('link');ml.rel='preload';ml.as='script';ml.fetchPriority='high';ml.href=assetURL('./assets/maplibre-gl.js');document.head.append(ml);
+   for(const mod of ['./map-engine.js','./boundary-controller.js','./country-archive.js','./native-geometry.js','./bootstrap-content-hashes.js','./native-temporal-index.js','./polity-names.js','./polity-display-names-data.js','./map-catalog.js']){
     const link=document.createElement('link');link.rel='modulepreload';link.href=assetURL(mod);document.head.append(link);
    }
   }

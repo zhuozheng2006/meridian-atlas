@@ -33,7 +33,7 @@ export function createMapLibreLoader({document:doc,globalObject,assetURL=default
     const pageURL=new URL(globalObject?.location?.href||doc.URL||doc.baseURI);
     const url=new URL(assetURL,pageURL);
     if(url.origin!==pageURL.origin)throw Error('Map renderer must be a same-origin asset');
-    script=doc.createElement('script');script.src=url.href;script.async=true;
+    script=doc.createElement('script');script.src=url.href;script.async=true;script.fetchPriority='high';
     script.dataset.mapRuntime='maplibre';
     script.onload=()=>finish(library()?null:new Error('Map renderer did not initialize'));
     script.onerror=()=>finish(new Error('Map renderer could not load'));
