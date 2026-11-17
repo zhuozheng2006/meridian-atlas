@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.68.0-a78907964046';
-import {placeWindow} from './view-state.js?v=3.68.0-a78907964046';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.68.0-271b3c0fd22a';
+import {placeWindow} from './view-state.js?v=3.68.0-271b3c0fd22a';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -121,7 +121,7 @@ const PLACE_ZH_EDITORIAL=new Map([
  // v3.68 Wave-3 verified pre-1800 world cities, early urban hearths & classical Pleiades sites
  ['chandler:524','古马尔卡赫'],['chandler:963','穆尔希达巴德'],['chandler:49','阿马拉普拉'],['chandler:630','伊兹尼克'],
  ['chandler:983','南海'],['chandler:274','金德讷格尔'],['chandler:441','法鲁卡巴德'],['chandler:1304','锡拉'],
- ['chandler:734','柯尼斯堡'],['chandler:786','里窝那'],['chandler:185','平定'],['chandler:305','奇图尔'],
+ ['chandler:786','里窝那'],['chandler:185','平定'],['chandler:305','奇图尔'],
  ['chandler:333','科西姆巴扎尔'],['chandler:387','第乌'],['chandler:447','菲鲁兹库赫'],['chandler:573','平泉'],
  ['chandler:667','卡林贾尔'],['chandler:793','大莱波蒂斯'],['chandler:933','米尔扎布尔'],['chandler:1305','尸罗夫'],
  ['chandler:1383','塔卢坎'],['chandler:1432','图拉'],['chandler:1446','特拉凯'],['chandler:1581','扎姆法拉'],
@@ -145,7 +145,49 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:462503','叙拉古'],['pleiades:570668','西库翁'],['pleiades:167717','卢格杜努姆'],['pleiades:393379','阿里米努姆'],
  ['pleiades:433075','萨勒努姆'],['pleiades:442810','塔兰托'],['pleiades:403253','比萨'],['pleiades:570106','阿尔戈斯'],
  ['pleiades:589796','戈尔廷'],['pleiades:599799','米利都'],['pleiades:658457','埃德萨'],['pleiades:570479','麦西尼'],
- ['pleiades:961886','巴克特拉（蓝氏城）'],['pleiades:207549','维米纳基乌姆']
+ ['pleiades:961886','巴克特拉（蓝氏城）'],['pleiades:207549','维米纳基乌姆'],
+ ['chandler:2','亚琛'],['chandler:23','普罗旺斯地区艾克斯'],['chandler:32','亚历山德里亚'],['chandler:50','阿马尔奈'],
+ ['chandler:79','阿科特'],['chandler:105','艾宰穆尔'],['chandler:109','巴埃萨'],['chandler:113','巴赫奇萨赖'],
+ ['chandler:167','贝桑松'],['chandler:168','贝济耶'],['chandler:180','比哈尔谢里夫'],['chandler:189','布莱克本'],
+ ['chandler:196','博尔顿'],['chandler:226','布尔诺'],['chandler:258','海地角'],['chandler:272','昌昌'],
+ ['chandler:312','克莱蒙费朗'],['chandler:363','道拉塔巴德'],['chandler:367','代尔夫特'],['chandler:369','淡目'],
+ ['chandler:372','德比'],['chandler:393','多德雷赫特'],['chandler:404','敦刻尔克'],['chandler:413','埃勃拉'],
+ ['chandler:424','伊利斯'],['chandler:432','埃斯泰尔戈姆'],['chandler:435','埃武拉'],['chandler:442','法泰赫布尔西克里'],
+ ['chandler:471','恒河胜利城'],['chandler:498','戈尔廷'],['chandler:508','锦石'],['chandler:538','哈勒比杜'],
+ ['chandler:563','夏琐'],['chandler:567','赫利奥波利斯'],['chandler:571','姬路'],['chandler:602','雅西'],
+ ['chandler:618','伊拉克利翁'],['chandler:633','哈恩'],['chandler:646','赫雷斯-德拉弗龙特拉'],['chandler:666','贝尼哈马德城堡'],
+ ['chandler:723','克诺索斯'],['chandler:727','高知'],['chandler:742','克拉科夫'],['chandler:751','库卡瓦'],
+ ['chandler:778','拉昂'],['chandler:815','洛安戈'],['chandler:830','卢卡'],['chandler:890','马苏利帕特南'],
+ ['chandler:894','松前'],['chandler:897','玛雅潘'],['chandler:906','梅迪纳-德尔坎波'],['chandler:938','摩亨佐-达罗'],
+ ['chandler:941','蒙托邦'],['chandler:942','阿尔班山'],['chandler:964','马斯喀特'],['chandler:972','纳加帕蒂南'],
+ ['chandler:990','纳博讷'],['chandler:1012','尼什'],['chandler:1026','纽伦堡'],['chandler:1036','奥尔德姆'],
+ ['chandler:1061','乌栋'],['chandler:1062','瓦加杜古'],['chandler:1063','欧鲁普雷图'],['chandler:1067','帕查卡马克'],
+ ['chandler:1071','佩斯利'],['chandler:1084','帕坦（勒利德布尔）'],['chandler:1089','帕茨夸罗'],['chandler:1122','亳州'],
+ ['chandler:1138','波兹南'],['chandler:1142','普雷斯顿'],['chandler:1147','普罗万'],['chandler:1220','圣马洛'],
+ ['chandler:1221','圣奥梅尔'],['chandler:1233','撒马利亚'],['chandler:1242','圣路易斯波托西'],['chandler:1271','塞古'],
+ ['chandler:1272','塞哥维亚'],['chandler:1293','斯库台'],['chandler:1297','西吉勒马萨'],['chandler:1300','锡利斯特拉'],
+ ['chandler:1313','苏瓦松'],['chandler:1340','斯托克波特'],['chandler:1367','塞克什白堡'],['chandler:1380','大沽'],
+ ['chandler:1442','图尔奈'],['chandler:1471','乌加里特'],['chandler:1490','瓦朗谢讷'],['chandler:1494','瓦尔帕莱索'],
+ ['chandler:1506','维琴察'],['chandler:1507','维丁'],['chandler:1524','万县'],['chandler:1540','伍尔弗汉普顿'],
+ ['chandler:1543','沃尔姆斯'],['chandler:1548','维尔茨堡'],['chandler:1563','叶尔羌（莎车）'],
+ ['modelski-ancient:1','阿达布'],['modelski-ancient:2','阿卡德'],['modelski-ancient:3','阿克罗蒂里'],['modelski-ancient:4','阿克沙克'],
+ ['modelski-ancient:10','安善'],['modelski-ancient:16','阿淑尔'],['modelski-ancient:20','巴德提比拉'],['modelski-ancient:23','亳'],
+ ['modelski-ancient:28','卡赫美士'],['modelski-ancient:36','朵拉维拉'],['modelski-ancient:37','迪尔穆恩'],['modelski-ancient:38','杜尔-温塔什'],
+ ['modelski-ancient:39','埃勃拉'],['modelski-ancient:42','象岛'],['modelski-ancient:44','埃里都'],['modelski-ancient:47','埃什努纳'],
+ ['modelski-ancient:53','夏琐'],['modelski-ancient:54','赫利奥波利斯'],['modelski-ancient:55','赫尔莫波利斯'],['modelski-ancient:58','贾尔库坦'],
+ ['modelski-ancient:64','基什'],['modelski-ancient:65','基蒂翁'],['modelski-ancient:86','蒙迪加克'],['modelski-ancient:87','迈锡尼'],
+ ['modelski-ancient:88','纳加尔'],['modelski-ancient:89','纳马兹加-捷佩'],['modelski-ancient:92','皮洛斯'],['modelski-ancient:94','尼纳'],
+ ['modelski-ancient:96','尼普尔'],['modelski-ancient:104','卡特纳'],['modelski-ancient:107','拉基加里'],['modelski-ancient:116','沙赫尔·苏赫泰'],
+ ['modelski-ancient:118','舍赫纳'],['modelski-ancient:119','舒鲁帕克'],['modelski-ancient:138','特洛伊'],['modelski-ancient:139','推罗'],
+ ['modelski-ancient:140','乌加里特'],['modelski-ancient:144','乌尔凯什'],['modelski-ancient:154','扎巴拉姆'],
+ ['pleiades:109126','卢泰西亚（巴黎）'],['pleiades:961873','梅尔夫（安条克）'],['pleiades:697725','佩特拉'],['pleiades:912936','苏萨'],
+ ['pleiades:894084','底格里斯河畔塞琉西亚'],['pleiades:857359','特拉比松'],['pleiades:108894','特里尔（奥古斯塔）'],['pleiades:108751','科隆（阿格里皮纳）'],
+ ['pleiades:413138','佛罗伦萨（弗洛伦蒂亚）'],['pleiades:187290','阿奎莱亚'],['pleiades:383628','克雷莫纳'],['pleiades:383737','帕尔马'],
+ ['pleiades:442500','巴里'],['pleiades:433014','那不勒斯（帕耳忒诺佩）'],['pleiades:462270','卡塔尼亚'],['pleiades:462410','巴勒莫（帕诺尔穆斯）'],
+ ['pleiades:462538','墨西拿（赞克勒）'],['pleiades:452416','雷焦卡拉布里亚（雷吉翁）'],['pleiades:148217','阿尔勒（阿雷拉特）'],['pleiades:148142','尼姆（内毛苏斯）'],
+ ['pleiades:256210','塞维利亚（伊斯帕利斯）'],['pleiades:599587','提洛岛'],['pleiades:570468','墨伽拉'],['pleiades:570491','迈锡尼'],
+ ['pleiades:226564','赫尔松涅斯'],['pleiades:658381','叙利亚安条克'],['pleiades:678060','贝鲁特'],['pleiades:678158','杰拉什'],
+ ['pleiades:315248','乌提卡'],['pleiades:315267','扎马']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;

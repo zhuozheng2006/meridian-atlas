@@ -1,7 +1,7 @@
-import {interiorPoint} from './geometry-anchor.js?v=3.68.0-a78907964046';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.68.0-a78907964046';
-import {cachedCountryFrame,countryAlias,countryFeatures,countryName,countrySnapshot,countryStatus,countryVisible,loadCountryFrame} from './country-archive.js?v=3.68.0-a78907964046';
-import {beginMapForeground} from './map-load-priority.js?v=3.68.0-a78907964046';
+import {interiorPoint} from './geometry-anchor.js?v=3.68.0-271b3c0fd22a';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.68.0-271b3c0fd22a';
+import {cachedCountryFrame,countryAlias,countryFeatures,countryName,countrySnapshot,countryStatus,countryVisible,loadCountryFrame} from './country-archive.js?v=3.68.0-271b3c0fd22a';
+import {beginMapForeground} from './map-load-priority.js?v=3.68.0-271b3c0fd22a';
 
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};

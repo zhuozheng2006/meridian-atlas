@@ -1,4 +1,4 @@
-import {researchPlatesHTML} from './research-map-plates.js?v=3.68.0-a78907964046';
+import {researchPlatesHTML} from './research-map-plates.js?v=3.68.0-271b3c0fd22a';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function sourcesHTML(catalog,events,lang,stats=null){
  const t=(zh,en)=>lang==='en'?en:zh,m=catalog.metadata;
