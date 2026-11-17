@@ -3,13 +3,14 @@
 ## 从这里开始
 
 - [项目首页与运行方式](../README.md)
-- [当前进度与后续事项：3.81](HANDOFF-3.81.md)
+- [当前进度与后续事项：3.82](HANDOFF-3.82.md)
 - [开发、验证和部署](DEVELOPMENT.md)
 - [完整历史首页与迭代记录](PROJECT-HISTORY.md)
 - [全部来源与许可](../ATTRIBUTIONS.md)
 
 ## 最新验证证据
 
+- [3.82 Wave-17 全量 Pleiades >= 9（2,810 处）、CShapes 分期悬停修复与图元碰撞/性能清理](HANDOFF-3.82.md)
 - [3.81 Wave-16 全量 Pleiades >= 10（2,519 处）、平板时代栏/工具条修复、CSS 去重与 CShapes 按需真懒加载](HANDOFF-3.81.md)
 - [3.80 Wave-15 全量 Pleiades >= 11（2,238 处）、战役图鉴全量双语词汇表（603 场战役零遗漏非 QID 英文）与 `cartography.css` 去重](HANDOFF-3.80.md)
 - [3.79 Wave-14 全量 Pleiades >= 12（2,014 处）、大国疆域智能避让显字（北宋/开封）与预编译事件过滤](HANDOFF-3.79.md)

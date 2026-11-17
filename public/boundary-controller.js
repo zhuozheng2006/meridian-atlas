@@ -1,10 +1,10 @@
-import {interiorPoint} from './geometry-anchor.js?v=3.81.0-1671ff63e093';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.81.0-1671ff63e093';
-import {beginMapForeground} from './map-load-priority.js?v=3.81.0-1671ff63e093';
+import {interiorPoint} from './geometry-anchor.js?v=3.82.0-d306b119bfeb';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.82.0-d306b119bfeb';
+import {beginMapForeground} from './map-load-priority.js?v=3.82.0-d306b119bfeb';
 
 const hasCountrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023;
 let _countryMod=null,_countryModP=null;
-const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=3.81.0-1671ff63e093').then(m=>(_countryMod=m)));
+const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=3.82.0-d306b119bfeb').then(m=>(_countryMod=m)));
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
@@ -75,6 +75,7 @@ export class BoundaryController{
   return tr(lang,'全球疆域 · Cliopatria','Global overview · Cliopatria');
  }
  get isCountry(){return this.current?.source==='cshapes';}
+ countryLabel(r,lang){const d=this.current?.frame?.date;return _countryMod?.countryName?(_countryMod.countryName(r,lang,d)):(lang==='en'?r.name:(r.zhName||r.name));}
  labelRecords(){
   if(!this.isCountry)return this.atlas.active;const b=this.atlas.map.getBounds(),box=[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()],cn=_countryMod?.countryName;
   return (this.current.records||[]).map(r=>({...r,name:cn?cn(r,'en',this.current.frame.date):r.name,zhName:cn?cn(r,'zh',this.current.frame.date):(r.zhName||r.name),labelCenter:interiorPoint(this.current.frame.geometries[r.geometryId],box[0]<box[2]?box:null)||r.center})).sort((a,b)=>b.area-a.area);
