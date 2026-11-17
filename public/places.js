@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.73.0-4ba09f4876ae';
-import {placeWindow} from './view-state.js?v=3.73.0-4ba09f4876ae';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.74.0-8b8b4f417a74';
+import {placeWindow} from './view-state.js?v=3.74.0-8b8b4f417a74';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -386,7 +386,55 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:668335','叙利亚阿帕米亚'],['pleiades:961874','赫拉特（阿里亚亚历山德里亚）'],['pleiades:305090','希波（安纳巴）'],
  ['pleiades:570640','皮洛斯'],['pleiades:89175','埃布拉库姆（约克）'],
  ['pleiades:187265','阿贡图姆'],['pleiades:167716','沃孔蒂伊的迪亚（迪镇）'],
- ['pleiades:69491','孔达特（雷恩）'],['pleiades:138248','布尔迪加拉（波尔多）']
+ ['pleiades:69491','孔达特（雷恩）'],['pleiades:138248','布尔迪加拉（波尔多）'],
+ // Wave-9: Full Pleiades ref === 17..18 completion (100% of Pleiades ref >= 17)
+ ['pleiades:108750','马蒂亚库姆温泉（威斯巴登）'],['pleiades:147993','阿普塔·尤利亚（阿普特）'],['pleiades:157802','阿尔宾蒂米利乌姆'],
+ ['pleiades:177495','阿文蒂库姆（阿旺什）'],['pleiades:246380','埃卢萨（奥兹）'],['pleiades:265954','卢肯图姆（阿利坎特）'],
+ ['pleiades:275666','利克苏斯'],['pleiades:29718','法拉赫（普罗夫塔西亚）'],['pleiades:315174','西米图'],
+ ['pleiades:334636','蒂姆加德（塔穆加迪）'],['pleiades:344496','塔卡佩（加贝斯）'],['pleiades:383811','韦莱亚'],
+ ['pleiades:393459','奥皮泰尔吉乌姆（奥德尔佐）'],['pleiades:393513','维凯蒂亚（维琴察）'],['pleiades:403248','奥尔贝泰洛'],
+ ['pleiades:413024','库蒂利亚埃温泉'],['pleiades:413062','卡佩纳'],['pleiades:413200','梅瓦尼亚（贝瓦尼亚）'],
+ ['pleiades:413225','纳尔尼亚（纳尔尼）'],['pleiades:413229','努尔西亚（诺尔恰）'],['pleiades:413251','法拉克里纳埃'],
+ ['pleiades:413324','苏阿萨'],['pleiades:413339','蒂贝里努姆的蒂费尔努姆'],['pleiades:413350','特雷布拉·穆图埃斯卡'],
+ ['pleiades:422821','埃富拉'],['pleiades:432716','巴亚（巴亚埃）'],['pleiades:432733','卡亚蒂亚'],
+ ['pleiades:433185','韦纳夫鲁姆（韦纳夫罗）'],['pleiades:442495','阿莱蒂乌姆'],['pleiades:442496','班蒂亚'],
+ ['pleiades:442573','格纳提亚'],['pleiades:442629','拉里努姆（拉里诺）'],['pleiades:442728','蓬泰卡尼亚诺'],
+ ['pleiades:442845','瓦莱蒂乌姆'],['pleiades:452439','斯基莱蒂乌姆'],['pleiades:462126','卡马里纳'],
+ ['pleiades:462197','恩泰拉'],['pleiades:462228','哈伦蒂乌姆'],['pleiades:462258','伊埃塔斯'],
+ ['pleiades:462283','利帕拉（利帕里）'],['pleiades:471987','奥尔比亚（撒丁）'],['pleiades:491512','埃盖（韦尔吉纳）'],
+ ['pleiades:491585','埃德萨（马其顿）'],['pleiades:491616','辛蒂卡的赫拉克利亚'],['pleiades:511384','布尔萨（普鲁萨）'],
+ ['pleiades:530809','安菲洛基亚的阿尔戈斯'],['pleiades:540969','伊安泰亚'],['pleiades:541141','泰斯皮埃'],
+ ['pleiades:550892','斯明泰翁'],['pleiades:570156','博伊埃'],['pleiades:570359','克莱托尔'],
+ ['pleiades:570501','纳夫普利翁'],['pleiades:570653','萨米孔'],['pleiades:570715','萨拉迈'],
+ ['pleiades:570756','特罗曾'],['pleiades:599616','欧罗莫斯'],['pleiades:609500','佩西努斯'],
+ ['pleiades:638776','阿斯彭多斯'],['pleiades:648701','马加尔萨'],['pleiades:658409','阿勒颇（叙利亚贝罗亚）'],
+ ['pleiades:668226','贝卢斯近郊卡尔基斯'],['pleiades:668291','黎巴嫩的劳迪基亚'],['pleiades:678082','卡纳塔'],
+ ['pleiades:678121','多尔（多拉）'],['pleiades:687838','阿什杜德（阿佐托斯）'],['pleiades:857032','阿普萨罗斯'],
+ ['pleiades:98918','哈德良广场（福尔堡）'],['pleiades:108927','迪沃杜鲁姆（梅斯）'],['pleiades:118802','劳里亚库姆（恩斯）'],
+ ['pleiades:118901','奥维拉瓦（韦尔斯）'],['pleiades:167734','库拉罗（格勒诺布尔）'],['pleiades:167859','奥克托杜鲁斯（马蒂尼）'],
+ ['pleiades:197207','基巴拉埃（温科夫齐）'],['pleiades:216788','代乌尔图姆'],['pleiades:246294','卡尔卡索（卡尔卡松）'],
+ ['pleiades:246344','凯撒奥古斯塔（萨拉戈萨）'],['pleiades:246413','埃布罗马古斯'],['pleiades:256338','奥利西波（里斯本）'],
+ ['pleiades:305142','萨尔达埃（贝贾亚）'],['pleiades:315038','比塞大（希波·迪亚里图斯）'],['pleiades:324825','泰纳埃'],
+ ['pleiades:373824','哈德良堡（昔兰尼加）'],['pleiades:383589','贝加莫（贝尔戈穆姆）'],['pleiades:383633','代尔托纳（托尔托纳）'],
+ ['pleiades:383680','伊里亚（沃盖拉）'],['pleiades:383717','诺瓦里亚（诺瓦拉）'],['pleiades:383808','萨巴蒂亚浅滩'],
+ ['pleiades:393424','科尔内利乌斯广场（伊莫拉）'],['pleiades:413048','阿克西亚'],['pleiades:413065','卡尔苏拉埃'],
+ ['pleiades:413114','库雷斯'],['pleiades:413145','克洛迪乌斯广场'],['pleiades:413184','费罗尼亚圣林'],
+ ['pleiades:422898','科拉蒂亚'],['pleiades:423068','塞蒂亚（塞泽）'],['pleiades:432708','阿蒂纳'],
+ ['pleiades:432855','丰迪'],['pleiades:433122','西努埃萨'],['pleiades:433126','索拉'],
+ ['pleiades:442451','埃克拉努姆'],['pleiades:442511','布通图姆（比通托）'],['pleiades:442735','波滕蒂亚（波坦察）'],
+ ['pleiades:452317','克罗顿（克罗托内）'],['pleiades:452466','陶里亚努姆'],['pleiades:462513','泰尔迈（泰尔米尼）'],
+ ['pleiades:472096','马里亚纳（科西嘉）'],['pleiades:481715','阿曼蒂亚'],['pleiades:540630','安菲萨'],
+ ['pleiades:540743','德里迈亚'],['pleiades:540915','利莱亚'],['pleiades:541063','普拉泰亚'],
+ ['pleiades:550544','加尔加拉'],['pleiades:550763','米蒂利尼'],['pleiades:570065','阿利菲拉'],
+ ['pleiades:570124','阿西内'],['pleiades:570354','凯里尼亚（阿哈伊亚）'],['pleiades:570424','勒拿'],
+ ['pleiades:570482','迈萨纳'],['pleiades:570711','泰内阿'],['pleiades:580097','拉姆努斯'],
+ ['pleiades:580107','苏尼翁'],['pleiades:59747','比吉斯（布斯特）'],['pleiades:59750','布刻法拉'],
+ ['pleiades:599664','伊阿索斯'],['pleiades:599778','迈安德尔河畔马格内西亚'],['pleiades:638778','安塔利亚（阿塔利亚）'],
+ ['pleiades:648548','阿达纳（萨鲁斯安条克）'],['pleiades:648789','塔尔苏斯'],['pleiades:658446','基鲁斯'],
+ ['pleiades:668354','雷萨法（塞尔吉奥波利斯）'],['pleiades:678179','赫利奥波利斯（巴勒贝克）'],['pleiades:678378','斯库托波利斯（贝特谢安）'],
+ ['pleiades:727082','巴比伦（福斯塔特／开罗旧城）'],['pleiades:79531','伊斯卡·杜姆诺尼奥鲁姆（埃克塞特）'],['pleiades:79739','维鲁拉米乌姆（圣奥尔本斯）'],
+ ['pleiades:854687','赫尔莫纳萨'],['pleiades:857285','波勒莫尼翁（西代）'],['pleiades:874298','阿米达（迪亚巴克尔）'],
+ ['pleiades:874341','埃尔比勒（阿尔贝拉）'],['pleiades:874699','辛加拉'],['pleiades:89143','卡塔拉克托尼乌姆（卡特里克）']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;

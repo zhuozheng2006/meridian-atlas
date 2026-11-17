@@ -1,5 +1,5 @@
 // Runs in the landscape preparation worker. Source geometries are never simplified.
-import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.73.0-4ba09f4876ae';
+import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.74.0-8b8b4f417a74';
 const classes=new Set(HALC_LANDSCAPE_CLASSES.map(c=>c.code));
 export function landscapeIntersects(a,b){
  if(!a||!b||a[3]<b[1]||a[1]>b[3])return false;

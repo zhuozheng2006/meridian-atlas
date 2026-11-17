@@ -267,7 +267,15 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:148127',-400,'马赛（马萨利亚）'],
     ['index','pleiades:177460',100,'奥古斯托杜努姆（欧坦）'],
     ['index','pleiades:383664',100,'热那亚'],
-    ['index','pleiades:275740',100,'瓦卢比利斯']
+    ['index','pleiades:275740',100,'瓦卢比利斯'],
+    ['index','pleiades:648789',-200,'塔尔苏斯'],
+    ['index','pleiades:678179',100,'赫利奥波利斯（巴勒贝克）'],
+    ['index','pleiades:59750',-200,'布刻法拉'],
+    ['index','pleiades:256338',100,'奥利西波（里斯本）'],
+    ['index','pleiades:246344',100,'凯撒奥古斯塔（萨拉戈萨）'],
+    ['index','pleiades:658409',100,'阿勒颇（叙利亚贝罗亚）'],
+    ['index','pleiades:874341',100,'埃尔比勒（阿尔贝拉）'],
+    ['index','pleiades:79739',100,'维鲁拉米乌姆（圣奥尔本斯）']
   ];
   for(const [src,id,year,expectedZh] of wave2){
     const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
