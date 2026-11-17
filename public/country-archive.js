@@ -1,10 +1,10 @@
-import {countryAlias} from './country-names.js?v=3.87.0-092ed3a6b452';
-export {countryAlias} from './country-names.js?v=3.87.0-092ed3a6b452';
+import {countryAlias} from './country-names.js?v=3.88.0-e25b5b4966d4';
+export {countryAlias} from './country-names.js?v=3.88.0-e25b5b4966d4';
 // CShapes data is independently licensed CC BY-NC-SA 4.0; see data/cshapes/.
-const ROOT='data/cshapes/',pending=new Map();let catalogPromise,catalogValue;
+const ROOT='data/cshapes/',pending=new Map(),COUNTRY_ZH_FIX=new Map([['Inini','伊尼尼领地']]);let catalogPromise,catalogValue;
 export const countrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023?`${year}-07-01`:null;
 export const countryVisible=(r,date)=>typeof date==='string'&&r.startDate<=date&&date<=r.endDate;
-export const countryName=(r,lang,date)=>{const alias=countryAlias(r,date);return lang==='en'?(alias?.en||r.name):(alias?.zh||r.zhName||r.name);};
+export const countryName=(r,lang,date)=>{const alias=countryAlias(r,date);return lang==='en'?(alias?.en||r.name):(alias?.zh||COUNTRY_ZH_FIX.get(r?.name)||(r?.zhName&&r.zhName!==r.name?r.zhName:'')||r.zhName||r.name);};
 export const countryStatus=(value,lang)=>({independent:['独立国家','Independent state'],colony:['殖民地','Colony'],protectorate:['保护国','Protectorate'],occupied:['被占领地区','Occupied territory'],mandate:['委任统治地','Mandated territory']}[value]||['未记载','Not recorded'])[lang==='en'?1:0];
 async function readArchive(file){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);

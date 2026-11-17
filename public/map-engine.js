@@ -1,18 +1,18 @@
-import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.87.0-092ed3a6b452';
-import {waitForMapForeground} from './map-load-priority.js?v=3.87.0-092ed3a6b452';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.87.0-092ed3a6b452';
-import {boundaryMesh} from './boundary-mesh.js?v=3.87.0-092ed3a6b452';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.87.0-092ed3a6b452';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.87.0-092ed3a6b452';
-import {BoundaryController} from './boundary-controller.js?v=3.87.0-092ed3a6b452';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.87.0-092ed3a6b452';
+import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=3.88.0-e25b5b4966d4';
+import {waitForMapForeground} from './map-load-priority.js?v=3.88.0-e25b5b4966d4';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=3.88.0-e25b5b4966d4';
+import {boundaryMesh} from './boundary-mesh.js?v=3.88.0-e25b5b4966d4';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=3.88.0-e25b5b4966d4';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=3.88.0-e25b5b4966d4';
+import {BoundaryController} from './boundary-controller.js?v=3.88.0-e25b5b4966d4';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=3.88.0-e25b5b4966d4';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=3.87.0-092ed3a6b452';
-import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=3.87.0-092ed3a6b452';
+import {polityName} from './polity-names.js?v=3.88.0-e25b5b4966d4';
+import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=3.88.0-e25b5b4966d4';
 export {polityName};
 const POLITY_LABEL_ZH_FIX=new Map([
  ['切尔尼戈夫统治者列表','切尔尼戈夫公国'],['立窝尼亚语','利沃尼亚邦联'],['也门伊玛目列表','也门伊玛目国'],
@@ -55,7 +55,15 @@ const POLITY_LABEL_ZH_FIX=new Map([
  ['Taifa of Alpuente','阿尔蓬特泰法'],['Kingdom of Powys Wenwynwyn','波伊斯温温温王国'],
  ['Sultanate of Mempawah','喃吧哇苏丹国'],['Duchy of Kalisz','卡利什公国'],
  ['Principality of Svaneti','斯瓦涅季公国'],['Texcoco','特斯科科'],
- ['Taifa of Santa Maria do Algarve','阿尔加维泰法']
+ ['Taifa of Santa Maria do Algarve','阿尔加维泰法'],['Taifa of Niebla','涅夫拉泰法'],
+ ['Namayan','纳马延王国'],['Taifa of Morón','莫龙泰法'],
+ ['County of Pallars Jussà','下帕利亚尔斯伯国'],['Kingdom of Dunoting','杜诺廷王国'],
+ ['Taifa of Ronda','龙达泰法'],['Taifa of Ceuta','休达泰法'],
+ ['Kingdom of Powys Fadog','法多格波伊斯王国'],['Hashemite Arab Federation','阿拉伯联邦（哈希姆）'],
+ ['Taifa of Tejada','特哈达泰法'],['巴厘省','巴厘王国'],
+ ['巴达维亚共和国 (荷兰殖民地)总督','巴达维亚共和国'],['墨西哥人 (墨西哥合众国)','墨西加诸部（阿兹特克）'],
+ ['那不勒斯王国 (1806年－1815年)','那不勒斯王国（拿破仑时期）'],['查谟-克什米尔 (土邦)','查谟-克什米尔土邦'],
+ ['克里特州 (奥斯曼帝国)','克里特国（自治邦）']
 ]);
 function overviewPolityName(r,lang,year){
  const raw=polityName(r,lang,year);
@@ -91,7 +99,7 @@ export async function readJSON(url){
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
    const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
-   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.87.0-092ed3a6b452'))).historicalDataRequest(url);
+   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=3.88.0-e25b5b4966d4'))).historicalDataRequest(url);
    const pre=(typeof window!=='undefined'&&window.__meridianBootPrefetch?.[transport.url])||null;
    if(pre)delete window.__meridianBootPrefetch[transport.url];
    let response=null;
@@ -225,8 +233,8 @@ export class AtlasMap{
   if(this._detailLayersPromise)return this._detailLayersPromise;
   this._detailLayersPromise=(async()=>{
    const [{RegionalBoundaries:RB},{HistoricalDetailLayer:HD}]=await Promise.all([
-    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.87.0-092ed3a6b452'),
-    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.87.0-092ed3a6b452')
+    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=3.88.0-e25b5b4966d4'),
+    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=3.88.0-e25b5b4966d4')
    ]);
    if(this.destroyed)return false;
    if(this.regional?._isStub){
@@ -257,7 +265,7 @@ export class AtlasMap{
    if(this.geography._isStub&&typeof Geography==='undefined'){
     const stub=this.geography;
     this.geographyReady=(async()=>{
-     const {Geography:RealGeography}=await import('./geography.js?v=3.87.0-092ed3a6b452');
+     const {Geography:RealGeography}=await import('./geography.js?v=3.88.0-e25b5b4966d4');
      if(this.destroyed)return false;
      const geo=new RealGeography(this);geo.enabled=stub.enabled;geo.coastAligned=stub.coastAligned;geo.reference=stub.reference;this.geography=geo;
      const ok=await geo.init().then(()=>true).catch(()=>false);

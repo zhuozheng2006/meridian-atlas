@@ -447,7 +447,14 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:322739224',1800,'大津巴布韦石城遗址'],
     ['index','pleiades:58094152',-1500,'科基诺巨石天文台遗址（北马其顿青铜时代）'],
     ['index','pleiades:863785',-500,'埃雷布尼要塞（乌拉尔图王城 · 埃里温）'],
-    ['index','pleiades:80606012',-3000,'斯卡拉布雷新石器聚落（奥克尼）']
+    ['index','pleiades:80606012',-3000,'斯卡拉布雷新石器聚落（奥克尼）'],
+    ['index','pleiades:265883',-600,'埃布苏斯（伊维萨腓尼基古港）'],
+    ['index','pleiades:569531631',1800,'白沙瓦（布路沙布逻 · 健陀罗都城）'],
+    ['index','pleiades:688028',-100,'示罗古城（泰勒·西伦 · 早期以色列圣所）'],
+    ['index','pleiades:509457605',-3500,'加苏尔土丘遗址（外约旦铜石并用加苏尔文化代表地）'],
+    ['index','pleiades:56036938',-2500,'萨尔遗址（巴林 · 迪尔蒙青铜时代古城与神庙）'],
+    ['index','pleiades:423885388',-2500,'纳巴达古城（泰勒·贝达尔 · 早王朝北叙利亚圆城）'],
+    ['index','pleiades:923122730',-3500,'泰勒·哈布巴·卡比拉（幼发拉底河中游乌鲁克古城）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
