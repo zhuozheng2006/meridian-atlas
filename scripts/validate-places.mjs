@@ -190,6 +190,38 @@ await check('Editorial global city exonyms resolve without mutating frozen sourc
   const dated=urban.cities.find(p=>p.nameTimeline?.length&&!p.nameZh);
   if(dated){const atYear=placeAtYear(dated,dated.observations[0][0]);assert.equal(placeName(atYear,'en'),atYear.displayName||dated.name);}
 });
+await check('Displaced Chandler coordinate sign flips stay quarantined while Wave-2 editorial exonyms resolve cleanly',async()=>{
+  const displaced=[
+    ['chandler:422','El Tajin',800],
+    ['chandler:545','Hamilton',1975],
+    ['chandler:1192','Richmond',1950]
+  ];
+  for(const [id,query,year] of displaced){
+    const raw=urban.cities.find(p=>p.id===id);
+    assert(raw,id+' must stay untouched in raw archive');
+    assert.equal(placeAtYear(raw,year),null,id+' must be withheld by PLACE_COORD_QUARANTINE');
+    const hits=await searchPlaces(query,year);
+    assert(!hits.some(p=>p.id===id),id+' must not appear in searchPlaces');
+  }
+  const wave2=[
+    ['urban','chandler:181',1600,'比贾布尔'],
+    ['urban','chandler:1093',1500,'勃固'],
+    ['urban','chandler:1224',1600,'堺市'],
+    ['urban','chandler:1136',1600,'波托西'],
+    ['urban','chandler:1041',1950,'波尔图'],
+    ['urban','chandler:1596',1950,'苏黎世'],
+    ['index','pleiades:413107',100,'科萨'],
+    ['index','pleiades:344448',200,'大莱波蒂斯']
+  ];
+  for(const [src,id,year,expectedZh] of wave2){
+    const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
+    assert(raw&&!raw.nameZh,id);
+    const active=placeAtYear(Object.freeze({...raw}),year);
+    assert(active,id+' active in '+year);
+    assert.equal(active.nameZh,expectedZh);
+    assert.equal(placeName(active,'zh'),expectedZh);
+  }
+});
 await check('Known internally contradictory name dates are quarantined',()=>{
   for(const id of ['pleiades:520998','pleiades:211425280']){
     const p=index.places.find(p=>p.id===id);assert(p);

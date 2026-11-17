@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.66.0-2049b35a5ac3';
-import {placeWindow} from './view-state.js?v=3.66.0-2049b35a5ac3';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.66.0-265f0df4e66e';
+import {placeWindow} from './view-state.js?v=3.66.0-265f0df4e66e';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -40,6 +40,13 @@ export const CAPITAL_DATE_QUARANTINE=new Set([
  'capital:Q2980623$613b5f92-45dd-ce9b-abcd-9c5fc0145c32', // Kingdom of Bosnia Visoko [9, 1340]: +9 typo extending medieval state to antiquity
  'capital:Q3627069$d0b39cb4-4d5e-15ee-4f60-725632ee182d', // Banate of Bosnia Bobovac [14, 14]: +14 typo for 14th century
  'capital:Q83958$cf01679d-4565-d213-61db-12abfbc7b7b4', // Macedonia Aigai [808, 808]: +808 sign error for 808 BCE
+]);
+// Quarantined urban observations whose upstream Western Hemisphere longitudes dropped
+// the leading minus sign, displacing American settlements into Asia/Bay of Bengal.
+export const PLACE_COORD_QUARANTINE=new Set([
+ 'chandler:422',  // El Tajin, Mexico [97.3782, 20.4481] (omitted minus sign; actually -97.3782)
+ 'chandler:545',  // Hamilton, Canada [79.866092, 43.250022] (omitted minus sign; actually -79.866092)
+ 'chandler:1192', // Richmond, United States [77.4667, 37.5333] (omitted minus sign; actually -77.4667)
 ]);
 const CAPITAL_ZH_FIX=new Map([['Q5736','阿玛尔纳']]);
 const CAPITAL_ZH_EDITORIAL=new Map([
@@ -83,7 +90,34 @@ const PLACE_ZH_EDITORIAL=new Map([
  ['pleiades:432873','赫库兰尼姆'],['pleiades:442658','梅塔蓬托'],['pleiades:893990','杜拉-欧罗波斯'],['pleiades:462086','阿格里真托'],
  ['pleiades:423013','普赖内斯特'],['pleiades:423108','图斯库卢姆'],['pleiades:462307','麦加拉·希布莱亚'],['pleiades:530824','布特林特'],
  ['pleiades:903021','埃克巴坦那'],['pleiades:638753','阿佛洛狄西亚'],['pleiades:413005','阿尔巴·富琴斯'],['pleiades:432815','普泰奥利'],
- ['pleiades:413332','塔尔奎尼亚'],['pleiades:413393','武尔奇'],['pleiades:452457','锡巴里斯']
+ ['pleiades:413332','塔尔奎尼亚'],['pleiades:413393','武尔奇'],['pleiades:452457','锡巴里斯'],
+ // v3.67 Wave-2 verified historical, classical & global urban Chinese exonyms
+ ['chandler:181','比贾布尔'],['chandler:1093','勃固'],['chandler:1083','帕坦'],['modelski-ancient:99','帕坦'],
+ ['modelski-ancient:15','阿帕米亚'],['chandler:1423','廷尼斯'],['modelski-ancient:134','廷尼斯'],['chandler:1136','波托西'],
+ ['chandler:1173','拉杰马哈尔'],['modelski-ancient:85','摩普绥提亚'],['modelski-ancient:136','图拉'],['chandler:380','达尔'],
+ ['chandler:78','若开'],['chandler:868','曼杜'],['chandler:51','阿梅尔'],['chandler:1224','堺市'],
+ ['chandler:476','格但斯克'],['chandler:443','费奥多西亚'],['chandler:614','阿瓦'],['modelski-ancient:113','萨皮努瓦'],
+ ['chandler:253','坎贝'],['chandler:275','钱德里'],['chandler:108','巴达米'],['chandler:620','伊奢那补罗'],
+ ['chandler:789','莱顿'],['chandler:156','贝宁城'],['chandler:410','济比尔恰尔通'],['chandler:597','胡格利-楚丘拉'],
+ ['chandler:876','曼苏拉'],['chandler:11','亚齐'],['chandler:59','安巴尔'],['chandler:145','贝贾亚'],
+ ['chandler:306','乔卢拉'],['chandler:862','马里'],['chandler:1016','恩加扎尔加穆'],['chandler:1072','派坦'],
+ ['chandler:1078','潘杜阿'],['chandler:1163','奎隆'],['chandler:1332','斯里兰加帕特纳'],['chandler:1441','东吁'],
+ ['chandler:1578','扎法尔'],['chandler:596','顺化'],['chandler:317','科钦'],['chandler:752','呼和浩特'],
+ ['chandler:1374','台南'],['chandler:1318','索姆纳特'],['chandler:1403','特纳尤卡'],['chandler:17','阿加德兹'],
+ ['chandler:85','阿罗尔'],['chandler:125','万丹'],
+ ['chandler:1206','顿河畔罗斯托夫'],['chandler:365','代顿'],['chandler:657','华雷斯城'],['chandler:1041','波尔图'],
+ ['chandler:763','科威特城'],['chandler:1583','扎波罗热'],['chandler:1596','苏黎世'],['chandler:499','哥德堡'],
+ ['chandler:1028','俄克拉荷马城'],['chandler:1480','乌鲁木齐'],['modelski-modern:266','乌鲁木齐'],['chandler:1532','威斯巴登'],
+ ['chandler:747','克里沃罗格'],['chandler:1431','托莱多'],['chandler:1162','魁北克城'],['chandler:41','阿伦敦'],
+ ['chandler:492','戈亚尼亚'],['chandler:89','亚松森'],['chandler:308','霍茹夫'],
+ ['pleiades:413107','科萨'],['pleiades:423060','萨特里库姆'],['pleiades:432846','弗雷盖拉'],['pleiades:403212','波普洛尼亚'],
+ ['pleiades:422914','克鲁斯图梅里乌姆'],['pleiades:422987','诺尔巴'],['pleiades:413288','鲁塞莱'],['pleiades:422843','阿尔代亚'],
+ ['pleiades:413328','苏特里乌姆'],['pleiades:432992','奥普隆提斯'],['pleiades:433143','塔拉奇纳'],['pleiades:79368','卡莱瓦'],
+ ['pleiades:403292','沃拉泰拉'],['pleiades:432940','明图尔奈'],['pleiades:462372','莫尔甘蒂纳'],['pleiades:413125','法莱里伊'],
+ ['pleiades:413157','格拉维斯卡'],['pleiades:736932','卡拉尼斯'],['pleiades:442603','格鲁门图姆'],['pleiades:442847','韦努西亚'],
+ ['pleiades:452337','维博瓦伦蒂亚'],['pleiades:422932','加比伊'],['pleiades:403235','卢纳'],['pleiades:422960','拉维尼乌姆'],
+ ['pleiades:413248','佩鲁西亚'],['pleiades:315223','图加'],['pleiades:462237','赫拉克利亚·米诺阿'],['pleiades:462506','陶罗梅尼乌姆'],
+ ['pleiades:344448','大莱波蒂斯'],['pleiades:422824','阿尔巴隆加']
 ]);
 const editorialPlaceZh=p=>(!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'';
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
@@ -103,7 +137,7 @@ function datedPlaceLabel(p,year){
 export function placeAtYear(p,year,span=50){
  if(!Number.isInteger(year)||year===0)return null;
  if(p.kind==='modern-reference')return {...p,rank:4+(p.scaleRank||0)};
- if(p.kind==='dated-capital'&&CAPITAL_DATE_QUARANTINE.has(p.id))return null;
+ if((p.kind==='dated-capital'&&CAPITAL_DATE_QUARANTINE.has(p.id))||PLACE_COORD_QUARANTINE.has(p.id))return null;
  if(p.observations){const candidates=p.observations.filter(o=>Math.abs(civilYear(o[0])-civilYear(year))<=span&&observationMatchesNamePeriod(p,o[0],year));if(!candidates.length)return null;const o=candidates.reduce((a,b)=>Math.abs(civilYear(b[0])-civilYear(year))<Math.abs(civilYear(a[0])-civilYear(year))?b:a),label=datedPlaceLabel(p,o[0]),zh=p.nameZh||editorialPlaceZh(p);return {...p,...(zh?{nameZh:zh}:{}),observation:o,displayName:label?.name,displayNameZh:label?.nameZh,labelEvidence:label,rank:2-Math.log10(Math.max(1,o[1]||1))/10};}
  const period=p.periods?.find(([a,b])=>a<=year&&year<=b);if(!period)return null;
  const location=p.locations?.filter(l=>l.periods?.some(([a,b])=>a<=year&&year<=b)).sort((a,b)=>(a.accuracyMeters??Infinity)-(b.accuracyMeters??Infinity))[0];
@@ -120,7 +154,7 @@ export function nearestPlaceYear(p,year){
 export const normalizePlaceQuery=q=>String(q||'').toLocaleLowerCase().normalize('NFD').replace(/[\p{Diacritic}\s'’‘ʼ‐‑–—-]/gu,'');
 export async function searchPlaces(query,year,span=50){
  const q=normalizePlaceQuery(query);if(!q||q.length<2&&!/\p{Script=Han}/u.test(q))return [];
- const scored=(await loadPlaces()).filter(p=>p.kind!=='modern-reference'&&!CAPITAL_DATE_QUARANTINE.has(p.id)).map(p=>{
+ const scored=(await loadPlaces()).filter(p=>p.kind!=='modern-reference'&&!CAPITAL_DATE_QUARANTINE.has(p.id)&&!PLACE_COORD_QUARANTINE.has(p.id)).map(p=>{
   const names=[p.name,p.kind==='dated-capital'?capitalZh(p):(p.nameZh||editorialPlaceZh(p))].map(normalizePlaceQuery),aliases=[p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].filter(Boolean).flatMap(n=>String(n).split(/[,;|]/)).map(normalizePlaceQuery);
   const score=names.includes(q)?0:aliases.includes(q)?1:names.some(n=>n.startsWith(q))?2:[...names,...aliases].some(n=>n.includes(q))?3:99;
   return {p,score};

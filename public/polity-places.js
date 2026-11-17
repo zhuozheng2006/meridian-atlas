@@ -1,7 +1,7 @@
-import {polityEntityAllowed} from './polity-names.js?v=3.66.0-2049b35a5ac3';
-import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=3.66.0-2049b35a5ac3';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=3.66.0-2049b35a5ac3';
-import {readJSON} from './map-engine.js?v=3.66.0-2049b35a5ac3';
+import {polityEntityAllowed} from './polity-names.js?v=3.66.0-265f0df4e66e';
+import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=3.66.0-265f0df4e66e';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=3.66.0-265f0df4e66e';
+import {readJSON} from './map-engine.js?v=3.66.0-265f0df4e66e';
 
 const validPoint=p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(p[0])&&Number.isFinite(p[1])&&Math.abs(p[1])<=90;
 function prepareRing(input){

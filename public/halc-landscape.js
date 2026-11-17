@@ -1,7 +1,7 @@
-import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.66.0-2049b35a5ac3';
-import {acquireLandscapeWorker} from './halc-landscape-client.js?v=3.66.0-2049b35a5ac3';
-import {readJSON} from './map-engine.js?v=3.66.0-2049b35a5ac3';
-import {forgetJSON} from './map-engine.js?v=3.66.0-2049b35a5ac3';
+import {HALC_LANDSCAPE_CLASSES} from './halc-landscape-reader.js?v=3.66.0-265f0df4e66e';
+import {acquireLandscapeWorker} from './halc-landscape-client.js?v=3.66.0-265f0df4e66e';
+import {readJSON} from './map-engine.js?v=3.66.0-265f0df4e66e';
+import {forgetJSON} from './map-engine.js?v=3.66.0-265f0df4e66e';
 
 export const LANDSCAPE_SOURCE='halc-landscape';
 export const LANDSCAPE_BOUNDS=[-.2635517291765086,47.49069922359204,8.90256801566143,54.129438097120065];
