@@ -1,5 +1,5 @@
-import {countryAlias} from './country-names.js?v=3.92.0-9cb53464f31a';
-export {countryAlias} from './country-names.js?v=3.92.0-9cb53464f31a';
+import {countryAlias} from './country-names.js?v=3.93.0-5ea21f08346d';
+export {countryAlias} from './country-names.js?v=3.93.0-5ea21f08346d';
 // CShapes data is independently licensed CC BY-NC-SA 4.0; see data/cshapes/.
 const ROOT='data/cshapes/',pending=new Map(),COUNTRY_ZH_FIX=new Map([['Inini','伊尼尼领地']]);let catalogPromise,catalogValue;
 export const countrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023?`${year}-07-01`:null;

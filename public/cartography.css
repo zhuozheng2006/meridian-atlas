@@ -104,14 +104,18 @@ button.layer-note:hover{color:#ecd4a3;background:#dcc0890f;border-radius:0 6px 6
 .city-chapter-intro{padding:2px 0 22px;border-bottom:1px solid #c2a87338}
 .city-chapter-intro h3{font-family:var(--serif);font-size:30px;font-weight:400;margin:10px 0 6px;letter-spacing:.06em}
 .city-chapter-intro h3 .secondary{font-family:Georgia,serif;font-size:16px;font-weight:400;margin-top:6px;letter-spacing:.02em}
-.city-chapter-intro p{font-size:12px!important;color:var(--gold);margin:10px 0 0}
+.city-chapter-intro p{font-size:12px!important;color:#edd6a1;margin:10px 0 0;display:inline-block;padding:4px 12px;border-radius:999px;background:#dcc08914;border:1px solid #dcc08938;letter-spacing:.04em}
 .city-chapter-section{padding:7px 0 9px}
 .city-chapter-section h3 .secondary{font-family:var(--body);font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);margin-top:5px}
 .city-chapter-section p{margin:12px 0}.city-chapter-section p.secondary{margin-top:16px;padding-left:15px;border-left:1px solid #bba9774d;line-height:1.85}
 .city-milestones{border-left:1px solid #c8ae7555;padding-left:18px;margin:18px 0}
-.city-milestones button{display:block;width:100%;position:relative;text-align:left;border:0;border-radius:0;padding:0 0 24px 4px}
-.city-milestones button:before{content:'';position:absolute;left:-23px;top:4px;width:7px;height:7px;border:1px solid #dcc390;border-radius:50%;background:#182d3b}
-.city-milestones span{font-family:Georgia,var(--serif);font-size:19px;color:var(--gold)}.city-milestones p{font-size:15px;line-height:1.8;margin:9px 0 6px}.city-milestones small{font-size:12px;line-height:1.75;color:var(--muted)}
+.city-milestones button{display:block;width:100%;position:relative;text-align:left;border:0;border-radius:8px;padding:8px 10px 20px;margin:0 -6px 4px;transition:background .16s ease}
+.city-milestones button:hover{background:#dcc0890d}
+.city-milestones button:before{content:'';position:absolute;left:-20px;top:14px;width:8px;height:8px;border:1.5px solid #e6cd99;border-radius:50%;background:#182d3b;box-shadow:0 0 0 3px #182d3b,0 0 8px #dcc08944;transition:background .16s ease,box-shadow .16s ease}
+.city-milestones button:hover:before{background:#dcc089;box-shadow:0 0 0 3px #182d3b,0 0 12px #dcc08988}
+.city-milestones span{font-family:Georgia,var(--serif);font-size:19px;color:var(--gold);transition:color .16s ease}
+.city-milestones button:hover span{color:#f5e3ba}
+.city-milestones p{font-size:15px;line-height:1.8;margin:9px 0 6px}.city-milestones small{font-size:12px;line-height:1.75;color:var(--muted)}
 /* Quiet geographic names sit within the water, leaving cities the foreground. */
 .lake-label{pointer-events:none;max-width:180px;color:#edf0df;text-align:center;font:italic 15px Georgia,'Songti SC',serif;letter-spacing:.1em;line-height:1.5;text-shadow:0 1px 3px #193d4f,0 0 7px #204555;opacity:.9}
 .lake-label small{display:block;font-size:10px;letter-spacing:.04em;opacity:.82}
