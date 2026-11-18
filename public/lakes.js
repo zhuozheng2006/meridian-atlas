@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.95.0-7d23eb6bd13c';
+import {decodeLakeArchive} from './lake-codec.js?v=3.96.0-78d4209eaa78';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -72,8 +72,55 @@ const LAKE_ZH=new Map([
  ['Abaya','阿巴亚湖'],['Kyoga','基奥加湖'],['Eyasi','埃亚西湖'],['Mweru wa Ntipa','姆韦鲁万蒂帕湖'],['Chilwa','奇尔瓦湖'],['Ntwetwe Pan','恩特韦特韦盐沼'],
  ['Great Salt','大盐湖'],['Saint Clair','圣克莱尔湖'],['Pontchartrain','庞恰特雷恩湖'],['Okeechobee','奥基乔比湖'],['Chapala','查帕拉湖'],['Nicaragua','尼加拉瓜湖'],['Managua','马那瓜湖'],
  ['Poopo','波波湖'],['Salinas Grandes','大盐沼（阿根廷）'],['Chiquita','马尔奇基塔湖'],['Mirim','米林泻湖'],['Buenos Aires','布宜诺斯艾利斯湖（卡雷拉将军湖）'],['San Martin','圣马丁湖（奥希金斯湖）'],['Viedma','别德马湖'],['Argentino','阿根廷湖'],
- ['Woods','伍兹湖'],['Nipigon','尼皮贡湖'],['Saint-Jean','圣让湖'],['Mistassini','米斯塔西尼湖'],['Reindeer','驯鹿湖'],['Iliamna','伊利亚姆纳湖'],['Becharof','贝查罗夫湖'],['Lesser Slave','小奴湖'],['La Ronge','拉朗日湖'],['Manicouagan Reservoir','马尼夸根水库'],['Melville','梅尔维尔湖'],['Netilling','内蒂灵湖'],['Amadjuak','阿马朱阿克湖'],['Wollaston','沃拉斯顿湖'],['Dubawnt','杜邦特湖'],['Baker','贝克湖']
+ ['Woods','伍兹湖'],['Nipigon','尼皮贡湖'],['Saint-Jean','圣让湖'],['Mistassini','米斯塔西尼湖'],['Reindeer','驯鹿湖'],['Iliamna','伊利亚姆纳湖'],['Becharof','贝查罗夫湖'],['Lesser Slave','小奴湖'],['La Ronge','拉朗日湖'],['Manicouagan Reservoir','马尼夸根水库'],['Melville','梅尔维尔湖'],['Netilling','内蒂灵湖'],['Amadjuak','阿马朱阿克湖'],['Wollaston','沃拉斯顿湖'],['Dubawnt','杜邦特湖'],['Baker','贝克湖'],
+ ['Dongting','洞庭湖'],['Chao','巢湖'],['Dian Chi','滇池'],['Fuxian','抚仙湖'],['Erh','洱海'],['Yamdrok','羊卓雍措'],
+ ['P\'u-mo-ts\'o','普莫雍措'],['P\'ei-k\'u t\'so','佩枯措'],['Hoh Xil','可可西里湖'],['Hoh Sai','库赛湖'],['Zonag','卓乃湖'],
+ ['Xijir Ulan','西金乌兰湖'],['Dogai Coring','多格错仁'],['Dogaicoring Quang','多格错仁强错'],['Lixi\'Oidain','勒斜武担湖'],
+ ['Lumajangdong','鲁玛江东错'],['Gyeze Caka','结则茶卡'],['Migriggyangzham','米格尔姜占错'],['Yaggain Canco','雅岗错'],
+ ['Dorge','多尔吉错'],['Donggi Cona','冬给措纳湖'],['Toson','托素湖'],['Dabsan','达布逊湖'],['Bei Hulsan','北霍鲁逊湖'],
+ ['Hala','哈拉湖'],['Suhai','苏干湖'],['Gas Hure','尕斯库勒湖'],['Ayakkum','阿牙克库木湖'],['Aqqikkol','阿其克库勒湖'],
+ ['Barkol','巴里坤湖'],['Manas','玛纳斯湖'],['Jili','吉力湖'],['Xiaoxihaiz Shuiku','小海子水库'],['Aksayquin','阿克赛钦湖'],
+ ['Dalai','达里诺尔'],['Ch\'a-han no-erh','查干诺尔'],['Huang-ch\'i','黄旗海'],['Quagan','查干湖'],['Yueliang Pao','月亮泡'],
+ ['Luoma','骆马湖'],['Yangcheng','阳澄湖'],['Nanyi','南漪湖'],['Shijiu','石臼湖'],['Ge','滆湖'],['Chang Dang','长荡湖'],
+ ['Wabu','瓦埠湖'],['Chengdong','城东湖'],['Hong','洪湖'],['Liangzi','梁子湖'],['Chang','长湖'],['Futou','斧头湖'],
+ ['Daye','大冶湖'],['Zhangdu','涨渡湖'],['Po','泊湖'],['Daguan','大官湖'],['Longgan','龙感湖'],['Junshan','军山湖'],['Ch\'eng','程海'],
+ ['Ngangla Ringco','昂拉仁措'],['Dagze','达则措'],['Ngoin','鄂雅错'],['Bangkog','班戈错'],['Pa-Mu-Ts\'o','巴木错'],['P\'eng-Ts\'o','蓬错'],
+ ['Cha-pu-yeh ch\'a-k\'a','扎布耶茶卡'],['Jen-ch\'ing hsiu-pu-ts\'o','仁青休布错'],['T\'a-jo','塔若错'],['Hsu-ju','许如错'],
+ ['Kuo-mang','果忙错'],['Ang-tzu','昂孜错'],['Ta-tse','达则措（格仁错）'],['P\'a-lung','帕龙错'],['Ko-jen','格仁错'],
+ ['Bangdag','邦达错'],['Aru','阿鲁错'],['Memar','美马错'],['Gozha','郭扎错'],['Bairab','拜惹布错'],['Dorsoidong','多尔索洞错'],
+ ['Arkatag','阿喀塔格湖'],['Lung Mu','龙木错'],['Orba','阿翁错'],['Lagkor','拉果错'],['Cam','仓木错'],['Tajo-Tzo','塔若措'],
+ ['Chuzenjiko','中禅寺湖'],['Wular','乌勒尔湖'],['Bay','内湖（菲律宾）'],['Taal','塔阿尔湖'],['Naujan','瑙汉湖'],
+ ['Indawngy','因道支湖'],['Thale Luang','宋卡湖'],['Bueng Boraphet','波拉佩湖'],['Nong Han Lake','农汉湖'],
+ ['Danau Singkarak','辛卡拉克湖'],['Danau Manindjau','马宁焦湖'],['Danau Poso','波索湖'],['Danau Sentarum','森塔伦湖'],
+ ['Danau Tawar','塔瓦尔湖'],['Danau Sentani','森塔尼湖'],['Djenpang','詹庞湖'],['Melintang','默林塘湖'],
+ ['Song-kel','颂湖'],['Chatyr-kel\'','查提尔湖'],['Karakul','喀拉库勒湖'],['Sarezskoye','萨雷兹湖'],['Sasykkol','萨瑟克湖'],
+ ['Torey Lakes','托雷湖群'],['Har','哈尔湖'],['Dorgon','德尔根湖'],['Achit','阿奇特湖'],['Orog','奥罗格湖'],
+ ['Boon Tsagaan','本查干湖'],['Sangiyn Dalay','桑金达赖湖'],['Telmen','特尔门湖'],['Dayan','达彦湖'],['Tolbo','托勒博湖'],
+ ['Gusinoye','古西诺耶湖'],['Baunt','鲍恩特湖'],['Teletskoye','捷列茨科耶湖'],['Kronotskoye','克罗诺茨基湖'],
+ ['Pyasino','皮亚西诺湖'],['Lama','拉马湖'],['Khantayskoye','汉泰卡湖'],['Keta','克塔湖'],['Yessey','耶谢伊湖'],
+ ['Lovozero','洛沃泽罗湖'],['Umbozero','温博泽罗湖'],['Topozero','托波泽罗湖'],['Vodlozero','沃德洛泽罗湖'],
+ ['Kubenskoye','库边斯科耶湖'],['Vozhe','沃热湖'],['Lacha','拉恰湖'],['Seg','谢戈泽罗湖'],['Manych-Gudilo','马内奇古季洛湖'],
+ ['El\'ton','埃利顿湖'],['Inder','因德尔湖'],['Shalkar','沙尔卡尔湖'],['Kushmurun','库什穆伦湖'],['Markakol\'','马尔卡科尔湖'],
+ ['Beysehir','贝伊谢希尔湖'],['Egridir','埃伊尔迪尔湖'],['Burdur','布尔杜尔湖'],['Aksehir','阿克谢希尔湖'],['Eber','埃贝尔湖'],
+ ['Cildir','奇尔德尔湖'],['Ercek','埃尔切克湖'],['Hazar','哈扎尔湖'],['Kus','库什湖（马尼亚斯湖）'],['Ulubat','乌鲁阿巴特湖'],
+ ['Bakhtegan','巴赫特甘湖'],['Hamun-E Saberi','萨贝里哈蒙湖'],['Habbaniyah','哈巴尼亚湖'],['Great Bitter','大苦湖'],['Qarun','加龙湖'],
+ ['Lake Kivu','基伍湖'],['Naivasha','奈瓦沙湖'],['Baringo','巴林戈湖'],['Awasa','阿瓦萨湖'],['Ziway','兹怀湖'],['Langano','兰加诺湖'],
+ ['Tumba','通巴湖'],['Fitri','菲特里湖'],['Iro','伊罗湖'],['Guiers','盖尔湖'],['Debo','德博湖'],['Ichkeul','伊什克尔湖'],
+ ['Sua Pan','苏阿盐沼'],['Malombe','马隆贝湖'],['Chiuta','丘塔湖'],['Alaotra','阿劳特拉湖'],['St. Lucia','圣卢西亚湖'],
+ ['Mjosa','米约萨湖'],['Randsfjorden','兰兹峡湾湖'],['Tyrifjorden','蒂里峡湾湖'],['Femunden','费蒙湖'],['Siljan','锡利扬湖'],
+ ['Storsjon','斯图尔湖'],['Hornavan','霍尔纳万湖'],['Uddjaur','乌德尧尔湖'],['Sommen','索门湖'],['Bolmen','博尔门湖'],
+ ['Stora Lulevatten','大吕勒水库'],['Akkajaure','阿卡水库'],['Pielinen','皮埃利宁湖'],['Nasijarvi','奈西湖'],['Keitele','凯泰莱湖'],
+ ['Kemijarvi','凯米湖'],['Puulavesi','普拉湖'],['Pyhajarvi','皮海湖'],['Muritz','米里茨湖'],['Sniardwy','希尼亚尔德维湖'],
+ ['Vortis-Jarv','沃尔茨湖'],['Thingvallavain','辛格瓦德拉湖'],['Corrib','科里布湖'],['Ree','里湖'],['Lough Derg','德格湖'],['Erne','厄恩湖'],
+ ['Frome','弗罗姆湖'],['Gairdner','盖尔德纳湖'],['Amadeus','阿马迪厄斯湖'],['Carnegie','卡内基湖'],['Carey','凯里湖'],
+ ['Alexandrina','亚历山德里纳湖'],['Taupo','陶波湖'],['Te Anau','蒂阿瑙湖'],['Wakatipu','瓦卡蒂普湖'],['Wanaka','瓦纳卡湖'],
+ ['Hawea','哈威亚湖'],['Pukaki','普卡基湖'],['Manapouri','马纳普里湖'],['Tekapo','蒂卡普湖'],['Rotoaira','罗托艾拉湖'],
+ ['Selawik','塞拉维克湖'],['Takiyuak','塔基尤阿克湖'],['Contwoyto','康特沃伊托湖'],['Aberdeen','阿伯丁湖'],['Martre','拉马特尔湖'],
+ ['Yathkyed','亚斯凯德湖'],['Nueltin','纽埃尔廷湖'],['Kasba','卡斯巴湖'],['Claire','克莱尔湖'],['Cree','克里湖'],
+ ['Southern Indian','南印第安湖'],['Lac a L\'Eau Claire','克利尔沃特湖（水清湖）'],['Gods','戈兹湖'],['Moose','穆斯湖'],
+ ['Seul','苏尔湖'],['Bras d\'Or','布拉多尔湖'],['Tahoe','太浩湖']
 ]);
+export const lakeZh=(name,builtInZh='')=>builtInZh||LAKE_ZH.get(name)||'';
 const cache=new LakeCache(fetchLakeJSON);
 let indexPromise;
 function lakeIndex(){return indexPromise??=(fetchLakeJSON('data/lakes/index.json.gz').then(data=>{if(data.schemaVersion!==1||!Array.isArray(data.shards))throw Error('Invalid lake index');return data;}).catch(e=>{indexPromise=null;throw e;}));}
@@ -137,7 +184,7 @@ export class LakeLayer {
    if(Math.abs(b.x-a.x)<85||Math.abs(b.y-a.y)<45)continue;
    const p=this.map.project(n.center),box={left:origin.left+p.x-80,right:origin.left+p.x+80,top:origin.top+p.y-18,bottom:origin.top+p.y+18};
    if(box.left<origin.left+10||box.right>origin.right-10||box.top<origin.top+30||box.bottom>origin.bottom-30||[...blockers,...placed].some(r=>overlap(box,r)))continue;
-   const zh=n.zh||LAKE_ZH.get(n.name)||'';
+   const zh=lakeZh(n.name,n.zh);
    const el=document.createElement('div');el.className='lake-label';el.textContent=lang==='en'?n.name:zh||n.name;
    if(lang==='bi'&&zh){const small=document.createElement('small');small.textContent=n.name;el.append(small);}
    this.labels.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(n.center).addTo(this.map));placed.push(box);

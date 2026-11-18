@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 import {decodeLakeArchive} from '../public/lake-codec.js';
-import {LakeCache,LakeLayer,lakeTier,containsLakeBounds,intersectsLakeBounds,selectLakeShards,decodeLakeFeature} from '../public/lakes.js';
+import {LakeCache,LakeLayer,lakeTier,lakeZh,containsLakeBounds,intersectsLakeBounds,selectLakeShards,decodeLakeFeature} from '../public/lakes.js';
 const results=[];const test=async(name,fn)=>{await fn();results.push(name);console.log('PASS '+name);};
 const bbox=[134,34,137,37],feature={type:'Feature',id:1,bbox,properties:{id:1,type:3,area:673.48,name:'Biwa'},geometry:{type:'Polygon',deltas:[[[135000000,35000000,1000000,0,0,1000000,-1000000,0,0,-1000000]]]}};
 const shard={file:'one.json.gz',minZoom:4,bbox,count:1,vertices:5};const data={encoding:'delta-1e6',features:[feature]},index={schemaVersion:1,shards:[shard]};
@@ -69,6 +69,10 @@ await test('All archive shards have valid hashes, counts, class exclusions and c
  }
  assert.equal(records,1421001);assert.equal(records,m.includedRecords);assert.equal(vertices,m.vertices);assert.equal(m.sourceTypes['2'],6687);
  const indexBytes=fs.readFileSync(new URL('index.json.gz',root));assert.equal(indexBytes.length,m.index.gzipBytes);assert.equal(crypto.createHash('sha256').update(indexBytes).digest('hex'),m.index.sha256);const idx=JSON.parse(zlib.gunzipSync(indexBytes));assert.equal(Object.keys(idx.names).length,1115);assert.equal(Object.values(idx.names).filter(n=>n.zh).length,24);assert.equal(idx.shards.length,m.shards.length);for(let i=0;i<idx.shards.length;i++)for(const key of ['file','bbox','minZoom','count','vertices'])assert.deepEqual(idx.shards[i][key],m.shards[i][key]);
+});
+await test('Editorial lake glossary covers major Chinese, Tibetan and world lakes cleanly',()=>{
+ for(const [en,zh] of [['Dongting','洞庭湖'],['Chao','巢湖'],['Dian Chi','滇池'],['Erh','洱海'],['Yamdrok','羊卓雍措'],['Hoh Xil','可可西里湖'],['Yangcheng','阳澄湖'],['Taupo','陶波湖'],['Beysehir','贝伊谢希尔湖'],['Tahoe','太浩湖'],['Frome','弗罗姆湖']])assert.equal(lakeZh(en,''),zh);
+ assert.equal(lakeZh('Biwa','琵琶湖'),'琵琶湖');
 });
 fs.writeFileSync(new URL('../docs/lake-validation-results.json',import.meta.url),JSON.stringify({status:'passed',checks:results.length,results},null,2));
 console.log(JSON.stringify({status:'passed',checks:results.length}));
