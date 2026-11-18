@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.97.0-e8a4d8c27ed0';
-import {placeWindow} from './view-state.js?v=3.97.0-e8a4d8c27ed0';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=3.98.0-fdc272a270e6';
+import {placeWindow} from './view-state.js?v=3.98.0-fdc272a270e6';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -4042,7 +4042,7 @@ const PLACE_ZH_EDITORIAL=new Map([
   ['chandler:819','伦敦德里'],['chandler:1090','波城'],['chandler:1192','里士满'],
   ['chandler:1198','罗什福尔'],['chandler:1333','圣海伦斯'],['chandler:1341','斯托克']
 ]);
-const PLACE_ZH_OVERRIDE=new Map([['chandler:659','开城']]);
+const PLACE_ZH_OVERRIDE=new Map([['chandler:659','开城'],['ne:1159112629','科洛尼亚·德尔·萨克拉门托'],['ne:1159135051','珀斯'],['ne:1159150481','萨克拉门托'],['ne:1159151027','丘吉尔']]);
 const editorialPlaceZh=p=>PLACE_ZH_OVERRIDE.get(p?.id)||((!p?.nameZh&&!p?.nameTimeline?.length&&!p?.datedNames?.length&&!p?.labelEvidence)?(PLACE_ZH_EDITORIAL.get(p?.id)||''):'');
 const capitalPolityLabels=p=>p?.kind==='dated-capital'&&CAPITAL_POLITY_FIX.has(p.polityQid)?{...p.polityLabels,...CAPITAL_POLITY_FIX.get(p.polityQid)}:p?.polityLabels;
 export const placeName=(p,lang)=>lang==='en'?(p.displayName||p.name):(p.displayNameZh||(p?.kind==='dated-capital'?capitalZh(p):(PLACE_ZH_OVERRIDE.get(p?.id)||p.nameZh||editorialPlaceZh(p)))||p.displayName||p.name);

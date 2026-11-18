@@ -528,6 +528,7 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
   const k1000=placeAtYear(Object.freeze({...kaesong}),1000);
   assert.equal(k1000?.nameZh,'开城');
   assert.equal(placeName(k1000,'zh'),'开城');
+  for(const [id,expectedZh] of [['ne:1159112629','科洛尼亚·德尔·萨克拉门托'],['ne:1159135051','珀斯'],['ne:1159150481','萨克拉门托'],['ne:1159151027','丘吉尔']])assert.equal(placeName({id,kind:'modern-reference',name:'x',nameZh:'old'},'zh'),expectedZh);
   for(const [src,id,year,expectedZh] of wave2){
     const raw=(src==='urban'?urban.cities:index.places).find(p=>p.id===id);
     assert(raw&&!raw.nameZh,id);
