@@ -1,7 +1,7 @@
-import {countryAlias} from './country-names.js?v=4.04.0-9cdb8f4d11a7';
-export {countryAlias} from './country-names.js?v=4.04.0-9cdb8f4d11a7';
+import {countryAlias} from './country-names.js?v=4.05.0-fd3b41ec0b33';
+export {countryAlias} from './country-names.js?v=4.05.0-fd3b41ec0b33';
 // CShapes data is independently licensed CC BY-NC-SA 4.0; see data/cshapes/.
-const ROOT='data/cshapes/',pending=new Map(),COUNTRY_ZH_FIX=new Map([['Inini','伊尼尼领地']]);let catalogPromise,catalogValue;
+const ROOT='data/cshapes/',pending=new Map(),COUNTRY_ZH_FIX=new Map([['Inini','伊尼尼领地'],['Belarus (Byelorussia)','白俄罗斯'],['Myanmar (Burma)','缅甸'],['Cambodia (Kampuchea)','柬埔寨']]);let catalogPromise,catalogValue;
 export const countrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023?`${year}-07-01`:null;
 export const countryVisible=(r,date)=>typeof date==='string'&&r.startDate<=date&&date<=r.endDate;
 export const countryName=(r,lang,date)=>{const alias=countryAlias(r,date);return lang==='en'?(alias?.en||r.name):(alias?.zh||COUNTRY_ZH_FIX.get(r?.name)||(r?.zhName&&r.zhName!==r.name?r.zhName:'')||r.zhName||r.name);};
