@@ -472,7 +472,17 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:890432540',800,'卡尔巴拉（幼发拉底河西伊拉克圣城）'],
     ['index','pleiades:464208937',-3000,'锡亚勒克遗址（卡尚伊朗高原史前名址）'],
     ['index','pleiades:629167850',-400,'毕达哥拉斯港（萨摩斯岛古城）'],
-    ['index','pleiades:912807',200,'阿波洛戈斯（乌布拉古港 · 巴士拉前身）']
+    ['index','pleiades:912807',200,'阿波洛戈斯（乌布拉古港 · 巴士拉前身）'],
+    ['index','pleiades:60016',-200,'王舍城（罗阅祇 · 摩揭陀早期都城）'],
+    ['index','pleiades:60067',-200,'舍卫城（室罗伐悉底 · 憍萨罗名都）'],
+    ['index','pleiades:60097',-200,'毗舍离古城（跋耆联邦名都）'],
+    ['index','pleiades:60011',-200,'奔那罗城（摩哈斯坦 · 孟加拉莫卧儿前古代大名都）'],
+    ['index','pleiades:60100',-200,'毗罗吒城（摩差国古都 · 拜拉特孔雀碑址）'],
+    ['index','pleiades:223856813',-1800,'泰勒莱兰（舒巴特-恩利勒 · 沙姆希-阿达德一世亚述北都）'],
+    ['index','pleiades:629034',-100,'马扎卡（卡帕多西亚王都前身）'],
+    ['index','pleiades:285501',200,'波马里亚（特莱姆森 · 罗马毛里塔尼亚边境名城）'],
+    ['index','pleiades:863787',-100,'耶尔万达沙特（阿拉克斯河畔奥龙特王朝古都）'],
+    ['index','pleiades:108830',200,'布鲁日（佛兰德罗马—中世纪名港城）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);

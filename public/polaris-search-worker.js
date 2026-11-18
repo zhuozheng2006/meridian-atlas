@@ -1,5 +1,5 @@
-import {PolarisStore,SNAPSHOT} from './polaris-store.js?v=3.90.0-466df06b3df6';
-import {exportPayload} from './polaris-adapter.js?v=3.90.0-466df06b3df6';
+import {PolarisStore,SNAPSHOT} from './polaris-store.js?v=3.91.0-475a8588ae1b';
+import {exportPayload} from './polaris-adapter.js?v=3.91.0-475a8588ae1b';
 let store=null,queue=Promise.resolve();const requests=new Map();
 const identity={datasetId:SNAPSHOT.datasetId,version:SNAPSHOT.version,sourceSha256:SNAPSHOT.sourceSha256};
 function error(id,value){self.postMessage({kind:'error',id,name:value?.name==='AbortError'?'AbortError':'Error',message:value?.message||'Research failed'});}
