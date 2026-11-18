@@ -1,11 +1,11 @@
-import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.01.0-4e5e3216efbd';
-import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey} from './polity-names.js?v=4.01.0-4e5e3216efbd';
-import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.01.0-4e5e3216efbd';
-import {placeName} from './places.js?v=4.01.0-4e5e3216efbd';
-import {classifyStatement,recordGaps} from './fact-period.js?v=4.01.0-4e5e3216efbd';
+import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.02.0-b6a85fad9fb7';
+import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey} from './polity-names.js?v=4.02.0-b6a85fad9fb7';
+import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.02.0-b6a85fad9fb7';
+import {placeName} from './places.js?v=4.02.0-b6a85fad9fb7';
+import {classifyStatement,recordGaps} from './fact-period.js?v=4.02.0-b6a85fad9fb7';
 export function statementApplies(s,year){return classifyStatement(s,year)==='selected';}
-import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.01.0-4e5e3216efbd';
-import {nativeGeometry} from './native-geometry.js?v=4.01.0-4e5e3216efbd';
+import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.02.0-b6a85fad9fb7';
+import {nativeGeometry} from './native-geometry.js?v=4.02.0-b6a85fad9fb7';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const FIELDS={capital:['首都','Capital'],government:['政治体制','Government'],headsOfState:['国家元首','Heads of state'],headsOfGovernment:['政府首脑','Heads of government'],predecessors:['前身','Predecessors'],successors:['继承政体','Successors'],officialLanguages:['官方语言','Official languages'],spokenLanguages:['使用语言','Languages'],religion:['宗教','Religion'],currencies:['货币','Currencies'],continent:['所属洲','Continent'],inception:['条目起年','Entity start'],dissolution:['条目终年','Entity end']};
 export const visibleStatement=s=>['qualified','unscoped','dated_entity_fact'].includes(s.displayGroup)&&s.snakType==='value';
@@ -113,7 +113,7 @@ export class PolityReader{
    const lead=corrected?this.t(`${polityName(r,'zh',this.whichMap.year)}的疆域档案 · ${period}。`,`The territorial record of ${polityName(r,'en',this.whichMap.year)} for ${period}.`):this.t(`${polityName(r,this.lang,this.whichMap.year)}的地图档案，连接${this.year(min)}至${this.year(max)}的疆域记录。`,`The map archive of ${polityName(r,'en',this.whichMap.year)}, connecting territorial records from ${this.year(min)} to ${this.year(max)}.`);
    content=`<p class="reader-lead">${esc(lead)}</p>`;
   }
-  content+=`<dl class="fact-grid"><div class="fact"><dt>${this.t('这段疆域','This territory period')}</dt><dd>${this.year(r.start)}<br>${r.end===0?this.t('源终点 0','Source endpoint 0'):this.year(r.end)}</dd></div><div class="fact"><dt>${this.t('档案面积','Recorded area')}</dt><dd>${Math.round(r.area).toLocaleString()} <small>km²</small></dd></div></dl>`;
+  content+=`<dl class="fact-grid"><div class="fact"><dt>${this.t('这段疆域','This territory period')}</dt><dd>${r.start===r.end&&r.end!==0?this.year(r.start):`${this.year(r.start)}<br>${r.end===0?this.t('源终点 0','Source endpoint 0'):this.year(r.end)}`}</dd></div><div class="fact"><dt>${this.t('档案面积','Recorded area')}</dt><dd>${Math.round(r.area).toLocaleString()} <small>km²</small></dd></div></dl>`;
   content+=this.currentFacts(['capital','government','inception','dissolution']);
   if(this.loading)content+=`<div class="loading-line">${this.t('正在翻阅国家资料…','Opening the historical dossier…')}</div>`;
   if(!intro&&this.editorial?.politics)content+=this.narrativeScope()+this.paragraphs(this.editorial.politics);content+=this.highlights()+this.archiveFacts(['capital','government','inception','dissolution'])+this.supplement(['capital','government','inception','dissolution']);

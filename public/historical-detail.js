@@ -1,4 +1,4 @@
-import {historicalDateFilter,datedFeatureVisible,historicalYearRange} from './historical-dates.js?v=4.01.0-4e5e3216efbd';
+import {historicalDateFilter,datedFeatureVisible,historicalYearRange} from './historical-dates.js?v=4.02.0-b6a85fad9fb7';
 const SOURCE='historical-detail';
 const IDS=['historic-buildings','historic-building-edges','historic-road-casing','historic-roads','historic-railways'];
 const HIT=['historic-buildings','historic-roads','historic-railways'];
