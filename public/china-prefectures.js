@@ -1,13 +1,32 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=3.94.0-f9cdb4eebe50';
-import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=3.94.0-f9cdb4eebe50';
+import {readJSON,forgetJSON} from './map-engine.js?v=3.95.0-7d23eb6bd13c';
+import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=3.95.0-7d23eb6bd13c';
 let reviewsModPromise=null,reviewsMod=null;
 async function ensureChinaReviews(){
  if(reviewsMod)return reviewsMod;
- if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=3.94.0-f9cdb4eebe50').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
+ if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=3.95.0-7d23eb6bd13c').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
  return reviewsModPromise;
 }
 const ROOT='data/china-prefectures/',packs=new Map();let indexPromise;
 const names={'Jingzhao Yin':'京兆尹','Jingzhao Fu':'京兆府','Longxi Jun':'陇西郡','Wuwei Jun':'武威郡','Jiuquan Jun':'酒泉郡','Zhangye Jun':'张掖郡','Dunhuang Jun':'敦煌郡','Shuofang Jun':'朔方郡','Yuyang Jun':'渔阳郡','Taiyuan Jun':'太原郡','Taiyuan Fu':'太原府','Henan Fu':'河南府','Hanzhong Jun':'汉中郡','Shang Jun':'上郡','Beidi Jun':'北地郡','Tianshui Jun':'天水郡','Anding Jun':'安定郡','Hongnong Jun':'弘农郡','Zuo Pingyi':'左冯翊','You Fufeng':'右扶风','Jincheng Jun':'金城郡','Yunzhong Jun':'云中郡','Wuyuan Jun':'五原郡','Dai Jun':'代郡','Yanmen Jun':'雁门郡','Shanggu Jun':'上谷郡','Youbeiping Jun':'右北平郡','Liaoxi Jun':'辽西郡','Liaodong Jun':'辽东郡','Shu Jun':'蜀郡','Ba Jun':'巴郡','Hedong Jun':'河东郡','Henan Jun':'河南郡','Henei Jun':'河内郡'};
+const deferredZh={
+ 'china-prefecture-742-1':'爱州','china-prefecture-742-2':'长州','china-prefecture-742-3':'武安州',
+ 'china-prefecture-742-5':'交州（安南都督府）','china-prefecture-742-6':'罗浮州','china-prefecture-742-7':'唐林州',
+ 'china-prefecture-742-8':'崖·儋·振·万安州','china-prefecture-742-10':'武峨州','china-prefecture-742-13':'高州',
+ 'china-prefecture-742-16':'春州','china-prefecture-742-17':'恩州','china-prefecture-742-24':'封州',
+ 'china-prefecture-742-25':'瀼州','china-prefecture-742-26':'笼州','china-prefecture-742-27':'禺州',
+ 'china-prefecture-742-29':'汤州','china-prefecture-742-30':'山州','china-prefecture-742-31':'冈州',
+ 'china-prefecture-742-32':'平琴州','china-prefecture-742-33':'新州','china-prefecture-742-46':'藤州',
+ 'china-prefecture-742-57':'浔州','china-prefecture-742-59':'连州','china-prefecture-742-64':'桂州',
+ 'china-prefecture-742-66':'姚州','china-prefecture-742-67':'郴州','china-prefecture-742-78':'吉州',
+ 'china-prefecture-742-90':'温州','china-prefecture-742-117':'歙州','china-prefecture-742-140':'绣州',
+ 'china-prefecture-742-141':'田州','china-prefecture-742-142':'梧州','china-prefecture-742-143':'容州',
+ 'china-prefecture-742-145':'巂州','china-prefecture-742-151':'淳州','china-prefecture-742-152':'安南中都护府',
+ 'china-prefecture-742-153':'环州','china-prefecture-742-154':'矩州','china-prefecture-742-155':'应州',
+ 'china-prefecture-742-156':'充州','china-prefecture-742-157':'珍州','china-prefecture-742-158':'沔州',
+ 'china-prefecture-742-164':'柘州','china-prefecture-742-166':'茂州','china-prefecture-742-169':'剑州',
+ 'china-prefecture-742-241':'郓州','china-prefecture-742-301':'福禄州','china-prefecture-742-313':'济州',
+ 'china-prefecture-742-314':'仪州','china-prefecture-742-315':'夏胜丰灵宥盐六州及单于·安北大都护府','china-prefecture-742-316':'安东都护府'
+};
 export const chinaSnapshotYear=y=>Object.hasOwn(chinaPrefectureBounds,String(y));
 export function chinaWindowFor(bounds,year){
  if(!bounds||!chinaSnapshotYear(year))return null;
@@ -27,7 +46,7 @@ export async function readChinaSnapshot(window_,year){
  if(!pending){pending=readJSON(url).then(d=>{if(d?.schemaVersion!==1||d.year!==year||d.band!==window_.band||!d.geometries)throw Error('Wrong China snapshot');return d;}).finally(()=>forgetJSON(url));packs.set(url,pending);pending.catch(()=>{if(packs.get(url)===pending)packs.delete(url);});}
  packs.delete(url);packs.set(url,pending);while(packs.size>3)packs.delete(packs.keys().next().value);
  const [index,pack,reviews]=await Promise.all([readChinaIndex(),pending,ensureChinaReviews()]);
- const features=index.records.filter(r=>r.year===year&&Object.hasOwn(pack.geometries,r.id)).map(r=>{const review=reviews.reviewedChinaName(r);return {type:'Feature',properties:{id:r.id,osm_id:-2000000000-r.row,archive:'china-prefectures',type:'administrative',admin_level:4,name:review?.en||r.sourceRecord.PrefNAM,name_en:review?.en||r.sourceRecord.PrefNAM,name_zh:review?.zh||names[r.sourceRecord.PrefNAM]||'',source_name:r.sourceRecord.PrefNAM,name_review_id:review?.id||'',province:r.sourceRecord.ProvNAM,source_id:r.sourceRecord.PrefID,source_row:r.row,start_date:String(year),end_date:String(year),start_decdate:year,end_decdate:year+.9999},geometry:pack.geometries[r.id]};});
+ const features=index.records.filter(r=>r.year===year&&Object.hasOwn(pack.geometries,r.id)).map(r=>{const review=reviews.reviewedChinaName(r);return {type:'Feature',properties:{id:r.id,osm_id:-2000000000-r.row,archive:'china-prefectures',type:'administrative',admin_level:4,name:review?.en||r.sourceRecord.PrefNAM,name_en:review?.en||r.sourceRecord.PrefNAM,name_zh:review?.zh||names[r.sourceRecord.PrefNAM]||deferredZh[r.id]||'',source_name:r.sourceRecord.PrefNAM,name_review_id:review?.id||'',province:r.sourceRecord.ProvNAM,source_id:r.sourceRecord.PrefID,source_row:r.row,start_date:String(year),end_date:String(year),start_decdate:year,end_decdate:year+.9999},geometry:pack.geometries[r.id]};});
  return {type:'FeatureCollection',metadata:{source:'Zheng & Wu (2026)',year,datePrecision:'exact-year snapshot',window:window_,relationCount:features.length},features};
 }
 export async function chinaRecord(id,window_,year){const [index,frame,reviews]=await Promise.all([readChinaIndex(),readChinaSnapshot(window_,year),ensureChinaReviews()]);return {source:index.metadata,record:index.records.find(r=>r.id===id),nameReview:reviews.reviewedChinaName(index.records.find(r=>r.id===id))||null,geometry:frame.features.find(f=>f.properties.id===id)?.geometry};}

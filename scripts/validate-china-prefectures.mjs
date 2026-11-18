@@ -17,6 +17,12 @@ try{
  const a=chinaWindowFor(box(104),2),frames=await Promise.all([readChinaSnapshot(a,2),readChinaSnapshot(a,2)]);assert.equal(requests.length,2);assert.deepEqual(frames[0],frames[1]);assert(frames[0].features.every(f=>regionalVisible(f.properties,2,4)&&!regionalVisible(f.properties,3,4)));
  await readChinaSnapshot(chinaWindowFor(box(109),2),2);assert.equal(requests.length,2);
  for(const x of [110,120,100])await readChinaSnapshot(chinaWindowFor(box(x),742),742);
+ const bands742=await Promise.all([90,100,110,120,130].map(band=>readChinaSnapshot({band},742)));
+ const byId742=new Map(bands742.flatMap(f=>f.features.map(x=>[x.properties.id,x.properties])));
+ assert.equal(byId742.size,317);
+ for(const [id,p] of byId742)assert(p.name_zh&&!/[A-Za-z]/.test(p.name_zh),id+' missing name_zh: '+p.name_zh);
+ assert.equal(byId742.get('china-prefecture-742-314')?.name_zh,'仪州');
+ assert.equal(byId742.get('china-prefecture-742-315')?.name_zh,'夏胜丰灵宥盐六州及单于·安北大都护府');
  const n=requests.length;await readChinaSnapshot(a,2);assert.equal(requests.length,n+1);
  fail=true;await assert.rejects(readChinaSnapshot(chinaWindowFor(box(94),2),2));fail=false;await readChinaSnapshot(chinaWindowFor(box(94),2),2);
  const regional=Object.create(RegionalBoundaries.prototype);Object.assign(regional,{year:742,map:{getBounds:()=>box(104),getSource(){throw Error('Scholarly source must suppress live OHM startup');}}});assert(regional.scholarlyActive);regional.ensure();
