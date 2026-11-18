@@ -1,6 +1,6 @@
-import {SNAPSHOT,TABLES,DECODED_FILES} from './polaris-contract.js?v=3.99.0-9f4c866cff07';
-import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=3.99.0-9f4c866cff07';
-import {normalizeFilters,searchSheets,matchesObservation} from './polaris-adapter.js?v=3.99.0-9f4c866cff07';
+import {SNAPSHOT,TABLES,DECODED_FILES} from './polaris-contract.js?v=4.00.0-21e5bc2e4e3c';
+import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=4.00.0-21e5bc2e4e3c';
+import {normalizeFilters,searchSheets,matchesObservation} from './polaris-adapter.js?v=4.00.0-21e5bc2e4e3c';
 const KNOWN_SHEETS=Object.keys(TABLES).filter(s=>!['Variables','Polities'].includes(s));
 const HASH=/^[a-f0-9]{64}$/;
 const MAX_INDEX_BYTES=600000;
