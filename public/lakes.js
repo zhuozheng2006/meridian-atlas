@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=3.98.0-fdc272a270e6';
+import {decodeLakeArchive} from './lake-codec.js?v=3.99.0-9f4c866cff07';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -120,7 +120,7 @@ const LAKE_ZH=new Map([
  ['Southern Indian','南印第安湖'],['Lac a L\'Eau Claire','克利尔沃特湖（水清湖）'],['Gods','戈兹湖'],['Moose','穆斯湖'],
  ['Seul','苏尔湖'],['Bras d\'Or','布拉多尔湖'],['Tahoe','太浩湖'],
  // Wave-2 Eurasian & Arctic Russian / Tibetan / Central Asian lakes
- ['Dong','洞错'],['Nau','纳乌错'],['Ch\'a-erh-ku-t\'e','恰规错'],['Mo-k\'o-yu','木纠错'],['Mu-ts\'o-ping-ni','姆错丙尼'],
+ ['Dong','洞错'],['Nau','纳乌错'],['Bong','崩错'],['Ch\'a-erh-ku-t\'e','恰规错'],['Mo-k\'o-yu','木纠错'],['Mu-ts\'o-ping-ni','姆错丙尼'],
  ['Namru','兹格塘错'],['Na','错那湖'],['Chem','泽错'],['Morari','莫里里湖'],
  ['Kungasalakh','昆加萨拉赫湖'],['Portnyagino','波特尼亚吉诺湖'],['Kokora','科科拉湖'],['Nadudoturku','纳杜多图尔库湖'],
  ['Bustakh','布斯塔赫湖'],['Ferguson','弗格森湖'],['Mogotoyeyo','莫戈托耶沃湖'],['Soluntakh','索伦塔赫湖'],
