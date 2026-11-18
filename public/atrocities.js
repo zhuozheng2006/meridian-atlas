@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=4.00.0-21e5bc2e4e3c';
+import {readJSON,formatYear} from './map-engine.js?v=4.01.0-4e5e3216efbd';
 
 // A separate point layer for one-sided mass violence against non-combatants.
 // It is deliberately NOT the battle layer: scripts/places/validate-atrocities.mjs

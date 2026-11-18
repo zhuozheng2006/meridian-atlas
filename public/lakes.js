@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=4.00.0-21e5bc2e4e3c';
+import {decodeLakeArchive} from './lake-codec.js?v=4.01.0-4e5e3216efbd';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -308,7 +308,8 @@ const LAKE_ID_ZH=new Map([
  ['617','约瑟夫湖（拉布拉多）'],['756','约瑟夫湖（马斯科卡）'],
  ['705','拉克德米勒拉克湖（安大略）'],['746','米勒拉克斯湖（明尼苏达）'],
  ['846','白湖（路易斯安那）'],['8278','白湖（安大略）'],
- ['386','特劳特湖（西北地区）'],['646','特劳特湖（安大略）']
+ ['386','特劳特湖（西北地区）'],['646','特劳特湖（安大略）'],
+ ['1427','懂错']
 ]);
 export const lakeZh=(name,builtInZh='',id='')=>builtInZh||LAKE_ID_ZH.get(String(id))||LAKE_ZH.get(name)||'';
 const cache=new LakeCache(fetchLakeJSON);

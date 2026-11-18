@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.00.0-21e5bc2e4e3c';
-import {placeWindow} from './view-state.js?v=4.00.0-21e5bc2e4e3c';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.01.0-4e5e3216efbd';
+import {placeWindow} from './view-state.js?v=4.01.0-4e5e3216efbd';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -4137,7 +4137,9 @@ export class PlaceLayer {
    if(globeClip){const [lon,lat]=p.coordinates;const dot=sinC*Math.sin(lat*rad)+cosC*Math.cos(lat*rad)*Math.cos((lon-center.lng)*rad);if(dot<.28)continue;}
    const norm=normalizePlaceQuery(placeName(p,'en')||p.name);
    if(norm&&seen.some(s=>s.norm===norm&&Math.abs(s.lon-p.coordinates[0])<.25&&Math.abs(s.lat-p.coordinates[1])<.25))continue;
-   const screen=map.project(p.coordinates),name=placeName(p,this.lang),secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?placeName(p,'en'):'';
+   const screen=map.project(p.coordinates),rawName=placeName(p,this.lang),rawEn=placeName(p,'en');
+   const compactPinEn=s=>{if(!s||!s.includes('/'))return s;const head=s.split('/')[0].trim();return head.length>=3&&(s.length>22||s.indexOf('/',s.indexOf('/')+1)>=0)?head:s;};
+   const name=this.lang==='en'?compactPinEn(rawName):rawName,secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?compactPinEn(rawEn):'';
    const obsText=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):'';
    const width=Math.min(184,Math.max(textPx(name,12.8,7.4),textPx(secondary,11,6.4),textPx(obsText,11.2,6.3))+34),height=(secondary?48:34)+(obsText?15:0);
    // A record that exists in the data should still be visible and clickable when its
@@ -4171,7 +4173,7 @@ export class PlaceLayer {
    if(obsText){const stamp=document.createElement('small');stamp.className='place-date';stamp.textContent=obsText;label.append(stamp);}
    el.title=(modern?(this.lang==='en'?'Modern reference · ':'现代参照 · '):'')+name;el.setAttribute('aria-label',el.title);
    const meta=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+Number(p.observation[1]).toLocaleString()+' · '+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):p.kind==='dated-capital'?(this.lang==='en'?'Historical capital':'历史首都'):modern?(this.lang==='en'?'Present-day reference':'现代参照'):p.period?formatYear(p.period[0],this.lang==='en'?'en':'zh')+(p.period[1]!==p.period[0]?' — '+formatYear(p.period[1],this.lang==='en'?'en':'zh'):''):'';
-   const showHover=()=>{this.atlas.setHoverMarker?.({primary:name,secondary,meta},el.getBoundingClientRect());};
+   const showHover=()=>{this.atlas.setHoverMarker?.({primary:rawName,secondary:this.lang==='bi'&&(p.displayNameZh||p.nameZh)?rawEn:'',meta},el.getBoundingClientRect());};
    el.addEventListener('mouseenter',showHover);el.addEventListener('focus',showHover);
    el.addEventListener('mouseleave',()=>this.atlas.setHoverMarker?.(null));el.addEventListener('blur',()=>this.atlas.setHoverMarker?.(null));
    el.onclick=e=>{e.stopPropagation();this.atlas.setHoverMarker?.(null);this.onSelect?.(p,this.atlas);};

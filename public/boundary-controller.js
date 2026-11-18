@@ -1,10 +1,10 @@
-import {interiorPoint} from './geometry-anchor.js?v=4.00.0-21e5bc2e4e3c';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.00.0-21e5bc2e4e3c';
-import {beginMapForeground} from './map-load-priority.js?v=4.00.0-21e5bc2e4e3c';
+import {interiorPoint} from './geometry-anchor.js?v=4.01.0-4e5e3216efbd';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.01.0-4e5e3216efbd';
+import {beginMapForeground} from './map-load-priority.js?v=4.01.0-4e5e3216efbd';
 
 const hasCountrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023;
 let _countryMod=null,_countryModP=null;
-const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=4.00.0-21e5bc2e4e3c').then(m=>(_countryMod=m)));
+const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=4.01.0-4e5e3216efbd').then(m=>(_countryMod=m)));
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
@@ -21,7 +21,7 @@ export class BoundaryController{
    const cached=this.peekCountry?this.peekCountry(year):_countryMod?.cachedCountryFrame(year)||null;
    if(cached){if(!_countryMod)await getCountryMod();return this.countryFrame(cached,year,requested);}
    let overviewWanted=true;const release=beginMapForeground();
-   const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y)));
+   const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y,{priority:'low'})));
    const country=Promise.all([loadFn(year),getCountryMod()]).then(([frame])=>frame).finally(release);
    const detail=country.then(frame=>this.countryFrame(frame,year,requested));
    const overview=Promise.resolve().then(()=>loadOverview(()=>overviewWanted)).then(frame=>{if(!frame)throw Error('Overview superseded');return {...frame,requested,reason:null,countryUpgrade:country};});
@@ -29,7 +29,7 @@ export class BoundaryController{
    const first=await Promise.any([detail,overview]);if(first.source==='cshapes')overviewWanted=false;return first;
   }
   if(requested==='cshapes'){
-   if(hasCountrySnapshot(year)){try{const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y)));const [frame]=await Promise.all([loadFn(year),getCountryMod()]);return this.countryFrame(frame,year,requested);}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
+   if(hasCountrySnapshot(year)){try{const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y,{priority:'high'})));const [frame]=await Promise.all([loadFn(year),getCountryMod()]);return this.countryFrame(frame,year,requested);}catch(e){return {...await loadOverview(),requested,reason:'error',error:String(e.message||e)};}}
    return {...await loadOverview(),requested,reason:'unsupported'};
   }
   return {...await loadOverview(),requested,reason:null};
@@ -45,7 +45,7 @@ export class BoundaryController{
   const generation=this.generation,year=initial.year,request=this.atlas.request,release=beginMapForeground();
   const current=()=>!this.atlas.destroyed&&generation===this.generation&&request===this.atlas.request&&year===this.atlas.year&&this.mode==='auto'&&this.current===initial;
   try{
-   const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y)));
+   const loadFn=this.loadCountry?(y=>this.loadCountry(y)):(y=>getCountryMod().then(m=>m.loadCountryFrame(y,{priority:'low'})));
    const [frame]=await Promise.all([initial.countryUpgrade||loadFn(year),getCountryMod()]);if(!current())return false;
    this.commit(this.countryFrame(frame,year,'auto'));
    this.atlas.regional?.update();this.atlas.refreshLabels();return true;

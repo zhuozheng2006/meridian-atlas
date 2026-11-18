@@ -95,6 +95,12 @@ await test('Editorial lake glossary covers major Chinese, Tibetan and world lake
  assert.equal(lakeZh('White Lake','',8278),'白湖（安大略）');
  assert.equal(lakeZh('Trout','',386),'特劳特湖（西北地区）');
  assert.equal(lakeZh('Trout','',646),'特劳特湖（安大略）');
+ assert.equal(lakeZh('Dogen','',1427),'懂错');
+ const realIdx=JSON.parse(zlib.gunzipSync(fs.readFileSync(new URL('../public/data/lakes/index.json.gz',import.meta.url))));
+ for(const [id,entry] of Object.entries(realIdx.names)){
+  const resolved=lakeZh(entry.name,entry.zh,id);
+  assert(resolved && !/^[A-Za-z0-9\s.,'()-]+$/.test(resolved),`Lake ${id} (${entry.name}) missing Chinese label`);
+ }
 });
 fs.writeFileSync(new URL('../docs/lake-validation-results.json',import.meta.url),JSON.stringify({status:'passed',checks:results.length,results},null,2));
 console.log(JSON.stringify({status:'passed',checks:results.length}));

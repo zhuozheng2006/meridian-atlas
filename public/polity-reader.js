@@ -1,11 +1,11 @@
-import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.00.0-21e5bc2e4e3c';
-import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey} from './polity-names.js?v=4.00.0-21e5bc2e4e3c';
-import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.00.0-21e5bc2e4e3c';
-import {placeName} from './places.js?v=4.00.0-21e5bc2e4e3c';
-import {classifyStatement,recordGaps} from './fact-period.js?v=4.00.0-21e5bc2e4e3c';
+import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.01.0-4e5e3216efbd';
+import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey} from './polity-names.js?v=4.01.0-4e5e3216efbd';
+import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.01.0-4e5e3216efbd';
+import {placeName} from './places.js?v=4.01.0-4e5e3216efbd';
+import {classifyStatement,recordGaps} from './fact-period.js?v=4.01.0-4e5e3216efbd';
 export function statementApplies(s,year){return classifyStatement(s,year)==='selected';}
-import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.00.0-21e5bc2e4e3c';
-import {nativeGeometry} from './native-geometry.js?v=4.00.0-21e5bc2e4e3c';
+import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.01.0-4e5e3216efbd';
+import {nativeGeometry} from './native-geometry.js?v=4.01.0-4e5e3216efbd';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const FIELDS={capital:['首都','Capital'],government:['政治体制','Government'],headsOfState:['国家元首','Heads of state'],headsOfGovernment:['政府首脑','Heads of government'],predecessors:['前身','Predecessors'],successors:['继承政体','Successors'],officialLanguages:['官方语言','Official languages'],spokenLanguages:['使用语言','Languages'],religion:['宗教','Religion'],currencies:['货币','Currencies'],continent:['所属洲','Continent'],inception:['条目起年','Entity start'],dissolution:['条目终年','Entity end']};
 export const visibleStatement=s=>['qualified','unscoped','dated_entity_fact'].includes(s.displayGroup)&&s.snakType==='value';
