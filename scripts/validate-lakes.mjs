@@ -71,8 +71,19 @@ await test('All archive shards have valid hashes, counts, class exclusions and c
  const indexBytes=fs.readFileSync(new URL('index.json.gz',root));assert.equal(indexBytes.length,m.index.gzipBytes);assert.equal(crypto.createHash('sha256').update(indexBytes).digest('hex'),m.index.sha256);const idx=JSON.parse(zlib.gunzipSync(indexBytes));assert.equal(Object.keys(idx.names).length,1115);assert.equal(Object.values(idx.names).filter(n=>n.zh).length,24);assert.equal(idx.shards.length,m.shards.length);for(let i=0;i<idx.shards.length;i++)for(const key of ['file','bbox','minZoom','count','vertices'])assert.deepEqual(idx.shards[i][key],m.shards[i][key]);
 });
 await test('Editorial lake glossary covers major Chinese, Tibetan and world lakes cleanly',()=>{
- for(const [en,zh] of [['Dongting','洞庭湖'],['Chao','巢湖'],['Dian Chi','滇池'],['Erh','洱海'],['Yamdrok','羊卓雍措'],['Hoh Xil','可可西里湖'],['Yangcheng','阳澄湖'],['Taupo','陶波湖'],['Beysehir','贝伊谢希尔湖'],['Tahoe','太浩湖'],['Frome','弗罗姆湖']])assert.equal(lakeZh(en,''),zh);
+ for(const [en,zh] of [['Dongting','洞庭湖'],['Chao','巢湖'],['Dian Chi','滇池'],['Erh','洱海'],['Yamdrok','羊卓雍措'],['Hoh Xil','可可西里湖'],['Yangcheng','阳澄湖'],['Taupo','陶波湖'],['Beysehir','贝伊谢希尔湖'],['Tahoe','太浩湖'],['Frome','弗罗姆湖'],['Dong','洞错'],['Nau','纳乌错'],['Mo-k\'o-yu','木纠错'],['Mu-ts\'o-ping-ni','姆错丙尼'],['Salar de Uyuni','乌尤尼盐沼'],['Nahuel Huapi','纳韦尔瓦皮湖'],['Natron','纳特龙湖'],['Ioannina','约阿尼纳湖（帕姆沃蒂斯湖）']])assert.equal(lakeZh(en,''),zh);
  assert.equal(lakeZh('Biwa','琵琶湖'),'琵琶湖');
+ // Shared English lake names disambiguated cleanly by HydroLAKES id
+ assert.equal(lakeZh('Tai','',14520),'岱海');
+ assert.equal(lakeZh('Tai','太湖',148),'太湖');
+ assert.equal(lakeZh('Orog','',1218),'乌列格湖');
+ assert.equal(lakeZh('Orog','',1288),'奥罗格湖');
+ assert.equal(lakeZh('Har','',1236),'哈尔乌苏湖');
+ assert.equal(lakeZh('Har','',13937),'哈尔湖');
+ assert.equal(lakeZh('Carey','',1670),'凯里盐湖');
+ assert.equal(lakeZh('Carey','',345),'凯里湖');
+ assert.equal(lakeZh('Tahoe','',200),'塔霍湖（维多利亚岛）');
+ assert.equal(lakeZh('Tahoe','',792),'太浩湖');
 });
 fs.writeFileSync(new URL('../docs/lake-validation-results.json',import.meta.url),JSON.stringify({status:'passed',checks:results.length,results},null,2));
 console.log(JSON.stringify({status:'passed',checks:results.length}));

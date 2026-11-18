@@ -4,7 +4,7 @@
 .map-tools{position:absolute;top:14px;right:14px;bottom:auto!important;flex-direction:row;align-items:center;gap:3px;padding:4px;border:1px solid #dcc0893d;border-radius:11px;background:rgba(9,19,31,.9);backdrop-filter:blur(16px);box-shadow:0 8px 26px #0000004d,inset 0 1px 0 #fff4d60e;z-index:5}
 .map-tools button{border:1px solid transparent;border-radius:7px;font-size:12.5px;min-height:34px;padding:0 11px;white-space:nowrap;color:#d3dfe7;transition:background .16s,border-color .16s,color .16s}
 .map-tools button:hover{background:#ffffff0d;border-color:#dcc08944;color:#fff}
-.map-tools button.active{background:linear-gradient(155deg,#dcc0892e,#dcc08914);border-color:#dcc08975;color:#f5dfa8;font-weight:500;box-shadow:inset 0 1px 0 #fff5d824,0 0 12px #dcc0891f}
+.map-tools button.active,.map-tools button[aria-expanded="true"]{background:linear-gradient(155deg,#dcc0892e,#dcc08914);border-color:#dcc08975;color:#f5dfa8;font-weight:500;box-shadow:inset 0 1px 0 #fff5d824,0 0 12px #dcc0891f}
 .map-heading{left:18px;top:16px!important;padding:11px 19px 11px 16px;border:1px solid #dcc08930;border-left:2.5px solid #dcc089;border-radius:11px;background:radial-gradient(circle at 0% 50%,#dcc08914,transparent 58%),rgba(8,17,29,.88);backdrop-filter:blur(14px);box-shadow:0 10px 28px #00000055,inset 0 1px 0 #fff4d60d;pointer-events:none}
 .map-heading .eyebrow{color:#d8be89;font-size:10px;letter-spacing:.2em}
 .map-heading strong{font-size:34px;font-weight:400;letter-spacing:.015em}
@@ -60,7 +60,7 @@ tbody tr.structured-index .library-year{box-shadow:inset 3px 0 #b08a52}
 .place-marker:hover span,.place-marker:focus-visible span{color:#312510;text-decoration:underline;text-underline-offset:3px}.place-marker:focus-visible{outline:2px solid #b77736;outline-offset:3px;border-radius:5px}
 .place-marker[style*="opacity: 0;"]{pointer-events:none}
 .selected-place{width:20px;height:20px;border:2px solid #fff0bb;border-radius:50%;box-shadow:0 0 0 3px #52432c88,0 0 0 7px #f9d88540;pointer-events:none;background:#c9a05a33}
-.layer-panel{position:absolute;right:14px;top:58px;width:308px;z-index:14;border:1px solid #dcc0894a;border-top:2px solid #dcc089b8;border-radius:14px;padding:15px 16px 14px;background:linear-gradient(180deg,rgba(13,25,39,.97),rgba(8,16,27,.97));backdrop-filter:blur(24px);box-shadow:0 22px 56px #0000007a;max-height:min(512px,calc(100% - 140px))}
+.layer-panel{position:absolute;right:14px;top:58px;width:308px;z-index:14;border:1px solid #dcc0894a;border-top:2px solid #dcc089b8;border-radius:14px;padding:14px 16px 13px;background:linear-gradient(180deg,rgba(13,25,39,.97),rgba(8,16,27,.97));backdrop-filter:blur(24px);box-shadow:0 22px 56px #0000007a;max-height:min(640px,calc(100% - 76px))}
 .layer-panel .eyebrow{font-size:10px;color:#d6b77e;letter-spacing:.2em}.layer-panel h2{font-family:var(--serif);font-size:20px;font-weight:500;margin:4px 0 3px;color:#f6f0e4}.layer-panel>p{font-size:11.5px;color:#93a9b8;margin:0 0 10px;line-height:1.5}
 .layer-options{display:grid;grid-template-columns:1fr;gap:4px}.layer-options>button:not(.layer-note){position:relative;text-align:left;padding:7px 48px 7px 11px;min-height:36px;font-size:12.5px;border:1px solid #9caec121;background:#0b1725a6;color:#cedbe3;border-radius:8px;transition:background .16s,border-color .16s,color .16s}
 .layer-options>button:not(.layer-note):hover{border-color:#dcc08955;background:#132539c4;color:#f3efe5}
@@ -97,7 +97,7 @@ button.layer-note:hover{color:#ecd4a3;background:#dcc0890f;border-radius:0 6px 6
 /* A visible exit and a scrollable layer list on small screens. */
 .layer-panel{display:flex;flex-direction:column;overflow:hidden}
 .layer-panel>.eyebrow,.layer-panel>h2,.layer-panel>p,.layer-panel>#terrainRetry,.layer-panel>#layerClose{flex:none}
-.layer-options{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#526776 transparent;padding-bottom:14px;mask-image:linear-gradient(to bottom,#000 92%,transparent)}
+.layer-options{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#526776 transparent;padding:0 4px 4px 0}
 @media(max-width:760px){.layer-options>button#bordersBtn,.layer-options>button#citiesBtn,.layer-options>button#eventsBtn{grid-column:1 / -1}.polity-result{flex:0 0 210px;min-width:210px;max-width:210px;overflow:hidden}.polity-result .secondary{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:11px}.polity-results{flex:none;padding:0;align-items:stretch}.polity-result{margin-bottom:0}}
 /* Remove conflicting legacy blur box on .map-heading so the refined left-accent card prevails */
 @media(max-width:760px){.map-heading{padding:8px 10px}.comparing .map-heading{max-width:calc(50% - 24px)}.comparing .map-heading strong{font-size:21px;white-space:normal}}
