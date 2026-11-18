@@ -1,5 +1,5 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=4.07.0-46a6a2efdf0d';
-import {nativeTemporalBundles} from './native-temporal-index.js?v=4.07.0-46a6a2efdf0d';
+import {readJSON,forgetJSON} from './map-engine.js?v=4.08.0-d460965bd10c';
+import {nativeTemporalBundles} from './native-temporal-index.js?v=4.08.0-d460965bd10c';
 const native=new Map(),failedBundles=new Set(),pendingBundles=new Map(),loadedBundles=new Set();
 const bootYears=new Set([-3400,-221,1,500,1000,1492,1500,1750,1914,1945,1991,2024]);
 export const hasNativeBootstrap=year=>bootYears.has(year);
