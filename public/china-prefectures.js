@@ -1,9 +1,9 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=4.08.0-d460965bd10c';
-import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=4.08.0-d460965bd10c';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.09.0-243ff4d638ea';
+import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=4.09.0-243ff4d638ea';
 let reviewsModPromise=null,reviewsMod=null;
 async function ensureChinaReviews(){
  if(reviewsMod)return reviewsMod;
- if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=4.08.0-d460965bd10c').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
+ if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=4.09.0-243ff4d638ea').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
  return reviewsModPromise;
 }
 const ROOT='data/china-prefectures/',packs=new Map();let indexPromise;
@@ -35,7 +35,7 @@ export function chinaWindowFor(bounds,year){
  const x=((w+e)/2+180)%360-180,y=(s+n)/2,b=chinaPrefectureBounds[year];
  if(x<b[0]||x>b[2]||y<b[1]||y>b[3])return null;
  const band=Math.floor(x/10)*10;
- return {id:'china-prefectures-'+band,zh:'中国历史区划 · '+year+' 年截面',en:'Chinese historical divisions · '+year+' snapshot',root:ROOT,band,bounds:b,years:[2,742]};
+ return {id:'china-prefectures-'+band,zh:'中国历史区划 · 公元 '+year+' 年截面',en:'Chinese historical divisions · '+year+' CE snapshot',root:ROOT,band,bounds:b,years:[2,742]};
 }
 export async function readChinaIndex(){
  if(!indexPromise)indexPromise=readJSON(ROOT+'index.json.gz').then(d=>{if(d?.schemaVersion!==1||d.records?.length!==420)throw Error('Invalid China research index');return d;}).catch(e=>{indexPromise=null;forgetJSON(ROOT+'index.json.gz');throw e;});return indexPromise;
@@ -53,7 +53,8 @@ export async function chinaRecord(id,window_,year){const [index,frame,reviews]=a
 export function chinaRecordPanel(p,lang,download){
  const t=(zh,en)=>lang==='en'?en:zh,node=document.createElement('section'),add=(tag,text)=>{const el=document.createElement(tag);el.textContent=text;node.append(el);return el;};
  add('small',t('中国历史区划 · 研究截面','Chinese historical divisions · research snapshot')).className='historical-eyebrow';add('h3',lang==='en'?p.name_en:p.name_zh||p.name_en);if(lang==='bi'&&p.name_zh)add('p',p.name_en);
- const dl=document.createElement('dl');for(const [key,value]of [[t('截面年份','Snapshot year'),p.start_date],[t('上级地区（来源原名）','Parent region (source name)'),p.province],[t('来源原名','Original source name'),p.source_name||p.name_en],[t('来源编号','Source ID'),p.source_id],[t('研究作者','Researchers'),'Zheng & Wu (2026)']]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
+ const snapYear=Number(p.start_date),snapLabel=Number.isFinite(snapYear)&&snapYear!==0?formatYear(snapYear,lang==='en'?'en':'zh'):p.start_date;
+ const dl=document.createElement('dl');for(const [key,value]of [[t('截面年份','Snapshot year'),snapLabel],[t('上级地区（来源原名）','Parent region (source name)'),p.province],[t('来源原名','Original source name'),p.source_name||p.name_en],[t('来源编号','Source ID'),p.source_id],[t('研究作者','Researchers'),'Zheng & Wu (2026)']]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
  const review=(reviewsMod?.chinaNameReviews||{})[p.name_review_id];if(review){const details=add('details',''),summary=document.createElement('summary'),note=document.createElement('p'),srcBox=document.createElement('div'),srcLabel=review.sources?.[0]?.titleEn?.split(' · ').slice(0,2).join(', ')||'Old Book of Tang';details.className='historical-review-details';srcBox.className='historical-review-sources';summary.textContent=t('名称考证','Name review');note.textContent=t(review.evidence,review.evidenceEn||(review.year===742?(review.reviewType==='verified-name'?`Period name checked against ${srcLabel} (742 CE). The source label is retained above.`:`Period name checked against the first-year Tianbao renaming in ${srcLabel}. The source label is retained above.`):'Name checked against Book of Han, juan 28. The original source label is retained above.'));for(const source of review.sources){const a=document.createElement('a');a.href=source.url;a.textContent=t(source.title,source.titleEn||(source.url.includes('zdic.net')?'Dictionary · historical pronunciation':review.year===742?'Old Book of Tang':'Book of Han · juan 28'))+(source.section?' · '+source.section:'');a.target='_blank';a.rel='noopener noreferrer';srcBox.append(a);}details.append(summary,note,srcBox);}
  const links=add('div','');links.className='historical-source-links';for(const [label,url]of [[t('研究论文','Research paper'),'https://doi.org/10.1038/s41597-026-07086-6'],[t('原始数据与方法','Dataset & methods'),'https://doi.org/10.6084/m9.figshare.30518417.v2'],[t('下载原始区划文件','Original boundary files'),ROOT+'ResearchArea-originals.zip']]){const a=document.createElement('a');a.textContent=label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
  const details=add('details',''),summary=document.createElement('summary'),note=document.createElement('p');summary.textContent=t('来源说明','Source notes');note.textContent=t('图层依据《中国历史地图集》重建，本批展示公元 2 年与 742 年两个截面。经核对的名称采用当年名称，原名与考证另列；保留合并单元。部分边疆、水面在研究区之外。原始 Albers 坐标按其椭球反投影，未推定基准转换。人口估算用的模拟县界未纳入此图。原始属性中的 Source、RECORDS 描述人口依据。','Reconstructed from The Historical Atlas of China for the two displayed snapshots, 2 and 742 CE. Reviewed names use period labels, with original names and evidence preserved; merged units remain intact; some frontier areas and water surfaces fall outside the study area. Albers coordinates are inverse-projected on the source ellipsoid without an inferred datum shift. Simulated county boundaries are excluded. Source and RECORDS fields describe population evidence.');details.append(summary,note);

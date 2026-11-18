@@ -1,18 +1,18 @@
-import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=4.08.0-d460965bd10c';
+import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=4.09.0-243ff4d638ea';
 export const interiorAnchor=(geometry,box=null)=>_interiorAnchor(geometry,box);
 export const interiorPoint=(geometry,box=null)=>_interiorPoint(geometry,box);
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=4.08.0-d460965bd10c';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=4.08.0-d460965bd10c';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=4.08.0-d460965bd10c';
-import {beginMapForeground} from './map-load-priority.js?v=4.08.0-d460965bd10c';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=4.08.0-d460965bd10c';
-import {boundaryNote} from './boundary-notes.js?v=4.08.0-d460965bd10c';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.08.0-d460965bd10c';
-import {HalcBoundaries} from './halc-boundaries.js?v=4.08.0-d460965bd10c';
-import {boundaryMode} from './view-state.js?v=4.08.0-d460965bd10c';
-import {simplifiedChinese} from './simplified-chinese.js?v=4.08.0-d460965bd10c';
-import {historicalYearRange} from './historical-dates.js?v=4.08.0-d460965bd10c';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=4.08.0-d460965bd10c';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=4.09.0-243ff4d638ea';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=4.09.0-243ff4d638ea';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=4.09.0-243ff4d638ea';
+import {beginMapForeground} from './map-load-priority.js?v=4.09.0-243ff4d638ea';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=4.09.0-243ff4d638ea';
+import {boundaryNote} from './boundary-notes.js?v=4.09.0-243ff4d638ea';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.09.0-243ff4d638ea';
+import {HalcBoundaries} from './halc-boundaries.js?v=4.09.0-243ff4d638ea';
+import {boundaryMode} from './view-state.js?v=4.09.0-243ff4d638ea';
+import {simplifiedChinese} from './simplified-chinese.js?v=4.09.0-243ff4d638ea';
+import {historicalYearRange} from './historical-dates.js?v=4.09.0-243ff4d638ea';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=4.09.0-243ff4d638ea';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -168,7 +168,8 @@ export function groupRegionalFeatures(features,year,maxLevel=4){
 export function regionalAnchor(feature,box){
  let best=null;for(const geometry of feature.fragments||[feature.geometry]){if(!geometry)continue;const candidate=interiorAnchor(geometry,box);if(candidate&&(!best||candidate.score>best.score))best=candidate;}return best;
 }
-export const regionalPeriod=(p,lang='bi')=>p.archive==='halc'?'1500':[p.start_date||recordYear(p.start_decdate,lang),p.end_date||recordYear(p.end_decdate,lang)].join(' — ');
+const regionalDateText=(raw,dec,lang)=>{const s=String(raw??'').trim();if(/^-?\d+$/.test(s)&&Number(s)!==0)return formatYear(Number(s),lang==='en'?'en':'zh');return s||(Number.isFinite(dec)?recordYear(dec,lang):'');};
+export const regionalPeriod=(p,lang='bi')=>{if(p.archive==='halc')return formatYear(1500,lang==='en'?'en':'zh');const a=regionalDateText(p.start_date,p.start_decdate,lang),b=regionalDateText(p.end_date,p.end_decdate,lang);return a&&b&&a===b?a:[a,b].join(' — ');};
 export class RegionalBoundaries{
  constructor(atlas,{enabled=true,modern=false,mode='auto'}={}){
   this.atlas=atlas;this.map=atlas.map;this.mode=enabled?boundaryMode(mode):'overview';this.modern=modern;this.year=atlas.year;this.lang=atlas.lang;this.status='zoom';this.active=false;this.failed=false;this.features=[];this.markers=[];this.listeners=[];this.settling=false;this.samples=[];this.maxLevel=this.map.getZoom()>=8?6:4;this.ohmState='idle';this.ohmData=null;this.ohmIds=[];this.ohmKey=null;this.liveEpoch=0;this.frozenEpoch=0;this.renderPending=true;this.scanKey=null;this.dead=false;
@@ -299,7 +300,7 @@ export class RegionalBoundaries{
  // What the frozen snapshot holds for the selected year, in the atlas' own honest wording.
  ohmNote(){
   if(this.awmcActive)return tr(this.lang,'AWMC · '+this.year+' 年罗马疆域重建。200 年另含来源行省分界线；点击疆域可读来源与下载原图形。','AWMC · Roman extent in '+this.year+' CE. The 200 CE snapshot also includes source province lines. Select the territory for provenance and original geometry.');
-  if(this.chinaResearchActive)return tr(this.lang,'中国历史区划研究截面 · '+this.year+' 年。点击区划可查来源与原始记录；部分边疆和水面位于研究区之外。','Chinese historical divisions · '+this.year+' research snapshot. Select an area for source records; some frontier areas and water surfaces lie outside the study area.');
+  if(this.chinaResearchActive)return tr(this.lang,'中国历史区划研究截面 · 公元 '+this.year+' 年。点击区划可查来源与原始记录；部分边疆和水面位于研究区之外。','Chinese historical divisions · '+this.year+' CE research snapshot. Select an area for source records; some frontier areas and water surfaces lie outside the study area.');
   if(this.chgisActive)return tr(this.lang,'CHGIS V4 · 复旦大学历史府级区划，按来源起止年份显示。主要覆盖中国南部与东部；点开区划可读编制信息、变更类型和原始记录。','CHGIS V4 · Fudan historical prefectures, selected by the source year ranges. Coverage is regional, mainly southern and eastern China. Open an area for compilers, change types and source records.');
   const coverage=this.ohmCoverage,records=this.ohmData?.metadata?.relationCount??this.features.length;
   if(!coverage)return tr(this.lang,'OHM 固化详图与在线瓦片合并显示；两来源都没有记录的地方留白。','The static OHM extract is merged with the online tiles; wherever both sources are silent the map stays blank.');
@@ -473,7 +474,7 @@ export class RegionalBoundaries{
   if(f.properties.archive==='cshapes'){this.atlas.boundaries?.openRecord(f.properties.id,point);return;}
   if(!regionalVisible(f.properties,this.year,this.maxLevel))return;if(!this.active)this.setMode('regional');this.closePopup();const p=f.properties,node=document.createElement('section');
   const small=document.createElement('small');small.className='historical-eyebrow';small.textContent=tr(this.lang,'历史区划 · 地区详图','Historical area · regional detail');const h=document.createElement('h3');h.textContent=regionalName(p,this.lang,this.atlas.active);node.append(small,h);if(this.lang==='bi'&&p.name_en&&h.textContent!==p.name_en){const en=document.createElement('p');en.textContent=p.name_en;node.append(en);}
-  const ends=p.end_date||(Number.isFinite(p.end_decdate)?recordYear(p.end_decdate,this.lang):null),rows=[[tr(this.lang,'记录开始','Record begins'),p.start_date||recordYear(p.start_decdate,this.lang)],[tr(this.lang,'记录结束','Record ends'),ends||tr(this.lang,'来源未记结束','No end recorded in this source')]],area=p.archive==='ohm-frozen'?ohmAreaLabel(p,this.lang):null;
+  const begins=regionalDateText(p.start_date,p.start_decdate,this.lang),ends=regionalDateText(p.end_date,p.end_decdate,this.lang),rows=[[tr(this.lang,'记录开始','Record begins'),begins],[tr(this.lang,'记录结束','Record ends'),ends||tr(this.lang,'来源未记结束','No end recorded in this source')]],area=p.archive==='ohm-frozen'?ohmAreaLabel(p,this.lang):null;
   if(area)rows.push([tr(this.lang,'记录面积','Recorded area'),area]);
   const dl=document.createElement('dl');for(const [term,value]of rows){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=term;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
   if(p.open_chains||p.unassigned_holes){const warn=document.createElement('p');warn.className='historical-credit';warn.textContent=tr(this.lang,'来源记录的 '+(p.open_chains||0)+' 段成员线未闭合成环，图上只画已闭合的部分；另有 '+(p.unassigned_holes||0)+' 个内环未能匹配到外环。',(p.open_chains||0)+' member chains of this record do not close into rings, so only the closed parts are drawn; '+(p.unassigned_holes||0)+' inner rings could not be matched to an outer ring.');node.append(warn);}

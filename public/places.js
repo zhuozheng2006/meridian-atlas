@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.08.0-d460965bd10c';
-import {placeWindow} from './view-state.js?v=4.08.0-d460965bd10c';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.09.0-243ff4d638ea';
+import {placeWindow} from './view-state.js?v=4.09.0-243ff4d638ea';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -4124,7 +4124,7 @@ export class PlaceLayer {
   this.markers.forEach(m=>m.remove());this.markers=[];if(!this.enabled||this.atlas.destroyed||!this.year)return;
   const map=this.map,zoom=map.getZoom();if(zoom<2)return;
   const bounds=map.getBounds(),origin=map.getContainer().getBoundingClientRect(),center=map.getCenter();
-  const boxes=[...(this.atlas.labelBoxes||[]),...(this.atlas.overlayBlockerBoxes?.('.map-legend')||[])];
+  const boxes=[...(this.atlas.labelBoxes||[]),...(this.atlas.overlayBlockerBoxes?.('.map-legend,.lake-label')||[])];
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
   const textPx=(s,cjk,lat)=>{if(!s)return 0;const str=String(s);let w=0;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);w+=(c>=0x3400&&c<=0x9FFF)||(c>=0xF900&&c<=0xFAFF)?cjk:lat;}return w;};
   const globeClip=map.getProjection().type==='globe'&&zoom<4.5,rad=Math.PI/180,sinC=globeClip?Math.sin(center.lat*rad):0,cosC=globeClip?Math.cos(center.lat*rad):0;

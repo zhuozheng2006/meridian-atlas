@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=4.08.0-d460965bd10c';
+import {decodeLakeArchive} from './lake-codec.js?v=4.09.0-243ff4d638ea';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -361,7 +361,7 @@ export class LakeLayer {
  refreshLabels(){
   if(this.dead||this.atlas.destroyed)return;
   const lang=this.atlas.lang||'bi',visible=this.ready&&this.enabled&&this.atlas.showLabels!==false;
-  const blockers=visible&&this.named.length?[...document.querySelectorAll('.map-heading,.map-tools,.layer-panel,.place-marker,.polity-label,.event-marker')].filter(el=>{const style=getComputedStyle(el);return el.getClientRects().length&&style.visibility!=='hidden'&&Number(style.opacity)>.05;}).map(el=>el.getBoundingClientRect()):[];
+  const blockers=visible&&this.named.length?[...document.querySelectorAll('.map-heading,.map-tools,.compare-heading,.map-legend,.layer-panel,.regional-controls,.historical-browse,.place-marker,.polity-label,.regional-label,.historical-label,.event-marker,.battle-marker,.atrocity-marker')].filter(el=>{const style=getComputedStyle(el);return el.getClientRects().length&&style.visibility!=='hidden'&&Number(style.opacity)>.05;}).map(el=>el.getBoundingClientRect()):[];
   const landscape=this.atlas.regional?.halc?.landscape;
   const key=[visible,lang,this.renderSeq,landscape?.revision,landscape?.eligible,this.map.getZoom(),this.map.getCenter?.().lng,this.map.getCenter?.().lat,...blockers.flatMap(r=>[Math.round(r.x),Math.round(r.y),Math.round(r.width),Math.round(r.height)])].join(':');
   if(key===this.labelKey)return;this.labelKey=key;

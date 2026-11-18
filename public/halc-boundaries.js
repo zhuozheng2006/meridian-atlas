@@ -1,8 +1,8 @@
-import {createExactLabelScheduler} from './halc-label-scheduler.js?v=4.08.0-d460965bd10c';
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=4.08.0-d460965bd10c';
-import {HalcLandscape} from './halc-landscape.js?v=4.08.0-d460965bd10c';
-import {readJSON} from './map-engine.js?v=4.08.0-d460965bd10c';
-import {HalcRegions} from './halc-regions.js?v=4.08.0-d460965bd10c';
+import {createExactLabelScheduler} from './halc-label-scheduler.js?v=4.09.0-243ff4d638ea';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=4.09.0-243ff4d638ea';
+import {HalcLandscape} from './halc-landscape.js?v=4.09.0-243ff4d638ea';
+import {readJSON} from './map-engine.js?v=4.09.0-243ff4d638ea';
+import {HalcRegions} from './halc-regions.js?v=4.09.0-243ff4d638ea';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -230,7 +230,7 @@ export class HalcBoundaries{
   const show=kind=>{
    for(const b of tabs.children){const active=b.dataset.tab===kind;b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;if(active)panel.setAttribute('aria-labelledby',b.id);}panel.replaceChildren();panel.scrollTop=0;
    if(kind==='record'){
-    const dl=make('dl');row(dl,'资料年份','Snapshot year','1500');row(dl,'原始地名','Source place name',r.NAME);row(dl,'最高层级归属','Highest-level attribution',halcMembership(r.ADM0,'ADM0',dict,lang));row(dl,'领地区域','Territorial region',halcMembership(r.ADM1,'ADM1',dict,lang));row(dl,'区划性质','Unit type',label(dict.TYPE[String(r.TYPE)],lang));row(dl,'图形面积','Polygon area',Number.isFinite(r.KM2)?new Intl.NumberFormat(lang==='en'?'en':'zh-CN',{maximumFractionDigits:4}).format(r.KM2)+' km²':null);row(dl,'高等司法权','High jurisdiction',r.HIGH_JURISD);row(dl,'中等司法权','Middle jurisdiction',r.MID_JURISD);row(dl,'低等司法权','Low jurisdiction',r.LOW_JURISD);row(dl,'总教区','Archdiocese',r.ARCH_DIOC);row(dl,'教区','Diocese',r.DIOCESE);row(dl,'别名','Alternative names',r.NAME_ALT);row(dl,'原始备注','Source remarks',r.REMARKS);panel.append(dl);
+    const dl=make('dl');row(dl,'资料年份','Snapshot year',translate('公元 1500 年','1500 CE'));row(dl,'原始地名','Source place name',r.NAME);row(dl,'最高层级归属','Highest-level attribution',halcMembership(r.ADM0,'ADM0',dict,lang));row(dl,'领地区域','Territorial region',halcMembership(r.ADM1,'ADM1',dict,lang));row(dl,'区划性质','Unit type',label(dict.TYPE[String(r.TYPE)],lang));row(dl,'图形面积','Polygon area',Number.isFinite(r.KM2)?new Intl.NumberFormat(lang==='en'?'en':'zh-CN',{maximumFractionDigits:4}).format(r.KM2)+' km²':null);row(dl,'高等司法权','High jurisdiction',r.HIGH_JURISD);row(dl,'中等司法权','Middle jurisdiction',r.MID_JURISD);row(dl,'低等司法权','Low jurisdiction',r.LOW_JURISD);row(dl,'总教区','Archdiocese',r.ARCH_DIOC);row(dl,'教区','Diocese',r.DIOCESE);row(dl,'别名','Alternative names',r.NAME_ALT);row(dl,'原始备注','Source remarks',r.REMARKS);panel.append(dl);
     if(r.NAME_EXT){const note=make('details');note.append(make('summary',translate('原始细分说明','Source subdivision note')),make('p',r.NAME_EXT),make('p',label(dict.ui.nameExtCaption,lang),'historical-credit'));panel.append(note);}
    }else if(kind==='environment'){
     renderHalcLandscape(panel,r,lang);
