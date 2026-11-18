@@ -482,7 +482,19 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:629034',-100,'马扎卡（卡帕多西亚王都前身）'],
     ['index','pleiades:285501',200,'波马里亚（特莱姆森 · 罗马毛里塔尼亚边境名城）'],
     ['index','pleiades:863787',-100,'耶尔万达沙特（阿拉克斯河畔奥龙特王朝古都）'],
-    ['index','pleiades:108830',200,'布鲁日（佛兰德罗马—中世纪名港城）']
+    ['index','pleiades:108830',200,'布鲁日（佛兰德罗马—中世纪名港城）'],
+    ['index','pleiades:203544460',-2500,'巴恩豪斯新石器聚落（奥克尼哈雷湖滨遗址）'],
+    ['index','pleiades:353701933',-750,'拉丰特塔（塞古拉河口腓尼基殖民港城）'],
+    ['index','pleiades:86623849',-600,'西拉（外约旦以东王国圣石崖壁古都）'],
+    ['index','pleiades:59799',-200,'迪尔塔（斯瓦特—迪尔山地亚历山大东征所至古邑）'],
+    ['index','pleiades:187275',-100,'阿尔滕堡-赖瑙（高莱茵双联凯尔特奥皮杜姆）'],
+    ['index','pleiades:128518',-100,'旧赫拉迪斯科（摩拉维亚拉坦文化琥珀之路奥皮杜姆）'],
+    ['index','pleiades:39375',100,'马拉奥（厄立特里亚海周航记索马里兰柏培拉古大港）'],
+    ['index','pleiades:138529',100,'坎佩尔（阿摩里卡奥西斯米古港镇）'],
+    ['index','pleiades:29762',400,'锡拉夫（波斯湾萨珊—早期伊斯兰远洋大港）'],
+    ['index','pleiades:912923',400,'卡迪西亚（伊拉克中南部萨珊古城遗址）'],
+    ['index','pleiades:629028',400,'吕坎多斯（又称拉帕拉 · 陶鲁斯拜占庭军区名城）'],
+    ['index','pleiades:29542',1550,'达拉布吉尔德（法尔斯萨珊王室环形规划古城）']
   ];
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
