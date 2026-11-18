@@ -507,8 +507,22 @@ await check('Displaced Chandler coordinate sign flips stay quarantined while Wav
     ['index','pleiades:99017',400,'尼达姆（日德兰东南松德堡橡木战船祭祀聚落）'],
     ['index','pleiades:68277902',800,'旧拉斯城（塞尔维亚拉什卡中世纪尼曼雅王都）'],
     ['index','pleiades:582667281',1550,'加达梅斯古城（利比亚撒哈拉绿洲西达姆斯名城）'],
-    ['index','pleiades:609933387',1800,'拉苏瓦山城（勃艮第维克斯哈尔施塔特大公城都）']
+    ['index','pleiades:609933387',1800,'拉苏瓦山城（勃艮第维克斯哈尔施塔特大公城都）'],
+    ['index','pleiades:277852',100,'丁吉斯毛里塔尼亚沃卢比利斯南麓罗马遗址'],
+    ['index','pleiades:375261',400,'昔兰尼加绿山高原晚古罗马村落遗址（其一）'],
+    ['index','pleiades:208942151',-200,'乌蒂卡—比塞大湾岸希腊化村落（其一）'],
+    ['index','pleiades:208942496',100,'塔巴卡—克鲁米里北海岸罗马聚落（其一）'],
+    ['index','pleiades:208942538',100,'内格里内—杰里德西缘绿洲罗马聚落（其五）'],
+    ['index','pleiades:208942650',400,'马斯库拉—罕谢拉东麓罗马村落（其二十四）'],
+    ['index','pleiades:208942801',100,'锡尔塔—格尔马河谷罗马定居点（其六）'],
+    ['index','pleiades:208942892',400,'希波湾与安纳巴丘陵罗马定居点（其七）'],
+    ['index','pleiades:208943006',100,'萨赫勒西北凯鲁万东原罗马农业遗址（其十九）'],
+    ['index','pleiades:208943350',100,'邦角半岛凯利比亚—克尔库阿内罗马遗址（其十四）']
   ];
+  const konigsberg=urban.cities.find(c=>c.id==='chandler:734');
+  assert(konigsberg);
+  const kb1550=placeAtYear(Object.freeze({...konigsberg}),1550);
+  assert.equal(placeName(kb1550,'zh'),'柯尼斯堡');
   const kaesong=urban.cities.find(c=>c.id==='chandler:659');
   assert(kaesong);
   const k1000=placeAtYear(Object.freeze({...kaesong}),1000);
