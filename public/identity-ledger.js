@@ -15,5 +15,6 @@ export async function mountIdentityLedger(host,lang,read,download){
  input.addEventListener('compositionstart',()=>{composing=true;});
  input.addEventListener('compositionend',()=>{composing=false;clearTimeout(timer);limit=20;render();});
  input.addEventListener('input',e=>{if(composing||e.isComposing)return;clearTimeout(timer);timer=setTimeout(()=>{limit=20;render();},120);});
+ input.addEventListener('keydown',e=>{if(e.key==='Escape'){if(input.value){e.preventDefault();input.value='';clearTimeout(timer);limit=20;render();}else input.blur?.();}});
  for(const control of [status,sample])control.addEventListener('change',()=>{limit=20;render();});more.onclick=()=>{limit+=20;render();};host.querySelector('[data-quality-export]').onclick=()=>download(data,'meridian-identity-ledger-3.49.json');render();
 }

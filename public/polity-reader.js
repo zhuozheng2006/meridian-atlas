@@ -1,11 +1,11 @@
-import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.12.0-a0cdb9d86ea6';
-import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey,displayPolityName,displayPolityZh} from './polity-names.js?v=4.12.0-a0cdb9d86ea6';
-import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.12.0-a0cdb9d86ea6';
-import {placeName} from './places.js?v=4.12.0-a0cdb9d86ea6';
-import {classifyStatement,recordGaps} from './fact-period.js?v=4.12.0-a0cdb9d86ea6';
+import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.13.0-f69e1c6cb88b';
+import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey,displayPolityName,displayPolityZh} from './polity-names.js?v=4.13.0-f69e1c6cb88b';
+import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.13.0-f69e1c6cb88b';
+import {placeName} from './places.js?v=4.13.0-f69e1c6cb88b';
+import {classifyStatement,recordGaps} from './fact-period.js?v=4.13.0-f69e1c6cb88b';
 export function statementApplies(s,year){return classifyStatement(s,year)==='selected';}
-import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.12.0-a0cdb9d86ea6';
-import {nativeGeometry} from './native-geometry.js?v=4.12.0-a0cdb9d86ea6';
+import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.13.0-f69e1c6cb88b';
+import {nativeGeometry} from './native-geometry.js?v=4.13.0-f69e1c6cb88b';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const readerUrlHost=u=>{try{return new URL(u).hostname;}catch{return '';}};
 const FIELDS={capital:['首都','Capital'],government:['政治体制','Government'],headsOfState:['国家元首','Heads of state'],headsOfGovernment:['政府首脑','Heads of government'],predecessors:['前身','Predecessors'],successors:['继承政体','Successors'],officialLanguages:['官方语言','Official languages'],spokenLanguages:['使用语言','Languages'],religion:['宗教','Religion'],currencies:['货币','Currencies'],continent:['所属洲','Continent'],inception:['条目起年','Entity start'],dissolution:['条目终年','Entity end']};
@@ -75,6 +75,7 @@ export class PolityReader{
    const update=()=>{if(!search.isConnected)return;const start=search.selectionStart,end=search.selectionEnd;this.placeQuery=search.value;this.placeLimit=40;this.render();const next=panel.querySelector('#polityPlaceSearch');next?.focus({preventScroll:true});next?.setSelectionRange(start,end);};
    search.addEventListener('compositionstart',()=>{this.placeComposing=true;});search.addEventListener('compositionend',()=>{if(!search.isConnected)return;this.placeComposing=false;update();});
    search.oninput=event=>{if(!this.placeComposing&&!event.isComposing)update();};
+   search.onkeydown=event=>{if(event.key==='Escape'&&search.value){event.preventDefault();event.stopPropagation();search.value='';update();}};
   }
   panel.querySelectorAll('[data-place-kind]').forEach(b=>b.onclick=()=>{this.placeKind=b.dataset.placeKind;this.placeLimit=40;this.render();panel.querySelector(`[data-place-kind="${this.placeKind}"]`)?.focus({preventScroll:true});});
   panel.querySelectorAll('[data-dossier-place]').forEach(b=>b.onclick=()=>this.context.openPlace(this.visiblePlaces[+b.dataset.dossierPlace],this.whichMap));

@@ -1,7 +1,7 @@
-import {READING_CATALOG} from './research-reading-data.js?v=4.12.0-a0cdb9d86ea6';
-import {label} from './polaris-adapter.js?v=4.12.0-a0cdb9d86ea6';
-import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=4.12.0-a0cdb9d86ea6';
-import {polarisPolityName,polarisPolitySearchText} from './polaris-polity-names.js?v=4.12.0-a0cdb9d86ea6';
+import {READING_CATALOG} from './research-reading-data.js?v=4.13.0-f69e1c6cb88b';
+import {label} from './polaris-adapter.js?v=4.13.0-f69e1c6cb88b';
+import {POLARIS_VARIABLES} from './polaris-vocabulary.js?v=4.13.0-f69e1c6cb88b';
+import {polarisPolityName,polarisPolitySearchText} from './polaris-polity-names.js?v=4.13.0-f69e1c6cb88b';
 
 const PAGE_SIZE=6;
 export function readingForId(id,phaseId,catalog=READING_CATALOG){
@@ -44,7 +44,7 @@ export function mountReadingLibrary(doc,{lang='bi',phases=new Map(),initialState
   if(!cards.length){results.append(el('p',t('没有匹配的导读。试试其他词，或查看全部。','No reading leads match. Try another term or browse the collection.')));nav.append(button(t('查看全部导读','Browse all reading leads'),()=>{state.query='';state.phaseId='';state.page=0;query.value='';select.value='';render();}));}
   if(pages>1){const previous=button(t('上一页','Previous'),()=>{state.page--;render();}),next=button(t('下一页','Next'),()=>{state.page++;render();});previous.disabled=state.page===0;next.disabled=state.page===pages-1;nav.append(previous,el('span',`${state.page+1} / ${pages}`),next);}
  }
- let composing=false;const search=()=>{state.query=query.value.slice(0,160);state.page=0;render();};query.addEventListener('compositionstart',()=>{composing=true;});query.addEventListener('compositionend',()=>{composing=false;search();});query.addEventListener('input',event=>{if(!composing&&!event.isComposing)search();});select.addEventListener('change',()=>{state.phaseId=select.value;state.page=0;render();});
+ let composing=false;const search=()=>{state.query=query.value.slice(0,160);state.page=0;render();};query.addEventListener('compositionstart',()=>{composing=true;});query.addEventListener('compositionend',()=>{composing=false;search();});query.addEventListener('input',event=>{if(!composing&&!event.isComposing)search();});query.addEventListener('keydown',event=>{if(event.key==='Escape'){if(query.value){event.preventDefault();query.value='';search();}else query.blur?.();}});select.addEventListener('change',()=>{state.phaseId=select.value;state.page=0;render();});
  function setPhases(value){phases=value;select.replaceChildren();option('',t('全部导读阶段','All reading phases'));for(const phaseId of phaseIds){const p=phases.get(phaseId);if(p)option(phaseId,polarisPolityName(p,lang));}if(!phaseIds.includes(state.phaseId))state.phaseId='';select.value=state.phaseId;render();}
  setPhases(phases);return {element:panel,setPhases,focusControl(key){const target=key==='query'?query:key==='phase'?select:null;target?.focus({preventScroll:true});return target;},getSnapshot:()=>({...state,open:panel.open})};
 }
