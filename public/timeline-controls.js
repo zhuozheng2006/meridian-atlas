@@ -1,4 +1,16 @@
 // One keyboard route owns civil-year navigation; MapLibre keyboard handling is disabled.
+export function parseYearInput(raw){
+ const s=String(raw??'').trim().replace(/[,_\s]+/g,'');
+ if(!s)return null;
+ let m;
+ if((m=s.match(/^(?:公元前|前)(\d+)年?$/)))return +m[1]?-(+m[1]):null;
+ if((m=s.match(/^(?:公元)?(\d+)年$/)))return +m[1]||null;
+ if((m=s.match(/^公元(\d+)$/)))return +m[1]||null;
+ if((m=s.match(/^(\d+)(?:bce|bc|b\.c\.e\.?|b\.c\.?)$/i)))return +m[1]?-(+m[1]):null;
+ if((m=s.match(/^(?:(\d+)(?:ce|ad|c\.e\.?|a\.d\.?)|(?:ce|ad|c\.e\.?|a\.d\.?)(\d+))$/i))){const n=+(m[1]||m[2]);return n||null;}
+ if(/^[+-]?\d+$/.test(s)){const n=Number(s);return Number.isSafeInteger(n)&&n!==0?n:null;}
+ return null;
+}
 export function yearKeyIntent(key,{step=1,shift=false,slider=false,number=false}={}){
  const amount=step*(shift?10:1);
  if(number)return key==='ArrowUp'?{delta:amount}:key==='ArrowDown'?{delta:-amount}:null;
@@ -13,9 +25,9 @@ export function yearKeyIntent(key,{step=1,shift=false,slider=false,number=false}
 export function bindTimeline({getYear,getCompareYear,getStep,commit,commitCompare,pause,isAtlas,isDialogOpen,closeReader,readerOpen,togglePlay,getMap}){
  const input=document.querySelector('#yearInput'),comparison=document.querySelector('#compareYear'),slider=document.querySelector('#yearSlider');
  const submit=(el,right=false)=>{
-  const value=String(el.value).trim(),current=right?getCompareYear():getYear();el.atlasYearDraft=false;
-  if(!/^-?\d+$/.test(value)||!Number.isFinite(Number(value))||Number(value)===0){el.value=current;return;}
-  const year=Math.max(-70000,Math.min(2026,Number(value)));
+  const parsed=parseYearInput(el.value),current=right?getCompareYear():getYear();el.atlasYearDraft=false;
+  if(parsed===null){el.value=current;return;}
+  const year=Math.max(-70000,Math.min(2026,parsed));
   el.value=year;if(year===current)return;pause();(right?commitCompare:commit)(year);
  };
  input.oninput=()=>{input.atlasYearDraft=true;};comparison.oninput=()=>{comparison.atlasYearDraft=true;};
@@ -33,7 +45,7 @@ export function bindTimeline({getYear,getCompareYear,getStep,commit,commitCompar
   if(target.closest?.('#detailPanel'))return;
   if(!number&&!isSlider&&target.closest?.('input,textarea,select,button,a,summary,[contenteditable="true"],[role="tab"]'))return;
   const intent=yearKeyIntent(e.key,{step:getStep(),shift:e.shiftKey,slider:isSlider,number});
-  if(intent){e.preventDefault();e.stopPropagation();pause();const value=String(target.value??'').trim();const draft=number&&/^-?\d+$/.test(value)?Number(value):NaN;const year=Number.isFinite(draft)&&draft!==0?draft:right?getCompareYear():getYear();
+  if(intent){e.preventDefault();e.stopPropagation();pause();const draft=number?parseYearInput(target.value):null;const year=draft!==null?draft:right?getCompareYear():getYear();
    const delta=intent.delta;let next=intent.year;
    if(delta!==undefined){const raw=year+delta;next=year<0&&raw>=0?raw+1:year>0&&raw<=0?raw-1:raw;}
    next=Math.max(-70000,Math.min(2026,next));if(number){target.atlasYearDraft=false;target.value=next;}(right?commitCompare:commit)(next);return;

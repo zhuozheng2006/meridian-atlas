@@ -1,4 +1,4 @@
-import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=4.11.0-ed9a955c581f';
+import {openResearchView,parseResearchState,writeResearchState} from './research-view.js?v=4.12.0-a0cdb9d86ea6';
 const VIEWS=new Set(['atlas','polities','stories','library','sources','research']);
 const TAB_LABELS={atlas:['地图','Atlas'],polities:['文明','Polities'],stories:['专题','Journeys'],library:['年表','Chronicle'],sources:['资料','Sources']};
 // This shell owns only a cold research visit. The normal app takes over once a
@@ -60,7 +60,7 @@ export function mountResearchShell({doc=document,win=window,loadApplication,open
  }
  for(const node of $$('#tabs button'))own(node,'click',()=>navigate(node.dataset.view));
  own($('#language'),'change',event=>{language=event.target.value;if(!['zh','en','bi'].includes(language))language='bi';save();paintHeader();if(reader)reader.setLanguage(language);else pending();});
- own($('#helpBtn'),'click',()=>$('#helpDialog').showModal());own($('.dialog-close'),'click',()=>$('#helpDialog').close());own($('#helpDialog'),'click',event=>{if(event.target===$('#helpDialog'))$('#helpDialog').close();});
+ own($('#helpBtn'),'click',()=>{const d=$('#helpDialog');if(d&&!d.open){if(typeof d.showModal==='function')d.showModal();else d.setAttribute('open','');}});own($('.dialog-close'),'click',()=>$('#helpDialog')?.close?.());own($('#helpDialog'),'click',event=>{if(event.target===$('#helpDialog'))$('#helpDialog')?.close?.();});
  own($('.skip-link'),'click',event=>{event.preventDefault();host.focus();});
  listen(doc,'keydown',event=>{if(event.defaultPrevented||event.isComposing||$('#helpDialog')?.open)return;const target=event.target,typing=!!target&&(target.tagName==='INPUT'||target.tagName==='TEXTAREA'||target.tagName==='SELECT'||target.isContentEditable===true);const combo=(event.ctrlKey||event.metaKey)&&event.key?.toLowerCase()==='k';if(!combo&&!(event.key==='/'&&!typing))return;event.preventDefault();const input=$('#contentView .research-reading-library[open] input[type="search"]')||$('#contentView .research-field-query input:not(:disabled)')||$('#contentView .research-field-polity-search input');input?.focus();input?.select();});
  listen(win,'hashchange',()=>{if(win.location.hash.includes('='))win.location.reload();});
