@@ -64,6 +64,8 @@ export function dossier(profile,{t,escape,lang}){
  const dataset=evidence.dataset||{};
  const phrase=(zh,en)=>lang==='en'?escape(en):escape(zh)+(lang==='bi'&&en!==zh?' <span class="secondary">'+escape(en)+'</span>':'');
  const heading=lang==='en'?escape(en):escape(zh)+(lang==='bi'&&en!==zh?'<span class="secondary">'+escape(en)+'</span>':'');
+ const cov=profile&&profile.boundaryCoverage;
+ const covText=!cov||cov==='not-in-source'?t('来源未收录（not-in-source）','Not in source coverage'):escape(cov);
  return '<button class="detail-close" aria-label="'+t('关闭详情','Close details')+'">×</button>'
   +'<div class="reader-header"><span class="eyebrow">CIVILIZATIONS &amp; STATES</span><h2>'+heading+'</h2>'
   +'<div class="tags"><span class="tag">'+t('本站疆域数据未收录','No mapped territory')+'</span></div></div>'
@@ -74,6 +76,6 @@ export function dossier(profile,{t,escape,lang}){
   +'<h3>'+t('来源','Sources')+'</h3><ul class="no-territory-sources">'+sources+'</ul>'
   +'<p class="section-caption">'+t('核对数据集','Checked against')+'：Cliopatria '+escape(String(dataset.commit||'').slice(0,12))+' · '+escape(String(dataset.features||''))+' features · '+escape(evidence.checkedOn||'')+'</p>'
   +'</div>'
-  +'<div class="reader-footer"><span>'+t('疆域覆盖状态','Boundary coverage')+' · '+escape(profile&&profile.boundaryCoverage||'not-in-source')+'</span>'
+  +'<div class="reader-footer"><span>'+t('疆域覆盖状态','Boundary coverage')+' · '+covText+'</span>'
   +'<button id="noTerritoryClose">'+t('返回','Back')+'</button></div>';
 }

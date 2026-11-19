@@ -1,4 +1,4 @@
-import {decodeLakeArchive} from './lake-codec.js?v=4.10.0-46343806b677';
+import {decodeLakeArchive} from './lake-codec.js?v=4.11.0-ed9a955c581f';
 // Contemporary lake geometry, separate from dated historical evidence.
 const EMPTY_LAKES={type:'FeatureCollection',features:[]};
 export const lakeTier=zoom=>zoom>=9?9:zoom>=6?6:zoom>=4?4:0;
@@ -352,7 +352,7 @@ export class LakeLayer {
    });
    const outcomes=await Promise.allSettled(workers);if(!current())return;
    if(outcomes.some(o=>o.status==='rejected'))throw Error('Lake detail temporarily unavailable');
-   this.named=features.filter(f=>index.names?.[f.id]).map(f=>({id:f.id,bbox:f.bbox,area:f.properties.area,...index.names[f.id]}));this.coverage=bounds;this.coverageTier=lakeTier(zoom);this.count=features.length;this.status='rendering';this.renderSeq=seq;this.contentSeq=-1;this.renderPending=false;
+   this.named=features.filter(f=>index.names?.[f.id]).map(f=>({id:f.id,bbox:f.bbox,area:f.properties.area,...index.names[f.id]})).sort((a,b)=>b.area-a.area);this.coverage=bounds;this.coverageTier=lakeTier(zoom);this.count=features.length;this.status='rendering';this.renderSeq=seq;this.contentSeq=-1;this.renderPending=false;
    this.map.getSource('lake-detail').setData({type:'FeatureCollection',features});
    // Source content plus loaded viewport tiles is enough; an unrelated DEM or
    // regional request must not hold ready lakes behind the map's global idle.
@@ -360,24 +360,25 @@ export class LakeLayer {
  }
  refreshLabels(){
   if(this.dead||this.atlas.destroyed)return;
-  const lang=this.atlas.lang||'bi',visible=this.ready&&this.enabled&&this.atlas.showLabels!==false;
-  const blockers=visible&&this.named.length?[...document.querySelectorAll('.map-heading,.map-tools,.compare-heading,.map-legend,.layer-panel,.regional-controls,.historical-browse,.place-marker,.polity-label,.regional-label,.historical-label,.event-marker,.battle-marker,.atrocity-marker')].filter(el=>{const style=getComputedStyle(el);return el.getClientRects().length&&style.visibility!=='hidden'&&Number(style.opacity)>.05;}).map(el=>el.getBoundingClientRect()):[];
+  const container=this.map.getContainer?.(),lang=this.atlas.lang||'bi',visible=this.ready&&this.enabled&&this.atlas.showLabels!==false;
+  const collectBoxes=(root,sel)=>{const out=[];if(!root?.querySelectorAll)return out;for(const el of root.querySelectorAll(sel)){if(el.hidden||!el.getClientRects?.().length)continue;const style=getComputedStyle(el);if(style.visibility!=='hidden'&&Number(style.opacity)>.05)out.push(el.getBoundingClientRect());}return out;};
+  const blockers=visible&&this.named.length?[...collectBoxes(document,'.map-heading,.map-tools,.compare-heading,.map-legend,.layer-panel'),...collectBoxes(container||document,'.regional-controls,.historical-browse,.place-marker,.polity-label,.regional-label,.historical-label,.event-marker,.battle-marker,.atrocity-marker')]:[];
   const landscape=this.atlas.regional?.halc?.landscape;
   const key=[visible,lang,this.renderSeq,landscape?.revision,landscape?.eligible,this.map.getZoom(),this.map.getCenter?.().lng,this.map.getCenter?.().lat,...blockers.flatMap(r=>[Math.round(r.x),Math.round(r.y),Math.round(r.width),Math.round(r.height)])].join(':');
   if(key===this.labelKey)return;this.labelKey=key;
   for(const marker of this.labels)marker.remove();this.labels=[];if(!visible||!this.named.length)return;
-  const container=this.map.getContainer(),origin=container.getBoundingClientRect(),bounds=lakeViewport(this.map),placed=[];
+  const origin=container.getBoundingClientRect(),bounds=lakeViewport(this.map),placed=[];
   const overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
-  for(const n of [...this.named].sort((a,b)=>b.area-a.area)){
+  for(const n of this.named){
    if(landscape?.covers(n.center))continue;
    if(this.labels.length>=8)break;if(!intersectsLakeBounds([n.center[0],n.center[1],n.center[0],n.center[1]],bounds))continue;
    const a=this.map.project([n.bbox[0],n.bbox[1]]),b=this.map.project([n.bbox[2],n.bbox[3]]);
    if(Math.abs(b.x-a.x)<85||Math.abs(b.y-a.y)<45)continue;
    const p=this.map.project(n.center),box={left:origin.left+p.x-80,right:origin.left+p.x+80,top:origin.top+p.y-18,bottom:origin.top+p.y+18};
-   if(box.left<origin.left+10||box.right>origin.right-10||box.top<origin.top+30||box.bottom>origin.bottom-30||[...blockers,...placed].some(r=>overlap(box,r)))continue;
+   if(box.left<origin.left+10||box.right>origin.right-10||box.top<origin.top+30||box.bottom>origin.bottom-30||blockers.some(r=>overlap(box,r))||placed.some(r=>overlap(box,r)))continue;
    const zh=lakeZh(n.name,n.zh,n.id);
    const el=document.createElement('div');el.className='lake-label';el.textContent=lang==='en'?n.name:zh||n.name;
-   if(lang==='bi'&&zh){const small=document.createElement('small');small.textContent=n.name;el.append(small);}
+   if(lang==='bi'&&zh&&zh!==n.name){const small=document.createElement('small');small.textContent=n.name;el.append(small);}
    this.labels.push(new maplibregl.Marker({element:el,opacityWhenCovered:'0'}).setLngLat(n.center).addTo(this.map));placed.push(box);
   }
  }

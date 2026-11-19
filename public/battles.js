@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=4.10.0-46343806b677';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.11.0-ed9a955c581f';
 
 const BATTLE_ZH_GLOSSARY=new Map([
  ['Canaanites','迦南人'],['Hatti','赫梯'],['ancient Greeks','古希腊各邦'],['Styra','斯蒂拉'],
@@ -99,14 +99,15 @@ export class BattleLayer{
  constructor(atlas,{window=50,onSelect,onStatus,enabled=true}={}){
   this.atlas=atlas;this.map=atlas.map;this.window=window;this.onSelect=onSelect;this.onStatus=onStatus;
   this.enabled=enabled;this.year=atlas.year;this.lang=atlas.lang;this.markers=[];this.active=[];this.all=null;this.seq=0;
-  this.move=()=>this.refresh();this.map.on('moveend',this.move);
+  this.move=()=>this.refresh();this.map.on('resize',this.move);
  }
  async setYear(year,lang){
   this.year=year;this.lang=lang;const seq=++this.seq;
   try{
    if(!this.all)this.all=await loadBattles();
    if(this.atlas.destroyed||seq!==this.seq)return;
-   this.active=this.all.filter(b=>b.year!=null&&Math.abs(b.year-year)<=this.window).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year));
+   const target=civilYear(year);
+   this.active=this.all.filter(b=>b.year!=null&&Math.abs(civilYear(b.year)-target)<=this.window).sort((a,b)=>Math.abs(civilYear(a.year)-target)-Math.abs(civilYear(b.year)-target));
    this.refresh();this.onStatus?.('ready',this.active.length);
   }catch{if(seq===this.seq)this.onStatus?.('error',0);}
  }
@@ -134,7 +135,7 @@ export class BattleLayer{
    const box={left:origin.left+screen.x-w/2,right:origin.left+screen.x+w/2,top:origin.top+screen.y-h/2,bottom:origin.top+screen.y+h/2};
    if(box.left<origin.left+8||box.right>origin.right-10||box.top<origin.top+10||box.bottom>origin.bottom-48||boxes.some(b=>overlap(box,b)))continue;
    boxes.push({...box,left:box.left-7,right:box.right+7,top:box.top-4,bottom:box.bottom+4});
-   const zhTitle=battleName(battle,'zh'),secondary=this.lang!=='en'&&zhTitle&&battle.nameEn&&zhTitle!==battle.nameEn?battle.nameEn:'';
+   const zhTitle=battleName(battle,'zh'),secondary=this.lang==='bi'&&zhTitle&&battle.nameEn&&zhTitle!==battle.nameEn?battle.nameEn:'';
    const conflict=battleLabels(battle.conflictZh,battle.conflict,this.lang).join(' · ');
    const meta=formatYear(battle.year,this.lang==='en'?'en':'zh')+(conflict?' · '+conflict:'');
    const showHover=()=>{this.atlas.setHoverMarker?.({primary:this.name(battle),secondary,meta},el.getBoundingClientRect());};
@@ -145,5 +146,5 @@ export class BattleLayer{
   }
  }
  name(battle){return battleName(battle,this.lang);}
- destroy(){this.seq++;this.atlas.setHoverMarker?.(null);this.map.off('moveend',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
+ destroy(){this.seq++;this.atlas.setHoverMarker?.(null);this.map.off('resize',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
 }

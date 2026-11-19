@@ -1,7 +1,7 @@
-import {polityEntityAllowed} from './polity-names.js?v=4.10.0-46343806b677';
-import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=4.10.0-46343806b677';
-import {loadNative,nativeGeometry} from './native-geometry.js?v=4.10.0-46343806b677';
-import {readJSON} from './map-engine.js?v=4.10.0-46343806b677';
+import {polityEntityAllowed} from './polity-names.js?v=4.11.0-ed9a955c581f';
+import {loadPlaces,placeAtYear,placeName,normalizePlaceQuery} from './places.js?v=4.11.0-ed9a955c581f';
+import {loadNative,nativeGeometry} from './native-geometry.js?v=4.11.0-ed9a955c581f';
+import {readJSON} from './map-engine.js?v=4.11.0-ed9a955c581f';
 
 const validPoint=p=>Array.isArray(p)&&p.length>=2&&Number.isFinite(p[0])&&Number.isFinite(p[1])&&Math.abs(p[1])<=90;
 function prepareRing(input){
@@ -28,7 +28,7 @@ function ringContains(ring,point){
 }
 export function territoryContains(prepared,point){
  if(!validPoint(point))return false;
- for(const rings of prepared){const outer=ringContains(rings[0],point);if(!outer)continue;if(outer===2)return true;let hole=false;for(const ring of rings.slice(1)){const hit=ringContains(ring,point);if(hit===2)return true;if(hit){hole=true;break;}}if(!hole)return true;}
+ for(const rings of prepared){const outer=ringContains(rings[0],point);if(!outer)continue;if(outer===2)return true;let hole=false;for(let h=1;h<rings.length;h++){const hit=ringContains(rings[h],point);if(hit===2)return true;if(hit){hole=true;break;}}if(!hole)return true;}
  return false;
 }
 export function selectedPolityPlace(place,record,year,prepared,window=50){
@@ -50,15 +50,15 @@ export async function polityPlaces(record,year,keepGoing=()=>true,window=50){
  const verifiedRecord={...record,capitalBindingVerified:!!binding&&binding.qid===record.verifiedWikidata&&binding.safeToApplyYearFacts!==false&&compatibility!=='potential_conflict'&&compatibility?.status!=='potential_conflict'};
  const geometry=nativeGeometry(record.id);if(!geometry)throw Error('Territory geometry unavailable');
  const prepared=prepareTerritory(geometry),places=[];let slice=performance.now();
- for(const p of all){
-  const match=selectedPolityPlace(p,verifiedRecord,year,prepared,window);if(match)places.push(match);
-  if(performance.now()-slice>8){await new Promise(resolve=>setTimeout(resolve,0));if(!keepGoing())throw new DOMException('Navigation changed','AbortError');slice=performance.now();}
+ for(let i=0;i<all.length;i++){
+  const match=selectedPolityPlace(all[i],verifiedRecord,year,prepared,window);if(match)places.push(match);
+  if((i&63)===63&&performance.now()-slice>8){await new Promise(resolve=>setTimeout(resolve,0));if(!keepGoing())throw new DOMException('Navigation changed','AbortError');slice=performance.now();}
  }
  places.sort((a,b)=>Number(b.association==='capital-relationship')-Number(a.association==='capital-relationship')||a.rank-b.rank||a.name.localeCompare(b.name));
- const result={recordId:record.id,year,window,places,partial:all.partial||!bindings,counts:{capitals:places.filter(p=>p.kind==='dated-capital').length,settlements:places.filter(p=>p.kind==='attested-settlement').length,observations:places.filter(p=>p.kind==='urban-observation').length}};
+ const result={recordId:record.id,year,window,places,partial:all.partial||!bindings,counts:{capitals:places.filter(p=>p.kind==='dated-capital').length,settlements:places.filter(p=>p.kind==='attested-settlement'||p.kind==='attested-site').length,observations:places.filter(p=>p.kind==='urban-observation').length}};
  if(!result.partial){cache.set(key,result);while(cache.size>8)cache.delete(cache.keys().next().value);}
  return result;
 }
 export function filterPolityPlaces(places,query='',kind='all',lang='bi'){
- const q=normalizePlaceQuery(query);return places.filter(p=>(kind==='all'||p.kind===kind)&&(!q||[placeName(p,lang),p.name,p.nameZh,p.displayName,p.displayNameZh,p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].some(n=>normalizePlaceQuery(n).includes(q))));
+ const q=normalizePlaceQuery(query);return places.filter(p=>(kind==='all'||p.kind===kind||(kind==='attested-settlement'&&p.kind==='attested-site'))&&(!q||[placeName(p,lang),p.name,p.nameZh,p.displayName,p.displayNameZh,p.otherNames,...[...(p.datedNames||[]),...(p.nameTimeline||[])].flatMap(n=>[n.name,n.nameZh]),...(p.searchAliases||[]),...(p.names||[]).map(n=>n.name)].some(n=>normalizePlaceQuery(n).includes(q))));
 }

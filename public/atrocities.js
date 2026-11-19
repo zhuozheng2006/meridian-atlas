@@ -1,4 +1,4 @@
-import {readJSON,formatYear} from './map-engine.js?v=4.10.0-46343806b677';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.11.0-ed9a955c581f';
 
 // A separate point layer for one-sided mass violence against non-combatants.
 // It is deliberately NOT the battle layer: scripts/places/validate-atrocities.mjs
@@ -15,14 +15,15 @@ export class AtrocityLayer{
  constructor(atlas,{window=50,onSelect,onStatus,enabled=false}={}){
   this.atlas=atlas;this.map=atlas.map;this.window=window;this.onSelect=onSelect;this.onStatus=onStatus;
   this.enabled=enabled;this.year=atlas.year;this.lang=atlas.lang;this.markers=[];this.active=[];this.all=null;this.policy=null;this.counts=null;this.seq=0;
-  this.move=()=>this.refresh();this.map.on('moveend',this.move);
+  this.move=()=>this.refresh();this.map.on('resize',this.move);
  }
  async setYear(year,lang){
   this.year=year;this.lang=lang;const seq=++this.seq;
   try{
    if(!this.all){const data=await loadAtrocities();this.all=data.incidents;this.policy=data.policy;this.counts=data.counts;}
    if(this.atlas.destroyed||seq!==this.seq)return;
-   this.active=this.all.filter(a=>a.year!=null&&Math.abs(a.year-year)<=this.window).sort((a,b)=>Math.abs(a.year-year)-Math.abs(b.year-year));
+   const target=civilYear(year);
+   this.active=this.all.filter(a=>a.year!=null&&Math.abs(civilYear(a.year)-target)<=this.window).sort((a,b)=>Math.abs(civilYear(a.year)-target)-Math.abs(civilYear(b.year)-target));
    this.refresh();this.onStatus?.('ready',this.active.length);
   }catch{if(seq===this.seq)this.onStatus?.('error',0);}
  }
@@ -57,7 +58,7 @@ export class AtrocityLayer{
    const box={left:origin.left+screen.x-w/2,right:origin.left+screen.x+w/2,top:origin.top+screen.y-h/2,bottom:origin.top+screen.y+h/2};
    if(box.left<origin.left+8||box.right>origin.right-10||box.top<origin.top+10||box.bottom>origin.bottom-48||boxes.some(b=>overlap(box,b)))continue;
    boxes.push({...box,left:box.left-7,right:box.right+7,top:box.top-4,bottom:box.bottom+4});
-   const secondary=this.lang!=='en'&&this.hasSourceZh(record)&&record.nameEn?record.nameEn.trim():'';
+   const secondary=this.lang==='bi'&&this.hasSourceZh(record)&&record.nameEn&&record.nameEn.trim()!==record.nameZh.trim()?record.nameEn.trim():'';
    const rawConflict=this.lang==='en'?(record.conflict?.length?record.conflict:record.conflictZh):(record.conflictZh?.length?record.conflictZh:record.conflict);
    const conflict=Array.isArray(rawConflict)?rawConflict.filter(Boolean).join(' · '):(rawConflict||'');
    const meta=formatYear(record.year,this.lang==='en'?'en':'zh')+(conflict?' · '+conflict:'');
@@ -68,5 +69,5 @@ export class AtrocityLayer{
    this.markers.push(new maplibregl.Marker({element:el,anchor:'center',opacityWhenCovered:'0'}).setLngLat([lon,lat]).addTo(map));
   }
  }
- destroy(){this.seq++;this.atlas.setHoverMarker?.(null);this.map.off('moveend',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
+ destroy(){this.seq++;this.atlas.setHoverMarker?.(null);this.map.off('resize',this.move);this.markers.forEach(m=>m.remove());this.markers=[];}
 }

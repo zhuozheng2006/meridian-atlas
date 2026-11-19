@@ -1,18 +1,18 @@
-import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=4.10.0-46343806b677';
-import {waitForMapForeground} from './map-load-priority.js?v=4.10.0-46343806b677';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=4.10.0-46343806b677';
-import {boundaryMesh} from './boundary-mesh.js?v=4.10.0-46343806b677';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=4.10.0-46343806b677';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.10.0-46343806b677';
-import {BoundaryController} from './boundary-controller.js?v=4.10.0-46343806b677';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=4.10.0-46343806b677';
+import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=4.11.0-ed9a955c581f';
+import {waitForMapForeground} from './map-load-priority.js?v=4.11.0-ed9a955c581f';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=4.11.0-ed9a955c581f';
+import {boundaryMesh} from './boundary-mesh.js?v=4.11.0-ed9a955c581f';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=4.11.0-ed9a955c581f';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.11.0-ed9a955c581f';
+import {BoundaryController} from './boundary-controller.js?v=4.11.0-ed9a955c581f';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=4.11.0-ed9a955c581f';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName} from './polity-names.js?v=4.10.0-46343806b677';
-import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=4.10.0-46343806b677';
+import {polityName} from './polity-names.js?v=4.11.0-ed9a955c581f';
+import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=4.11.0-ed9a955c581f';
 export {polityName};
 const POLITY_LABEL_ZH_FIX=new Map([
  ['切尔尼戈夫统治者列表','切尔尼戈夫公国'],['立窝尼亚语','利沃尼亚邦联'],['也门伊玛目列表','也门伊玛目国'],
@@ -99,7 +99,7 @@ export async function readJSON(url){
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
    const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
-   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=4.10.0-46343806b677'))).historicalDataRequest(url);
+   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=4.11.0-ed9a955c581f'))).historicalDataRequest(url);
    const pre=(typeof window!=='undefined'&&window.__meridianBootPrefetch?.[transport.url])||null;
    if(pre)delete window.__meridianBootPrefetch[transport.url];
    let response=null;
@@ -233,8 +233,8 @@ export class AtlasMap{
   if(this._detailLayersPromise)return this._detailLayersPromise;
   this._detailLayersPromise=(async()=>{
    const [{RegionalBoundaries:RB},{HistoricalDetailLayer:HD}]=await Promise.all([
-    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=4.10.0-46343806b677'),
-    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=4.10.0-46343806b677')
+    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=4.11.0-ed9a955c581f'),
+    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=4.11.0-ed9a955c581f')
    ]);
    if(this.destroyed)return false;
    if(this.regional?._isStub){
@@ -265,7 +265,7 @@ export class AtlasMap{
    if(this.geography._isStub&&typeof Geography==='undefined'){
     const stub=this.geography;
     this.geographyReady=(async()=>{
-     const {Geography:RealGeography}=await import('./geography.js?v=4.10.0-46343806b677');
+     const {Geography:RealGeography}=await import('./geography.js?v=4.11.0-ed9a955c581f');
      if(this.destroyed)return false;
      const geo=new RealGeography(this);geo.enabled=stub.enabled;geo.coastAligned=stub.coastAligned;geo.reference=stub.reference;this.geography=geo;
      const ok=await geo.init().then(()=>true).catch(()=>false);
@@ -476,16 +476,18 @@ export class AtlasMap{
   const primary=isCountry?(this.boundaries.countryLabel?this.boundaries.countryLabel(r,this.lang):(this.lang==='en'?r.name:(r.zhName||r.name))):overviewPolityName(r,this.lang,this.year);
   const en=isCountry?(this.boundaries.countryLabel?this.boundaries.countryLabel(r,'en'):r.name):polityName(r,'en',this.year);
   const secondary=this.lang==='bi'&&en&&en!==primary?en:'';
-  const meta=this.boundaries?.isCountry?`${r.startDate||''} — ${r.endDate||''}`:`${formatYear(r.start,this.lang==='en'?'en':'zh')} — ${formatYear(r.end,this.lang==='en'?'en':'zh')}`;
+  const hoverLang=this.lang==='en'?'en':'zh';
+  const meta=this.boundaries?.isCountry?`${r.startDate||''} — ${r.endDate||''}`:(r.start===r.end&&r.end!==0?formatYear(r.start,hoverLang):`${formatYear(r.start,hoverLang)} — ${r.end===0?(this.lang==='en'?'Source endpoint 0':'源终点 0'):formatYear(r.end,hoverLang)}`);
   this._renderHoverCard({primary,secondary,meta},point);
  }
  selectBoundary(id){['selection','selection-fill'].forEach(layer=>this.map.setFilter(layer,['==','id',id||'']));}
  selectPolity(r){if(this.boundaries?.isCountry)return;['selection','selection-fill'].forEach(id=>this.map.setFilter(id,['==','id',r?.id||'']));}
  focusPolity(record){
   const geometry=nativeGeometry(record.id)||detail.get(record.geometryId)||overview.get(record.geometryId);if(!geometry||!record.center)return;
-  const lons=[],lats=[],center=(record.labelCenter||record.center)[0];
-  const visit=coordinates=>{if(typeof coordinates[0]==='number'){let x=coordinates[0];while(x-center>180)x-=360;while(x-center< -180)x+=360;lons.push(x);lats.push(coordinates[1]);}else coordinates.forEach(visit);};visit(geometry.coordinates);
-  const west=Math.min(...lons),east=Math.max(...lons),south=Math.max(-85,Math.min(...lats)),north=Math.min(85,Math.max(...lats));
+  let west=Infinity,east=-Infinity,south=Infinity,north=-Infinity;const center=(record.labelCenter||record.center)[0];
+  const visit=coordinates=>{if(typeof coordinates[0]==='number'){let x=coordinates[0];while(x-center>180)x-=360;while(x-center< -180)x+=360;if(x<west)west=x;if(x>east)east=x;if(coordinates[1]<south)south=coordinates[1];if(coordinates[1]>north)north=coordinates[1];}else coordinates.forEach(visit);};visit(geometry.coordinates);
+  if(!Number.isFinite(west))return;
+  south=Math.max(-85,south);north=Math.min(85,north);
   if(east-west>210){this.fly(...(record.labelCenter||record.center),1.5);return;}
   const rect=this.map.getContainer?.()?.getBoundingClientRect?.();
   const w=rect?.width||900,h=rect?.height||600;
@@ -495,5 +497,5 @@ export class AtlasMap{
  fly(lon,lat,zoom=2.6){this.map.flyTo({center:[lon,lat],zoom:Math.min(18,zoom),duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:650,essential:false});}
  reset(){this.map.flyTo({center:[25,18],zoom:this.map.getProjection().type==='globe'?worldZoom(this.map.getContainer()):.6,duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:650});}
  projection(globe){this.map.setProjection({type:globe?'globe':'mercator'});}
- destroy(){if(this.destroyed)return;this.destroyed=true;if(this._zoomLabelTimer){clearTimeout(this._zoomLabelTimer);this._zoomLabelTimer=0;}this.cancelReady?.();this._hoverCard?.remove();this._hoverCard=null;this.territoryFrames?.destroy();this.boundaries?.destroy();this.historical?.destroy();this.regional?.destroy();this.geography?.destroy();this.places?.destroy();this.battles?.destroy();this.atrocities?.destroy();this.markers.forEach(m=>m.remove());this._eventPins=[];this.labels.forEach(m=>m.remove());this.map.remove();}
+ destroy(){if(this.destroyed)return;this.destroyed=true;if(this._zoomLabelTimer){clearTimeout(this._zoomLabelTimer);this._zoomLabelTimer=0;}if(this._labelFrame&&typeof cancelAnimationFrame==='function'){cancelAnimationFrame(this._labelFrame);this._labelFrame=0;}this.cancelReady?.();this._hoverCard?.remove();this._hoverCard=null;this.territoryFrames?.destroy();this.boundaries?.destroy();this.historical?.destroy();this.regional?.destroy();this.geography?.destroy();this.places?.destroy();this.battles?.destroy();this.atrocities?.destroy();this.markers.forEach(m=>m.remove());this._eventPins=[];this.labels.forEach(m=>m.remove());this.map.remove();}
 }

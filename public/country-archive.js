@@ -1,5 +1,5 @@
-import {countryAlias} from './country-names.js?v=4.10.0-46343806b677';
-export {countryAlias} from './country-names.js?v=4.10.0-46343806b677';
+import {countryAlias} from './country-names.js?v=4.11.0-ed9a955c581f';
+export {countryAlias} from './country-names.js?v=4.11.0-ed9a955c581f';
 // CShapes data is independently licensed CC BY-NC-SA 4.0; see data/cshapes/.
 const ROOT='data/cshapes/',pending=new Map(),COUNTRY_ZH_FIX=new Map([['Inini','伊尼尼领地'],['Belarus (Byelorussia)','白俄罗斯'],['Myanmar (Burma)','缅甸'],['Cambodia (Kampuchea)','柬埔寨']]);let catalogPromise,catalogValue;
 export const countrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023?`${year}-07-01`:null;

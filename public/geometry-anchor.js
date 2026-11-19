@@ -1,6 +1,11 @@
 // Interior label point: intersect a horizontal scanline with polygon rings,
 // then use the midpoint of the widest inside interval (including holes).
 function clipRing(ring,box){
+ if(ring.length<4)return [];
+ let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+ for(let i=0;i<ring.length-1;i++){const x=ring[i][0],y=ring[i][1];if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y;}
+ if(maxX<box[0]||minX>box[2]||maxY<box[1]||minY>box[3])return [];
+ if(minX>=box[0]&&maxX<=box[2]&&minY>=box[1]&&maxY<=box[3])return ring;
  let points=ring.slice(0,-1);
  for(const [axis,edge,sign] of [[0,box[0],1],[0,box[2],-1],[1,box[1],1],[1,box[3],-1]]){
   const next=[];if(!points.length)break;

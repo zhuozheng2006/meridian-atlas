@@ -1,4 +1,4 @@
-import {researchPlatesHTML} from './research-map-plates.js?v=4.10.0-46343806b677';
+import {researchPlatesHTML} from './research-map-plates.js?v=4.11.0-ed9a955c581f';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function sourcesHTML(catalog,events,lang,stats=null){
  const t=(zh,en)=>lang==='en'?en:zh,m=catalog.metadata;
@@ -33,7 +33,7 @@ export function sourcesHTML(catalog,events,lang,stats=null){
  [t('古代地名与遗址','Ancient places & sites'),'Pleiades','https://pleiades.stoa.org/downloads','CC BY 3.0'],
  [t('城市人口研究','Historical urban populations'),'Reba, Reitsma & Seto (2016)','https://doi.org/10.1038/sdata.2016.34','CC BY 4.0'],
  [t('首都关系、国家档案、双语名称','Capital relationships, dossiers & labels'),'Wikidata','https://www.wikidata.org/wiki/Wikidata:Licensing','CC0'],
- [t('针对非战斗人员的单方面暴力','One-sided violence against non-combatants'),'Wikidata 实体声明（massacre 等类别）· 独立于战役层','https://www.wikidata.org/wiki/Wikidata:Licensing','CC0'],
+ [t('针对非战斗人员的单方面暴力','One-sided violence against non-combatants'),t('Wikidata 实体声明（massacre 等类别）· 独立于战役层','Wikidata entity statements (massacre & related classes) · separate from battles'),'https://www.wikidata.org/wiki/Wikidata:Licensing','CC0'],
  [t('在线海岸、水系与现代参照','Online coasts, waterways & modern reference'),'OpenFreeMap / OpenMapTiles / OpenStreetMap','https://www.openstreetmap.org/copyright','ODbL · OpenStreetMap contributors'],
  [t('地区历史区划、街巷与建筑','Regional historical boundaries, streets & buildings'),'OpenHistoricalMap contributors','https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Sources',t('默认CC0；部分记录采用单独开放许可','CC0 by default; some records have separate open licenses')],
  [t('简体中文规范','Simplified Chinese labels'),'OpenCC dictionary data','https://github.com/BYVoid/OpenCC','Apache-2.0'],

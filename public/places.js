@@ -1,5 +1,5 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.10.0-46343806b677';
-import {placeWindow} from './view-state.js?v=4.10.0-46343806b677';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.11.0-ed9a955c581f';
+import {placeWindow} from './view-state.js?v=4.11.0-ed9a955c581f';
 // Editorially reviewed archaeological sites. They live in their own sourced
 // layer: representative points of listed heritage properties, dated only to the
 // period their source states, and never merged with the urban observations that
@@ -19,13 +19,15 @@ export function attestedPlaces(layer){
  }));
  attestedCache.set(layer,list);return list;
 }
+const _placesMemo=[null,null],_resolvedIndices=new WeakSet();
 export async function loadPlaces(includeModern=false,onPartial=null){
+ const memoKey=includeModern?1:0;
  const indexP=readJSON('data/places/historical-settlements-index.json.gz');
  const fastNames=['historical-capitals','urban-observations',...(includeModern?['modern-cities']:[])];
  const fastPromises=[...fastNames.map(n=>readJSON(`data/places/${n}.json.gz`)),readJSON('data/places/attested-places.json.gz')];
  const extract=res=>res.filter(r=>r.status==='fulfilled').flatMap(r=>r.value.places||r.value.claims||r.value.cities||attestedPlaces(r.value));
  let settled=false;
- if(onPartial){
+ if(onPartial&&!_resolvedIndices.has(indexP)){
   void Promise.allSettled(fastPromises).then(fastRes=>{
    if(settled)return;
    const fastData=extract(fastRes);if(fastData.length)onPartial(fastData);
@@ -33,9 +35,15 @@ export async function loadPlaces(includeModern=false,onPartial=null){
  }
  const results=await Promise.allSettled([indexP,...fastPromises]);
  settled=true;
+ const partial=results.some(r=>r.status==='rejected');
+ if(results[0].status==='fulfilled')_resolvedIndices.add(indexP);
+ const cached=_placesMemo[memoKey];
+ if(!partial&&cached&&cached.refs.length===results.length&&cached.refs.every((v,i)=>v===results[i].value))return cached.data;
  const data=extract(results);
  if(!data.length)throw Error('Place archives unavailable');
- data.partial=results.some(r=>r.status==='rejected');return data;
+ data.partial=partial;
+ if(!partial)_placesMemo[memoKey]={refs:results.map(r=>r.value),data};
+ return data;
 }
 export async function placeDetail(p){
  if(p.detailsShard===undefined)return p;
@@ -4094,9 +4102,9 @@ export async function searchPlaces(query,year,span=50){
   if(p.kind==='modern-reference'||CAPITAL_DATE_QUARANTINE.has(p.id)||PLACE_COORD_QUARANTINE.has(p.id))continue;
   const {names,aliases}=placeSearchEntry(p);
   const score=names.includes(q)?0:aliases.includes(q)?1:names.some(n=>n.startsWith(q))?2:(names.some(n=>n.includes(q))||aliases.some(n=>n.includes(q)))?3:99;
-  if(score<99)scored.push({p,score});
+  if(score<99)scored.push({p,score,out:Number(!placeAtYear(p,year,span))});
  }
- return scored.sort((a,b)=>Math.max(1,a.score)-Math.max(1,b.score)||Number(!placeAtYear(a.p,year,span))-Number(!placeAtYear(b.p,year,span))||a.score-b.score||Number(a.p.kind!=='dated-capital')-Number(b.p.kind!=='dated-capital')||a.p.name.length-b.p.name.length).slice(0,10).map(x=>x.p);
+ return scored.sort((a,b)=>Math.max(1,a.score)-Math.max(1,b.score)||a.out-b.out||a.score-b.score||Number(a.p.kind!=='dated-capital')-Number(b.p.kind!=='dated-capital')||a.p.name.length-b.p.name.length).slice(0,10).map(x=>x.p);
 }
 export class PlaceLayer {
  constructor(atlas,{onSelect,onStatus,window=50}={}){this.window=placeWindow(window);this.atlas=atlas;this.map=atlas.map;this.onSelect=onSelect;this.onStatus=onStatus;this.markers=[];this.active=[];this.enabled=true;this.modern=false;this.seq=0;this.year=atlas.year;this.lang=atlas.lang;this.move=()=>this.refresh();this.map.on('resize',this.move);this.setYear(atlas.year,atlas.lang);}
@@ -4139,7 +4147,7 @@ export class PlaceLayer {
    if(norm&&seen.some(s=>s.norm===norm&&Math.abs(s.lon-p.coordinates[0])<.25&&Math.abs(s.lat-p.coordinates[1])<.25))continue;
    const screen=map.project(p.coordinates),rawName=placeName(p,this.lang),rawEn=placeName(p,'en');
    const compactPinEn=s=>{if(!s||!s.includes('/'))return s;const head=s.split('/')[0].trim();return head.length>=3&&(s.length>22||s.indexOf('/',s.indexOf('/')+1)>=0)?head:s;};
-   const name=this.lang==='en'?compactPinEn(rawName):rawName,secondary=this.lang==='bi'&&(p.displayNameZh||p.nameZh)?compactPinEn(rawEn):'';
+   const name=this.lang==='en'?compactPinEn(rawName):rawName,secondary=this.lang==='bi'&&rawEn&&rawName!==rawEn?compactPinEn(rawEn):'';
    const obsText=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):'';
    const width=Math.min(184,Math.max(textPx(name,12.8,7.4),textPx(secondary,11,6.4),textPx(obsText,11.2,6.3))+34),height=(secondary?48:34)+(obsText?15:0);
    // A record that exists in the data should still be visible and clickable when its
@@ -4173,7 +4181,7 @@ export class PlaceLayer {
    if(obsText){const stamp=document.createElement('small');stamp.className='place-date';stamp.textContent=obsText;label.append(stamp);}
    el.title=(modern?(this.lang==='en'?'Modern reference · ':'现代参照 · '):'')+name;el.setAttribute('aria-label',el.title);
    const meta=p.observation?(this.lang==='en'?'Population · ':'人口 · ')+Number(p.observation[1]).toLocaleString()+' · '+formatYear(p.observation[0],this.lang==='en'?'en':'zh'):p.kind==='dated-capital'?(this.lang==='en'?'Historical capital':'历史首都'):modern?(this.lang==='en'?'Present-day reference':'现代参照'):p.period?formatYear(p.period[0],this.lang==='en'?'en':'zh')+(p.period[1]!==p.period[0]?' — '+formatYear(p.period[1],this.lang==='en'?'en':'zh'):''):'';
-   const showHover=()=>{this.atlas.setHoverMarker?.({primary:rawName,secondary:this.lang==='bi'&&(p.displayNameZh||p.nameZh)?rawEn:'',meta},el.getBoundingClientRect());};
+   const showHover=()=>{this.atlas.setHoverMarker?.({primary:rawName,secondary:this.lang==='bi'&&rawEn&&rawName!==rawEn?rawEn:'',meta},el.getBoundingClientRect());};
    el.addEventListener('mouseenter',showHover);el.addEventListener('focus',showHover);
    el.addEventListener('mouseleave',()=>this.atlas.setHoverMarker?.(null));el.addEventListener('blur',()=>this.atlas.setHoverMarker?.(null));
    el.onclick=e=>{e.stopPropagation();this.atlas.setHoverMarker?.(null);this.onSelect?.(p,this.atlas);};

@@ -1,8 +1,8 @@
-import {createExactLabelScheduler} from './halc-label-scheduler.js?v=4.10.0-46343806b677';
-import {renderHalcLandscape} from './halc-landscape-reader.js?v=4.10.0-46343806b677';
-import {HalcLandscape} from './halc-landscape.js?v=4.10.0-46343806b677';
-import {readJSON} from './map-engine.js?v=4.10.0-46343806b677';
-import {HalcRegions} from './halc-regions.js?v=4.10.0-46343806b677';
+import {createExactLabelScheduler} from './halc-label-scheduler.js?v=4.11.0-ed9a955c581f';
+import {renderHalcLandscape} from './halc-landscape-reader.js?v=4.11.0-ed9a955c581f';
+import {HalcLandscape} from './halc-landscape.js?v=4.11.0-ed9a955c581f';
+import {readJSON} from './map-engine.js?v=4.11.0-ed9a955c581f';
+import {HalcRegions} from './halc-regions.js?v=4.11.0-ed9a955c581f';
 
 export const HALC_BOUNDS=[.5394290754663461,48.54020298612199,8.351988466075143,54.024330541815885];
 export const HALC_SOURCE='halc-boundaries';
@@ -96,7 +96,7 @@ export class HalcBoundaries{
  title(){
   const pairs={year:['全球疆域 · HALC 提供1500年','Global overview · HALC covers 1500'],zoom:['HALC · 放大查看地方区划','HALC · Zoom in for local divisions'],outside:['全球疆域 · HALC 覆盖低地国家','Global overview · HALC covers the Low Countries'],modern:['HALC · 现代参照开启','HALC · Modern reference is on'],hidden:['HALC · 疆域已收起','HALC · Borders are hidden'],loading:['HALC · 正在载入地方区划','HALC · Loading local divisions'],error:['全球疆域 · HALC 载入失败，可重试','Global overview · HALC unavailable; retry'],empty:['全球疆域 · 此处暂无HALC记录','Global overview · No HALC records here']};
   if(this.reason==='updating')return t(this.lang,'HALC · 正在补齐视野…','HALC · Updating this view…');
-  return this.active?t(this.lang,'HALC · 1500 · '+this.features.length+' 条可见区划','HALC · 1500 · '+this.features.length+' visible units'):t(this.lang,...(pairs[this.reason]||pairs.loading));
+  return this.active?t(this.lang,'HALC · 1500 · '+this.features.length.toLocaleString('en-US')+' 条可见区划','HALC · 1500 · '+this.features.length.toLocaleString('en-US')+' visible units'):t(this.lang,...(pairs[this.reason]||pairs.loading));
  }
  ensure(){
   if(!this.metaRequest&&!this.labels){

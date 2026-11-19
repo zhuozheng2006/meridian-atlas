@@ -3,14 +3,17 @@
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlsplit, parse_qs
-import argparse, functools, gzip, hashlib, io, json, os, threading, webbrowser
+import argparse, collections, functools, gzip, hashlib, io, json, os, threading, webbrowser
 
 # Text and MVT assets ship uncompressed on disk; gzip on the fly cuts wire size.
 # HALC's largest z6 tile is 2.27 MB -> 1.16 MB without changing decoded bytes. Files that are
 # already compressed (.gz/.br/.webp/...) are never re-encoded.
 COMPRESSIBLE=('.js','.css','.html','.json','.geojson','.svg','.txt','.md','.xml','.webmanifest','.pbf')
-COMPRESS_CACHE={}
+COMPRESS_CACHE=collections.OrderedDict()
+COMPRESS_CACHE_LOCK=threading.Lock()
 COMPRESS_CACHE_MAX=64
+NATIVE_MANIFEST_CACHE={}
+NATIVE_MANIFEST_LOCK=threading.Lock()
 
 def accepts_gzip(value):
     # An explicit gzip refusal overrides wildcard acceptance. Invalid quality
@@ -41,13 +44,32 @@ class AtlasHandler(SimpleHTTPRequestHandler):
     def compressed(self,path):
         stat=os.stat(path)
         key=(path,stat.st_mtime_ns,stat.st_size)
-        hit=COMPRESS_CACHE.get(key)
-        if hit is not None:return hit
+        with COMPRESS_CACHE_LOCK:
+            hit=COMPRESS_CACHE.get(key)
+            if hit is not None:
+                COMPRESS_CACHE.move_to_end(key)
+                return hit
         with open(path,'rb') as f:raw=f.read()
         body=gzip.compress(raw,6,mtime=0)
-        if len(COMPRESS_CACHE)>=COMPRESS_CACHE_MAX:COMPRESS_CACHE.clear()
-        COMPRESS_CACHE[key]=body
+        with COMPRESS_CACHE_LOCK:
+            COMPRESS_CACHE[key]=body
+            COMPRESS_CACHE.move_to_end(key)
+            while len(COMPRESS_CACHE)>COMPRESS_CACHE_MAX:
+                COMPRESS_CACHE.popitem(last=False)
         return body
+
+    def native_manifest(self):
+        manifest_path=Path(self.directory)/'data/native/manifest.json'
+        stat=os.stat(manifest_path)
+        key=(str(manifest_path),stat.st_mtime_ns,stat.st_size)
+        with NATIVE_MANIFEST_LOCK:
+            hit=NATIVE_MANIFEST_CACHE.get(key)
+            if hit is not None:return hit
+        data=json.loads(manifest_path.read_text())
+        with NATIVE_MANIFEST_LOCK:
+            NATIVE_MANIFEST_CACHE.clear()
+            NATIVE_MANIFEST_CACHE[key]=data
+        return data
 
     def send_head(self):
         # Match the production Worker route without changing source asset paths.
@@ -55,7 +77,7 @@ class AtlasHandler(SimpleHTTPRequestHandler):
         route=urlsplit(self.path)
         if route.path.startswith('/__atlas-native/'):
             file=route.path[len('/__atlas-native/'):]
-            manifest=json.loads((Path(self.directory)/'data/native/manifest.json').read_text())
+            manifest=self.native_manifest()
             item=next((f for f in manifest['bootstrap'].values() if f['file']==file),None)
             if not item:
                 self.send_error(404);return None

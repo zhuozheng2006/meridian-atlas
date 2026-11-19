@@ -1,13 +1,22 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=4.10.0-46343806b677';
-import {nativeTemporalBundles} from './native-temporal-index.js?v=4.10.0-46343806b677';
+import {readJSON,forgetJSON} from './map-engine.js?v=4.11.0-ed9a955c581f';
+import {nativeTemporalBundles} from './native-temporal-index.js?v=4.11.0-ed9a955c581f';
 const native=new Map(),failedBundles=new Set(),pendingBundles=new Map(),loadedBundles=new Set();
 const bootYears=new Set([-3400,-221,1,500,1000,1492,1500,1750,1914,1945,1991,2024]);
 export const hasNativeBootstrap=year=>bootYears.has(year);
 export const nativeGeometry=id=>native.get(id);
 function validGeometry(g){
- if(!g||!['Polygon','MultiPolygon'].includes(g.type)||!Array.isArray(g.coordinates)||!g.coordinates.length)return false;
+ if(!g||(g.type!=='Polygon'&&g.type!=='MultiPolygon')||!Array.isArray(g.coordinates)||!g.coordinates.length)return false;
  const polygons=g.type==='Polygon'?[g.coordinates]:g.coordinates;
- return polygons.every(p=>Array.isArray(p)&&p.length&&p.every(r=>Array.isArray(r)&&r.length>=4&&r.every(c=>Array.isArray(c)&&c.length>=2&&Number.isFinite(c[0])&&Number.isFinite(c[1]))));
+ for(let pi=0;pi<polygons.length;pi++){
+  const p=polygons[pi];if(!Array.isArray(p)||!p.length)return false;
+  for(let ri=0;ri<p.length;ri++){
+   const r=p[ri];if(!Array.isArray(r)||r.length<4)return false;
+   for(let ci=0;ci<r.length;ci++){
+    const c=r[ci];if(!Array.isArray(c)||c.length<2||!Number.isFinite(c[0])||!Number.isFinite(c[1]))return false;
+   }
+  }
+ }
+ return true;
 }
 async function checkedJSON(url,validate){const value=await readJSON(url);if(!validate(value)){forgetJSON(url);throw Error('Invalid territory resource: '+url);}return value;}
 // Native packs are smaller than the aggregate legacy overview shards. Do not

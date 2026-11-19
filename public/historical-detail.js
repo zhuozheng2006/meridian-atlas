@@ -1,4 +1,4 @@
-import {historicalDateFilter,datedFeatureVisible,historicalYearRange} from './historical-dates.js?v=4.10.0-46343806b677';
+import {historicalDateFilter,datedFeatureVisible,historicalYearRange} from './historical-dates.js?v=4.11.0-ed9a955c581f';
 const SOURCE='historical-detail';
 const IDS=['historic-buildings','historic-building-edges','historic-road-casing','historic-roads','historic-railways'];
 const HIT=['historic-buildings','historic-roads','historic-railways'];
@@ -82,15 +82,17 @@ export class HistoricalDetailLayer{
  refreshLabels(){
   if(!this.atlas.showLabels||!this.visible||this.failed){this.clearLabels();return;}
   const c=this.map.getCenter(),key=[this.year,this.lang,c.lng,c.lat,this.map.getZoom(),this.map.getBearing(),this.features.length].join('|');if(key===this.lastLabels)return;this.clearLabels();this.lastLabels=key;
-  const root=this.map.getContainer().getBoundingClientRect(),overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
-  const boxes=[...document.querySelectorAll('.map-heading,.map-tools,.compare-heading,.map-legend,.map-notice,.layer-panel,.place-marker,.event-marker,.polity-label,.historical-browse')].filter(el=>el.getClientRects().length&&getComputedStyle(el).opacity!=='0').map(el=>el.getBoundingClientRect());
+  const container=this.map.getContainer(),root=container.getBoundingClientRect(),overlap=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+  const collect=(host,sel)=>{const out=[];if(!host?.querySelectorAll)return out;for(const el of host.querySelectorAll(sel)){if(el.hidden||!el.getClientRects?.().length)continue;if(typeof getComputedStyle==='function'&&getComputedStyle(el).opacity==='0')continue;out.push(el.getBoundingClientRect());}return out;};
+  const boxes=[...collect(document,'.map-heading,.map-tools,.compare-heading,.map-legend,.map-notice,.layer-panel'),...collect(container,'.place-marker,.event-marker,.polity-label,.historical-browse,.lake-label,.regional-label,.battle-marker,.atrocity-marker')];
+  const textPx=s=>{let w=0;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);w+=(c>=0x3400&&c<=0x9FFF)||(c>=0xF900&&c<=0xFAFF)?12.5:7.2;}return w;};
   const names=new Set();
   for(const f of this.features){
    if(this.markers.length>=8)break;if(f.sourceLayer!=='transport_lines')continue;const name=featureName(f.properties,this.lang);if(!name||names.has(name))continue;
    const lines=f.geometry.type==='LineString'?[f.geometry.coordinates]:f.geometry.type==='MultiLineString'?f.geometry.coordinates:[];
    const line=lines.slice().sort((a,b)=>b.length-a.length)[0];if(!line?.length)continue;
    const points=line.map(p=>this.map.project(p)),length=points.slice(1).reduce((sum,p,i)=>sum+Math.hypot(p.x-points[i].x,p.y-points[i].y),0);
-   const width=Math.min(190,Math.max(70,name.length*7.2));if(length<width+40)continue;
+   const width=Math.min(200,Math.max(70,textPx(name)+16));if(length<width+40)continue;
    const coord=line[Math.floor(line.length/2)],p=this.map.project(coord),box={left:root.left+p.x-width/2,right:root.left+p.x+width/2,top:root.top+p.y-15,bottom:root.top+p.y+15};
    if(box.left<root.left+16||box.right>root.right-16||box.top<root.top+100||box.bottom>root.bottom-80||boxes.some(b=>overlap(box,b)))continue;
    const el=document.createElement('button');el.className='historical-label';el.textContent=name;el.setAttribute('aria-label',name);el.title=featureKind(f,this.lang)+' · '+recordYear(f.properties.start_decdate,this.lang);el.onclick=e=>{e.stopPropagation();this.openFeature(f,{lng:coord[0],lat:coord[1]});};

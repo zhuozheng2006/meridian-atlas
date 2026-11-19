@@ -10,8 +10,9 @@ export function boundaryMesh(collection){
  const nodes=new Map(),positions=new WeakMap();
  const node=point=>{
   if(point&&typeof point==='object'&&positions.has(point))return positions.get(point);
-  if(!Array.isArray(point)||point.length<2||!point.every(Number.isFinite))throw TypeError('Boundary position must contain finite coordinates');
-  const key=JSON.stringify(point);
+  const len=Array.isArray(point)?point.length:0;
+  if(len===2?!Number.isFinite(point[0])||!Number.isFinite(point[1]):len<2||!point.every(Number.isFinite))throw TypeError('Boundary position must contain finite coordinates');
+  const key=len===2?'['+point[0]+','+point[1]+']':JSON.stringify(point);
   if(!nodes.has(key))nodes.set(key,{key,point,edges:[],neighbours:new Set(),self:false});
   const result=nodes.get(key);positions.set(point,result);return result;
  };

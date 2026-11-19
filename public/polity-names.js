@@ -1,4 +1,4 @@
-import {polityDisplayData} from './polity-display-names-data.js?v=4.10.0-46343806b677';
+import {polityDisplayData} from './polity-display-names-data.js?v=4.11.0-ed9a955c581f';
 
 const byRecord=new Map();
 for(const rule of polityDisplayData.rules)for(const target of rule.targets)byRecord.set(target.id,{rule,target});
@@ -79,11 +79,13 @@ function spanReference(g,desired){
  }
  return bestYear===null?null:{year:bestYear,zh:bestSpan[2]??g.zh,en:bestSpan[3]??g.en};
 }
+const _polityIndexHay=new WeakMap();
 export function searchPolityIndex(index,query,year,limit=12){
  const q=query.trim().toLowerCase();if(!q||!index?.groups)return [];
  const matches=[];
  for(const g of index.groups){
-  const hay=[g.n,g.zh,g.en,...g.s.flatMap(sp=>sp.slice(2)),...(g.x||[])].filter(Boolean).join(' ').toLowerCase();
+  let hay=_polityIndexHay.get(g);
+  if(hay===undefined){hay=[g.n,g.zh,g.en,...g.s.flatMap(sp=>sp.slice(2)),...(g.x||[])].filter(Boolean).join(' ').toLowerCase();_polityIndexHay.set(g,hay);}
   if(!hay.includes(q))continue;
   const ref=spanReference(g,year);
   if(!ref)continue;

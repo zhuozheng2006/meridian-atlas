@@ -1,10 +1,10 @@
-import {interiorPoint} from './geometry-anchor.js?v=4.10.0-46343806b677';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.10.0-46343806b677';
-import {beginMapForeground} from './map-load-priority.js?v=4.10.0-46343806b677';
+import {interiorPoint} from './geometry-anchor.js?v=4.11.0-ed9a955c581f';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.11.0-ed9a955c581f';
+import {beginMapForeground} from './map-load-priority.js?v=4.11.0-ed9a955c581f';
 
 const hasCountrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023;
 let _countryMod=null,_countryModP=null;
-const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=4.10.0-46343806b677').then(m=>(_countryMod=m)));
+const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=4.11.0-ed9a955c581f').then(m=>(_countryMod=m)));
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
@@ -91,12 +91,13 @@ export class BoundaryController{
   const countryStatus=_countryMod?.countryStatus||((value,lang)=>({independent:['独立国家','Independent state'],colony:['殖民地','Colony'],protectorate:['保护国','Protectorate'],occupied:['被占领地区','Occupied territory'],mandate:['委任统治地','Mandated territory']}[value]||['未记载','Not recorded'])[lang==='en'?1:0]);
   const r=this.recordMap.get(id),frame=this.current.frame;if(!r||!visible(r,frame.date))return;
   const regional=this.atlas.regional,lang=this.atlas.lang,node=make('section');regional?.closePopup();
-  node.append(make('small',`CShapes ${frame.catalog.version} · ${frame.catalog.coding}`,'historical-eyebrow'),make('h3',countryName(r,lang,frame.date)));
-  if(lang==='bi'&&r.zhName)node.append(make('p',countryName(r,'en',frame.date)));
+  const zhName=countryName(r,'zh',frame.date),enName=countryName(r,'en',frame.date);
+  node.append(make('small',`CShapes ${frame.catalog.version} · ${frame.catalog.coding}`,'historical-eyebrow'),make('h3',lang==='en'?enName:zhName));
+  if(lang==='bi'&&zhName!==enName)node.append(make('p',enName));
   const rulers=frame.records.filter(x=>x.code===r.ruledby&&x.status==='independent'),ruler=rulers.length===1?countryName(rulers[0],lang,frame.date):String(r.ruledby??'—');
   const alias=countryAlias(r,frame.date),dl=make('dl');if(alias)dl.append(make('dt',tr(lang,'档案原名','Source name')),make('dd',r.name));for(const [zh,en,value]of [['记录开始','Record begins',r.startDate],['记录结束','Record ends',r.endDate],['资料分类','Source classification',countryStatus(r.status,lang)],['首都／行政中心','Capital / administrative centre',r.capital||'—'],['统治归属','Recorded ruler',ruler],['来源面积','Source area',new Intl.NumberFormat(lang==='en'?'en':'zh-CN',{maximumFractionDigits:0}).format(r.area)+' km²']])dl.append(make('dt',tr(lang,zh,en)),make('dd',value));node.append(dl);
   const periods=frame.catalog.records.filter(x=>x.code===r.code).sort((a,b)=>a.startDate.localeCompare(b.startDate));
-  const details=make('details'),summary=make('summary',tr(lang,`同一来源代码的 ${periods.length} 段记录`,` ${periods.length} periods under this source code`));details.append(summary);
+  const details=make('details'),summary=make('summary',tr(lang,`同一来源代码的 ${periods.length} 段记录`,`${periods.length} periods under this source code`));details.append(summary);
   const list=make('div',null,'country-periods');for(const p of periods){const row=make('p',p.startDate+' — '+p.endDate+' · '+countryStatus(p.status,lang));if(p.id===r.id)row.className='current';list.append(row);}details.append(list);node.append(details);
   const links=make('div',null,'historical-source-links');for(const [label,url]of [[tr(lang,'资料与收录口径','Dataset & coding'),'https://icr.ethz.ch/data/cshapes/beta.html'],['CC BY-NC-SA 4.0','https://creativecommons.org/licenses/by-nc-sa/4.0/']]){const a=make('a',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}node.append(links);
   if(alias){const a=make('a',tr(lang,'名称年代与依据','Name periods & evidence'));a.href='data/cshapes/name-periods.json';a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
