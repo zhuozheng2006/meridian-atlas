@@ -1,18 +1,18 @@
-import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=4.15.0-a615a2b29c7a';
+import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=4.16.0-68b90e70059b';
 export const interiorAnchor=(geometry,box=null)=>_interiorAnchor(geometry,box);
 export const interiorPoint=(geometry,box=null)=>_interiorPoint(geometry,box);
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=4.15.0-a615a2b29c7a';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=4.15.0-a615a2b29c7a';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord} from './chgis-boundaries.js?v=4.15.0-a615a2b29c7a';
-import {beginMapForeground} from './map-load-priority.js?v=4.15.0-a615a2b29c7a';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=4.15.0-a615a2b29c7a';
-import {boundaryNote} from './boundary-notes.js?v=4.15.0-a615a2b29c7a';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.15.0-a615a2b29c7a';
-import {HalcBoundaries} from './halc-boundaries.js?v=4.15.0-a615a2b29c7a';
-import {boundaryMode} from './view-state.js?v=4.15.0-a615a2b29c7a';
-import {simplifiedChinese} from './simplified-chinese.js?v=4.15.0-a615a2b29c7a';
-import {historicalYearRange} from './historical-dates.js?v=4.15.0-a615a2b29c7a';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=4.15.0-a615a2b29c7a';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=4.16.0-68b90e70059b';
+import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=4.16.0-68b90e70059b';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord,chgisChangeLabel,chgisCompilerLabel} from './chgis-boundaries.js?v=4.16.0-68b90e70059b';
+import {beginMapForeground} from './map-load-priority.js?v=4.16.0-68b90e70059b';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=4.16.0-68b90e70059b';
+import {boundaryNote} from './boundary-notes.js?v=4.16.0-68b90e70059b';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.16.0-68b90e70059b';
+import {HalcBoundaries} from './halc-boundaries.js?v=4.16.0-68b90e70059b';
+import {boundaryMode} from './view-state.js?v=4.16.0-68b90e70059b';
+import {simplifiedChinese} from './simplified-chinese.js?v=4.16.0-68b90e70059b';
+import {historicalYearRange} from './historical-dates.js?v=4.16.0-68b90e70059b';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=4.16.0-68b90e70059b';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -455,7 +455,7 @@ export class RegionalBoundaries{
   if(!regionalVisible(f.properties,this.year,this.maxLevel))return;this.closePopup();const p=f.properties,lang=this.lang,node=document.createElement('section');
   const add=(tag,text)=>{const el=document.createElement(tag);el.textContent=text;node.append(el);return el;};
   add('small','CHGIS V4 · '+tr(lang,'历史府级区划','Historical prefectures')).className='historical-eyebrow';add('h3',regionalName(p,lang));if(lang==='bi')add('p',p.name_en);
-  const dl=document.createElement('dl');for(const [zh,en,value]of [['来源编号','Source ID',p.source_id],['来源拼音','Source romanization',p.name_en!==p.source_pinyin?p.source_pinyin:''],['记录开始','Record begins',formatYear(Number(p.start_date),lang)],['记录结束','Record ends',formatYear(Number(p.end_date),lang)],['开始变化','Beginning change',p.begin_change],['结束变化','Ending change',p.end_change],['编制者','Compiler',p.compiler],['图形编制','Geometry compiler',p.geometry_compiler],['考释编号','Note ID',p.source_note]]){if(value===undefined||value==='')continue;const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=tr(lang,zh,en);dd.textContent=lang==='en'&&['开始变化','结束变化'].includes(zh)?String(value).replaceAll('和',' and ').replaceAll('更名','Renamed').replaceAll('辖区扩大','Territory expanded').replaceAll('辖区缩小','Territory reduced').replaceAll('新建','Established').replaceAll('撤销','Abolished'):value;dl.append(dt,dd);}node.append(dl);
+  const dl=document.createElement('dl');for(const [zh,en,value]of [['来源编号','Source ID',p.source_id],['来源拼音','Source romanization',p.name_en!==p.source_pinyin?p.source_pinyin:''],['记录开始','Record begins',formatYear(Number(p.start_date),lang==='en'?'en':'zh')],['记录结束','Record ends',formatYear(Number(p.end_date),lang==='en'?'en':'zh')],['开始变化','Beginning change',chgisChangeLabel(p.begin_change,lang)],['结束变化','Ending change',chgisChangeLabel(p.end_change,lang)],['编制者','Compiler',chgisCompilerLabel(p.compiler,lang)],['图形编制','Geometry compiler',chgisCompilerLabel(p.geometry_compiler,lang)],['考释编号','Note ID',p.source_note]]){if(value===undefined||value==='')continue;const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=tr(lang,zh,en);dd.textContent=value;dl.append(dt,dd);}node.append(dl);
   const links=document.createElement('div');links.className='historical-source-links';for(const [zh,en,url]of [['原始数据与下载','Source dataset & downloads','https://yugong.fudan.edu.cn/CHGIS/sjxz.htm'],['项目与编制方法','Project & methodology','https://yugong.fudan.edu.cn/CHGIS/sjsm.htm'],['完整原始资料包','Original source archive','data/chgis/V4_Prefecture_Bou_TimeSeries.rar']]){const a=document.createElement('a');a.textContent=tr(lang,zh,en);a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}node.append(links);
   const details=document.createElement('details'),summary=document.createElement('summary'),note=document.createElement('p');summary.textContent=tr(lang,'来源说明','Source notes');note.textContent=tr(lang,'依据 CHGIS V4 的年度起止范围选择记录；同年变更可能并列。保留原坐标、年代规则与编制字段。原文件声明的参考系为 Pulkovo 1942，经纬度按原数值显示，未作基准转换；适合历史区划研究，不提供测绘级位置精度。','Records follow CHGIS V4 annual intervals; transitions within a year may overlap. Source coordinates, date rules and compiler fields are retained. The source declares Pulkovo 1942; longitude/latitude values are displayed without a datum transformation. This historical reconstruction does not provide survey-level positional accuracy.');details.append(summary,note);node.append(details);
   const button=add('button',tr(lang,'下载这条原始记录','Download this source record'));button.className='regional-dossier';const year=this.year;button.onclick=async()=>{button.disabled=true;try{const data=await chgisRecord(p.id,year),url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=p.id+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch{button.textContent=tr(lang,'读取失败，点击重试','Could not load; retry');}finally{button.disabled=false;}};

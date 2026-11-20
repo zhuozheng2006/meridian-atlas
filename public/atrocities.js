@@ -1,4 +1,4 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.15.0-a615a2b29c7a';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.16.0-68b90e70059b';
 
 // A separate point layer for one-sided mass violence against non-combatants.
 // It is deliberately NOT the battle layer: scripts/places/validate-atrocities.mjs
@@ -6,6 +6,22 @@ import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.15.0-a615a2b29c
 // records with their own marker class so the two can never be confused on the map.
 // Names are source labels: nameZh may be null and is never transliterated or
 // machine-translated; the reader falls back to the source-language name.
+// OpenCC t2s display normalization for existing source Chinese labels (never invents labels where nameZh is null).
+const ATRO_T2S=new Map([
+ ['滑鐵盧灣大屠殺','滑铁卢湾大屠杀'],['博依德大屠殺','博依德大屠杀'],['米爾費拉大屠殺','米尔费拉大屠杀'],
+ ['格拉奈大屠殺','格拉奈大屠杀'],['反錫克教暴動','反锡克教暴动'],['加爾各答黑洞','加尔各答黑洞'],
+ ['潘傑瓦伊槍擊案','潘杰瓦伊枪击案'],['2014年白沙瓦學校襲擊事件','2014年白沙瓦学校袭击事件'],
+ ['美宅屠殺','美宅屠杀'],['泰國法政大學屠殺事件','泰国法政大学屠杀事件'],['馬京達瑙大屠殺','马京达瑙大屠杀'],
+ ['巴朗吉戛大屠殺','巴朗吉戛大屠杀'],['美萊村屠殺','美莱村屠杀'],['馬尼拉大屠殺','马尼拉大屠杀'],
+ ['雙十節事件','双十节事件'],['巴里梳龍屠殺','巴里梳龙屠杀'],['謬努大屠殺','谬努大屠杀'],
+ ['古達巴因大屠殺','古达巴因大屠杀'],['2018年菲律賓甘蔗田屠殺','2018年菲律宾甘蔗田屠杀'],
+ ['秋巴因大屠殺','秋巴因大屠杀'],['因丁大屠殺','因丁大屠杀']
+]);
+export function atrocityDisplayZh(record){
+ if(typeof record?.nameZh!=='string')return '';
+ const s=record.nameZh.trim();
+ return s?(ATRO_T2S.get(s)||s):'';
+}
 export async function loadAtrocities(){
  const data=await readJSON('data/atrocities.json.gz');
  return {incidents:Array.isArray(data?.incidents)?data.incidents:[],policy:data?.policy||null,counts:data?.counts||null};
@@ -33,7 +49,7 @@ export class AtrocityLayer{
  // Source label, never an invented one: Chinese when the source has it, otherwise
  // the original (usually English) name. No transliteration, no machine translation.
  name(record){
-  const zh=this.hasSourceZh(record)?record.nameZh.trim():'',en=typeof record?.nameEn==='string'?record.nameEn.trim():'';
+  const zh=atrocityDisplayZh(record),en=typeof record?.nameEn==='string'?record.nameEn.trim():'';
   return this.lang==='en'?(en||zh||record.id):(zh||en||record.id);
  }
  refresh(){

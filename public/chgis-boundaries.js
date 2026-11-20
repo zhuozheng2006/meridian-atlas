@@ -1,5 +1,25 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=4.15.0-a615a2b29c7a';
+import {readJSON,forgetJSON} from './map-engine.js?v=4.16.0-68b90e70059b';
 export const chgisDisplayNames={'浔阳郡':'Xunyang Jun','鄱阳郡':'Poyang Jun','新定郡':'Xinding Jun','会稽郡':'Kuaiji Jun','义兴郡':'Yixing Jun'};
+const CHGIS_CHANGE_EN={
+ '新建':'Established','撤销':'Abolished','撤銷':'Abolished','数据下限':'Dataset end bound',
+ '更名':'Renamed','辖区扩大':'Territory expanded','辖区缩小':'Territory reduced','地区缩小':'Area reduced',
+ '辖区变化':'Territory changed','名称变化':'Name changed','名称新见':'Name first attested',
+ '更名和辖区缩小':'Renamed & territory reduced','更更名和辖区缩小':'Renamed & territory reduced','更名和辖境缩小':'Renamed & territory reduced','辖区缩小和更名':'Renamed & territory reduced',
+ '更名和辖区扩大':'Renamed & territory expanded','辖区扩大和更名':'Renamed & territory expanded',
+ '更名和辖区变化':'Renamed & territory changed','辖区变化和更名':'Renamed & territory changed',
+ '划出嘉兴路':'Split from Jiaxing Circuit','从嘉兴路划出':'Split from Jiaxing Circuit',
+ '崇明岛面积变化':'Chongming Island area changed','不划分':'Undivided','日本占领':'Japanese occupation','暂无':'Not recorded'
+};
+const CHGIS_CHANGE_ZH_FIX={'撤銷':'撤销','更更名和辖区缩小':'更名和辖区缩小'};
+const CHGIS_PERSON_EN={'邹逸麟':'Zou Yilin','傅林祥':'Fu Linxiang','王文楚':'Wang Wenchu','张修桂':'Zhang Xiugui','钱林书':'Qian Linshu','赵永复':'Zhao Yongfu','满志敏':'Man Zhimin'};
+export function chgisChangeLabel(raw,lang='bi'){
+ const s=String(raw??'').trim();if(!s)return '';
+ return lang==='en'?(CHGIS_CHANGE_EN[s]||s):(CHGIS_CHANGE_ZH_FIX[s]||s);
+}
+export function chgisCompilerLabel(raw,lang='bi'){
+ const s=String(raw??'').trim();if(!s)return '';
+ return lang==='en'?(CHGIS_PERSON_EN[s]||s):s;
+}
 const ROOT='data/chgis/',packs=new Map();let indexPromise;
 export const chgisCoversYear=year=>Number.isInteger(year)&&year!==0&&year>=-224&&year<=1911;
 export const CHGIS_WINDOW={id:'chgis-prefectures',zh:'中国历史府级区划',en:'Chinese historical prefectures',root:ROOT,bounds:[106.60376,18.160896,124.576195,35.726135],years:{includes:chgisCoversYear}};
