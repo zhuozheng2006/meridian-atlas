@@ -1,18 +1,18 @@
-import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=4.14.0-4bd34ba75977';
-import {waitForMapForeground} from './map-load-priority.js?v=4.14.0-4bd34ba75977';
-import {TerritoryFrameCache} from './territory-frame-cache.js?v=4.14.0-4bd34ba75977';
-import {boundaryMesh} from './boundary-mesh.js?v=4.14.0-4bd34ba75977';
-import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=4.14.0-4bd34ba75977';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.14.0-4bd34ba75977';
-import {BoundaryController} from './boundary-controller.js?v=4.14.0-4bd34ba75977';
-import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=4.14.0-4bd34ba75977';
+import {bootstrapDataRequest} from './bootstrap-content-hashes.js?v=4.15.0-a615a2b29c7a';
+import {waitForMapForeground} from './map-load-priority.js?v=4.15.0-a615a2b29c7a';
+import {TerritoryFrameCache} from './territory-frame-cache.js?v=4.15.0-a615a2b29c7a';
+import {boundaryMesh} from './boundary-mesh.js?v=4.15.0-a615a2b29c7a';
+import {curvedBorders,borderChordError,borderViewport} from './border-curves.js?v=4.15.0-a615a2b29c7a';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.15.0-a615a2b29c7a';
+import {BoundaryController} from './boundary-controller.js?v=4.15.0-a615a2b29c7a';
+import {loadNative,loadNativeFrame,nativeGeometry} from './native-geometry.js?v=4.15.0-a615a2b29c7a';
 export const EMPTY={type:'FeatureCollection',features:[]};
 export const civilYear=y=>y>0?y-1:y;
 export const inWindow=(e,year,span)=>civilYear(e.start)<=civilYear(year)+span&&civilYear(e.end)>=civilYear(year)-span;
 export const stepYear=(year,step)=>{const n=year+step;return year<0&&n>=0?n+1:year>0&&n<=0?n-1:n;};
 export const formatYear=(y,lang='zh')=>{const n=Math.abs(y)>=10000?Math.abs(y).toLocaleString('en-US'):String(Math.abs(y));return lang==='en'?`${n} ${y<0?'BCE':'CE'}`:`${y<0?'公元前':'公元'} ${n} 年`;};
-import {polityName,displayPolityName} from './polity-names.js?v=4.14.0-4bd34ba75977';
-import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=4.14.0-4bd34ba75977';
+import {polityName,displayPolityName} from './polity-names.js?v=4.15.0-a615a2b29c7a';
+import {interiorPoint,pointInGeometry} from './geometry-anchor.js?v=4.15.0-a615a2b29c7a';
 export {polityName,displayPolityName};
 const overviewPolityName=(r,lang,year)=>displayPolityName(r,lang,year);
 export function wikipediaURL(v){if(/^https:\/\//.test(v))return v;if(/^[a-z-]+\.wikipedia\.org\/wiki\//.test(v))return 'https://'+v;return 'https://en.wikipedia.org/wiki/'+encodeURIComponent(v.replaceAll(' ','_'));}
@@ -39,7 +39,7 @@ export async function readJSON(url){
    // (data/native) must not sit behind the multi-megabyte detail layers, which can
    // hold all six connections for minutes on a slow link.
    const priority=/(?:^|\/)data\/(?:fast|native|chgis|awmc|china-prefectures|ohm-transport|ohm-1500|ohm-eastasia)\//.test(url)?'high':'auto';
-   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=4.14.0-4bd34ba75977'))).historicalDataRequest(url);
+   const transport=syncHistoricalRequest(url)||(await (fullContentHashesPromise??=import('./native-content-hashes.js?v=4.15.0-a615a2b29c7a'))).historicalDataRequest(url);
    const pre=(typeof window!=='undefined'&&window.__meridianBootPrefetch?.[transport.url])||null;
    if(pre)delete window.__meridianBootPrefetch[transport.url];
    let response=null;
@@ -178,8 +178,8 @@ export class AtlasMap{
   if(this._detailLayersPromise)return this._detailLayersPromise;
   this._detailLayersPromise=(async()=>{
    const [{RegionalBoundaries:RB},{HistoricalDetailLayer:HD}]=await Promise.all([
-    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=4.14.0-4bd34ba75977'),
-    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=4.14.0-4bd34ba75977')
+    typeof RegionalBoundaries!=='undefined'?{RegionalBoundaries}:import('./regional-boundaries.js?v=4.15.0-a615a2b29c7a'),
+    typeof HistoricalDetailLayer!=='undefined'?{HistoricalDetailLayer}:import('./historical-detail.js?v=4.15.0-a615a2b29c7a')
    ]);
    if(this.destroyed)return false;
    if(this.regional?._isStub){
@@ -210,7 +210,7 @@ export class AtlasMap{
    if(this.geography._isStub&&typeof Geography==='undefined'){
     const stub=this.geography;
     this.geographyReady=(async()=>{
-     const {Geography:RealGeography}=await import('./geography.js?v=4.14.0-4bd34ba75977');
+     const {Geography:RealGeography}=await import('./geography.js?v=4.15.0-a615a2b29c7a');
      if(this.destroyed)return false;
      const geo=new RealGeography(this);geo.enabled=stub.enabled;geo.coastAligned=stub.coastAligned;geo.reference=stub.reference;this.geography=geo;
      const ok=await geo.init().then(()=>true).catch(()=>false);
@@ -237,7 +237,7 @@ export class AtlasMap{
   const seq=++this.request,selectedPopup=this.boundaries?.selectedPopup,selectedId=this.boundaries?.selectedId;this.lang=lang;await this.ready;
   let frame;do{frame=await this.boundaries.prepare(year,keep=>this.prepareOverview(year,()=>seq===this.request&&!this.destroyed&&(!keep||keep()),catalog));if(seq!==this.request||this.destroyed)return false;}while(frame.requested!==this.boundaries.mode);
   const restoreSelection=year===this.year&&selectedPopup&&selectedPopup===this.boundaries.selectedPopup;const records=activeRecords(catalog,year);this.setHover?.(null);this.upgradeLand();this.catalog=catalog;this.year=year;this.active=records;this.recordMap=new Map(records.map(r=>[r.id,r]));this.boundaries.commit(frame);
-  this.refreshLabels();this.upgradeDetail();this.places?.setYear(year,lang);this.battles?.setYear(year,lang);this.historical?.setYear(year,lang);this.regional?.setYear(year,lang);if(restoreSelection)this.boundaries.openRecord(selectedId);return records.length;
+  this.refreshLabels();this.upgradeDetail();this.places?.setYear(year,lang);this.battles?.setYear(year,lang);this.atrocities?.setYear(year,lang);this.historical?.setYear(year,lang);this.regional?.setYear(year,lang);if(restoreSelection)this.boundaries.openRecord(selectedId);return records.length;
  }
  renderGeometry(geos,high){
   if(this.boundaries?.isCountry)return;

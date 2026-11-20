@@ -1,10 +1,10 @@
-import {interiorPoint} from './geometry-anchor.js?v=4.14.0-4bd34ba75977';
-import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.14.0-4bd34ba75977';
-import {beginMapForeground} from './map-load-priority.js?v=4.14.0-4bd34ba75977';
+import {interiorPoint} from './geometry-anchor.js?v=4.15.0-a615a2b29c7a';
+import {boundaryPaint,boundaryHaloPaint,territoryOpacity} from './boundary-style.js?v=4.15.0-a615a2b29c7a';
+import {beginMapForeground} from './map-load-priority.js?v=4.15.0-a615a2b29c7a';
 
 const hasCountrySnapshot=year=>Number.isInteger(year)&&year>=1886&&year<=2023;
 let _countryMod=null,_countryModP=null;
-const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=4.14.0-4bd34ba75977').then(m=>(_countryMod=m)));
+const getCountryMod=()=>_countryMod?Promise.resolve(_countryMod):(_countryModP??=import('./country-archive.js?v=4.15.0-a615a2b29c7a').then(m=>(_countryMod=m)));
 const tr=(lang,zh,en)=>lang==='en'?en:zh;
 const make=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 export class BoundaryController{
@@ -94,7 +94,9 @@ export class BoundaryController{
   const zhName=countryName(r,'zh',frame.date),enName=countryName(r,'en',frame.date);
   node.append(make('small',`CShapes ${frame.catalog.version} · ${frame.catalog.coding}`,'historical-eyebrow'),make('h3',lang==='en'?enName:zhName));
   if(lang==='bi'&&zhName!==enName)node.append(make('p',enName));
-  const rulers=frame.records.filter(x=>x.code===r.ruledby&&x.status==='independent'),ruler=rulers.length===1?countryName(rulers[0],lang,frame.date):String(r.ruledby??'—');
+  const rulers=frame.records.filter(x=>x.code===r.ruledby&&x.status==='independent');
+  const rulerRec=rulers.length===1?rulers[0]:frame.records.find(x=>x.code===r.ruledby)||frame.catalog.records.find(x=>x.code===r.ruledby&&x.startDate<=frame.date)||frame.catalog.records.find(x=>x.code===r.ruledby);
+  const ruler=rulerRec?countryName(rulerRec,lang,frame.date):r.ruledby===0?tr(lang,'国际托管（来源代码 0）','International mandate (code 0)'):r.ruledby===1?tr(lang,'国际共管／联合国（来源代码 1）','UN / international administration (code 1)'):String(r.ruledby??'—');
   const alias=countryAlias(r,frame.date),dl=make('dl');if(alias)dl.append(make('dt',tr(lang,'档案原名','Source name')),make('dd',r.name));for(const [zh,en,value]of [['记录开始','Record begins',r.startDate],['记录结束','Record ends',r.endDate],['资料分类','Source classification',countryStatus(r.status,lang)],['首都／行政中心','Capital / administrative centre',r.capital||'—'],['统治归属','Recorded ruler',ruler],['来源面积','Source area',new Intl.NumberFormat(lang==='en'?'en':'zh-CN',{maximumFractionDigits:0}).format(r.area)+' km²']])dl.append(make('dt',tr(lang,zh,en)),make('dd',value));node.append(dl);
   const periods=frame.catalog.records.filter(x=>x.code===r.code).sort((a,b)=>a.startDate.localeCompare(b.startDate));
   const details=make('details'),summary=make('summary',tr(lang,`同一来源代码的 ${periods.length} 段记录`,`${periods.length} periods under this source code`));details.append(summary);

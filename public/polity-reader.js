@@ -1,11 +1,11 @@
-import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.14.0-4bd34ba75977';
-import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey,displayPolityName,displayPolityZh} from './polity-names.js?v=4.14.0-4bd34ba75977';
-import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.14.0-4bd34ba75977';
-import {placeName} from './places.js?v=4.14.0-4bd34ba75977';
-import {classifyStatement,recordGaps} from './fact-period.js?v=4.14.0-4bd34ba75977';
+import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.15.0-a615a2b29c7a';
+import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey,displayPolityName,displayPolityZh} from './polity-names.js?v=4.15.0-a615a2b29c7a';
+import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.15.0-a615a2b29c7a';
+import {placeName} from './places.js?v=4.15.0-a615a2b29c7a';
+import {classifyStatement,recordGaps} from './fact-period.js?v=4.15.0-a615a2b29c7a';
 export function statementApplies(s,year){return classifyStatement(s,year)==='selected';}
-import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.14.0-4bd34ba75977';
-import {nativeGeometry} from './native-geometry.js?v=4.14.0-4bd34ba75977';
+import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.15.0-a615a2b29c7a';
+import {nativeGeometry} from './native-geometry.js?v=4.15.0-a615a2b29c7a';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const readerUrlHost=u=>{try{return new URL(u).hostname;}catch{return '';}};
 const FIELDS={capital:['首都','Capital'],government:['政治体制','Government'],headsOfState:['国家元首','Heads of state'],headsOfGovernment:['政府首脑','Heads of government'],predecessors:['前身','Predecessors'],successors:['继承政体','Successors'],officialLanguages:['官方语言','Official languages'],spokenLanguages:['使用语言','Languages'],religion:['宗教','Religion'],currencies:['货币','Currencies'],continent:['所属洲','Continent'],inception:['条目起年','Entity start'],dissolution:['条目终年','Entity end']};
@@ -19,7 +19,11 @@ const FACT_ZH_FIX=new Map([
  ['Serbian perper','塞尔维亚佩尔佩尔'],['Neapolitan lira','那不勒斯里拉'],['Sudanese dinar','苏丹第纳尔'],
  ['Malawian pound','马拉维镑'],['Malagasy franc','马达加斯加法郎'],['Central American Republic real','中美洲共和国雷亚尔'],
  ['Said rial','赛义德王朝里亚尔'],['Rwanda and Burundi franc','卢旺达与布隆迪法郎'],
- ['Manyakheta','曼雅凯塔'],['Bobovac','博博瓦茨'],['Turki','察合台语（突厥语）']
+ ['Manyakheta','曼雅凯塔'],['Bobovac','博博瓦茨'],['Turki','察合台语（突厥语）'],
+ ['Mosquitia','米斯基托海岸'],['Taifa of Mértola','梅尔托拉泰法'],['Duchy of Brescia','布雷西亚公国'],
+ ['Jaitpur State','贾伊特布尔土邦'],['Italian United Provinces','意大利联合省'],
+ ['Musunuri Nayaks','穆苏努里纳亚克王朝'],['Trizone','三占区（西德三占区）'],
+ ['Kingdom of Spain','西班牙王国'],['Jaoli State','焦利土邦'],['ceiniog','凯尼奥格（威尔士便士）']
 ]);
 export const visibleStatement=s=>['qualified','unscoped','dated_entity_fact'].includes(s.displayGroup)&&s.snakType==='value';
 export const supplementalStatement=s=>s.displayGroup==='unreferenced'&&s.snakType==='value'&&s.rank!=='deprecated';
