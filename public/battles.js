@@ -1,4 +1,4 @@
-import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.13.0-f69e1c6cb88b';
+import {readJSON,formatYear,civilYear} from './map-engine.js?v=4.14.0-4bd34ba75977';
 
 const BATTLE_ZH_GLOSSARY=new Map([
  ['Canaanites','迦南人'],['Hatti','赫梯'],['ancient Greeks','古希腊各邦'],['Styra','斯蒂拉'],
@@ -87,6 +87,25 @@ export function battleLabels(zhArr,enArr,lang='bi'){
  const list=(Array.isArray(raw)?raw:raw?[raw]:[]).filter(v=>v&&!IGNORED_BATTLE_LABELS.has(v)&&!/^Q\d+$/.test(v));
  if(lang==='en')return list;
  return list.map(v=>BATTLE_ZH_GLOSSARY.get(v)||v);
+}
+const WEST_ASIA_COUNTRIES=new Set(['Syria','Iraq','Iran','Lebanon','Israel','Palestine','Jordan','Saudi Arabia','Yemen','Oman','Kuwait','Bahrain','Qatar','United Arab Emirates','Cyprus','Armenia','Georgia','Azerbaijan']);
+const NORTH_AFRICA_COUNTRIES=new Set(['Tunisia','Algeria','Morocco','Libya']);
+// Correct coarse rectangular coordinate-box edge overlaps (Levant/Mesopotamia/Arabia/Anatolia/Tunisia)
+// at display time without modifying the immutable battles.json.gz archive.
+export function battleRegion(b){
+ if(!b)return '';
+ const [lon,lat]=b.coordinates||[],countries=Array.isArray(b.countries)?b.countries:[];
+ if(Number.isFinite(lon)&&Number.isFinite(lat)){
+  if(b.region==='africa'){
+   if((lat>=30&&lon>=33.5&&lon<=65)||(lat>=12.5&&lat<30&&lon>32.5+(30-lat)*0.64&&lon<=65))return 'west-central-asia';
+  }
+  if(b.region==='europe'){
+   if(lat<=37.5&&lon>=-18&&lon<=12&&countries.some(c=>NORTH_AFRICA_COUNTRIES.has(c)))return 'africa';
+   if((lat<=43&&lon>=33.5&&lon<=65)||(lat>=35.5&&lat<=40.5&&lon>=26.5&&lon<33.5&&countries.includes('Turkey'))||(lat>=35.5&&lat<=41.2&&lon>=29.0&&lon<33.5&&countries.includes('Turkey')))return 'west-central-asia';
+   if(countries.some(c=>WEST_ASIA_COUNTRIES.has(c))&&!countries.includes('Greece')&&!countries.includes('Russia'))return 'west-central-asia';
+  }
+ }
+ return b.region||'';
 }
 
 // Battles are a dated point layer, not a boundary layer. Every record keeps the

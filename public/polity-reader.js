@@ -1,14 +1,26 @@
-import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.13.0-f69e1c6cb88b';
-import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey,displayPolityName,displayPolityZh} from './polity-names.js?v=4.13.0-f69e1c6cb88b';
-import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.13.0-f69e1c6cb88b';
-import {placeName} from './places.js?v=4.13.0-f69e1c6cb88b';
-import {classifyStatement,recordGaps} from './fact-period.js?v=4.13.0-f69e1c6cb88b';
+import {researchPlatesHTML,platesForRecord} from './research-map-plates.js?v=4.14.0-4bd34ba75977';
+import {polityNameEvidence,polityNameSources,polityEntityAllowed,polityNameGroupKey,displayPolityName,displayPolityZh} from './polity-names.js?v=4.14.0-4bd34ba75977';
+import {polityPlaces,filterPolityPlaces} from './polity-places.js?v=4.14.0-4bd34ba75977';
+import {placeName} from './places.js?v=4.14.0-4bd34ba75977';
+import {classifyStatement,recordGaps} from './fact-period.js?v=4.14.0-4bd34ba75977';
 export function statementApplies(s,year){return classifyStatement(s,year)==='selected';}
-import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.13.0-f69e1c6cb88b';
-import {nativeGeometry} from './native-geometry.js?v=4.13.0-f69e1c6cb88b';
+import {readJSON,recordDetail,formatYear,polityName,wikipediaURL} from './map-engine.js?v=4.14.0-4bd34ba75977';
+import {nativeGeometry} from './native-geometry.js?v=4.14.0-4bd34ba75977';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const readerUrlHost=u=>{try{return new URL(u).hostname;}catch{return '';}};
 const FIELDS={capital:['首都','Capital'],government:['政治体制','Government'],headsOfState:['国家元首','Heads of state'],headsOfGovernment:['政府首脑','Heads of government'],predecessors:['前身','Predecessors'],successors:['继承政体','Successors'],officialLanguages:['官方语言','Official languages'],spokenLanguages:['使用语言','Languages'],religion:['宗教','Religion'],currencies:['货币','Currencies'],continent:['所属洲','Continent'],inception:['条目起年','Entity start'],dissolution:['条目终年','Entity end']};
+const FACT_ZH_FIX=new Map([
+ ['aristocratic monarchy','贵族君主制'],['federal parliamentary republic','联邦议会共和制'],
+ ['aristocratic republic','贵族共和制'],['patrimonial monarchy','家产君主制'],
+ ['early feudal monarchy','早期封建君主制'],['absolute theocratic monarchy','绝对神权君主制'],
+ ['commonwealth','联邦／共和体'],['asymmetric federalism','不对称联邦制'],['pactism','契约宪政制'],
+ ['Hittite religion','赫梯宗教'],['Longhouse Religion','长屋宗教'],['Heaven worship','敬天信仰'],
+ ['Bukharan tenga','布哈拉腾格'],['Libyan pound','利比亚镑'],['Japanese mon','日本文钱'],
+ ['Serbian perper','塞尔维亚佩尔佩尔'],['Neapolitan lira','那不勒斯里拉'],['Sudanese dinar','苏丹第纳尔'],
+ ['Malawian pound','马拉维镑'],['Malagasy franc','马达加斯加法郎'],['Central American Republic real','中美洲共和国雷亚尔'],
+ ['Said rial','赛义德王朝里亚尔'],['Rwanda and Burundi franc','卢旺达与布隆迪法郎'],
+ ['Manyakheta','曼雅凯塔'],['Bobovac','博博瓦茨'],['Turki','察合台语（突厥语）']
+]);
 export const visibleStatement=s=>['qualified','unscoped','dated_entity_fact'].includes(s.displayGroup)&&s.snakType==='value';
 export const supplementalStatement=s=>s.displayGroup==='unreferenced'&&s.snakType==='value'&&s.rank!=='deprecated';
 export function bindingAllowsProfile(binding,r,year){return polityEntityAllowed(r,year)&&!!binding&&binding.qid===r.verifiedWikidata&&r.nameTranslationStatus!=='ambiguous_source_period'&&binding.safeToApplyYearFacts!==false&&binding.temporalCompatibility?.status!=='potential_conflict'&&binding.temporalCompatibility!=='potential_conflict';}
@@ -101,7 +113,7 @@ export class PolityReader{
  dateValue(d){if(!d||!Number.isInteger(d.civilYear)||!d.civilYear)return '';return (d.precision<9||d.before||d.after?this.t('约 ','c. '):'')+this.year(d.civilYear);}
  scopeText(s){const t=s.temporal||{},dates=k=>(t[k]||[]).map(v=>this.dateValue(v)).filter(Boolean),a=dates('start'),b=dates('end'),p=dates('point'),earliest=dates('earliest'),latest=dates('latest');const scope=p.length?p.join(' / '):a.length||b.length?`${a.join(' / ')||this.t('起年未详','Start unspecified')} — ${b.join(' / ')||this.t('终年未详','End unspecified')}`:'';return [scope,earliest.length?this.t('不早于 ','No earlier than ')+earliest.join(' / '):'',latest.length?this.t('不晚于 ','No later than ')+latest.join(' / '):''].filter(Boolean).join(' · ');}
  qualifierNotes(s){const names={P122:['政治体制','Government'],P2348:['时期','Period'],P518:['适用部分','Applies to part'],P642:['涉及','Of'],P1001:['适用地区','Jurisdiction'],P459:['判定依据','Method'],P1480:['表述条件','Qualification'],P5102:['表述条件','Qualification'],P805:['关联条目','Related entry']};return (s.qualifiers||[]).filter(q=>names[q.property]&&q.snakType==='value'&&(q.value?.label?.zh||q.value?.label?.en)).map(q=>`<small>${this.t(...names[q.property])} · ${esc(this.lang==='en'?(q.value.label.en||q.value.label.zh):(q.value.label.zh||q.value.label.en))}</small>`).join('');}
- valueHTML(s){const v=s.value;let value;if(v.type==='time')value=esc(this.dateValue(v.time));else if(v.label)value=this.bi(v.label);else value=esc(v.raw||'');if(v.id)value=`<a href="https://www.wikidata.org/wiki/${esc(v.id)}" target="_blank" rel="noopener">${value}</a>`;return `${value}<a class="source-ref" href="${esc(s.sourceUrl)}" target="_blank" rel="noopener" aria-label="${this.t('查阅此项来源','Source for this fact')}">↗</a>`;}
+ valueHTML(s){const v=s.value;let value;if(v.type==='time')value=esc(this.dateValue(v.time));else if(v.label){const zhRaw=v.label.zh||'',enRaw=v.label.en||'',mapped=!zhRaw||!/[\u3400-\u9fff]/.test(zhRaw)?FACT_ZH_FIX.get(enRaw)||displayPolityZh(enRaw):'';value=this.bi(mapped?{zh:mapped,en:enRaw}:v.label);}else value=esc(v.raw||'');if(v.id)value=`<a href="https://www.wikidata.org/wiki/${esc(v.id)}" target="_blank" rel="noopener">${value}</a>`;return `${value}<a class="source-ref" href="${esc(s.sourceUrl)}" target="_blank" rel="noopener" aria-label="${this.t('查阅此项来源','Source for this fact')}">↗</a>`;}
  factRows(keys,supplemental=false,group='all'){return keys.map(k=>{const vals=this.fieldValues(k,supplemental).filter(s=>group==='all'||classifyStatement(s,this.whichMap.year,k)===group);if(!vals.length)return '';return `<div class="fact-row"><dt>${this.t(...FIELDS[k])}</dt><dd>${vals.map(s=>`<span class="fact-value">${this.valueHTML(s)}${this.qualifierNotes(s)}${this.scopeText(s)?`<small>${esc(this.scopeText(s))}</small>`:''}</span>`).join('')}</dd></div>`;}).join('');}
  currentFacts(keys){const rows=this.factRows(keys,false,'selected');return rows?`<h3>${this.t('这一年的资料','Recorded for this year')} <small>${this.year(this.whichMap.year)}</small></h3><dl class="fact-list" data-fact-period="selected">${rows}</dl>`:'';}
  archiveFacts(keys,supplemental=false){
