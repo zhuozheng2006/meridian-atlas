@@ -12,13 +12,14 @@ const realPlace=readData('places/urban-observations').cities.find(p=>p.id==='cha
 assert(realEvent&&realPolity&&realPlace,'Required real historical fixtures exist');
 const flush=()=>new Promise(r=>setImmediate(r));
 let researchState,polityNames,chgis,china,awmc,mapCatalogModule;
-function context(hash=''){
+function context(hash='',loadFixtureModule){
  const nodes=new Map(),keyListeners=[],eventListeners=new Map();
  const node=()=>({hidden:true,innerHTML:'',textContent:'',value:'',style:{},dataset:{},isConnected:true,scrollTop:0,focus(){},replaceChildren(){},append(){},insertAdjacentHTML(){},closest(){return null},matches(){return false},click(){this.onclick?.({target:this})},classList:{toggle(){},add(){},remove(){},contains(){return false}},setAttribute(k,v){this[k]=v},addEventListener(){},querySelector(s){return document.querySelector(s)},querySelectorAll(){return []}});
  const document={createElement:node,querySelector(s){if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)},querySelectorAll(){return []},body:node(),documentElement:node(),addEventListener(type,fn){if(type==='keydown')keyListeners.push(fn);if(!eventListeners.has(type))eventListeners.set(type,[]);eventListeners.get(type).push(fn)}};
- const location={hash,href:'https://example.test/'+hash};
- const c=vm.createContext({...mapCatalogModule,readMapCatalog:url=>JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(ROOT,url)))),...researchState,...polityNames,...chgis,...china,...awmc,console,document,window:{},location,history:{replaceState(a,b,url){location.hash=url;location.href='https://example.test/'+url;}},URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null,prefetchNativeFrame:async()=>false});
- for(const name of files){const code=snapshots[name].replace(/^import .*$/gm,'').replace(/^export \{[^}\n]*\};?$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');vm.runInContext(code,c,{filename:name});}
+ const location=new URL(hash,'https://example.test/');
+ const history={state:null,replaceState(state,_,url){this.state=structuredClone(state);if(url!==undefined)location.href=new URL(url,location).href;}};
+ const c=vm.createContext({...mapCatalogModule,readMapCatalog:url=>JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(ROOT,url)))),...researchState,...polityNames,...chgis,...china,...awmc,console,document,window:{},location,history,loadFixtureModule,URLSearchParams,URL,setTimeout,clearTimeout,addEventListener(){},requestAnimationFrame:f=>f(),innerWidth:1200,Map,Set,realCatalog,realEvents,realEvent,realPolity,realPlace,keyListeners,eventListeners,cityNarrative:async()=>null,prefetchNativeFrame:async()=>false});
+ for(const name of files){let code=snapshots[name].replace(/^import .*$/gm,'').replace(/^export \{[^}\n]*\};?$/gm,'').replace(/\bexport (?=(?:const|function|async function|class)\b)/g,'').replace(/^init\(\);$/m,'');if(loadFixtureModule)code=code.replace(/\bimport\(/g,'loadFixtureModule(');vm.runInContext(code,c,{filename:name});}
  vm.runInContext(`
  globalThis.renderLog=[];globalThis.focusLog=[];globalThis.readerOptions=[];globalThis.originalBindLayers=bindLayers;globalThis.originalRenderYear=renderYear;
  const makeMap=()=>({year:1492,lang:state.lang,geometryKey:'o',active:[],map:{camera:{center:[25,18],zoom:2,bearing:0,pitch:0},resize(){},getCenter(){const a=this.camera.center;return {lng:a[0],lat:a[1],toArray(){return a}}},getZoom(){return this.camera.zoom},getBearing(){return this.camera.bearing},getPitch(){return this.camera.pitch},jumpTo(camera){const center=camera.center;this.camera={...this.camera,...camera,...(center?{center:Array.isArray(center)?center:[center.lng,center.lat]}:{})}},on(){},off(){}},places:{select(p){this.selected=p},toggle(){},setModern(){},setYear(){}},geography:{toggle(){},alignCoast(){},setReference(){}},selectPolity(){},refreshLabels(){},toggleBorders(){},projection(){},setEvents(){},destroy(){this.destroyed=true},async setYear(c,y,lang){this.year=y;this.lang=lang;return 1},fly(lon,lat,zoom){this.map.camera={...this.map.camera,center:[lon,lat],zoom}},focusPolity(r){focusLog.push(r.id);this.map.camera={...this.map.camera,center:r.center||[10,20],zoom:3}}});
@@ -50,6 +51,32 @@ async function run(){
  china=await import(require('node:url').pathToFileURL(path.join(ROOT,'china-prefectures.js')));
  chgis=await import(require('node:url').pathToFileURL(path.join(ROOT,'chgis-boundaries.js')));
  polityNames=await import(require('node:url').pathToFileURL(path.join(ROOT,'polity-names.js')));
+ await test('Back restores the directory through cold boot and repeated traversal, while switching to the atlas clears it',async()=>{
+  const saved={query:'Zhou',year:'742',status:'pending',shown:40,expanded:['742-29','742-64'],focus:'742-64'};
+  let entry={atlasDivisionDirectory:saved,other:1},hash='#view=sources&lang=en';
+  for(let traversal=0;traversal<2;traversal++){
+   const mounted=[];
+   const c=context(hash,async name=>{
+    if(name.startsWith('./source-reader.js?'))return {sourcesHTML:()=>'<details id="chinaNameLedger"></details>'};
+    if(name.startsWith('./china-name-ledger.js?'))return {mountDivisionLedger:(_host,_lang,_id,snapshot)=>mounted.push(snapshot)};
+    if(name.startsWith('./battles.js?'))return {loadBattles:async()=>[]};
+    if(name.startsWith('./atrocities.js?'))return {loadAtrocities:async()=>null};
+    throw Error('Unexpected module '+name);
+   });
+   c.history.replaceState(entry,'');
+   value(c,'prepareInit()');
+   await value(c,'startApplication().ready');
+   const ledger=c.document.querySelector('#chinaNameLedger');
+   assert.equal(ledger.open,true,'The initial year render must preserve the directory before Sources mounts');
+   await ledger.ontoggle();
+   assert.deepEqual(mounted,[saved]);
+   assert.equal(new URLSearchParams(c.location.hash.slice(1)).get('view'),'sources');
+   entry=structuredClone(c.history.state);hash=c.location.hash;
+   assert.deepEqual(entry,{other:1,atlasDivisionDirectory:saved});
+   assert.equal(await value(c,"showView('atlas')"),true);
+   assert.deepEqual(c.history.state,{other:1});
+  }
+ });
  for(const side of ['left','right'])await test(`city to polity navigation opens the ${side} dossier`,async()=>{
   const c=context();value(c,`state.selectedPlace=realPlace;state.selectedSide='${side}';state.view='polities';panel().hidden=false;${side==='right'?"state.compare=true;compareMap=makeMap();state.compareYear=1492;":''}`);
   await value(c,`jumpPolity(realPolity,${side==='right'?'compareMap':'atlas'})`);
