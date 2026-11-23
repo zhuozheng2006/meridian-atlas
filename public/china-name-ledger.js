@@ -1,6 +1,6 @@
 // Only the Sources panel imports this module, after the reader opens the index.
-import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.19.1-3bac421450c1';
-import {reviewedChinaName} from './china-name-reviews.js?v=4.19.1-3bac421450c1';
+import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.20.0-0e76383830fd';
+import {reviewedChinaName} from './china-name-reviews.js?v=4.20.0-0e76383830fd';
 
 const pageSize = 20;
 const normalize = value => String(value ?? '').normalize('NFKD').replace(/\p{M}/gu, '').replace(/['’]/g, '').toLowerCase().trim();
@@ -34,9 +34,23 @@ export function divisionMapLink(record, lang) {
   });
 }
 
+// PrefNAM is the published spelling. Keep punctuation, accents and suffixes
+// intact here even though the directory search accepts approximate spellings.
+export function groupSourceSpellings(rows) {
+  const groups = new Map();
+  for (const row of rows) {
+    const spelling = row.record.sourceRecord.PrefNAM;
+    if (!spelling) continue;
+    if (!groups.has(spelling)) groups.set(spelling, []);
+    groups.get(spelling).push(row);
+  }
+  return groups;
+}
+
 export async function mountDivisionLedger(host, lang, initialId = '', saved = null) {
   const rows = divisionRows(await readChinaIndex());
   if (!host.isConnected) return;
+  const groups = groupSourceSpellings(rows);
   const t = (zh, en) => lang === 'en' ? en : zh;
   host.innerHTML = `<div class="quality-controls">
     <label>${t('名称、来源拼写或编号','Name, source spelling or ID')}<input type="search"></label>
@@ -51,47 +65,117 @@ export async function mountDivisionLedger(host, lang, initialId = '', saved = nu
   let matches = [], shown = 0;
   const rendered = new Map();
   const expanded = new Set(Array.isArray(saved?.expanded) ? saved.expanded : []);
+  const comparisons = new Set(Array.isArray(saved?.comparisons) ? saved.comparisons : []);
 
-  function remember(focus) {
+  function remember(focus, comparisonTarget = '', focusType = 'map') {
     const open = [...rendered].filter(([, row]) => row.evidence.open).map(([key]) => key);
+    const comparisons = [...rendered].filter(([, row]) => row.comparison?.open).map(([key]) => key);
     history.replaceState({...history.state, atlasDivisionDirectory: {
-      query: input.value, year: year.value, status: status.value, shown, expanded: open, focus
+      query: input.value, year: year.value, status: status.value, shown, expanded: open, comparisons, focus, comparisonTarget, focusType
     }}, '');
   }
   function refreshReturn() {
     const prior = history.state?.atlasDivisionDirectory;
-    if (prior && host.isConnected) remember(rendered.has(prior.focus) ? prior.focus : '');
+    if (!prior || !host.isConnected) return;
+    const row = rendered.get(prior.focus);
+    remember(row ? prior.focus : '', row?.comparison?.open ? prior.comparisonTarget : '', prior.focusType);
+  }
+
+  function rowLinks(row, origin) {
+    const {record, PrefID, en, zh} = row;
+    const id = record.year + '-' + PrefID;
+    const name = lang === 'en' ? en : zh || en;
+    const links = {};
+    for (const type of ['record', 'map']) {
+      const link = document.createElement('a');
+      const isMap = type === 'map';
+      link.href = isMap ? divisionMapLink(record, lang) : './?division=' + id + '#view=sources&lang=' + lang;
+      const action = isMap ? t('在地图定位', 'Locate on map') : t('这条考证的固定链接', 'Permalink to this review');
+      link.textContent = isMap ? action : '#' + id;
+      const label = origin ? name + ' · ' + id : isMap ? name + ' · ' + record.year : id;
+      link.setAttribute('aria-label', action + ' · ' + label);
+      link.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        remember(origin || id, origin ? id : '', type);
+      });
+      links[type] = link;
+    }
+    return links;
+  }
+
+  function comparisonFor(group, origin, originName, rowState) {
+    const details = document.createElement('details');
+    details.className = 'division-comparison';
+    const summary = document.createElement('summary');
+    const spelling = group[0].record.sourceRecord.PrefNAM;
+    summary.textContent = t('比较同拼写记录（' + group.length + '）', 'Compare matching spellings (' + group.length + ')');
+    summary.setAttribute('aria-label', summary.textContent + ' · ' + spelling);
+    details.append(summary);
+    rowState.comparison = details;
+    const draw = () => {
+      if (!details.open || rowState.peers) return;
+      rowState.peers = new Map();
+      const wrap = document.createElement('div');
+      wrap.className = 'division-comparison-table';
+      const table = document.createElement('table');
+      const caption = document.createElement('caption');
+      caption.textContent = t('来源拼写', 'Source spelling') + ' · ' + spelling;
+      const head = document.createElement('thead'), headers = document.createElement('tr');
+      for (const label of [t('目录名称与编号', 'Directory name and ID'), t('来源上级区划', 'Parent division in source'), t('核查状态', 'Review status'), t('地图', 'Map')]) {
+        const th = document.createElement('th'); th.scope = 'col'; th.textContent = label; headers.append(th);
+      }
+      head.append(headers);
+      const body = document.createElement('tbody');
+      for (const peer of group) {
+        const {record, review, zh, en, PrefID} = peer, id = record.year + '-' + PrefID;
+        const tr = document.createElement('tr'), name = document.createElement('th');
+        name.scope = 'row';
+        if (id === origin) tr.setAttribute('aria-current', 'true');
+        name.textContent = lang === 'zh' ? zh || en : [zh, en].filter(Boolean).join(' · ');
+        const reference = document.createElement('small');
+        const links = rowLinks(peer, origin);
+        reference.append(t('公元 ' + record.year + ' 年', record.year + ' CE') + ' · ', links.record);
+        name.append(reference);
+        const parent = document.createElement('td'), status = document.createElement('td'), map = document.createElement('td');
+        parent.textContent = record.sourceRecord.ProvNAM;
+        status.textContent = review ? t('已核准','Verified') : t('待考','Under review');
+        map.append(links.map); tr.append(name, parent, status, map); body.append(tr);
+        rowState.peers.set(id, links);
+      }
+      table.append(caption, head, body); wrap.append(table);
+      const back = document.createElement('button');
+      back.type = 'button'; back.textContent = t('返回', 'Return to ') + originName;
+      back.onclick = () => {details.open = false; summary.focus();};
+      details.append(wrap, back);
+    };
+    details.addEventListener('toggle', draw);
+    if (comparisons.has(origin)) {details.open = true; draw();}
+    return details;
   }
 
   function addPage(amount = pageSize) {
     const end = Math.min(shown + amount, matches.length);
     const page = document.createDocumentFragment();
-    for (const {record, review, zh, en, PrefID} of matches.slice(shown, end)) {
+    for (const row of matches.slice(shown, end)) {
+      const {record, review, zh, en, PrefID} = row;
       const item = document.createElement('li');
       const name = document.createElement('strong');
       name.textContent = lang === 'en' ? en : zh || en;
       const meta = document.createElement('span');
       const original = record.sourceRecord.PrefNAM;
       const id = record.year + '-' + PrefID;
-      const permalink = document.createElement('a');
-      permalink.href = './?division=' + id + '#view=sources&lang=' + lang;
-      permalink.textContent = '#' + id;
-      permalink.setAttribute('aria-label', t('这条考证的固定链接','Permalink to this review') + ' · ' + id);
+      const group = groups.get(original);
+      const {record: permalink, map: locate} = rowLinks(row);
       meta.textContent = [name.textContent !== original ? original : '', t('公元 ' + record.year + ' 年', record.year + ' CE'),
+        group?.length > 1 ? record.sourceRecord.ProvNAM : '',
         review ? t('已核准','Verified') : t('待考','Under review')].filter(Boolean).join(' · ');
-      const locate = document.createElement('a');
-      locate.href = divisionMapLink(record, lang);
-      locate.textContent = t('在地图定位', 'Locate on map');
-      locate.setAttribute('aria-label', t('在地图定位', 'Locate on map') + ' · ' + name.textContent + ' · ' + record.year);
       meta.append(' · ', permalink);
       const evidence = createChinaReviewDetails(record, review, lang);
       evidence.open = saved ? expanded.has(id) : initialId === id;
-      rendered.set(id, {locate, evidence});
-      locate.addEventListener('click', event => {
-        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-        remember(id);
-      });
+      const rowState = {map: locate, record: permalink, evidence};
+      rendered.set(id, rowState);
       item.append(name, meta, locate, evidence);
+      if (group?.length > 1) item.append(comparisonFor(group, id, name.textContent, rowState));
       page.append(item);
     }
     list.append(page);
@@ -131,10 +215,13 @@ export async function mountDivisionLedger(host, lang, initialId = '', saved = nu
   list.addEventListener('toggle', refreshReturn, true);
   filter(Number.isSafeInteger(saved?.shown) ? Math.max(pageSize, saved.shown) : pageSize);
   if (saved) {
-    const link = rendered.get(saved.focus)?.locate;
+    const row = rendered.get(saved.focus);
+    const links = row?.peers?.get(saved.comparisonTarget) || row;
+    const link = links?.[saved.focusType === 'record' ? 'record' : 'map'];
     link?.focus({preventScroll: true});
     link?.scrollIntoView({block: 'nearest'});
     expanded.clear();
+    comparisons.clear();
     saved = null;
   }
 }

@@ -2,7 +2,7 @@
 
 中英文双语世界历史图集。沿时间轴浏览历史疆域，在地形与城市之间探索国家、文明、事件及原始资料。
 
-**当前版本：4.19.1** · [打开在线图集](https://zhuozheng2006.github.io/meridian-atlas/) · [进度与验证记录](docs/HANDOFF-4.19.md) · [文档导航](docs/INDEX.md) · [来源与许可](ATTRIBUTIONS.md)
+**当前版本：4.20.0** · [打开在线图集](https://zhuozheng2006.github.io/meridian-atlas/) · [进度与验证记录](docs/HANDOFF-4.20.md) · [文档导航](docs/INDEX.md) · [来源与许可](ATTRIBUTIONS.md)
 
 ![孔雀王朝地图与学术原图入口](docs/verification-3.58/browser/maurya.png)
 
@@ -13,7 +13,7 @@
 - 历史事件、古代地点、离散城市人口记录、有据遗址与城市篇章；通过 `PLACE_ZH_EDITORIAL` 派生映射为 **841 处**上古文明腹地与近世城镇（实现 Chandler / Modelski 全量非隔离 `urban-observations` 城市 100% 中文名覆盖）及高频古典聚落（Pleiades `ref >= 20`）补齐权威中文名称，并将 **13 条**经纬度或半球符号错位的上游条目纳入 `PLACE_COORD_QUARANTINE` 隔离，同时保留原始档案只读不变；现代地形和地理参照单独组织。
 - 多图层精确避让与双语检索分级：[`PlaceLayer.refresh()`](public/places.js) 综合三行字符与人口年份标尺测量实际宽度以消除密集区城市徽标碰撞，[`AtlasMap.refreshLabels()`](public/map-engine.js) 同步重算战役与暴行点位与政体标签／图钉间隙并在镜头平移／缩放过程维持 50 ms 动态避让与球面地平线剔除，侧栏搜索按“政体检索 -> 城市与遗址（精选 Top 6）-> 历史事件 -> 战役”分层排序。
 - 新增西亚罗马时期详图：公元117、200年AWMC疆域与200年行省线，保留原始坐标和来源下载。
-- 汉唐地名目录可按中文名、来源拼写和编号查找 420 个区划，可直接在地图上查看所选区划的边界和史料。浏览器后退会回到刚才的检索结果和条目。当前已核准 371 项（西汉 103 项、盛唐 268 项），另外 49 项保留为待考，逐条附双语理由和出处。[示例：742 年武峨郡](https://zhuozheng2006.github.io/meridian-atlas/?division=742-10#view=sources&lang=zh)
+- 汉唐地名目录可按中文名、来源拼写和编号查找 420 个区划，可直接在地图上查看所选区划的边界和史料。浏览器后退会回到刚才的检索结果和条目。共享来源拼写的记录可并排对照年份、上级地区和编号，考证列出各版史籍的户口数及原文链接。当前已核准 373 项（西汉 103 项、盛唐 270 项），另外 47 项保留为待考，逐条附双语理由和出处。[示例：742 年武峨郡](https://zhuozheng2006.github.io/meridian-atlas/?division=742-10#view=sources&lang=zh)
 - 南亚学术地图研读入口：孔雀王朝、笈多与伐迦陀迦及早期大国三组馆藏高清图版，附线性/非线性多项式配准敏感性与 9 处 Pleiades 站点叠合残差审计及跨时代全球年表核查；保留分期、图例与来源说明。
 - 首屏按 25 年分包、精简事件索引（40.6 KB）、全时段政体检索索引（78 KB）与 64 桶分片加载，内容指纹拆分出仅 **1.55 KB** 的 [`bootstrap-content-hashes.js`](public/bootstrap-content-hashes.js) 并在 `<head>` 提前 `modulepreload`，使 `1.5 Mbps / 150ms` 弱网下核心年度疆域包较 `v3.70` 再提前 ~159 ms 发起；移除 `<head>` 对非首屏关键路径的 `maplibre-gl.css` 阻塞，使 `maplibre-gl.js`（247 KB）率先进入首波并发通道（研究模式 `#view=research` 零地图 CSS/JS 传输）。
 - 黑曜石×黄铜风格全界面设计：主地图采用磨砂黑曜石 `.map-heading` 年份题签卡与胶囊拨片开关、毛玻璃 `.map-notice` 与 `.regional-controls`、质感胶囊化 `.maplibregl-ctrl-scale` 比例尺、顶部金线悬停放大卡 `.map-hover-card`、Obsidian × Brass 地区详情浮窗 `.historical-popup`（含胶囊来源链接）、专题导览 `.story-bar` 进度条与分步导航控制器、卡片化地点／政体／检索／研究（`.seshat-research-reader`）抽屉与 `<kbd>` 快捷键帮助窗 `#helpDialog`、双图对比年份差徽章与一键互换、移动端时代栏自动居中与年表／资料页统一卡片表格系统。
@@ -63,7 +63,7 @@ npm run build
 
 ## 范围与来源
 
-全球疆域档案主要覆盖公元前3400年至公元2024年；事件时间轴延伸到史前和当代。不同地区、年代与图层的覆盖和精度并不一致。现代地形不是古代地貌重建，年度边界也不等于逐日政治疆域。历史数据的覆盖范围见[数据核查记录](docs/HANDOFF-3.84.md)，近期进度见[4.19 交接](docs/HANDOFF-4.19.md)。
+全球疆域档案主要覆盖公元前3400年至公元2024年；事件时间轴延伸到史前和当代。不同地区、年代与图层的覆盖和精度并不一致。现代地形不是古代地貌重建，年度边界也不等于逐日政治疆域。历史数据的覆盖范围见[数据核查记录](docs/HANDOFF-3.84.md)，近期进度见[4.20 交接](docs/HANDOFF-4.20.md)。
 
 原创应用代码采用 MIT；历史数据、原始文献、字体及第三方库各自保留其来源和许可，包括部分非商业数据。具体见 [LICENSE](LICENSE) 和 [ATTRIBUTIONS.md](ATTRIBUTIONS.md)。
 

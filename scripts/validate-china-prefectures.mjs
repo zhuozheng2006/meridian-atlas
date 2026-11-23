@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
 import {chinaWindowFor,chinaSnapshotYear,readChinaSnapshot,readChinaFeature,chinaRecord,chinaRecordPanel,createChinaReviewDetails} from '../public/china-prefectures.js';
+import {reviewSourceURL} from '../public/china-source-targets.js';
 import {interiorPoint,pointInGeometry} from '../public/geometry-anchor.js';
 import {regionalWindowFor,regionalVisible,RegionalBoundaries} from '../public/regional-boundaries.js';
 const root='public/data/china-prefectures/',read=f=>JSON.parse(gunzipSync(fs.readFileSync(root+f))),manifest=JSON.parse(fs.readFileSync(root+'manifest.json')),index=read('index.json.gz'),hash=b=>createHash('sha256').update(b).digest('hex');
@@ -40,6 +41,23 @@ try{
  try{
   const record=index.records.find(r=>r.id==='china-prefecture-742-117');
   const audit=JSON.parse(fs.readFileSync(root+'name-audit.json'));
+  const captures=new Map();
+  for(const version of ['3.62','3.63','3.64']){
+   const report=JSON.parse(fs.readFileSync('docs/verification-'+version+'/han-tang-name-evidence.json'));
+   for(const capture of report.primarySourceCaptures)captures.set(capture.file,capture);
+  }
+  const captured=audit.identityChecks.filter(check=>check.captureFile);
+  for(const check of captured){
+   const citation=captures.get(check.captureFile);
+   assert.equal(citation.sha256,check.captureSha256);
+   assert.equal(String(citation.oldid),String(check.oldid));
+   const record=audit.records.find(r=>r.id===check.id);
+   const sources=record.sources.filter(s=>s.url.split('#')[0]===citation.baseUrl);
+   assert.equal(sources.length,1,check.id);
+   assert.equal(sources[0].populationInText,check.populationInText,check.id);
+   if(Number.isSafeInteger(check.householdsInText))assert.equal(sources[0].householdsInText,check.householdsInText,check.id);
+  }
+  assert(captured.length>=220);
   const evidence=audit.deferred.find(row=>row.id===record.id);
   const panel=chinaRecordPanel(byId742.get(record.id),'zh',()=>{});
   const details=panel.children.find(el=>el.className==='historical-review-details');
@@ -56,7 +74,10 @@ try{
   assert.match(details.textContent,/249109/);assert.match(details.textContent,/269109/);
   assert.equal(listDetails.children[1].children[0].textContent.trim(),evidence.reasonEn);
   assert(evidence.reasonEn,'This deferred record should explain the discrepancy in English');
-  assert.deepEqual(details.children[1].children.at(-1).children.map(a=>a.href),evidence.sources.map(source=>source.url));
+  const sourceRows=details.children[1].children.at(-1).children.at(-1).children;
+  assert.deepEqual(sourceRows.map(row=>row.children[0].href),evidence.sources.map(reviewSourceURL));
+  assert.deepEqual(sourceRows.map(row=>row.children[1]?.textContent.trim()),['269,109 口','269,109 口','249,109 口',undefined]);
+  assert.match(details.textContent,/研究数据人口：249,109/);
   for(const key of ['PrefID','PrefNAM','ProvNAM']){
    const mismatch=createChinaReviewDetails({...record,sourceRecord:{...record.sourceRecord,[key]:'other'}},null,'en');
    mismatch.open=true;await mismatch.listeners.toggle();assert.match(mismatch.textContent,/No review matches/);
@@ -67,7 +88,12 @@ try{
   assert.equal(auditRequests(),2,'One failed ledger request and one shared successful retry');
   const han=frames[0].features.find(f=>f.properties.name_review_id);
   const verified=chinaRecordPanel(han.properties,'en',()=>{}).children.find(el=>el.className==='historical-review-details');
-  assert.match(verified.textContent,/Period name reviewed/);assert(verified.children.at(-1).children[0].href);
+  assert.match(verified.textContent,/Period name reviewed/);assert(verified.children.at(-1).children.at(-1).children[0].children[0].href);
+  const chen=byId742.get('china-prefecture-742-67');
+  const census=chinaRecordPanel(chen,'en',()=>{}).children.find(el=>el.className==='historical-review-details');
+  assert.match(census.textContent,/165,875 · households × 5/);
+  assert.match(census.textContent,/33,175 households/);
+  assert.doesNotMatch(census.textContent,/33,175 people/);
 
   // Use real source geometry for every shared ID, including composite and offshore units.
   const mid=r=>[(r.bounds[0]+r.bounds[2])/2,(r.bounds[1]+r.bounds[3])/2];

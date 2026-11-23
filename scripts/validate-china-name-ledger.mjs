@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {gunzipSync} from 'node:zlib';
-import {divisionRows, matchDivisions, divisionMapLink} from '../public/china-name-ledger.js';
+import {divisionRows, matchDivisions, divisionMapLink, groupSourceSpellings} from '../public/china-name-ledger.js';
 import {decodeCamera} from '../public/view-state.js';
 
 const root = new URL('../public/data/china-prefectures/', import.meta.url);
@@ -19,6 +19,13 @@ assert.equal(matchDivisions(rows, '京兆尹', '2', 'verified').length, 1);
 assert.equal(matchDivisions(rows, '742-29', '2', '').length, 0);
 assert.equal(matchDivisions(rows, 'Wue Zhou', '742', 'verified')[0].PrefID, 10);
 assert.equal(matchDivisions(rows, '武峩州', '742', 'verified')[0].PrefID, 10);
+// Comparison uses the source spelling verbatim, independently of the search normalizer.
+const spellings = ["Wu'e Zhou", 'Wue Zhou', "Wú'e Zhou", "WU'E ZHOU", "Wu'e Zhou", 'Wu’e Zhou', ''];
+const samples = spellings.map(PrefNAM => ({record: {sourceRecord: {PrefNAM}}}));
+const groups = groupSourceSpellings(samples);
+assert.deepEqual(groups.get("Wu'e Zhou"), [samples[0], samples[4]]);
+for (const i of [1, 2, 3, 5]) assert.deepEqual(groups.get(spellings[i]), [samples[i]]);
+assert(!groups.has(''));
 for (const {record} of rows) {
   const url = new URL(divisionMapLink(record, 'en'), 'https://example.org/meridian-atlas/');
   assert.equal(url.pathname, '/meridian-atlas/');

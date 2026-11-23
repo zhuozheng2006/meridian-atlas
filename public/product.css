@@ -216,3 +216,13 @@ summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-ra
 .division-list>li>a{grid-column:2;grid-row:1/3}
 .division-list details{grid-column:1/-1;overflow-wrap:anywhere}
 .division-list details summary{cursor:pointer;font-size:.88rem}
+.division-comparison{min-width:0}
+.division-comparison-table{max-width:100%;overflow-x:auto}
+.division-comparison-table table{width:100%;border-collapse:collapse;text-align:start;font-size:.86rem}
+.division-comparison-table caption{text-align:start;color:var(--gold);padding:.7rem 0 .3rem}
+.division-comparison-table th,.division-comparison-table td{text-align:start;vertical-align:top;padding:.45rem .65rem .45rem 0;border-bottom:1px solid #dcc08932}
+.division-comparison-table th[scope=col]{font-weight:500;color:var(--muted)}
+.division-comparison-table small{display:block;font-weight:400;color:var(--muted)}
+.division-comparison-table tr[aria-current=true]{background:#dcc0890c}
+.division-comparison-table a{white-space:nowrap}
+.division-comparison>button{margin:.6rem 0}

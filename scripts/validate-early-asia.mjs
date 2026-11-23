@@ -54,6 +54,32 @@ try{
   assert(row.sources.some(source => source.url.endsWith('/小洞庭洄源亭讌四郡太守詩')));
  }
  assert(ji.sources.some(source => source.url.endsWith('0269冊.djvu/39')));
+ // Distinguish the study’s estimated population from either history’s household count.
+ const chen = chinaNameReviews['china-prefecture-742-67'];
+ const chenOriginal = index.records.find(row => row.id === chen.id).sourceRecord;
+ assert.equal(chen.zh, '桂阳郡');
+ assert.equal(chenOriginal.Source, 'Number of households*5');
+ assert.deepEqual(chen.sources.map(source => source.householdsInText), [31303, 33175]);
+ assert(chen.sources.every(source => source.populationInText == null));
+ assert.equal(chen.sources[1].householdsInText * 5, chenOriginal.POP);
+ assert.equal(chen.sources[0].renameYear, 742);
+
+ const zhe = chinaNameReviews['china-prefecture-742-164'];
+ const zheOriginal = index.records.find(row => row.id === zhe.id).sourceRecord;
+ assert.equal(zhe.zh, '蓬山郡');
+ assert.equal(zhe.sources[0].renameYear, 742);
+ assert.deepEqual(zhe.sources.slice(1).map(source => [source.householdsInText, source.populationInText]), [[495, 2120], [495, zheOriginal.POP]]);
+ assert.equal(zheOriginal.POP, 2220);
+ assert(zhe.sources[2].url.endsWith('0272冊.djvu/623'));
+
+ const jian = deferredById.get('china-prefecture-742-169');
+ assert.deepEqual(jian.sources.map(source => source.renameYear), [746, undefined, 742]);
+ assert(jian.sources.slice(0, 2).every(source => source.populationInText === jian.sourceRecordPopulation));
+ const lian = deferredById.get('china-prefecture-742-59');
+ assert.deepEqual(lian.sources.slice(0, 3).map(source => source.populationInText), [143532, 143533, lian.sourceRecordPopulation]);
+ assert.equal(lian.ProvNAM, 'Jiangnan West Dao');
+ assert(lian.sources[2].url.endsWith('0272冊.djvu/635'));
+ assert(lian.sources[3].section.includes('十道记'));
  for(const row of audit.deferred){
   const source=index.records.find(record=>record.id===row.id);
   assert(source,`Unknown source row ${row.id}`);
@@ -66,7 +92,7 @@ try{
  }
  assert.deepEqual(Object.values(chinaNameReviews),audit.records);
  const han=audit.records.filter(r=>r.year===2).length,tangCount=audit.records.filter(r=>r.year===742).length;
- assert.deepEqual([han,tangCount,audit.deferred.length],[103,268,49]);
+ assert.deepEqual([han,tangCount,audit.deferred.length],[103,270,47]);
  assert.equal(audit.records.length+audit.deferred.length,index.records.length);
  assert.deepEqual([audit.reviewScope.hanVerifiedMappings,audit.reviewScope.tangPeriodAliases,audit.reviewScope.documentedDeferred],[han,tangCount,audit.deferred.length]);
  const wue=chinaNameReviews['china-prefecture-742-10'];
