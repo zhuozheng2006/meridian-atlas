@@ -1,6 +1,7 @@
 // Only the Sources panel imports this module, after the reader opens the index.
-import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.20.0-0e76383830fd';
-import {reviewedChinaName} from './china-name-reviews.js?v=4.20.0-0e76383830fd';
+import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.21.0-fdb72aad84a1';
+import {reviewedChinaName} from './china-name-reviews.js?v=4.21.0-fdb72aad84a1';
+import {mapDivisionHref, writeDivisionDirectoryFilters} from './view-state.js?v=4.21.0-fdb72aad84a1';
 
 const pageSize = 20;
 const normalize = value => String(value ?? '').normalize('NFKD').replace(/\p{M}/gu, '').replace(/['’]/g, '').toLowerCase().trim();
@@ -17,21 +18,20 @@ export function divisionRows(index) {
 
 export function matchDivisions(rows, query, year, status) {
   const term = normalize(query);
+  const number = /^(?:#|prefid\s+)?([1-9]\d{0,2})$/.exec(term);
+  const qualified = /^(?:#|china-prefecture-)?((?:2|742)-[1-9]\d{0,2})$/.exec(term);
   return rows.filter(({record, review, PrefID, names}) => {
     if (year && record.year !== Number(year)) return false;
     if ((status === 'pending' && review) || (status === 'verified' && !review)) return false;
-    if (/^#?\d+$/.test(term)) return term.replace('#', '') === String(PrefID);
-    if (/^(?:china-prefecture-)?\d+-\d+$/.test(term)) return record.id === (term.startsWith('china-') ? term : 'china-prefecture-' + term);
+    if (number) return number[1] === String(PrefID);
+    if (qualified) return record.id === 'china-prefecture-' + qualified[1];
     return names.some(name => name.includes(term));
   });
 }
 
 export function divisionMapLink(record, lang) {
   const [west, south, east, north] = record.bounds;
-  const camera = [((west + east) / 2).toFixed(5), ((south + north) / 2).toFixed(5), 6.5, 0, 0];
-  return './#' + new URLSearchParams({
-    year: record.year, lang, boundaries: 'regional', boundary: record.id, browse: '0', camera: camera.join(',')
-  });
+  return mapDivisionHref({id: record.id, year: record.year, center: [(west + east) / 2, (south + north) / 2]}, lang);
 }
 
 // PrefNAM is the published spelling. Keep punctuation, accents and suffixes
@@ -47,7 +47,7 @@ export function groupSourceSpellings(rows) {
   return groups;
 }
 
-export async function mountDivisionLedger(host, lang, initialId = '', saved = null) {
+export async function mountDivisionLedger(host, lang, initialId = '', saved = null, route = null) {
   const rows = divisionRows(await readChinaIndex());
   if (!host.isConnected) return;
   const groups = groupSourceSpellings(rows);
@@ -56,11 +56,13 @@ export async function mountDivisionLedger(host, lang, initialId = '', saved = nu
     <label>${t('名称、来源拼写或编号','Name, source spelling or ID')}<input type="search"></label>
     <label>${t('截面年份','Snapshot year')}<select name="year"><option value="">${t('全部年份','All years')}</option><option value="2">${t('公元 2 年','2 CE')}</option><option value="742">${t('公元 742 年','742 CE')}</option></select></label>
     <label>${t('核查状态','Review status')}<select name="status"><option value="">${t('全部状态','All statuses')}</option><option value="pending">${t('待考','Under review')}</option><option value="verified">${t('已核准','Verified')}</option></select></label>
-  </div><p role="status" class="division-count"></p><ul class="division-list"></ul><button type="button" data-more>${t('显示更多','Show more')}</button>`;
+  </div><div class="division-result-tools"><p role="status" class="division-count"></p><button type="button" data-copy-division hidden>${t('复制筛选链接','Copy filtered view')}</button><span data-copy-status role="status"></span></div><ul class="division-list"></ul><button type="button" data-more>${t('显示更多','Show more')}</button>`;
   const input = host.querySelector('input');
   const year = host.querySelector('[name="year"]');
   const status = host.querySelector('[name="status"]');
   const list = host.querySelector('ul');
+  const copy = host.querySelector('[data-copy-division]');
+  const copyStatus = host.querySelector('[data-copy-status]');
   const more = host.querySelector('[data-more]');
   let matches = [], shown = 0;
   const rendered = new Map();
@@ -185,6 +187,8 @@ export async function mountDivisionLedger(host, lang, initialId = '', saved = nu
   }
 
   function filter(amount = pageSize) {
+    copy.hidden = Boolean(initialId) || !(input.value.trim() || year.value || status.value);
+    copyStatus.textContent = '';
     matches = matchDivisions(rows, input.value, year.value, status.value);
     shown = 0;
     rendered.clear();
@@ -192,22 +196,32 @@ export async function mountDivisionLedger(host, lang, initialId = '', saved = nu
     addPage(amount);
   }
 
-  input.value = typeof saved?.query === 'string' ? saved.query : initialId;
-  if (saved) {
-    year.value = ['2', '742'].includes(saved.year) ? saved.year : '';
-    status.value = ['pending', 'verified'].includes(saved.status) ? saved.status : '';
+  const initial = saved || route;
+  input.value = typeof initial?.query === 'string' ? initial.query : initialId;
+  if (initial) {
+    year.value = ['2', '742'].includes(initial.year) ? initial.year : '';
+    status.value = ['pending', 'verified'].includes(initial.status) ? initial.status : '';
   }
   function changeFilters() {
-    if (initialId) {
-      initialId = '';
-      const url = new URL(location.href);
-      url.searchParams.delete('division');
-      history.replaceState(history.state, '', url);
-    }
+    initialId = '';
+    const url = new URL(location.href);
+    writeDivisionDirectoryFilters(url.searchParams, {query: input.value, year: year.value, status: status.value});
+    if (url.href !== location.href) history.replaceState(history.state, '', url);
     filter();
     refreshReturn();
   }
 
+  copy.onclick = async () => {
+    const link = new URL('./', location.href);
+    writeDivisionDirectoryFilters(link.searchParams, {query: input.value, year: year.value, status: status.value});
+    link.hash = new URLSearchParams({view: 'sources', lang}).toString();
+    try {
+      await navigator.clipboard.writeText(link.href);
+      copyStatus.textContent = t('已复制', 'Copied');
+    } catch {
+      copyStatus.textContent = t('请复制地址栏中的链接', 'Copy the link from the address bar');
+    }
+  };
   input.oninput = changeFilters;
   year.onchange = changeFilters;
   status.onchange = changeFilters;

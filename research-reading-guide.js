@@ -1,7 +1,7 @@
-import {READING_CATALOG} from './research-reading-data.js?v=4.20.0-0e76383830fd';
-import {label,variableOptions} from './polaris-adapter.js?v=4.20.0-0e76383830fd';
-import {mountSavedText} from './research-original-reader.js?v=4.20.0-0e76383830fd';
-import {openReadingSource,readingLink} from './research-reading-links.js?v=4.20.0-0e76383830fd';
+import {READING_CATALOG} from './research-reading-data.js?v=4.21.0-fdb72aad84a1';
+import {label,variableOptions} from './polaris-adapter.js?v=4.21.0-fdb72aad84a1';
+import {mountSavedText} from './research-original-reader.js?v=4.21.0-fdb72aad84a1';
+import {openReadingSource,readingLink} from './research-reading-links.js?v=4.21.0-fdb72aad84a1';
 const RELATIONS=Object.freeze({'direct-evidence':{zh:'原典与史料',en:'Primary text & evidence'},'comparative-reading':{zh:'比较阅读',en:'Comparative reading'},'earlier-coded-version':{zh:'早期编码资料',en:'Earlier coded source'}});
 export function readingsForPhase(phaseId,{domain='all',variable='all'}={},catalog=READING_CATALOG){
  const allowed=new Set(variableOptions(domain).map(v=>v.id));return catalog.cards.filter(c=>c.phaseId===phaseId&&c.variableIds.some(id=>allowed.has(id)&&(variable==='all'||id===variable)));

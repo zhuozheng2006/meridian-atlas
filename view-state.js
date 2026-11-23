@@ -18,3 +18,26 @@ export const placeWindow=value=>value!==null&&value!==''&&[0,25,50].includes(Num
 
 export const BOUNDARY_MODES=['auto','overview','regional','cshapes','halc'];
 export const boundaryMode=value=>BOUNDARY_MODES.includes(value)?value:'auto';
+
+export function mapDivisionHref({id, year, center}, lang) {
+  const camera = [...center.map(value => value.toFixed(5)), 6.5, 0, 0].join(',');
+  return './#' + new URLSearchParams({year, lang, boundaries: 'regional', boundary: id, browse: '0', camera});
+}
+
+export function readDivisionDirectoryRoute(search) {
+ const params = new URLSearchParams(search);
+ const id = params.get('division') || '';
+ if (/^(2|742)-[1-9]\d{0,2}$/.test(id)) return {id};
+ const query = params.get('divisionQuery') || '';
+ const year = ['2', '742'].includes(params.get('divisionYear')) ? params.get('divisionYear') : '';
+ const status = ['pending', 'verified'].includes(params.get('divisionStatus')) ? params.get('divisionStatus') : '';
+ return query.trim() || year || status ? {query, year, status} : null;
+}
+
+export function writeDivisionDirectoryFilters(params, {query = '', year = '', status = ''} = {}) {
+ params.delete('division');
+ for (const [key, value] of [['divisionQuery', query.trim()], ['divisionYear', year], ['divisionStatus', status]]) {
+  if (value) params.set(key, value);
+  else params.delete(key);
+ }
+}

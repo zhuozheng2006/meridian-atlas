@@ -7,10 +7,10 @@
       "2": 103,
       "742": 317
     },
-    "sourceSupportedMappings": 373,
+    "sourceSupportedMappings": 374,
     "hanVerifiedMappings": 103,
-    "tangPeriodAliases": 270,
-    "documentedDeferred": 47,
+    "tangPeriodAliases": 271,
+    "documentedDeferred": 46,
     "fullDatasetNameAuditComplete": true
   },
   "applicationRules": [
@@ -159,7 +159,7 @@
       "PrefID": 78,
       "sourcePrefNAM": "Ji Zhou",
       "ProvNAM": "Jiangnan West Dao",
-      "reason": "吉州改庐陵郡有明确记载，但转录文本天宝口数237032与源记录377032不同，留待版本对读。（对读《新唐书·卷四十一》作口三十三万七千三十二[337032]，仍与源377032不符）",
+      "reason": "《旧唐书》记吉州在天宝元年（742）改为庐陵郡，天宝户口为37,752户、237,032口。《新唐书》转录和文渊阁四库本的户数相同，口数均为337,032。《通典》卷一百八十二庐陵郡条另载39,651户、229,795口。这三种口数与源图的377,032人均有差异，源图人口的依据仍待核。",
       "primaryHeading": "吉州",
       "sourceRecordPopulation": 377032,
       "sourceRecordPopulationMethod": "Population records",
@@ -169,17 +169,46 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#吉州",
           "title": "旧唐书·卷四十·地理志三",
           "section": "吉州",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "sectionEn": "Ji Zhou (吉州)",
+          "householdsInText": 37752,
+          "populationInText": 237032,
+          "renameYear": 742
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#吉州",
           "title": "新唐书·卷四十一·地理志五",
           "section": "吉州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "sectionEn": "Ji Zhou (吉州)",
+          "householdsInText": 37752,
+          "populationInText": 337032
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/614",
+          "title": "文渊阁四库本《唐书》·卷四十一",
+          "titleEn": "New Book of Tang · Wenyuan Pavilion Siku edition · juan 41",
+          "section": "吉州庐陵郡（影像614）",
+          "sectionEn": "Ji Zhou, Luling Commandery (scan 614)",
+          "householdsInText": 37752,
+          "populationInText": 337032
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/通典/卷182#廬陵郡",
+          "title": "通典·卷一百八十二·州郡十二",
+          "titleEn": "Tongdian · juan 182 · Prefectures and Commanderies XII",
+          "section": "庐陵郡",
+          "sectionEn": "Luling Commandery",
+          "householdsInText": 39651,
+          "populationInText": 229795
         }
       ],
       "populationInText": 237032,
-      "reasonEn": "Ji Zhou became Luling Commandery. The Old Book of Tang transcription gives 237,032 inhabitants and the New Book of Tang gives 337,032. The dataset gives a third figure, 377,032."
+      "reasonEn": "The Old Book of Tang dates Ji Zhou’s renaming as Luling Commandery to 742 and gives 37,752 households and 237,032 people for the Tianbao period. Both the New Book transcription and the Wenyuan Pavilion Siku edition give the same household count and 337,032 people. The Tongdian entry for Luling gives 39,651 households and 229,795 people. The dataset gives 377,032, and the source of that figure remains unresolved.",
+      "householdsInText": 37752,
+      "newTangPopulationInText": 337032,
+      "tongdianHouseholdsInText": 39651,
+      "tongdianPopulationInText": 229795
     },
     {
       "id": "china-prefecture-742-157",
@@ -518,34 +547,6 @@
         }
       ],
       "reasonEn": "The dataset estimates 62,000 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
-    },
-    {
-      "id": "china-prefecture-742-16",
-      "year": 742,
-      "PrefID": 16,
-      "sourcePrefNAM": "Chun Zhou",
-      "ProvNAM": "Lingnan Dao",
-      "reason": "源数据人口56090由户数×5（Number of households*5）推算，非《旧唐书》直接口数记录，按严格口径不以推算人口逆推自动改名。",
-      "sourceRecordPopulation": 56090,
-      "sourceRecordPopulationMethod": "Number of households*5",
-      "primaryHeading": "春州",
-      "observedWebLine": 3047,
-      "householdsInText": 11218,
-      "sources": [
-        {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#春州",
-          "title": "旧唐书·卷四十一·地理志四",
-          "section": "春州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
-        },
-        {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#春州",
-          "title": "新唐书·卷四十三上·地理志七上",
-          "section": "春州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
-        }
-      ],
-      "reasonEn": "The dataset estimates 56,090 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-17",
@@ -9989,6 +9990,39 @@
       ],
       "evidence": "《旧唐书》记柘州于天宝元年（742）改为蓬山郡。文渊阁四库本《唐书》列柘、乔珠二县，录495户、2,220口，口数与源图相同。所引维基文库《新唐书》转录同为495户，口数作2,120。",
       "evidenceEn": "The Old Book of Tang dates the renaming of Zhe Zhou as Pengshan Commandery to 742. The Wenyuan Pavilion Siku edition of the New Book lists Zhe and Qiaozhu counties, with 495 households and 2,220 people, matching the map’s population. The linked Wikisource transcription also gives 495 households and reads 2,120 people."
+    },
+    {
+      "id": "china-prefecture-742-16",
+      "year": 742,
+      "PrefID": 16,
+      "sourcePrefNAM": "Chun Zhou",
+      "ProvNAM": "Lingnan Dao",
+      "zh": "南陵郡",
+      "en": "Nanling Jun",
+      "formerNameZh": "春州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#春州",
+          "title": "旧唐书·卷四十一·地理志四",
+          "section": "春州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "sectionEn": "Chun Zhou (春州)",
+          "householdsInText": 11218,
+          "renameYear": 742
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#春州",
+          "title": "新唐书·卷四十三上·地理志七上",
+          "section": "春州",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "sectionEn": "Chun Zhou (春州)",
+          "householdsInText": 11218,
+          "renameYear": 742
+        }
+      ],
+      "evidence": "《旧唐书》春州条记天宝元年（742）改为南陵郡，州治阳春。《新唐书》也记天宝元年更郡名。两书同载11,218户，按源图注明的每户五人折算为56,090人。岭南道另有同拼写的淳州（编号151），该条人口来自邻区估算，单独核查。",
+      "evidenceEn": "The Old Book of Tang dates the renaming of Chun Zhou (春州) as Nanling Commandery to 742 and identifies Yangchun as its seat. The New Book also dates the change to 742. Both record 11,218 households. At the dataset’s stated five people per household, this gives 56,090 people. The other Lingnan entry spelled Chun Zhou (淳州, ID 151) has a separate population estimate based on neighboring regions."
     }
   ],
   "identityChecks": [
@@ -13861,6 +13895,17 @@
       "populationMatches": true,
       "populationSource": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/623",
       "note": "The dated renaming is attested by the Old Book. The two cited readings of the New Book differ in the hundreds digit of the population."
+    },
+    {
+      "id": "china-prefecture-742-16",
+      "primaryHeading": "春州南陵郡",
+      "firstListedCounty": "阳春",
+      "householdsInText": 11218,
+      "householdSource": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#春州",
+      "sourceRecordPopulation": 56090,
+      "sourceRecordPopulationMethod": "Number of households*5",
+      "peoplePerHousehold": 5,
+      "note": "Both histories date the renaming and give the same household count. The dataset estimates this row from households; the other Chun Zhou row (151) uses a different method."
     }
   ]
 }
