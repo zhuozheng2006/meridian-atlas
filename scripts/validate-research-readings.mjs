@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {mountReadingLibrary} from '../public/research-reading-library.js';
 import {gunzipSync} from 'node:zlib';
 import {READING_CATALOG as catalog} from '../public/research-reading-data.js';
 import {readingsForPhase,readingLocator,readingByline,mountReadingGuide} from '../public/research-reading-guide.js';
@@ -8,7 +10,7 @@ import {SNAPSHOT} from '../public/polaris-contract.js';
 const root=new URL('../public/',import.meta.url),gz=file=>JSON.parse(gunzipSync(fs.readFileSync(new URL('data/seshat-polaris-2026/'+file,root))));
 const index=gz('index.json.gz'),sources={sources:catalog.sourceManifests.flatMap(file=>JSON.parse(fs.readFileSync(new URL(file,root))).sources)},sourceMap=new Map(sources.sources.map(s=>[s.sourceId,s])),rows=new Map(index.polities.filter(p=>catalog.cards.some(c=>c.phaseId===p.id)).flatMap(p=>gz(p.file).observations).map(r=>[r.id,r]));
 let checks=0;function test(name,fn){fn();checks++;console.log('PASS '+name);}
-class Node {constructor(tag,doc){this.tagName=tag;this.ownerDocument=doc;this.children=[];this.dataset={};this.listeners={};this._text='';}set textContent(s){this._text=String(s);this.children=[];}get textContent(){return this._text+this.children.map(n=>n.textContent).join(' ');}set innerHTML(s){throw Error('Unsafe HTML');}append(...nodes){this.children.push(...nodes);}addEventListener(name,fn){this.listeners[name]=fn;}}
+class Node {constructor(tag,doc){this.tagName=tag;this.ownerDocument=doc;this.children=[];this.dataset={};this.listeners={};this._text='';}set textContent(s){this._text=String(s);this.children=[];}get textContent(){return this._text+this.children.map(n=>n.textContent).join(' ');}set innerHTML(s){throw Error('Unsafe HTML');}append(...nodes){this.children.push(...nodes);}replaceChildren(...nodes){this._text='';this.children=nodes;}setAttribute(name,value){this[name]=value;}addEventListener(name,fn){this.listeners[name]=fn;}}
 const doc={createElement:tag=>new Node(tag,doc)},walk=n=>[n,...n.children.flatMap(walk)];
 test('Reading leads bind exact snapshot, existing phase/variable/row IDs without altering records',()=>{assert.equal(catalog.sourceSha256,SNAPSHOT.sourceSha256);assert.equal(catalog.cards.length,40);assert.equal(new Set(catalog.cards.map(c=>c.phaseId)).size,15);assert.equal(new Set(catalog.cards.map(c=>c.id)).size,40);for(const c of catalog.cards){assert(['direct-evidence','comparative-reading','earlier-coded-version'].includes(c.relation));assert.equal(c.sourceLineageEstablished,false);assert.equal(c.allowRecordMerge,false);assert.equal(c.allowRawRewrite,false);for(const id of c.targetRowIds){const r=rows.get(id);assert(r,id);assert.equal(r.raw.polity_id,c.phaseId);assert(c.variableIds.includes(r.raw.variable_name));}}});
 test('Every preserved source file retains exact bytes and SHA-256',()=>{assert.equal(sources.sources.length,17);for(const s of sources.sources){const bytes=fs.readFileSync(new URL(s.localURL,root));assert.equal(bytes.length,s.bytes);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),s.sha256);}});
@@ -64,5 +66,49 @@ test('Red Sea and Hawaiian readings preserve all earlier guides and exact typed 
  assert.deepEqual(bureaucracy.map(r=>[r.sourceRow,r.raw.year_from,r.raw.year_to,r.raw.value_from]),[['5707','1820','1840','SA'],['5708','1840','1898','P']]);
  assert.equal(tax.relation,'comparative-reading');assert.equal(readingsForPhase('us_hawaii_k',{variable:'full_time_bureaucrat'}).length,1);
  assert.equal(readingsForPhase('et_aksum_emp_1',{variable:'article'}).length,1);
+});
+// Exercise the release transformation on the actual reading inventory. A full
+// catalog fixture keeps local URLs and would miss missing links on Pages.
+const publicModule = execFileSync('python3', ['-c', `
+import json, sys
+from pathlib import Path
+sys.path.insert(0, 'scripts')
+from pages_research import public_research_catalog
+name = 'research-reading-data.js'
+allowed = set(json.loads(Path('public/data/public-reading-files.json').read_text()))
+sys.stdout.buffer.write(public_research_catalog(name, (Path('public') / name).read_bytes(), allowed))
+`], {cwd:new URL('../',import.meta.url)});
+const {READING_CATALOG: publicCatalog} = await import('data:text/javascript;base64,'+publicModule.toString('base64'));
+
+test('All public shelf cards open their source even when the Polaris phase index is unavailable',()=>{
+ const shelf=mountReadingLibrary(doc,{catalog:publicCatalog,lang:'en'}).element;
+ const seen=new Set();
+ while(true){
+  for(const node of walk(shelf).filter(n=>n.className==='research-library-card')){
+   const item=publicCatalog.cards.find(c=>c.id===node.dataset.readingId);
+   assert(!seen.has(item.id));seen.add(item.id);
+   const link=walk(node).find(n=>n.tagName==='a');
+   assert(link,item.id);
+   const page=item.locator.pdfPages?.[0];
+   const source=page?(item.localURL||item.url):(item.landingURL||item.url);
+   const destination=new URL(source,root);if(page)destination.hash='page='+page;
+   assert.equal(link.href,destination.href,item.id);assert.equal(link.rel,'noopener noreferrer');
+   assert(walk(node).find(n=>n.tagName==='button').disabled,'linked records still need a phase index');
+  }
+  const next=walk(shelf).find(n=>n.tagName==='button'&&n.textContent==='Next');
+  if(!next||next.disabled)break;next.listeners.click();
+ }
+ assert.equal(seen.size,publicCatalog.cards.length);
+});
+
+test('Public and archival guides preserve PDF page anchors and independent publisher pages',()=>{
+ const phaseId='cn_ming_dyn',filters={readingId:'ming-law--cn_ming_dyn'};
+ const item=publicCatalog.cards.find(c=>c.id===filters.readingId);
+ assert.equal(item.localURL,null);
+ const links=catalog=>walk(mountReadingGuide(doc,{phaseId,filters,lang:'zh',catalog})).filter(n=>n.tagName==='a');
+ const published=links(publicCatalog),archive=links(catalog);
+ assert(published.some(a=>a.href===item.url+'#page=52'&&a.textContent.includes('来源 PDF')));
+ assert(archive.some(a=>a.href.endsWith('/ming-code-open.pdf#page=52')&&a.textContent.includes('站内 PDF')));
+ for(const edition of [published,archive])assert(edition.some(a=>a.href===item.landingURL));
 });
 console.log(JSON.stringify({checks,passed:checks,cards:catalog.cards.length,sources:sources.sources.length}));
