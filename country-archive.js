@@ -1,5 +1,5 @@
-import {countryAlias} from './country-names.js?v=4.21.0-fdb72aad84a1';
-export {countryAlias} from './country-names.js?v=4.21.0-fdb72aad84a1';
+import {countryAlias} from './country-names.js?v=4.21.1-46c343f2e328';
+export {countryAlias} from './country-names.js?v=4.21.1-46c343f2e328';
 // CShapes data is independently licensed CC BY-NC-SA 4.0; see data/cshapes/.
 const ROOT='data/cshapes/',pending=new Map(),COUNTRY_ZH_FIX=new Map([['Inini','伊尼尼领地'],['Belarus (Byelorussia)','白俄罗斯'],['Myanmar (Burma)','缅甸'],['Cambodia (Kampuchea)','柬埔寨']]);
 const CAPITAL_ZH=new Map([

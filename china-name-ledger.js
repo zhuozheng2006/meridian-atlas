@@ -1,7 +1,7 @@
 // Only the Sources panel imports this module, after the reader opens the index.
-import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.21.0-fdb72aad84a1';
-import {reviewedChinaName} from './china-name-reviews.js?v=4.21.0-fdb72aad84a1';
-import {mapDivisionHref, writeDivisionDirectoryFilters} from './view-state.js?v=4.21.0-fdb72aad84a1';
+import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.21.1-46c343f2e328';
+import {reviewedChinaName} from './china-name-reviews.js?v=4.21.1-46c343f2e328';
+import {mapDivisionHref, writeDivisionDirectoryFilters} from './view-state.js?v=4.21.1-46c343f2e328';
 
 const pageSize = 20;
 const normalize = value => String(value ?? '').normalize('NFKD').replace(/\p{M}/gu, '').replace(/['’]/g, '').toLowerCase().trim();
