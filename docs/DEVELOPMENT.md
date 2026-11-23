@@ -20,7 +20,13 @@
 
 现有 `.openai/hosting.json` 标识原有私人站点，不含认证凭据。它用于维护该站点；其他部署者应使用自己的项目和存储配置。首次部署需建立存储、按哈希导入清单对象，再关闭临时导入功能。正常构建保持 `importUntil=0`；操作机制见 DATA-STORAGE-v3.37.md，当前数量与revision见 HANDOFF-3.48.md。
 
-GitHub仓库公开与网站共享范围独立。这次仅发布源码和研究成果，没有更改既有网站访问策略，也没有启用GitHub Pages。
+## 个人网站静态版
+
+个人网站从 `atlas-pages` 分支固定一个发布提交，将其作为 Git 子模块挂载到 `/meridian-atlas/`。图集模块、研究阅读器、地图数据与 Web Worker 均从这个子目录按需加载。已有 Worker 站点仍可按上一节单独构建。
+
+在源码仓库运行 `python3 scripts/build-pages-tree.py <源码提交>` 可生成该提交对应的静态 Git 树。命令输出树的对象 ID，不会移动分支或更换工作区。更新发布时，以此树和上一次 `atlas-pages` 提交为父提交创建新版本，再将个人网站子模块更新到新提交。首次发布可以创建无父提交的版本。通过 GitHub Git Data API 操作时，添加 `--github` 可取得等价的基础树、路径及预期树 ID。
+
+发布树复用 `public/` 的文件，附带 `LICENSE`、`ATTRIBUTIONS.md` 和静态首屏年份别名。构建会按来源清单筛选研究资料，并排除受再分发限制的 CHGIS V4 原始包、记录索引和几何数据。公开地图自动采用同一地区可用的其他边界；资料页保留 [CHGIS V4 的获取入口](https://chgis.fas.harvard.edu/data/chgis/v4/)。个人网站根目录保留 `.nojekyll`，以便正确提供以双下划线开头的年份资源目录。
 
 ## 本次归档
 

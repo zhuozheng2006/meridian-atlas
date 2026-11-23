@@ -1,8 +1,8 @@
-import {mountPhaseComparison} from './research-phase-comparison.js?v=4.16.0-68b90e70059b';
-import {formatResearchValue} from './research-format.js?v=4.16.0-68b90e70059b';
-import {normalizeResearchState} from './research-view.js?v=4.16.0-68b90e70059b';
-import {researchPolityName,researchPolitySearchText} from './research-polity-names.js?v=4.16.0-68b90e70059b';
-import {PRIORITY_VARIABLES,VARIABLE_BY_NAME,DOMAINS,CODES,VALUE_NOTES,label,variableDefinition,observationModel,filterObservations,CODEBOOK_URL,SOURCE_URL,WORKBOOK_URL} from './research-definitions.js?v=4.16.0-68b90e70059b';
+import {mountPhaseComparison} from './research-phase-comparison.js?v=4.17.0-a60052e3151d';
+import {formatResearchValue} from './research-format.js?v=4.17.0-a60052e3151d';
+import {normalizeResearchState} from './research-view.js?v=4.17.0-a60052e3151d';
+import {researchPolityName,researchPolitySearchText} from './research-polity-names.js?v=4.17.0-a60052e3151d';
+import {PRIORITY_VARIABLES,VARIABLE_BY_NAME,DOMAINS,CODES,VALUE_NOTES,label,variableDefinition,observationModel,filterObservations,CODEBOOK_URL,SOURCE_URL,WORKBOOK_URL} from './research-definitions.js?v=4.17.0-a60052e3151d';
 let serial=0;
 const TEXT={title:{zh:'社会与制度资料',en:'Societies & institutions'},lead:{zh:'从人口、道路、法律和知识制度，比较不同社会的历史。这里保留 Seshat 的原始编码与研究分期。',en:'Explore population, roads, law and knowledge systems through Seshat’s original coding and research periods.'},choose:{zh:'来源政体阶段',en:'Source polity phase'},search:{zh:'查找研究阶段',en:'Find a research phase'},domain:{zh:'研究领域',en:'Research field'},variable:{zh:'变量',en:'Variable'},query:{zh:'在记录中查找',en:'Search records'},priority:{zh:'26项优先研究变量',en:'26 priority research variables'},all:{zh:'全部原始变量',en:'All source variables'},allVariables:{zh:'本领域全部变量',en:'All variables in this field'},download:{zh:'下载当前筛选的原始记录',en:'Download filtered source records'},retry:{zh:'重新读取',en:'Retry'},loading:{zh:'正在读取资料…',en:'Loading research data…'},chooseHelp:{zh:'选择一个阶段后，读取其资料分片。',en:'Choose a phase to load its data shard.'},empty:{zh:'当前筛选没有记录。',en:'No records match these filters.'},before:{zh:'上一页',en:'Previous page'},next:{zh:'下一页',en:'Next page'},raw:{zh:'原始字段与出处',en:'Original fields & provenance'},guide:{zh:'如何阅读编码与年代',en:'Reading codes and dates'},sources:{zh:'来源、版本与文件',en:'Sources, version & files'},phase:{zh:'来源研究阶段',en:'Source research phase'},noDate:{zh:'未单列日期 · 阶段上下文',en:'No separate date · phase context'},date:{zh:'原始记录日期',en:'Original recorded date'},missing:{zh:'字段未提供',en:'Field not supplied'},notes:{zh:'取值状态',en:'Value status'},error:{zh:'资料读取失败。可以重试。',en:'Could not load the data. Retry is available.'},back:{zh:'返回资料页',en:'Back to sources'},polityContext:{zh:'抽样地区',en:'Sampling areas'}};
 const text=(key,lang)=>label(TEXT[key],lang);
@@ -58,7 +58,11 @@ export function mountResearchReader(host,{lang='bi',dataBaseUrl,readJSON,onBack=
  }
  function sources(){const d=el('details','', 'research-sources');d.append(el('summary',t('sources')));d.append(el('p','Seshat Equinox2020 · Equinox_on_GitHub_June9_2022.xlsx · Equinox2020_CanonDat / Polities'));
   d.append(el('p',bilingual('数据来源保留 CC BY-NC-SA 声明；仓库许可证标识与 README 存在差异，原始声明文件一并保留。','The README declares CC BY-NC-SA. Its declaration differs from the repository LICENSE file; both source files are retained.')));
-  const links=el('div','', 'research-source-links');links.append(sourceLink(bilingual('团队数据仓库','Team data repository'),SOURCE_URL),sourceLink(bilingual('原始工作簿','Original workbook'),WORKBOOK_URL),sourceLink(bilingual('官方编码手册','Official codebook'),CODEBOOK_URL),sourceLink(bilingual('转换与许可记录','Transformation and licensing record'),new URL('provenance.json',sourceStore.base).href),sourceLink(bilingual('本地工作簿','Local workbook'),new URL('sources/Equinox_on_GitHub_June9_2022.xlsx',sourceStore.base).href),sourceLink(bilingual('本地编码手册','Local codebook'),new URL('sources/code-book-4.20.2021.pdf',sourceStore.base).href),sourceLink('README',new URL('sources/README-original.txt',sourceStore.base).href),sourceLink('LICENSE',new URL('sources/LICENSE-original.txt',sourceStore.base).href));d.append(links);return d;
+  const links=el('div','', 'research-source-links');links.append(sourceLink(bilingual('团队数据仓库','Team data repository'),SOURCE_URL),sourceLink(bilingual('原始工作簿','Original workbook'),WORKBOOK_URL),sourceLink(bilingual('官方编码手册','Official codebook'),CODEBOOK_URL),sourceLink(bilingual('转换与许可记录','Transformation and licensing record'),new URL('provenance.json',sourceStore.base).href),sourceLink(bilingual('本地工作簿','Local workbook'),new URL('sources/Equinox_on_GitHub_June9_2022.xlsx',sourceStore.base).href),sourceLink('README',new URL('sources/README-original.txt',sourceStore.base).href),sourceLink('LICENSE',new URL('sources/LICENSE-original.txt',sourceStore.base).href));
+  if(doc.documentElement?.dataset?.distribution!=='public'){
+   links.append(sourceLink(bilingual('本地编码手册','Local codebook'),new URL('sources/code-book-4.20.2021.pdf',sourceStore.base).href));
+  }
+  d.append(links);return d;
  }
  function build(){host.replaceChildren();ui.root=el('section','', 'seshat-research-reader');host.append(ui.root);if(onBack)ui.root.append(button(t('back'),()=>{destroy();onBack();}));
   const eyebrow=el('span','SESHAT · RESEARCH ARCHIVE','eyebrow'),heading=el('h2',t('title'));ui.root.append(eyebrow,heading,el('p',t('lead'),'research-lead'));

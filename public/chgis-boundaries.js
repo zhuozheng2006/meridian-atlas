@@ -1,4 +1,4 @@
-import {readJSON,forgetJSON} from './map-engine.js?v=4.16.0-68b90e70059b';
+import {readJSON,forgetJSON} from './map-engine.js?v=4.17.0-a60052e3151d';
 export const chgisDisplayNames={'浔阳郡':'Xunyang Jun','鄱阳郡':'Poyang Jun','新定郡':'Xinding Jun','会稽郡':'Kuaiji Jun','义兴郡':'Yixing Jun'};
 const CHGIS_CHANGE_EN={
  '新建':'Established','撤销':'Abolished','撤銷':'Abolished','数据下限':'Dataset end bound',
@@ -24,6 +24,7 @@ const ROOT='data/chgis/',packs=new Map();let indexPromise;
 export const chgisCoversYear=year=>Number.isInteger(year)&&year!==0&&year>=-224&&year<=1911;
 export const CHGIS_WINDOW={id:'chgis-prefectures',zh:'中国历史府级区划',en:'Chinese historical prefectures',root:ROOT,bounds:[106.60376,18.160896,124.576195,35.726135],years:{includes:chgisCoversYear}};
 export function chgisWindowFor(bounds,year){
+ if(globalThis.document?.documentElement?.dataset?.distribution==='public')return null;
  if(!bounds||!chgisCoversYear(year))return null;
  const x=(bounds.getWest()+bounds.getEast())/2,y=(bounds.getSouth()+bounds.getNorth())/2,b=CHGIS_WINDOW.bounds;
  return Number.isFinite(x)&&Number.isFinite(y)&&x>=b[0]&&x<=b[2]&&y>=b[1]&&y<=b[3]?CHGIS_WINDOW:null;

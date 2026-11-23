@@ -1,13 +1,13 @@
-import {SNAPSHOT} from './polaris-store.js?v=4.16.0-68b90e70059b';
-import {PolarisResearchStore} from './polaris-research-store.js?v=4.16.0-68b90e70059b';
-import {POLARIS_DOMAINS,label,normalizeFilters,variableOptions,filterObservations,rowModel,exportPayload} from './polaris-adapter.js?v=4.16.0-68b90e70059b';
-import {POLARIS_VARIABLES,POLARIS_CODES,CRISIS_FIELDS,POLARIS_SEMANTIC_SOURCE} from './polaris-vocabulary.js?v=4.16.0-68b90e70059b';
-import {polarisPolityName,polarisPolitySearchText,polarisPolityNameNote} from './polaris-polity-names.js?v=4.16.0-68b90e70059b';
-import {formatResearchValue} from './research-format.js?v=4.16.0-68b90e70059b';
-import {mountPhaseComparison} from './research-phase-comparison.js?v=4.16.0-68b90e70059b';
-import {mountReadingGuide} from './research-reading-guide.js?v=4.16.0-68b90e70059b';
-import {mountReadingLibrary,readingForId,readingRows} from './research-reading-library.js?v=4.16.0-68b90e70059b';
-import {createSavedTextRegistry} from './research-original-reader.js?v=4.16.0-68b90e70059b';
+import {SNAPSHOT} from './polaris-store.js?v=4.17.0-a60052e3151d';
+import {PolarisResearchStore} from './polaris-research-store.js?v=4.17.0-a60052e3151d';
+import {POLARIS_DOMAINS,label,normalizeFilters,variableOptions,filterObservations,rowModel,exportPayload} from './polaris-adapter.js?v=4.17.0-a60052e3151d';
+import {POLARIS_VARIABLES,POLARIS_CODES,CRISIS_FIELDS,POLARIS_SEMANTIC_SOURCE} from './polaris-vocabulary.js?v=4.17.0-a60052e3151d';
+import {polarisPolityName,polarisPolitySearchText,polarisPolityNameNote} from './polaris-polity-names.js?v=4.17.0-a60052e3151d';
+import {formatResearchValue} from './research-format.js?v=4.17.0-a60052e3151d';
+import {mountPhaseComparison} from './research-phase-comparison.js?v=4.17.0-a60052e3151d';
+import {mountReadingGuide} from './research-reading-guide.js?v=4.17.0-a60052e3151d';
+import {mountReadingLibrary,readingForId,readingRows} from './research-reading-library.js?v=4.17.0-a60052e3151d';
+import {createSavedTextRegistry} from './research-original-reader.js?v=4.17.0-a60052e3151d';
 let serial=0;
 const PAGE_SIZE=24,STARTERS=['cn_ming_dyn','pe_inca_emp','it_roman_rep_1','it_roman_rep_2','it_roman_rep_3'];
 const clean=(v,max)=>typeof v==='string'?v.replace(/[\u0000-\u001f\u007f]/g,'').slice(0,max):'';
@@ -59,7 +59,7 @@ export function mountResearchReader(host,{lang='bi',dataBaseUrl=new URL('./data/
   const definitions=el('dl');for(const [key,field]of Object.entries(CRISIS_FIELDS)){const description=el('dd',label(field.definition||field,language));if(field.evidence?.url)description.append(link(t('编码说明','Coding definition'),field.evidence.url));definitions.append(el('dt',label(field,language)+' · '+key),description);}fields.append(definitions,link(t('官方解释版本','Official explanatory version'),POLARIS_SEMANTIC_SOURCE.url));d.append(fields);return d;
  }
  function sources(){const d=el('details','','research-sources');d.append(el('summary',t('来源、版本与文件','Sources, version & files')),el('p','Seshat Polaris · 2026 · '+SNAPSHOT.version),el('p',t('57,631 条来源记录 · 626 个研究阶段 · 173 个变量。每条记录的身份由工作簿 SHA-256、工作表和原始行号共同确定。','57,631 source records · 626 research phases · 173 variables. Each record is identified by the workbook SHA-256, worksheet and original row number.')),el('p','SHA-256: '+SNAPSHOT.sourceSha256,'research-source-tag'));
-  const links=el('div','','research-source-links');links.append(link(t('来源项目','Source project'),SNAPSHOT.sourceURL),link(t('下载本地工作簿','Download saved workbook'),new URL('sources/Polaris2026.xlsx',sourceStore.base||dataBaseUrl)),link(t('原始工作簿（含完整阶段表）','Original workbook (including the complete phase table)'),SNAPSHOT.workbookURL),link(t('转换与来源记录','Transformation & provenance'),new URL('provenance.json',sourceStore.base||dataBaseUrl)),link(t('原始字段结构','Source field schema'),new URL('schema.json',sourceStore.base||dataBaseUrl)));d.append(links);return d;
+  const links=el('div','','research-source-links');links.append(link(t('来源项目','Source project'),SNAPSHOT.sourceURL),link(t('Seshat 公开数据条款 · CC BY-SA 4.0','Seshat public data terms · CC BY-SA 4.0'),'https://seshat-db.com/terms/current/'),link(t('下载本地工作簿','Download saved workbook'),new URL('sources/Polaris2026.xlsx',sourceStore.base||dataBaseUrl)),link(t('原始工作簿（含完整阶段表）','Original workbook (including the complete phase table)'),SNAPSHOT.workbookURL),link(t('转换与来源记录','Transformation & provenance'),new URL('provenance.json',sourceStore.base||dataBaseUrl)),link(t('原始字段结构','Source field schema'),new URL('schema.json',sourceStore.base||dataBaseUrl)));d.append(links);return d;
  }
  function build(){originalReaders.capture();if(library)libraryState=library.getSnapshot();host.replaceChildren();ui={};ui.root=el('section','','seshat-research-reader');host.append(ui.root);if(onBack)ui.root.append(button(t('返回资料页','Back to sources'),()=>{destroy();onBack();}));
   ui.root.append(el('span','SESHAT · POLARIS 2026','eyebrow'),el('h2',t('社会与制度资料','Societies & institutions')),el('p',t('从人口、法律、贸易与知识制度，阅读不同社会的历史。选择一个研究阶段，或跨阶段查找同一变量。','Read societies through population, law, trade and knowledge. Choose a research phase or compare a variable across phases.'),'research-lead'));

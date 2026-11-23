@@ -8,6 +8,14 @@ assert.equal(hash(fs.readFileSync(root+'V4_Prefecture_Bou_TimeSeries.rar')),mani
 let frames=0,recordInstances=0;for(let year=-224;year<=1911;year++){if(!year)continue;const features=chgisFeatures(index,packs.get(Math.floor(year/100)*100),year);assert.equal(features.length,index.records.filter(r=>r.start<=year&&year<=r.end).length);assert(features.every(f=>regionalVisible(f.properties,year,4)));assert(features.every(f=>f.properties.archive==='chgis'));frames++;recordInstances+=features.length;}
 for(const y of [-225,0,1912,500.5,NaN])assert.equal(chgisCoversYear(y),false);
 const bounds={getWest:()=>118,getEast:()=>121,getSouth:()=>29,getNorth:()=>32};assert.equal(chgisWindowFor(bounds,500).id,'chgis-prefectures');assert.equal(regionalWindowFor(bounds,500).id,'chgis-prefectures');assert.equal(chgisWindowFor(bounds,1950),null);assert.equal(regionalWindowFor(bounds,1950).id,'east-asia');
+globalThis.document={documentElement:{dataset:{distribution:'public'}}};
+try {
+ assert.equal(chgisWindowFor(bounds,500),null);
+ assert.equal(regionalWindowFor(bounds,500)?.id,'east-asia');
+ assert.equal(regionalWindowFor(bounds,742)?.id,'china-prefectures-110');
+} finally {
+ delete globalThis.document;
+}
 assert.throws(()=>decodeChgisPack({schemaVersion:1,encoding:'chgis-delta-1e6',geometries:{g:{type:'Polygon',coordinates:[[0,0,1,0,0,1,1,0]]}}}));
 const originalFetch=globalThis.fetch,requests=[];globalThis.fetch=async url=>{requests.push(url);return new Response(fs.readFileSync('public/'+String(url).split('?')[0]));};
 try{await Promise.all([readChgisSnapshot(500),readChgisSnapshot(550)]);assert.equal(requests.length,2);await readChgisSnapshot(599);assert.equal(requests.length,2);for(const y of [600,700,800])await readChgisSnapshot(y);const before=requests.length;await readChgisSnapshot(500);assert.equal(requests.length,before+1);assert.equal(requests.filter(u=>u.endsWith('index.json.gz')).length,1);}finally{globalThis.fetch=originalFetch;}

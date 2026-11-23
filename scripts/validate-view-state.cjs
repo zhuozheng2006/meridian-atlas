@@ -33,7 +33,7 @@ function context(hash=''){
   // Real boot and URL restoration run from a cold state; renderer/network remain fixture boundaries.
   atlas=null;atlasReady=false;mapURLRestored=false;catalog=undefined;events=[];catalogDataPromise=null;eventsDataPromise=null;eventsStatus='idle';pendingInitialEvent=null;displayedPolityCount=null;atlasBootPromise=null;
   loadMapLibre=async()=>({});renderDensity=()=>{};renderYear=originalRenderYear;
-  AtlasMap=class{constructor(container,options){const m=makeMap();if(options.camera)m.map.jumpTo(options.camera);Object.assign(this,m)}startGeography(){return Promise.resolve(true);}};
+  AtlasMap=class{constructor(container,options){const m=makeMap();m.year=options.year;if(options.camera)m.map.jumpTo(options.camera);Object.assign(this,m)}startGeography(){return Promise.resolve(true);}};
   PolityReader=class{constructor(){this.seq=0}open(r,m,opts){renderLog.push('polity:'+r.id);readerOptions.push(opts)}};
   readJSON=async url=>url.includes('map-catalog/')?readMapCatalog(url):url.includes('catalog')?realCatalog:url.includes('events')?realEvents:[];
   loadPlaces=async()=>[realPlace];bind=()=>{};bindPlaceLayer=()=>{};
@@ -65,6 +65,77 @@ async function run(){
   assert.equal(value(recipient,side==='right'?'state.compareYear':'state.year'),1800);assert.equal(value(recipient,'state.selected?.id'),realEvent.id);assert.equal(value(recipient,'state.selectedSide'),side);
   if(saved){assert.equal(value(recipient,'encodeCamera(atlas.map)'),camera);if(side==='right')assert.equal(value(recipient,'encodeCamera(compareMap.map)'),camera);}
  });
+ const savedCamera='12.5,41.9,7.25,-20,35';
+ for(const [kind,dataset,collection,selected,loader] of [
+  ['battle','battles','battles','selectedBattle','loadBattles'],
+  ['atrocity','atrocities','incidents','selectedAtrocity','loadAtrocities']
+ ]){
+  const module=await import(require('node:url').pathToFileURL(path.join(ROOT,dataset+'.js')));
+  const data=readData(dataset),record=data[collection][0],loaded=kind==='battle'?data.battles:data;
+  async function sharedPoint({right=false,id=record.id}={}){
+   const params=new URLSearchParams({year:1492,lang:'en',camera:savedCamera,[kind]:id});
+   if(right){params.set('compare','1');params.set('compareYear','1900');params.set('side','right');}
+   const c=context('#'+params);
+   Object.assign(c,module);
+   let resolve,reject,reads=0;
+   c[loader]=()=>{reads++;return new Promise((yes,no)=>{resolve=yes;reject=no;});};
+   const box=value(c,"$('#mapError')");
+   box.replaceChildren=()=>{for(const child of box.children||[])child.parentNode=null;box.children=[];};
+   box.append=(...children)=>{box.children=children;for(const child of children)child.parentNode=box;};
+   value(c,'prepareInit()');
+   const opening=value(c,'init()');
+   await flush();
+   assert.equal(reads,1,'the link must have started its data request');
+   return {c,box,opening,resolve:()=>resolve(loaded),reject:()=>reject(Error('record data offline')),
+    get reads(){return reads;},selection:()=>value(c,'state.'+selected+'?.id'),hash:()=>new URLSearchParams(c.location.hash.slice(1))};
+  }
+  for(const right of [false,true])await test(kind+' share restores the '+(right?'right':'left')+' record and saved camera',async()=>{
+   const h=await sharedPoint({right});
+   value(h.c,'saveURL()');
+   assert.equal(h.hash().get(kind),record.id);
+   h.resolve();await h.opening;
+   assert.equal(h.selection(),record.id);
+   assert.equal(value(h.c,'state.selectedSide'),right?'right':'left');
+   assert.equal(value(h.c,'encodeCamera(atlas.map)'),savedCamera);
+   assert.equal(value(h.c,right?'state.compareYear':'state.year'),right?1900:1492);
+  });
+  for(const [action,navigate] of [
+   ['change year','setYear(1700)'],['change comparison year','setCompareYear(1914)'],['close comparison','closeComparison()'],
+   ['open another detail','openEvent(realEvent,{whichMap:atlas,preserveYear:true})']
+  ])await test(kind+' pending share yields to '+action,async()=>{
+   const h=await sharedPoint({right:true});
+   await value(h.c,navigate);h.resolve();await h.opening;
+   assert.equal(h.selection(),undefined);assert.equal(h.hash().has(kind),false);
+   if(action==='open another detail')assert.equal(h.hash().get('event'),realEvent.id);
+  });
+  await test(kind+' failed share preserves its link and retries only the record',async()=>{
+   const h=await sharedPoint({right:true});h.reject();await h.opening;
+   assert.equal(value(h.c,'atlasReady'),true);assert.equal(h.box.hidden,false);
+   assert.match(h.box.children[0].textContent,kind==='battle'?/battle/i:/mass.violence/i);
+   assert.equal(h.hash().get(kind),record.id);
+   const retry=h.box.children[1].onclick();await flush();assert.equal(h.reads,2);
+   h.resolve();await retry;assert.equal(h.selection(),record.id);assert.equal(h.box.hidden,true);
+   assert.equal(value(h.c,'state.selectedSide'),'right');
+  });
+  await test(kind+' unknown shared ID reports a missing record and leaves the map ready',async()=>{
+   const h=await sharedPoint({id:'missing-record'});h.resolve();await h.opening;
+   assert.equal(h.selection(),undefined);assert.equal(h.hash().has(kind),false);assert.equal(h.box.hidden,true);
+   assert.match(value(h.c,"$('#toast').textContent"),/could not be found/);
+  });
+  await test(kind+' old retry cannot reopen a record after choosing another one',async()=>{
+   const h=await sharedPoint();h.reject();await h.opening;
+   const retry=h.box.children[1].onclick;
+   await value(h.c,'openEvent(realEvent,{whichMap:atlas,preserveYear:true})');
+   await retry();assert.equal(h.box.hidden,true);assert.equal(h.reads,1);
+   assert.equal(h.hash().has(kind),false);assert.equal(h.hash().get('event'),realEvent.id);
+  });
+  await test(kind+' superseded network failure cannot show an error or re-arm the link',async()=>{
+   const h=await sharedPoint();await value(h.c,'setYear(1700)');
+   h.reject();await h.opening;
+   assert.equal(h.box.hidden,true);assert.equal(h.hash().has(kind),false);
+   await value(h.c,"showView('atlas')");assert.equal(h.reads,1);
+  });
+ }
  for(const side of ['left','right'])await test(`polity language switch keeps ${side} camera and reader tab`,async()=>{
   const c=context();value(c,`state.year=realPolity.start;atlas.year=state.year;${side==='right'?"state.compare=true;compareMap=makeMap();state.compareYear=realPolity.start;compareMap.year=state.compareYear;":''}openPolity(realPolity,${side==='right'?'compareMap':'atlas'});${side==='right'?'compareMap':'atlas'}.map.jumpTo({center:[75,35],zoom:7});bind();`);
   const before=value(c,`encodeCamera(${side==='right'?'compareMap':'atlas'}.map)`),count=value(c,'focusLog.length');value(c,"document.querySelector('#language').onchange({target:{value:'en'}})");await flush();

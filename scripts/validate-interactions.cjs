@@ -16,14 +16,49 @@ function context(){
  polityReader.render=function(){document.querySelector('#detailPanel').hidden=false;renderLog.push('polity:'+this.record.id)};
  renderEventDetail=e=>{document.querySelector('#detailPanel').hidden=false;renderLog.push('event:'+e.id)};
  globalThis.record={id:'clio-00001',name:'Test',start:1800,end:2000,type:'POLITY',verifiedWikidata:'Q1',center:[0,0],area:100};catalog.records=[record];
- globalThis.event={id:'E',start:1900,end:1900,lon:0,lat:0,locationType:'site'};
+ globalThis.event={id:'E',start:1900,end:1900,lon:0,lat:0,locationType:'site',summary:{en:'Event',zh:'事件'},sources:[]};
  globalThis.panel=()=>document.querySelector('#detailPanel');
  `,c);return c;
 }
+const incomplete=()=>assert.fail('Interaction checks exited with an unresolved promise');
+process.once('beforeExit',incomplete);
 (async()=>{
  // Execute the real independent URL helpers; do not mock research state parsing.
  researchState=await import(require('node:url').pathToFileURL(ROOT+'research-view.js'));
  polityNames=await import(require('node:url').pathToFileURL(ROOT+'polity-names.js'));
+ {
+  const c=context(),input=c.document.querySelector('#search'),results=c.document.querySelector('#eventList');
+  const listeners=new Map(),observers=new Set(),opened=[];
+  input.addEventListener=(name,fn)=>listeners.set(name,fn);
+  c.MutationObserver=class {
+   constructor(callback){this.callback=callback;}
+   observe(node){assert.equal(node,results);observers.add(this);}
+   disconnect(){observers.delete(this);}
+  };
+  let first=null;
+  const showResult=value=>{
+   first=value?{click:()=>opened.push(value)}:null;
+   for(const observer of observers)observer.callback();
+  };
+  results.querySelector=()=>first;
+  c.refreshSearch=value=>showResult(value.startsWith('wait')?null:value);
+  vm.runInContext('renderEvents=()=>refreshSearch(state.search);bindLayers=()=>{};bind();',c);
+  const type=value=>{input.value=value;input.oninput({target:input});};
+  const key=(key,extra={})=>listeners.get('keydown')({key,preventDefault(){},...extra});
+  showResult('Rome');type('唐');key('Enter');
+  assert.deepEqual(opened,['唐']);
+  type('wait for battle');key('Enter');showResult('battle');showResult('second match');
+  assert.deepEqual(opened,['唐','battle']);
+  for(const action of ['new input','blur','Escape','compositionstart']){
+   type('wait for place');key('Enter');
+   if(action==='new input')type('another place');else if(action==='Escape')key('Escape');else listeners.get(action)();
+   showResult('late place');assert.deepEqual(opened,['唐','battle'],action);
+  }
+  type('wait for composition');key('Enter',{isComposing:true});showResult('partial spelling');key('Escape');
+  assert.deepEqual(opened,['唐','battle']);
+  assert.equal(observers.size,0);
+  console.log('PASS search Enter opens the current query, supports later results, and cancels stale keyboard navigation');
+ }
  {
   const c=context();
   vm.runInContext(`
@@ -99,4 +134,4 @@ function context(){
   vm.runInContext('globalThis.wait=AtlasMap.prototype.upgradeDetail.call(subject);finish(new Map());',c);await vm.runInContext('wait',c);assert.equal(vm.runInContext('renders',c),1);
   console.log('PASS a stale native upgrade cannot overwrite a newer year or lock future upgrades');
  }
-})();
+})().then(()=>process.removeListener('beforeExit',incomplete));
