@@ -7,10 +7,10 @@
       "2": 103,
       "742": 317
     },
-    "sourceSupportedMappings": 371,
+    "sourceSupportedMappings": 373,
     "hanVerifiedMappings": 103,
-    "tangPeriodAliases": 268,
-    "documentedDeferred": 49,
+    "tangPeriodAliases": 270,
+    "documentedDeferred": 47,
     "fullDatasetNameAuditComplete": true
   },
   "applicationRules": [
@@ -108,7 +108,7 @@
       "PrefID": 59,
       "sourcePrefNAM": "Lian Zhou",
       "ProvNAM": "Jiangnan West Dao",
-      "reason": "连州改连山郡有明确记载，但转录文本天宝口数143532与源记录143523不同，留待版本对读。（对读《新唐书·卷四十三上》作口十四万三千五百三十三[143533]，仍与源143523不符）",
+      "reason": "新旧《唐书》均记连州于742年改为连山郡。文渊阁四库本《唐书》录32,210户、143,523口，与源图口数相合。所引维基文库《旧唐书》《新唐书》转录的口数分别为143,532和143,533。源图的江南西道与《旧唐书》的编排相合，《新唐书》将连州列入岭南道。《太平寰宇记补阙》引《十道记》也将开元、天宝时的连州系于岭南道。人口读数已有出处，742年的道属仍有分歧。",
       "primaryHeading": "连州",
       "sourceRecordPopulation": 143523,
       "sourceRecordPopulationMethod": "Population records",
@@ -118,38 +118,40 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#連州",
           "title": "旧唐书·卷四十·地理志三",
           "section": "连州",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "householdsInText": 32210,
+          "populationInText": 143532,
+          "renameYear": 742
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#連州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "连州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "householdsInText": 32210,
+          "populationInText": 143533,
+          "renameYear": 742
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/635",
+          "title": "文渊阁四库全书本《唐书》卷四十三上",
+          "titleEn": "New Book of Tang · Wenyuan Pavilion Siku edition · juan 43a",
+          "section": "连州（第272册影像635）",
+          "sectionEn": "Lian Zhou (vol. 272, image 635)",
+          "householdsInText": 32210,
+          "populationInText": 143523,
+          "renameYear": 742
+        },
+        {
+          "url": "https://www.shidianguji.com/zh/book/NLG312001056855/chapter/1l323n8hsmtrb",
+          "title": "太平寰宇记补阙·卷五",
+          "titleEn": "Taiping Huanyu Ji Buque · juan 5",
+          "section": "连州引《十道记》",
+          "sectionEn": "Lian Zhou, quoting the Shidao Ji"
         }
       ],
       "populationInText": 143532,
-      "reasonEn": "The histories record the renaming of Lian Zhou as Lianshan Commandery. The Old Book of Tang transcription gives 143,532 inhabitants and the New Book of Tang gives 143,533. Neither matches the dataset’s 143,523."
-    },
-    {
-      "id": "china-prefecture-742-67",
-      "year": 742,
-      "PrefID": 67,
-      "sourcePrefNAM": "Chen Zhou",
-      "ProvNAM": "Jiangnan West Dao",
-      "reason": "郴州改桂阳郡有明确记载；源数据Source为Number of households*5、POP为165875，本次文本天宝户31303，乘5为156515。户数或推算来源需对读，暂不自动改名。",
-      "primaryHeading": "郴州",
-      "sourceRecordPopulation": 165875,
-      "sourceRecordPopulationMethod": "Number of households*5",
-      "observedWebLine": 944,
-      "sources": [
-        {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#郴州",
-          "title": "旧唐书·卷四十·地理志三",
-          "section": "郴州",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
-        }
-      ],
-      "reasonEn": "Chen Zhou became Guiyang Commandery. The dataset gives 165,875 people based on five people per household. The Tianbao text gives 31,303 households, which by the same calculation would yield 156,515. The household figures need to be reconciled."
+      "reasonEn": "Both Tang histories date the name Lianshan Commandery to 742. The Wenyuan Pavilion Siku edition of the New Book lists 32,210 households and 143,523 people, matching the map. The linked Wikisource transcriptions give 143,532 in the Old Book and 143,533 in the New Book. The map places Lian Zhou in Jiangnan West Circuit, following the Old Book’s arrangement. The New Book lists it in Lingnan. The Shidao Ji, quoted in the supplement to the Taiping Huanyu Ji, also places it in Lingnan during the Kaiyuan and Tianbao periods. The circuit attribution remains open."
     },
     {
       "id": "china-prefecture-742-78",
@@ -1220,33 +1222,6 @@
       "reasonEn": "The Old Book of Tang records that Zijiang County was attached to Ye in 744 when Chong became a jimi prefecture. The New Book of Tang gives the same year in its note on Zang and lists seven counties under Chong. This change postdates the 742 snapshot. The map supplies a modern estimate of 11,300 inhabitants. The texts do not delineate this statistical unit."
     },
     {
-      "id": "china-prefecture-742-164",
-      "year": 742,
-      "PrefID": 164,
-      "sourcePrefNAM": "Zhe Zhou",
-      "ProvNAM": "Jiannan Dao",
-      "reason": "《旧唐书》柘州条记天宝元年改蓬山郡，但缺天宝户口数，未能与源记录2220直接互证。（对读《新唐书·卷四十二》作口二千一百二十[2120]，与源2220差一百）",
-      "primaryHeading": "柘州",
-      "sourceRecordPopulation": 2220,
-      "sourceRecordPopulationMethod": "Population records",
-      "sources": [
-        {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#柘州",
-          "title": "旧唐书·卷四十一·地理志四",
-          "section": "柘州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
-        },
-        {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#柘州",
-          "title": "新唐书·卷四十二·地理志六",
-          "section": "柘州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
-        }
-      ],
-      "populationInText": null,
-      "reasonEn": "The Old Book of Tang records the renaming of Zhe Zhou as Pengshan Commandery in 742 but gives no Tianbao household or population count. The New Book of Tang gives 2,120 people, 100 fewer than the dataset’s 2,220."
-    },
-    {
       "id": "china-prefecture-742-166",
       "year": 742,
       "PrefID": 166,
@@ -1279,7 +1254,7 @@
       "PrefID": 169,
       "sourcePrefNAM": "Jian Zhou",
       "ProvNAM": "Jiannan Dao",
-      "reason": "《旧唐书》剑州条天宝口数100450一致，惟明确记“天宝五年，改为普安郡”（746年），非742年（天宝元年）改名，本批暂不提前套用746年郡名。",
+      "reason": "《旧唐书》记剑州于天宝五年（746）改为普安郡，《太平寰宇记》卷八十四却系于天宝元年（742）。《新唐书》题作剑州普安郡，未注明改郡年份。新旧两书同录23,510户、100,450口，口数与源图一致。两种纪年将742年的地图名称分别指向剑州和普安郡，故继续待考。",
       "primaryHeading": "剑州",
       "sourceRecordPopulation": 100450,
       "sourceRecordPopulationMethod": "Population records",
@@ -1288,11 +1263,31 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#劍州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "剑州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "householdsInText": 23510,
+          "populationInText": 100450,
+          "renameYear": 746
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#劍州",
+          "title": "新唐书·卷四十二·地理志六",
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "section": "剑州",
+          "sectionEn": "Jian Zhou",
+          "householdsInText": 23510,
+          "populationInText": 100450
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:NLC403-312001056844-1114_太平寰宇記_卷八十四.pdf/1",
+          "title": "太平寰宇记·卷八十四·剑南道三",
+          "titleEn": "Taiping Huanyu Ji · juan 84 · Jiannan Circuit III",
+          "section": "剑州（红杏山房刻本卷首）",
+          "sectionEn": "Jian Zhou (Hongxing Shanfang edition, opening page)",
+          "renameYear": 742
         }
       ],
       "populationInText": 100450,
-      "reasonEn": "The Old Book of Tang and the dataset agree on 100,450 inhabitants. The history dates the renaming of Jian Zhou as Pu’an Commandery to the fifth year of Tianbao (746). The 742 map therefore retains the earlier name."
+      "reasonEn": "The Old Book of Tang dates the renaming of Jian Zhou as Pu’an Commandery to 746. The Taiping Huanyu Ji dates it to 742. The New Book lists both names without dating the change to commandery status. Both histories give 23,510 households and 100,450 people, matching the dataset’s population. The chronologies imply different labels for the 742 map."
     },
     {
       "id": "china-prefecture-742-301",
@@ -4313,7 +4308,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "犍为郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 489486,
+          "householdsInText": 109419
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有犍为郡，户口与源记录人口489486完全一致。按原行政区名称补齐简体中文显示。"
@@ -4332,7 +4329,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "六安国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 178616,
+          "householdsInText": 38345
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有六安国，户口与源记录人口178616完全一致；源人口与《汉书》同为178616（同条别见真定国），结合州部与郡名分别确认。按原行政区名称补齐简体中文显示。"
@@ -4351,7 +4350,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "北海郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 593159,
+          "householdsInText": 127000
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有北海郡，户口与源记录人口593159完全一致。按原行政区名称补齐简体中文显示。"
@@ -4370,7 +4371,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "济南郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 642884,
+          "householdsInText": 140761
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有济南郡，户口与源记录人口642884完全一致。按原行政区名称补齐简体中文显示。"
@@ -4389,7 +4392,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "清河郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 875422,
+          "householdsInText": 201774
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有清河郡，户口与源记录人口875422完全一致。按原行政区名称补齐简体中文显示。"
@@ -4408,7 +4413,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "齐郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 554444,
+          "householdsInText": 154826
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有齐郡，户口与源记录人口554444完全一致。按原行政区名称补齐简体中文显示。"
@@ -4427,7 +4434,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "胶东国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 323331,
+          "householdsInText": 72002
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有胶东国，户口与源记录人口323331完全一致。按原行政区名称补齐简体中文显示。"
@@ -4446,7 +4455,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "平原郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 664543,
+          "householdsInText": 154387
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有平原郡，户口与源记录人口664543完全一致。按原行政区名称补齐简体中文显示。"
@@ -4465,7 +4476,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "真定国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 178616,
+          "householdsInText": 37126
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有真定国，户口与源记录人口178616完全一致；源人口与《汉书》同为178616（同条别见真定国），结合州部与郡名分别确认。按原行政区名称补齐简体中文显示。"
@@ -4484,7 +4497,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "钜鹿郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 827177,
+          "householdsInText": 155951
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有钜鹿郡，户口与源记录人口827177完全一致。按原行政区名称补齐简体中文显示。"
@@ -4503,7 +4518,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "安定郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 143294,
+          "householdsInText": 42725
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有安定郡，户口与源记录人口143294完全一致。按原行政区名称补齐简体中文显示。"
@@ -4522,7 +4539,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "河间国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 187662,
+          "householdsInText": 45043
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有河间国，户口与源记录人口187662完全一致。按原行政区名称补齐简体中文显示。"
@@ -4541,7 +4560,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "北地郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 210688,
+          "householdsInText": 64461
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有北地郡，户口与源记录人口210688完全一致。按原行政区名称补齐简体中文显示。"
@@ -4560,7 +4581,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "常山郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 677956,
+          "householdsInText": 141741
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有常山郡，户口与源记录人口677956完全一致。按原行政区名称补齐简体中文显示。"
@@ -4579,7 +4602,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "上郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 606658,
+          "householdsInText": 103683
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有上郡，户口与源记录人口606658完全一致。按原行政区名称补齐简体中文显示。"
@@ -4598,7 +4623,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "中山国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 668080,
+          "householdsInText": 160873
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有中山国，户口与源记录人口668080完全一致。按原行政区名称补齐简体中文显示。"
@@ -4617,7 +4644,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "武威郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 76419,
+          "householdsInText": 17581
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有武威郡，户口与源记录人口76419完全一致。按原行政区名称补齐简体中文显示。"
@@ -4636,7 +4665,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "广阳国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 70658,
+          "householdsInText": 20740
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有广阳国，户口与源记录人口70658完全一致。按原行政区名称补齐简体中文显示。"
@@ -4655,7 +4686,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "云中郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 173270,
+          "householdsInText": 38303
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有云中郡，户口与源记录人口173270完全一致。按原行政区名称补齐简体中文显示。"
@@ -4674,7 +4707,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "五原郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 231328,
+          "householdsInText": 39322
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有五原郡，户口与源记录人口231328完全一致。按原行政区名称补齐简体中文显示。"
@@ -4693,7 +4728,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "朔方郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 136628,
+          "householdsInText": 34338
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有朔方郡，户口与源记录人口136628完全一致。按原行政区名称补齐简体中文显示。"
@@ -4712,7 +4749,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "雁门郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 293454,
+          "householdsInText": 73138
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有雁门郡，户口与源记录人口293454完全一致。按原行政区名称补齐简体中文显示。"
@@ -4731,7 +4770,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "代郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 278754,
+          "householdsInText": 56771
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有代郡，户口与源记录人口278754完全一致。按原行政区名称补齐简体中文显示。"
@@ -4750,7 +4791,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "上谷郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 117762,
+          "householdsInText": 36008
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有上谷郡，户口与源记录人口117762完全一致。按原行政区名称补齐简体中文显示。"
@@ -4769,7 +4812,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "酒泉郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 76726,
+          "householdsInText": 18137
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有酒泉郡，户口与源记录人口76726完全一致。按原行政区名称补齐简体中文显示。"
@@ -4788,7 +4833,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "渔阳郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 264116,
+          "householdsInText": 68802
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有渔阳郡，户口与源记录人口264116完全一致。按原行政区名称补齐简体中文显示。"
@@ -4807,7 +4854,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "张掖郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 88731,
+          "householdsInText": 24352
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有张掖郡，户口与源记录人口88731完全一致。按原行政区名称补齐简体中文显示。"
@@ -4826,7 +4875,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "敦煌郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 38335,
+          "householdsInText": 11200
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有敦煌郡，户口与源记录人口38335完全一致。按原行政区名称补齐简体中文显示。"
@@ -4845,7 +4896,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "右北平郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 320780,
+          "householdsInText": 66689
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有右北平郡，户口与源记录人口320780完全一致。按原行政区名称补齐简体中文显示。"
@@ -4864,7 +4917,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "东莱郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 502693,
+          "householdsInText": 103292
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有东莱郡，户口与源记录人口502693完全一致。按原行政区名称补齐简体中文显示。"
@@ -4883,7 +4938,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "乐浪郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 406748,
+          "householdsInText": 62812
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有乐浪郡，户口与源记录人口406748完全一致。按原行政区名称补齐简体中文显示。"
@@ -4902,7 +4959,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "辽东郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 272539,
+          "householdsInText": 55972
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有辽东郡，户口与源记录人口272539完全一致。按原行政区名称补齐简体中文显示。"
@@ -4921,7 +4980,9 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "辽西郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 352325,
+          "householdsInText": 72654
         }
       ],
       "evidence": "《汉书·地理志》元始二年郡国记录列有辽西郡，户口与源记录人口352325完全一致。按原行政区名称补齐简体中文显示。"
@@ -4941,7 +5002,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#驩州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "驩州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 50818,
+          "householdsInText": 9619
         }
       ],
       "evidence": "《旧唐书》驩州条记天宝元年改为日南郡且天宝口数50818与源记录一致，用于742年名称显示。"
@@ -4961,7 +5024,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#雷州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "雷州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 20572,
+          "householdsInText": 4320
         }
       ],
       "evidence": "《旧唐书》雷州条记天宝元年改为海康郡且天宝口数20572与源记录一致，用于742年名称显示。"
@@ -4981,7 +5046,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#潘州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "潘州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 8967,
+          "householdsInText": 4300
         }
       ],
       "evidence": "《旧唐书》潘州条记天宝元年改为南潘郡且天宝口数8967与源记录一致，用于742年名称显示。"
@@ -5001,7 +5068,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#辩州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "辩州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 16209,
+          "householdsInText": 4858
         }
       ],
       "evidence": "《旧唐书》辩州条记天宝元年改为陵水郡且天宝口数16209与源记录一致，用于742年名称显示。"
@@ -5021,7 +5090,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#白州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "白州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 9498,
+          "householdsInText": 2574
         }
       ],
       "evidence": "《旧唐书》白州条记天宝元年改为南昌郡且天宝口数9498与源记录一致，用于742年名称显示。"
@@ -5041,7 +5112,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#廉州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "廉州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 13029,
+          "householdsInText": 3032
         }
       ],
       "evidence": "《旧唐书》廉州条记天宝元年改为合浦郡且天宝口数13029与源记录一致，用于742年名称显示。"
@@ -5061,7 +5134,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#钦州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "钦州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 10146,
+          "householdsInText": 2700
         }
       ],
       "evidence": "《旧唐书》钦州条记天宝元年改为宁越郡且天宝口数10146与源记录一致，用于742年名称显示。"
@@ -5081,7 +5156,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#横州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "横州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 8342,
+          "householdsInText": 1978
         }
       ],
       "evidence": "《旧唐书》横州条记天宝元年改为宁浦郡且天宝口数8342与源记录一致，用于742年名称显示。"
@@ -5101,7 +5178,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#义州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "义州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 7303,
+          "householdsInText": 1110
         }
       ],
       "evidence": "《旧唐书》义州条记天宝元年改为连城郡且天宝口数7303与源记录一致，用于742年名称显示。"
@@ -5121,7 +5200,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#贵州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "贵州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 9300,
+          "householdsInText": 3026
         }
       ],
       "evidence": "《旧唐书》贵州条记天宝元年改为怀泽郡且天宝口数9300与源记录一致，用于742年名称显示。"
@@ -5141,7 +5222,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#宾州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "宾州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 8580,
+          "householdsInText": 1976
         }
       ],
       "evidence": "《旧唐书》宾州条记天宝元年改为安城郡且天宝口数8580与源记录一致，并以天宝口数8580与同道或同音条目区分。用于742年名称显示。"
@@ -5161,7 +5244,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#端州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "端州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 21120,
+          "householdsInText": 9500
         }
       ],
       "evidence": "《旧唐书》端州条记天宝元年改为高要郡且天宝口数21120与源记录一致，用于742年名称显示。"
@@ -5181,7 +5266,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#康州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "康州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 17219,
+          "householdsInText": 10510
         }
       ],
       "evidence": "《旧唐书》康州条记天宝元年改为晋康郡且天宝口数17219与源记录一致，用于742年名称显示。"
@@ -5201,7 +5288,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#龚州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "龚州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 21000,
+          "householdsInText": 9000
         }
       ],
       "evidence": "《旧唐书》龚州条记天宝元年改为临江郡且天宝口数21000与源记录一致，用于742年名称显示。"
@@ -5221,7 +5310,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#澄州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "澄州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 8580,
+          "householdsInText": 1368
         }
       ],
       "evidence": "《旧唐书》澄州条记天宝元年改为贺水郡且天宝口数8580与源记录一致，并以天宝口数8580与同道或同音条目区分。用于742年名称显示。"
@@ -5241,7 +5332,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#封州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "封州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 11827,
+          "householdsInText": 3900
         }
       ],
       "evidence": "《旧唐书》封州条记天宝元年改为临封郡且天宝口数11827与源记录一致，用于742年名称显示。"
@@ -5261,7 +5354,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#象州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "象州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 10890,
+          "householdsInText": 5500
         }
       ],
       "evidence": "《旧唐书》象州条记天宝元年改为象山郡且天宝口数10890与源记录一致，用于742年名称显示。"
@@ -5281,7 +5376,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#邕州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "邕州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 7302,
+          "householdsInText": 2893
         }
       ],
       "evidence": "《旧唐书》邕州条记天宝元年改为朗宁郡且天宝口数7302与源记录一致，用于742年名称显示。"
@@ -5301,7 +5398,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#柳州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "柳州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 11550,
+          "householdsInText": 2232
         }
       ],
       "evidence": "《旧唐书》柳州条记天宝元年改为龙城郡且天宝口数11550与源记录一致，用于742年名称显示。"
@@ -5321,7 +5420,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#韶州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "韶州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 168948,
+          "householdsInText": 31000
         }
       ],
       "evidence": "《旧唐书》韶州条记天宝元年改为始兴郡且天宝口数168948与源记录一致，用于742年名称显示。"
@@ -5341,7 +5442,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#戎州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "戎州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 16375,
+          "householdsInText": 4359
         }
       ],
       "evidence": "《旧唐书》戎州条记天宝元年改为南溪郡且天宝口数16375与源记录一致，并以天宝口数16375与同道或同音条目区分。用于742年名称显示。"
@@ -5361,7 +5464,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#泸州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "泸州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 65711,
+          "householdsInText": 16594
         }
       ],
       "evidence": "《旧唐书》泸州条记天宝元年改为泸川郡且天宝口数65711与源记录一致，用于742年名称显示。"
@@ -5381,7 +5486,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#嘉州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "嘉州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 99591,
+          "householdsInText": 34289
         }
       ],
       "evidence": "《旧唐书》嘉州条记天宝元年改为犍为郡且天宝口数99591与源记录一致，用于742年名称显示。"
@@ -5401,7 +5508,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#渝州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "渝州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 27685,
+          "householdsInText": 6995
         }
       ],
       "evidence": "《旧唐书》渝州条记天宝元年改为南平郡且天宝口数27685与源记录一致，用于742年名称显示。"
@@ -5421,7 +5530,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#资州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "资州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 104775,
+          "householdsInText": 29635
         }
       ],
       "evidence": "《旧唐书》资州条记天宝元年改为资阳郡且天宝口数104775与源记录一致，并以天宝口数104775与同道或同音条目区分。用于742年名称显示。"
@@ -5441,7 +5552,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#眉州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "眉州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 175256,
+          "householdsInText": 43529
         }
       ],
       "evidence": "《旧唐书》眉州条记天宝元年改为通义郡且天宝口数175256与源记录一致，用于742年名称显示。"
@@ -5461,7 +5574,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#陵州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "陵州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 100128,
+          "householdsInText": 34728
         }
       ],
       "evidence": "《旧唐书》陵州条记天宝元年改为仁寿郡且天宝口数100128与源记录一致，用于742年名称显示。"
@@ -5481,7 +5596,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#普州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "普州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 74692,
+          "householdsInText": 25693
         }
       ],
       "evidence": "《旧唐书》普州条记天宝元年改为安岳郡且天宝口数74692与源记录一致，用于742年名称显示。"
@@ -5501,7 +5618,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#忠州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "忠州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 43026,
+          "householdsInText": 6722
         }
       ],
       "evidence": "《旧唐书》忠州条记天宝元年改为南宾郡且天宝口数43026与源记录一致，用于742年名称显示。"
@@ -5521,7 +5640,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#邛州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "邛州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 190327,
+          "householdsInText": 42107
         }
       ],
       "evidence": "《旧唐书》邛州条记天宝元年改为临邛郡且天宝口数190327与源记录一致，用于742年名称显示。"
@@ -5541,7 +5662,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#遂州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "遂州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 107716,
+          "householdsInText": 35632
         }
       ],
       "evidence": "《旧唐书》遂州条记天宝元年改为遂宁郡且天宝口数107716与源记录一致，用于742年名称显示。"
@@ -5561,7 +5684,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#万州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "万州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 25746,
+          "householdsInText": 5179
         }
       ],
       "evidence": "《旧唐书》万州条记天宝元年改为南浦郡且天宝口数25746与源记录一致，用于742年名称显示。"
@@ -5581,7 +5706,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#郢州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "郢州（附复州）",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 44885,
+          "householdsInText": 8210
         }
       ],
       "evidence": "《旧唐书》复州条附见于《旧唐书》郢州条，记天宝元年改为竟陵郡且天宝口数44885与源记录一致，用于742年名称显示。"
@@ -5601,7 +5728,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#梓州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "梓州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 246652,
+          "householdsInText": 61824
         }
       ],
       "evidence": "《旧唐书》梓州条记天宝元年改为梓潼郡且天宝口数246652与源记录一致，并以天宝口数246652与同道或同音条目区分。用于742年名称显示。"
@@ -5621,7 +5750,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#开州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "开州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 30421,
+          "householdsInText": 5660
         }
       ],
       "evidence": "《旧唐书》开州条记天宝元年改为盛山郡且天宝口数30421与源记录一致，用于742年名称显示。"
@@ -5641,7 +5772,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#郢州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "郢州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 57375,
+          "householdsInText": 12046
         }
       ],
       "evidence": "《旧唐书》郢州条记天宝元年改为富水郡且天宝口数57375与源记录一致，用于742年名称显示。"
@@ -5661,7 +5794,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#荣州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "荣州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 18024,
+          "householdsInText": 5639
         }
       ],
       "evidence": "《旧唐书》荣州条记天宝元年改为和义郡且天宝口数18024与源记录一致，并以天宝口数18024与同道或同音条目区分。用于742年名称显示。"
@@ -5681,7 +5816,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#成都府",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "成都府（益州）",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 928199,
+          "householdsInText": 160950
         }
       ],
       "evidence": "《旧唐书》益州条见《旧唐书》成都府条，记天宝元年改为蜀郡且天宝口数928199与源记录一致，并以天宝口数928199与同道或同音条目区分。用于742年名称显示。"
@@ -5701,7 +5838,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#荆州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "荆州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 148149,
+          "householdsInText": 30192
         }
       ],
       "evidence": "《旧唐书》荆州条记天宝元年改为江陵郡且天宝口数148149与源记录一致，用于742年名称显示。"
@@ -5721,7 +5860,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#通州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "通州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 110804,
+          "householdsInText": 40743
         }
       ],
       "evidence": "《旧唐书》通州条记天宝元年改为通川郡且天宝口数110804与源记录一致，用于742年名称显示。"
@@ -5741,7 +5882,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#翼州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "翼州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 3618,
+          "householdsInText": 711
         }
       ],
       "evidence": "《旧唐书》翼州条记天宝元年改为临翼郡且天宝口数3618与源记录一致，并以天宝口数3618与同道或同音条目区分。用于742年名称显示。"
@@ -5761,7 +5904,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#龙州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "龙州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 4228,
+          "householdsInText": 2009
         }
       ],
       "evidence": "《旧唐书》龙州条记天宝元年改为江油郡且天宝口数4228与源记录一致，用于742年名称显示。"
@@ -5781,7 +5926,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#隋州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "隋州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 105722,
+          "householdsInText": 23917
         }
       ],
       "evidence": "《旧唐书》隋州条记天宝元年改为汉东郡且天宝口数105722与源记录一致，用于742年名称显示。"
@@ -5801,7 +5948,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#房州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "房州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 71708,
+          "householdsInText": 14422
         }
       ],
       "evidence": "《旧唐书》房州条记天宝元年改为房陵郡且天宝口数71708与源记录一致，用于742年名称显示。"
@@ -5821,7 +5970,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#集州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "集州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 25726,
+          "householdsInText": 4353
         }
       ],
       "evidence": "《旧唐书》集州条记天宝元年改为符阳郡且天宝口数25726与源记录一致，用于742年名称显示。"
@@ -5841,7 +5992,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#襄州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "襄州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 252001,
+          "householdsInText": 47780
         }
       ],
       "evidence": "《旧唐书》襄州条记天宝元年改为襄阳郡且天宝口数252001与源记录一致，用于742年名称显示。"
@@ -5861,7 +6014,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#利州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "利州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 44600,
+          "householdsInText": 23910
         }
       ],
       "evidence": "《旧唐书》利州条记天宝元年改为益昌郡且天宝口数44600与源记录一致，用于742年名称显示。"
@@ -5881,7 +6036,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#松州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "松州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 5742,
+          "householdsInText": 1076
         }
       ],
       "evidence": "《旧唐书》松州条记天宝元年改为交川郡且天宝口数5742与源记录一致，用于742年名称显示。"
@@ -5901,7 +6058,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#文州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "文州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "populationInText": 9205,
+          "householdsInText": 1686
         }
       ],
       "evidence": "《旧唐书》文州条记天宝元年改为阴平郡且天宝口数9205与源记录一致，用于742年名称显示。"
@@ -5921,7 +6080,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#均州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "均州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 50809,
+          "householdsInText": 9698
         }
       ],
       "evidence": "《旧唐书》均州条记天宝元年改为武当郡且天宝口数50809与源记录一致，用于742年名称显示。"
@@ -5941,7 +6102,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#兴州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "兴州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 11046,
+          "householdsInText": 2224
         }
       ],
       "evidence": "《旧唐书》兴州条记天宝元年改为顺政郡且天宝口数11046与源记录一致，用于742年名称显示。"
@@ -5961,7 +6124,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#邓州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "邓州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 165257,
+          "householdsInText": 43055
         }
       ],
       "evidence": "《旧唐书》邓州条记天宝元年改为南阳郡且天宝口数165257与源记录一致，用于742年名称显示。"
@@ -5981,7 +6146,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#洋州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "洋州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 88327,
+          "householdsInText": 23849
         }
       ],
       "evidence": "《旧唐书》洋州条记天宝元年改为洋川郡且天宝口数88327与源记录一致，用于742年名称显示。"
@@ -6001,7 +6168,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#凤州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "凤州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 27877,
+          "householdsInText": 5918
         }
       ],
       "evidence": "《旧唐书》凤州条记天宝元年改为河池郡且天宝口数27877与源记录一致，用于742年名称显示。"
@@ -6021,7 +6190,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#陇州",
           "title": "旧唐书·卷三十八·地理志一",
           "section": "陇州",
-          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+          "titleEn": "Old Book of Tang · juan 38 · Geography I",
+          "populationInText": 100148,
+          "householdsInText": 24652
         }
       ],
       "evidence": "《旧唐书》陇州条记天宝元年改为汧阳郡且天宝口数100148与源记录一致，用于742年名称显示。"
@@ -6041,7 +6212,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#卫州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "卫州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 284630,
+          "householdsInText": 48056
         }
       ],
       "evidence": "《旧唐书》卫州条记天宝元年改为汲郡且天宝口数284630与源记录一致，用于742年名称显示。"
@@ -6061,7 +6234,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#相州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "相州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 590196,
+          "householdsInText": 101142
         }
       ],
       "evidence": "《旧唐书》相州条记天宝元年改为邺郡且天宝口数590196与源记录一致，用于742年名称显示。"
@@ -6081,7 +6256,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#晋州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "晋州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 429221,
+          "householdsInText": 64836
         }
       ],
       "evidence": "《旧唐书》晋州条记天宝元年改为平阳郡且天宝口数429221与源记录一致，用于742年名称显示。"
@@ -6101,7 +6278,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#沁州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "沁州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 34963,
+          "householdsInText": 6308
         }
       ],
       "evidence": "《旧唐书》沁州条记天宝元年改为阳城郡且天宝口数34963与源记录一致，用于742年名称显示。"
@@ -6121,7 +6300,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#隰州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "隰州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 124420,
+          "householdsInText": 19455
         }
       ],
       "evidence": "《旧唐书》隰州条记天宝元年改为大宁郡且天宝口数124420与源记录一致，用于742年名称显示。"
@@ -6141,7 +6322,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#博州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "博州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 408252,
+          "householdsInText": 52631
         }
       ],
       "evidence": "《旧唐书》博州条记天宝元年改为博平郡且天宝口数408252与源记录一致，用于742年名称显示。"
@@ -6161,7 +6344,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#邢州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "邢州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 382798,
+          "householdsInText": 70189
         }
       ],
       "evidence": "《旧唐书》邢州条记天宝元年改为钜鹿郡且天宝口数382798与源记录一致，用于742年名称显示。"
@@ -6181,7 +6366,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#德州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "德州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 659855,
+          "householdsInText": 83311
         }
       ],
       "evidence": "《旧唐书》德州条记天宝元年改为平原郡且天宝口数659855与源记录一致，用于742年名称显示。"
@@ -6201,7 +6388,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#赵州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "赵州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 395238,
+          "householdsInText": 63454
         }
       ],
       "evidence": "《旧唐书》赵州条记天宝元年改为赵郡且天宝口数395238与源记录一致，用于742年名称显示。"
@@ -6221,7 +6410,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#石州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "石州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 66935,
+          "householdsInText": 14294
         }
       ],
       "evidence": "《旧唐书》石州条记天宝元年改为昌化郡且天宝口数66935与源记录一致，用于742年名称显示。"
@@ -6240,7 +6431,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#北京",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "北京（太原府）",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 778278,
+          "householdsInText": 128905
         }
       ],
       "evidence": "《旧唐书》北京（太原府）条记天宝领口778278与源记录一致；开元十一年改并州为太原府，天宝元年仅改北都为北京，府名仍为太原府。",
@@ -6261,7 +6454,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#深州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "深州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 346472,
+          "householdsInText": 18825
         }
       ],
       "evidence": "《旧唐书》深州条记天宝元年改为饶阳郡且天宝口数346472与源记录一致，用于742年名称显示。"
@@ -6281,7 +6476,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#忻州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "忻州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 82032,
+          "householdsInText": 14806
         }
       ],
       "evidence": "《旧唐书》忻州条记天宝元年改为定襄郡且天宝口数82032与源记录一致，用于742年名称显示。"
@@ -6301,7 +6498,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#岚州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "岚州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 84006,
+          "householdsInText": 16748
         }
       ],
       "evidence": "《旧唐书》岚州条记天宝元年改为楼烦郡且天宝口数84006与源记录一致，用于742年名称显示。"
@@ -6321,7 +6520,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#莫州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "莫州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 339972,
+          "householdsInText": 53493
         }
       ],
       "evidence": "《旧唐书》莫州条记天宝元年改为文安郡且天宝口数339972与源记录一致，用于742年名称显示。"
@@ -6341,7 +6542,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#定州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "定州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 496676,
+          "householdsInText": 78090
         }
       ],
       "evidence": "《旧唐书》定州条记天宝元年改为博陵郡且天宝口数496676与源记录一致，用于742年名称显示。"
@@ -6361,7 +6564,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#沧州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "沧州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 825705,
+          "householdsInText": 124024
         }
       ],
       "evidence": "《旧唐书》沧州条记天宝元年改为景城郡且天宝口数825705与源记录一致，用于742年名称显示。"
@@ -6381,7 +6586,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#代州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "代州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 100350,
+          "householdsInText": 21280
         }
       ],
       "evidence": "《旧唐书》代州条记天宝元年改为雁门郡且天宝口数100350与源记录一致，用于742年名称显示。"
@@ -6401,7 +6608,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#朔州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "朔州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 24533,
+          "householdsInText": 5493
         }
       ],
       "evidence": "《旧唐书》朔州条记天宝元年改为马邑郡且天宝口数24533与源记录一致，用于742年名称显示。"
@@ -6421,7 +6630,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#易州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "易州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 258779,
+          "householdsInText": 44230
         }
       ],
       "evidence": "《旧唐书》易州条记天宝元年改为上谷郡且天宝口数258779与源记录一致，用于742年名称显示。"
@@ -6441,7 +6652,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#蔚州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "蔚州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 20958,
+          "householdsInText": 5052
         }
       ],
       "evidence": "《旧唐书》蔚州条记天宝元年改为安边郡且天宝口数20958与源记录一致，用于742年名称显示。"
@@ -6461,7 +6674,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#檀州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "檀州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 30246,
+          "householdsInText": 6064
         }
       ],
       "evidence": "《旧唐书》檀州条记天宝元年改为密云郡且天宝口数30246与源记录一致，用于742年名称显示。"
@@ -6481,7 +6696,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#营州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "营州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 3789,
+          "householdsInText": 997
         }
       ],
       "evidence": "《旧唐书》营州条记天宝元年改为柳城郡且天宝口数3789与源记录一致，用于742年名称显示。"
@@ -6501,7 +6718,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#壁州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "壁州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 54757,
+          "householdsInText": 12368
         }
       ],
       "evidence": "《旧唐书》壁州条记天宝元年改为始宁郡且天宝口数54757与源记录一致，用于742年名称显示。"
@@ -6521,7 +6740,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#河中府",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "河中府（蒲州）",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 469213,
+          "householdsInText": 70800
         }
       ],
       "evidence": "《旧唐书》蒲州条见《旧唐书》河中府条，记天宝元年改为河东郡且天宝口数469213与源记录一致，用于742年名称显示。"
@@ -6541,7 +6762,9 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#妫州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "妫州",
-          "titleEn": "Old Book of Tang · juan 39 · Geography II"
+          "titleEn": "Old Book of Tang · juan 39 · Geography II",
+          "populationInText": 11584,
+          "householdsInText": 2263
         }
       ],
       "evidence": "《旧唐书》妫州条记天宝元年改为妫川郡且天宝口数11584与源记录一致，用于742年名称显示。"
@@ -6561,7 +6784,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "罗州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 8041,
+          "householdsInText": 5460
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#罗州",
@@ -6588,7 +6813,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "牢州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 11756,
+          "householdsInText": 1641
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#牢州",
@@ -6615,7 +6842,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "窦州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 7339,
+          "householdsInText": 1019
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#窦州",
@@ -6642,7 +6871,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "勤州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 1933,
+          "householdsInText": 682
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#勤州",
@@ -6669,7 +6900,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "党州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 7404,
+          "householdsInText": 1149
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#党州",
@@ -6696,7 +6929,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "陆州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 2674,
+          "householdsInText": 494
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#陆州",
@@ -6723,7 +6958,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "郁林州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 9699,
+          "householdsInText": 1918
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#郁林州",
@@ -6750,7 +6987,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "容州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 17085,
+          "householdsInText": 4970
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#容州",
@@ -6777,7 +7016,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "泷州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 9439,
+          "householdsInText": 3627
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#泷州",
@@ -6804,7 +7045,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "浔州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 6836,
+          "householdsInText": 2500
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#浔州",
@@ -6831,7 +7074,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "严州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 7051,
+          "householdsInText": 1859
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#严州",
@@ -6858,7 +7103,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "芝州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 5300,
+          "householdsInText": 1200
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#芝州",
@@ -6885,7 +7132,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "蒙州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 5933,
+          "householdsInText": 1059
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#蒙州",
@@ -6912,7 +7161,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "富州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 8586,
+          "householdsInText": 1460
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#富州",
@@ -6939,7 +7190,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "宜州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 3230,
+          "householdsInText": 1220
         }
       ],
       "evidence": "两《唐书》对读：《新唐书》宜州条载口数3230与源记录完全一致，确认742年（天宝元年）对应龙水郡（并以实录口数3230与同道或同音条目区分），用于742年名称显示。",
@@ -6960,7 +7213,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "广州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 221500,
+          "householdsInText": 42235
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#广州",
@@ -6987,7 +7242,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "贺州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 20570,
+          "householdsInText": 4552
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#贺州",
@@ -7014,7 +7271,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "昭州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 12691,
+          "householdsInText": 4918
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#昭州",
@@ -7041,7 +7300,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "潮州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VIIa"
+          "titleEn": "New Book of Tang · juan 43a · Geography VIIa",
+          "populationInText": 26745,
+          "householdsInText": 4420
         }
       ],
       "evidence": "两《唐书》对读：《新唐书》潮州条载口数26745与源记录完全一致，确认742年（天宝元年）对应潮阳郡，用于742年名称显示。",
@@ -7062,7 +7323,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "福州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 75876,
+          "householdsInText": 34084
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#福州",
@@ -7089,7 +7352,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "建州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 142774,
+          "householdsInText": 22770
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#建州",
@@ -7116,7 +7381,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "黎州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 7670,
+          "householdsInText": 1731
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#黎州",
@@ -7143,7 +7410,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "饶州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 244350,
+          "householdsInText": 40899
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#饶州",
@@ -7170,7 +7439,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "江州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 105744,
+          "householdsInText": 19025
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#江州",
@@ -7197,7 +7468,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "睦州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 382563,
+          "householdsInText": 54961
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#睦州",
@@ -7224,7 +7497,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "简州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 143109,
+          "householdsInText": 23066
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#简州",
@@ -7251,7 +7526,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "蜀州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 390694,
+          "householdsInText": 56577
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#蜀州",
@@ -7278,7 +7555,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "雅州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 54019,
+          "householdsInText": 10892
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#雅州",
@@ -7305,7 +7584,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "渠州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 26524,
+          "householdsInText": 9957
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#渠州",
@@ -7332,7 +7613,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "果州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 89225,
+          "householdsInText": 33604
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#果州",
@@ -7359,7 +7642,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "彭州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 357387,
+          "householdsInText": 55922
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#彭州",
@@ -7386,7 +7671,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "汉州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 308203,
+          "householdsInText": 69005
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#汉州",
@@ -7413,7 +7700,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "蓬州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 53353,
+          "householdsInText": 15576
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#蓬州",
@@ -7440,7 +7729,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "峡州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 45606,
+          "householdsInText": 8098
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#硖州",
@@ -7467,7 +7758,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "维州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 3198,
+          "householdsInText": 2142
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#维州",
@@ -7494,7 +7787,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "归州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 23417,
+          "householdsInText": 4645
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#归州",
@@ -7521,7 +7816,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "恭州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 6223,
+          "householdsInText": 1189
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#恭州",
@@ -7548,7 +7845,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "夔州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 75000,
+          "householdsInText": 15620
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#夔州",
@@ -7575,7 +7874,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "静州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 6669,
+          "householdsInText": 1577
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#静州",
@@ -7602,7 +7903,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "绵州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 263352,
+          "householdsInText": 65066
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#绵州",
@@ -7629,7 +7932,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "湖州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 477698,
+          "householdsInText": 73306
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#湖州",
@@ -7656,7 +7961,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "阆州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 132192,
+          "householdsInText": 29588
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#阆州",
@@ -7683,7 +7990,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "悉州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 3914,
+          "householdsInText": 816
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#悉州",
@@ -7710,7 +8019,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "巴州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 91057,
+          "householdsInText": 30210
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#巴州",
@@ -7737,7 +8048,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "当州",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 6713,
+          "householdsInText": 2146
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#当州",
@@ -7764,7 +8077,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "和州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 122013,
+          "householdsInText": 24794
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#和州",
@@ -7791,7 +8106,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "苏州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 632650,
+          "householdsInText": 76421
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#苏州",
@@ -7818,7 +8135,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "金州",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 57929,
+          "householdsInText": 14091
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#金州",
@@ -7845,7 +8164,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "华州",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 223613,
+          "householdsInText": 33187
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#华州",
@@ -7871,7 +8192,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "京兆府",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 1960188,
+          "householdsInText": 362921
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#京兆府",
@@ -7898,7 +8221,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "邠州",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 125250,
+          "householdsInText": 22977
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#邠州",
@@ -7924,7 +8249,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "河南府",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 1183092,
+          "householdsInText": 194746
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#河南府",
@@ -7951,7 +8278,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "郑州",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 367881,
+          "householdsInText": 76694
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#郑州",
@@ -7978,7 +8307,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "怀州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 318126,
+          "householdsInText": 55349
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#怀州",
@@ -8005,7 +8336,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "坊州",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 120208,
+          "householdsInText": 22458
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#坊州",
@@ -8032,7 +8365,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "绛州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 517331,
+          "householdsInText": 82204
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#绛州",
@@ -8059,7 +8394,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "滑州",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 422709,
+          "householdsInText": 71983
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#滑州",
@@ -8086,7 +8423,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "泽州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 157090,
+          "householdsInText": 27822
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#泽州",
@@ -8113,7 +8452,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "慈州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 62486,
+          "householdsInText": 11616
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#慈州",
@@ -8140,7 +8481,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "魏州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 1109873,
+          "householdsInText": 151596
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#魏州",
@@ -8167,7 +8510,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "潞州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 388661,
+          "householdsInText": 68391
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#潞州",
@@ -8194,7 +8539,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "庆州",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 124236,
+          "householdsInText": 23949
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#庆州",
@@ -8221,7 +8568,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "会州",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 26660,
+          "householdsInText": 4594
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#会州",
@@ -8248,7 +8597,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "汾州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 320230,
+          "householdsInText": 59450
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#汾州",
@@ -8275,7 +8626,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "齐州",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 365972,
+          "householdsInText": 62485
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#齐州",
@@ -8302,7 +8655,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "绥州",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 89112,
+          "householdsInText": 10867
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#绥州",
@@ -8329,7 +8684,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "淄州",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 233821,
+          "householdsInText": 42737
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#淄州",
@@ -8356,7 +8713,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "贝州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 834757,
+          "householdsInText": 100015
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#贝州",
@@ -8383,7 +8742,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "莱州",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 171516,
+          "householdsInText": 26998
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#莱州",
@@ -8410,7 +8771,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "冀州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 830520,
+          "householdsInText": 113885
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#冀州",
@@ -8437,7 +8800,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "登州",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 108009,
+          "householdsInText": 22298
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#登州",
@@ -8464,7 +8829,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "幽州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 371312,
+          "householdsInText": 67243
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#幽州",
@@ -8491,7 +8858,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "蓟州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 18521,
+          "householdsInText": 5317
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#蓟州",
@@ -8518,7 +8887,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "云州",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 7930,
+          "householdsInText": 3169
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#云州",
@@ -8545,7 +8916,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "泌州（唐州）",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 182364,
+          "householdsInText": 42643
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#唐州",
@@ -8572,7 +8945,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "兴元府（梁州）",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 153717,
+          "householdsInText": 37470
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#梁州",
@@ -8599,7 +8974,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "镇州（恒州）",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 342134,
+          "householdsInText": 54633
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#镇州",
@@ -8626,7 +9003,9 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "叙州（巫州）",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 22738,
+          "householdsInText": 5368
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#巫州",
@@ -8652,7 +9031,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 牂柯郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 153360
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/康熙字典/爿部/五畫",
@@ -8678,7 +9058,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 会稽郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 1032604
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/康熙字典/曰部/九畫",
@@ -8704,7 +9085,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 越嶲郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 408405
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/康熙字典/山部/十三畫",
@@ -8730,7 +9112,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 丹扬郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 405171
         }
       ],
       "evidence": "《汉书·地理志》各郡上列丹扬郡，口405,171（与源记录405,170仅个位“一/〇”之差），属县亦并见“丹阳”；依《汉书》郡条原题作丹扬郡，注明后世习作丹阳郡并保留 Danyang Jun。",
@@ -8750,7 +9133,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各国 · 甾川国",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 227031
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/康熙字典/田部/三畫",
@@ -8776,7 +9160,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 千乘郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 490720
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/康熙字典/丿部/九畫",
@@ -8802,7 +9187,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 勃海郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 905119
         }
       ],
       "evidence": "《汉书·地理志》各郡上记勃海郡口905,119，与源记录 POP 完全一致（同卷后文“赵地”又作渤海）；采用《汉书》郡条正题勃海郡，并保留 Bohai Jun。",
@@ -8822,7 +9208,8 @@
           "url": "https://zh.wikisource.org/zh-hans/漢書/卷028",
           "title": "汉书·卷二十八·地理志",
           "section": "各郡上 · 琅邪郡",
-          "titleEn": "Book of Han · juan 28 · Geography"
+          "titleEn": "Book of Han · juan 28 · Geography",
+          "populationInText": 1079100
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/康熙字典/邑部/四畫",
@@ -8849,7 +9236,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "溱州溱溪郡",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 5045
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#溱州",
@@ -8888,7 +9276,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "朗州武陵郡",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 43760
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/通典/卷183",
@@ -8915,7 +9304,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "涪州涪陵郡",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 44722
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/通典/卷175",
@@ -8942,7 +9332,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "澧州澧阳郡",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 93349
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#澧州",
@@ -8975,7 +9366,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "合州巴川郡",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 77220
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#合州",
@@ -9008,7 +9400,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041",
           "title": "新唐书·卷四十一·地理志五",
           "section": "越州会稽郡",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 529589
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#越州",
@@ -9047,7 +9440,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042",
           "title": "新唐书·卷四十二·地理志六",
           "section": "奉州云山郡",
-          "titleEn": "New Book of Tang · juan 42 · Geography VI"
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "populationInText": 4536
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#保州",
@@ -9080,7 +9474,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "扶州同昌郡",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 14285
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#扶州",
@@ -9113,7 +9508,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "商州上洛郡",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 53080
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#商州",
@@ -9140,7 +9536,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "虢州弘农郡",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 88845
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#虢州",
@@ -9167,7 +9564,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷037",
           "title": "新唐书·卷三十七·地理志一",
           "section": "同州冯翊郡",
-          "titleEn": "New Book of Tang · juan 37 · Geography I"
+          "titleEn": "New Book of Tang · juan 37 · Geography I",
+          "populationInText": 408705
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#同州",
@@ -9206,7 +9604,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "沂州琅邪郡",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 195737
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#沂州",
@@ -9239,7 +9638,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "棣州乐安郡",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 238159
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#棣州",
@@ -9272,7 +9672,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "瀛州河间郡",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 663171
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#瀛州",
@@ -9305,7 +9706,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "平州北平郡",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 25086
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#平州",
@@ -9338,7 +9740,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷038",
           "title": "新唐书·卷三十八·地理志二",
           "section": "濠州钟离郡",
-          "titleEn": "New Book of Tang · juan 38 · Geography II"
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "populationInText": 138361
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#濠州",
@@ -9365,7 +9768,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷039",
           "title": "新唐书·卷三十九·地理志三",
           "section": "洺州广平郡",
-          "titleEn": "New Book of Tang · juan 39 · Geography III"
+          "titleEn": "New Book of Tang · juan 39 · Geography III",
+          "populationInText": 683280
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#洺州",
@@ -9398,7 +9802,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
           "title": "新唐书·卷四十·地理志四",
           "section": "北庭大都护府（本庭州）",
-          "titleEn": "New Book of Tang · juan 40 · Geography IV"
+          "titleEn": "New Book of Tang · juan 40 · Geography IV",
+          "populationInText": 9964
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#庭州",
@@ -9431,7 +9836,8 @@
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#武州",
           "title": "旧唐书·卷四十·地理志三",
           "section": "武州",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "populationInText": 15313
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷040",
@@ -9470,7 +9876,8 @@
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#武峩州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "武峩州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "populationInText": 5320
         }
       ],
       "evidence": "《旧唐书》武峨州条把改称武峨郡系于天宝元年（742），载户1,850，未列口数。《新唐书》保留“武峩”异体，记户1,850、口5,320。后者与岭南道原始记录 Wu'e Zhou 的人口5,320相合。同源另有梧州（Wu Zhou，编号142）。",
@@ -9512,6 +9919,76 @@
       ],
       "evidence": "《旧唐书》记江南东道温州于天宝元年（742）改永嘉郡。文渊阁四库本《唐书》录温州永嘉郡42,814户、141,690口，口数与源图相合。《旧唐书》天宝条作241,694口，所引维基文库《新唐书》转录作241,690口。742年据改名记载定名，人口保留各本异文。",
       "evidenceEn": "The Old Book of Tang dates the renaming of Wen Zhou in Jiangnan East Circuit to 742. The Wenyuan Pavilion Siku edition of the New Book of Tang lists 42,814 households and 141,690 inhabitants for Yongjia Commandery, matching the dataset’s population. The Old Book reports 241,694 for the Tianbao period, and the linked Wikisource transcription of the New Book gives 241,690. The dated renaming supports the map label."
+    },
+    {
+      "id": "china-prefecture-742-67",
+      "year": 742,
+      "PrefID": 67,
+      "sourcePrefNAM": "Chen Zhou",
+      "ProvNAM": "Jiangnan West Dao",
+      "zh": "桂阳郡",
+      "en": "Guiyang Jun",
+      "formerNameZh": "郴州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#郴州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "郴州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "householdsInText": 31303,
+          "renameYear": 742
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#郴州",
+          "title": "新唐书·卷四十一·地理志五",
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "section": "郴州",
+          "sectionEn": "Chen Zhou",
+          "householdsInText": 33175
+        }
+      ],
+      "evidence": "《旧唐书》记郴州于天宝元年（742）改为桂阳郡，天宝时领八县、31,303户。《新唐书》同列八县，录33,175户。源图注明以每户五人推算人口，33,175 × 5 恰为源图的165,875人。两部史书在此所列的天宝数字都是户数。",
+      "evidenceEn": "The Old Book of Tang dates the renaming of Chen Zhou as Guiyang Commandery to 742 and lists eight counties and 31,303 Tianbao households. The New Book also lists eight counties, with 33,175 households. The dataset estimates five people per household. Applying that rule to the New Book’s count yields its figure of 165,875 people. Both histories report households for this period."
+    },
+    {
+      "id": "china-prefecture-742-164",
+      "year": 742,
+      "PrefID": 164,
+      "sourcePrefNAM": "Zhe Zhou",
+      "ProvNAM": "Jiannan Dao",
+      "zh": "蓬山郡",
+      "en": "Pengshan Jun",
+      "formerNameZh": "柘州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#柘州",
+          "title": "旧唐书·卷四十一·地理志四",
+          "section": "柘州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "renameYear": 742
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#柘州",
+          "title": "新唐书·卷四十二·地理志六",
+          "section": "柘州",
+          "titleEn": "New Book of Tang · juan 42 · Geography VI",
+          "householdsInText": 495,
+          "populationInText": 2120
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/623",
+          "title": "文渊阁四库全书本《唐书》卷四十二",
+          "titleEn": "New Book of Tang · Wenyuan Pavilion Siku edition · juan 42",
+          "section": "柘州（第272册影像623）",
+          "sectionEn": "Zhe Zhou (vol. 272, image 623)",
+          "householdsInText": 495,
+          "populationInText": 2220
+        }
+      ],
+      "evidence": "《旧唐书》记柘州于天宝元年（742）改为蓬山郡。文渊阁四库本《唐书》列柘、乔珠二县，录495户、2,220口，口数与源图相同。所引维基文库《新唐书》转录同为495户，口数作2,120。",
+      "evidenceEn": "The Old Book of Tang dates the renaming of Zhe Zhou as Pengshan Commandery to 742. The Wenyuan Pavilion Siku edition of the New Book lists Zhe and Qiaozhu counties, with 495 households and 2,220 people, matching the map’s population. The linked Wikisource transcription also gives 495 households and reads 2,120 people."
     }
   ],
   "identityChecks": [
@@ -13363,6 +13840,27 @@
       "populationMatches": true,
       "populationSource": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/611",
       "note": "Exact population match in the Wenyuan Pavilion Siku edition. The Old Book dates the renaming. The readings in both linked Wikisource transcriptions are preserved with their sources."
+    },
+    {
+      "id": "china-prefecture-742-67",
+      "primaryHeading": "郴州桂阳郡",
+      "firstListedCounty": "郴",
+      "householdsInText": 33175,
+      "householdSource": "https://zh.wikisource.org/zh-hans/新唐書/卷041#郴州",
+      "sourceRecordPopulation": 165875,
+      "sourceRecordPopulationMethod": "Number of households*5",
+      "peoplePerHousehold": 5,
+      "note": "The Old Book dates the name. Applying the study’s stated estimator to the New Book’s household count reproduces its population estimate."
+    },
+    {
+      "id": "china-prefecture-742-164",
+      "primaryHeading": "柘州蓬山郡",
+      "firstListedCounty": "柘",
+      "populationInText": 2220,
+      "sourceRecordPopulation": 2220,
+      "populationMatches": true,
+      "populationSource": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/623",
+      "note": "The dated renaming is attested by the Old Book. The two cited readings of the New Book differ in the hundreds digit of the population."
     }
   ]
 }

@@ -1,9 +1,10 @@
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.19.1-3bac421450c1';
-import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=4.19.1-3bac421450c1';
+import {reviewSourceURL} from './china-source-targets.js?v=4.20.0-0e76383830fd';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.20.0-0e76383830fd';
+import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=4.20.0-0e76383830fd';
 let reviewsModPromise=null,reviewsMod=null;
 async function ensureChinaReviews(){
  if(reviewsMod)return reviewsMod;
- if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=4.19.1-3bac421450c1').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
+ if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=4.20.0-0e76383830fd').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
  return reviewsModPromise;
 }
 const ROOT='data/china-prefectures/',packs=new Map();let indexPromise;
@@ -50,7 +51,7 @@ export async function readChinaSnapshot(window_,year){
  if(!pending){pending=readJSON(url).then(d=>{if(d?.schemaVersion!==1||d.year!==year||d.band!==window_.band||!d.geometries)throw Error('Wrong China snapshot');return d;}).finally(()=>forgetJSON(url));packs.set(url,pending);pending.catch(()=>{if(packs.get(url)===pending)packs.delete(url);});}
  packs.delete(url);packs.set(url,pending);while(packs.size>3)packs.delete(packs.keys().next().value);
  const [index,pack,reviews]=await Promise.all([readChinaIndex(),pending,ensureChinaReviews()]);
- const features=index.records.filter(r=>r.year===year&&Object.hasOwn(pack.geometries,r.id)).map(r=>{const review=reviews.reviewedChinaName(r),label=chinaDisplayName(r,review);return {type:'Feature',properties:{id:r.id,osm_id:-2000000000-r.row,archive:'china-prefectures',type:'administrative',admin_level:4,name:label.en,name_en:label.en,name_zh:label.zh,source_name:r.sourceRecord.PrefNAM,name_review_id:review?.id||'',province:r.sourceRecord.ProvNAM,source_id:r.sourceRecord.PrefID,source_row:r.row,start_date:String(year),end_date:String(year),start_decdate:year,end_decdate:year+.9999},geometry:pack.geometries[r.id]};});
+ const features=index.records.filter(r=>r.year===year&&Object.hasOwn(pack.geometries,r.id)).map(r=>{const review=reviews.reviewedChinaName(r),label=chinaDisplayName(r,review);return {type:'Feature',properties:{id:r.id,osm_id:-2000000000-r.row,archive:'china-prefectures',type:'administrative',admin_level:4,name:label.en,name_en:label.en,name_zh:label.zh,source_name:r.sourceRecord.PrefNAM,name_review_id:review?.id||'',province:r.sourceRecord.ProvNAM,population:r.sourceRecord.POP,population_method:r.sourceRecord.Source,source_id:r.sourceRecord.PrefID,source_row:r.row,start_date:String(year),end_date:String(year),start_decdate:year,end_decdate:year+.9999},geometry:pack.geometries[r.id]};});
  return {type:'FeatureCollection',metadata:{source:'Zheng & Wu (2026)',year,datePrecision:'exact-year snapshot',window:window_,relationCount:features.length},features};
 }
 export async function readChinaFeature(id,year){
@@ -78,17 +79,38 @@ export async function chinaRecord(id,window_,year){
  if(record&&!nameReview)result.deferredNameReview=await deferredNameReview(record);
  return result;
 }
-function reviewSourceLinks(sources,lang,year){
+const populationMethods = {
+ 'Population records': ['人口记载', 'population records'],
+ 'Number of households*5': ['按户数 × 5 折算', 'households × 5'],
+ 'Estimation from Gong (2019)': ['据 Gong（2019）估算', 'estimate from Gong (2019)'],
+ 'Estimated according to its area and population of neighboring regions': ['按面积与邻区人口估算', 'estimate from area and neighboring populations']
+};
+function reviewSources(record,sources,lang){
+ const en=lang==='en',count=n=>n.toLocaleString(en?'en-US':'zh-CN');
  const box=document.createElement('div');
- box.className='historical-review-sources';
- for(const source of sources||[]){
-  const link=document.createElement('a');
-  const title=lang==='en'?(source.titleEn||(source.url.includes('zdic.net')?'Dictionary · historical pronunciation':year===742?'Old Book of Tang':'Book of Han · juan 28')):source.title;
-  const section=lang==='en'?source.sectionEn:source.section;
-  link.textContent=section?title+' · '+section:title;
-  link.href=source.url;link.target='_blank';link.rel='noopener noreferrer';
-  box.append(link);
+ const {POP,Source}=record.sourceRecord;
+ if(Number.isSafeInteger(POP)){
+  const baseline=document.createElement('p'),method=populationMethods[Source]?.[en?1:0]||Source;
+  baseline.className='review-population';
+  baseline.textContent=(en?'Population in the dataset: ':'研究数据人口：')+count(POP)+(method?' · '+method:'');
+  box.append(baseline);
  }
+ const list=document.createElement('ul');list.className='historical-review-sources';
+ for(const source of sources||[]){
+  const row=document.createElement('li'),link=document.createElement('a');
+  const title=en?(source.titleEn||(source.url.includes('zdic.net')?'Dictionary · historical pronunciation':record.year===742?'Old Book of Tang · juan 40':'Book of Han · juan 28')):source.title;
+  const section=en?(source.sectionEn||source.section):source.section;
+  link.textContent=section?title+' · '+section:title;
+  link.href=reviewSourceURL(source);link.target='_blank';link.rel='noopener noreferrer';row.append(link);
+  const values=[];
+  if(Number.isSafeInteger(source.householdsInText))values.push(count(source.householdsInText)+(en?' households':' 户'));
+  if(Number.isSafeInteger(source.populationInText))values.push(count(source.populationInText)+(en?' people':' 口'));
+  if(values.length){
+   const reading=document.createElement('span');reading.className='review-census';reading.textContent=values.join(' · ');row.append(reading);
+  }
+  list.append(row);
+ }
+ box.append(list);
  return box;
 }
 export function createChinaReviewDetails(record,review,lang){
@@ -107,7 +129,7 @@ export function createChinaReviewDetails(record,review,lang){
   if(lang==='bi'&&review.evidenceEn){
    const translation=document.createElement('p');translation.lang='en';translation.textContent=review.evidenceEn;details.append(translation);
   }
-  details.append(reviewSourceLinks(review.sources,lang,review.year));
+  details.append(reviewSources(record,review.sources,lang));
   return details;
  }
  summary.textContent=t('当年名称待核 · 查看考证','Period name unresolved · view evidence');
@@ -126,7 +148,7 @@ export function createChinaReviewDetails(record,review,lang){
    if(lang==='bi'&&entry?.reasonEn){
     const translation=document.createElement('p');translation.lang='en';translation.textContent=entry.reasonEn;body.append(translation);
    }
-   if(entry?.sources?.length)body.append(reviewSourceLinks(entry.sources,lang,entry.year));
+   if(entry?.sources?.length)body.append(reviewSources(record,entry.sources,lang));
    ready=true;
   }catch{
    body.textContent=t('考证记录未能载入。','The review could not be loaded.');
@@ -141,7 +163,7 @@ export function chinaRecordPanel(p,lang,download){
  add('small',t('中国历史区划 · 研究截面','Chinese historical divisions · research snapshot')).className='historical-eyebrow';add('h3',lang==='en'?p.name_en:p.name_zh||p.name_en);if(lang==='bi'&&p.name_zh)add('p',p.name_en);
  const snapYear=Number(p.start_date),snapLabel=Number.isFinite(snapYear)&&snapYear!==0?formatYear(snapYear,lang==='en'?'en':'zh'):p.start_date;
  const dl=document.createElement('dl');for(const [key,value]of [[t('截面年份','Snapshot year'),snapLabel],[t('上级地区（来源原名）','Parent region (source name)'),p.province],[t('来源原名','Original source name'),p.source_name||p.name_en],[t('来源编号','Source ID'),p.source_id],[t('研究作者','Researchers'),'Zheng & Wu (2026)']]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
- const record={id:p.id,year:snapYear,sourceRecord:{PrefID:Number(p.source_id),PrefNAM:p.source_name,ProvNAM:p.province}};
+ const record={id:p.id,year:snapYear,sourceRecord:{PrefID:Number(p.source_id),PrefNAM:p.source_name,ProvNAM:p.province,POP:p.population,Source:p.population_method}};
  node.append(createChinaReviewDetails(record,reviewsMod?.reviewedChinaName(record),lang));
  const links=add('div','');links.className='historical-source-links';
  const ledger=document.createElement('a');ledger.textContent=t('在地名考证目录中查看','Read this entry in the place-name index');

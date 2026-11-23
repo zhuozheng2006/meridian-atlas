@@ -1,6 +1,6 @@
-import {PolarisStore} from './polaris-store.js?v=4.19.1-3bac421450c1';
-import {PolarisSearchClient} from './polaris-search-client.js?v=4.19.1-3bac421450c1';
-import {exportPayload} from './polaris-adapter.js?v=4.19.1-3bac421450c1';
+import {PolarisStore} from './polaris-store.js?v=4.20.0-0e76383830fd';
+import {PolarisSearchClient} from './polaris-search-client.js?v=4.20.0-0e76383830fd';
+import {exportPayload} from './polaris-adapter.js?v=4.20.0-0e76383830fd';
 /** Local phases remain small; whole-library parsing, validation and export run in a worker. */
 export class PolarisResearchStore extends PolarisStore {
  constructor(options={}){super(options);const supported=options.workerFactory||typeof Worker==='function';this.searchWorker=supported&&!options.readJSON?new PolarisSearchClient({dataBaseUrl:this.base,workerFactory:options.workerFactory}):null;}
