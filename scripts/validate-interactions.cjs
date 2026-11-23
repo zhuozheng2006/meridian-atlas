@@ -27,6 +27,17 @@ process.once('beforeExit',incomplete);
  researchState=await import(require('node:url').pathToFileURL(ROOT+'research-view.js'));
  polityNames=await import(require('node:url').pathToFileURL(ROOT+'polity-names.js'));
  {
+  const c=context(),search=c.document.querySelector('#search'),attributes=new Map();
+  search.setAttribute=(name,value)=>attributes.set(name,value);
+  vm.runInContext('renderHelp=()=>{};renderDensity=()=>{};renderLayerLabels=()=>{};',c);
+  for(const [language,expected] of [['zh',/历史区划/],['en',/historical divisions/i]]){
+   c.language=language;
+   vm.runInContext('state.lang=language;renderLanguage();',c);
+   assert.match(attributes.get('aria-label'),expected,'Search field accessible name after rendering '+language);
+  }
+  console.log('PASS the rendered Chinese and English search field names include historical divisions');
+ }
+ {
   const c=context(),input=c.document.querySelector('#search'),results=c.document.querySelector('#eventList');
   const listeners=new Map(),observers=new Set(),opened=[];
   input.addEventListener=(name,fn)=>listeners.set(name,fn);
@@ -40,7 +51,8 @@ process.once('beforeExit',incomplete);
    first=value?{click:()=>opened.push(value)}:null;
    for(const observer of observers)observer.callback();
   };
-  results.querySelector=()=>first;
+  let directoryGate=null;
+  results.querySelector=selector=>selector==='[data-division-results]'?directoryGate:first;
   c.refreshSearch=value=>showResult(value.startsWith('wait')?null:value);
   vm.runInContext('renderEvents=()=>refreshSearch(state.search);bindLayers=()=>{};bind();',c);
   const type=value=>{input.value=value;input.oninput({target:input});};
@@ -56,8 +68,71 @@ process.once('beforeExit',incomplete);
   }
   type('wait for composition');key('Enter',{isComposing:true});showResult('partial spelling');key('Escape');
   assert.deepEqual(opened,['唐','battle']);
+  directoryGate={dataset:{waitForDivision:'true'}};
+  type('#742-64');key('Enter');
+  assert.deepEqual(opened,['唐','battle']);
+  showResult('unrelated result while the index loads');
+  assert.deepEqual(opened,['唐','battle']);
+  delete directoryGate.dataset.waitForDivision;
+  showResult('Gui Zhou #742-64');showResult('another asynchronous result');
+  assert.deepEqual(opened,['唐','battle','Gui Zhou #742-64']);
+  let focused=0;
+  directoryGate={dataset:{waitForDivision:'true'},querySelector:()=>({focus(){focused++;}})};
+  type('Gui Zhou');key('Enter');
+  directoryGate.dataset.multipleExact='true';
+  delete directoryGate.dataset.waitForDivision;
+  showResult('first ambiguous division');showResult('another late group');
+  assert.equal(focused,1);
+  assert.deepEqual(opened,['唐','battle','Gui Zhou #742-64']);
   assert.equal(observers.size,0);
   console.log('PASS search Enter opens the current query, supports later results, and cancels stale keyboard navigation');
+ }
+ {
+  const code=fs.readFileSync(ROOT+'app.js','utf8');
+  const source=code.slice(code.indexOf('async function renderMapDivisionResults('),code.indexOf('function bindMapSearch()'));
+  const createRenderer=new Function('state','document','text','loadModule',
+   'return '+source.replace(/import\('\.\/division-search\.js(?:\?v=[^']+)?'\)/,'loadModule()'));
+  const search=await import(require('node:url').pathToFileURL(ROOT+'division-search.js'));
+  const originalFetch=globalThis.fetch,reads=[];
+  globalThis.fetch=async url=>{reads.push(String(url));return new Response(fs.readFileSync(ROOT+String(url).split('?')[0]));};
+  const state={view:'atlas',year:1492,lang:'en',search:''};
+  function node(tag) {
+   return {tag,dataset:{},children:[],hidden:true,isConnected:true,
+    append(...children){this.children.push(...children);},replaceChildren(...children){this.children=children;},
+    remove(){this.isConnected=false;},parentElement:{prepend(){},querySelector(){return null;}}};
+  }
+  const renderWith=load=>createRenderer(state,{createElement:node},(_zh,en)=>en,load);
+  const render=renderWith(async()=>search);
+  try {
+   const slot=node('section');state.search='Gui Zhou';await render(slot,state.search);
+   const links=slot.children.filter(child=>child.dataset.division);
+   assert.equal(slot.dataset.multipleExact,'true');assert.equal(links.length,5);assert.deepEqual(links.map(link=>link.dataset.division.split('-').at(-1)),['39','64','134','145','317']);
+   const gui=links[1],url=new URL(gui.href,'https://example.test/meridian-atlas/'),hash=new URLSearchParams(url.hash.slice(1));
+   assert.equal(hash.get('year'),'742');assert.equal(hash.get('boundary'),'china-prefecture-742-64');assert.equal(hash.get('lang'),'en');
+   assert(gui.children[1].textContent.includes('Lingnan Dao'));assert(gui.children[1].textContent.includes('Under review'));
+   assert.deepEqual(reads.map(path=>path.split('?')[0]),['data/fast/division-search.json.gz']);
+   const broad=node('section');state.search='zhou';await render(broad,state.search);
+   assert.equal(broad.children.filter(child=>child.dataset.division).length,9);
+   assert.equal(new URL(broad.children.at(-1).href,'https://example.test/meridian-atlas/').searchParams.get('divisionQuery'),'zhou');
+   const none=node('section');state.search='absent-qzx';await render(none,state.search);assert.equal(none.isConnected,false);
+   let release;const late=node('section'),gate=new Promise(resolve=>release=resolve);
+   state.search='742-64';const old=renderWith(()=>gate)(late,state.search);
+   assert.equal(late.dataset.waitForDivision,'true');
+   state.search='current';release(search);await old;assert.equal(late.children.length,0);
+   const failed=node('section');let tries=0;state.search='#2-33';
+   await renderWith(async()=>{if(!tries++)throw Error('offline');return search;})(failed,state.search);
+   assert.equal(failed.hidden,false);assert.equal(failed.dataset.waitForDivision,undefined);
+   const retry=failed.children.at(-1);assert.equal(retry.tag,'button');retry.onclick();await flush();
+   assert.equal(failed.children[1].dataset.division,'china-prefecture-2-33');
+   assert.equal(failed.dataset.multipleExact,'false');
+   for(const query of ['3','#3']){
+    const numeric=node('section');state.search=query;await render(numeric,query);
+    assert.equal(numeric.dataset.multipleExact,'true');
+    assert.deepEqual(numeric.children.filter(child=>child.dataset.division).map(link=>link.dataset.division).sort(),
+     ['china-prefecture-2-3','china-prefecture-742-3']);
+   }
+  }finally{globalThis.fetch=originalFetch;}
+  console.log('PASS actual Han–Tang search hits use an isolated index, retain identities, link across years and retry safely');
  }
  {
   const c=context();

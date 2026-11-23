@@ -13,6 +13,8 @@ assert.deepEqual(matchDivisions(rows, '', '', 'pending').map(row => row.record.i
 assert.deepEqual(matchDivisions(rows, '', '', 'verified').map(row => row.record.id).sort(), audit.records.map(item => item.id).sort());
 assert.equal(matchDivisions(rows, '#29', '742', '')[0].record.sourceRecord.PrefNAM, 'Tang Zhou');
 assert.equal(matchDivisions(rows, '742-29', '', '').length, 1);
+assert.equal(matchDivisions(rows, '#742-29', '', '')[0].record.id, 'china-prefecture-742-29');
+assert.equal(matchDivisions(rows, 'PrefID 29', '', '').length, 2);
 assert.equal(matchDivisions(rows, 'china-prefecture-742-29', '', '')[0].PrefID, 29);
 assert.equal(matchDivisions(rows, '  tÁnG zHOu  ', '742', '').some(row => row.PrefID === 29), true);
 assert.equal(matchDivisions(rows, '京兆尹', '2', 'verified').length, 1);

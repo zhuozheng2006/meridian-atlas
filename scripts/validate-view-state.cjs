@@ -77,6 +77,26 @@ async function run(){
    assert.deepEqual(c.history.state,{other:1});
   }
  });
+ await test('Filtered directory links open on cold start and release their parameters on tab changes',async()=>{
+  const mounted=[];
+  const c=context('?divisionQuery=Chun+Zhou&divisionYear=742&divisionStatus=pending&keep=1#view=sources&lang=en',async name=>{
+   if(name.startsWith('./source-reader.js?'))return {sourcesHTML:()=>'<details id="chinaNameLedger"></details>'};
+   if(name.startsWith('./china-name-ledger.js?'))return {mountDivisionLedger:(_host,_lang,_id,_snapshot,route)=>mounted.push({...route})};
+   if(name.startsWith('./battles.js?'))return {loadBattles:async()=>[]};
+   if(name.startsWith('./atrocities.js?'))return {loadAtrocities:async()=>null};
+   throw Error('Unexpected module '+name);
+  });
+  value(c,'prepareInit()');
+  const ledger=c.document.querySelector('#chinaNameLedger');let scrolled=false;
+  ledger.scrollIntoView=()=>{scrolled=true;};
+  await value(c,'startApplication().ready');
+  assert.equal(ledger.open,true);
+  await ledger.ontoggle();
+  assert.deepEqual(mounted,[{query:'Chun Zhou',year:'742',status:'pending'}]);
+  assert(scrolled);
+  assert.equal(await value(c,"showView('atlas')"),true);
+  assert.equal(c.location.search,'?keep=1');
+ });
  for(const side of ['left','right'])await test(`city to polity navigation opens the ${side} dossier`,async()=>{
   const c=context();value(c,`state.selectedPlace=realPlace;state.selectedSide='${side}';state.view='polities';panel().hidden=false;${side==='right'?"state.compare=true;compareMap=makeMap();state.compareYear=1492;":''}`);
   await value(c,`jumpPolity(realPolity,${side==='right'?'compareMap':'atlas'})`);

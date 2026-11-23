@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {gunzipSync} from 'node:zlib';
+import {readDivisionDirectoryRoute} from '../public/view-state.js';
 import {mountDivisionLedger} from '../public/china-name-ledger.js';
 
 // Exercise the production renderer with its on-disk index and native EventTarget.
@@ -23,13 +24,14 @@ class Element extends EventTarget {
 async function mount(initialId = '', lang = 'en') {
   const controls = Object.fromEntries([
     ['input', 'input'], ['[name="year"]', 'select'], ['[name="status"]', 'select'],
-    ['ul', 'ul'], ['[role="status"]', 'p'], ['[data-more]', 'button']
+    ['ul', 'ul'], ['[role="status"]', 'p'], ['[data-more]', 'button'], ['[data-copy-division]', 'button'], ['[data-copy-status]', 'span']
   ].map(([key, tag]) => [key, new Element(tag)]));
   const host = {isConnected: true, querySelector: selector => controls[selector]};
-  await mountDivisionLedger(host, lang, initialId, history.state.atlasDivisionDirectory);
+  const route = readDivisionDirectoryRoute(location.search);
+  await mountDivisionLedger(host, lang, initialId || route?.id || '', history.state.atlasDivisionDirectory, route);
   return {
     input: controls.input, year: controls['[name="year"]'], status: controls['[name="status"]'],
-    list: controls.ul, more: controls['[data-more]'], count: controls['[role="status"]']
+    list: controls.ul, more: controls['[data-more]'], count: controls['[role="status"]'], copy: controls['[data-copy-division]'], copyStatus: controls['[data-copy-status]']
   };
 }
 
@@ -176,13 +178,16 @@ assert.equal(directory.list.children.length, 1);
 assert.equal(rowFor(directory.list, '742-29').evidence.open, true);
 directory.input.value = '#29';
 directory.input.oninput();
-assert.equal(location.search, '?keep=1');
+assert.equal(location.searchParams.get('keep'), '1');
+assert.equal(location.searchParams.get('divisionQuery'), '#29');
+assert(!location.searchParams.has('division'));
 assert.equal(location.hash, '#view=sources&lang=en');
 assert.equal(directory.list.children.length, 2);
 for (const id of ['2-29', '742-29']) assert.equal(rowFor(directory.list, id).evidence.open, false);
 console.log('Validated directory return, second-page focus, open reviews, modified clicks, and year-specific permalinks');
 
-// Compare the rendered directory to the original, unnormalized source spellings.
+// Compare all source spellings from an unfiltered directory URL.
+location.search = '';
 history.state = {other: 'keep'};
 directory = await mount('', 'zh');
 while (!directory.more.hidden) directory.more.onclick();
@@ -222,3 +227,26 @@ assert.equal(duplicateGroups, 77);
 assert.equal(duplicateRows, 207);
 assert.equal(groups.get('Yi Zhou').length, 9);
 console.log('Validated 77 exact source-spelling groups, the Gui Zhou map and record round trip, and bilingual comparisons');
+
+// The shared URL carries a reproducible filter independently of private history state.
+location.search = '?divisionQuery=Chun+Zhou&divisionYear=742&divisionStatus=pending&keep=1';
+directory = await mount();
+assert.equal(directory.input.value, 'Chun Zhou');
+assert.equal(directory.year.value, '742');
+assert.equal(directory.status.value, 'pending');
+assert(directory.list.children.length > 0 && rowFor(directory.list, '742-151'));
+let copied;
+Object.defineProperty(globalThis, 'navigator', {configurable: true, value: {clipboard: {writeText: async value => {copied=value;}}}});
+await directory.copy.onclick();
+assert.equal(new URL(copied).searchParams.get('divisionQuery'), 'Chun Zhou');
+assert.equal(new URL(copied).searchParams.has('keep'), false);
+assert.equal(new URL(copied).hash, '#view=sources&lang=en');
+assert.equal(directory.copyStatus.textContent, 'Copied');
+directory.input.value='';directory.input.oninput();
+directory.year.value='';directory.year.onchange();
+directory.status.value='';directory.status.onchange();
+assert.equal(location.search,'?keep=1');
+assert.equal(directory.copy.hidden,true);
+assert.equal(readDivisionDirectoryRoute('?divisionYear=1900&divisionStatus=other'),null);
+assert.deepEqual(readDivisionDirectoryRoute('?division=742-16&divisionQuery=ignored'),{id:'742-16'});
+console.log('Verified shareable query, year and status, record priority, clipboard URL and clearing');

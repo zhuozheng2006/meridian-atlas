@@ -59,6 +59,42 @@ await test('Reading library exposes all fifteen curated phases and searches bili
  query.value='马里';await query.fire('input');assert.equal(find(host,'research-library-grid').children.length,2);assert.match(library.textContent,/盐块/);
  assert.equal(searchReadings('population','kh_angkor_2',new Map(index.polities.map(p=>[p.id,p]))).length,1);assert.equal(calls.length,1);reader.destroy();
 });
+await test('A shared shelf restores its exact phase and search before the phase index arrives',async()=>{
+ const hash=new URLSearchParams('view=research&srDataset=polaris-2026&srShelf=open&srShelfQ=大明律&srShelfPhase=cn_ming_dyn');
+ let finish;
+ const {host,reader}=open({lang:'zh',initialState:parseResearchState(hash),onStateChange:v=>writeResearchState(hash,v),readJSON:()=>new Promise(resolve=>{finish=resolve;})});
+ const panel=find(host,'research-reading-library'),q=field(host,'library-query');
+ assert(panel.open);assert.equal(q.value,'大明律');assert.equal(field(host,'library-phase').value,ming.id);
+ assert.equal(find(host,'research-library-grid').children.length,2);
+ panel.open=false;await panel.fire('toggle');assert.equal(hash.get('srShelf'),'closed');assert(!hash.has('srShelfQ'));assert(!hash.has('srShelfPhase'));
+ panel.open=true;await panel.fire('toggle');assert.equal(hash.get('srShelfQ'),'大明律');
+ finish(index);await reader.ready;
+ assert.equal(panel,find(host,'research-reading-library'));assert(panel.open);
+ assert.equal(hash.get('srShelfPhase'),ming.id);assert.equal(find(host,'research-library-grid').children.length,2);
+ q.value='';await q.fire('input');assert(!hash.has('srShelfQ'));assert.equal(hash.get('srShelfPhase'),ming.id);
+ const chosen=find(host,'research-library-grid').children[0];const reading=chosen.dataset.readingId;
+ const opening=buttons(chosen)[0].fire('click');await Promise.resolve();finish(first);await opening;
+ assert.equal(hash.get('srReading'),reading);assert(!hash.has('srShelfQ'));assert(!hash.has('srShelfPhase'));assert(!hash.has('srShelf'));
+ reader.destroy();
+});
+await test('Shelf paging survives a cold reload, clamps invalid pages, and returns focus to the result summary',async()=>{
+ const hash=new URLSearchParams('view=research&srDataset=polaris-2026&srShelf=open&srShelfPage=3');
+ const {host,doc,reader}=open({initialState:parseResearchState(hash),onStateChange:v=>writeResearchState(hash,v)});
+ await reader.ready;
+ const catalogIDs=()=>find(host,'research-library-grid').children.map(card=>card.dataset.readingId);
+ assert.deepEqual(catalogIDs(),READING_CATALOG.cards.slice(18,24).map(c=>c.id));
+ const shelf=find(host,'research-reading-library');
+ await buttons(find(shelf,'research-pagination')).at(-1).fire('click');
+ assert.equal(hash.get('srShelfPage'),'4');assert.equal(doc.activeElement,find(host,'research-library-status'));
+ const expected=catalogIDs(),again=open({initialState:parseResearchState(hash)});
+ await again.reader.ready;assert.deepEqual(find(again.host,'research-library-grid').children.map(c=>c.dataset.readingId),expected);
+ const q=field(host,'library-query');q.value='大明律';await q.fire('input');assert(!hash.has('srShelfPage'));assert.equal(hash.get('srShelfQ'),'大明律');
+ writeResearchState(hash,{dataset:'equinox'});assert(![...hash.keys()].some(k=>k.startsWith('srShelf')));
+ const excessive=open({initialState:{shelf:'open',shelfPage:9999}});
+ await excessive.reader.ready;assert.equal(excessive.reader.getSnapshot().shelfPage,6);
+ reader.destroy();again.reader.destroy();excessive.reader.destroy();
+});
+
 await test('All 40 deep links show and export precisely their linked typed source rows',async()=>{
  for(const c of READING_CATALOG.cards){let payload;const calls=[],{host,reader}=open({lang:'zh',initialState:{polityId:c.phaseId,readingId:c.id,query:'stale',domain:'crisis',page:8},download:p=>payload=p,readJSON:async u=>{calls.push(String(u));return disk(u);}});await reader.ready;
   const p=index.polities.find(p=>p.id===c.phaseId),raw=gz(p.file),expected=raw.observations.filter(r=>c.targetRowIds.includes(r.id));

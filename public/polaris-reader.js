@@ -1,13 +1,13 @@
-import {SNAPSHOT} from './polaris-store.js?v=4.20.0-0e76383830fd';
-import {PolarisResearchStore} from './polaris-research-store.js?v=4.20.0-0e76383830fd';
-import {POLARIS_DOMAINS,label,normalizeFilters,variableOptions,filterObservations,rowModel,exportPayload} from './polaris-adapter.js?v=4.20.0-0e76383830fd';
-import {POLARIS_VARIABLES,POLARIS_CODES,CRISIS_FIELDS,POLARIS_SEMANTIC_SOURCE} from './polaris-vocabulary.js?v=4.20.0-0e76383830fd';
-import {polarisPolityName,polarisPolitySearchText,polarisPolityNameNote} from './polaris-polity-names.js?v=4.20.0-0e76383830fd';
-import {formatResearchValue} from './research-format.js?v=4.20.0-0e76383830fd';
-import {mountPhaseComparison} from './research-phase-comparison.js?v=4.20.0-0e76383830fd';
-import {mountReadingGuide} from './research-reading-guide.js?v=4.20.0-0e76383830fd';
-import {mountReadingLibrary,readingForId,readingRows} from './research-reading-library.js?v=4.20.0-0e76383830fd';
-import {createSavedTextRegistry} from './research-original-reader.js?v=4.20.0-0e76383830fd';
+import {SNAPSHOT} from './polaris-store.js?v=4.21.1-46c343f2e328';
+import {PolarisResearchStore} from './polaris-research-store.js?v=4.21.1-46c343f2e328';
+import {POLARIS_DOMAINS,label,normalizeFilters,variableOptions,filterObservations,rowModel,exportPayload} from './polaris-adapter.js?v=4.21.1-46c343f2e328';
+import {POLARIS_VARIABLES,POLARIS_CODES,CRISIS_FIELDS,POLARIS_SEMANTIC_SOURCE} from './polaris-vocabulary.js?v=4.21.1-46c343f2e328';
+import {polarisPolityName,polarisPolitySearchText,polarisPolityNameNote} from './polaris-polity-names.js?v=4.21.1-46c343f2e328';
+import {formatResearchValue} from './research-format.js?v=4.21.1-46c343f2e328';
+import {mountPhaseComparison} from './research-phase-comparison.js?v=4.21.1-46c343f2e328';
+import {mountReadingGuide} from './research-reading-guide.js?v=4.21.1-46c343f2e328';
+import {mountReadingLibrary,readingForId,readingRows} from './research-reading-library.js?v=4.21.1-46c343f2e328';
+import {createSavedTextRegistry} from './research-original-reader.js?v=4.21.1-46c343f2e328';
 let serial=0;
 const PAGE_SIZE=24,STARTERS=['cn_ming_dyn','pe_inca_emp','it_roman_rep_1','it_roman_rep_2','it_roman_rep_3'];
 const clean=(v,max)=>typeof v==='string'?v.replace(/[\u0000-\u001f\u007f]/g,'').slice(0,max):'';
@@ -21,12 +21,26 @@ export function mountResearchReader(host,{lang='bi',dataBaseUrl=new URL('./data/
  let readingNotice=!!seed.readingId&&!validReading;
  if(validReading){state.readingId=requestedReading.id;state.polityId=requestedReading.phaseId;Object.assign(state,{domain:'all',variable:'all',query:'',page:0});}
  const readingOpen=new Set(validReading?[requestedReading.phaseId]:[]);
- let library=null,libraryState={open:!state.polityId};
+ let library=null,libraryState={
+  open:seed.shelf==='open'||(seed.shelf!=='closed'&&!state.polityId),
+  query:seed.shelfQuery,phaseId:seed.shelfPhase,page:seed.shelfPage
+ };
+ function getSnapshot(){
+  const shelf=library?.getSnapshot()||libraryState;
+  const snapshot={...state};
+  if(shelf.open){
+   snapshot.shelf='open';
+   if(shelf.query)snapshot.shelfQuery=shelf.query;
+   if(shelf.phaseId)snapshot.shelfPhase=shelf.phaseId;
+   if(shelf.page)snapshot.shelfPage=shelf.page;
+  }else if(!state.polityId)snapshot.shelf='closed';
+  return snapshot;
+ }
  const originalReaders=createSavedTextRegistry(doc,{load:savedTextLoad});
  const currentReading=()=>readingForId(state.readingId,state.polityId);
  const selectedRows=(sourceRows,filters=state,card=currentReading())=>card?readingRows(sourceRows,card):filterObservations(sourceRows,filters);
  let filtersOpen=!doc.defaultView?.matchMedia?.('(max-width:700px)').matches,ui={};
- const t=(zh,en)=>label({zh,en},language),phase=()=>phases.get(state.polityId)||null,getSnapshot=()=>({...state}),publish=()=>{if(!dead)onStateChange?.(getSnapshot());};
+ const t=(zh,en)=>label({zh,en},language),phase=()=>phases.get(state.polityId)||null,publish=()=>{if(!dead)onStateChange?.(getSnapshot());};
  const el=(tag,content='',className='')=>{const n=doc.createElement(tag);if(content!=='')n.textContent=content;if(className)n.className=className;return n;};
  const button=(caption,action)=>{const b=el('button',caption);b.type='button';b.addEventListener('click',action);return b;};
  const option=(select,value,caption)=>{const o=el('option',caption);o.value=value;select.append(o);};
@@ -64,7 +78,7 @@ export function mountResearchReader(host,{lang='bi',dataBaseUrl=new URL('./data/
  function build(){originalReaders.capture();if(library)libraryState=library.getSnapshot();host.replaceChildren();ui={};ui.root=el('section','','seshat-research-reader');host.append(ui.root);if(onBack)ui.root.append(button(t('返回资料页','Back to sources'),()=>{destroy();onBack();}));
   ui.root.append(el('span','SESHAT · POLARIS 2026','eyebrow'),el('h2',t('社会与制度资料','Societies & institutions')),el('p',t('从人口、法律、贸易与知识制度，阅读不同社会的历史。选择一个研究阶段，或跨阶段查找同一变量。','Read societies through population, law, trade and knowledge. Choose a research phase or compare a variable across phases.'),'research-lead'));
   ui.status=el('p','','research-status');ui.status.setAttribute('role','status');ui.status.setAttribute('aria-live','polite');ui.root.append(ui.status);
-  library=mountReadingLibrary(doc,{lang:language,phases,initialState:libraryState,id:prefix+'-library',onSelect:selectReading});ui.root.append(library.element);
+  library=mountReadingLibrary(doc,{lang:language,phases,initialState:libraryState,id:prefix+'-library',onSelect:selectReading,onStateChange:publish});ui.root.append(library.element);
   const primary=el('div','','research-controls research-primary-controls'),advanced=el('div','','research-controls research-advanced-controls');ui.polity=el('select');ui.polity.addEventListener('change',()=>selectPolity(ui.polity.value));primary.append(field(t('来源政体阶段','Source polity phase'),ui.polity,'polity'));ui.root.append(primary);
   ui.filters=el('details','','research-filter-panel');ui.filters.open=filtersOpen;ui.filters.addEventListener('toggle',()=>{filtersOpen=ui.filters.open;});ui.filterSummary=el('summary');ui.filters.append(ui.filterSummary,advanced);ui.root.append(ui.filters);
   ui.politySearch=el('input');ui.politySearch.type='search';ui.politySearch.maxLength=120;ui.politySearch.value=state.polityQuery;ui.politySearch.placeholder=t('名称、编号或地区','Name, ID or region');let pComp=false;const onPolitySearch=()=>{state.polityQuery=clean(ui.politySearch.value,120);populatePolities();filterSummary();publish();};ui.politySearch.addEventListener('compositionstart',()=>{pComp=true;});ui.politySearch.addEventListener('compositionend',()=>{pComp=false;onPolitySearch();});ui.politySearch.addEventListener('input',event=>{if(!pComp&&!event.isComposing)onPolitySearch();});ui.politySearch.addEventListener('keydown',event=>{if(event.key==='Escape'){if(ui.politySearch.value){event.preventDefault();ui.politySearch.value='';onPolitySearch();}else ui.politySearch.blur?.();}});

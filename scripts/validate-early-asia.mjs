@@ -80,6 +80,21 @@ try{
  assert.equal(lian.ProvNAM, 'Jiangnan West Dao');
  assert(lian.sources[2].url.endsWith('0272冊.djvu/635'));
  assert(lian.sources[3].section.includes('十道记'));
+ // Two Lingnan records share the source spelling, but only one uses the documented households.
+ const chun=chinaNameReviews['china-prefecture-742-16'];
+ const chunSource=index.records.find(row=>row.id===chun.id).sourceRecord;
+ const otherChun=deferredById.get('china-prefecture-742-151');
+ assert.deepEqual([chun.formerNameZh,chun.zh,chunSource.Source],['春州','南陵郡','Number of households*5']);
+ assert(chun.sources.every(source=>source.renameYear===742&&source.householdsInText===11218&&source.populationInText==null));
+ assert.equal(chun.sources[0].householdsInText*5,chunSource.POP);
+ assert.equal(otherChun.sourcePrefNAM,chunSource.PrefNAM);
+ assert.equal(otherChun.primaryHeading,'淳州');
+ assert.notEqual(otherChun.sourceRecordPopulationMethod,chunSource.Source);
+ const luling=deferredById.get('china-prefecture-742-78');
+ assert.deepEqual(luling.sources.map(s=>[s.householdsInText,s.populationInText]),[[37752,237032],[37752,337032],[37752,337032],[39651,229795]]);
+ assert.equal(luling.sourceRecordPopulation,377032);
+ assert(luling.sources.some(s=>s.url.endsWith('0272冊.djvu/614')));
+ assert(luling.sources.some(s=>s.url.endsWith('/卷182#廬陵郡')));
  for(const row of audit.deferred){
   const source=index.records.find(record=>record.id===row.id);
   assert(source,`Unknown source row ${row.id}`);
@@ -92,7 +107,7 @@ try{
  }
  assert.deepEqual(Object.values(chinaNameReviews),audit.records);
  const han=audit.records.filter(r=>r.year===2).length,tangCount=audit.records.filter(r=>r.year===742).length;
- assert.deepEqual([han,tangCount,audit.deferred.length],[103,270,47]);
+ assert.deepEqual([han,tangCount,audit.deferred.length],[103,271,46]);
  assert.equal(audit.records.length+audit.deferred.length,index.records.length);
  assert.deepEqual([audit.reviewScope.hanVerifiedMappings,audit.reviewScope.tangPeriodAliases,audit.reviewScope.documentedDeferred],[han,tangCount,audit.deferred.length]);
  const wue=chinaNameReviews['china-prefecture-742-10'];
