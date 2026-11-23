@@ -7,10 +7,10 @@
       "2": 103,
       "742": 317
     },
-    "sourceSupportedMappings": 369,
+    "sourceSupportedMappings": 370,
     "hanVerifiedMappings": 103,
-    "tangPeriodAliases": 266,
-    "documentedDeferred": 51,
+    "tangPeriodAliases": 267,
+    "documentedDeferred": 50,
     "fullDatasetNameAuditComplete": true
   },
   "applicationRules": [
@@ -47,7 +47,8 @@
           "section": "歙州",
           "titleEn": "New Book of Tang · juan 41 · Geography V"
         }
-      ]
+      ],
+      "reasonEn": "The renaming of She Zhou as Xin’an Commandery is attested. The Old Book of Tang transcription and the New Book of Tang both give 269,109 inhabitants. The dataset gives 249,109, a difference of 20,000. The figures still need checking against other editions."
     },
     {
       "id": "china-prefecture-742-90",
@@ -64,18 +65,19 @@
       "reason": "温州改永嘉郡有明确记载，但本次转录文本口数241694与源记录141690不同，先留待版本对读。（对读《新唐书·卷四十一》作口二十四万一千六百九十[241690]，仍与源141690差十万）",
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#温州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#溫州",
           "title": "旧唐书·卷四十·地理志三",
           "section": "温州",
           "titleEn": "Old Book of Tang · juan 40 · Geography III"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#温州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#溫州",
           "title": "新唐书·卷四十一·地理志五",
           "section": "温州",
           "titleEn": "New Book of Tang · juan 41 · Geography V"
         }
-      ]
+      ],
+      "reasonEn": "Wen Zhou became Yongjia Commandery. The Old Book of Tang transcription gives 241,694 inhabitants and the New Book of Tang gives 241,690. The dataset gives 141,690, exactly 100,000 below the latter figure."
     },
     {
       "id": "china-prefecture-742-158",
@@ -109,7 +111,8 @@
           "section": "鄂州·汉阳",
           "titleEn": "Old Book of Tang · juan 40 · Geography III"
         }
-      ]
+      ],
+      "reasonEn": "The New Book of Tang identifies Mian Zhou as Hanyang Commandery. The Old Book of Tang mentions it under Hanyang County after its merger into E Zhou in 833 and gives no Tianbao census figure. The Tongdian gives 6,252 households and 38,129 people. The dataset’s 38,000 is an estimate from Gong (2019), so the numerical agreement is approximate."
     },
     {
       "id": "china-prefecture-742-59",
@@ -124,13 +127,20 @@
       "observedWebLine": 973,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#连州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#連州",
           "title": "旧唐书·卷四十·地理志三",
           "section": "连州",
           "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#連州",
+          "title": "新唐书·卷四十三上·地理志七上",
+          "section": "连州",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
       ],
-      "populationInText": 143532
+      "populationInText": 143532,
+      "reasonEn": "The histories record the renaming of Lian Zhou as Lianshan Commandery. The Old Book of Tang transcription gives 143,532 inhabitants and the New Book of Tang gives 143,533. Neither matches the dataset’s 143,523."
     },
     {
       "id": "china-prefecture-742-67",
@@ -150,7 +160,8 @@
           "section": "郴州",
           "titleEn": "Old Book of Tang · juan 40 · Geography III"
         }
-      ]
+      ],
+      "reasonEn": "Chen Zhou became Guiyang Commandery. The dataset gives 165,875 people based on five people per household. The Tianbao text gives 31,303 households, which by the same calculation would yield 156,515. The household figures need to be reconciled."
     },
     {
       "id": "china-prefecture-742-78",
@@ -169,9 +180,16 @@
           "title": "旧唐书·卷四十·地理志三",
           "section": "吉州",
           "titleEn": "Old Book of Tang · juan 40 · Geography III"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#吉州",
+          "title": "新唐书·卷四十一·地理志五",
+          "section": "吉州",
+          "titleEn": "New Book of Tang · juan 41 · Geography V"
         }
       ],
-      "populationInText": 237032
+      "populationInText": 237032,
+      "reasonEn": "Ji Zhou became Luling Commandery. The Old Book of Tang transcription gives 237,032 inhabitants and the New Book of Tang gives 337,032. The dataset gives a third figure, 377,032."
     },
     {
       "id": "china-prefecture-742-157",
@@ -192,7 +210,8 @@
           "titleEn": "Old Book of Tang · juan 40 · Geography III"
         }
       ],
-      "populationInText": 1034
+      "populationInText": 1034,
+      "reasonEn": "The history records Zhen Zhou becoming Yelang Commandery, with 1,034 inhabitants. The dataset estimates 8,000 from the area and population of neighboring regions. This estimate cannot establish which of the places romanized as Zhen Zhou the record represents."
     },
     {
       "id": "china-prefecture-742-241",
@@ -206,7 +225,7 @@
       "sourceRecordPopulationMethod": "Population records",
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#郓州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#鄆州",
           "title": "旧唐书·卷三十八·地理志一",
           "section": "郓州",
           "titleEn": "Old Book of Tang · juan 38 · Geography I"
@@ -215,7 +234,8 @@
       "populationInText": 284530,
       "laterMergedPopulationInText": 216979,
       "laterMergeYear": 754,
-      "populationSumEqualsSource": true
+      "populationSumEqualsSource": true,
+      "reasonEn": "The dataset’s 501,509 equals the figures for Yun Zhou (284,530) and Ji Zhou (216,979) combined. The history dates their merger to 754, and the 742 dataset also lists Ji Zhou separately. The date and extent of the combined unit need checking."
     },
     {
       "id": "china-prefecture-742-313",
@@ -229,13 +249,14 @@
       "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#郓州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#鄆州",
           "title": "旧唐书·卷三十八·地理志一",
           "section": "郓州",
           "titleEn": "Old Book of Tang · juan 38 · Geography I"
         }
       ],
-      "populationInText": 216979
+      "populationInText": 216979,
+      "reasonEn": "The history gives Ji Zhou 216,979 inhabitants in its account of the merger into Yun Zhou in 754. The dataset’s 217,000 is a research estimate. The 742 commandery name and extent of this unit still need independent confirmation."
     },
     {
       "id": "china-prefecture-742-1",
@@ -251,18 +272,19 @@
       "householdsInText": 14700,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#爱州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#愛州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "爱州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#爱州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#愛州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "爱州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 73,500 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-2",
@@ -278,18 +300,19 @@
       "householdsInText": 648,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#长州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#長州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "长州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#长州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#長州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "长州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 3,240 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-3",
@@ -305,12 +328,13 @@
       "householdsInText": 450,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#武安州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#武安州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "武安州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 2,250 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-5",
@@ -330,7 +354,8 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
       ],
-      "populationInText": 99652
+      "populationInText": 99652,
+      "reasonEn": "The Old Book of Tang gives the Annan administration 99,652 people in the Tianbao era and records no change to a commandery in 742. The dataset assigns the same count to Jiao Zhou (record 5) and Annan Zhongduhufu (record 152). Their boundaries and names need to be checked together."
     },
     {
       "id": "china-prefecture-742-6",
@@ -338,9 +363,27 @@
       "PrefID": 6,
       "sourcePrefNAM": "Luofu Zhou",
       "ProvNAM": "Lingnan Dao",
-      "reason": "源数据人口1900出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《新唐书》在安南都护府所领诸州中列罗伏州。《通典》日南郡条记，从驩州向南一百五十里至罗伏郡界。两书均写作“罗伏”。前者未注明置州年月，后者只给出相对方位。图中所绘范围及估算的 1,900 人仍待独立核对。",
       "sourceRecordPopulation": 1900,
-      "sourceRecordPopulationMethod": "Estimation from Gong (2019)"
+      "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
+      "primaryHeading": "罗伏州",
+      "reasonEn": "The New Book of Tang lists Luofu (羅伏) under the Annan Protectorate without a foundation date. The Tongdian places the boundary of Luofu Commandery 150 li south of Huan Prefecture (驩州). These accounts support the spelling and relative location. The outline mapped for 742 and its estimated population of 1,900 remain unverified.",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043下#:~:text=羅伏州",
+          "title": "新唐书·卷四十三下·地理志七下",
+          "section": "岭南道·安南都护府所领州·罗伏州",
+          "titleEn": "New Book of Tang · juan 43b · Geography VII-B",
+          "sectionEn": "Lingnan · prefectures of the Annan Protectorate · Luofu"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/通典/卷184#日南郡",
+          "title": "通典·卷一八四·州郡十四",
+          "section": "日南郡·驩州四至",
+          "titleEn": "Tongdian · juan 184 · Prefectures and Commanderies XIV",
+          "sectionEn": "Rinan Commandery · boundaries of Huan Prefecture"
+        }
+      ]
     },
     {
       "id": "china-prefecture-742-7",
@@ -348,25 +391,27 @@
       "PrefID": 7,
       "sourcePrefNAM": "Tanglin Zhou",
       "ProvNAM": "Lingnan Dao",
-      "reason": "源数据人口4000出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《新唐书》福禄州条记，唐初曾置唐林州，后来州县俱废；又在故州地置福禄州。《旧唐书》把福禄郡的得名系于 742 年，改称唐林郡在 757 年。源图另有独立的 Fulu Zhou（编号 301）。两条记录的对应关系待核，不能借用汤州条的户口，也不能把 757 年的郡名用于本行。",
       "sourceRecordPopulation": 4000,
       "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
-      "primaryHeading": "汤州／汤泉郡",
-      "observedWebLine": 1729,
+      "primaryHeading": "故唐林州／福禄州",
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#汤州",
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043上#福祿州",
           "title": "新唐书·卷四十三上·地理志七上",
-          "section": "汤州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
+          "section": "岭南道·福禄州·唐林县",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "sectionEn": "Lingnan · Fulu Prefecture · Tanglin County"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#汤州",
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷41#福祿州",
           "title": "旧唐书·卷四十一·地理志四",
-          "section": "汤州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "section": "安南府·福禄州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "sectionEn": "Annan · Fulu Prefecture"
         }
-      ]
+      ],
+      "reasonEn": "The New Book of Tang places Fulu on the site of an earlier Tanglin Prefecture whose prefecture and county had been abolished. The Old Book of Tang dates the name Fulu Commandery to 742 and Tanglin Commandery to 757. The map also has a separate Fulu Zhou unit (ID 301). Their relationship remains open. The figures for Tang Zhou belong to a separate entry."
     },
     {
       "id": "china-prefecture-742-8",
@@ -399,44 +444,25 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#万安",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#萬安州",
           "title": "旧唐书·卷四十一·地理志四",
-          "section": "万安",
+          "section": "万安州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#崖州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#崖州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "崖州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#万安州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#萬安州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "万安州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
-    },
-    {
-      "id": "china-prefecture-742-10",
-      "year": 742,
-      "PrefID": 10,
-      "sourcePrefNAM": "Wu'e Zhou",
-      "ProvNAM": "Lingnan Dao",
-      "reason": "武峨州条仅记“天宝元年，改为武峨郡”未载人口（梧州条天宝领户五千无口数），与源Population records 5320未能从《旧唐书》直接互证。",
-      "primaryHeading": "武峨州/梧州",
-      "sourceRecordPopulation": 5320,
-      "sourceRecordPopulationMethod": "Population records",
-      "sources": [
-        {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#武峨州",
-          "title": "旧唐书·卷四十一·地理志四",
-          "section": "武峨州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
-        }
       ],
-      "populationInText": null
+      "reasonEn": "The dataset estimates 42,965 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-13",
@@ -458,12 +484,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#高州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#高州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "高州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 62,000 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-16",
@@ -485,12 +512,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#春州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#春州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "春州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 56,090 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-17",
@@ -512,12 +540,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#恩州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#恩州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "恩州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 45,000 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-24",
@@ -537,7 +566,8 @@
           "section": "封州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 9,600 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-25",
@@ -559,12 +589,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#瀼州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#瀼州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "瀼州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 8,330 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-26",
@@ -580,18 +611,19 @@
       "householdsInText": 3667,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#笼州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#籠州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "笼州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#笼州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#籠州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "笼州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 18,335 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-27",
@@ -618,12 +650,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#郁林州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#鬱林州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "郁林州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 15,650 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-29",
@@ -631,9 +664,36 @@
       "PrefID": 29,
       "sourcePrefNAM": "Tang Zhou",
       "ProvNAM": "Lingnan Dao",
-      "reason": "源数据人口5200出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《旧唐书》记汤州于天宝元年（742）改温泉郡；《新唐书》作汤泉郡。《通典》也作汤泉郡，列汤泉、绿水、罗韶三县，录 1,300 户、5,220 口。源图的 5,200 人是现代估算，两数相差 20。保留两种郡名写法及各自的数字口径。",
       "sourceRecordPopulation": 5200,
-      "sourceRecordPopulationMethod": "Estimation from Gong (2019)"
+      "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
+      "primaryHeading": "汤州（温泉郡／汤泉郡）",
+      "reasonEn": "The Old Book of Tang gives Wenquan as the commandery name in 742. The New Book of Tang and the Tongdian give Tangquan. The Tongdian lists Tangquan, Lüshui and Luoshao counties, with 1,300 households and 5,220 people. The source map uses a modern estimate of 5,200 people, a difference of 20. Both commandery readings remain on record.",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷41#湯州",
+          "title": "旧唐书·卷四十一·地理志四",
+          "section": "容管十州·汤州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "sectionEn": "Rong circuit · Tang Prefecture"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043上#湯州",
+          "title": "新唐书·卷四十三上·地理志七上",
+          "section": "岭南道·汤州",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "sectionEn": "Lingnan · Tang Prefecture"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/通典/卷184#湯泉郡",
+          "title": "通典·卷一八四·州郡十四",
+          "section": "汤泉郡",
+          "titleEn": "Tongdian · juan 184 · Prefectures and Commanderies XIV",
+          "sectionEn": "Tangquan Commandery"
+        }
+      ],
+      "householdsInText": 1300,
+      "populationInText": 5220
     },
     {
       "id": "china-prefecture-742-30",
@@ -653,7 +713,8 @@
           "section": "山州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
-      ]
+      ],
+      "reasonEn": "The dataset uses an estimate of 5,200 people from Gong (2019). It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-31",
@@ -668,12 +729,13 @@
       "observedWebLine": 2996,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#冈州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#岡州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "冈州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
-      ]
+      ],
+      "reasonEn": "The dataset uses an estimate of 33,400 people from Gong (2019). It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-32",
@@ -694,12 +756,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#党州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#黨州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "党州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset uses an estimate of 4,000 people from Gong (2019). It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-33",
@@ -720,7 +783,8 @@
           "section": "新州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 47,500 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-46",
@@ -742,12 +806,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#藤州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#藤州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "藤州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 19,900 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-57",
@@ -762,18 +827,19 @@
       "observedWebLine": 3131,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#浔州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#潯州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "浔州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#浔州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#潯州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "浔州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 47,625 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-64",
@@ -794,12 +860,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#桂州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#桂州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "桂州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset uses an estimate of 100,000 people from Gong (2019). It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-66",
@@ -820,12 +887,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷42#姚州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#姚州",
           "title": "新唐书·卷四十二·地理志六",
           "section": "姚州",
           "titleEn": "New Book of Tang · juan 42 · Geography VI"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 18,500 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-140",
@@ -841,18 +909,19 @@
       "householdsInText": 9773,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#绣州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#繡州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "绣州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#绣州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#繡州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "绣州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 48,865 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-141",
@@ -873,7 +942,8 @@
           "section": "田州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 20,840 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-142",
@@ -889,7 +959,7 @@
       "householdsInText": 1209,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#梧州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#梧州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "梧州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
@@ -900,7 +970,8 @@
           "section": "梧州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 6,045 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-143",
@@ -921,12 +992,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#容州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#容州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "容州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 6,160 people by multiplying the household count by five. This estimate alone cannot confirm the period name against the Old Book of Tang."
     },
     {
       "id": "china-prefecture-742-145",
@@ -944,9 +1016,16 @@
           "title": "旧唐书·卷四十一·地理志四",
           "section": "巂州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#巂州",
+          "title": "新唐书·卷四十二·地理志六",
+          "section": "巂州",
+          "titleEn": "New Book of Tang · juan 42 · Geography VI"
         }
       ],
-      "populationInText": 175002
+      "populationInText": 175002,
+      "reasonEn": "The population figure in the Old Book of Tang transcription is garbled. The New Book of Tang gives 175,280 people, while the dataset gives 175,820. The figures need checking against the Zhonghua Book Company’s critical edition."
     },
     {
       "id": "china-prefecture-742-151",
@@ -961,18 +1040,19 @@
       "observedWebLine": 3227,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#峦州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#巒州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "峦州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#峦州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#巒州",
           "title": "新唐书·卷四十三上·地理志七上",
           "section": "峦州",
           "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 8,000 people from the area and population of neighboring regions. It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-152",
@@ -992,7 +1072,8 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
       ],
-      "populationInText": 99652
+      "populationInText": 99652,
+      "reasonEn": "The Old Book of Tang entry for the Annan administration records no change to a commandery in 742. Both this record and Jiao Zhou (record 5) carry the same Tianbao population of 99,652. Their names remain under joint review."
     },
     {
       "id": "china-prefecture-742-153",
@@ -1000,9 +1081,34 @@
       "PrefID": 153,
       "sourcePrefNAM": "Huan Zhou",
       "ProvNAM": "Lingnan Dao",
-      "reason": "源数据人口1900出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《旧唐书》记环州在天宝元年（742）改正平郡，治正平县，领八县，户口未载。《通典》也作正平郡；《新唐书》郡名作整平，首县仍作正平。两种郡名字形并存，源图的 1,900 人来自现代估算。",
       "sourceRecordPopulation": 1900,
-      "sourceRecordPopulationMethod": "Estimation from Gong (2019)"
+      "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
+      "primaryHeading": "环州（正平郡／整平郡）",
+      "reasonEn": "The Old Book of Tang dates the renaming of Huan Prefecture to 742. It gives 正平 for the commandery and its seat, lists eight counties and supplies no population. The Tongdian also uses 正平. The New Book of Tang writes the commandery 整平 but the county 正平. The map’s 1,900 inhabitants are a modern estimate.",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷41#環州",
+          "title": "旧唐书·卷四十一·地理志四",
+          "section": "环州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "sectionEn": "Huan Prefecture"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043上#環州",
+          "title": "新唐书·卷四十三上·地理志七上",
+          "section": "岭南道·环州",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "sectionEn": "Lingnan · Huan Prefecture"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/通典/卷184#正平郡",
+          "title": "通典·卷一八四·州郡十四",
+          "section": "正平郡",
+          "titleEn": "Tongdian · juan 184 · Prefectures and Commanderies XIV",
+          "sectionEn": "Zhengping Commandery"
+        }
+      ]
     },
     {
       "id": "china-prefecture-742-154",
@@ -1010,9 +1116,27 @@
       "PrefID": 154,
       "sourcePrefNAM": "Ju Zhou",
       "ProvNAM": "Qianzhong Dao",
-      "reason": "源数据人口700出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《新唐书》记矩州置于武德四年（621），在牂州条下将充、应、矩三州降为羁縻的时间记为天宝三载（744）。《旧唐书》黔州条却在天宝元年（742）的叙述中已把矩列入所领羁縻州。两书的时间叙述有别，图中 742 年的行政地位及估算人口 700 仍待核。",
       "sourceRecordPopulation": 700,
-      "sourceRecordPopulationMethod": "Estimation from Gong (2019)"
+      "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
+      "primaryHeading": "矩州",
+      "reasonEn": "The New Book of Tang dates the foundation of Ju to 621 and, in its note on Zang, dates the change to jimi (indirect administration) for Chong, Ying and Ju to 744. The Old Book of Tang already includes Ju among the jimi prefectures in its account of Qian for 742. These accounts leave Ju’s status in the mapped year uncertain. The map’s population of 700 is an estimate.",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043下#:~:text=矩州",
+          "title": "新唐书·卷四十三下·地理志七下",
+          "section": "江南道·牂州注及矩州",
+          "titleEn": "New Book of Tang · juan 43b · Geography VII-B",
+          "sectionEn": "Jiangnan · note on Zang Prefecture and Ju Prefecture"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷40#黔州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "黔中道·黔州都督府",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "sectionEn": "Qianzhong · Qian Area Command"
+        }
+      ]
     },
     {
       "id": "china-prefecture-742-155",
@@ -1020,9 +1144,27 @@
       "PrefID": 155,
       "sourcePrefNAM": "Ying Zhou",
       "ProvNAM": "Qianzhong Dao",
-      "reason": "源数据人口6100出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《新唐书》记应州置于贞观三年（629），列都尚等五县，内有应江县；在牂州条下注明应州与充州、矩州到天宝三载（744）才降为羁縻。《旧唐书》黔州条也曾将应州列入所督诸州。源图的 742 年截面早于 744 年，估算的 6,100 人和图上边界仍待核。",
       "sourceRecordPopulation": 6100,
-      "sourceRecordPopulationMethod": "Estimation from Gong (2019)"
+      "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
+      "primaryHeading": "应州",
+      "reasonEn": "The New Book of Tang dates the foundation of Ying to 629 and lists five counties, including Dushang and Yingjiang. Its note on Zang dates the change of Ying, Chong and Ju to jimi (indirect administration) to 744, two years after the map snapshot. The Old Book of Tang also names Ying among the prefectures under Qian. The mapped boundaries and estimate of 6,100 people remain unverified.",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043下#:~:text=應州〈貞觀三年",
+          "title": "新唐书·卷四十三下·地理志七下",
+          "section": "江南道·牂州注及应州",
+          "titleEn": "New Book of Tang · juan 43b · Geography VII-B",
+          "sectionEn": "Jiangnan · note on Zang Prefecture and Ying Prefecture"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷40#黔州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "黔中道·黔州都督府",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "sectionEn": "Qianzhong · Qian Area Command"
+        }
+      ]
     },
     {
       "id": "china-prefecture-742-156",
@@ -1030,25 +1172,27 @@
       "PrefID": 156,
       "sourcePrefNAM": "Chong Zhou",
       "ProvNAM": "Qianzhong Dao",
-      "reason": "源数据人口11300出自研究估算（Estimation from Gong (2019)），非《旧唐书》天宝口数实录，暂不自动生成别名。",
+      "reason": "《旧唐书》业州的梓姜县条记，天宝三载（744）梓姜改隶业州，充州转为羁縻。《新唐书》牂州条也把充州降为羁縻系于该年，另在充州条列七县。这是 742 年截面之后的变动。源图的 11,300 人为现代估算，史书没有为这个统计单元划定边界。",
       "sourceRecordPopulation": 11300,
       "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
       "primaryHeading": "充州",
-      "observedWebLine": 2302,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#梓姜",
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷40#業州",
           "title": "旧唐书·卷四十·地理志三",
-          "section": "梓姜",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+          "section": "业州·梓姜县",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "sectionEn": "Ye Prefecture · Zijiang County"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷41#奖州",
-          "title": "新唐书·卷四十一·地理志五",
-          "section": "奖州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043下#:~:text=充州〈武德三年",
+          "title": "新唐书·卷四十三下·地理志七下",
+          "section": "江南道·牂州注及充州",
+          "titleEn": "New Book of Tang · juan 43b · Geography VII-B",
+          "sectionEn": "Jiangnan · note on Zang Prefecture and Chong Prefecture"
         }
-      ]
+      ],
+      "reasonEn": "The Old Book of Tang records that Zijiang County was attached to Ye in 744 when Chong became a jimi prefecture. The New Book of Tang gives the same year in its note on Zang and lists seven counties under Chong. This change postdates the 742 snapshot. The map supplies a modern estimate of 11,300 inhabitants. The texts do not delineate this statistical unit."
     },
     {
       "id": "china-prefecture-742-164",
@@ -1066,9 +1210,16 @@
           "title": "旧唐书·卷四十一·地理志四",
           "section": "柘州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#柘州",
+          "title": "新唐书·卷四十二·地理志六",
+          "section": "柘州",
+          "titleEn": "New Book of Tang · juan 42 · Geography VI"
         }
       ],
-      "populationInText": null
+      "populationInText": null,
+      "reasonEn": "The Old Book of Tang records the renaming of Zhe Zhou as Pengshan Commandery in 742 but gives no Tianbao household or population count. The New Book of Tang gives 2,120 people, 100 fewer than the dataset’s 2,220."
     },
     {
       "id": "china-prefecture-742-166",
@@ -1089,12 +1240,13 @@
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷42#茂州",
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷042#茂州",
           "title": "新唐书·卷四十二·地理志六",
           "section": "茂州",
           "titleEn": "New Book of Tang · juan 42 · Geography VI"
         }
-      ]
+      ],
+      "reasonEn": "The dataset estimates 30,000 people from the area and population of neighboring regions. It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-169",
@@ -1108,13 +1260,14 @@
       "sourceRecordPopulationMethod": "Population records",
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#剑州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#劍州",
           "title": "旧唐书·卷四十一·地理志四",
           "section": "剑州",
           "titleEn": "Old Book of Tang · juan 41 · Geography IV"
         }
       ],
-      "populationInText": 100450
+      "populationInText": 100450,
+      "reasonEn": "The Old Book of Tang and the dataset agree on 100,450 inhabitants. The history dates the renaming of Jian Zhou as Pu’an Commandery to the fifth year of Tianbao (746). The 742 map therefore retains the earlier name."
     },
     {
       "id": "china-prefecture-742-301",
@@ -1122,26 +1275,35 @@
       "PrefID": 301,
       "sourcePrefNAM": "Fulu Zhou",
       "ProvNAM": "Lingnan Dao",
-      "reason": "源数据人口1585由户数×5（Number of households*5）推算，非《旧唐书》直接口数记录，按严格口径不以推算人口逆推自动改名。",
+      "reason": "《旧唐书》记天宝元年（742）名福禄郡，至德二载（757）改唐林郡。《新唐书》福禄州条载 317 户，源图的 1,585 人由户数乘五推得。《通典》列唐林为福禄郡属县。源图另设 Tanglin Zhou（编号 7），仅凭州、郡、县名的沿革无法确定两个统计单元的范围。",
       "sourceRecordPopulation": 1585,
       "sourceRecordPopulationMethod": "Number of households*5",
       "primaryHeading": "福禄州",
-      "observedWebLine": 1726,
       "householdsInText": 317,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷43上#福禄州",
-          "title": "新唐书·卷四十三上·地理志七上",
-          "section": "福禄州",
-          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
+          "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷41#福祿州",
+          "title": "旧唐书·卷四十一·地理志四",
+          "section": "安南府·福禄州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV",
+          "sectionEn": "Annan · Fulu Prefecture"
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#福禄州",
-          "title": "旧唐书·卷四十一·地理志四",
-          "section": "福禄州",
-          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+          "url": "https://zh.wikisource.org/zh-hant/新唐書/卷043上#福祿州",
+          "title": "新唐书·卷四十三上·地理志七上",
+          "section": "岭南道·福禄州·唐林县",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A",
+          "sectionEn": "Lingnan · Fulu Prefecture · Tanglin County"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hant/通典/卷184#福祿郡",
+          "title": "通典·卷一八四·州郡十四",
+          "section": "福禄郡",
+          "titleEn": "Tongdian · juan 184 · Prefectures and Commanderies XIV",
+          "sectionEn": "Fulu Commandery"
         }
-      ]
+      ],
+      "reasonEn": "The Old Book of Tang gives Fulu Commandery for 742 and dates the name Tanglin Commandery to 757. The New Book of Tang lists 317 households. The map derives its population of 1,585 by multiplying households by five. The Tongdian lists Tanglin as a county of Fulu. The map has a separate Tanglin Zhou (ID 7), and the sequence of names alone cannot identify the two outlines."
     },
     {
       "id": "china-prefecture-742-314",
@@ -1156,12 +1318,13 @@
       "observedWebLine": 1918,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#辽州",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#遼州",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "辽州",
           "titleEn": "Old Book of Tang · juan 39 · Geography II"
         }
-      ]
+      ],
+      "reasonEn": "The dataset uses an estimate of 50,300 people from Gong (2019). It does not give a directly recorded Tianbao population that could confirm the period name."
     },
     {
       "id": "china-prefecture-742-315",
@@ -1169,19 +1332,61 @@
       "PrefID": 315,
       "sourcePrefNAM": "Xia Zhou, Sheng Zhou, Feng Zhou, Ling Zhou, You Zhou, Yan Zhou, Chan'yu Daduhufu, Anbei Daduhufu",
       "ProvNAM": "Guannei Dao",
-      "reason": "源PrefNAM为夏、胜、丰、灵、宥、盐州与单于、安北大都护府八区合并统计单元（POP=200462），不可单州改名。",
-      "primaryHeading": "关内道北边合并单元",
+      "reason": "原数据把六州及两个都护府合为一个单元，人口合计200,462。《旧唐书》卷三十八分列六州和安北大都护府，卷三十九另列单于都护府。单个条目不能给整个合并单元命名，也不能单独解释合计口数。",
       "sourceRecordPopulation": 200462,
       "sourceRecordPopulationMethod": "Population records",
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#关内道北边合并单元",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#夏州",
           "title": "旧唐书·卷三十八·地理志一",
-          "section": "关内道北边合并单元",
+          "section": "夏州",
           "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#勝州",
+          "title": "旧唐书·卷三十八·地理志一",
+          "section": "胜州",
+          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#豐州",
+          "title": "旧唐书·卷三十八·地理志一",
+          "section": "丰州",
+          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#靈州",
+          "title": "旧唐书·卷三十八·地理志一",
+          "section": "灵州",
+          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#宥州",
+          "title": "旧唐书·卷三十八·地理志一",
+          "section": "宥州",
+          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#鹽州",
+          "title": "旧唐书·卷三十八·地理志一",
+          "section": "盐州",
+          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷38#安北大都護府",
+          "title": "旧唐书·卷三十八·地理志一",
+          "section": "安北大都护府",
+          "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#單于都護府",
+          "title": "旧唐书·卷三十九·地理志二",
+          "section": "单于都护府",
+          "titleEn": "Old Book of Tang · juan 39 · Geography II"
         }
       ],
-      "populationInText": null
+      "populationInText": null,
+      "reasonEn": "The source combines six prefectures and two protectorates, with a single population of 200,462. Juan 38 of the Old Book of Tang lists the six prefectures and Anbei separately. Juan 39 records Chanyu. No single entry names this combined area or establishes its population total."
     },
     {
       "id": "china-prefecture-742-316",
@@ -1196,12 +1401,13 @@
       "observedWebLine": 2318,
       "sources": [
         {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#安东都护府",
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷39#安東都護府",
           "title": "旧唐书·卷三十九·地理志二",
           "section": "安东都护府",
           "titleEn": "Old Book of Tang · juan 39 · Geography II"
         }
-      ]
+      ],
+      "reasonEn": "The dataset uses an estimate of 300,000 people from Gong (2019). It does not give a directly recorded Tianbao population that could confirm the period name."
     }
   ],
   "records": [
@@ -9217,6 +9423,33 @@
       ],
       "evidence": "三书互证：《旧唐书·卷四十》武州条明载天宝元年改为武都郡且口数15313与源记录完全一致，《新唐书·卷四十》记景福元年（892）始更名阶州，结合《通典·卷一七六》确认742年实为武州武都郡（源 Jie Zhou 系用晚唐州名）。",
       "evidenceEn": "Period name (Wudu Jun, historically 武州, renamed Jie Zhou only in 892 CE) verified for 742 CE against Old Book of Tang · juan 40 (pop. 15,313), New Book of Tang and Tongdian. Source Jie Zhou retained for search."
+    },
+    {
+      "id": "china-prefecture-742-10",
+      "year": 742,
+      "PrefID": 10,
+      "sourcePrefNAM": "Wu'e Zhou",
+      "ProvNAM": "Lingnan Dao",
+      "zh": "武峨郡",
+      "en": "Wu'e Jun",
+      "formerNameZh": "武峨州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷41#武峨州",
+          "title": "旧唐书·卷四十一·地理志四",
+          "section": "武峨州",
+          "titleEn": "Old Book of Tang · juan 41 · Geography IV"
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷043上#武峩州",
+          "title": "新唐书·卷四十三上·地理志七上",
+          "section": "武峩州",
+          "titleEn": "New Book of Tang · juan 43a · Geography VII-A"
+        }
+      ],
+      "evidence": "《旧唐书》武峨州条把改称武峨郡系于天宝元年（742），载户1,850，未列口数。《新唐书》保留“武峩”异体，记户1,850、口5,320。后者与岭南道原始记录 Wu'e Zhou 的人口5,320相合。同源另有梧州（Wu Zhou，编号142）。",
+      "evidenceEn": "The Old Book of Tang dates the name Wu'e Jun to 742 and records 1,850 households. The New Book uses the form 武峩 and gives 1,850 households and 5,320 people. The latter matches the Lingnan Dao source row. The separate Wu Zhou (梧州) is record 142."
     }
   ],
   "identityChecks": [
@@ -13046,6 +13279,18 @@
       "captureFile": "docs/verification-3.64/sources/old-tang-40.html.gz",
       "captureSha256": "28815afcc550fd033ca1804b92fb734c337b32c36438aabea9e8fcb870bd6fdc",
       "oldid": "2690566"
+    },
+    {
+      "id": "china-prefecture-742-10",
+      "primaryHeading": "武峩州武峩郡",
+      "firstListedCounty": "武峩",
+      "populationInText": 5320,
+      "sourceRecordPopulation": 5320,
+      "populationMatches": true,
+      "note": "Exact population match in New Book of Tang; year of renaming independently recorded in Old Book of Tang.",
+      "captureFile": "docs/verification-3.63/sources/new-tang-43a.html.gz",
+      "captureSha256": "90a6bc7aa93428bfad13b3e649b8f2284197a3af63f7e62ad3c0accfe3ee7aff",
+      "oldid": "2474644"
     }
   ]
 }
