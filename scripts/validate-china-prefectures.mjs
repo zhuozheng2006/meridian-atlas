@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
-import {chinaWindowFor,chinaSnapshotYear,readChinaSnapshot,chinaRecord,chinaRecordPanel,createChinaReviewDetails} from '../public/china-prefectures.js';
+import {chinaWindowFor,chinaSnapshotYear,readChinaSnapshot,readChinaFeature,chinaRecord,chinaRecordPanel,createChinaReviewDetails} from '../public/china-prefectures.js';
+import {interiorPoint,pointInGeometry} from '../public/geometry-anchor.js';
 import {regionalWindowFor,regionalVisible,RegionalBoundaries} from '../public/regional-boundaries.js';
 const root='public/data/china-prefectures/',read=f=>JSON.parse(gunzipSync(fs.readFileSync(root+f))),manifest=JSON.parse(fs.readFileSync(root+'manifest.json')),index=read('index.json.gz'),hash=b=>createHash('sha256').update(b).digest('hex');
 const box=(x,y=36)=>({getWest:()=>x-2,getEast:()=>x+2,getSouth:()=>y-2,getNorth:()=>y+2});
@@ -67,6 +68,49 @@ try{
   const han=frames[0].features.find(f=>f.properties.name_review_id);
   const verified=chinaRecordPanel(han.properties,'en',()=>{}).children.find(el=>el.className==='historical-review-details');
   assert.match(verified.textContent,/Period name reviewed/);assert(verified.children.at(-1).children[0].href);
+
+  // Use real source geometry for every shared ID, including composite and offshore units.
+  const mid=r=>[(r.bounds[0]+r.bounds[2])/2,(r.bounds[1]+r.bounds[3])/2];
+  const byYearAndBand=(a,b)=>a.year-b.year||mid(a)[0]-mid(b)[0];
+  let outside=0;
+  for(const row of [...index.records].sort(byYearAndBand)){
+   const {feature,band}=await readChinaFeature(row.id,row.year);
+   assert.equal(feature.properties.id,row.id);assert.equal(feature.properties.source_row,row.row);
+   assert.equal(feature.properties.source_name,row.sourceRecord.PrefNAM);assert.equal(band,Math.floor(mid(row)[0]/10)*10);
+   assert(pointInGeometry(interiorPoint(feature.geometry),feature.geometry),row.id);
+   if(!pointInGeometry(mid(row),feature.geometry))outside++;
+  }
+  assert(outside>0,'Some bounding-box centres miss the source polygon entirely');
+  for(const [id,year] of [['china-prefecture-2-1',742],['china-prefecture-742-1x',742],['china-prefecture-742-999',742]]){
+   assert.equal(await readChinaFeature(id,year),null);
+  }
+  for(const id of ['china-prefecture-2-1','china-prefecture-742-8','china-prefecture-742-315']){
+   const row=index.records.find(r=>r.id===id),{feature}=await readChinaFeature(id,row.year);
+   const region=Object.create(RegionalBoundaries.prototype),selected=[],filters=[],jumps=[],closed=[];
+   let center=mid(row),zoom=6.5,layerReady=false,popupPoint,node;
+   Object.assign(region,{year:row.year,lang:'en',mode:'regional',maxLevel:4,markers:[],active:false,
+    atlas:{showBorders:true,onBoundarySelection:(...args)=>selected.push(args)},
+    map:{getCenter:()=>({toArray:()=>center}),getZoom:()=>zoom,getBounds:()=>box(...center),
+     jumpTo:camera=>{jumps.push(camera);center=camera.center;zoom=camera.zoom;},
+     getSource:()=>null,getLayer:key=>layerReady&&key==='ohm-frozen-selected',removeLayer:()=>{layerReady=false;},
+     setFilter:(layer,filter)=>filters.push([layer,filter])},
+    visibility(){},update(){},
+    popupAt(el,point){node=el;popupPoint=point;this.popup={on:(_,fn)=>closed.push(fn),remove:()=>closed.splice(0).forEach(fn=>fn())};}
+   });
+   assert.equal(await region.restoreChinaRecord(id,()=>false),false);
+   assert.equal(jumps.length,0);assert.equal(selected.length,0);
+   assert.equal(await region.restoreChinaRecord(id,()=>true),true);
+   assert.equal(jumps.length,pointInGeometry(mid(row),feature.geometry)?0:1);
+   assert(pointInGeometry(popupPoint,feature.geometry));
+   assert.equal(filters.length,0,'The popup can open before the worker installs the source layer');
+   layerReady=true;region.applyFilters();
+   assert.deepEqual(filters.at(-1),['ohm-frozen-selected',['==',['get','osm_id'],feature.properties.osm_id]]);
+   assert.deepEqual(selected.at(-1),[id]);
+   const links=node.children.find(el=>el.className==='historical-source-links');
+   assert.equal(links.children[0].href,'./?division='+id.slice('china-prefecture-'.length)+'#view=sources&lang=en');
+   region.setYear(row.year+1,'en');
+   assert.deepEqual(selected.at(-1),[null,id]);assert.equal(region.selectedId,null);
+  }
  }finally{
   if(priorDocument)globalThis.document=priorDocument;else delete globalThis.document;
  }

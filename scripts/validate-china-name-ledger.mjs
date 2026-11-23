@@ -26,8 +26,10 @@ for (const {record} of rows) {
   assert.equal(params.get('year'), String(record.year));
   assert.equal(params.get('lang'), 'en');
   assert.equal(params.get('boundaries'), 'regional');
+  assert.equal(params.get('boundary'), record.id);
   const {center: [lon, lat], zoom} = decodeCamera(params.get('camera'));
   const [west, south, east, north] = record.bounds;
   assert(lon >= west && lon <= east && lat >= south && lat <= north && zoom >= 6);
 }
 console.log('Validated 420 Han and Tang directory records, status filters, name/ID search, and map links');
+await import('./validate-china-directory-return.mjs');

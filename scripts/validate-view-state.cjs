@@ -65,6 +65,12 @@ async function run(){
   assert.equal(value(recipient,side==='right'?'state.compareYear':'state.year'),1800);assert.equal(value(recipient,'state.selected?.id'),realEvent.id);assert.equal(value(recipient,'state.selectedSide'),side);
   if(saved){assert.equal(value(recipient,'encodeCamera(atlas.map)'),camera);if(side==='right')assert.equal(value(recipient,'encodeCamera(compareMap.map)'),camera);}
  });
+ function errorBox(c){
+  const box=value(c,"$('#mapError')");
+  box.replaceChildren=()=>{for(const child of box.children||[])child.parentNode=null;box.children=[];};
+  box.append=(...children)=>{box.children=children;for(const child of children)child.parentNode=box;};
+  return box;
+ }
  const savedCamera='12.5,41.9,7.25,-20,35';
  for(const [kind,dataset,collection,selected,loader] of [
   ['battle','battles','battles','selectedBattle','loadBattles'],
@@ -79,9 +85,7 @@ async function run(){
    Object.assign(c,module);
    let resolve,reject,reads=0;
    c[loader]=()=>{reads++;return new Promise((yes,no)=>{resolve=yes;reject=no;});};
-   const box=value(c,"$('#mapError')");
-   box.replaceChildren=()=>{for(const child of box.children||[])child.parentNode=null;box.children=[];};
-   box.append=(...children)=>{box.children=children;for(const child of children)child.parentNode=box;};
+   const box=errorBox(c);
    value(c,'prepareInit()');
    const opening=value(c,'init()');
    await flush();
@@ -136,6 +140,69 @@ async function run(){
    await value(h.c,"showView('atlas')");assert.equal(h.reads,1);
   });
  }
+ const divisions=readData('china-prefectures/index').records;
+ const tang=divisions.find(r=>r.id==='china-prefecture-742-29');
+ assert(tang,'The shared Tang record must exist in the shipped data');
+ async function sharedDivision({side='left',id=tang.id}={}){
+  const right=side==='right',params=new URLSearchParams({year:right?2:742,boundaries:'regional',lang:'en',boundary:id});
+  if(right){params.set('compare','1');params.set('compareYear','742');params.set('side',side);}
+  const c=context('#'+params),box=errorBox(c),opened=[];
+  let reads=0,resolve,reject,close;
+  c.stubRegional=(map,options)=>{
+   map.ensureDetailLayers=async()=>true;
+   map.regional={mode:'regional',enabled:true,setModern(){},closePopup(){close?.();},async restoreChinaRecord(recordId,current){
+    reads++;await new Promise((yes,no)=>{resolve=yes;reject=no;});
+    if(!current()||!divisions.some(row=>row.id===recordId&&row.year===map.year))return false;
+    options.onBoundarySelection(recordId);opened.push(recordId);
+    close=()=>{close=null;options.onBoundarySelection(null,recordId);};
+    return true;
+   }};
+  };
+  value(c,`bind();prepareInit();AtlasMap=class extends AtlasMap{
+   constructor(container,options){super(container,options);stubRegional(this,options);}
+  }`);
+  const opening=value(c,'init()');await flush();
+  assert.equal(reads,1,'the cold link should request the regional record');
+  return {c,box,opening,opened,close:()=>close(),resolve:()=>resolve(),reject:()=>reject(Error('China archive offline')),
+   get reads(){return reads;},hash:()=>new URLSearchParams(c.location.hash.slice(1))};
+ }
+ for(const side of ['left','right'])await test('shared division opens on the '+side+' map and closing the popup clears its link',async()=>{
+  const h=await sharedDivision({side});
+  value(h.c,'saveURL()');assert.equal(h.hash().get('boundary'),tang.id);
+  h.resolve();await h.opening;
+  assert.deepEqual(h.opened,[tang.id]);assert.equal(value(h.c,'state.selectedBoundary.side'),side);
+  assert.equal(h.hash().get('boundary'),tang.id);assert.equal(h.hash().get('side'),side==='right'?side:null);
+  value(h.c,`boundarySelection(null,${side==='right'?'compareMap':'atlas'},'china-prefecture-742-8')`);
+  assert.equal(h.hash().get('boundary'),tang.id,'Dismissing a previous popup must keep the new record link');
+  h.close();assert.equal(value(h.c,'state.selectedBoundary'),null);assert.equal(h.hash().has('boundary'),false);
+ });
+ await test('failed division keeps its link and retries the archive on the same map',async()=>{
+  const h=await sharedDivision();h.reject();await h.opening;
+  assert.equal(value(h.c,'atlasReady'),true);assert.equal(h.box.hidden,false);
+  assert.equal(h.hash().get('boundary'),tang.id);const map=value(h.c,'atlas');
+  const retry=h.box.children[1].onclick();await flush();assert.equal(h.reads,2);h.resolve();await retry;
+  assert.deepEqual(h.opened,[tang.id]);assert.equal(value(h.c,'atlas'),map);assert.equal(h.box.hidden,true);
+ });
+ await test('a superseded division retry cannot replace the newly opened record',async()=>{
+  const h=await sharedDivision();h.reject();await h.opening;
+  const retry=h.box.children[1].onclick;
+  await value(h.c,'openEvent(realEvent,{whichMap:atlas,preserveYear:true})');
+  await retry();assert.equal(h.reads,1);assert.deepEqual(h.opened,[]);
+  assert.equal(h.box.hidden,true);assert.equal(h.hash().has('boundary'),false);assert.equal(h.hash().get('event'),realEvent.id);
+ });
+ await test('a missing division clears its link without opening a different record',async()=>{
+  const h=await sharedDivision({id:'china-prefecture-742-999'});h.resolve();await h.opening;
+  assert.deepEqual(h.opened,[]);assert.equal(h.hash().has('boundary'),false);
+  assert.match(value(h.c,"$('#toast').textContent"),/division.*unavailable.*year/i);
+ });
+ for(const [action,navigate] of [
+  ['new year','setYear(1700)'],['new record','openEvent(realEvent,{whichMap:atlas,preserveYear:true})'],
+  ['map pointer','for(const f of eventListeners.get("pointerdown"))f({target:{closest:s=>s.includes("maplibregl-canvas")?{}:null}})']
+ ])await test('pending division yields to '+action,async()=>{
+  const h=await sharedDivision();await value(h.c,navigate);h.resolve();await h.opening;
+  assert.deepEqual(h.opened,[]);assert.equal(h.hash().has('boundary'),false);assert.equal(h.box.hidden,true);
+  if(action==='new record')assert.equal(h.hash().get('event'),realEvent.id);
+ });
  for(const side of ['left','right'])await test(`polity language switch keeps ${side} camera and reader tab`,async()=>{
   const c=context();value(c,`state.year=realPolity.start;atlas.year=state.year;${side==='right'?"state.compare=true;compareMap=makeMap();state.compareYear=realPolity.start;compareMap.year=state.compareYear;":''}openPolity(realPolity,${side==='right'?'compareMap':'atlas'});${side==='right'?'compareMap':'atlas'}.map.jumpTo({center:[75,35],zoom:7});bind();`);
   const before=value(c,`encodeCamera(${side==='right'?'compareMap':'atlas'}.map)`),count=value(c,'focusLog.length');value(c,"document.querySelector('#language').onchange({target:{value:'en'}})");await flush();

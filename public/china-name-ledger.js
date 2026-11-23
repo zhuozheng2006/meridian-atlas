@@ -1,6 +1,6 @@
 // Only the Sources panel imports this module, after the reader opens the index.
-import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.18.0-0acb4e1361f6';
-import {reviewedChinaName} from './china-name-reviews.js?v=4.18.0-0acb4e1361f6';
+import {readChinaIndex, chinaDisplayName, createChinaReviewDetails} from './china-prefectures.js?v=4.19.0-f36674756582';
+import {reviewedChinaName} from './china-name-reviews.js?v=4.19.0-f36674756582';
 
 const pageSize = 20;
 const normalize = value => String(value ?? '').normalize('NFKD').replace(/\p{M}/gu, '').replace(/['’]/g, '').toLowerCase().trim();
@@ -30,11 +30,11 @@ export function divisionMapLink(record, lang) {
   const [west, south, east, north] = record.bounds;
   const camera = [((west + east) / 2).toFixed(5), ((south + north) / 2).toFixed(5), 6.5, 0, 0];
   return './#' + new URLSearchParams({
-    year: record.year, lang, boundaries: 'regional', browse: '0', camera: camera.join(',')
+    year: record.year, lang, boundaries: 'regional', boundary: record.id, browse: '0', camera: camera.join(',')
   });
 }
 
-export async function mountDivisionLedger(host, lang, initialId = '') {
+export async function mountDivisionLedger(host, lang, initialId = '', saved = null) {
   const rows = divisionRows(await readChinaIndex());
   if (!host.isConnected) return;
   const t = (zh, en) => lang === 'en' ? en : zh;
@@ -49,9 +49,22 @@ export async function mountDivisionLedger(host, lang, initialId = '') {
   const list = host.querySelector('ul');
   const more = host.querySelector('[data-more]');
   let matches = [], shown = 0;
+  const rendered = new Map();
+  const expanded = new Set(Array.isArray(saved?.expanded) ? saved.expanded : []);
 
-  function addPage() {
-    const end = Math.min(shown + pageSize, matches.length);
+  function remember(focus) {
+    const open = [...rendered].filter(([, row]) => row.evidence.open).map(([key]) => key);
+    history.replaceState({...history.state, atlasDivisionDirectory: {
+      query: input.value, year: year.value, status: status.value, shown, expanded: open, focus
+    }}, '');
+  }
+  function refreshReturn() {
+    const prior = history.state?.atlasDivisionDirectory;
+    if (prior && host.isConnected) remember(rendered.has(prior.focus) ? prior.focus : '');
+  }
+
+  function addPage(amount = pageSize) {
+    const end = Math.min(shown + amount, matches.length);
     const page = document.createDocumentFragment();
     for (const {record, review, zh, en, PrefID} of matches.slice(shown, end)) {
       const item = document.createElement('li');
@@ -72,7 +85,12 @@ export async function mountDivisionLedger(host, lang, initialId = '') {
       locate.setAttribute('aria-label', t('在地图定位', 'Locate on map') + ' · ' + name.textContent + ' · ' + record.year);
       meta.append(' · ', permalink);
       const evidence = createChinaReviewDetails(record, review, lang);
-      if (initialId === id) evidence.open = true;
+      evidence.open = saved ? expanded.has(id) : initialId === id;
+      rendered.set(id, {locate, evidence});
+      locate.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        remember(id);
+      });
       item.append(name, meta, locate, evidence);
       page.append(item);
     }
@@ -82,14 +100,19 @@ export async function mountDivisionLedger(host, lang, initialId = '') {
     more.hidden = shown >= matches.length;
   }
 
-  function filter() {
+  function filter(amount = pageSize) {
     matches = matchDivisions(rows, input.value, year.value, status.value);
     shown = 0;
+    rendered.clear();
     list.replaceChildren();
-    addPage();
+    addPage(amount);
   }
 
-  input.value = initialId;
+  input.value = typeof saved?.query === 'string' ? saved.query : initialId;
+  if (saved) {
+    year.value = ['2', '742'].includes(saved.year) ? saved.year : '';
+    status.value = ['pending', 'verified'].includes(saved.status) ? saved.status : '';
+  }
   function changeFilters() {
     if (initialId) {
       initialId = '';
@@ -98,11 +121,20 @@ export async function mountDivisionLedger(host, lang, initialId = '') {
       history.replaceState(history.state, '', url);
     }
     filter();
+    refreshReturn();
   }
 
   input.oninput = changeFilters;
   year.onchange = changeFilters;
   status.onchange = changeFilters;
-  more.onclick = addPage;
-  filter();
+  more.onclick = () => {addPage(); refreshReturn();};
+  list.addEventListener('toggle', refreshReturn, true);
+  filter(Number.isSafeInteger(saved?.shown) ? Math.max(pageSize, saved.shown) : pageSize);
+  if (saved) {
+    const link = rendered.get(saved.focus)?.locate;
+    link?.focus({preventScroll: true});
+    link?.scrollIntoView({block: 'nearest'});
+    expanded.clear();
+    saved = null;
+  }
 }

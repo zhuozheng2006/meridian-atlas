@@ -1,9 +1,9 @@
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.18.0-0acb4e1361f6';
-import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=4.18.0-0acb4e1361f6';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.19.0-f36674756582';
+import {chinaPrefectureBounds} from './china-prefecture-catalog.js?v=4.19.0-f36674756582';
 let reviewsModPromise=null,reviewsMod=null;
 async function ensureChinaReviews(){
  if(reviewsMod)return reviewsMod;
- if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=4.18.0-0acb4e1361f6').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
+ if(!reviewsModPromise)reviewsModPromise=import('./china-name-reviews.js?v=4.19.0-f36674756582').then(m=>{reviewsMod=m;return m;}).catch(e=>{reviewsModPromise=null;throw e;});
  return reviewsModPromise;
 }
 const ROOT='data/china-prefectures/',packs=new Map();let indexPromise;
@@ -52,6 +52,18 @@ export async function readChinaSnapshot(window_,year){
  const [index,pack,reviews]=await Promise.all([readChinaIndex(),pending,ensureChinaReviews()]);
  const features=index.records.filter(r=>r.year===year&&Object.hasOwn(pack.geometries,r.id)).map(r=>{const review=reviews.reviewedChinaName(r),label=chinaDisplayName(r,review);return {type:'Feature',properties:{id:r.id,osm_id:-2000000000-r.row,archive:'china-prefectures',type:'administrative',admin_level:4,name:label.en,name_en:label.en,name_zh:label.zh,source_name:r.sourceRecord.PrefNAM,name_review_id:review?.id||'',province:r.sourceRecord.ProvNAM,source_id:r.sourceRecord.PrefID,source_row:r.row,start_date:String(year),end_date:String(year),start_decdate:year,end_decdate:year+.9999},geometry:pack.geometries[r.id]};});
  return {type:'FeatureCollection',metadata:{source:'Zheng & Wu (2026)',year,datePrecision:'exact-year snapshot',window:window_,relationCount:features.length},features};
+}
+export async function readChinaFeature(id,year){
+ const match=/^china-prefecture-(2|742)-[1-9]\d{0,2}$/.exec(id);
+ if(!match||Number(match[1])!==year)return null;
+ const index=await readChinaIndex(),record=index.records.find(r=>r.id===id&&r.year===year);
+ if(!record)return null;
+ // Every band overlapping the record carries its complete source geometry.
+ const [west,,east]=record.bounds,longitude=(west+east)/2,band=Math.floor(longitude/10)*10;
+ const frame=await readChinaSnapshot({band},year);
+ const feature=frame.features.find(f=>f.properties.id===id);
+ if(!feature?.geometry)throw Error('Missing geometry for '+id);
+ return {feature,band};
 }
 async function deferredNameReview(record){
  const audit=await readJSON(ROOT+'name-audit.json'),source=record.sourceRecord;
@@ -131,7 +143,10 @@ export function chinaRecordPanel(p,lang,download){
  const dl=document.createElement('dl');for(const [key,value]of [[t('截面年份','Snapshot year'),snapLabel],[t('上级地区（来源原名）','Parent region (source name)'),p.province],[t('来源原名','Original source name'),p.source_name||p.name_en],[t('来源编号','Source ID'),p.source_id],[t('研究作者','Researchers'),'Zheng & Wu (2026)']]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=value;dl.append(dt,dd);}node.append(dl);
  const record={id:p.id,year:snapYear,sourceRecord:{PrefID:Number(p.source_id),PrefNAM:p.source_name,ProvNAM:p.province}};
  node.append(createChinaReviewDetails(record,reviewsMod?.reviewedChinaName(record),lang));
- const links=add('div','');links.className='historical-source-links';for(const [label,url]of [[t('研究论文','Research paper'),'https://doi.org/10.1038/s41597-026-07086-6'],[t('原始数据与方法','Dataset & methods'),'https://doi.org/10.6084/m9.figshare.30518417.v2'],[t('下载原始区划文件','Original boundary files'),ROOT+'ResearchArea-originals.zip']]){const a=document.createElement('a');a.textContent=label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
+ const links=add('div','');links.className='historical-source-links';
+ const ledger=document.createElement('a');ledger.textContent=t('在地名考证目录中查看','Read this entry in the place-name index');
+ ledger.href='./?division='+encodeURIComponent(p.id.replace(/^china-prefecture-/,''))+'#'+new URLSearchParams({view:'sources',lang});links.append(ledger);
+ for(const [label,url]of [[t('研究论文','Research paper'),'https://doi.org/10.1038/s41597-026-07086-6'],[t('原始数据与方法','Dataset & methods'),'https://doi.org/10.6084/m9.figshare.30518417.v2'],[t('下载原始区划文件','Original boundary files'),ROOT+'ResearchArea-originals.zip']]){const a=document.createElement('a');a.textContent=label;a.href=url;a.target='_blank';a.rel='noopener noreferrer';links.append(a);}
  const details=add('details',''),summary=document.createElement('summary'),note=document.createElement('p');summary.textContent=t('来源说明','Source notes');note.textContent=t('图层依据《中国历史地图集》重建，本批展示公元 2 年与 742 年两个截面。经核对的名称采用当年名称，原名与考证另列；保留合并单元。部分边疆、水面在研究区之外。原始 Albers 坐标按其椭球反投影，未推定基准转换。人口估算用的模拟县界未纳入此图。原始属性中的 Source、RECORDS 描述人口依据。','Reconstructed from The Historical Atlas of China for the two displayed snapshots, 2 and 742 CE. Reviewed names use period labels, with original names and evidence preserved; merged units remain intact; some frontier areas and water surfaces fall outside the study area. Albers coordinates are inverse-projected on the source ellipsoid without an inferred datum shift. Simulated county boundaries are excluded. Source and RECORDS fields describe population evidence.');details.append(summary,note);
  add('small','CC BY 4.0 · ResearchArea').className='historical-credit';const button=add('button',t('下载这条记录','Download this record'));button.className='regional-dossier';button.onclick=async()=>{button.disabled=true;try{await download();}catch{button.textContent=t('读取失败，点击重试','Could not load; retry');}finally{button.disabled=false;}};return node;
 }

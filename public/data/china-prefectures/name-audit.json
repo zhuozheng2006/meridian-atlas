@@ -7,10 +7,10 @@
       "2": 103,
       "742": 317
     },
-    "sourceSupportedMappings": 370,
+    "sourceSupportedMappings": 371,
     "hanVerifiedMappings": 103,
-    "tangPeriodAliases": 267,
-    "documentedDeferred": 50,
+    "tangPeriodAliases": 268,
+    "documentedDeferred": 49,
     "fullDatasetNameAuditComplete": true
   },
   "applicationRules": [
@@ -33,51 +33,39 @@
       "observedWebLine": 2041,
       "populationInText": 269109,
       "newTangPopulationInText": 269109,
-      "reason": "歙州改新安郡有明确记载，但本次转录文本口数269109与源记录249109不同，先留待版本对读。（对读《新唐书·卷四十一》仍作口二十六万九千一百九[269109]，与源249109差两万）",
+      "reason": "《旧唐书》记歙州于742年改新安郡。其天宝口数为269109，所引维基文库《新唐书》转录亦作此数。文渊阁四库本《唐书》作249109，与源图相合。该本卷末指出，《旧唐书》将歙州列入江南东道，《新唐书》列入江南西道。源图标为江南东道，其道属与人口分别吻合不同记载。",
       "sources": [
         {
           "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#歙州",
           "title": "旧唐书·卷四十·地理志三",
           "section": "歙州",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "populationInText": 269109
         },
         {
           "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#歙州",
           "title": "新唐书·卷四十一·地理志五",
           "section": "歙州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
-        }
-      ],
-      "reasonEn": "The renaming of She Zhou as Xin’an Commandery is attested. The Old Book of Tang transcription and the New Book of Tang both give 269,109 inhabitants. The dataset gives 249,109, a difference of 20,000. The figures still need checking against other editions."
-    },
-    {
-      "id": "china-prefecture-742-90",
-      "year": 742,
-      "PrefID": 90,
-      "sourcePrefNAM": "Wen Zhou",
-      "ProvNAM": "Jiangnan East Dao",
-      "primaryHeading": "温州",
-      "sourceRecordPopulation": 141690,
-      "sourceRecordPopulationMethod": "Population records",
-      "observedWebLine": 2057,
-      "populationInText": 241694,
-      "newTangPopulationInText": 241690,
-      "reason": "温州改永嘉郡有明确记载，但本次转录文本口数241694与源记录141690不同，先留待版本对读。（对读《新唐书·卷四十一》作口二十四万一千六百九十[241690]，仍与源141690差十万）",
-      "sources": [
-        {
-          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#溫州",
-          "title": "旧唐书·卷四十·地理志三",
-          "section": "温州",
-          "titleEn": "Old Book of Tang · juan 40 · Geography III"
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 269109
         },
         {
-          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#溫州",
-          "title": "新唐书·卷四十一·地理志五",
-          "section": "温州",
-          "titleEn": "New Book of Tang · juan 41 · Geography V"
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/613",
+          "title": "文渊阁四库全书本《唐书》卷四十一",
+          "titleEn": "New Book of Tang · Wenyuan Pavilion Siku edition · juan 41",
+          "section": "歙州（第272册影像613）",
+          "sectionEn": "She Zhou (vol. 272, image 613)",
+          "populationInText": 249109
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/618",
+          "title": "文渊阁四库全书本《唐书》卷四十一",
+          "titleEn": "New Book of Tang · Wenyuan Pavilion Siku edition · juan 41",
+          "section": "卷末考证（第272册影像618）",
+          "sectionEn": "Editorial note on circuit affiliation (vol. 272, image 618)"
         }
       ],
-      "reasonEn": "Wen Zhou became Yongjia Commandery. The Old Book of Tang transcription gives 241,694 inhabitants and the New Book of Tang gives 241,690. The dataset gives 141,690, exactly 100,000 below the latter figure."
+      "reasonEn": "The Old Book of Tang dates the name Xin’an Commandery to 742. It gives a Tianbao population of 269,109, as does the linked Wikisource transcription of the New Book of Tang. The Wenyuan Pavilion Siku edition of the latter gives 249,109, matching the dataset. Its editors flag a second discrepancy. The Old Book places She Zhou in Jiangnan East Circuit, as does the dataset, while the New Book places it in Jiangnan West Circuit."
     },
     {
       "id": "china-prefecture-742-158",
@@ -219,7 +207,7 @@
       "PrefID": 241,
       "sourcePrefNAM": "Yun Zhou",
       "ProvNAM": "Henan Dao",
-      "reason": "源人口501509恰等于原文郓州284530与济州216979之和，而原文将济州并入郓州记在天宝十三载（754）。742源中另有济州记录，需核查源记录采用的年代与研究单元口径，暂不把合计数或后来的合并范围解释为742年证据。",
+      "reason": "《旧唐书》记742年郓州改东平郡，另列郓州284,530口、济州216,979口。两数之和501,509恰是《新唐书》郓州条的口数，也是源图此条的人口。苏源明753年诗序仍分称东平、济阳两位太守，记当次议后两郡仍旧。《新唐书》卢县条把济阳郡的撤销系于754年。源图在742年另列济州（编号313），两笔人口是否重叠待核。",
       "primaryHeading": "郓州",
       "sourceRecordPopulation": 501509,
       "sourceRecordPopulationMethod": "Population records",
@@ -229,13 +217,29 @@
           "title": "旧唐书·卷三十八·地理志一",
           "section": "郓州",
           "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/新唐書/卷038#鄆州",
+          "title": "新唐书·卷三十八·地理志二",
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "section": "郓州、卢县",
+          "sectionEn": "Yun Zhou and Lu County",
+          "populationInText": 501509
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/小洞庭洄源亭讌四郡太守詩",
+          "title": "苏源明《小洞庭洄源亭讌四郡太守诗》",
+          "titleEn": "Su Yuanming · Poem on a banquet for four governors at Huiyuan Pavilion",
+          "section": "诗序（753年）",
+          "sectionEn": "Preface (753)"
         }
       ],
       "populationInText": 284530,
       "laterMergedPopulationInText": 216979,
       "laterMergeYear": 754,
       "populationSumEqualsSource": true,
-      "reasonEn": "The dataset’s 501,509 equals the figures for Yun Zhou (284,530) and Ji Zhou (216,979) combined. The history dates their merger to 754, and the 742 dataset also lists Ji Zhou separately. The date and extent of the combined unit need checking."
+      "reasonEn": "The Old Book of Tang dates the name Dongping Commandery to 742 and lists 284,530 inhabitants for Yun Zhou and 216,979 for Ji Zhou. Their sum, 501,509, is the total in the New Book’s entry for Yun Zhou and in the dataset. Su Yuanming’s 753 preface names separate governors of Dongping and Jiyang and says both commanderies survived that meeting. The New Book dates Jiyang’s abolition to 754. The dataset also lists Ji Zhou in 742 (record 313), leaving possible overlap between the two population totals.",
+      "newTangPopulationInText": 501509
     },
     {
       "id": "china-prefecture-742-313",
@@ -243,7 +247,7 @@
       "PrefID": 313,
       "sourcePrefNAM": "Ji Zhou",
       "ProvNAM": "Henan Dao",
-      "reason": "济州在天宝十三载并入郓州，本条附录其户口216979；源记录人口217000为其他研究估算。本批尚未另核742年的济州郡名及单元年代，不从郓州的后期合并说明推导。",
+      "reason": "《新唐书》郓州卢县条记济州于742年改济阳郡，754年废。苏源明753年诗序也称济阳太守。文渊阁四库本《旧唐书》卢县条的郡名异作河阳。《旧唐书》计济州216,979口，源图217,000为研究估算。两书对废郡后长清县的归属记载不同，旧书作郓州，新书卢县条作齐州。源图单元的范围仍待核。",
       "primaryHeading": "郓州",
       "sourceRecordPopulation": 217000,
       "sourceRecordPopulationMethod": "Estimation from Gong (2019)",
@@ -253,10 +257,31 @@
           "title": "旧唐书·卷三十八·地理志一",
           "section": "郓州",
           "titleEn": "Old Book of Tang · juan 38 · Geography I"
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/新唐書/卷038#鄆州",
+          "title": "新唐书·卷三十八·地理志二",
+          "titleEn": "New Book of Tang · juan 38 · Geography II",
+          "section": "郓州、卢县",
+          "sectionEn": "Yun Zhou and Lu County"
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0269冊.djvu/39",
+          "title": "文渊阁四库全书本《旧唐书》卷三十八",
+          "titleEn": "Old Book of Tang · Wenyuan Pavilion Siku edition · juan 38",
+          "section": "卢县（第269册影像39）",
+          "sectionEn": "Lu County (vol. 269, image 39)"
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/小洞庭洄源亭讌四郡太守詩",
+          "title": "苏源明《小洞庭洄源亭讌四郡太守诗》",
+          "titleEn": "Su Yuanming · Poem on a banquet for four governors at Huiyuan Pavilion",
+          "section": "诗序（753年）",
+          "sectionEn": "Preface (753)"
         }
       ],
       "populationInText": 216979,
-      "reasonEn": "The history gives Ji Zhou 216,979 inhabitants in its account of the merger into Yun Zhou in 754. The dataset’s 217,000 is a research estimate. The 742 commandery name and extent of this unit still need independent confirmation."
+      "reasonEn": "The Lu County entry in the New Book of Tang dates Ji Zhou’s renaming as Jiyang Commandery to 742 and its abolition to 754. Su Yuanming’s 753 preface also names a governor of Jiyang. The Wenyuan Pavilion Siku edition of the Old Book reads Heyang in its Lu County entry. The Old Book gives Ji Zhou 216,979 inhabitants, while the dataset’s 217,000 is a research estimate. The Old Book assigns Changqing County to Yun Zhou after abolition. The New Book’s Lu County entry assigns it to Qi Zhou. The extent of the mapped unit remains unresolved."
     },
     {
       "id": "china-prefecture-742-1",
@@ -9450,6 +9475,43 @@
       ],
       "evidence": "《旧唐书》武峨州条把改称武峨郡系于天宝元年（742），载户1,850，未列口数。《新唐书》保留“武峩”异体，记户1,850、口5,320。后者与岭南道原始记录 Wu'e Zhou 的人口5,320相合。同源另有梧州（Wu Zhou，编号142）。",
       "evidenceEn": "The Old Book of Tang dates the name Wu'e Jun to 742 and records 1,850 households. The New Book uses the form 武峩 and gives 1,850 households and 5,320 people. The latter matches the Lingnan Dao source row. The separate Wu Zhou (梧州) is record 142."
+    },
+    {
+      "id": "china-prefecture-742-90",
+      "year": 742,
+      "PrefID": 90,
+      "sourcePrefNAM": "Wen Zhou",
+      "ProvNAM": "Jiangnan East Dao",
+      "zh": "永嘉郡",
+      "en": "Yongjia Jun",
+      "formerNameZh": "温州",
+      "reviewType": "period-name-alias",
+      "sources": [
+        {
+          "url": "https://zh.wikisource.org/zh-hans/舊唐書/卷40#溫州",
+          "title": "旧唐书·卷四十·地理志三",
+          "section": "温州",
+          "titleEn": "Old Book of Tang · juan 40 · Geography III",
+          "populationInText": 241694
+        },
+        {
+          "url": "https://zh.wikisource.org/zh-hans/新唐書/卷041#溫州",
+          "title": "新唐书·卷四十一·地理志五",
+          "section": "温州",
+          "titleEn": "New Book of Tang · juan 41 · Geography V",
+          "populationInText": 241690
+        },
+        {
+          "url": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/611",
+          "title": "文渊阁四库全书本《唐书》卷四十一",
+          "titleEn": "New Book of Tang · Wenyuan Pavilion Siku edition · juan 41",
+          "section": "温州（第272册影像611）",
+          "sectionEn": "Wen Zhou (vol. 272, image 611)",
+          "populationInText": 141690
+        }
+      ],
+      "evidence": "《旧唐书》记江南东道温州于天宝元年（742）改永嘉郡。文渊阁四库本《唐书》录温州永嘉郡42,814户、141,690口，口数与源图相合。《旧唐书》天宝条作241,694口，所引维基文库《新唐书》转录作241,690口。742年据改名记载定名，人口保留各本异文。",
+      "evidenceEn": "The Old Book of Tang dates the renaming of Wen Zhou in Jiangnan East Circuit to 742. The Wenyuan Pavilion Siku edition of the New Book of Tang lists 42,814 households and 141,690 inhabitants for Yongjia Commandery, matching the dataset’s population. The Old Book reports 241,694 for the Tianbao period, and the linked Wikisource transcription of the New Book gives 241,690. The dated renaming supports the map label."
     }
   ],
   "identityChecks": [
@@ -13291,6 +13353,16 @@
       "captureFile": "docs/verification-3.63/sources/new-tang-43a.html.gz",
       "captureSha256": "90a6bc7aa93428bfad13b3e649b8f2284197a3af63f7e62ad3c0accfe3ee7aff",
       "oldid": "2474644"
+    },
+    {
+      "id": "china-prefecture-742-90",
+      "primaryHeading": "温州永嘉郡",
+      "firstListedCounty": "永嘉",
+      "populationInText": 141690,
+      "sourceRecordPopulation": 141690,
+      "populationMatches": true,
+      "populationSource": "https://zh.wikisource.org/wiki/Page:文淵閣四庫全書_0272冊.djvu/611",
+      "note": "Exact population match in the Wenyuan Pavilion Siku edition. The Old Book dates the renaming. The readings in both linked Wikisource transcriptions are preserved with their sources."
     }
   ]
 }

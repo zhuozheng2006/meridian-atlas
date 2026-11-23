@@ -1,18 +1,18 @@
-import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint} from './geometry-anchor.js?v=4.18.0-0acb4e1361f6';
+import {interiorAnchor as _interiorAnchor,interiorPoint as _interiorPoint,pointInGeometry} from './geometry-anchor.js?v=4.19.0-f36674756582';
 export const interiorAnchor=(geometry,box=null)=>_interiorAnchor(geometry,box);
 export const interiorPoint=(geometry,box=null)=>_interiorPoint(geometry,box);
-import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=4.18.0-0acb4e1361f6';
-import {chinaWindowFor,readChinaSnapshot,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=4.18.0-0acb4e1361f6';
-import {chgisWindowFor,readChgisSnapshot,chgisRecord,chgisChangeLabel,chgisCompilerLabel} from './chgis-boundaries.js?v=4.18.0-0acb4e1361f6';
-import {beginMapForeground} from './map-load-priority.js?v=4.18.0-0acb4e1361f6';
-import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=4.18.0-0acb4e1361f6';
-import {boundaryNote} from './boundary-notes.js?v=4.18.0-0acb4e1361f6';
-import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.18.0-0acb4e1361f6';
-import {HalcBoundaries} from './halc-boundaries.js?v=4.18.0-0acb4e1361f6';
-import {boundaryMode} from './view-state.js?v=4.18.0-0acb4e1361f6';
-import {simplifiedChinese} from './simplified-chinese.js?v=4.18.0-0acb4e1361f6';
-import {historicalYearRange} from './historical-dates.js?v=4.18.0-0acb4e1361f6';
-import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=4.18.0-0acb4e1361f6';
+import {awmcWindowFor,readAwmcSnapshot,awmcRecordPanel} from './awmc-boundaries.js?v=4.19.0-f36674756582';
+import {chinaWindowFor,readChinaSnapshot,readChinaFeature,chinaRecord,chinaRecordPanel} from './china-prefectures.js?v=4.19.0-f36674756582';
+import {chgisWindowFor,readChgisSnapshot,chgisRecord,chgisChangeLabel,chgisCompilerLabel} from './chgis-boundaries.js?v=4.19.0-f36674756582';
+import {beginMapForeground} from './map-load-priority.js?v=4.19.0-f36674756582';
+import {regionalTransportURL,decodeRegionalTransport} from './regional-transport.js?v=4.19.0-f36674756582';
+import {boundaryNote} from './boundary-notes.js?v=4.19.0-f36674756582';
+import {readJSON,forgetJSON,formatYear} from './map-engine.js?v=4.19.0-f36674756582';
+import {HalcBoundaries} from './halc-boundaries.js?v=4.19.0-f36674756582';
+import {boundaryMode} from './view-state.js?v=4.19.0-f36674756582';
+import {simplifiedChinese} from './simplified-chinese.js?v=4.19.0-f36674756582';
+import {historicalYearRange} from './historical-dates.js?v=4.19.0-f36674756582';
+import {featureName,recordYear,historicalMapURL} from './historical-detail.js?v=4.19.0-f36674756582';
 
 const snapshotLoads=new Map();
 export function readRegionalSnapshot(window_,year){
@@ -461,10 +461,25 @@ export class RegionalBoundaries{
   const button=add('button',tr(lang,'下载这条原始记录','Download this source record'));button.className='regional-dossier';const year=this.year;button.onclick=async()=>{button.disabled=true;try{const data=await chgisRecord(p.id,year),url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=p.id+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch{button.textContent=tr(lang,'读取失败，点击重试','Could not load; retry');}finally{button.disabled=false;}};
   this.popupAt(node,point);this.selectedId=p.osm_id;this.applySelection(p.osm_id);
  }
- openChinaRecord(f,point){
-  if(!regionalVisible(f.properties,this.year,this.maxLevel))return;this.closePopup();const p=f.properties,year=this.year,window_=this.ohmWindow;
+ async restoreChinaRecord(id,isCurrent){
+  const year=this.year,modeRevision=this.modeRevision;
+  if(!this.enabled||this.modern||!this.atlas.showBorders)return false;
+  const result=await readChinaFeature(id,year);
+  if(!result||!isCurrent()||this.dead||this.atlas.destroyed||this.year!==year||this.modeRevision!==modeRevision||!this.enabled||this.modern||!this.atlas.showBorders)return false;
+  const {feature,band}=result,center=this.map.getCenter().toArray();
+  const keepCamera=this.map.getZoom()>=REGIONAL_MIN_ZOOM&&this.chinaResearchActive&&pointInGeometry(center,feature.geometry);
+  const point=keepCamera?center:interiorPoint(feature.geometry);
+  if(!point)throw Error('Missing interior point for '+id);
+  if(!keepCamera)this.map.jumpTo({center:point,zoom:Math.max(6.5,this.map.getZoom())});
+  this.openChinaRecord(feature,point,{band});
+  return true;
+ }
+ openChinaRecord(f,point,window_=this.ohmWindow){
+  if(!regionalVisible(f.properties,this.year,this.maxLevel))return;this.closePopup();const p=f.properties,year=this.year;
   const node=chinaRecordPanel(p,this.lang,async()=>{const data=await chinaRecord(p.id,window_,year),url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=p.id+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   this.popupAt(node,point);this.selectedId=p.osm_id;this.applySelection(p.osm_id);
+  this.atlas.onBoundarySelection?.(p.id);
+  this.popup.on('close',()=>this.atlas.onBoundarySelection?.(null,p.id));
  }
  openFeature(f,point){
   if(f.properties.archive==='awmc'){if(!regionalVisible(f.properties,this.year,this.maxLevel))return;this.closePopup();this.popupAt(awmcRecordPanel(f.properties,this.lang),point);this.selectedId=f.properties.osm_id;this.applySelection(this.selectedId);return;}

@@ -27,6 +27,33 @@ try{
  assert.equal(tanglin.sourcePrefNAM,'Tanglin Zhou');
  assert(tanglin.sources.some(source=>source.url.endsWith('/卷41#福祿州')));
  assert(!tanglin.sources.some(source=>source.url.endsWith('#湯州')||source.url.endsWith('#汤州')));
+
+ // Distinct editions preserve different population readings for the same name.
+ const wen = audit.records.find(row => row.id === 'china-prefecture-742-90');
+ const wenCheck = audit.identityChecks.find(row => row.id === wen.id);
+ assert.deepEqual([wen.formerNameZh, wen.zh, wen.ProvNAM], ['温州', '永嘉郡', 'Jiangnan East Dao']);
+ assert.deepEqual(wen.sources.map(source => source.populationInText), [241694, 241690, 141690]);
+ const wenSource = index.records.find(record => record.id === wen.id).sourceRecord;
+ assert.equal(wenCheck.populationInText, wenSource.POP);
+ assert.equal(wenCheck.populationSource, wen.sources[2].url);
+ assert(wenCheck.populationSource.endsWith('0272冊.djvu/611'));
+ const she = deferredById.get('china-prefecture-742-117');
+ assert.deepEqual(she.sources.slice(0, 3).map(source => source.populationInText), [269109, 269109, she.sourceRecordPopulation]);
+ assert(she.sources.some(source => source.url.endsWith('0272冊.djvu/613')));
+ assert(she.sources.some(source => source.url.endsWith('0272冊.djvu/618')));
+
+ // The combined total also occurs in the New Book; Ji is a separate source row.
+ const yun = deferredById.get('china-prefecture-742-241');
+ const ji = deferredById.get('china-prefecture-742-313');
+ assert.equal(yun.laterMergeYear, 754);
+ assert.equal(yun.populationInText + ji.populationInText, yun.sourceRecordPopulation);
+ assert.equal(yun.newTangPopulationInText, yun.sourceRecordPopulation);
+ assert.equal(ji.sourceRecordPopulationMethod, 'Estimation from Gong (2019)');
+ for (const row of [yun, ji]) {
+  assert(row.sources.some(source => source.url.endsWith('/卷038#鄆州')));
+  assert(row.sources.some(source => source.url.endsWith('/小洞庭洄源亭讌四郡太守詩')));
+ }
+ assert(ji.sources.some(source => source.url.endsWith('0269冊.djvu/39')));
  for(const row of audit.deferred){
   const source=index.records.find(record=>record.id===row.id);
   assert(source,`Unknown source row ${row.id}`);
@@ -39,7 +66,7 @@ try{
  }
  assert.deepEqual(Object.values(chinaNameReviews),audit.records);
  const han=audit.records.filter(r=>r.year===2).length,tangCount=audit.records.filter(r=>r.year===742).length;
- assert.deepEqual([han,tangCount,audit.deferred.length],[103,267,50]);
+ assert.deepEqual([han,tangCount,audit.deferred.length],[103,268,49]);
  assert.equal(audit.records.length+audit.deferred.length,index.records.length);
  assert.deepEqual([audit.reviewScope.hanVerifiedMappings,audit.reviewScope.tangPeriodAliases,audit.reviewScope.documentedDeferred],[han,tangCount,audit.deferred.length]);
  const wue=chinaNameReviews['china-prefecture-742-10'];
