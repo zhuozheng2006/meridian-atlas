@@ -1,4 +1,4 @@
-import {label} from './polaris-adapter.js?v=4.21.1-46c343f2e328';
+import {label} from './polaris-adapter.js?v=4.22.0-606c7d2f9c65';
 
 export function readingLink(doc, title, source) {
  const url = new URL(source, import.meta.url);

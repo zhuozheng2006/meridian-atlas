@@ -1,0 +1,121 @@
+/* 经纬纪 · 纸墨主题 (Paper & Ink)
+   最后加载的一层：设计变量、字体、乌木装帧（页眉与时间轴）以及纸面细节。
+   纸面：宣纸色底、墨色字、古铜线；装帧：乌木底、黄铜字；朱砂只用于“当前”与印记。
+   style.css / product.css / cartography.css 里的具体色值已按同一套色系换算，这里只放需要手工定夺的部分。 */
+
+/* ---------- 1. 设计变量 ---------- */
+:root{
+ --paper:#f2e9d6;--paper-raised:#f9f3e5;--paper-sunk:#e9dfc9;--paper-deep:#ddd0b5;
+ --bg:var(--paper);--panel:#f5eedd;--panel2:#ebe1cb;
+ --ink:#2a1f17;--ink-soft:#463a2f;--muted:#655443;
+ --line:#6b563a30;--rule:#5b452a;
+ --gold:#74501f;--gold-dim:#8d6b3363;--brass:#8d6b33;
+ --cinnabar:#9a2e20;--indigo:#2f5668;--blue:var(--indigo);
+ --ebony:#16110c;--ebony-2:#1e1812;--gilt:#cfae72;--gilt-ink:#efe6d2;
+ --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Songti SC','Source Han Serif SC','Noto Serif CJK SC','Noto Serif SC',STSong,Georgia,serif;
+ --numeral:Georgia,'Iowan Old Style','Songti SC','Noto Serif CJK SC',serif;
+ --shadow-sheet:0 1px 2px #3a28121a,0 10px 26px -14px #3a281240;
+ --shadow-lifted:0 2px 4px #3a28121f,0 22px 44px -18px #3a281259;
+ --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .30 0 0 0 0 .22 0 0 0 0 .10 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+ color-scheme:light;
+}
+/* 乌木装帧：页眉和时间轴内部沿用同名变量，取值换成深底上的黄铜与米白 */
+header,#timeline{--ink:var(--gilt-ink);--muted:#ab9d86;--line:#cfae722e;--gold:var(--gilt);--gold-dim:#cfae7244;color:var(--ink);color-scheme:dark}
+
+::selection{background:#9a2e2033;color:var(--ink)}
+header ::selection,#timeline ::selection{background:#cfae7255;color:#fff}
+:focus-visible{outline-color:var(--cinnabar)}
+header :focus-visible,#timeline :focus-visible{outline-color:var(--gilt)}
+.regional-controls :focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+*{scrollbar-color:#8d6b3366 transparent}
+
+/* ---------- 2. 纸面 ---------- */
+html,body{background-color:var(--paper)}
+body{background-image:var(--grain)}
+#contentView{background:var(--grain),radial-gradient(ellipse 90% 520px at 50% 0,#f9f3e4 0,transparent 100%),var(--paper)}
+.map-stage{background:var(--grain),radial-gradient(ellipse at 52% 46%,#f6eedc 0,#efe5d0 46%,#e3d7bd 100%)}
+
+/* ---------- 3. 字体 ---------- */
+h1,h2,h3,.brand b,.reader-header h2,.panel-heading h1{font-family:var(--serif);font-weight:600;font-synthesis:none}
+#contentView>h1{font-weight:600;letter-spacing:.06em}
+.eyebrow{font-family:var(--serif);font-weight:600;letter-spacing:.2em;color:var(--gold)}
+#contentView>.lead,#contentView .method-section p,#contentView .method-section li,.reader-content p,.reader-content li,.reader-content blockquote,dialog li,dialog p{font-family:var(--serif)}
+.reader-content p{color:var(--ink-soft)}
+.reader-content .reader-lead{color:var(--ink)}
+.secondary,.plate-english,.nav-en,.reader-header h2 .secondary,.event-card .secondary{font-family:var(--serif)}
+.reader-content p.secondary,.reader-content .secondary{color:var(--muted)}
+#bigYear,#yearInput,.chronicle-table td:first-child{font-variant-numeric:oldstyle-nums}
+
+/* ---------- 4. 乌木页眉 ---------- */
+header{background:linear-gradient(180deg,#201a13,var(--ebony));border-bottom:1px solid #cfae7247;box-shadow:inset 0 -4px 0 var(--ebony),inset 0 -5px 0 #cfae7226,0 8px 22px -8px #2a1c0c66}
+.brand b{letter-spacing:.2em;color:var(--gilt-ink)}
+:root:lang(en) .brand b{letter-spacing:.07em}
+:root:lang(en) #contentView>h1{letter-spacing:.01em}
+.brand small{letter-spacing:.24em;color:var(--gilt);opacity:.86}
+.brand-mark{color:var(--gilt)}
+header nav button{font-family:var(--serif);letter-spacing:.06em;color:#d9cfbb}
+header nav button .nav-en{font-style:italic;letter-spacing:.02em;opacity:.85}
+header nav button:hover{color:#fff7e4}
+header nav button.active{color:var(--gilt);border-color:var(--gilt);font-weight:600;text-shadow:none}
+header nav button.active .nav-en{opacity:.9}
+
+/* ---------- 5. 乌木时间轴 ---------- */
+#timeline{background:linear-gradient(180deg,var(--ebony-2),#100c08);border-top:1px solid #cfae7247;box-shadow:inset 0 4px 0 var(--ebony-2),inset 0 5px 0 #cfae7226,0 -10px 26px -10px #2a1c0c59}
+#timeline select{background-color:#1a1510c4;color:var(--gilt-ink);border-color:#cfae7240}
+#density i.current{background:#e0694f;opacity:1}
+.era-buttons button{font-family:var(--serif);letter-spacing:.04em}
+
+/* ---------- 6. 图题与图上控件 ---------- */
+/* 图题用文武边：一粗一细两道框线，是旧式图集题签的做法 */
+.map-heading{border:1px solid var(--rule);border-radius:0;background:#f9f3e5f0;box-shadow:0 0 0 3px #f9f3e5f0,0 0 0 4px #5b452a73,0 14px 30px -10px #3a28124d}
+.map-heading .eyebrow{letter-spacing:.26em}
+.map-heading strong{color:var(--ink);letter-spacing:.02em}
+.map-heading #mapEra{font-family:var(--serif);letter-spacing:.08em;color:var(--muted)}
+.map-tools,.map-legend,#sidebar{box-shadow:var(--shadow-sheet)}
+.map-tools{background:#f7f0dfeb;border-color:#5b452a47}
+.maplibregl-ctrl-group{background:#f7f0dfeb!important;border:1px solid #5b452a47!important;border-radius:2px!important}
+.maplibregl-ctrl-group button+button{border-top:1px solid #5b452a2e!important}
+.maplibregl-ctrl button .maplibregl-ctrl-icon{filter:sepia(1) saturate(1.6) hue-rotate(-12deg) brightness(.5)}
+.maplibregl-ctrl-scale{background:#f7f0dfd9!important;border-color:var(--rule)!important;color:var(--ink)!important;font-family:var(--numeral)}
+
+/* ---------- 7. 侧栏与事件 ---------- */
+#sidebar{background:var(--panel);border:1px solid #5b452a38}
+.panel-heading h1{letter-spacing:.05em}
+.event-card{background:var(--paper-raised);border-color:#6b563a26}
+.event-card:hover{background:#fdf8ec;border-color:#8d6b3380}
+.event-card[aria-current=true]{background:#fdf8ec;border-color:var(--brass);box-shadow:inset 0 0 0 1px #8d6b3340}
+.event-card h3{font-family:var(--serif);font-weight:600}
+.search-kbd{color:var(--muted);border-color:#6b563a59}
+.search-wrap,.library-controls input,#sidebar select,.library-controls select{background-color:#fbf6ea;border-color:#6b563a40}
+.search-wrap:focus-within,.library-controls input:focus{border-color:var(--brass);box-shadow:0 0 0 3px #8d6b3326}
+
+/* ---------- 8. 目录页（文明、专题、年表、资料）的纸页 ---------- */
+.polity-card,.story-card,.plate-card{background:var(--paper-raised);border-color:#6b563a33;box-shadow:var(--shadow-sheet)}
+.polity-card:hover,.story-card:hover,.plate-card:hover{box-shadow:var(--shadow-lifted);border-color:#8d6b3373}
+.polity-card{background:linear-gradient(180deg,color-mix(in srgb,var(--card-accent,#8d6b33) 7%,var(--paper-raised)),var(--paper-raised) 46%)}
+.polity-featured{background:linear-gradient(180deg,color-mix(in srgb,var(--card-accent,#8d6b33) 12%,var(--paper-raised)),var(--paper-raised) 60%)}
+.story-card{background:linear-gradient(200deg,color-mix(in srgb,var(--story-accent,#8d6b33) 9%,var(--paper-raised)),var(--paper-raised) 52%);border-left-color:color-mix(in oklab,var(--story-accent,#8d6b33) 72%,var(--ink))}
+/* 类别色来自数据，原为深底而调。纸面上的文字与标记统一向墨色压深 */
+.polity-era-badge{color:color-mix(in oklab,var(--card-accent,#74501f) 48%,var(--ink));background:color-mix(in srgb,var(--card-accent,#8d6b33) 16%,transparent);border-color:color-mix(in oklab,var(--card-accent,#8d6b33) 55%,transparent)}
+.story-head .eyebrow{color:color-mix(in oklab,var(--story-accent,#74501f) 50%,var(--ink))}
+.story-card .story-no{font-family:var(--numeral);font-variant-numeric:oldstyle-nums;color:color-mix(in oklab,var(--story-accent,#74501f) 62%,var(--ink));opacity:.5}
+.polity-span i{background:linear-gradient(90deg,color-mix(in oklab,var(--card-accent,#8d6b33) 70%,var(--ink)),var(--gold))}
+.event-card:before,.chronicle-cat:before{background:color-mix(in oklab,var(--cat,#8d6b33) 78%,var(--ink))}
+.polity-years,.plate-period,.plate-number,.plate-card summary,.story-card .foot span{color:var(--gold)}
+.polity-count,.plate-card small,.chronicle-loc-hint,.fact dt{color:var(--muted)}
+.chronicle-loc-hint{opacity:1}
+.polity-card h3 .secondary,.story-card h2 .secondary,.plate-card .plate-english{color:var(--muted)}
+.chronicle-table-wrap{background:var(--paper-raised);border-color:#6b563a40;box-shadow:var(--shadow-sheet)}
+.chronicle-table thead th{font-family:var(--serif);letter-spacing:.12em;border-bottom:1px solid var(--rule);box-shadow:0 3px 0 -2px #5b452a66}
+
+/* ---------- 9. 阅读栏与弹窗 ---------- */
+.reader-header{background:linear-gradient(180deg,#f9f3e5,var(--panel));border-bottom:1px solid var(--rule);box-shadow:0 3px 0 -2px #5b452a59}
+.reader-header h2{letter-spacing:.04em}
+.reader-tabs button.active{color:var(--ink);border-color:var(--cinnabar)}
+.reader-content h3{color:var(--gold);letter-spacing:.06em}
+dialog,dialog#helpDialog{background:var(--grain),var(--paper-raised);border:1px solid var(--rule);border-radius:0;box-shadow:0 0 0 3px var(--paper-raised),0 0 0 4px #5b452a73,0 30px 70px -10px #2a1c0c8c}
+.dialog-close{border-radius:2px}
+dialog::backdrop{background:#2a1c0c8c;backdrop-filter:blur(3px)}
+
+/* ---------- 10. 减少动效 ---------- */
+@media(prefers-reduced-motion:reduce){.polity-card,.story-card,.plate-card{transition:none}}

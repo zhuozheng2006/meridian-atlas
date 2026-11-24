@@ -1,5 +1,5 @@
-import {readJSON, forgetJSON} from './map-engine.js?v=4.21.1-46c343f2e328';
-export {mapDivisionHref} from './view-state.js?v=4.21.1-46c343f2e328';
+import {readJSON, forgetJSON} from './map-engine.js?v=4.22.0-606c7d2f9c65';
+export {mapDivisionHref} from './view-state.js?v=4.22.0-606c7d2f9c65';
 
 const indexURL = 'data/fast/division-search.json.gz';
 const literal = name => name.trim().toLowerCase().normalize('NFC');
