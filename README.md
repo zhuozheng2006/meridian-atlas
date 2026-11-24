@@ -2,7 +2,7 @@
 
 中英文双语世界历史图集。沿时间轴浏览历史疆域，在地形与城市之间探索国家、文明、事件及原始资料。
 
-**当前版本：4.21.1** · [打开在线图集](https://zhuozheng2006.github.io/meridian-atlas/) · [进度与验证记录](docs/HANDOFF-4.21.md) · [文档导航](docs/INDEX.md) · [来源与许可](ATTRIBUTIONS.md)
+**当前版本：4.22.0** · [打开在线图集](https://zhuozheng2006.github.io/meridian-atlas/) · [进度与验证记录](docs/HANDOFF-4.22.md) · [文档导航](docs/INDEX.md) · [来源与许可](ATTRIBUTIONS.md)
 
 ![孔雀王朝地图与学术原图入口](docs/verification-3.58/browser/maurya.png)
 
@@ -16,7 +16,7 @@
 - 主地图和汉唐地名目录均可按中文名、来源拼写和编号查找 420 个区划，可直接在地图上查看所选区划的边界和史料。浏览器后退会回到刚才的检索结果和条目。共享来源拼写的记录可并排对照年份、上级地区和编号，考证列出各版史籍的户口数及原文链接。当前已核准 374 项（西汉 103 项、盛唐 271 项），另外 46 项保留为待考，逐条附双语理由和出处。[示例：742 年武峨郡](https://zhuozheng2006.github.io/meridian-atlas/?division=742-10#view=sources&lang=zh)
 - 南亚学术地图研读入口：孔雀王朝、笈多与伐迦陀迦及早期大国三组馆藏高清图版，附线性/非线性多项式配准敏感性与 9 处 Pleiades 站点叠合残差审计及跨时代全球年表核查；保留分期、图例与来源说明。
 - 首屏按 25 年分包、精简事件索引（40.6 KB）、全时段政体检索索引（78 KB）与 64 桶分片加载，内容指纹拆分出仅 **1.55 KB** 的 [`bootstrap-content-hashes.js`](public/bootstrap-content-hashes.js) 并在 `<head>` 提前 `modulepreload`，使 `1.5 Mbps / 150ms` 弱网下核心年度疆域包较 `v3.70` 再提前 ~159 ms 发起；移除 `<head>` 对非首屏关键路径的 `maplibre-gl.css` 阻塞，使 `maplibre-gl.js`（247 KB）率先进入首波并发通道（研究模式 `#view=research` 零地图 CSS/JS 传输）。
-- 黑曜石×黄铜风格全界面设计：主地图采用磨砂黑曜石 `.map-heading` 年份题签卡与胶囊拨片开关、毛玻璃 `.map-notice` 与 `.regional-controls`、质感胶囊化 `.maplibregl-ctrl-scale` 比例尺、顶部金线悬停放大卡 `.map-hover-card`、Obsidian × Brass 地区详情浮窗 `.historical-popup`（含胶囊来源链接）、专题导览 `.story-bar` 进度条与分步导航控制器、卡片化地点／政体／检索／研究（`.seshat-research-reader`）抽屉与 `<kbd>` 快捷键帮助窗 `#helpDialog`、双图对比年份差徽章与一键互换、移动端时代栏自动居中与年表／资料页统一卡片表格系统。
+- 纸墨风格全界面设计：宣纸色纸面、墨色衬线标题与古铜细线，页眉和时间轴用乌木底配黄铜字，朱砂只标记当前年份与当前选项。主地图的 `.map-heading` 年份题签采用文武边，图层开关、`.map-notice`、`.regional-controls`、比例尺、`.map-hover-card`、`.historical-popup`、专题导览 `.story-bar`、地点／政体／检索／研究（`.seshat-research-reader`）阅读栏与 `#helpDialog` 帮助窗共用同一套纸页样式；导出的 PNG 图片同样使用纸色衬边。设计变量与字体集中在 [`theme.css`](public/theme.css)。
 - 387个概览与地区详图压缩文件使用内容指纹缓存；概览边界复用绘制结果，减少重复计算。
 - 汉唐历史区划：公元 2 年、742 年的 420 条研究单元，补充北部与西部，按地理分区读取原始精度边界。
 - CHGIS V4 历史府级区划：2,016 条原始记录，覆盖中国南部与东部的部分地区，按公元前 224 年至 1911 年的来源年度读取。
@@ -63,7 +63,7 @@ npm run build
 
 ## 范围与来源
 
-全球疆域档案主要覆盖公元前3400年至公元2024年；事件时间轴延伸到史前和当代。不同地区、年代与图层的覆盖和精度并不一致。现代地形不是古代地貌重建，年度边界也不等于逐日政治疆域。历史数据的覆盖范围见[数据核查记录](docs/HANDOFF-3.84.md)，近期进度见[4.21 交接](docs/HANDOFF-4.21.md)。
+全球疆域档案主要覆盖公元前3400年至公元2024年；事件时间轴延伸到史前和当代。不同地区、年代与图层的覆盖和精度并不一致。现代地形不是古代地貌重建，年度边界也不等于逐日政治疆域。历史数据的覆盖范围见[数据核查记录](docs/HANDOFF-3.84.md)，近期进度见[4.22 交接](docs/HANDOFF-4.22.md)。
 
 原创应用代码采用 MIT；历史数据、原始文献、字体及第三方库各自保留其来源和许可，包括部分非商业数据。具体见 [LICENSE](LICENSE) 和 [ATTRIBUTIONS.md](ATTRIBUTIONS.md)。
 

@@ -35,4 +35,4 @@ Chrome 在 1492 年搜出五条 Gui Zhou 后，可用键盘打开 742 年桂州�
 
 个人站已发布 4.21.1，公开静态分支提交为 `4b08d4ac`，个人站提交为 `9ab9bf7a`。部署后在 Chrome 中切换中英文，确认搜索框的无障碍名称均包含历史区划，并在英文界面从 1492 年用 `#742-16` 一次回车定位到 742 年南陵郡。[部署记录](https://github.com/zhuozheng2006/zhuozheng2006.github.io/actions/runs/45135559709)
 
-完整改动保存在本地源码分支 `main`。发布审核因源码树含 RAR、PDF 和研究资料而拒绝同步完整源码树，GitHub 源码分支仍为 4.20（`6ef4ff8e`）。
+4.21.1 源码已同步至 GitHub 的 [fff63c1c](https://github.com/zhuozheng2006/meridian-atlas/commit/fff63c1cf369778975e05b79d5ea944957379bb8)。
