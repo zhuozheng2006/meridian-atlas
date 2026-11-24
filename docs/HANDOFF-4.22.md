@@ -20,4 +20,10 @@
 | PNG 导出 | 对真实导出函数记录 Canvas 绘图调用，中文、英文、双语各覆盖单图和对照图，共 6 组。检查题注、年份与来源署名。|
 | 公开静态版 | 通过 `scripts/build-pages-tree.py` 生成。相比 4.21.1，只改动 46 个页面、样式或脚本文件。12 个首屏年份别名与对应原始压缩文件逐字节相同，逐项核对了公开阅读清单。|
 
-Git 公开静态树为 `6053b20097b3627d43727843057822284b27aa61`。个人站通过子模块指向图集的 `atlas-pages` 提交。[个人站部署历史](https://github.com/zhuozheng2006/zhuozheng2006.github.io/actions)
+## 个人站上线复查
+
+2026 年 11 月 24 日 11:22（北京时间），GitHub Pages 完成构建与部署。线上浏览器加载了与候选版一致的样式指纹。1492 年地图就绪后，点击「哥伦布航行抵达加勒比」打开了双语详情，事件卡正确标记为当前项。从顶部导航进入「资料」，可以阅读南亚图版目录。
+
+- [源码提交 78e75f9c](https://github.com/zhuozheng2006/meridian-atlas/commit/78e75f9c4101d10f253234c556c150b393a829e1)
+- [公开静态版 f54c21c9](https://github.com/zhuozheng2006/meridian-atlas/commit/f54c21c992e0bc5672094d1b683bc24171a6d541)，对应验收树 `6053b20097b3627d43727843057822284b27aa61`。
+- [个人站更新 72d4b781](https://github.com/zhuozheng2006/zhuozheng2006.github.io/commit/72d4b7815b0fa7209a86123f46798fa2fe8db800) · [Pages 部署记录](https://github.com/zhuozheng2006/zhuozheng2006.github.io/actions/runs/45318922597)
